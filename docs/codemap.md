@@ -18,11 +18,12 @@
 ├── .git/                 Git 仓库（main 分支）
 ├── AGENTS.md             AI 助手入口：项目目标（待定义）＋必读链
 ├── rules.md              纪律总纲 R-01～R-06（R-07+ 预留）
+├── memos/
+│   └── memos.md          跨会话纪要备忘账（N-编号；讨论与分析备忘，非实施指导）
 └── docs/
     ├── index.md          文档索引＋权威优先级（登记处）
     ├── log.md            文档变动日志（R-05）
     ├── codemap.md        本文件：代码地图＋部署位置
-    ├── notes.md          跨会话纪要存档账（N-编号，照录不改写）
     ├── bugs.md           Bug 专职账（B-编号）
     ├── improvements.md   改进专职账（I-编号）
     └── features.md       新功能专职账（F-编号）

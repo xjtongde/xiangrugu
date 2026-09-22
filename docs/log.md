@@ -8,6 +8,8 @@
 
 ## 变动记录
 
+- **2026-09-22 | 新立 `.gitignore`（`.agents/`）＋ `.agents/skills/` 解除跟踪（`git rm --cached`，盘上文件保留）＋ `docs/codemap.md`（树注两行） | 改道（纪律）：Skill 不进 git** | 依据：用户口令"Skill不进git"；与 translate 先例一致（其 `.gitignore:24` 即 `.agents/`）；历史 commit `fe18aa2` 曾入库 skill，不抹史——自本批起脱离跟踪 | commit `<本批提交后回填>`
+
 - **2026-09-22 | skill 装入批（`.agents/skills/` ＋ codemap ＋ 本账） | 对齐核查（装入批收口）** | R-06 四项：冗余查干净（skill 正文零复制展开，codemap 只登目录行）；矛盾查通过并勘 1 处于入库前（本行上一条初稿误记"本会话不受影响"，热挂载实测证伪，就地勘正——历史未入库，合规）；锚点查通过（`.agents/skills/` 两目录三文件与树注一致，diff 复核零差异）；账目闭环（codemap 已登记、本账两行、三本账与 index 不涉 skill 属结构面外） | commit `fe18aa2`
 
 - **2026-09-22 | `.agents/skills/`（新目录：`karpathy-guidelines/`、`frontend-design/`，自 translate 项目复制，diff 校验零差异）＋ `docs/codemap.md`（树登记） | 开设（skill 装入批）** | 依据：用户口令"给这个项目装些skill"；装 translate 专属两件，用户级 14 件 superpowers 全局共享不重复装（R-04 精神）；**实测：装入即热挂载本会话 skill 目录，无须开新会话**（原记"本会话不受影响"系错误，开账即勘）；两 skill 与 rules.md 无冲突（编码行为面互补：karpathy 管怎么写码，R 系列管怎么记账收口） | commit `fe18aa2`

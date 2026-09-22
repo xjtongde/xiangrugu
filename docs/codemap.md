@@ -16,8 +16,9 @@
 ```text
 /root/xiangrugu/
 ├── .git/                 Git 仓库（main 分支）
-├── .agents/
-│   └── skills/           项目级 skill（2026-09-22 用户令自 translate 复制装入）
+├── .gitignore            忽略 `.agents/`（2026-09-22 用户口令"Skill不进git"）
+├── .agents/              ⚠ git 不跟踪（工作区本地设施）
+│   └── skills/           项目级 skill（2026-09-22 自 translate 复制装入）
 │       ├── karpathy-guidelines/   LLM 编码行为纪律（想清再写/最简实现/外科手术式改动）
 │       └── frontend-design/       独特视觉设计指引（去模板脸/排版个性/结构即信息）
 ├── AGENTS.md             AI 助手入口：项目目标（待定义）＋必读链

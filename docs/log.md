@@ -8,7 +8,7 @@
 
 ## 变动记录
 
-- **2026-09-22 | `docs/codemap.md`（凭据行拆"推送/工单"两行）＋ `.gitignore`（增 `.secrets/`）＋ 新立 `.secrets/gitea_token`（600，git 外）| 改道（工单通道打通批）** | 依据：用户交 key.txt（账密），按最小权限路径处置——真密码仅用于一次性铸造 `xiangrugu-issues` 令牌（id=7，`write:issue` 含读），铸后真密码日常弃用；实测三件套全通：读列表 200／建验收单 #1 201／关单复确 state=closed。上条旧行"issues ❌ 须 read:issue"就活指针义已由本行前向取代（旧行不回改）| commit `<本批提交后回填>`
+- **2026-09-22 | `docs/codemap.md`（凭据行拆"推送/工单"两行）＋ `.gitignore`（增 `.secrets/`）＋ 新立 `.secrets/gitea_token`（600，git 外）| 改道（工单通道打通批）** | 依据：用户交 key.txt（账密），按最小权限路径处置——真密码仅用于一次性铸造 `xiangrugu-issues` 令牌（id=7，`write:issue` 含读），铸后真密码日常弃用；实测三件套全通：读列表 200／建验收单 #1 201／关单复确 state=closed。上条旧行"issues ❌ 须 read:issue"就活指针义已由本行前向取代（旧行不回改）| commit `f392ebe`
 
 - **2026-09-22 | `docs/codemap.md`（凭据行扩写）| 修订（凭据权限实测落册）** | 用户裁决该凭据长期留用；端点实测：git 读写、仓信息/提交史/分支/PR/releases 读 ✅；建仓 ❌（须 `write:user`/`write:organization`，新仓走网页手建）、issues ❌（须 `read:issue`，记账以三本专职账为准）。R-06 本轮：codemap 注记与实际权限面一致，锚点无破损 | commit `250ac25`
 

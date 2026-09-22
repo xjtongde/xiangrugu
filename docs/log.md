@@ -8,7 +8,9 @@
 
 ## 变动记录
 
-- **2026-09-22 | 新立 `.gitignore`（`.agents/`）＋ `.agents/skills/` 解除跟踪（`git rm --cached`，盘上文件保留）＋ `docs/codemap.md`（树注两行） | 改道（纪律）：Skill 不进 git** | 依据：用户口令"Skill不进git"；与 translate 先例一致（其 `.gitignore:24` 即 `.agents/`）；历史 commit `fe18aa2` 曾入库 skill，不抹史——自本批起脱离跟踪 | commit `<本批提交后回填>`
+- **2026-09-22 | 本批（`.gitignore`/`docs/codemap.md`/`docs/log.md`）＋ 跟踪清单 10 项 | 对齐核查（Skill 改道批收口）** | R-06 四项：冗余查干净（"Skill 不进 git"事实仅两处——`.gitignore` 本体＋codemap 树注，本行为动作依据记录）；矛盾查通过（B-01 闭案注"留用"指盘上保留，与本批仅撤 git 跟踪不冲突；装入批旧行"曾入库"由本批行"不抹史"注覆盖）；锚点查通过（`.gitignore` 存在、`fe18aa2`/`e978fba` 真实、树注 19–20 行与实际一致）；账目闭环（codemap✓ log✓ 三本账不涉） | commit `e978fba`
+
+- **2026-09-22 | 新立 `.gitignore`（`.agents/`）＋ `.agents/skills/` 解除跟踪（`git rm --cached`，盘上文件保留）＋ `docs/codemap.md`（树注两行） | 改道（纪律）：Skill 不进 git** | 依据：用户口令"Skill不进git"；与 translate 先例一致（其 `.gitignore:24` 即 `.agents/`）；历史 commit `fe18aa2` 曾入库 skill，不抹史——自本批起脱离跟踪 | commit `e978fba`
 
 - **2026-09-22 | skill 装入批（`.agents/skills/` ＋ codemap ＋ 本账） | 对齐核查（装入批收口）** | R-06 四项：冗余查干净（skill 正文零复制展开，codemap 只登目录行）；矛盾查通过并勘 1 处于入库前（本行上一条初稿误记"本会话不受影响"，热挂载实测证伪，就地勘正——历史未入库，合规）；锚点查通过（`.agents/skills/` 两目录三文件与树注一致，diff 复核零差异）；账目闭环（codemap 已登记、本账两行、三本账与 index 不涉 skill 属结构面外） | commit `fe18aa2`
 

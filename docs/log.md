@@ -8,6 +8,8 @@
 
 ## 变动记录
 
+- **2026-09-22 | `docs/notes.md`（新立）＋ `rules.md`（R-04 清单增行）＋ `docs/index.md`（新账登记＋阅读顺序延伸）＋ `docs/codemap.md`（目录树刷新）＋ `docs/features.md`（挂账 F-01～F-07） | 开设（纪要归档批）** | 依据：用户交录《会话纪要 · 历史数据资源盘点（2026-09-22）》；纪要照录入 N-01，§四方向备忘七条按 R-02 指针式挂账（权威展开唯一在 notes） | commit `<本批提交后回填>`
+
 - **2026-09-22 | 全套八件（`AGENTS.md`、`rules.md`、`docs/index.md`、`docs/log.md`、`docs/codemap.md`、`docs/bugs.md`、`docs/improvements.md`、`docs/features.md`）＋ Git 仓库初始化 | 开设（骨架建立批）** | 依据：用户指令"三个专职文档＋rules.md＋AGENTS.md＋index.md＋log.md＋codemap（含部署位置）＋每轮文档对齐核查"，设计经用户确认"同意，动手"；条款移植适配自 translate 项目同日纪律（R-01～R-09→本项目 R-01～R-06，分治编号） | commit `d44d5c4`
 
 - **2026-09-22 | 同上 | 对齐核查（骨架开设批收口）** | 按 R-06 四项交叉核查本批文档 vs 工作区实况；结论见下一条修正注 | commit `d44d5c4`

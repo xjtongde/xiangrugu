@@ -45,6 +45,7 @@
 改进账                  docs/improvements.md
 新功能账                docs/features.md
 文档变动日志            docs/log.md
+跨会话纪要存档          docs/notes.md（N-编号，照录不改写；方向条目挂账指向此处展开）
 （预留）API 契约 / 数据库 / 决策记录 / 版本记录 ＝ 项目定型后入账登记
 ```
 

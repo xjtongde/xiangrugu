@@ -8,6 +8,8 @@
 
 ## 变动记录
 
+- **2026-09-22 | `docs/codemap.md`（§2 远程仓库/推送方向/凭据三行由"待裁决"转"已定"）＋ Git remote origin 建立 | 改道（事实落定）：香如故接入远程 Gitea** | 依据：用户令"用 deepseekharness 建项目"→ 该 token 仅 `write:repository`、无建仓权，三径（user/org API、push-to-create）实测皆阻 → 用户网页端手建空私有仓 `deepseekharness/xiangrugu`（默认 `main`）→ 助手配本仓 local credential.helper 全量推送 14 commit，`git ls-remote` 与本地 HEAD 同为 `50dd95c`；远程树 12 项=10 文档＋2 目录、`.agents/skills` 经 API 核确未入库 | commit `<本批提交后回填>`
+
 - **2026-09-22 | 本批（`.gitignore`/`docs/codemap.md`/`docs/log.md`）＋ 跟踪清单 10 项 | 对齐核查（Skill 改道批收口）** | R-06 四项：冗余查干净（"Skill 不进 git"事实仅两处——`.gitignore` 本体＋codemap 树注，本行为动作依据记录）；矛盾查通过（B-01 闭案注"留用"指盘上保留，与本批仅撤 git 跟踪不冲突；装入批旧行"曾入库"由本批行"不抹史"注覆盖）；锚点查通过（`.gitignore` 存在、`fe18aa2`/`e978fba` 真实、树注 19–20 行与实际一致）；账目闭环（codemap✓ log✓ 三本账不涉） | commit `e978fba`
 
 - **2026-09-22 | 新立 `.gitignore`（`.agents/`）＋ `.agents/skills/` 解除跟踪（`git rm --cached`，盘上文件保留）＋ `docs/codemap.md`（树注两行） | 改道（纪律）：Skill 不进 git** | 依据：用户口令"Skill不进git"；与 translate 先例一致（其 `.gitignore:24` 即 `.agents/`）；历史 commit `fe18aa2` 曾入库 skill，不抹史——自本批起脱离跟踪 | commit `e978fba`

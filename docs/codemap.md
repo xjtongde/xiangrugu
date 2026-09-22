@@ -50,7 +50,9 @@
 |---|---|---|
 | 权威开发工作区 | `/root/xiangrugu/`（文档＋源码＋测试＋Git 仓库，**项目唯一权威源**） | 已定（2026-09-22） |
 | Git 本地仓库 | `/root/xiangrugu/.git`，初始分支 `main` | 已定（本批） |
-| 远程代码源仓库 | **待用户裁决**（是否沿用 Gitea、仓库名与推送方向均不擅自假定） | 待裁决 |
+| 远程代码源仓库 | Gitea `http://192.168.3.35:17080/deepseekharness/xiangrugu`（私有，默认分支 `main`；2026-09-22 用户手建、助手全量推送，远程树 12 项=10 文档＋2 目录） | 已定（2026-09-22） |
+| 推送方向 | `/root/xiangrugu` ── git push ──▶ Gitea `deepseekharness/xiangrugu`（origin 已设） | 已定（2026-09-22） |
+| 推送凭据 | `deepseekharness` token（作用域仅 `write:repository`，**不足以建仓**——建仓须网页端或加作用域令牌）；本仓走 local `credential.helper=store --file=/root/.git-credentials`，helper 写回 lock 警告无害 | 已定（2026-09-22） |
 | 构建主机与构建方式 | 待项目定型 | 待裁决 |
 | 生产部署目录 / 端口 / 数据文件 | 待项目定型 | 待裁决 |
 

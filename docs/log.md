@@ -8,7 +8,7 @@
 
 ## 变动记录
 
-- **2026-09-22 | 新立 `.secrets/gitea_account`（600，git 外）＋ `docs/codemap.md`（"真账密保管"行）| 修订（凭据收编批）** | 依据：用户令"这个key你以后用"——key.txt 账密自附件档验指纹后收编 `.secrets/`，用途纪律入册（仅特权操作：铸/撤令牌、建仓、账号设置；日常仍令牌流）。`.gitignore:.secrets/` 上批已护，本批零新增跟踪面 | commit `<本批提交后回填>`
+- **2026-09-22 | 新立 `.secrets/gitea_account`（600，git 外）＋ `docs/codemap.md`（"真账密保管"行）| 修订（凭据收编批）** | 依据：用户令"这个key你以后用"——key.txt 账密自附件档验指纹后收编 `.secrets/`，用途纪律入册（仅特权操作：铸/撤令牌、建仓、账号设置；日常仍令牌流）。`.gitignore:.secrets/` 上批已护，本批零新增跟踪面 | commit `df28d28`
 
 - **2026-09-22 | `docs/codemap.md`（凭据行拆"推送/工单"两行）＋ `.gitignore`（增 `.secrets/`）＋ 新立 `.secrets/gitea_token`（600，git 外）| 改道（工单通道打通批）** | 依据：用户交 key.txt（账密），按最小权限路径处置——真密码仅用于一次性铸造 `xiangrugu-issues` 令牌（id=7，`write:issue` 含读），铸后真密码日常弃用；实测三件套全通：读列表 200／建验收单 #1 201／关单复确 state=closed。上条旧行"issues ❌ 须 read:issue"就活指针义已由本行前向取代（旧行不回改）| commit `f392ebe`
 

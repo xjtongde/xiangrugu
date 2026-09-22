@@ -52,7 +52,8 @@
 | Git 本地仓库 | `/root/xiangrugu/.git`，初始分支 `main` | 已定（本批） |
 | 远程代码源仓库 | Gitea `http://192.168.3.35:17080/deepseekharness/xiangrugu`（私有，默认分支 `main`；2026-09-22 用户手建、助手全量推送，远程树 12 项=10 文档＋2 目录） | 已定（2026-09-22） |
 | 推送方向 | `/root/xiangrugu` ── git push ──▶ Gitea `deepseekharness/xiangrugu`（origin 已设） | 已定（2026-09-22） |
-| 推送凭据 | `deepseekharness` token（本仓 local `credential.helper=store --file=/root/.git-credentials` 挂载；用户 2026-09-22 裁决**长期留用**）。权限实测边界：✅ git 读写、仓信息/提交/分支/PR/releases 读；❌ 建仓（须 `write:user`/`write:organization`，新仓走用户网页手建）、❌ issues（须 `read:issue`，项目记账用三本专职账不依它）。helper 每次 push 回写 lock 被沙箱拒的警告无害 | 已定（2026-09-22） |
+| 推送凭据 | `deepseekharness` token（本仓 local `credential.helper=store --file=/root/.git-credentials` 挂载；用户 2026-09-22 裁决**长期留用**）。权限实测边界：✅ git 读写、仓信息/提交/分支/PR/releases 读；❌ 建仓（须 `write:user`/`write:organization`，新仓走用户网页手建）。helper 每次 push 回写 lock 被沙箱拒的警告无害 | 已定（2026-09-22） |
+| 工单凭据 | `xiangrugu-issues` 令牌（id=7，scopes `write:issue`，2026-09-22 用户交 key.txt 授权、以真密码一次性铸造——**真密码用完即弃、日常不再碰**）。存 `.secrets/gitea_token`（600，git 不跟踪），实测建/读/关单全通（验收单 #1 已 closed）。Gitea issues 与三本专职账分工：记账仍以专职账为准，issue 用作对外工单通道 | 已定（2026-09-22） |
 | 构建主机与构建方式 | 待项目定型 | 待裁决 |
 | 生产部署目录 / 端口 / 数据文件 | 待项目定型 | 待裁决 |
 

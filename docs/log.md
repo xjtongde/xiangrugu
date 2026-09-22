@@ -8,7 +8,7 @@
 
 ## 变动记录
 
-- **2026-09-22 | `docs/codemap.md`（凭据行扩写）| 修订（凭据权限实测落册）** | 用户裁决该凭据长期留用；端点实测：git 读写、仓信息/提交史/分支/PR/releases 读 ✅；建仓 ❌（须 `write:user`/`write:organization`，新仓走网页手建）、issues ❌（须 `read:issue`，记账以三本专职账为准）。R-06 本轮：codemap 注记与实际权限面一致，锚点无破损 | commit `<本批提交后回填>`
+- **2026-09-22 | `docs/codemap.md`（凭据行扩写）| 修订（凭据权限实测落册）** | 用户裁决该凭据长期留用；端点实测：git 读写、仓信息/提交史/分支/PR/releases 读 ✅；建仓 ❌（须 `write:user`/`write:organization`，新仓走网页手建）、issues ❌（须 `read:issue`，记账以三本专职账为准）。R-06 本轮：codemap 注记与实际权限面一致，锚点无破损 | commit `250ac25`
 
 - **2026-09-22 | `docs/codemap.md`（§2 远程仓库/推送方向/凭据三行由"待裁决"转"已定"）＋ Git remote origin 建立 | 改道（事实落定）：香如故接入远程 Gitea** | 依据：用户令"用 deepseekharness 建项目"→ 该 token 仅 `write:repository`、无建仓权，三径（user/org API、push-to-create）实测皆阻 → 用户网页端手建空私有仓 `deepseekharness/xiangrugu`（默认 `main`）→ 助手配本仓 local credential.helper 全量推送 14 commit，`git ls-remote` 与本地 HEAD 同为 `50dd95c`；远程树 12 项=10 文档＋2 目录、`.agents/skills` 经 API 核确未入库 | commit `b5dd93c`
 

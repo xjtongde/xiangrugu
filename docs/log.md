@@ -8,6 +8,8 @@
 
 ## 变动记录
 
+- **2026-09-22 | `.agents/skills/`（新目录：`karpathy-guidelines/`、`frontend-design/`，自 translate 项目复制，diff 校验零差异）＋ `docs/codemap.md`（树登记） | 开设（skill 装入批）** | 依据：用户口令"给这个项目装些skill"；装 translate 专属两件，用户级 14 件 superpowers 全局共享不重复装（R-04 精神）；**实测：装入即热挂载本会话 skill 目录，无须开新会话**（原记"本会话不受影响"系错误，开账即勘）；两 skill 与 rules.md 无冲突（编码行为面互补：karpathy 管怎么写码，R 系列管怎么记账收口） | commit `<本批提交后回填>`
+
 - **2026-09-22 | 迁移批五文件（memos/rules/index/codemap/features）| 对齐核查（迁移批收口）** | 按 R-06 四项交叉核查：冗余查干净（纪要正文整档随迁，无新增复制；仅卷首性质表述按用户定性更新）；矛盾查通过（卷首"权威结论"旧措辞已降格为"备忘级实测结论"，与 index/R-04 同批对齐）；锚点查通过（全库 grep `docs/notes.md` 仅命中本账历史行 3 处＋index/memos 源注 2 处，均属合规非活指针；目录树 9 个 md 与实际一致）；账目闭环（迁移行已记、三本账与 bugs/improvements 零波及属实）。结论：干净 | commit `8010622`
 
 - **2026-09-22 | `docs/notes.md` → `memos/memos.md`（git mv，历史随迁）＋ `rules.md`（R-04 行改道）＋ `docs/index.md`（新立"备忘"节＋阅读顺序行）＋ `docs/codemap.md`（目录树两处）＋ `docs/features.md`（指针 4 处） | 迁移（更名）·纪要账降级为专用备忘目录** | 依据：用户指令——纪要属**项目讨论与分析备忘、非项目实施指导**，移入专用目录 `memos/` 更名 `memos.md`；本账旧行及三本账旧行中出现的 `docs/notes.md` 系历史指针**不回改**（R-04），核查 grep 全库应仅命中本条所述历史行 | commit `8010622`

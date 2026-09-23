@@ -8,6 +8,8 @@
 
 ## 变动记录
 
+- **2026-09-23 | `docs/codemap.md`（哈佛仓行对账段三次修正）＋ NAS 仓 `README_provenance.md` 补新旧关系节 | 修订（官方自述补课批）** | 依据：用户痛斥"下的时候没看官方说明？去官方查！"——**认账：前几轮全部靠行数实测推断，没先读货自带的官方文档，绕了远路**。补课结果：① 家中 `cbdb_20260919.sqlite3` 的出处证物（JSON）就在它旁边——**CBDB 官方 HuggingFace 仓 `cbdb/cbdb-sqlite`（org 名"China Biographical Database Project (CBDB)"、档案链回哈佛官网、CC BY-NC-SA）的最新滚动构建，latest.json 逐字节匹配＋sha256 实算全同**；前判"线上库自导出件"作废；② CBDB 官方两速：HF 快车道（月度）vs Dataverse 档案道（bi2025 比家中旧一年）；③ MDB 说明书（HelpFiles 内中英文 User's Guide，pdftotext 读讫）证实多卷 DATA 制式与 Relink 更新机制；④ 遗留疑点：POSTED_TO_ADDR_DATA 两官方制式 46.5 万 vs 185.3 万（mdb-count 复核非假象），启用前查清口径；⑤ CHGIS 官方 README/EULA 原文家中 VERIFICATION.md 早有摘录、本次新仓同款再证。上条（`15fcf64`）内"仕宦地点分析必以官方件补"措辞随 ④ 降为待查，不再作为判词 | commit `<本批提交后回填>`
+
 - **2026-09-23 | `docs/codemap.md`（哈佛仓行对账段二次修正定稿）| 修订（新旧关系实测定骨批）** | 依据：用户问"旧的不是哈佛官方吗？新旧什么关系"。三实测：① 旧 CHGIS 证实官方同源——家中 V6 点表两件与 harvard-full 同款 **MD5 字节全同**（976b2a07/f77d218b），严格子集；② 开包 2025 官方 MDB（新装 mdbtools 可读，DATA1 抽验）逐表计数：家中件人/锚/亲/社/仕五线微强，**唯 POSTED_TO_ADDR_DATA 官方 185.3 万 vs 家中 46.5 万（4 倍）**——CBDB 官方近两年补完任地链接未入线上导出；③ 诗库二件系社区产物与哈佛无干、本批零增量。**判词修正：首轮"家中 sqlite 单库最强"作废，改"同源两式互补短板，仕宦地点分析必以官方件补"**。验毕临时 MDB 已清（落盘纪律）。R-06：features 扫"最强"字样无残留 | commit `15fcf64`
 
 - **2026-09-23 | `docs/codemap.md`（挂载行转正＋哈佛仓行构成实账）＋ `docs/features.md`（路径两处替换）＋ `memos/memos.md`（N-01 §一 前向勘正注）＋ 系统层：`/mnt/wd` 软链删除、`ops/harvard/*.py` DEST 改新路径（git 外）| 改道（路径转正＋构成实账批）** | 依据：用户令"以后不用 wd，用 wd61workmetadata"+"必须搞清楚 10G 与几百兆的区别"。路径侧：唯一正路径转正、软链删、活账全换、历史账（N-01 正文/log 旧行）不回改仅前向注、复跑脚本 DEST 改齐、新路径三验（可读/可写/内容全）。体量侧：按数据集标题六分实测——CBDB 历年发布 3.51G（九版堆叠，净新增仅 2025 快照）、栅格地图 2.72G（真新增）、CHGIS 历代向量 1.93G（V2–V5 旧版）、LoGaRT 软件 1.86G、Hartwell 等 0.19G、杂集 0.43G；**10.64G 中真正的净新知识约 3.5G**。R-06 自查两处当场纠：构成第一次口算分桶错（已按脚本实测数修正）；脚本 DEST 漂移隐患（已改）。translator MCP 用户口令复开，无涉 | commit `15fcf64`

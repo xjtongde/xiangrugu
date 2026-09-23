@@ -25,7 +25,7 @@
 - 诉求原意（用户话照录，不改写）："让你查数据库的原因，就是为入PostgreSQL做准备。"
 - 能力性质：新能力（数据底座／入库管线）
 - 标尺归属：待判（AGENTS §1 项目核心定位未定型）
-- 现状对照 / 落地设想：**数据在手**——家中 `cbdb_20260919.sqlite3`（586MB／78 表／736 字段／5,623,075 行，sha256 与官方 latest.json 全同；构建 2026-09-19）＋ `harvard-full` 官方 2025-05 Access 件与 CHGIS V2–V6 选件；**环境未备**——本机 Debian 13 trixie／WSL2（无 systemd），apt 可装 **PostgreSQL 17**（Debian main，`Candidate: 17+278`），`psql`／`pgloader`／`ogr2ogr`／`shp2pgsql`／`docker` **全无**，`mdbtools` 已装，python3 可用；本地盘余 953G、内存 15G、32 线程。**索引缺项（370→0）在本路径不阻塞**——索引与约束入 PG 后另建（见 `docs/cbdb.md` §9.4(1) 路径 A；注意 PG 亦不自动为 FK 列建索引）。**待用户裁决四事**：① 入库范围（0919 单件／＋官方 2025 MDB 核心表／＋CHGIS→PostGIS）；② 目标机（本机 WSL 本地盘／NAS 主机 `192.168.3.61`／另行指定）；③ 数据保真策略（原样保真＋另建清洗视图／入库即清洗）；④ 索引与外键策略（仅索引／补真 FK 照官方 36 表清单）。**派生件落盘位置须用户指定**（联动落盘纪律）；预估：范围①时端到端含装库 15–30 分钟、纯导入 2–5 分钟。
+- 现状对照 / 落地设想：**数据在手**——家中 `cbdb_20260919.sqlite3`（586MB／78 表／736 字段／5,623,075 行，sha256 与官方 latest.json 全同；构建 2026-09-19）＋ `harvard-full` 官方 2025-05 Access 件与 CHGIS V2–V6 选件；**环境未备**——本机 Debian 13 trixie／WSL2（无 systemd），apt 可装 **PostgreSQL 17**（Debian main，`Candidate: 17+278`），`psql`／`pgloader`／`ogr2ogr`／`shp2pgsql`／`docker` **全无**，`mdbtools` 已装，python3 可用；本地盘余 953G、内存 15G、32 线程。**索引缺项（370→0）在本路径不阻塞**——索引与约束入 PG 后另建（见 `docs/cbdb.md` §9.4(1) 路径 A；注意 PG 亦不自动为 FK 列建索引）。**届时需定之事（现在不议，等开工口令）**：① 入库范围（0919 单件／＋官方 2025 MDB 核心表／＋CHGIS→PostGIS）；② 目标机——**新线索：32 主机上已有 PostgreSQL**（用户 2026-09-23 口头告知，⚠ **未实测**；另本机 WSL 亦可装 PG 17）；③ 数据保真策略（原样保真＋另建清洗视图／入库即清洗）；④ 索引与外键策略（仅索引／补真 FK 照官方 36 表清单）。**派生件落盘位置须用户指定**（联动落盘纪律）；预估：范围①时端到端含装库 15–30 分钟、纯导入 2–5 分钟。
 
 > F-09～F-12 为 2026-09-23 批（用户令"全部拿过来"哈佛 Dataverse 落仓后所见**新货**挂账；权威展开＝`/mnt/wd61workmetadata/harvard-full/harvard_manifest.txt` 货单＋codemap"哈佛全量仓"行，R-04）。
 

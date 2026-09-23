@@ -8,7 +8,7 @@
 
 ## 变动记录
 
-- **2026-09-23 | NAS 新仓 `/mnt/wd/harvard-full/`（370 件/10.64 GiB/65 数据集，含随货 `harvard_manifest.txt`＋`harvard_dl.tsv`）＋ `docs/codemap.md`（"哈佛全量仓"行）＋ `docs/features.md`（F-09～F-12 开批＋F-08 进展注）＋ `.gitignore`（`ops/` 节）| 开设（哈佛全量采购批）** | 依据：用户令"把哈佛的货全部拿过来，不能少"。路线：官方站 Akamai 拒机器→转 Harvard Dataverse API（UA 过 contents 门，逐数据集 versions 列件）→ 4 路并发拉（约 11MB/s，断点续传＋尺寸核对＋MD5）；.tab 六件因 original/converted 双制式卡尺寸，定点换制式补拉，终 **370/370 尺寸全吻合**；.part 残片清零。过程坑三条入记忆：沙箱内外 `/tmp` 视图不通（脚本改驻 ops/）、改 NAS ACL 须重挂（前批已记）、Dataverse 清单尺寸＝converted 制式。本批未逐件解压验内容（静态入仓），启用时按 N-01 验单规矩逐件核；许可红线（CHGIS 禁商用/再分发）已注 codemap。R-06 本轮：codemap 行数实测勘正 62→65；features 活指针同步；ops/ 归节说明。另：`/tmp/cbdb_ro.db` 旧副本删除请示**仍悬** | commit `<本批提交后回填>`
+- **2026-09-23 | NAS 新仓 `/mnt/wd/harvard-full/`（370 件/10.64 GiB/65 数据集，含随货 `harvard_manifest.txt`＋`harvard_dl.tsv`）＋ `docs/codemap.md`（"哈佛全量仓"行）＋ `docs/features.md`（F-09～F-12 开批＋F-08 进展注）＋ `.gitignore`（`ops/` 节）| 开设（哈佛全量采购批）** | 依据：用户令"把哈佛的货全部拿过来，不能少"。路线：官方站 Akamai 拒机器→转 Harvard Dataverse API（UA 过 contents 门，逐数据集 versions 列件）→ 4 路并发拉（约 11MB/s，断点续传＋尺寸核对＋MD5）；.tab 六件因 original/converted 双制式卡尺寸，定点换制式补拉，终 **370/370 尺寸全吻合**；.part 残片清零。过程坑三条入记忆：沙箱内外 `/tmp` 视图不通（脚本改驻 ops/）、改 NAS ACL 须重挂（前批已记）、Dataverse 清单尺寸＝converted 制式。本批未逐件解压验内容（静态入仓），启用时按 N-01 验单规矩逐件核；许可红线（CHGIS 禁商用/再分发）已注 codemap。R-06 本轮：codemap 行数实测勘正 62→65；features 活指针同步；ops/ 归节说明。另：`/tmp/cbdb_ro.db` 旧副本删除请示**仍悬** | commit `d917619`
 
 - **2026-09-23 | `docs/codemap.md`（"数据 NAS 挂载"行状态更新）| 改道（写通道激活批）** | 依据：用户于 NAS 端给 admin 开写（B 案）后口令复测。实测坑一条：**服务端改 ACL 后旧 cifs 树连接缓存旧权限，须 umount/mount 重挂生效**；重挂后 root/zky/子目录三写探针全通、探针净清理。上条"待裁决"就此闭环（旧行不回改，本行为指）；guest 可写事实保留为历史记录，不再作为方案选项 | commit `2b69d8e`
 

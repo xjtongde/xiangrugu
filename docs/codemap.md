@@ -29,6 +29,7 @@
     ├── index.md          文档索引＋权威优先级（登记处）
     ├── log.md            文档变动日志（R-05）
     ├── codemap.md        本文件：代码地图＋部署位置
+    ├── cbdb.md           外部数据源档案：CBDB 项目（2026-09-23 开设）
     ├── bugs.md           Bug 专职账（B-编号）
     ├── improvements.md   改进专职账（I-编号）
     └── features.md       新功能专职账（F-编号）

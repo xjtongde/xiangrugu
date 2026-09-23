@@ -21,7 +21,13 @@
 
 ## 在册
 
-无——B-01 经用户追认已移「已结」。
+### B-02 宿主 36 的 `/etc/timezone` 系空目录（标准 §9 时区挂载对任何新部署失效）
+- 开账日期 / 状态：2026-09-24 / **挂账**（pg36 Step 4 执行中发现；**修复属 homelab 侧，待用户口令**——本项目已按裁决 B 绕行，未动宿主，R-01）
+- 症状与复现路径：36 上凡 compose 按标准 §9 配 `/etc/timezone:/etc/timezone:ro`，启动"镜像内 `/etc/timezone` 为普通文件"的容器（如 postgres 系）即报 `OCI runtime create failed … not a directory`；复现＝任何新部署带该挂载行。既有 speaches／weaviate 等因镜像内无该文件（docker 当时在容器侧也建了目录）目录对目录无感，故缺陷潜伏至今。
+- 根因分析：36 的 `/etc/timezone` 实为**空目录**（mtime 2026-07-29 02:18，早于 pg36 开工近两月）——疑 7 月底某次部署时 docker 对缺失的 bind 源路径**自动建目录**所致；正常 Debian 该路径应为文件（对照：32 同款路径＝文件 `Asia/Shanghai`，14 字节）。
+- 影响面：36 上一切按标准 §9 部署且镜像内该路径为文件的**新**容器；现有运行容器零影响。该目录被运行中 speaches／weaviate 的 bind mount **钉住**，原位不可替换（EBUSY）——修复须停机窗口；另有 4 个已停容器（dify-tei-embedding／dify-tei-reranker／voicebox／pg36 旧配置）引用同路径。
+- 候选方案：① 停机窗口修复（停两运行容器→`rmdir /etc/timezone`→建文件写 `Asia/Shanghai`→重建容器；顺带四个停止容器下次启动自愈）；② 维持现状、新部署逐案绕行（pg36 已用裁决 B：compose 去该行，宿主修复后加回即恢复标准形态）；③ 交 homelab 侧 agent 统一办理（宜与①合并）。
+- 关联：标准 §9（homelab 仓 docker-deploy-standard.md）；`docs/pg36.md` §11⑤／§13；R-01（先记不动手）。
 
 ## 已结
 

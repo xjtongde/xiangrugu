@@ -55,6 +55,7 @@
 | 推送凭据 | `deepseekharness` token（本仓 local `credential.helper=store --file=/root/.git-credentials` 挂载；用户 2026-09-22 裁决**长期留用**）。权限实测边界：✅ git 读写、仓信息/提交/分支/PR/releases 读；❌ 建仓（须 `write:user`/`write:organization`，新仓走用户网页手建）。helper 每次 push 回写 lock 被沙箱拒的警告无害 | 已定（2026-09-22） |
 | 工单凭据 | `xiangrugu-issues` 令牌（id=7，scopes `write:issue`，2026-09-22 用户交 key.txt 授权、以真密码一次性铸造——**真密码用完即弃、日常不再碰**）。存 `.secrets/gitea_token`（600，git 不跟踪），实测建/读/关单全通（验收单 #1 已 closed）。Gitea issues 与三本专职账分工：记账仍以专职账为准，issue 用作对外工单通道 | 已定（2026-09-22） |
 | 真账密保管 | 用户令"这个key你以后用"（2026-09-22）：Gitea 账密收编 `.secrets/gitea_account`（600，git 外）。**用途纪律**：仅令牌不能之事（铸/撤令牌、建仓、账号设置）；日常 git 与工单一律走令牌 | 已定（2026-09-22） |
+| 数据 NAS 挂载 | `//192.168.3.61/workmetadata` → `/mnt/wd61workmetadata`（cifs，用户给定 fstab 条目 2026-09-23 落定常驻；`/mnt/wd` 转软链保 N-01 旧路径兼容）。**权限实测**：挂载内 admin（`.smbkey`）对整卷**只读**（root/zky 均写拒，服务端否决）；**guest 匿名可读写**（探针写删证实）。WSL 无 systemd，条目内 `x-systemd.*` 两选项休眠，开机由 WSL init 走 mount -a 生效。**写通道二选一待裁决**：改 `guest` 选项（恢复 N-01 时代读写语义）或在 NAS 端给 admin 开写权限 | 挂载已定；写通道待裁决（2026-09-23） |
 | 构建主机与构建方式 | 待项目定型 | 待裁决 |
 | 生产部署目录 / 端口 / 数据文件 | 待项目定型 | 待裁决 |
 

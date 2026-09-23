@@ -30,6 +30,7 @@
     ├── log.md            文档变动日志（R-05）
     ├── codemap.md        本文件：代码地图＋部署位置
     ├── cbdb.md           外部数据源档案：CBDB 项目（2026-09-23 开设）
+    ├── pg32-upgrade.md   实施方案：pg32 升级全功能镜像（2026-09-23 成文，执行待口令）
     ├── bugs.md           Bug 专职账（B-编号）
     ├── improvements.md   改进专职账（I-编号）
     └── features.md       新功能专职账（F-编号）

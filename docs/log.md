@@ -8,7 +8,7 @@
 
 ## 变动记录
 
-- **2026-09-23 | `docs/codemap.md`（哈佛仓行勘正重写）| 修订（哈佛货不对账勘正批）** | 依据：用户问"前后为什么差这么多"，开包实测（p7zip 新装）。三发现：① `.7z` 305M 系压缩壳，解包 5.01GB（MDB 为主）；② 官方 2024-02 SQLite 各表行数**全面低于**家中 `cbdb_20260919.sqlite3`（人物 53.5万 vs 66.2万等四项）——N-01 之"子集"判名不准，旧货实为线上库级全量、家中单库仍最强（N-01 照录原文不回改，勘正寄于本行与 codemap）；③ 官方件夹带 ACCESS 残表 21 张，但补 `ADDR_XY`（今地坐标）、`DATABASE_LINK_*`、`CBDB_NAME_LIST` 等旧货所无实表。harvard-full 内 CBDB 件定位改为：官方快照＋版本序列＋说明书。`/tmp/cbdb_ro.db` 反成最优工作副本——处置请示依旧悬着 | commit `<本批提交后回填>`
+- **2026-09-23 | `docs/codemap.md`（哈佛仓行勘正重写）| 修订（哈佛货不对账勘正批）** | 依据：用户问"前后为什么差这么多"，开包实测（p7zip 新装）。三发现：① `.7z` 305M 系压缩壳，解包 5.01GB（MDB 为主）；② 官方 2024-02 SQLite 各表行数**全面低于**家中 `cbdb_20260919.sqlite3`（人物 53.5万 vs 66.2万等四项）——N-01 之"子集"判名不准，旧货实为线上库级全量、家中单库仍最强（N-01 照录原文不回改，勘正寄于本行与 codemap）；③ 官方件夹带 ACCESS 残表 21 张，但补 `ADDR_XY`（今地坐标）、`DATABASE_LINK_*`、`CBDB_NAME_LIST` 等旧货所无实表。harvard-full 内 CBDB 件定位改为：官方快照＋版本序列＋说明书。`/tmp/cbdb_ro.db` 反成最优工作副本——处置请示依旧悬着 | commit `8a68743`
 
 - **2026-09-23 | NAS 新仓 `/mnt/wd/harvard-full/`（370 件/10.64 GiB/65 数据集，含随货 `harvard_manifest.txt`＋`harvard_dl.tsv`）＋ `docs/codemap.md`（"哈佛全量仓"行）＋ `docs/features.md`（F-09～F-12 开批＋F-08 进展注）＋ `.gitignore`（`ops/` 节）| 开设（哈佛全量采购批）** | 依据：用户令"把哈佛的货全部拿过来，不能少"。路线：官方站 Akamai 拒机器→转 Harvard Dataverse API（UA 过 contents 门，逐数据集 versions 列件）→ 4 路并发拉（约 11MB/s，断点续传＋尺寸核对＋MD5）；.tab 六件因 original/converted 双制式卡尺寸，定点换制式补拉，终 **370/370 尺寸全吻合**；.part 残片清零。过程坑三条入记忆：沙箱内外 `/tmp` 视图不通（脚本改驻 ops/）、改 NAS ACL 须重挂（前批已记）、Dataverse 清单尺寸＝converted 制式。本批未逐件解压验内容（静态入仓），启用时按 N-01 验单规矩逐件核；许可红线（CHGIS 禁商用/再分发）已注 codemap。R-06 本轮：codemap 行数实测勘正 62→65；features 活指针同步；ops/ 归节说明。另：`/tmp/cbdb_ro.db` 旧副本删除请示**仍悬** | commit `d917619`
 

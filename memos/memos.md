@@ -58,6 +58,8 @@
 
 ### 一、NAS 上已有的数据（`\\192.168.3.61\workmetadata`，homepc 挂载点 `/mnt/wd`，guest 可读写）
 
+> **勘正（2026-09-23，用户令）**：挂载故障已修（常驻 fstab＋admin 开写）；**正式路径改定 `/mnt/wd61workmetadata`，`/mnt/wd` 软链已删**——本纪要旧路径照录不回改，按本注向前指。权威现状看 codemap §2"数据 NAS 挂载"行＋"哈佛全量仓"行。
+
 | 目录 | 内容 | 备注 |
 |---|---|---|
 | `cbdb-project/cbdb_20260919.sqlite3` | CBDB 子集，78 表 × 736 字段，586MB | 无经济/货币表（本会话扫描确认）；`ADDR_CODES` 自带 `CHGIS_PT_ID` 桥 |

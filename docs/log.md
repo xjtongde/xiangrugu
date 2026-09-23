@@ -8,7 +8,7 @@
 
 ## 变动记录
 
-- **2026-09-23 | `/etc/fstab`（系统文件，用户亲给定条目）＋ 挂载 `/mnt/wd61workmetadata` ＋ `/mnt/wd` 空壳目录转软链 ＋ `docs/codemap.md`（"数据 NAS 挂载"行）| 开设（NAS 常驻挂载批）** | 依据：用户令立 fstab 常驻并给定 cifs 条目（尾随粘贴引号已剔）。实测：挂载 rw/SMB3.1.1、四库读取通（含 560M CBDB 副本）；**权限反常识发现**：条目内 admin 凭据服务端**只读**（root/zky 写皆拒），guest 匿名**可读写**（探针证实，合 N-01 旧语义）——写通道走 guest 还是 NAS 端修权限，**待用户裁决**；WSL 无 systemd，`x-systemd.*` 选项休眠。另悬处置：`/tmp/cbdb_ro.db`（586M 实验副本，重启即失，挪/删待定）。系统文件写入经沙箱提权一次性批准 | commit `<本批提交后回填>`
+- **2026-09-23 | `/etc/fstab`（系统文件，用户亲给定条目）＋ 挂载 `/mnt/wd61workmetadata` ＋ `/mnt/wd` 空壳目录转软链 ＋ `docs/codemap.md`（"数据 NAS 挂载"行）| 开设（NAS 常驻挂载批）** | 依据：用户令立 fstab 常驻并给定 cifs 条目（尾随粘贴引号已剔）。实测：挂载 rw/SMB3.1.1、四库读取通（含 560M CBDB 副本）；**权限反常识发现**：条目内 admin 凭据服务端**只读**（root/zky 写皆拒），guest 匿名**可读写**（探针证实，合 N-01 旧语义）——写通道走 guest 还是 NAS 端修权限，**待用户裁决**；WSL 无 systemd，`x-systemd.*` 选项休眠。另悬处置：`/tmp/cbdb_ro.db`（586M 实验副本，重启即失，挪/删待定）。系统文件写入经沙箱提权一次性批准 | commit `0fa8dbd`
 
 - **2026-09-22 | 新立 `.secrets/gitea_account`（600，git 外）＋ `docs/codemap.md`（"真账密保管"行）| 修订（凭据收编批）** | 依据：用户令"这个key你以后用"——key.txt 账密自附件档验指纹后收编 `.secrets/`，用途纪律入册（仅特权操作：铸/撤令牌、建仓、账号设置；日常仍令牌流）。`.gitignore:.secrets/` 上批已护，本批零新增跟踪面 | commit `df28d28`
 

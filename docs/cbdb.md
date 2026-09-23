@@ -54,7 +54,7 @@
    - **Dataverse 档案道**（可 DOI 引用；`dataverse.harvard.edu/dataverse/cbdb`；"ACCESS and SQLite DB Version (latest)"集 DOI `10.7910/DVN/PAGGQS`，v8.0，官方页 Updated 2026-06-16）；
    - **HuggingFace 快车道**：`https://huggingface.co/datasets/cbdb/cbdb-sqlite`——**Dataverse 该集摘要原文点名**其为"the weekly updated SQLite database"官方下载源；仓根 `latest.json`＋`latest.zip`＋`latest_ZZZ_tables.7z`（ZZZ 预连接宽表单独包）＋`history/` 历史档。
      - **该通道的代价（实测）**：出档是"净库"——**无任何显式索引**（只有主键自动索引）、**无 `ADDR_XY`**、**无 ZZZ 表族**。求索引完备、备用坐标或宽表时，取 Dataverse 档案道件（明细见 §九 9.2／9.4）。
-4. **配套工具与衍生数据**：CBDBRegexMachine（正则抽取工具）、CBDB Linked Open Data（关联开放数据）、中英文用户指南（User's Guide）；cbdb Dataverse 树另见 LoGaRT-BERT 标注工具等衍生件。
+4. **配套工具与衍生数据**：CBDBRegexMachine（正则抽取工具）、CBDB Linked Open Data（关联开放数据）、中英文用户指南（User's Guide）；cbdb Dataverse 树另见 LoGaRT-BERT 标注工具等衍生件。**官方后处理脚本仓** `https://github.com/cbdb-project/cbdb_sqlite`（补外键／18 视图／`ADDRESSES` 表；**均不建索引**——见 §九 9.4(1)）。
 
 **快车道节奏实证（2026-09-23 直连实测）**：`history/` 自 2026-02→2026-09 **逐月一档（缺 2026-04）**，此前 2019→2025 为零散八档——官方"weekly"指**线上库更新节奏**，HF 出档实为**月度**。家中 `cbdb_20260919.sqlite3` 即该通道 2026-09-19 构建（仓 lastModified `2026-09-19T19:16:54Z`，构建→上传间隔一分钟）。
 
@@ -141,6 +141,22 @@
 
 本件 76 个索引对象**全部是主键自动索引**，且多数以不适合点查的列打头（`ALTNAME_DATA` 打头 `c_alt_name_chn`、`BIOG_SOURCE_DATA` 打头 `c_pages`、`KIN_DATA` 打头 `c_kin_code`），故 `where c_personid = ?` 在这些表上一律**全表扫描**。实测代价：命中页缓存后单人点查 0.01–0.2 s（尚可忍），但**关联子查询会崩**——一个 `exists(BIOG_ADDR_DATA…)` 相关子查询（30,157 × 461,637）**60 秒未出**，改写为 join＋去重子表后 **0.07 秒**。**单点点查可用，全库联结必炸。**
 
+**成因（2026-09-23 上游查证：不是"构建事故"，是两代管线不同）**：
+
+- **370 条索引来自 Access/MDB 血统**：Dataverse 件由 Access 转换生成——索引名 `*_PrimaryKey`／`*_Belongs`／`*_ZZZ_*`、以及"用唯一索引代主键、表上无 PK 约束"都是转换器特征。
+- **HF 快车道件是活库直出**：只带**原生主键**（76 个自动索引＝表内 PK/UNIQUE 声明）。上游 `cbdb-project/cbdb_sqlite` issue #17「Remove outdated "primary key" guidance」（**2026-02-09 关闭**）已删除"latest.db 缺主键"的文档与补主键流程，并令 `process_cbdb_dbs.sh` **不再注入主键**（因上游现成数据已带主键）——**二级索引从来不在新管线的产出里**。
+- **SQLite 不为外键列自动建索引**：即便跑完官方补外键脚本，二级索引依旧为 0。
+
+**处理路径（本批只查证，未执行）**：
+
+| 路径 | 做法 | 适用／代价 |
+|---|---|---|
+| **A. 入库 PostgreSQL（推荐）** | 索引问题自动消失：COPY 完再自建索引 | 无索引源件**载入反而更快**；注意 **PostgreSQL 同样不为外键列自动建索引**，仍须显式建（可译自官方 DDL，或按 join 键自拟） |
+| **B. 直接查 SQLite** | ① 在**本地副本**上跑官方后处理：`add_foreign_keys.py`（**36 张表**加 FK，**不含索引**）→ `create_views.sh`（**18 个视图**）→ `create_addresses_table.py`（补回 `ADDRESSES` 表），或 `setup_cbdb.ipynb` 一键；② 二级索引自建：**官方 2024-02 件 370 条 DDL 中 307 条可直接套用**本件 schema（47 条引用的表本件没有：`ADDR_XY`／`ADDRESSES`／ZZZ 系等；16 条列名已漂移，如 `ASSOC_CODE_TYPE_REL.c_assoc_type_id`、`ENTRY_DATA.c_nianhao_id`）；③ 或按 join 键自拟最小集（`c_personid`／`c_addr_id`／`c_office_id`／`c_entry_code`／`c_textid`…） | **勿直接改 NAS 原件**（脚本要重建表）；需 `sqlite3` CLI（建视图）＋ python3 |
+| **C. 上游** | 提 issue 建议 `add_foreign_keys.py` 顺带建 FK 列索引，或随仓发 `add_indexes.sql` | **未执行，待口令** |
+
+> 官方后处理仓＝`github.com/cbdb-project/cbdb_sqlite`（活跃维护，最近提交 `2026-09-19T19:17:05Z`「Sync latest.json from HuggingFace」）；外键脚本由其 issue #22 引入（**2026-05-19 关闭**）。`scripts/` 另有 `compare_db_tables.py`（两库逐表对账）、`process_cbdb_dbs.sh`（下载＋vacuum＋对账）。
+
 **（2）表集合差异（2024-02 → 2026-09）**：**−21 表**（`ADDR_XY`、`ADDRESSES`、`ADDR_PLACE_DATA`、`PLACE_CODES`、`DATABASE_LINK_*`、`CBDB_NAME_LIST`，及 `CopyTables*`／`TablesFields`／`ForeignKeys`／`FormLabels` 等 Access 后端元数据垃圾表）；**+9 表**（`ADMIN_CAT_*`、`APPOINTMENT_*`、`KINREL_REDUCTION`、`KIN_MOURNING`、`MERGED_PERSON_DATA`）。即：**新版更干净，但也丢了索引与备用坐标表。**
 
 **（3）内容在长（同两版对账）**：`BIOG_MAIN` 535,181 → 661,969（**+23.7%**）、`BIOG_SOURCE_DATA` +115.5%、`ENTRY_DATA` +62.9%、`POSTED_TO_OFFICE_DATA` +50.4%、`TEXT_CODES` +9.8%，而 **`ADDR_CODES` 仅 +0.3%（地名库基本冻结）**。
@@ -178,7 +194,7 @@
 | 缺项／边界 | 状态 | 处置前置 |
 |---|---|---|
 | 任职↔地点 | **已结案：非缺项**（制式差异） | 无——直接可用；按地点聚合时剔除 `c_addr_id=0` |
-| 显式索引（370 → 0） | 未处置 | 可由 2024-02 版抄回索引定义；**全库联结分析前必办** |
+| 显式索引（370 → 0） | 未处置 | 两途并用：官方后处理脚本可补 FK／18 视图／`ADDRESSES`（**不含索引**），索引本由 2024-02 版 DDL 抄回（**370 条中 307 条可直接套用**）或按 join 键自拟；**全库联结分析前必办**；若入库 PG 则改造为 PG 索引（见 9.4(1)） |
 | 今地坐标 `ADDR_XY` | 未处置 | 可由 `CHGIS_PT_ID` 桥绕过；要现成表则取 2024-02 sqlite |
 | ZZZ 宽表 | 未处置 | 需要时取快车道 `latest_ZZZ_tables.7z` |
 | `0` 哨兵／坐标污染／同名 | 已知，**清洗规则已定** | 落到管线时按 9.4(4)(6)(7) 执行 |

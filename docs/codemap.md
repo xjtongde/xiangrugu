@@ -56,6 +56,7 @@
 | 工单凭据 | `xiangrugu-issues` 令牌（id=7，scopes `write:issue`，2026-09-22 用户交 key.txt 授权、以真密码一次性铸造——**真密码用完即弃、日常不再碰**）。存 `.secrets/gitea_token`（600，git 不跟踪），实测建/读/关单全通（验收单 #1 已 closed）。Gitea issues 与三本专职账分工：记账仍以专职账为准，issue 用作对外工单通道 | 已定（2026-09-22） |
 | 真账密保管 | 用户令"这个key你以后用"（2026-09-22）：Gitea 账密收编 `.secrets/gitea_account`（600，git 外）。**用途纪律**：仅令牌不能之事（铸/撤令牌、建仓、账号设置）；日常 git 与工单一律走令牌 | 已定（2026-09-22） |
 | 数据 NAS 挂载 | `//192.168.3.61/workmetadata` → `/mnt/wd61workmetadata`（cifs，用户给定 fstab 条目 2026-09-23 落定常驻；`/mnt/wd` 转软链保 N-01 旧路径兼容）。权限实测：初测挂载内 admin（`.smbkey`）整卷只读、guest 匿名可写；**2026-09-23 用户采 B 案于 NAS 端给 admin 开写**，复测 root/zky/子目录三写全通（注：服务端改 ACL 后须重挂——cifs 旧树连接缓存旧权限）。WSL 无 systemd，条目内 `x-systemd.*` 两选项休眠，开机由 WSL init 走 mount -a 生效 | 已定（2026-09-23 写通道激活） |
+| 哈佛全量仓 `/mnt/wd/harvard-full/` | 2026-09-23 用户令"全部拿过来"：Harvard Dataverse 的 CHGIS 树＋CBDB 树全量已发布件——**370 文件 / 10.64 GiB 逐件尺寸核验吻合**（MD5 抽样校验，65 个数据集目录（`doi_10_7910/DVN/*`））。含 CBDB 历年 SQLite 全量（2025 最新 877.9MB、2024 878MB、2022 等）、CHGIS V2–V6 历代 shapefile 全套（政区面/点/DEM/GNS 地名/海岸线/铁路 60 万条）、Hartwell 宋辽金 GIS、TGAZ、日本历史 GIS、俄藏中国地图、黑龙江舆图、LoGaRT-BERT、传教士著作、全元文索引、2957 书院等。货单随货：仓内 `harvard_manifest.txt`＋`harvard_dl.tsv`（含 fid 可复拉）。拉取管线存档 `ops/harvard/`（git 外，`.gitignore` 护）。许可注意：CHGIS 系学术用禁商用禁再分发，CBDB 系 CC 类——**未逐件摘抄，启用哪件核哪件**（联动 N-01 落盘纪律）。原语料四库（cbdb-project/chgis-v6/chinese-poetry/poetry-source）不动 | 已定（2026-09-23） |
 | 构建主机与构建方式 | 待项目定型 | 待裁决 |
 | 生产部署目录 / 端口 / 数据文件 | 待项目定型 | 待裁决 |
 

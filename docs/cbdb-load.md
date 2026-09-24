@@ -48,7 +48,7 @@
    - 标识符一律不加引号（全库小写化，与官方 PG 移植惯例一致）。
 3. **COPY 灌注**：逐表 `python3（sqlite SELECT * → COPY text 格式：NULL→\N，\、制表、换行转义，BLOB→\x十六进制）| docker exec -i pg32b psql -U postgres -d cbdb -v ON_ERROR_STOP=1 -c "\copy <表> FROM STDIN"`。
 4. **对账 A**：逐表 `count(*)` 双侧比对（78/78 全同方过）＋总行数对 5,623,075（以实测为准，差则逐表定位）。
-5. **索引**：sqlite `CREATE INDEX` 语句全量迁移（实测条数为准，账载 ≈307）；`COLLATE NOCASE` 剥除、表达式索引逐条核 PG 兼容性——**不兼容者列人工复核清单入报告，不静默丢**；索引段前依 PG 官方 §14.4.5/6 临时提速：会话级 `SET maintenance_work_mem='512MB'`（不动配置文件；32 可用内存 5.5G，安全）＋ `ALTER SYSTEM SET max_wal_size='4GB'; SELECT pg_reload_conf();`（**2026-09-24 依官方建议补入**，见 §12；pg32b 专库无生产流量、盘余 196G，临时抬高安全），索引毕 `ALTER SYSTEM RESET max_wal_size; SELECT pg_reload_conf();` 复原（前后 `SHOW max_wal_size` 实测记录）；补建＝官方索引未覆盖的 FK 命名列（`c_*id` 类）经目测后补，清单入报告；毕 `ANALYZE`。
+5. **索引**：sqlite `CREATE INDEX` 语句全量迁移（实测条数为准，账载 ≈307）；`COLLATE NOCASE` 剥除、表达式索引逐条核 PG 兼容性——**不兼容者列人工复核清单入报告，不静默丢**；索引段前依 PG 官方 §14.4.5/6 调参：会话级 `SET maintenance_work_mem='256MB'`（**压力防护降档，原案 512MB——2026-09-24 用户令"要考虑到32主机的压力"**；不动配置文件）＋ `ALTER SYSTEM SET max_wal_size='4GB'; SELECT pg_reload_conf();`（**2026-09-24 依官方建议补入**，见 §12；**兼为减压项**——检查点更少＝共享 `/` 盘 I/O 更平滑，pg32 数据同盘；pg32b 专库无生产流量、盘余 196G，临时抬高安全），索引毕 `ALTER SYSTEM RESET max_wal_size; SELECT pg_reload_conf();` 复原（前后 `SHOW max_wal_size` 实测记录）；补建＝官方索引未覆盖的 FK 命名列（`c_*id` 类）经目测后补，清单入报告；毕 `ANALYZE`。
 
 ## §5 腿 B：CHGIS 空间三件（shapefile→PostGIS）
 
@@ -69,7 +69,9 @@ python3 `csv`（`utf-8-sig`、delimiter=`\t`、quotechar=`"`）读表头→生�
 
 ## §8 执行步骤（开工口令后依序）
 
-- **Step 0** 复核：pg32b healthy、`cbdb` 库不存在（全新建）、盘余量（data 现 55M，预算 +≤5G）、货位点名（§2 七件于 usedata/harvard 逐一 stat＋`sha256sum -c` 13 件全过）。
+**主机压力防护六条（2026-09-24 用户开工令附加约束"要考虑到32主机的压力"——32 系 2C4T 小机且跑生产 pg32/n8n 等 11 容器）**：① 全程**顺序单流零并行**（COPY 逐表、索引逐条、ogr2ogr 逐层，不开第二连接）；② 宿主侧进程一律 `nice -n 19`＋`ionice -c3`（空闲类），容器内 ogr2ogr 以 `nice -n 19` 起跑；③ compose 给 pg32b 加 **`cpu_shares: 512`**（生产容器默认 1024——CPU 争抢时 pg32b 自动让路，空闲时不限速；实例配置变更记 pg32b.md）；④ maintenance_work_mem 降档 **256MB**（§4.5）；⑤ **压力闸门**：Step 0 取基线（loadavg／PSI／pg32 healthy＋canary 查询计时／free），**每个大步之间复测——1 分钟 loadavg＞4.0 持续、或 pg32 非 healthy、或 canary 显著劣化 → 立即暂停**，恢复方续；⑥ 夜间窗口执行（开工即 23 时后），预算换稳：**总时长 ≤2.5h**。
+
+- **Step 0** 复核：pg32b healthy、`cbdb` 库不存在（全新建）、盘余量（data 现 55M，预算 +≤5G）、货位点名（§2 七件于 usedata/harvard 逐一 stat＋`sha256sum -c` 13 件全过）＋**压力基线**（防护条⑤）＋compose 加 cpu_shares（防护条③，`config -q` 过→`up -d` 重建秒级→healthy 复证）。
 - **Step 1** 建库＋扩展＋schema（§4.1）。
 - **Step 2** 腿 A：DDL→COPY→对账→索引→ANALYZE（§4.2–5；2C4T 预算：灌注 ≈10 分钟、索引 ≈15–40 分钟）。
 - **Step 3** 腿 B：sha→cp→ogrinfo→ogr2ogr×3→对账→清场（§5）。
@@ -87,7 +89,7 @@ python3 `csv`（`utf-8-sig`、delimiter=`\t`、quotechar=`"`）读表头→生�
 5. **编码/坐标**＝UTF-8＋WGS84（EPSG:4326）；GBK/西安80 变体不入。
 6. **腿 B 暂存法**＝zip `docker cp` 入容器 `/tmp` 用毕即删（**不动 compose/挂载**，实例配置零变更）。
 7. **角色**＝pg32b 兼营装数靶机；36 恢复后迁移/双轨**另议不在本批**。
-8. **资源**＝会话级 maintenance_work_mem 512MB（配置文件不动）；总时长预算 ≤2h。
+8. **资源与压力防护**＝会话级 maintenance_work_mem **256MB**（用户压力令降档，原 512MB；配置文件不动）＋compose `cpu_shares: 512`＋全程 nice/ionice＋顺序单流零并行＋步间压力闸门（loadavg＞4 或 pg32 非 healthy 即停）＋夜间窗口；总时长预算 **≤2.5h**（换速保压，§8 防护六条）。
 9. **用户面**＝仍 postgres 超户（POSTGRES_USER 改名窗依旧候裁，F-13 在册）。
 
 ## §10 风险与回滚
@@ -109,7 +111,7 @@ F-13（装数四问之①③④由本方案差异项承接裁决；②靶机改�
 | 2 | **用 COPY 不用 INSERT**（大批量显著更快） | 腿 A/C 皆 `\copy … FROM STDIN` 管道；腿 B ogr2ogr PG 驱动内部即走 COPY | ✓ |
 | 3 | **先去索引、灌完再建**（"对已有数据建索引快于逐行随灌随建"） | §4 顺序＝COPY→对账→索引，正是官方顺序 | ✓ |
 | 4 | 去 FK 约束（百万行级触发器事件队列可溢出致败——官方原话"necessary, not just desirable"） | 保真策略本就不建 FK（差异项③）——**官方背书再加一层** | ✓ |
-| 5 | 增大 maintenance_work_mem（利 CREATE INDEX，对 COPY 本身无益） | §4.5 会话级 512MB，恰只在索引段用 | ✓ |
+| 5 | 增大 maintenance_work_mem（利 CREATE INDEX，对 COPY 本身无益） | §4.5 会话级 **256MB**（原 512MB，用户压力令降档），恰只在索引段用 | ✓ |
 | 6 | **增大 max_wal_size**（减少批量灌入的检查点次数） | **方案原缺→已修订补入 §4.5**（临时 4GB、毕即 RESET 复原、前后 SHOW 实测） | ✗→✓ 本批修订 |
 | 7 | 禁 WAL 归档/流复制（wal_level=minimal 等，**须重启**，且废既有基础备份） | **有意不采纳**：须重启实例＋破坏将来物理备库预案＋archive_mode 本就 off＋600MB 级收益小——差异如实记 | 不采纳（有据） |
 | 8 | 灌毕 ANALYZE | §4.5 末在案 | ✓ |

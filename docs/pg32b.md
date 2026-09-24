@@ -160,7 +160,7 @@ dump 的生成与调度／备份文件落盘（NAS／nas-mirror 大盘）／端�
 
 ## §12 首批装数建成（2026-09-24 夜开工令"同意，另外你要考虑到32主机的压力"；执行明细唯一展开＝`docs/cbdb-load.md` §13，本节只记实例级事实）
 
-- **实例内新增 `cbdb` 库**：84 表（public 81＝CBDB 78＋小件 3；chgis 3 空间层）；总行 **5,686,842**（CBDB 5,623,075 **三方对账零差异**＋CHGIS 19,578 要素＋TSV 44,189）；索引 321（public 315 含官方 2024-02 版 308 条 DDL 迁移＋FK 补 6＋postgis 自带 1；chgis 6＝GiST3＋PK3）；PostGIS 3.6.4 启用；库大小 **1,543MB**（data 目录 56M→约 1.6G）；桥验证（chgis_pt_id join 7,125／ST_Within 跨腿三点）与性能探针（exists 0.124s vs sqlite 时代 >60s）全过。
+- **实例内新增 `cbdb` 库**：84 用户表（public 81＝CBDB 78＋小件 3；chgis 3 空间层；另工具辅表 2：spatial_ref_sys＝PostGIS 自带、ogr_system_tables.metadata＝GDAL 自带，pg_tables 非目录总计 86）；总行 **5,686,842**（CBDB 5,623,075 **三方对账零差异**＋CHGIS 19,578 要素＋TSV 44,189）；索引 321（public 315 含官方 2024-02 版 308 条 DDL 迁移＋FK 补 6＋postgis 自带 1；chgis 6＝GiST3＋PK3）；PostGIS 3.6.4 启用；库大小 **1,543MB**（data 目录 56M→约 1.6G）；桥验证（chgis_pt_id join 7,125／ST_Within 跨腿三点）与性能探针（exists 0.124s vs sqlite 时代 >60s）全过。
 - **compose 新增 `cpu_shares: 512`**（用户压力令：生产容器默认 1024，pg32b 争抢时 2:1 让路、空闲不限速；`up -d` 秒级重建、healthy 复证；回退＝删行再 up）。
 - **压力实测**：施工 23:48–00:24 共 36 分钟（预算 2.5h 之 24%）；峰值 loadavg 1.87（闸门阈 4.0 未触）；**pg32 生产全程 healthy＋canary 查询 0.092→0.089s 零劣化**——共存实证通过。
 - **观察**：reload 触发 LOG "postgresql.conf contains errors; unaffected changes were applied"＝**镜像 entrypoint 固有怪癖**（restart-needed 参数之 conf 文件初始值 vs 命令行运行值分歧，任何 reload 皆触发；参数应用实测不受碍），无害；pg32 同血统潜伏（从未 reload、0 命中）；pg36 同构候恢复后核。

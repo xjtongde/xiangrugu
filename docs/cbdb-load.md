@@ -183,7 +183,7 @@ F-13（装数四问之①③④由本方案差异项承接裁决；②靶机改�
 
 **事件账总（六起，全自制全决全披露；库 log 10 条 ERROR/LOG 全数归因，零数据完整性问题）**：①ident 保大小写→重建 DDL；②索引名带空格→消毒＋IF NOT EXISTS；③Polygon/MultiPolygon→`-nlt`；④python I/O 写法→修＋幂等重跑；⑤查询级猜错两处（name_chn 列名、::text cast）→重跑；⑥＝观察⑤（LOG 级）。
 
-**收尾与现状**：容器 /tmp 清空；宿主 `/tmp/pg32b-load`（DDL/对账/报告小件审计物，无数据本体）入账后已 rm（再生法＝本节管线）；**cbdb 库 1,543MB、84 表（public 81＋chgis 3）、索引 321、总行数 5,623,075＋19,578＋44,189＝5,686,842**。第二批挂账不变：Hartwell 29302（5,333 文件）、ADDR_XY/ZZZ、CHGIS 其余层（可补桥余 3,871）。
+**收尾与现状**：容器 /tmp 清空；宿主 `/tmp/pg32b-load`（DDL/对账/报告小件审计物，无数据本体）入账后已 rm（再生法＝本节管线）；**cbdb 库 1,543MB、84 用户表（public 81＋chgis 3；另工具自带辅表 2——`public.spatial_ref_sys`＝PostGIS 自带、`ogr_system_tables.metadata`＝GDAL/ogr2ogr 自带，pg_tables 非目录总计 86 实测归位）、索引 321、总行数 5,623,075＋19,578＋44,189＝5,686,842**。第二批挂账不变：Hartwell 29302（5,333 文件）、ADDR_XY/ZZZ、CHGIS 其余层（可补桥余 3,871）。
 
 ---
 

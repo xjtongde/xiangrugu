@@ -157,3 +157,11 @@ dump 的生成与调度／备份文件落盘（NAS／nas-mirror 大盘）／端�
 - **方法＝增量层重建**（基座 21 包不重拉）：`docker tag 06ad5ef6a527 pg32b-base:18-pgdg` 钉基座锚（防同名 tag 自叠层）→ `Dockerfile`：`FROM pg32b-base:18-pgdg` ＋ `apt-get install --no-install-recommends gdal-bin`（PGDG 官方源浮动，政策同 21 包）＋ `LABEL pg32b.loader` 来源注记 → compose 增 `build: context: .`（部署目录自包含可重建）→ `.dockerignore` 排除 `.env/data/README`（**凭据不入构建上下文**）。
 - **执行与核查（九点全过）**：build 成功——实装 **gdal-bin 3.13.2+dfsg-1.pgdg12+1**（与 F-13 探查之 PGDG 候选版本逐字全同）；`up -d` → **healthy t=6s**；新镜像 `d562e436…`＝基座＋1 层、**增量仅 +42MB**（"libgdal 已随 postgis 在基座"预判兑现）；`ogr2ogr --version`＝**GDAL 3.13.2 "Iowa City"**；驱动三件套实测在列——**ESRI Shapefile（rw＋uv，含 `.shp.zip` 直读，免先解包）**／CSV／**PostgreSQL/PostGIS（rw）**＝**§10 真缺口①销案，CHGIS 空间腿入口已通**；服务器面分毫未变（18.6／available 81 项／仅 plpgsql／shared_buffers 512MB／datadir 55M／TZ 逐秒一致／基座 label `pg36.*` 原样完整）；`shp2pgsql` 仍无（gdal-bin 单件政策——ogr2ogr 足覆，如需另裁）。
 - **观察注记（非本批所致，如实记不猜因）**：收尾核验时 **36 不可达**（ping 100% 丢包＋ssh No route to host，22:22 实测两度）；本批对 36 **零写操作**（仅 17:10 只读 save/inspect，当时核实无恙）；pg36 运行态**待 36 恢复后核验**，核验项＝`docker inspect pg36` healthy＋`pg36-full` ID 仍 `06ad5ef6…`。
+
+## §12 首批装数建成（2026-09-24 夜开工令"同意，另外你要考虑到32主机的压力"；执行明细唯一展开＝`docs/cbdb-load.md` §13，本节只记实例级事实）
+
+- **实例内新增 `cbdb` 库**：84 表（public 81＝CBDB 78＋小件 3；chgis 3 空间层）；总行 **5,686,842**（CBDB 5,623,075 **三方对账零差异**＋CHGIS 19,578 要素＋TSV 44,189）；索引 321（public 315 含官方 2024-02 版 308 条 DDL 迁移＋FK 补 6＋postgis 自带 1；chgis 6＝GiST3＋PK3）；PostGIS 3.6.4 启用；库大小 **1,543MB**（data 目录 56M→约 1.6G）；桥验证（chgis_pt_id join 7,125／ST_Within 跨腿三点）与性能探针（exists 0.124s vs sqlite 时代 >60s）全过。
+- **compose 新增 `cpu_shares: 512`**（用户压力令：生产容器默认 1024，pg32b 争抢时 2:1 让路、空闲不限速；`up -d` 秒级重建、healthy 复证；回退＝删行再 up）。
+- **压力实测**：施工 23:48–00:24 共 36 分钟（预算 2.5h 之 24%）；峰值 loadavg 1.87（闸门阈 4.0 未触）；**pg32 生产全程 healthy＋canary 查询 0.092→0.089s 零劣化**——共存实证通过。
+- **观察**：reload 触发 LOG "postgresql.conf contains errors; unaffected changes were applied"＝**镜像 entrypoint 固有怪癖**（restart-needed 参数之 conf 文件初始值 vs 命令行运行值分歧，任何 reload 皆触发；参数应用实测不受碍），无害；pg32 同血统潜伏（从未 reload、0 命中）；pg36 同构候恢复后核。
+- 36 仍不可达（本批 00:21 ssh Connection timed out 实测）——§11 pg36 核验项仍挂。

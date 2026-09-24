@@ -142,8 +142,49 @@ F-13（装数四问之①③④由本方案差异项承接裁决；②靶机改�
 - 编码旧案：lists.osgeo.org pipermail postgis-devel #1303
 - CBDB 学术描述：OpenHumanitiesData《CBDB: A Relational Database for Prosopographical Research of Pre-Modern China》（2022）
 
-## §13 执行记录（开工后追加）
+## §13 执行记录（2026-09-24 23:44 开工令"同意，另外你要考虑到32主机的压力"→23:48–00:24 施工，历时约 36 分钟＝预算 2.5h 之 24%；全程 ssh heredoc、顺序单流零并行、宿主侧进程 nice/ionice 全程）
+
+**Step 0 复核＋基线（23:48）**：pg32b healthy、cbdb 库无（＝全新建）；`/` 余 195G、镜像盘余 829G、data 56M；货七件点名 OK＋`sha256sum -c` **13/13 成功 0 失败**；压力基线＝loadavg **0.11**／avail 5.5G／PSI-cpu some 0.57／PSI-io some 4.04／pg32 healthy＋canary `select 1` **0.092s**；**compose ＋`cpu_shares: 512`**（`config -q` 过→`up -d` 秒级重建→healthy、shares=512 实测；生产容器默认 1024＝争抢时 2:1 让路；pg32 实测 CpuShares=0 即默认 1024）。
+
+**Step 1 建库**：`CREATE DATABASE cbdb ENCODING 'UTF8' TEMPLATE template0`＋`CREATE EXTENSION postgis`（**3.6.4**）＋`CREATE SCHEMA chgis`；实测 `cbdb UTF8 en_US.utf8`；实例 datname 四项（postgres/template0/template1/cbdb——无野库）。
+
+**Step 2 腿 A（78 表）**：
+- DDL＝sqlite_master＋pragma table_info 生成（§4.2 映射落地：INTEGER→bigint／TEXT→text／VARCHAR(n)→varchar(n)／REAL→double precision／NUMERIC→numeric／BLOB→bytea；无任何约束），78 表 **736 列**，特殊须引号标识符＝**0**（保留字表零命中）；sqlite 以 `mode=ro&immutable=1` URI 只读直开 NAS cifs 件（网络文件系统锁规避）。
+- **事件①（自制，当批即决）**：首版 `ident()` 正则只放行小写→全大写表名被加引号保大小写，`\copy`（折叠小写）报表不存在，ON_ERROR_STOP 即停——**零数据入库**（\copy 原子），78 表全 DROP 重建（普通名直通不引号，任 PG 折叠小写）；复证：表名小写实测、biog_main 55 列全小写、空流 canary `COPY 0` 正常。
+- COPY 循环：python3 标准库管道（TSV；NULL→`\N`、BLOB→`\\x`hex、`\t\n\r\\` 转义、NUL 保险丝、float 用 repr 保往返）→`docker exec -i psql -Atc "\copy … FROM STDIN"` 逐表；**78/78 表成功、146 秒**。
+- **三方对账：sqlite count＝＝COPY count＝＝PG count，78/78 表零差异，三方总数全同＝5,623,075**（＝cbdb.md §9 官方总行数逐位全同）。大表实录：BIOG_SOURCE_DATA 1,254,135／BIOG_MAIN 661,969（＝家中账参证）／POSTED_TO_OFFICE_DATA 591,518／POSTING_DATA 591,487／KIN_DATA 562,711／POSTED_TO_ADDR_DATA 465,284／BIOG_ADDR_DATA 461,637／ENTRY_DATA 264,975／ALTNAME_DATA 208,828／ASSOC_DATA 190,048／ADDR_CODES 30,157（＝参证）；空表 3（admin_cat_code_type_rel／admin_cat_types／social_institution_altname_data——**源库本空非装失**）。全表行数清单＝审计件 copy-counts.tsv（已随 §13 归档后清理，再生法＝本节管线）。
+- 索引：源＝**官方 2024-02 档案件**（镜像盘 `harvard-full/doi_10_7910/DVN/PAGGQS/CBDB_20240208_sqlite.db` **只读取 schema**——0919 活库直出件天生无显式索引即账载"370→0"缺项，§4"实测条数为准"条款触发；非数据装载，原树备份语义未破）；解析：方括号标识符＋CRLF 归一、COLLATE NOCASE 剥除、名 63 字节截断＋去重。
+  - **账目吻合**：官方 **370**＝**可套用 308**＋no-table **46**（ADDRESSES 6／SOCIAL_INSTITUTION_CODES_CONVERSION 4／OFFICE_TYPE_TREE_backup 4／DATABASE_LINK_DATA 4／TMP_INDEX_YEAR 3／TablesFields 3／ADDR_XY 3／FormLabels 2／ForeignKeys 2／DATABASE_LINK_CODES 2／CBDB_NAME_LIST 2／APPOINTMENT_TYPE_CODES 2／ADDR_PLACE_DATA 2／PLACE_CODES 1／OFFICE_CODES_CONVERSION 1／CopyTables 系 5）＋col-drift **16**（ASSOC_CODE_TYPE_REL_PrimaryKey・ASSOC_CODE_TYPE_REL_type_id・ASSOC_TYPES_PrimaryKey・ASSOC_TYPES_type_id＝c_assoc_type_id×4；ENTRY_DATA_c_nianhao_id；EVENTS_ADDR_PrimaryKey・EVENTS_ADDR_c_event_record_id・EVENTS_DATA_c_event_record_id＝c_event_record_id×3；EXTANT_CODES_c_extant_hd_code；OFFICE_TYPE_TREE_c_office_tts_id；POSTED_TO_OFFICE_DATA×2＝c_appt_type_code；TEXT_CODES×4＝c_pub_country/c_pub_dy/c_pub_nh_code/c_pub_range_code——**与 cbdb.md 在账漂移例逐字互证**）＋complex **0**。**308 vs 账载 307 差 1**（apply/no-table 口径边界；本批 308 条经表在＋列在机械校验后方采用，更稳）。跳过 62 条＝**人工复核清单全列如上，无静默丢**（验收②）。
+  - **事件②**：官方索引名带空格（`[ALTNAME_DATA_Primary Key]`，Access 血统）→首跑 PG 语法错即停（已写 6 条）；修＝名消毒（非法字符→下划线，3 条）＋全量 `IF NOT EXISTS` 幂等重放（6 条 NOTICE skip 实测，无重复建）。
+  - FK 补建 **6** 条（`c_*id` 未被官方索引首列覆盖之机械推定）：assoc_data.c_tertiary_personid／assoc_data.c_assoc_claimer_id／biog_main.c_index_year_source_id／entry_data.c_entry_nh_id／**merged_person_data.c_personid／merged_person_data.c_merged_from_personid**（后二＝0919 新表官方索引全缺，推定正好补上）。
+  - 执行：单会话 `SET maintenance_work_mem='256MB'`（压力令降档）＋314 条顺序，**36 秒**；`max_wal_size` **1GB→4GB（SHOW 前后实测）→RESET 复原 1GB 实测**；`ANALYZE` 7 秒；**pg_indexes：public＝315**（308＋6＋postgis 自带 `spatial_ref_sys_srid_idx` 1）**＋chgis＝6**（GiST 3＋ogc_fid PK 3）。
+- 腿 A 毕库 1,459MB；闸门复测 loadavg 1.56（全程峰值 1.87＜阈 4.0）、pg32 canary 0.089s（基线 0.092 零劣化）。
+
+**Step 3 腿 B（CHGIS 三层）**：docker cp 三 zip→容器 /tmp→`ogrinfo -so -al /vsizip/` 探明＝**pref_pgn 3,830 Polygon／pref_pts 5,226 Point／cnty_pts 10,522 Point**、三层皆 EPSG:4326；ogr2ogr 顺序×3（`-nln chgis.v6_* -lco GEOMETRY_NAME=geom -lco PRECISION=NO --config SHAPE_ENCODING UTF-8`、容器内 nice）。
+- **事件③**：pref_pgn 首跑败——层申报 Polygon 而含 MultiPolygon 要素（时间切片多部件面），PG typmod 拒、COPY 原子回滚（**建表都未留下**）；修＝**`-nlt MULTIPOLYGON`**（忠实升型无损）重跑 2 秒成。
+- 对账：**三层行数＝＝ogrinfo 要素数（5,226／10,522／3,830），县点＝家中账标答 10,522 逐位全同**；geometry_columns 实测三层 srid=4326（POINT/POINT/MULTIPOLYGON）；GiST 三键在；**中文零乱码**（"定羌军／保德军／保德州""辽州/州""沁州/州"实录）；容器 /tmp 三 zip `rm`（零残留实测）。
+
+**Step 4 腿 C（三小件）**：python csv（utf-8-sig／tab／双引号）→全 text DDL（**中文列名 53 个带引号原样入库**）→`\copy` 管道；**quan_yuan_wen_index 5 列 40,199 行／academies_2957 54 列 2,957 行（行数＝表名自证）／missionary_writings 11 列 1,033 行——三表 src＝＝COPY＝＝PG 零差异**；样本"城南書院｜宋紹興三十一年（1161）｜長沙"零乱码；空字段＝空串保真（不判 NULL，§6 口径落地注记）。**事件④**：首版脚本 stdin 关闭后调 communicate() 踩闭合文件——修写法＋三表 DROP→CREATE 幂等重跑（首跑仅建 1 空壳表，零数据残留）。
+
+**Step 5 验收七项（全过）**：
+- ① 腿 A 78/78 三方零差异＋总数 5,623,075 ✓
+- ② 索引三数吻合：370＝308＋46＋16＋0；PG 侧 315＋6 实测；人工复核清单 62 条全列 ✓
+- ③ 腿 B 三层对账＋标答 10,522＋GiST 三键＋中文无恙 ✓
+- ④ 腿 C 三表对账 ✓
+- ⑤ **桥验证两发**：(a) `addr_codes.chgis_pt_id`（非空非零 **10,996**/30,157）↔`v6_pref_pts.sys_id`＝**997**、↔`v6_cnty_pts.sys_id`＝**6,128**、**两层并 7,125（64.8%）**——主靶县点；余 3,871 指向未装层/时间片 ID（第二批可观察；两侧 bigint 同型直 join，官方索引 `addr_codes_chgis_pt_id` 现成）。**事件⑤**：首试误加 `::text` cast 报 text=bigint——复跑修正。(b) `ST_Within` 三点实弹（**腿 C text→float→腿 B geometry 跨腿桥**）："歷山書院｜濮州 (115.50,35.67)→**濮州**"语义直中、"濂溪書院｜合州→重庆府,重庆路"、"靈谷書院｜貴溪→信州,饶州,广信府等"；**x=经度/y=纬度实证**（hit_xy>0、hit_yx=0）；多命中＝时间切片面叠加（CHGIS 时序模型正常）；补发 addr_codes.x_coord/y_coord 三点："滿城→保定府""土默特右旗→承德州,朝阳府等""遼陽市→奉天府"（辽阳例与账载坐标污染提示相符——地理结论仍须按 cbdb.md 剔污染点，**引擎无恙**）。
+- ⑥ 对账总表＝本节 ✓
+- ⑦ 零触碰复核：pg32b datname 四项无野库；**pg32 healthy 全程＋canary 0.092→0.089s 零劣化**（闸门五测）；**36 不可达（ssh Connection timed out 实测）＝零触碰天然成立**；postgres 库未动 ✓。
+
+**性能探针（加测）**：cbdb.md 在账之 sqlite 时代"60 秒未出"同款相关 exists（addr_codes×biog_addr_data＝30,157×461,637）→**本库 0.124 秒出 8,434**（约 500 倍，索引效力实证）。
+
+**压力防护实录（§8 六条全兑现）**：峰值 loadavg **1.87**／阈 4.0 未触；收工 0.03；pg32 canary 零劣化；cpu_shares 512 生效；nice/ionice 全程；顺序单流；夜间窗口 23:48–00:24。**宿主生产零感知。**
+
+**观察⑤（非本批故障，如实记）**：`pg_reload_conf()` 触发 LOG "configuration file … contains errors; unaffected changes were applied"（×2）——reload 实弹定位：镜像 conf 文件里 max_connections/shared_buffers 等 restart-needed 参数为初始默认值、运行值系 entrypoint 命令行所给，**任何 reload 皆触发此 LOG＝镜像 entrypoint 固有怪癖，无害**（本批 max_wal_size 1→4→1GB 每步 SHOW 实测生效）；pg32 同血统潜伏（从未 reload，log 0 命中）；pg36 同构，候恢复后核。
+
+**事件账总（六起，全自制全决全披露；库 log 10 条 ERROR/LOG 全数归因，零数据完整性问题）**：①ident 保大小写→重建 DDL；②索引名带空格→消毒＋IF NOT EXISTS；③Polygon/MultiPolygon→`-nlt`；④python I/O 写法→修＋幂等重跑；⑤查询级猜错两处（name_chn 列名、::text cast）→重跑；⑥＝观察⑤（LOG 级）。
+
+**收尾与现状**：容器 /tmp 清空；宿主 `/tmp/pg32b-load`（DDL/对账/报告小件审计物，无数据本体）入账后已 rm（再生法＝本节管线）；**cbdb 库 1,543MB、84 表（public 81＋chgis 3）、索引 321、总行数 5,623,075＋19,578＋44,189＝5,686,842**。第二批挂账不变：Hartwell 29302（5,333 文件）、ADDR_XY/ZZZ、CHGIS 其余层（可补桥余 3,871）。
 
 ---
 
-**状态：方案已立，候开工口令（"同意"＝差异项九条默认全按本案）。**
+**状态：首批已执行完毕（2026-09-25 00:24 验收七项全过，执行记录＝§13）；第二批候另令。**

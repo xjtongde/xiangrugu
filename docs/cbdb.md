@@ -45,12 +45,21 @@
 | **2026-05（RDH 项目综述，官方）** | **657,909** | 官方自述"individuals" |
 | 2026-09-19（家中 sqlite 快车道件，台账实测） | 661,969 | `BIOG_MAIN` **表行数**（含非人物行可能，≠官方人数口径） |
 
+**官方首页对外口径的沿革时点（2026-09-25 由本轮 Wayback 快照逐点自证，非二手转述）**：
+2017-12-30 快照 **370,000** → 2019-06-06 快照 **427,000** → 2021-06-13 快照 **491,000** → 2022-09-29 快照 **521,442** → 2023-06-10／2023-09-15 快照 **529,560** → 2024-02-01／2024-06-01 快照 **535,181** → **2024-09-13 快照 641,568** → 2025-09-24 下载页快照 **`CBDB_bi_20250520`／649,533** → 2026-08-25 快照 **657,909**。
+- **由此可得的一条硬结论**：官方人数 535,181→641,568 的那 **10.6 万跳升，落在 2024-06 与 2024-09 之间**（快照上下夹逼，比"2024 年某时"精确）。与本地两版对账"内容在长"（§九 9.3：`BIOG_MAIN` 535,181→661,969，**+23.7%**）同向，且**起点值完全一致**——535,181 既是 2024-06 官方人数，也是本地 2024-02 sqlite 的表行数，**两处同数纯属同一批数据的两副面孔，仍不得混作同一口径**（§四口径纪律照旧）。
+- ⚠ **未采信项**：上游研究笔记称 2011-01-06 H-ASIA 公告有"2010-12-23 版收录 94,000 人"及各门类分解数；本轮该邮件存档**取回为空**，**未自证，故不入本表**（沿革叙述见 wiki 外围层 [[CBDB-来龙去脉]]，标 ⚠）。
+- ⚠ **同一页面上的并存旧数**：官方首页快照中除"individuals"外长期另有 **190,000 people** 一行（2017/2019/2021/2022 四快照皆然）——该数与"individuals"并存且十余年不动，**官方未说明两者关系**；引用"官方人数"时必须指明是 `individuals` 那一行。
+
+
 > 口径纪律：**官方"人数"与本地"表行数"不同义**，跨时点比较须同时标注时点与口径。（`POSTED_TO_ADDR_DATA` 两制式 46.5 万 vs 185.3 万一事 **2026-09-23 已查清**：系《縉紳錄》逐年名录制式 vs 任期区间制式之别，**非缺料**——明细见 §九 9.1。）
 
 ## 五、获取通道（项目侧，本地副本见 codemap）
 
 1. **在线查询系统**：官方项目站（`https://cbdb.hsites.harvard.edu/`，另有 `projects.iq.harvard.edu/cbdb` 项目页）——机器访问被 Akamai 403 拦，人工浏览用。
 2. **API / REST**：官方接口（另有上海图书馆镜像接口文档，N-01 记 ⚠ 未实测）。
+   - **现行双轨（2026-09-25 直采官方主服务器仓 `API.md`）**：基底 `https://input.cbdb.fas.harvard.edu`；**v1 与 v2 并行可用**；v2 读端点 `GET /api/v2/persons`（全量／增量同步人物 ID 与修改时间）、`GET /api/v2/operations`（操作记录与提案，含审核状态），写端点 `POST /api/v2/create|mutate|delete|batch_mutate`；返回体 v2 为 `ok`+`data`／`resource` 制式。**这是"官方允许程序化增量同步"的一手凭据**（我们的取数节奏若要从"整库快照"升级为"增量"，路径在此，不必等官方发档）。⚠ 令牌与配额未实测。
+   - **官方 MCP 桥**：`github.com/cbdb-project/CBDB-CHGIS-MCP`（2025-06-17 建仓）——`chgis/chgis.py` 调 `http://tgaz.fudan.edu.cn/tgaz/placename`、`cbdb_addr/cbdb_addr.py` 调 `https://input.cbdb.fas.harvard.edu/api/place_list`。**官方自己把 CBDB↔CHGIS 的地址桥做成了 MCP 服务**（详见 §九 9.4(7) 末与 wiki 外围层 [[CHGIS-姊妹项目速览]]）。
 3. **可下载单机库**：MS Access 与 SQLite 两种制式，分两条官方通道：
    - **Dataverse 档案道**（可 DOI 引用；`dataverse.harvard.edu/dataverse/cbdb`；"ACCESS and SQLite DB Version (latest)"集 DOI `10.7910/DVN/PAGGQS`，v8.0，官方页 Updated 2026-06-16）；
    - **HuggingFace 快车道**：`https://huggingface.co/datasets/cbdb/cbdb-sqlite`——**Dataverse 该集摘要原文点名**其为"the weekly updated SQLite database"官方下载源；仓根 `latest.json`＋`latest.zip`＋`latest_ZZZ_tables.7z`（ZZZ 预连接宽表单独包）＋`history/` 历史档。
@@ -187,6 +196,13 @@
 | **11167** | 登州 | **112.08 / 32.68** | **错（指到鄂西北，偏 10.07°）** | **6** | **23** |
 
 另 `c_admin_type` 大小写混用（`Xian` 13,687 / `xian` 1,727）。
+
+**（7a）`CHGIS_PT_ID` 这座桥的真实强度（2026-09-25 外部一手核证，直接影响 GIS 口径）**：
+- **官方从未定义该字段的语义**：`cbdb-online-main-server`（develop）`docs/DATABASE_SCHEMA.md` 第 **93** 行只给 `int(11) / YES / NULL / 无注释`（SQLite 镜像第 2519 行同）；《CBDB User's Guide》全文 **0 次提及**该字段。→ **凡"该字段对应 CHGIS 某版本"的说法都是使用者自行假定**（我们家中配对的 `chgis-v6` 属此类，须按假定对待，不可写成官方指定）。
+- **桥的落地形式是 TGAZ，不是直接查 CHGIS**：`TGAZ ID = "hvd_" + CHGIS pt_id`（一手：TGAZ 记录 `sys_id` 实例 `hvd_32180`／`hvd_40708`，本轮实测 200 在位）。现行可用主机 `chgis.hudci.org/tgaz/` 与 `tgaz.fudan.edu.cn/tgaz/`；**`maps.cga.harvard.edu` 记录级 URL 已 404**（2026-09-25 实测）。→ **依赖在线端点的任何代码都要备两份镜像主机＋自建底图**（官方 CBDB 自己就是这么做的：`docs/CHGIS_MAP_PLACE_LINK.md` 记其把 CHGIS 底图下载为自持 mbtiles，TMS／EPSG:3857／zoom 3–8／15,715 瓦片）。
+- **一对多与"双胞胎记录"是本桥的固有性质**：官方机制＝**通名一变即产生新唯一记录**（CHGIS Database Design 官例 崇德县→崇德州→崇德县 记 3 条）；本轮 TGAZ 实测 `n=太平&yr=1100` 命中 **8 条**、`n=宜春&yr=742` 出现**名称／类型／起止年全同而上级一空一有**的两条（`hvd_32568`／`hvd_97129`）。而 CBDB 侧只有一个整数，**装不下一对多**。
+- **官方自认两源坐标互相矛盾且不自动裁决**（一手，同一仓）：迁移 `2026_09_14_000000_normalize_zero_coordinates_in_addr_codes.php` 头注——生产环境 **316 列 `0,0` 已于 2026-09-14 经 v2 API 清理，其中 12 列从 CHGIS 回复出真实坐标**；`CoordinateZeroCleanupService.php`——"**不尝试从 CHGIS 回填坐标**…（3 列取自共用同一 `CHGIS_PT_ID` 的既有列、9 列取自 CHGIS gazetteer）…需要逐列判断**两个来源不一致时取哪个**"；另记 **14,297 列本就是 NULL**。→ 与本地 (7) 表"按 `addr_id` 清洗、不可按地名合并"的既定结论**互相印证**，并新增一条硬事实：**多行 CBDB 地址可共用同一 `CHGIS_PT_ID`**（故由 pt_id 反查地址是一对多）。
+- 本地实测数（家中 `cbdb_20260919`）：`ADDR_CODES` 有 `CHGIS_PT_ID` 者 **10,996／30,157（36.5%）**。→ **桥只覆盖三分之一**，任何"人人可上图"的设想都不成立，须显式处理无值分支。
 
 **（8）参考完整性（本批全查，干净）**：`KIN_DATA`／`ASSOC_DATA`／`STATUS_DATA`／`ENTRY_DATA`／`ALTNAME_DATA`／`POSTED_TO_*`／`BIOG_*` 对 `BIOG_MAIN` 及各代码表的悬空引用**均为 0**；`MERGED_PERSON_DATA` 5,920 行指向已合并旧 id（符合语义）、12 行 `c_personid` 不在主表（轻微异常）。空表 3 张（`ADMIN_CAT_CODE_TYPE_REL`／`ADMIN_CAT_TYPES`／`SOCIAL_INSTITUTION_ALTNAME_DATA`）。
 

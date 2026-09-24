@@ -21,6 +21,17 @@
 
 ## 在册
 
+### B-04 Gitea 1.27.1 wiki **API 单页读对 CJK 页名一律 404**（`GET /wiki/page/{名}` 只认 ASCII 名）
+- 开账日期 / 状态：2026-09-25 / **挂账**（外部软件缺陷，非本项目代码；绕行已成例，**修复须用户口令**——R-01）
+- 症状与复现路径：同一令牌、同一仓（`deepseekharness/xiangrugu`）——
+  1. `GET /api/v1/repos/{o}/{r}/wiki/page/Home` → **200**，正文在 `content_base64`；
+  2. `GET …/wiki/page/CBDB-来龙去脉`（URL 编码）→ **404**；改传列表接口 `GET …/wiki/pages` 返回的**精确 `sub_url` 百分编码**（`CBDB-%E6%9D%A5…`）仍 **404**；`数字人文名词抄`／`好主意讨论区` 同；
+  3. 对照 `git ls-tree -r HEAD` 与 `GET /wiki/pages`：**文件确实存在、页面确在注册表内**——非数据缺失，纯系该路由的页名解析／编码匹配未过 CJK。
+- 根因分析：**未取上游源码核证**（本仓零依赖该实现）。依实测现象推断＝路由把传入 `pagename` 与内部 `WikiName` 的比较做了未解码／未归一化的字符串等值判定，CJK 与含 `-` 的名必失配。⚠ 与 B-03 同源（同一控制器族），**可能一次升级同时修两条，也可能都不修**。
+- 影响面：**只有"经 API 读单页正文"这一条**——`GET /wiki/pages`（列页）、`POST /wiki/new`、`DELETE /wiki/page/{名}`（删，含 CJK 名，实测 204）均不受影响；git 通路不受影响；网页浏览由真人会话不受影响。**后果**：外围层"写完即无法用 API 回读校验"，本层页面内容的一致性核查只能靠 git 工作副本（现已按此办理）。
+- 候选方案：① **维持现状**（回读一律用 git 克隆 ＋ `GET /wiki/pages` 列表；API 只用于列页与删除）——已实行；② 升 Gitea 后复测（同 B-03，属 35 主机服务变更，须口令）；③ 上游报 issue（**同 D-02，须口令**）。
+- 关联：通路账＝`docs/codemap.md` §2 同页（"单页读"条目已就地记此限制）；B-03（同族 API 缺陷）。
+
 ### B-03 Gitea 1.27.1 wiki **API 写正文失效**（建页丢 content、改页错名成 `unnamed`）
 - 开账日期 / 状态：2026-09-25 / **挂账**（外部软件缺陷，非本项目代码；绕行已成例，**修复须用户口令**——R-01）
 - 症状与复现路径：以 `deepseekharness` 令牌调 `POST /api/v1/repos/deepseekharness/xiangrugu/wiki/new`，body `{"title":"Home","content":"…","message":"…"}` → **201 建页成功但 `Home.md` 落盘为 0 字节**（API 回读 `content_base64` 亦空）；再调 `PATCH …/wiki/page/Home` 携 `content` → **200 但新建了 `unnamed.md`**（页名丢失、正文同样未入）。复现＝任意 wiki 写正文请求。旁证：`OPTIONS` 实测本实例 wiki 面路由为 `POST /wiki/new`（`Allow: POST`）、`GET/PATCH/DELETE /wiki/page/{name}`、`GET /wiki/pages`——**与 Gitea 公开文档所载 `POST/PUT /wiki/pages[/{name}]` 路径不同**（后者实测 `Allow: GET`／路由不存在）。

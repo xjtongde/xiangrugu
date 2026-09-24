@@ -139,3 +139,12 @@ dump 的生成与调度／备份文件落盘（NAS／nas-mirror 大盘）／端�
 - **Step 4 装后核查（§5 九项全过）**：① `version()`＝**PG 18.6 (Debian 18.6-1.pgdg12+2)** 与 pg36 全同；② 冒烟库建→`postgis=3.6.4`＋`address_standardizer=3.6.4` 启用成（**移植后镜像完整性＋裁减遗留态复验通过**）→删库净；③ 参数九条逐一 `SHOW` 合案（512MB/8MB/128MB/2GB/50conn/preload pg_stat_statements/UTF8）；④ 时区＝标准 §9 **全规格三挂载实挂核验**（binds 三行含 `/etc/timezone:ro`；容器内外 `date` 逐秒一致、`Asia/Shanghai`——与 pg36 相反相成：32 无 B-02 据实全挂）；⑤ pg_hba 末行 `host all all all scram-sha-256`；⑥ 远程**负向**无密码拒（`fe_sendauth: no password supplied`）；⑦ 远程**正向**借 pg32 客户端（32→5433）答 **18.6**——版本差异即应答者系 pg32b 之铁证（32 本机 5432 系 pg32=18.4）；⑧ 运行时＝restart unless-stopped／shm 128mb／json-file 50m×5／healthcheck pg_isready／端口 `0.0.0.0:5433:5432`；⑨ **现有服务零影响**：基线 11 容器态逐项未漂移（pg32 healthy 依旧、nginx32 维持原 unhealthy 观察项）、`ss -tln`＝基线**＋5433 恰一行**、pg32b 空闲 79.3MiB／CPU 0.09%、`/` 用量仅＋~1G（镜像）。
 - **Step 5 收口**：本节＋三账联登（codemap §2 实例行＋§1.2 树、index 条目→已执行、F-14→已建成）；**交接素材（供另派备份 agent）**：连接法 `192.168.3.32:5433`（scram）／凭据＝32 `/opt/mydocker/pg32b/.env`（600，明文未出 32）／镜像 label 系 `pg36.*` 冠名如实（§7⑥）／回滚三步见 README。
 - **边界自检**：32 改动仅 `/opt/mydocker/pg32b/` 一处＋其容器/镜像/网络，pg32 与其网络/数据**零接触**；36 全程只读（save/inspect）原件原服务无恙；本机零落盘零安装；标准 §13 清单逐项过（端口登记项归另派 agent，同 pg36 口径）。
+
+---
+
+## §10 完备性复勘（2026-09-24 建成后台次批，用户令"就pg32b这个库，查一下还缺少什么"；**全程只读**）
+
+- **箱内健全**：设置全合案（UTF8／scram／`listen *`／wal_level=replica／hot_standby=on／max_wal_senders=10／shared_buffers 512MB 实测＝65536×8kB）；pg_hba 八线清（远端一律 scram）；角色仅 postgres 超户（干净）；容器内客户端四件套 **18.6 全在**（pg_dump/pg_restore/pg_basebackup/pgbench——演练无需外出借件）；`pg_available_extensions` 81 项、34 点名逐项命中（唯 partman 实名 `pg_partman` 系查询笔误非缺）；数据目录 56M 新净。**日志 4 条 ERROR 系我方核查查询的引号笔误自伤，非服务器病**（如实记）。
+- **通路实测意外已通**：32 有 cron `/opt/mirror-nas.sh`（每日 12:00＋@reboot）把 NAS 镜像到本地大盘 `/mnt/nas-mirror/61/workmetadata/`——**`cbdb_20260919.sqlite3` sha256 前缀 `bde1bb8e…` 与官方/家中构建全同（586,485,760 字节分毫不差）**、`harvard-full` 374 文件全目在（目录时 2026-09-23 23:05）、`chgis-v6` 在。**故 CBDB 灌入腿在 32 本机＝零缺口**（python3.11 带 sqlite3 模块＋容器内 psql `\copy` stdin，工具链齐）。
+- **真缺口三条**：① **shapefile 装载器两无**——镜像内与 32 宿主均无 shp2pgsql/ogr2ogr（与 pg36 同源同像同缺）→ CHGIS 空间腿无入口；补法＝重建加 `gdal-bin`（PGDG 官方源）——**注意联动**：若欲保"与 pg36 同构"，36 镜像亦须同日加建（否则台⊃厂一步之遥，亦可接受）；② **pg_hba 无远端复制行**——仅当备份架构取"流式物理备库"时才是缺口（wal_level/hot_standby/senders 皆已就绪，只欠一行＋pg36 端配套）；属备份 agent 架构裁决；③ **无目标库**（仅 postgres）——恢复/直灌时 `--create` 即成，运行态非缺陷。
+- **备注**：archive_mode=off（若需连续 WAL 归档，属备份 agent 架构裁决项）；`pointcloud` 未装（"全功能"候选清单在列但 21 包终选未含，pg36 同——于史地数据用途非缺）。

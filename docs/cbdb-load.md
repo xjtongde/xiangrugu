@@ -152,7 +152,7 @@ F-13（装数四问之①③④由本方案差异项承接裁决；②靶机改�
 ### 12.2 CBDB 官方对"入 PG"的建议：**无（全文实证）**
 
 - 官方 HuggingFace 仓 `cbdb/cbdb-sqlite` 数据卡实抓：只有**下载点**（latest＋history）与**许可 CC BY-NC-SA 4.0**（与本账旧记一致），无任何迁移/入库指引。
-- **CBDB《User's Guide》全文已抓到**（M. Fuller，rev. 2021-10，**153 页**；harvard 直连 403 系服务器端反爬→改经 wayback 存档取 PDF、`pdftotext` 转文）：官方支持面＝序言原话 **Access（主制式）＋SQLite（"for quantitative researchers and Mac users"）**；另有历史附录《CBDB SQL Server Version》（CBDB_SS，SQL Server Express 平台，系绕 Access 文件大小限制之产物）；**全文检索 PostgreSQL/PostGIS/MySQL 命中＝0**——"官方无入 PG 指引"系全文实证，非推断。
+- **CBDB《User's Guide》全文已抓到**（M. Fuller 修订版，**153 页**；harvard 直连 403 系服务器端反爬→改经 wayback 存档取 PDF、`pdftotext` 转文。**版本注记（2026-09-25 补正）**：初录误标"rev. 2021-10"——扉页修订日期因字体编码在文本层丢失，PDF 元数据实测生成日 **2023-10-06**（Acrobat PDFMaker 17），据此补正为"2023-10 生成之修订版"；本件 8,531,184 B、sha256 `cab7d155…`，暂存开发机 /tmp（易失，正式归宿候用户令）。**NAS 另有官方 2018 版**：`harvard-full/doi_10_7910/DVN/P8U8RC/CBDB_Users_Guide_2018.pdf`（5,478,089 B、sha256 `bd1c7461…`，与 CBDB_aw_20180831 Access 包同树）——**本文档一切页码/行号引用皆钉 2023 修订版**，与 2018 版不通用）：官方支持面＝序言原话 **Access（主制式）＋SQLite（"for quantitative researchers and Mac users"）**；另有历史附录《CBDB SQL Server Version》（CBDB_SS，SQL Server Express 平台，系绕 Access 文件大小限制之产物）；**全文检索 PostgreSQL/PostGIS/MySQL 命中＝0**——"官方无入 PG 指引"系全文实证，非推断。
 - **含义**：CBDB→PG 无官方成例可循，本管线属自建——§7 对账验收七项即安全网（官方无指引处，以可复核对账代之）。
 
 ### 12.3 社区同类经验
@@ -166,7 +166,7 @@ F-13（装数四问之①③④由本方案差异项承接裁决；②靶机改�
 
 - PostgreSQL 18 官方文档 §14.4 Populating a Database：postgresql.org/docs/current/populate.html（经 web.archive 存档实抓全文）
 - PostGIS 3.6 官方手册第 4 章 §4.7（Loading Spatial Data）：postgis.net/docs/manual-3.6/using_postgis_dbmanagement.html（curl 实抓全文切片）
-- CBDB《User's Guide》（Fuller，rev. 2021-10，153 页）：harvard 直连 403（服务器端反爬）→经 web.archive.org/web/20240914131845 取 PDF 全文、本机 `pdftotext` 转文检索（临时文件仅在 /tmp，不入工作区）
+- CBDB《User's Guide》（Fuller 修订版，153 页，PDF 生成 2023-10-06——初录"rev. 2021-10"系误标已补正，见 §12.2 版本注记）：harvard 直连 403（服务器端反爬）→经 web.archive.org/web/20240914131845 取 PDF 全文、本机 `pdftotext` 转文检索（临时文件仅在 /tmp，不入工作区；正式归宿候用户令）
 - CBDB 官方 HF 数据卡：huggingface.co/datasets/cbdb/cbdb-sqlite（实抓）
 - 社区迁移指南：render.com《How to migrate from SQLite to PostgreSQL》、docs.netbird.io（pgloader 路）、github.com/open-webui/open-webui Discussion #21609（踩坑清单）
 - 编码旧案：lists.osgeo.org pipermail postgis-devel #1303

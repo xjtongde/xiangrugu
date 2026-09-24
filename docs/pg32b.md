@@ -148,3 +148,12 @@ dump 的生成与调度／备份文件落盘（NAS／nas-mirror 大盘）／端�
 - **通路实测意外已通**：32 有 cron `/opt/mirror-nas.sh`（每日 12:00＋@reboot）把 NAS 镜像到本地大盘 `/mnt/nas-mirror/61/workmetadata/`——**`cbdb_20260919.sqlite3` sha256 前缀 `bde1bb8e…` 与官方/家中构建全同（586,485,760 字节分毫不差）**、`harvard-full` 374 文件全目在（目录时 2026-09-23 23:05）、`chgis-v6` 在。**故 CBDB 灌入腿在 32 本机＝零缺口**（python3.11 带 sqlite3 模块＋容器内 psql `\copy` stdin，工具链齐）。
 - **真缺口三条**：① **shapefile 装载器两无**——镜像内与 32 宿主均无 shp2pgsql/ogr2ogr（与 pg36 同源同像同缺）→ CHGIS 空间腿无入口；补法＝重建加 `gdal-bin`（PGDG 官方源）——**注意联动**：若欲保"与 pg36 同构"，36 镜像亦须同日加建（否则台⊃厂一步之遥，亦可接受）；② **pg_hba 无远端复制行**——仅当备份架构取"流式物理备库"时才是缺口（wal_level/hot_standby/senders 皆已就绪，只欠一行＋pg36 端配套）；属备份 agent 架构裁决；③ **无目标库**（仅 postgres）——恢复/直灌时 `--create` 即成，运行态非缺陷。
 - **备注**：archive_mode=off（若需连续 WAL 归档，属备份 agent 架构裁决项）；`pointcloud` 未装（"全功能"候选清单在列但 21 包终选未含，pg36 同——于史地数据用途非缺）。
+
+---
+
+## §11 装载器补装执行记录（2026-09-24，用户令"那就装上吧"）
+
+- **范围裁定**：只动 pg32b（用户前令"现在不要考虑pg36"）；**36 的同构联动同建挂起候另令**（F-13 ③(a) 于 36 侧同款适用）——谱系自此分叉一层，README＋codemap 已注记。
+- **方法＝增量层重建**（基座 21 包不重拉）：`docker tag 06ad5ef6a527 pg32b-base:18-pgdg` 钉基座锚（防同名 tag 自叠层）→ `Dockerfile`：`FROM pg32b-base:18-pgdg` ＋ `apt-get install --no-install-recommends gdal-bin`（PGDG 官方源浮动，政策同 21 包）＋ `LABEL pg32b.loader` 来源注记 → compose 增 `build: context: .`（部署目录自包含可重建）→ `.dockerignore` 排除 `.env/data/README`（**凭据不入构建上下文**）。
+- **执行与核查（九点全过）**：build 成功——实装 **gdal-bin 3.13.2+dfsg-1.pgdg12+1**（与 F-13 探查之 PGDG 候选版本逐字全同）；`up -d` → **healthy t=6s**；新镜像 `d562e436…`＝基座＋1 层、**增量仅 +42MB**（"libgdal 已随 postgis 在基座"预判兑现）；`ogr2ogr --version`＝**GDAL 3.13.2 "Iowa City"**；驱动三件套实测在列——**ESRI Shapefile（rw＋uv，含 `.shp.zip` 直读，免先解包）**／CSV／**PostgreSQL/PostGIS（rw）**＝**§10 真缺口①销案，CHGIS 空间腿入口已通**；服务器面分毫未变（18.6／available 81 项／仅 plpgsql／shared_buffers 512MB／datadir 55M／TZ 逐秒一致／基座 label `pg36.*` 原样完整）；`shp2pgsql` 仍无（gdal-bin 单件政策——ogr2ogr 足覆，如需另裁）。
+- **观察注记（非本批所致，如实记不猜因）**：收尾核验时 **36 不可达**（ping 100% 丢包＋ssh No route to host，22:22 实测两度）；本批对 36 **零写操作**（仅 17:10 只读 save/inspect，当时核实无恙）；pg36 运行态**待 36 恢复后核验**，核验项＝`docker inspect pg36` healthy＋`pg36-full` ID 仍 `06ad5ef6…`。

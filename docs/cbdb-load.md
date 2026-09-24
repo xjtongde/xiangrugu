@@ -48,7 +48,7 @@
    - 标识符一律不加引号（全库小写化，与官方 PG 移植惯例一致）。
 3. **COPY 灌注**：逐表 `python3（sqlite SELECT * → COPY text 格式：NULL→\N，\、制表、换行转义，BLOB→\x十六进制）| docker exec -i pg32b psql -U postgres -d cbdb -v ON_ERROR_STOP=1 -c "\copy <表> FROM STDIN"`。
 4. **对账 A**：逐表 `count(*)` 双侧比对（78/78 全同方过）＋总行数对 5,623,075（以实测为准，差则逐表定位）。
-5. **索引**：sqlite `CREATE INDEX` 语句全量迁移（实测条数为准，账载 ≈307）；`COLLATE NOCASE` 剥除、表达式索引逐条核 PG 兼容性——**不兼容者列人工复核清单入报告，不静默丢**；会话级 `SET maintenance_work_mem='512MB'`（不动配置文件；32 可用内存 5.5G，安全）；补建＝官方索引未覆盖的 FK 命名列（`c_*id` 类）经目测后补，清单入报告；毕 `ANALYZE`。
+5. **索引**：sqlite `CREATE INDEX` 语句全量迁移（实测条数为准，账载 ≈307）；`COLLATE NOCASE` 剥除、表达式索引逐条核 PG 兼容性——**不兼容者列人工复核清单入报告，不静默丢**；索引段前依 PG 官方 §14.4.5/6 临时提速：会话级 `SET maintenance_work_mem='512MB'`（不动配置文件；32 可用内存 5.5G，安全）＋ `ALTER SYSTEM SET max_wal_size='4GB'; SELECT pg_reload_conf();`（**2026-09-24 依官方建议补入**，见 §12；pg32b 专库无生产流量、盘余 196G，临时抬高安全），索引毕 `ALTER SYSTEM RESET max_wal_size; SELECT pg_reload_conf();` 复原（前后 `SHOW max_wal_size` 实测记录）；补建＝官方索引未覆盖的 FK 命名列（`c_*id` 类）经目测后补，清单入报告；毕 `ANALYZE`。
 
 ## §5 腿 B：CHGIS 空间三件（shapefile→PostGIS）
 
@@ -97,7 +97,48 @@ python3 `csv`（`utf-8-sig`、delimiter=`\t`、quotechar=`"`）读表头→生�
 
 ## §11 账目联动
 
-F-13（装数四问之①③④由本方案差异项承接裁决；②靶机改判 32 记录于 F-13）；pg32b.md（实例权威不动，本批只写库不改实例）；codemap（树行＋执行后实例行推进）；bugs（无涉）；执行记录＝本文档 §12（开工后追加）。
+F-13（装数四问之①③④由本方案差异项承接裁决；②靶机改判 32 记录于 F-13）；pg32b.md（实例权威不动，本批只写库不改实例）；codemap（树行＋执行后实例行推进）；bugs（无涉）；执行记录＝本文档 §13（开工后追加）。
+
+## §12 官方与社区经验对照（2026-09-24 开工前调研，用户令"查一下官方对入新库有没有什么建议？或者网上有没有其它人有类似经验"）
+
+### 12.1 PostgreSQL 官方《Populating a Database》（PG18 文档 §14.4）九条 vs 本方案
+
+| # | 官方建议 | 本方案对照 | 判定 |
+|---|---|---|---|
+| 1 | 关 autocommit／单事务批量提交 | 逐表 `\copy` 单命令＝单事务，天然满足 | ✓ |
+| 2 | **用 COPY 不用 INSERT**（大批量显著更快） | 腿 A/C 皆 `\copy … FROM STDIN` 管道；腿 B ogr2ogr PG 驱动内部即走 COPY | ✓ |
+| 3 | **先去索引、灌完再建**（"对已有数据建索引快于逐行随灌随建"） | §4 顺序＝COPY→对账→索引，正是官方顺序 | ✓ |
+| 4 | 去 FK 约束（百万行级触发器事件队列可溢出致败——官方原话"necessary, not just desirable"） | 保真策略本就不建 FK（差异项③）——**官方背书再加一层** | ✓ |
+| 5 | 增大 maintenance_work_mem（利 CREATE INDEX，对 COPY 本身无益） | §4.5 会话级 512MB，恰只在索引段用 | ✓ |
+| 6 | **增大 max_wal_size**（减少批量灌入的检查点次数） | **方案原缺→已修订补入 §4.5**（临时 4GB、毕即 RESET 复原、前后 SHOW 实测） | ✗→✓ 本批修订 |
+| 7 | 禁 WAL 归档/流复制（wal_level=minimal 等，**须重启**，且废既有基础备份） | **有意不采纳**：须重启实例＋破坏将来物理备库预案＋archive_mode 本就 off＋600MB 级收益小——差异如实记 | 不采纳（有据） |
+| 8 | 灌毕 ANALYZE | §4.5 末在案 | ✓ |
+| 9 | pg_dump/pg_restore 恢复要点（`-j` 并行、`-1` 单事务之取舍、恢复后取新基础备份） | → **指针给将来 36 迁移腿与备份 agent**（本批不用） | 指针 |
+
+**净结论：九条中七条本方案天然吻合、一条补入（max_wal_size）、一条有据不采纳（wal_level）——方案骨架与官方建议同向。**
+
+### 12.2 CBDB 官方对"入 PG"的建议：**无**
+
+- 官方 HuggingFace 仓 `cbdb/cbdb-sqlite` 数据卡实抓：只有**下载点**（latest＋history）与**许可 CC BY-NC-SA 4.0**（与本账旧记一致），**无任何数据库迁移/入库指引**——官方发布面止于 SQLite/Access 两制式。
+- CBDB 用户指南 PDF 与 PostGIS 官方手册装载章节直抓未成（403 反爬／沙箱 DNS 挡，如实记）——不影响判定：前者系 Access/SQLite 使用说明（官方发行点已核无 PG 章节），后者之工具选择已在 32 本机实证（`ogr2ogr --formats` 三驱动在列）。
+- **含义**：CBDB→PG 无官方成例可循，本管线属自建——§7 对账验收七项即安全网（官方无指引处，以可复核对账代之）。
+
+### 12.3 社区同类经验
+
+- **sqlite→PG 大路工具＝pgloader**（Neon/Netbird/Render 三家迁移指南一致推荐）；其 Debian bookworm 有官方包。**本案不用**，理由：装它＝32 宿主系统改动（超实例边界须另令）；本管线 python3 标准库零新装、且类型映射/BLOB 十六进制/NULL 语义全可控。**备选地位记录在案**（若 78 表管道遇阻可裁启用）。
+- 社区踩坑清单（open-webui 迁移讨论等）：类型亲和性（sqlite 动态类型→PG 静态）、BLOB、标识符大小写、布尔表示——**本方案 §4.2 映射表逐条已覆盖**（INTEGER→bigint／BLOB→bytea hex／不引号全小写／无布尔列）。
+- **CBDB 专向入库项目：检索未见现成开源管线**（学术侧有 CBDB 关系库论文与 R/Python 访问包，皆非 PG 迁移）——与 12.2 互证。
+- CHGIS→PostGIS：编码系历史坑（PostGIS 邮件列表 2011 年 shp2pgsql 客户端编码旧案）——本方案选 **UTF-8 变体**从根上绕开 GBK；`/vsizip/` 直读、`-lco PRECISION=NO`（防属性数值截断）、GiST 自建，皆 GDAL/OGR 标准做法且驱动已本机实证。
+
+### 12.4 调研出处（引用为外部资料，内容以原文为准）
+
+- PostgreSQL 18 官方文档 §14.4 Populating a Database：postgresql.org/docs/current/populate.html（经 web.archive 存档实抓全文）
+- CBDB 官方 HF 数据卡：huggingface.co/datasets/cbdb/cbdb-sqlite（实抓）
+- 社区迁移指南：render.com《How to migrate from SQLite to PostgreSQL》、docs.netbird.io（pgloader 路）、github.com/open-webui/open-webui Discussion #21609（踩坑清单）
+- 编码旧案：lists.osgeo.org pipermail postgis-devel #1303
+- CBDB 学术描述：OpenHumanitiesData《CBDB: A Relational Database for Prosopographical Research of Pre-Modern China》（2022）
+
+## §13 执行记录（开工后追加）
 
 ---
 

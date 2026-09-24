@@ -117,10 +117,10 @@ F-13（装数四问之①③④由本方案差异项承接裁决；②靶机改�
 
 **净结论：九条中七条本方案天然吻合、一条补入（max_wal_size）、一条有据不采纳（wal_level）——方案骨架与官方建议同向。**
 
-### 12.2 CBDB 官方对"入 PG"的建议：**无**
+### 12.2 CBDB 官方对"入 PG"的建议：**无（全文实证）**
 
-- 官方 HuggingFace 仓 `cbdb/cbdb-sqlite` 数据卡实抓：只有**下载点**（latest＋history）与**许可 CC BY-NC-SA 4.0**（与本账旧记一致），**无任何数据库迁移/入库指引**——官方发布面止于 SQLite/Access 两制式。
-- CBDB 用户指南 PDF 与 PostGIS 官方手册装载章节直抓未成（403 反爬／沙箱 DNS 挡，如实记）——不影响判定：前者系 Access/SQLite 使用说明（官方发行点已核无 PG 章节），后者之工具选择已在 32 本机实证（`ogr2ogr --formats` 三驱动在列）。
+- 官方 HuggingFace 仓 `cbdb/cbdb-sqlite` 数据卡实抓：只有**下载点**（latest＋history）与**许可 CC BY-NC-SA 4.0**（与本账旧记一致），无任何迁移/入库指引。
+- **CBDB《User's Guide》全文已抓到**（M. Fuller，rev. 2021-10，**153 页**；harvard 直连 403 系服务器端反爬→改经 wayback 存档取 PDF、`pdftotext` 转文）：官方支持面＝序言原话 **Access（主制式）＋SQLite（"for quantitative researchers and Mac users"）**；另有历史附录《CBDB SQL Server Version》（CBDB_SS，SQL Server Express 平台，系绕 Access 文件大小限制之产物）；**全文检索 PostgreSQL/PostGIS/MySQL 命中＝0**——"官方无入 PG 指引"系全文实证，非推断。
 - **含义**：CBDB→PG 无官方成例可循，本管线属自建——§7 对账验收七项即安全网（官方无指引处，以可复核对账代之）。
 
 ### 12.3 社区同类经验
@@ -128,11 +128,13 @@ F-13（装数四问之①③④由本方案差异项承接裁决；②靶机改�
 - **sqlite→PG 大路工具＝pgloader**（Neon/Netbird/Render 三家迁移指南一致推荐）；其 Debian bookworm 有官方包。**本案不用**，理由：装它＝32 宿主系统改动（超实例边界须另令）；本管线 python3 标准库零新装、且类型映射/BLOB 十六进制/NULL 语义全可控。**备选地位记录在案**（若 78 表管道遇阻可裁启用）。
 - 社区踩坑清单（open-webui 迁移讨论等）：类型亲和性（sqlite 动态类型→PG 静态）、BLOB、标识符大小写、布尔表示——**本方案 §4.2 映射表逐条已覆盖**（INTEGER→bigint／BLOB→bytea hex／不引号全小写／无布尔列）。
 - **CBDB 专向入库项目：检索未见现成开源管线**（学术侧有 CBDB 关系库论文与 R/Python 访问包，皆非 PG 迁移）——与 12.2 互证。
-- CHGIS→PostGIS：编码系历史坑（PostGIS 邮件列表 2011 年 shp2pgsql 客户端编码旧案）——本方案选 **UTF-8 变体**从根上绕开 GBK；`/vsizip/` 直读、`-lco PRECISION=NO`（防属性数值截断）、GiST 自建，皆 GDAL/OGR 标准做法且驱动已本机实证。
+- CHGIS→PostGIS **官方手册对照（PostGIS 3.6 Manual 第 4 章 §4.7 "Loading Spatial Data"，全文已抓）**：官方内建装载法两条——①SQL 语句（WKT/WKB 经 `psql -f`）②**shp2pgsql 装载器**（关键旗标：`-D` dump 格式＝COPY 快速模式，官方原话 "Use this for very large data sets"；`-I` 建 GiST；`-W` DBF→UTF8 编码转换；`-s` 指定 SRID；`-e` 逐句事务）。本方案之 **ogr2ogr＝GDAL 项目官方工具**（与 shp2pgsql 同属 PostGIS 生态、内部同走 COPY），功能覆盖上述要点：`.prj` 自动带 SRID 4326（≈`-s`）、GiST 自建（≈`-I`）、UTF-8 变体＋`SHAPE_ENCODING`（≈`-W` 且从根上免转换）、`/vsizip/` 直读 zip（shp2pgsql 所无）。**差异记录**：若须严格按手册原生工具，可加装 PGDG `postgis` 装载器包（F-13 ③(a) 候选，与 gdal-bin 同批可加）——默认不变（ogr2ogr 已本机实证三驱动在列）。编码历史坑（PostGIS 邮件列表 2011 年 shp2pgsql 客户端编码旧案）→本案 UTF-8 变体从根绕开 GBK。
 
 ### 12.4 调研出处（引用为外部资料，内容以原文为准）
 
 - PostgreSQL 18 官方文档 §14.4 Populating a Database：postgresql.org/docs/current/populate.html（经 web.archive 存档实抓全文）
+- PostGIS 3.6 官方手册第 4 章 §4.7（Loading Spatial Data）：postgis.net/docs/manual-3.6/using_postgis_dbmanagement.html（curl 实抓全文切片）
+- CBDB《User's Guide》（Fuller，rev. 2021-10，153 页）：harvard 直连 403（服务器端反爬）→经 web.archive.org/web/20240914131845 取 PDF 全文、本机 `pdftotext` 转文检索（临时文件仅在 /tmp，不入工作区）
 - CBDB 官方 HF 数据卡：huggingface.co/datasets/cbdb/cbdb-sqlite（实抓）
 - 社区迁移指南：render.com《How to migrate from SQLite to PostgreSQL》、docs.netbird.io（pgloader 路）、github.com/open-webui/open-webui Discussion #21609（踩坑清单）
 - 编码旧案：lists.osgeo.org pipermail postgis-devel #1303

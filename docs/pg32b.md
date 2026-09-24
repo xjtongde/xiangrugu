@@ -1,6 +1,6 @@
 # pg32b.md —— 32 主机新建 pg32b 实例施工方案（备份／恢复演练台）
 
-> **状态**：**已成案，候口令**（2026-09-24 成文；用户令"开工"后方施工——R-01）。
+> **状态**：**已执行（2026-09-24，"同意"令）——pg32b 建成、装后核查九项全过，执行记录＝§9**。
 > **用户令链**（裁决依据，照录不改写）：F-14 诉求"我想pg在35上也装一个" → "你看一下32，33，35那个更适合？" → "36上的那个镜像可以直接用吧？" → **"好，那就听你的建议在32机上装吧。"**（2026-09-24）——主机＝32 已裁；建议技术路线（复用 pg36 镜像／save-load 传输／让口 5433／参数缩配／新凭据）即照此成案，出入之处全数列 §7 差异项候裁。
 > **职责边界**（沿 pg36.md 卷首令）：本档只管**安装与装后核查**。备份文件的生成调度、端口／homelab 仓登记＝另派 agent（§8）。
 > **定位**：第三实例＝**备份／恢复演练台**（"另一个专门备份用"口径的具体化——用户如另有定位，口令时一并明示）。
@@ -25,6 +25,8 @@
 | 36↔32 ssh | **互不能直连**（host key 未建立——属系统配置，不建、不动）→ 传输走**本机管道中转**（§3），本机零落盘 |
 
 ## §2 七要素草案（落盘 `/opt/mydocker/pg32b/`＝compose＋.env＋README 三件）
+
+> **前向注（执行时勘正）**：以下草案 YAML **漏 `env_file:` 行**（compose 之 `.env` 仅变量替换、不注入容器环境）——首起即退、无副作用，修正后 6s healthy；**实盘件已含 `env_file: [ .env ]`**，全过程见 §9 执行记录。
 
 **docker-compose.yml**：
 
@@ -122,3 +124,18 @@ networks:
 ## §8 边界（本案不做）
 
 dump 的生成与调度／备份文件落盘（NAS／nas-mirror 大盘）／端口与实例进 homelab 仓登记／pg36 装数联动（F-13 另议）——均另派或另案。
+
+---
+
+## §9 执行记录（2026-09-24，开工＝用户令"同意"承接"在32机上装吧"）
+
+> 差异项六条（§7）全数默认照案（用户"同意"）。
+
+- **Step 0 冲突复核**（防漂移）：5433 空闲／`pg32b` 名空闲／`/opt/mydocker/pg32b` 目录空闲／网络空闲／镜像名两端无冲突；基线快照留存（11 容器态、端口 13 条、pg32 healthy、`/` 余 196G）。
+- **Step 1 镜像移植**：`ssh 36 docker save | ssh 32 docker load` 经本机管道直通**12.5 秒**、本机零落盘；**指纹两端全同 `sha256:06ad5ef6a527…`**；32 上 retag `pg32b-full:18-pgdg` 后原名删净（`docker images` 无杂 tag）；**36 原件核实无恙**（拷贝非移动）。
+- **Step 2 落盘**：`/opt/mydocker/pg32b/{docker-compose.yml, .env, README.md}`；`.env` 密码 32 现算（32 hex 位）600、**明文零外落**；compose 校验过。
+- **执行偏差一处（草案自身缺陷，如实记）**：§2 草案 YAML **漏 `env_file:` 行**——compose 之 `.env` 仅作变量替换、不注入容器环境，官方镜像缺 `POSTGRES_PASSWORD` 拒绝初始化即退（日志实证 `You must specify POSTGRES_PASSWORD…`；**副作用零**：未及 initdb、数据目录未触）。修正＝compose 补 `env_file: [ .env ]` 重建 → **6 秒 healthy**、initdb 正常首跑。续修 README 一处小疵（首写时块重定向只及末行，重写后 32 行全表 21 包齐）。§2 草案处已补前向注。
+- **Step 3 起容器**：healthy t=6s；数据目录 `…/data/postgres/18/docker` `drwx------` UID 999（PGDATA 约定与 §1 镜像账吻合；宿主 passwd 恰占 999 名"dnsmasq"系显示映射非异常）。
+- **Step 4 装后核查（§5 九项全过）**：① `version()`＝**PG 18.6 (Debian 18.6-1.pgdg12+2)** 与 pg36 全同；② 冒烟库建→`postgis=3.6.4`＋`address_standardizer=3.6.4` 启用成（**移植后镜像完整性＋裁减遗留态复验通过**）→删库净；③ 参数九条逐一 `SHOW` 合案（512MB/8MB/128MB/2GB/50conn/preload pg_stat_statements/UTF8）；④ 时区＝标准 §9 **全规格三挂载实挂核验**（binds 三行含 `/etc/timezone:ro`；容器内外 `date` 逐秒一致、`Asia/Shanghai`——与 pg36 相反相成：32 无 B-02 据实全挂）；⑤ pg_hba 末行 `host all all all scram-sha-256`；⑥ 远程**负向**无密码拒（`fe_sendauth: no password supplied`）；⑦ 远程**正向**借 pg32 客户端（32→5433）答 **18.6**——版本差异即应答者系 pg32b 之铁证（32 本机 5432 系 pg32=18.4）；⑧ 运行时＝restart unless-stopped／shm 128mb／json-file 50m×5／healthcheck pg_isready／端口 `0.0.0.0:5433:5432`；⑨ **现有服务零影响**：基线 11 容器态逐项未漂移（pg32 healthy 依旧、nginx32 维持原 unhealthy 观察项）、`ss -tln`＝基线**＋5433 恰一行**、pg32b 空闲 79.3MiB／CPU 0.09%、`/` 用量仅＋~1G（镜像）。
+- **Step 5 收口**：本节＋三账联登（codemap §2 实例行＋§1.2 树、index 条目→已执行、F-14→已建成）；**交接素材（供另派备份 agent）**：连接法 `192.168.3.32:5433`（scram）／凭据＝32 `/opt/mydocker/pg32b/.env`（600，明文未出 32）／镜像 label 系 `pg36.*` 冠名如实（§7⑥）／回滚三步见 README。
+- **边界自检**：32 改动仅 `/opt/mydocker/pg32b/` 一处＋其容器/镜像/网络，pg32 与其网络/数据**零接触**；36 全程只读（save/inspect）原件原服务无恙；本机零落盘零安装；标准 §13 清单逐项过（端口登记项归另派 agent，同 pg36 口径）。

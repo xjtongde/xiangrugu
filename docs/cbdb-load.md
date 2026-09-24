@@ -13,6 +13,7 @@
   - V6 三件皆 zip 内整包 shapefile（shp/shx/dbf/prj[+cpg/qpj]）；家中 `chgis-v6/SHA256SUMS.txt` 有县点/府点 utf_wgs84 zip 之 sha256，`VERIFICATION.md` 记**县点＝10,522 条**（对账标答）。
   - Hartwell 29302＝两 zip 共 **5,333 件**之多图层年代包（v1_2002/v5_2010）→ **缓办**（差异项①）。
   - 32 宿主无 unzip；容器有 python3？——容器无需：解压不需要（ogr2ogr `/vsizip/` 直读）；宿主 python3.11 带 sqlite3/csv 模块。
+- **装数工作集已立（2026-09-24 用户令"把我们要用的数据copy一份到usedata/harvard下……原来那些就当是下载的原数据备份"；落点经用户确认＝`/mnt/wd61workmetadata/usedata/harvard/`）**：首批数据 7 件＋随附 6 件共 **13 件/594MB** 拷入（32 从本地镜像盘读→写 NAS，单程网络）；核验三重全过——**sha256 双端全同**、府/县点与家中 `SHA256SUMS.txt` 全同（`48f6a50b…`/`3b431d2e…`）、sqlite＝官方 `bde1bb8e…`；本机侧实测 `sha256sum -c` **13/13 OK**；README 出生纸＋SHA256SUMS 在目录。**原树（cbdb-project/harvard-full/chgis-v6）自此降级＝原数据备份（只读，不用于装数）**；32 镜像脚本实核为 `rsync -a --delete` 纯镜像语义→**写必落 NAS 侧方持久**（落点判定依据），每日 12:00 同步后 32 可本地读 `/mnt/nas-mirror/61/workmetadata/usedata/harvard/`（装数优先本地镜像读）。
 
 ## §1 目标与角色
 
@@ -22,15 +23,15 @@
 
 ## §2 装载清单（首批）与缓办项
 
-| 腿 | 货 | 源路径（`/mnt/nas-mirror/61/workmetadata/` 下） | 落点 |
+| 腿 | 货 | 源路径（**装数工作集** `/mnt/wd61workmetadata/usedata/harvard/` 下；32 每日 12:00 同步后本地镜像 `/mnt/nas-mirror/61/workmetadata/usedata/harvard/` 同款，装数优先本地读） | 落点 |
 |---|---|---|---|
-| A | CBDB 0919 全 78 表（5,623,075 行账载） | `cbdb-project/cbdb_20260919.sqlite3` | `cbdb` 库 `public`（标识符不引号→小写，如 `biog_main`） |
-| B1 | V6 时序府面（政区多边形） | `harvard-full/doi_10_7910/DVN/I0Q7SM/v6_time_pref_pgn_utf_wgs84.zip`（29.7MB） | `chgis.v6_pref_pgn` |
-| B2 | V6 时序府点 | `…/WW1PD6/v6_time_pref_pts_utf_wgs84.zip`（0.3MB） | `chgis.v6_pref_pts` |
-| B3 | V6 时序县点 | `…/Q9VOF5/v6_time_cnty_pts_utf_wgs84.zip`（0.5MB，标答 10,522 条） | `chgis.v6_cnty_pts` |
-| C1 | 全元文索引（TSV，5 列） | `…/HTGBQ3/Index_of_the_Complete_Prose_of_the_Yuan_Dynasty_vol_1-60.tab` | `public.quan_yuan_wen_index` |
-| C2 | 2957 书院（TSV，约 12 列含经纬度） | `…/J6XRIV/ACADEMY_Data.tab` | `public.academies_2957` |
-| C3 | 传教士著作（TSV，10 列） | `…/CE4ZNG/writings of the 19c missionaries in China.tab` | `public.missionary_writings` |
+| A | CBDB 0919 全 78 表（5,623,075 行账载） | `cbdb/cbdb_20260919.sqlite3` | `cbdb` 库 `public`（标识符不引号→小写，如 `biog_main`） |
+| B1 | V6 时序府面（政区多边形） | `chgis/v6_time_pref_pgn_utf_wgs84.zip`（29.7MB，DOI I0Q7SM） | `chgis.v6_pref_pgn` |
+| B2 | V6 时序府点 | `chgis/v6_time_pref_pts_utf_wgs84.zip`（0.3MB，DOI WW1PD6） | `chgis.v6_pref_pts` |
+| B3 | V6 时序县点 | `chgis/v6_time_cnty_pts_utf_wgs84.zip`（0.5MB，DOI Q9VOF5，标答 10,522 条） | `chgis.v6_cnty_pts` |
+| C1 | 全元文索引（TSV，5 列） | `tab/Index_of_the_Complete_Prose_of_the_Yuan_Dynasty_vol_1-60.tab`（DOI HTGBQ3） | `public.quan_yuan_wen_index` |
+| C2 | 2957 书院（TSV，约 12 列含经纬度） | `tab/ACADEMY_Data.tab`（DOI J6XRIV） | `public.academies_2957` |
+| C3 | 传教士著作（TSV，10 列） | `tab/writings of the 19c missionaries in China.tab`（DOI CE4ZNG） | `public.missionary_writings` |
 
 **缓办（第二批，候另令）**：Hartwell v1/v5（多图层年代包，图层命名规律须先研读）；ADDR_XY/ZZZ 补数据；1911/1820 层；V6 西安80/GBK 变体；扩展补数据。**编码/坐标裁定＝UTF-8＋WGS84**（与 CBDB 坐标同系好 join；差异项⑤）。
 
@@ -51,7 +52,7 @@
 
 ## §5 腿 B：CHGIS 空间三件（shapefile→PostGIS）
 
-1. **对账前置**：县点/府点 zip `sha256sum` vs 家中 `chgis-v6/SHA256SUMS.txt`（`3b431d2e…`/`48f6a50b…`）；府面 zip 无家中对照→实测 sha 记入报告。
+1. **对账前置**：工作集自检 `sha256sum -c SHA256SUMS`（13 件；拷入时已核**双端全同**＋府/县点与家中账全同＋府面实测 `d3aa9f39…` 在案）。
 2. **暂入容器**：`docker cp` 三 zip → `pg32b:/tmp/`（用毕删）。
 3. **核货**：`docker exec pg32b ogrinfo -so -al /vsizip/tmp/<zip>/<shp>` → 记录各层要素数/列名（**认 ID 列**：与 `addr_codes.chgis_pt_id` 对接之用）/几何类型/SRID（应 4326）。
 4. **灌注**（每层一条）：`docker exec pg32b ogr2ogr -f PostgreSQL "PG:dbname=cbdb user=postgres" /vsizip/tmp/<zip>/<shp> -nln chgis.<表名> -lco GEOMETRY_NAME=geom -lco PRECISION=NO --config SHAPE_ENCODING UTF-8`——SRID 自 `.prj` 带入；**GiST 空间索引 ogr2ogr 默认自建**（`SPATIAL_INDEX=YES`），毕 `\di chgis.*` 核实在案。
@@ -68,7 +69,7 @@ python3 `csv`（`utf-8-sig`、delimiter=`\t`、quotechar=`"`）读表头→生�
 
 ## §8 执行步骤（开工口令后依序）
 
-- **Step 0** 复核：pg32b healthy、`cbdb` 库不存在（全新建）、盘余量（data 现 55M，预算 +≤5G）、镜像盘货位点名（§2 七件逐一 stat）。
+- **Step 0** 复核：pg32b healthy、`cbdb` 库不存在（全新建）、盘余量（data 现 55M，预算 +≤5G）、货位点名（§2 七件于 usedata/harvard 逐一 stat＋`sha256sum -c` 13 件全过）。
 - **Step 1** 建库＋扩展＋schema（§4.1）。
 - **Step 2** 腿 A：DDL→COPY→对账→索引→ANALYZE（§4.2–5；2C4T 预算：灌注 ≈10 分钟、索引 ≈15–40 分钟）。
 - **Step 3** 腿 B：sha→cp→ogrinfo→ogr2ogr×3→对账→清场（§5）。

@@ -217,88 +217,72 @@ F-13（装数四问之①③④由本方案差异项承接裁决；②靶机改�
 
 ---
 
-**状态：首批已执行完毕（2026-09-25 00:24 验收七项全过，执行记录＝§13）；第二批已成案＝§14，候"同意"开工。**
+**状态：首批已执行完毕（2026-09-25 00:24 验收七项全过，执行记录＝§13）；第二批成案＝§14 v2 全量装载案（用户"能装尽装"令修订），候"同意"开工。**
 
 ---
 
-## §14 第二批成案（2026-09-25 用户令"把余下的装上去。这个工作量大吗？"→ 装前实勘毕、成案候令）
 
-### 14.0 实勘新事实（本批依据，全部只读实测于 32 镜像盘）
+## §14 第二批成案 v2 · 全量装载案（2026-09-25 用户"能装尽装"令修订；**v1〔f452374/d91997b〕作废**——v1 按"用处大小"挑选〔Hartwell 拆研读缓装／DEM 条件跳／v5_time 跳装／范围限四挂账项〕，经用户纠正为下述三铁律）
 
-- **M7WEFY＝CHGIS V5 树全量 101 zip**：其中 UTF 可用层约 24 个；`v5_time_pref_pgn/pref_pts/cnty_pts` 系 **V5 代时序层（V6 前身，已装 V6 等价件——跳装不重复）**；GBK 变体、合并包（`v5_1820_utf.zip`/`v5_1911_utf.zip`）、`-1/-2` 重复产物皆不另装。
-- **v5_dem.zip＝GeoTIFF 栅格**（`chgis_dem.tif`＋hillshade＋ovr/aux，80.7MB）——**非矢量**，装入需 `postgis_raster` 扩展（pg32b 有无待探测，见差异项①）。
-- **gns_*＝30 省现代地名集，仅 GBK，合计仅 10MB**（比预想小两个量级）——`SHAPE_ENCODING` 转码可装。
-- **Hartwell 29302 实勘定性**：v1_2002 包 2,866 条目＝shapefile＋**MapInfo（.MAP/.TAB）混装**；v5_2010 包 2,467 条目＝**逐年切片**（`v5_0741_…`—`v5_1900_…`，每层 shp/shx/dbf/prj/xml 五件套，实际约 400 个年×图层）——直接装＝数百张表，**须先设计归并策略（合并表＋年份列），拆为独立研读案**（见 14.2 丁）。
-- **ADDR_XY（2024-02 sqlite 只读实测）**：**19,249 行×6 列**（c_addr_id INTEGER/x_coord FLOAT/y_coord FLOAT/c_source_reference CHAR(255)/c_source_id INTEGER/c_notes CHAR）；样本首行即 x=y=0.0——**`0` 哨兵实在**（cbdb.md §9.5 清洗规则适用；照装原样＋哨兵/污染统计入账，不在库内改数）。
-- **China_Periods_ReignDates.zip**：内含 `china_chron.sql`＋`china_chron.txt`＋CSV＋README——**现成朝代/年号纪年对照表**（意外小丰收，随批装入）。
-- 新见层（前清单未列）：`v5_PhysiogMacroregions_pgn_utf`（自然地理大区面 5.7MB）、`v5_SMR_pgn_utf`（6.3MB）、`Manshu_200K_index_SHP`（满洲 20 万图幅索引）。
+### 14.0 立案依据（用户令照录，不改写）
 
-### 14.1 范围裁定（四挂账项处置）
+> *"我的意思是人家给我们的，肯定是有目的。我们自己不要在这里胡想八想的。除了象ZZZ这样重复的东西，我们肯定不装，如果不是。能装的肯定要装上啊。只有装上了我们才知道用这些东西干什么啊？所以要搞清楚我们有什么？"*
 
-| 挂账项 | 本批处置 | 理由 |
+**三铁律**：①**能装尽装**——不预判用处，装上才知道干什么用；②**唯实证重复不装**——凡跳装必附 sha/内容级证据入账（ZZZ 型＝派生可重建、编码变体、格式重打包、时序旧快照四类）；③**先搞清楚有什么**——65 树全量点验＝14.1 总账，货单封盘。
+
+### 14.1 我们有什么 · harvard-full 65 树全量点验总账（2026-09-25 只读实测：逐树件数/字节/扩展名分布＋datasets.tsv 标题；处置＝本案裁定）
+
+| 类别 | 树（DOI 尾号·标题·规模） | 处置 |
 |---|---|---|
-| ④CHGIS V5 族 | **装**（腿 D，24 层＋gns 并表） | 用户令"余下的装上去"；全部本地、管线已证 |
-| ②ADDR_XY | **装**（腿 E，19,249 行） | 同上；腿 A 管线复用 |
-| 纪年表 china_chron | **装**（腿 F，随批） | 实勘新见、极小、补年号检索短板 |
-| DEM 栅格 | **探测后定**（差异项①） | 需 postgis_raster；无则另令 |
-| ①Hartwell 29302 | **本批不装，拆研读子案**（14.2 丁） | 400 层/MapInfo 混装，须先定归并策略——装进去是几百张表，非"余下的一层" |
-| ③ZZZ | **不装**（已定案，§2③） | 零新数据，蓝图已入账 |
+| **已装（首批⑦件）** | I0Q7SM/WW1PD6/Q9VOF5＝V6 时序府面/府点/县点；HTGBQ3/J6XRIV/CE4ZNG＝三小件 | 在库 |
+| **CHGIS 官方家族** | M7WEFY＝V5 树 101zip/431MB；HHVVHX＝**v6_1911 七层 UTF**；ST5KKM＝**v6_1820 八层 UTF**；T27RQO＝v6_citas90 三层（仅 GBK）；0P89R9/2K4FHX＝V6 1911/1820 之 GBK 编码变体；SB8ZTM＝**V6 明代驿路站网 2 层**；SC7AOU＝纪年表；E1FHML＝**DEM 官方三包**（ARCGIS/QGIS-2/QGIS-3_REVISED 各 63MB）；ZZKZ6U/HIMIVE/PDGOZ0＝**V2/V3/V4 历代矢量**（239/343/608MB）；JX4KSQ＝V3 关系库 MDB 66MB；WEJMB6＝V5 KMZ 24 件（展示打包）；SNCEAU/6CHSR7/FDLFJ3＝字典/README/EULA（文档） | **装**（KMZ 与文档除外：KMZ 核层名重复即不装；文档存档） |
+| **哈佛专题矢量/表格** | 29302＝Hartwell（v5_2010 **352 shp 层**＋v1_2002 353 层＋408 MapInfo）；VJHPVK＝茶马古道 3 层；2CVTR0＝德川日本 4 层；H3OB28＝TGAZ（单件 zip 待探）；W6PFXR＝藏传寺院；WP1ASG＝藏族乡镇；PRCLTU＝藏区地名对照 xls；3KAHBT＝谭其骧图集索引；PJ8D45＝ArcChina 图幅索引；I4UIKV＝GNS 特征码表；5RUXK8＝明卫所；VAYEUZ＝BGIS 2006；25413＝DCW 世界底图；J5U79Z＝天然气管道 2013；JIISNB＝高铁 2016；KUFJTG＝北京古迹；H4WVUP＝北京 1875；Z24KTH＝中瑞考察；23340＝新中国全图；MI56KU＝工作坊资料；EOH3FV＝**1999 县级人口表**；SK7KGK＝**国标 GBT-2260-91 码表**（tab×2） | **装**（各包 Step 0 探内后按固定规则落表） |
+| **历史地图系列（探后裁）** | ABPR9F/E7HDYD/ELTD3L/G9RKCW/LVYYZC/RXP4AA＝普尔热瓦尔斯基/柯兹洛夫/波德布尼等六套（9–367MB）；AZYI17＝俄藏目录；JJMYV7＝报告；23336＝**黑龙江省图集 2.18GB** | zip 内**带地理配准**（prj/jgw/tfw/GeoTIFF）→ postgis_raster 装；**纯扫描** → 存档不入（差异项③） |
+| **软件/模型（非数据）** | BWIBNL＝LoGaRT-BERT 1.9GB；16PSZE＝韩文罗马化 pth 105MB；IWOK2X/MZANN5＝pdf/gif 文档 | 不装（无可装性，非挑拣） |
+| **CBDB 版本堆（差异项①）** | PAGGQS＝2024-02 sqlite（**ADDR_XY 之源，抽表装**）＋Access 7z×9；F6BBOF/2UFYFG/GNPNON/P8U8RC/SHMDGU＝2017–2019+ 历代 Access 快照 | **存档不装库**——同一库之时序旧快照（皆旧于已装 0919），装＝五套过期 500 万行；MDB 解包须另装工具。**要装另案候令** |
 
-**范围边界声明（2026-09-25 答用户问"是不是除了ZZZ其余都装"补记）**：本批范围＝**CBDB/CHGIS 家族**（§2 四挂账项之裁定如上）。**货单就此封盘**——M7WEFY 101 zip 已全数点名（14.0/14.2），执行按单装、不再冒新货（余仅层内细节：编码/几何型，验收兜住）。harvard-full 内**其余独立收藏不在本批范围**：历史地图扫描栅格 2.72G、TGAZ、日本 HGIS、俄藏地图、LoGaRT 软件权重 1.86G、CBDB 历代版本堆叠等（codemap"净新增≈3.5G、其余版本堆/扫描件/软件"判词在案）——装否＝另案另令。
+### 14.2 货单与目标表（腿 D–L；schema 三分＝差异项④：`chgis`＝CHGIS 家族〔含 Hartwell/明驿路〕、`harv`＝其余专题、`public`＝CBDB 族＋通用码表）
 
-### 14.2 货单与目标表（腿 D/E/F）
+- **腿 D1·V6 现行代 18 层**→`chgis.v6_*`：1820 族 8（cnty_pts/coded_rvr_lin/lks_pgn/pref_pgn/pref_pts/prov_pgn/prov_pts/twn_pts，ST5KKM）＋1911 族 7（cnty_pgn/cnty_pts/pref_pgn/pref_pts/prov_pgn/prov_pts/twn_pts，HHVVHX）＋citas90 3（cnty_pgn/pref_pgn/prov_pgn，T27RQO **GBK 转码**）。
+- **腿 D2·V5 代 24 层**→`chgis.v5_*`/`v4_*`：M7WEFY utf 件——1820 族 9（含 coast_lin 单变体，DBF 编码先探）＋1911 族 7＋v4_time_prov 2＋1926/1997 prov 2＋v5_1990_citas 2＋ChinaW_pts＋tibet_twns＋PhysiogMacroregions（utf 版；0.2MB 非 utf 版内容对验后定）＋SMR＋Manshu 索引。
+- **腿 D3·v5_time 三层**：主版（utf/gbk 各一之 utf）装；**`-1/-2` 与 gbk 变体内容级对验**（要素数＋字段表＋抽行）——同→跳装留证；异→装为 `…_r1/_r2` 变体表并入账（差异项⑧）。
+- **腿 D4·gns 30 省（GBK）**→ 并单表 `chgis.v5_gns`（`-sql` 加 prov 列逐省 append）。
+- **腿 E·ADDR_XY**→`public.addr_xy`（19,249 行×6 列已实测；腿 A 管道；`0` 哨兵照装原样＋统计入账，联动 cbdb.md §9.2/9.5）。
+- **腿 F·纪年表**→`chgis.china_chron`（SC7AOU `china_chron.ZIP`；与 chgis-v6 树 `China_Periods_ReignDates.zip` sha/内容对验，装一次；sql 方言不合则走 CSV/txt 腿 C 管道）。
+- **腿 G·DEM**→`CREATE EXTENSION postgis_raster`（**实测 available 3.6.4 未装，一条 SQL 即通，无需动镜像**）；四包对验（E1FHML×3＋M7WEFY v5_dem 80.7MB）取最新修订（候选 QGIS-3_REVISED）→`raster2pgsql -C` →`chgis.dem`；hillshade/ovr＝ST_HillShade 可派生（ZZZ 型）不装留证。
+- **腿 H·Hartwell**：v5_2010 **352 层→8 张归并表** `chgis.hartwell_{cnty(78),pref(77),jin(58),circ(51),indp(37),liao(19),prov(17),chin(15)}`——每表＋`yr`（741–1900 六年份）＋`src_file` 列，`ogr2ogr -append` 归并（列差自动 ADD COLUMN）；对账＝每层型源要素和==并表 count。**v1_2002（353 层＋408 MapInfo）**：抽 10 层与 v5 对验要素数/属性＋研读 `Hartwell_Reprojection_Info_28sep10.pdf`——**纯重投影派生（ZZZ 型）→不装留证；有实差→装为 `chgis.hartwell_v1_*` 八表**；MapInfo TAB＝shp 同层换格式，抽验后不装留证。
+- **腿 I·专题矢量批**→`harv.*`（SB8ZTM 明驿路 2 层标题系 V6→归 `chgis.ming_routes_2016/ming_stations_2016`）：茶马 3（major/minor/nodes）、德川 4（doo/dmyo_pts/dmyo_pgn/kuni）、TGAZ（探内定法）、藏区 3（monasteries/townships/placenames_xwalk）、谭图索引、ArcChina 索引、GNS 码表、明卫所、BGIS、DCW、气管道、高铁、北京古迹、北京 1875、中瑞考察、新中国全图、工作坊 tab——**规则固定：包内每 shp 落一表，表名＝源名小写去日期尾**；非空间表格走腿 C。
+- **腿 J·表格批**→`public.*`：`china_pop_1999`（xls→CSV）、`gbt2260_91`（tab×2 各一表）。
+- **腿 K·历代矢量 V2/V3/V4**：三 zip 探层清单→全装 `chgis.v2_*/v3_*/v4_*`（D3 同款对验规则）；**JX4KSQ V3 MDB**：探容器 GDAL MDB 驱动——有则腿 A 变体管道装 `chgis.v3db_*`；无则记录（不为它重建镜像，要装驱动另令）。
+- **腿 L·栅格地图（探后裁）**：六套俄藏/黑龙江图集/北京 1875 等——带配准→`harv.ras_*`（raster2pgsql）；纯扫描→存档记录（差异项③）。
 
-**甲·1820 族（9 层，UTF 除 coast_lin）**→ schema `chgis`，表名从源：
-`v5_1820_cnty_pts`／`v5_1820_coded_rvr_lin`（河流）／`v5_1820_lks_pgn`（湖泊）／`v5_1820_pref_pgn`／`v5_1820_pref_pts`／`v5_1820_prov_pgn`／`v5_1820_prov_pts`／`v5_1820_twn_pts`（乡镇点）／`v5_1820_coast_lin`（单变体，装载时先探 DBF 编码，GBK 则 `SHAPE_ENCODING=GBK` 转 UTF-8 入）。
+### 14.3 方法（全部首批已证管线＋两条新命令级工具）
 
-**乙·1911 族（7 层，UTF）**：`v5_1911_cnty_pgn`（**本批头号货——唯一历史县面**）／`v5_1911_cnty_pts`／`v5_1911_pref_pgn`／`v5_1911_pref_pts`／`v5_1911_prov_pgn`／`v5_1911_prov_pts`／`v5_1911_twn_pts`。
-
-**丙·省级/专题/杂项（11 层）**：`v4_time_prov_pgn`／`v4_time_prov_pts`（省时序）／`v5_1926_prov_pgn`／`v5_1997_prov_pgn`／`v5_1990_citas_cnty_pgn`／`v5_1990_citas_pref_pgn`／`v5_ChinaW_pts`／`v5_2009_tibet_twns`／`v5_PhysiogMacroregions_pgn`／`v5_SMR_pgn`／`manshu_200k_index`。
-
-**丁·gns 30 省（GBK）→ 并一张表** `chgis.v5_gns`（加 `prov` 列标省名，`-sql "SELECT *, '<省>' AS prov FROM <层>"` 逐省 append；比 30 张碎表好用）。
-
-**戊·ADDR_XY** → `public.addr_xy`（CBDB 数据归 public；腿 A python 管道：sqlite 只读 URI→COPY text，哨兵/NULL/浮点规则同首批 §4）。
-
-**己·china_chron** → `chgis.china_chron`（先读 `china_chron.sql`/`README` 定方言与列义，优先 CSV/txt 走腿 C 管道；.sql 若系 Access/MySQL 方言则弃用只取数据）。
-
-**庚·Hartwell 研读子案（不装只研）**：产出＝命名规律表（年份×图层×制式三轴）＋归并装载策略建议（预计"合并表＋年份列＋层型列"约 4–6 张表方案）＋工作量重估——**成文挂账，装载候再令**。
-
-### 14.3 方法与通路
-
-- 腿 D＝首批腿 B 原样复用：宿主 `docker cp` zip 入容器 `/tmp`→`ogr2ogr -f PostgreSQL`（`/vsizip/` 直读、`-nlt` 按实测几何型、`-lco GEOMETRY_NAME=geom -lco FID=sys_id`、`PG_USE_COPY=YES`）→GiST 索引 ogr2ogr 自建→用毕 `rm`。SRID 逐层探 `.prj`（预期皆 4326＝首批裁定 WGS84；若有非 4326 层，`-t_srs EPSG:4326` 重投影并记差异）。
-- 腿 E＝首批腿 A 原样复用（python sqlite3 只读→psql COPY，`\N`/转义/浮点 repr 规则全同）。
-- 腿 F＝腿 C 管道（分隔文本→COPY）。
-- 全部 `ON_ERROR_STOP=1`、顺序单流、任何对账不平即停（家规同首批）。
+腿 B 原样（docker cp→ogr2ogr `/vsizip/` 直读→GiST 自建→rm）；腿 A 原样（python sqlite 只读→COPY）；腿 C 原样（分隔文本→COPY）；**新增仅**：`raster2pgsql`（gdal-bin 自带，腿 G/L）＋`CREATE EXTENSION postgis_raster`。GBK 件一律 `SHAPE_ENCODING=GBK` 转 UTF-8 入（编码裁定承差异项⑤UTF-8＋WGS84；SRID 逐层探 .prj，非 4326 者 `-t_srs` 重投影并记差异）。全部 `ON_ERROR_STOP=1`、顺序单流、对账不平即停。**Step 0＝探测清单一次跑完**（各包内容物/编码/prj/TGAZ/MDB 驱动/重复对验），产出生成**最终层清单**后按单循环装——探测结果入账 §15，不再有案外新货。
 
 ### 14.4 对账与验收（全过方收口）
 
-1. **逐层三方对账**：`ogrinfo -so` 源要素数 == ogr2ogr 报数 == `SELECT count(*)`，24＋1（gns 并表＝30 省总和）层全零差；
-2. **ADDR_XY 三方对账**：sqlite 19,249 == COPY 报数 == PG count；另记 `x=0 AND y=0` 哨兵行数与 c_source_reference 非空数（数据质量账，联动 cbdb.md §9.2/9.5 复核义务）；
-3. **中文抽验**：每层抽 3 行含汉字字段目检（重点 gns GBK 转码层与 coast_lin），乱码＝0；
-4. **索引清点**：新增 GiST 数 == 层数（gns 并表 1 条）；
-5. **桥补测试（探索项，不设承诺）**：余 3,871 个 chgis_pt_id 对新装 V5 点层 id 试 join——V6/V5 id 制式若不同则补桥不成，**如实记录**（成与不成都入账）；
-6. **空间复测**：1911 县面 ST_Within 样点（书院 2 例：历山书院→濮州→**判县**）＋DEM 若装则栅格取值 1 例；
-7. **压力验收**：全程 loadavg 峰值＜4.0、pg32 金丝雀无劣化（同首批门禁）。
+1. **逐层三方对账总表**（脚本生成：源要素数==ogr2ogr 报数==PG count，全层零差；预计 100–500 层行）；
+2. ADDR_XY 三方对账（sqlite 19,249==COPY==PG）＋哨兵/污染统计；
+3. Hartwell 每并表 count==该层型 352 分之源要素和；
+4. 中文抽验（GBK 转码层全覆盖抽 3 行，乱码＝0）；
+5. GiST 清点==矢量表数；DEM 行数/范围/取值抽验；
+6. **桥补 3,871 试 join**（探索项：V6 1911/1820 及新装点层全试，V5/V6 id 制式异同如实入账）；
+7. 空间复测三例：1911 县面判县（书院样）＋DEM 取值＋明驿路样查；
+8. 压力门禁（loadavg＞4.0 或 pg32 不健康即暂停）。
 
-### 14.5 压力防护（承首批六措施，量级更小）
+### 14.5 压力防护与排期（承首批六措施）
 
-顺序单流零并行；宿主侧 `nice -n 19`＋`ionice -c3`；`cpu_shares: 512` 已在位；步骤间压力门禁（loadavg＞4.0 或 pg32 不健康即暂停）；**max_wal_size 不动**（本批总量约 200MB zip、行数远小于首批，默认 1GB 足够——首批 4GB 临时循环不复用）；maintenance_work_mem 维持实例默认（小表无须抬）。
+顺序单流零并行；`nice -n 19`＋`ionice -c3`；`cpu_shares: 512` 在位；步骤间门禁；`max_wal_size` 不动（总行数预计远小于首批 562 万）；**拆两个夜间窗**：批 2a＝Step 0 探测＋腿 D/E/F/G（预算 ≤2h），批 2b＝腿 H/I/J/K/L（预算 ≤2.5h），批间复核 pg32 金丝雀。
 
-### 14.6 工作量估算（答用户问"这个工作量大吗？"）
+### 14.6 工作量估算 v2（答"这个工作量大吗？"）
 
-**不大——首批的零头**：货约 200MB（首批 594MB）、预计总行数 <100 万（首批 562 万）、层数 55（24 矢量＋30 gns 并 1＋ADDR_XY＋china_chron±DEM）但**皆小件**（最大单层 24.8MB）；管线三段全部首批实证复用、零新工具（DEM 除外）。**机器时间估 <30 分钟，含探测/对账/记账全程约 1–1.5 小时**。深水仅两处且已拆出：Hartwell＝独立研读案（14.2 庚）；DEM＝探测后定（差异项①）。
+货≈2.6GB 可装件（除软件/版本堆/文档）；装载动作≈**100–500 层跑**（脚本循环，单层秒–分钟级）；**机器时间 1–3 小时、两个夜间窗**；全程（探测/对验/对账/记账）≈**两晚**。较 v1（1–1.5h）变大系范围按您令扩至全量；**无未知深水区**——Hartwell 已解为 352→8 并表，余皆带 if-then 裁定规则的探测项。
 
-### 14.7 差异项（默认皆按本案，"同意"即照此开工，可逐条改裁）
+### 14.7 差异项（默认皆按本案，"同意"即照此，可逐条改裁）
 
-1. **DEM**：先探 pg32b 有无 `postgis_raster`——有则 `raster2pgsql` 装 `chgis.v5_dem`（仅 dem.tif，hillshade/ovr 系衍生物不装）；**无则本批跳过**（补装需 apt/镜像层＝另令，不为它重建镜像）；
-2. **gns 并单表**（推荐）vs 30 张分表；
-3. **Hartwell 拆研读子案不装**（推荐）vs 本批硬装（不推荐：约 400 层）；
-4. **v5_time_* V5 代时序层跳装**（推荐，V6 等价件已在）vs 一并装（版本存档意义）；
-5. PhysiogMacroregions/SMR/Manshu 三专题层**装**（推荐，皆小）vs 缓；
-6. 编码/坐标裁定承首批：**UTF-8＋WGS84**，GBK 件转码入。
+① CBDB 版本堆五套＝**存档不装**（时序旧快照；要装另案）；② Hartwell v1_2002＝**对验后定**（纯重投影派生→不装留证）；③ 纯扫描地图＝**存档不入 raster**（带配准则装）；④ schema 三分 chgis/harv/public；⑤ 编码变体只装一份（UTF 优先，仅 GBK 者转码装）；⑥ 格式重打包（KMZ/MapInfo/合并包）核证后不装；⑦ hillshade 派生不装；⑧ `-1/-2` 变体内容对验后定装否；⑨ 数据源直读 32 镜像盘 harvard-full（第二批货不在 usedata 工作集；要扩围拷贝请改裁）；⑩ MDB 驱动缺则 V3 关系库记录缓装（不重建镜像）。
 
 ### 14.8 回滚与账目联动
 
-- 回滚：本批新增表逐张 `DROP TABLE`（首批产物与 cbdb 库本体不动）；gns 并表 `TRUNCATE`；最坏 `DROP SCHEMA chgis CASCADE` 后按 §5 重装首批三层（工作集在 NAS）。
-- 账目联动（执行批内完成）：本文件加 §15 执行记录；`docs/pg32b.md` §12 补第二批建成段；`docs/features.md` F-13 状态行更新；`docs/codemap.md` usedata/instance 行补注；`docs/cbdb.md` §9.2（ADDR_XY 落地→缺项转"已入库＋哨兵统计"）与 §9 复核义务兑现；`docs/log.md` 收口行。
-- 数据源：**仍用 `usedata/harvard` 工作集？**——**否**：第二批货（V5 树/2024-02 sqlite/29302）不在工作集（当初只拷首批 7 件）。**默认直读 32 本地镜像盘 `nas-mirror/…/harvard-full`**（只读，与首批"零传输"同理）；若您要工作集扩围（拷 V5 树入 usedata）请改裁此条（多拷约 200MB，分钟级）。
+回滚：本批新表逐张 DROP／`DROP SCHEMA harv CASCADE`／`DROP EXTENSION postgis_raster`（首批产物与 cbdb 库本体不动）；最坏 chgis 整 schema 重建后按 §5 重装首批三层（工作集在 NAS）。账目联动（执行批内）：§15 执行记录；pg32b.md §12 补第二批段；features F-13 状态行；codemap usedata/instance/harvard-full 行补注；cbdb.md §9.2（ADDR_XY 落地＋哨兵统计）复核义务兑现；log 收口。

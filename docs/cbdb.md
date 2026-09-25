@@ -64,7 +64,7 @@
    - **Dataverse 档案道**（可 DOI 引用；`dataverse.harvard.edu/dataverse/cbdb`；"ACCESS and SQLite DB Version (latest)"集 DOI `10.7910/DVN/PAGGQS`，v8.0，官方页 Updated 2026-06-16）；
    - **HuggingFace 快车道**：`https://huggingface.co/datasets/cbdb/cbdb-sqlite`——**Dataverse 该集摘要原文点名**其为"the weekly updated SQLite database"官方下载源；仓根 `latest.json`＋`latest.zip`＋`latest_ZZZ_tables.7z`（ZZZ 预连接宽表单独包）＋`history/` 历史档。
      - **该通道的代价（实测）**：出档是"净库"——**无任何显式索引**（只有主键自动索引）、**无 `ADDR_XY`**、**无 ZZZ 表族**。求索引完备、备用坐标或宽表时，取 Dataverse 档案道件（明细见 §九 9.2／9.4）。
-4. **配套工具与衍生数据**：CBDBRegexMachine（正则抽取工具）、CBDB Linked Open Data（关联开放数据）、中英文用户指南（User's Guide）；cbdb Dataverse 树另见 LoGaRT-BERT 标注工具等衍生件。**官方后处理脚本仓** `https://github.com/cbdb-project/cbdb_sqlite`（补外键／18 视图／`ADDRESSES` 表；**均不建索引**——见 §九 9.4(1)）。
+4. **配套工具与衍生数据**：CBDBRegexMachine（正则抽取工具）、CBDB Linked Open Data（关联开放数据）、中英文用户指南（User's Guide）；cbdb Dataverse 树另见 LoGaRT-BERT 标注工具等衍生件。**官方后处理脚本仓** `https://github.com/cbdb-project/cbdb_sqlite`（补外键／18 视图／`ADDRESSES` 表；**均不建索引**——见 §九 9.4(1)）。**两条 2026-09-25 实测的定性补正**：① `CBDBRegexMachine` **不在 GitHub**（全站 `q=CBDBRegexMachine` total_count=0，`cbdb-project` 67 仓内亦无），唯一权威描述在官网下载页（Wayback `20160725035700`，署名 By Elif Yamangil，自述为 Java Swing GUI），**该页通篇无许可声明** ⇒ 引用它时**不得顺带称"开源仓"**；② `cbdb_sqlite` 仓 **`LICENSE`／`LICENSE.md` 双 404（真无许可证文件）**，README 仅 1,801 字节、正文一句指向 HF 的 `cbdb/cbdb-sqlite/latest.zip`——与本行上方"补外键／不建索引"的口径不冲突，但**它的条款不可机器读**（见 §一 许可行）。
 
 **快车道节奏实证（2026-09-23 直连实测）**：`history/` 自 2026-02→2026-09 **逐月一档（缺 2026-04）**，此前 2019→2025 为零散八档——官方"weekly"指**线上库更新节奏**，HF 出档实为**月度**。家中 `cbdb_20260919.sqlite3` 即该通道 2026-09-19 构建（仓 lastModified `2026-09-19T19:16:54Z`，构建→上传间隔一分钟）。
 

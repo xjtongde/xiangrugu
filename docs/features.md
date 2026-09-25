@@ -61,6 +61,7 @@
 - 诉求原意：哈佛 CBDB 树内 LoGaRT（BERT 古籍标点/实体定位，模型件 1.86GiB 已入仓）；**硬件红线：4070 12G 串行**，评估显存占用后才定启用与否（N-01 掉卡教训在前）
 - 能力性质：分析能力
 - 现状对照 / 落地设想：未起；若可用，服务 F-05 草稿区提议层与史部切分预处理
+- 前置事实（2026-09-25 本轮实测，不改变挂账状态）：本地已持有的两件即 `DVN/BWIBNL`（官方标题 `LoGaRT Tagging Tool - Based on BERT`；`LGTaggingApp.7z` 1,604,972,078B／md5 `d38e4c0d89ee…` ＋ `models.zip` 391,888,041B／md5 `f869c4dff1dc…`，合计 1.86GiB 与上行相符），**其 Dataverse 条款原值＝CC BY-NC-SA 4.0（NC＝不可商用）**；而**上游代码仓 `zhouliupku/LGTaggingApp` 的 LICENSE 全文＝MIT（可商用）**——**代码与模型·数据两层许可不同，任何"跑通后再决定怎么用"的讨论必须先分清是在说哪一层**。另：马普所 LoGaRT 本体在 GitHub 检索不到（`q=LoGaRT` 八命中无一为该项目），不可据 GitHub 判其在否。详见 wiki《古籍开源项目抄》§七③
 
 ### F-10 Hartwell 宋辽金官员 GIS（宋代线第二支柱）
 - 指令日期 / 状态：2026-09-23 / 挂账

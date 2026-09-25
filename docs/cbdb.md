@@ -26,7 +26,7 @@
 | 数据内容 | 姓名、生卒年、籍贯、入仕途径、历任官职、亲属关系、非亲属社会关系、游历地点、著述、书目；配套大量代码表（亲属／入仕／官职／地名／学校与宗教场所／社交／书目） |
 | 材料来源 | 正史、登科录、官员任命录、方志、墓志（亲属/仕历/著述信息密集）、文集（社交信息密集）、各类索引 |
 | 设计理念 | 架构师自述为"诠释性的技术表达"，服务于对前现代中国"人的领域"作系统分析；中文语境常与邓广铭"职官制度、历史地理、年代学、目录学"四把钥匙并举——CBDB 让四者首次可批量、可比地做统计 |
-| 许可 | 学术免费、无限制用于学术（官方自述）；HF 快车道件为 **CC BY-NC-SA 4.0**；Dataverse 件为 openAccess＋自定义条款 |
+| 许可 | 学术免费、无限制用于学术（官方自述）；**但各发布层条款互不相同，2026-09-25 分层实测**：① HF `cbdb/cbdb-sqlite`＝`license: other`＋`license_name: cbdb-data-licensing-terms`，其条文链接 `cbdb.hsites.harvard.edu/cbdb-data-licensing-terms` **实测 HTTP 403 且 Wayback 零快照 ⇒ 条文正文机器不可得，故不得写作 CC0／CC BY，亦不得再发布**；② HF `cbdb/*` 七个模型与 `cbdb/chgis-map` 瓦片＝**CC BY-NC-SA 4.0**（NC＝不可商用）；③ Dataverse 件＝openAccess＋**逐集自定义条款**，例 `doi:10.7910/DVN/BWIBNL`（LoGaRT）版本层 `termsOfUse` 原值 **CC BY-NC-SA 4.0**；④ GitHub `cbdb-project` 各仓**参差**：`sentence-segmentation-…`、`named-entities-…` 仓内 LICENSE 为 **CC BY-NC-SA 4.0 全文**（GitHub 标签却显 NOASSERTION，**判许可须读仓内文件、不可读标签**），而 ★225 的 `cbdb_sqlite` 仓**无任何 LICENSE 文件**（`LICENSE`／`LICENSE.md` 双 404，README 仅 1,801 字节指向 HF）→ **整条 SQLite 发布链上没有一处可读到条款正文**。展开见 wiki《古籍开源项目抄》§三④／§七 |
 
 ## 三、治理与沿革（要点）
 

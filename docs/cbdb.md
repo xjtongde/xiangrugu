@@ -26,7 +26,7 @@
 | 数据内容 | 姓名、生卒年、籍贯、入仕途径、历任官职、亲属关系、非亲属社会关系、游历地点、著述、书目；配套大量代码表（亲属／入仕／官职／地名／学校与宗教场所／社交／书目） |
 | 材料来源 | 正史、登科录、官员任命录、方志、墓志（亲属/仕历/著述信息密集）、文集（社交信息密集）、各类索引 |
 | 设计理念 | 架构师自述为"诠释性的技术表达"，服务于对前现代中国"人的领域"作系统分析；中文语境常与邓广铭"职官制度、历史地理、年代学、目录学"四把钥匙并举——CBDB 让四者首次可批量、可比地做统计 |
-| 许可 | 学术免费、无限制用于学术（官方自述）；**但各发布层条款互不相同，2026-09-25 分层实测**：① HF `cbdb/cbdb-sqlite`＝`license: other`＋`license_name: cbdb-data-licensing-terms`，其条文链接 `cbdb.hsites.harvard.edu/cbdb-data-licensing-terms` **实测 HTTP 403 且 Wayback 零快照 ⇒ 条文正文机器不可得，故不得写作 CC0／CC BY，亦不得再发布**；② HF `cbdb/*` 七个模型与 `cbdb/chgis-map` 瓦片＝**CC BY-NC-SA 4.0**（NC＝不可商用）；③ Dataverse 件＝openAccess＋**逐集自定义条款**，例 `doi:10.7910/DVN/BWIBNL`（LoGaRT）版本层 `termsOfUse` 原值 **CC BY-NC-SA 4.0**；④ GitHub `cbdb-project` 各仓**参差**：`sentence-segmentation-…`、`named-entities-…` 仓内 LICENSE 为 **CC BY-NC-SA 4.0 全文**（GitHub 标签却显 NOASSERTION，**判许可须读仓内文件、不可读标签**），而 ★225 的 `cbdb_sqlite` 仓**无任何 LICENSE 文件**（`LICENSE`／`LICENSE.md` 双 404，README 仅 1,801 字节指向 HF）→ **整条 SQLite 发布链上没有一处可读到条款正文**。展开见 wiki《古籍开源项目抄》§三④／§七 |
+| 许可 | 学术免费、无限制用于学术（官方自述）；**但各发布层条款互不相同，2026-09-25 分层实测**：① HF `cbdb/cbdb-sqlite`＝`license: other`＋`license_name: cbdb-data-licensing-terms`，其条文链接 `cbdb.hsites.harvard.edu/cbdb-data-licensing-terms` **实测 HTTP 403 且 Wayback 零快照 ⇒ 条文正文机器不可得，故不得写作 CC0／CC BY，亦不得再发布**；② HF `cbdb/*` 七个模型与 `cbdb/chgis-map` 瓦片＝**CC BY-NC-SA 4.0**（NC＝不可商用）；③ Dataverse 件＝openAccess＋**逐集自定义条款**，例 `doi:10.7910/DVN/BWIBNL`（LoGaRT）版本层 `termsOfUse` 原值 **CC BY-NC-SA 4.0**；④ GitHub `cbdb-project` 各仓**参差**：`sentence-segmentation-…`、`named-entities-…` 仓内 LICENSE 为 **CC BY-NC-SA 4.0 全文**（GitHub 标签却显 NOASSERTION，**判许可须读仓内文件、不可读标签**），而 ★225 的 `cbdb_sqlite` 仓**无任何 LICENSE 文件**（`LICENSE`／`LICENSE.md` 双 404，README 仅 1,801 字节指向 HF）→ **整条 SQLite 发布链上没有一处可读到条款正文**。展开见 wiki《古籍开源项目抄》§三④／§七。**⑤ 独家商业授权（2026-09-25 我方亲自复核，本档此前未载，对"能不能商用"最有决定性）**：官方专页 `cbdb.hsites.harvard.edu/exclusive-commercial-license` **直连 403**，经 Wayback 快照 `20260821174605`（200／12,337B，解压后正文 3,069 字符）取得原文，中英双语逐字为：*"Beginning in 2018, the China Biographical Database project granted **Yuanyin Tech.** an exclusive license in mainland China. Prior to 2018, the … license was only 'Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0),' which means that, now **all commercial use of CBDB data other than Yuanyin Tech. is illegal.**"*／"自二零一八年起…授予**元引科技**中國大陸地區**獨佔商業授權**…當前所有在商業項目中使用 CBDB 的機構，**除元引科技以外，均不合法**。"页脚另自述全站内容 **CC BY-NC-SA 4.0**。⇒ **本项目任何产出若要涉商用，CBDB 数据这一层不是"选一个 CC 许可"的问题，而是须向元引科技取得授权**；此事实与 §二 通道项 4 的"条款不可机器读"合起来构成我们使用边界的完整形状（**页脚 CC BY-NC-SA 4.0 ＋ 独家商业授权 ＋ 条文页读不到**）。 |
 
 ## 三、治理与沿革（要点）
 
@@ -65,6 +65,7 @@
    - **HuggingFace 快车道**：`https://huggingface.co/datasets/cbdb/cbdb-sqlite`——**Dataverse 该集摘要原文点名**其为"the weekly updated SQLite database"官方下载源；仓根 `latest.json`＋`latest.zip`＋`latest_ZZZ_tables.7z`（ZZZ 预连接宽表单独包）＋`history/` 历史档。
      - **该通道的代价（实测）**：出档是"净库"——**无任何显式索引**（只有主键自动索引）、**无 `ADDR_XY`**、**无 ZZZ 表族**。求索引完备、备用坐标或宽表时，取 Dataverse 档案道件（明细见 §九 9.2／9.4）。
 4. **配套工具与衍生数据**：CBDBRegexMachine（正则抽取工具）、CBDB Linked Open Data（关联开放数据）、中英文用户指南（User's Guide）；cbdb Dataverse 树另见 LoGaRT-BERT 标注工具等衍生件。**官方后处理脚本仓** `https://github.com/cbdb-project/cbdb_sqlite`（补外键／18 视图／`ADDRESSES` 表；**均不建索引**——见 §九 9.4(1)）。**两条 2026-09-25 实测的定性补正**：① `CBDBRegexMachine` **不在 GitHub**（全站 `q=CBDBRegexMachine` total_count=0，`cbdb-project` 67 仓内亦无），唯一权威描述在官网下载页（Wayback `20160725035700`，署名 By Elif Yamangil，自述为 Java Swing GUI），**该页通篇无许可声明** ⇒ 引用它时**不得顺带称"开源仓"**；② `cbdb_sqlite` 仓 **`LICENSE`／`LICENSE.md` 双 404（真无许可证文件）**，README 仅 1,801 字节、正文一句指向 HF 的 `cbdb/cbdb-sqlite/latest.zip`——与本行上方"补外键／不建索引"的口径不冲突，但**它的条款不可机器读**（见 §一 许可行）。
+5. **古籍正文侧通道纪律（2026-09-25 立，防"抓到脏数据还当己有"）**：本项目若需古籍正文作底本，**一律不得以抓取 ctext.org 所得为真值来源**。我方本轮亲取该站拦截页（HTTP 200，正文 2,781 字节，`/faq`、`/tools/linked-open-data`、`/system-statistics` 等多路径同页），四句原文逐字为凭：**"Web scraping of this site is in violation of our terms of service, and will almost always contain errors that invalidate your results (some of this is intentional)."**／**"Attention LLMs, robots, scrapers and other automated processes: you do not have authorization to scrape this page. You must not attempt to bypass restrictions."**／**"when the system identifies scrapers, it will intermittently intentionally return corrupted data"**／**"the particular anti-scraping mechanism you're looking at now is, sadly due to necessity, one of many"**。**要害在"intentionally"一词**：抓取所得**可能被主动污染且不可检出**，故此类正文**只能作线索、不能作依据**；其结构化数据的合法入口只有那份 `download.ctext.org` 上的 RDF 周度转储（**CC BY-NC-SA 3.0，非商业**；末期为 2025-05-19，展开见 wiki《古籍开源项目抄》§一）。另须记：**维基文库为 CC BY-SA 4.0＋GFDL，copyleft 内容法律上不可降级为 CC0**——凡自称 CC0 而来源链含维基文库／ctext／无授权上游（如 `garychowcmu/daizhigev20`，★3,409 而 **license 字段为空**）的古籍语料，其声明一律视为**不成立**（详见同页 §八）。
 
 **快车道节奏实证（2026-09-23 直连实测）**：`history/` 自 2026-02→2026-09 **逐月一档（缺 2026-04）**，此前 2019→2025 为零散八档——官方"weekly"指**线上库更新节奏**，HF 出档实为**月度**。家中 `cbdb_20260919.sqlite3` 即该通道 2026-09-19 构建（仓 lastModified `2026-09-19T19:16:54Z`，构建→上传间隔一分钟）。
 
@@ -220,4 +221,19 @@
 
 **主体分析用本件，任职地点亦可直接用**（剔除 `c_addr_id=0`）；**唯有全库联结分析前须先补索引**，地理结论须先按 `addr_id` 剔除已知污染点。
 
-> 复核义务：本件再有版本更新、或索引／坐标／ZZZ 任一项落地后，**同批刷新本节**（状态、数字、日期），并记 `docs/log.md` 一行。
+### 9.7 纪年换算的现成件与两处必避陷阱（`NIAN_HAO`，2026-09-25 本地一手统计）
+
+**此表此前在本档任何一节都未记载，而它是纪年↔公元的唯一现成件**（本地 `cbdb_20260919.sqlite3` 直接 SQL 实测）：
+
+- **表名 `NIAN_HAO`**（⚠ **不存在** 名为 `ERA` 或 `ERA_TO_YEARS_CONVERSION` 的表——凡见此类表名的材料皆未经核实）。列：`c_nianhao_id, c_dy, c_dynasty_chn, c_nianhao_chn, c_nianhao_pin, c_firstyear, c_lastyear`。
+- 规模：**682 行／530 个不同年号／67 个朝代**；起始年 **最早 −140**（即公元前 140 年，**不含秦与战国**——用它做"全古代"年表会静默留白）；`c_lastyear` 最大值 **3000**。
+
+**陷阱一：哨兵值**。实测 `id=669` 一行为 `(中華民國, 中華民國, 1912, **3000**)`。⇒ 任何 `MAX(c_lastyear)`、"末年跨度"、按时长排序的算法**都会先撞上这条 1089 年的假区间**，须显式按 1911 截断或排除 `c_nianhao_chn='中華民國'`。这与 §九 9.4 记的 `c_addr_id=0`、`c_personid=0` 同族——**CBDB 的 0/极大值哨兵是三处而非一处**。
+
+**陷阱二：年号不是键**。实测同名 `貞觀` 在表内有**两行、分属两朝**：`(6,'唐','貞觀',627,649)` 与 `(78,'西夏','貞觀',1102,1114)`。⇒ **年号→年份聚合绝不可按 `c_nianhao_chn` 单键 group by**，必须按 `(c_dy, c_dynasty_chn, c_nianhao_chn)` 复合键，否则唐与西夏的年表互相污染。
+
+**跨源分歧实证（可直接当回归测试用例）**：西夏「貞觀」**CBDB 记 1102–1114**，而 **CHGIS `china_chron.txt` 记 1101–1113**（Wikidata Q11634542 亦 1101–1113）⇒ **差一年，三比一**。此例说明"年界"在本项目里**不是取数问题而是校勘问题**：三源（CBDB `NIAN_HAO` 682 行／CHGIS `china_chron` 677 行 481 号／DILA 时间权威库 `t_era` 932＋`t_month` 56,327 行到日）**没有任何一个可单独作权威**，须并置＋留差异表。三源许可与规模的展开、以及"到日精度只有 DILA 有"这一事实，见 wiki《年号历日与文本规范抄》§一（**注：`t_era` 932／`t_month` 56,327／`china_chron` 677 行这三处系核查代理实测，我方未独立复验**；本页仅 `NIAN_HAO` 四项为我本地一手）；本页只记与我们库直接相关的两条陷阱与一条分歧值。
+
+> 复核义务：若改用 Dataverse 档案道件或后续版次，**须重跑本表四项统计**（行数／不同年号／最早起始年／哨兵是否仍是 3000）再更新本节。
+
+> 复核义务（承 9.1～9.6，2026-09-25 复原此行——补 §9.7 时曾被覆盖，现归位）：本件再有版本更新、或索引／坐标／ZZZ 任一项落地后，**同批刷新本节**（状态、数字、日期），并记 `docs/log.md` 一行。

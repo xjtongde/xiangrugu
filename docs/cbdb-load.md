@@ -217,7 +217,7 @@ F-13（装数四问之①③④由本方案差异项承接裁决；②靶机改�
 
 ---
 
-**状态：首批已执行完毕（2026-09-25 00:24 验收七项全过，执行记录＝§13）；第二批成案＝§14 v2 全量装载案（用户"能装尽装"令修订），候"同意"开工。**
+**状态：首批、第二批均已执行完毕——首批（2026-09-25 00:24 验收七项全过，记录＝§13）；第二批 v2 全量装载（2026-09-25 22:59 开工令"同意"→2026-09-26 02:50 验收八项全过，含编码大事件六轮修复，记录＝§15）。挂账余项仅 §2 之①版本堆（存档不装）③ZZZ（定案不装）两条既定裁决。**
 
 ---
 
@@ -286,3 +286,68 @@ F-13（装数四问之①③④由本方案差异项承接裁决；②靶机改�
 ### 14.8 回滚与账目联动
 
 回滚：本批新表逐张 DROP／`DROP SCHEMA harv CASCADE`／`DROP EXTENSION postgis_raster`（首批产物与 cbdb 库本体不动）；最坏 chgis 整 schema 重建后按 §5 重装首批三层（工作集在 NAS）。账目联动（执行批内）：§15 执行记录；pg32b.md §12 补第二批段；features F-13 状态行；codemap usedata/instance/harvard-full 行补注；cbdb.md §9.2（ADDR_XY 落地＋哨兵统计）复核义务兑现；log 收口。
+
+---
+
+## §15 第二批执行记录（2026-09-25 22:59 开工令"同意"〔周五夜窗口〕→2026-09-26 02:50 收工，历时约 3 小时 51 分；全程 ssh heredoc、顺序单流零并行、`nice -n 19 ionice -c3`＋loadavg<4.0 门禁〔30s 轮询〕、pg32 生产零感知）
+
+**开工基线**：pg32 canary `select 1`＝1、loadavg 0.42、宿主 `/` 余 192G；执行工作区＝宿主 `/tmp/pg32b-load2/`（脚本 22 支＋对账总账 `recon_b2a.tsv`＋hash 去重登记 `hashreg.json`；**已入账后 rm**，审计件 36 件/576KB 收 `ops/harvard/load-b2/`，再生法＝本节＋脚本原件）。对账唯一权威＝recon TSV（终态 1,757 行），非 stdout 流水。
+
+**批 2a（腿 D/E/F/G，脚本 b2a/b2a2）**：
+- **D1** V6 全量 18 层（1820/1911 省市县镇点面全 set＋coded_rvr＋1926/1997 省面等）；**D2** V5 26 层（1820/1911 全 set、tibet_twns、SMR、chinaw、physiog 等）；**D3** v5_time 时序变体；**D4** gns 30 省并表 130,665。
+- **E** ADDR_XY：sqlite→COPY→`public.addr_xy` **19,249**（三方一致；哨兵：零坐标 **7,793**／非零 **11,456**／`c_source_reference` 非空 **6,722**；列＝c_addr_id,x_coord,y_coord,c_source_reference,c_source_id,c_notes——cbdb.md §9.2 剔污染口径落地）。
+- **F** 纪年三件：china_chron **677** 行（20 实列名硬编码）／major_china_periods **52**／fields xls **21**。
+- **G** DEM：`chgis_dem.tif` 内嵌用户自定义 `Xian_1980_GK_Zone_19` ENGCRS（GDAL 不可解析，原点 15,781,037/6,567,324 米）→ 从 23340 图集 aux.xml 提取**规范 WKT**（False_Easting 19,500,000／Central_Meridian 111／Xian_1980 椭球）→ `gdalwarp -s_srs wkt -t_srs EPSG:4326 -r bilinear` → `raster2pgsql -C -I -M -t 128x128` → `chgis.dem` **3,358 瓦片 srid=4326，Int16 真高程**；**历山书院 (115.50,35.67) 取值＝54.0m** ✓（与首批 ST_Within"濮州"同点互证）。
+- **事件①raster2pgsql 缺失**：镜像无此件（`/usr/lib/postgresql/18/bin/` 亦无）——Debian 拆在 `postgis` 独立包（无 apt 候选至 `apt-get update`）→ `apt-get download postgis && dpkg-deb -x` 提取 → `/usr/local/bin/raster2pgsql`（RELEASE 3.6.4、ldd 净）。G 腿初版只查 rc（无 pipefail 管道吞错）→ 加 `rc!=0 or ntiles==0 → exit` 补强。
+- **事件②psql 辅助函数引号制式**：shell 单引号误用 SQL 式 `''` 转义 → `extname='postgis_raster'` 校验查询被截断（扩展实已装成而报"安装失败"）→ 改 `'\''`，六支脚本统一。
+
+**批 2b 腿 H（Hartwell 29302，脚本 b2b1）**：容器侧批量普查（fc＋geomtype→`hw_meta.tsv`）→ 按（年代 type×几何类 pts/lin/pgn）分组，**352 层并 9 表**：chin_pgn 14 层 9,402（36 列）／chin_pts 1 层 957／circ_pgn 51 层 315／cnty_pgn 78 层 8,146（38 列）／indp_pgn 37 层 155／jin_pgn 58 层 923／liao_pgn 19 层 437／pref_pgn 77 层 1,145／prov_pgn 17 层 17 ＝ **21,497 要素**；逐层 `-sql "SELECT *, {yr} AS yr, '{stem}' AS src_file"`（年代切片＋源文件谱系入行）、SHAPE_ENCODING=BIG5、`-nlt PROMOTE_TO_MULTI`、`-t_srs EPSG:4326`、首层 `-overwrite` 余 `-append`；逐表对账 src 和==PG count 全过；**BIG5→UTF8 繁体实证：藍關鎮／二曲鎮／堯渡鎮（capital_ch CJK 行 8,065/8,146）**；v1_2002＝SKIP_DERIV（纯重投影派生，§14 差异项②兑现）。
+- **事件③**：初版仅按 type 分组 → `v5_1080_chin_difang` 系 MultiPoint 混入面组 → typmod 拒 → DROP 半成品表、改 (type×几何类) 重分组＋PROMOTE_TO_MULTI → 全过。
+
+**批 2b 腿 I（专题 21 项，脚本 b2b2/b2b2j 前半）**：ming_routes **1,043**／ming_stations **1,000**（yznm_ch 云南府/杨林净）；teahorse 5+37+212（4610→4326）；jp_toku 9+206+206+69；ming_garrisons 375；bgis **18,938**（GBK→UTF8：崇明寺/三亚市佛教协会）；dcw_asia_contour **186,130**；china_gas 自动拆表 171+72（长表名＝GDAL 自动分段）；hsr 79+748；beijing_sites 82；kozlov utf8 层 2,351；poddubnyi 555；przh 嵌套 zip 四组 374/59/111/155（1871–1888 俄测图，EPSG:4024→4326）；W6PFXR 寺院四并表 2,926+356+2,436+204；WP1ASG＝SKIP_DUP（933==933 字节哈希实证）；PJ8D45 v3+v4 图幅索引 77+77；SKIP_FMT 留证 14 行。
+- **事件④嵌套 zip**：zip 内含子目录前缀成员 → GDAL `/vsizip` 零层可列 → 改宿主解出 shapefile 六件套（.shp/.dbf/.shx/.prj/.cpg/.qpj）＋docker cp 整目录装载；首修误成 `name.shp.shp` 双扩展（selm 留 .shp）→ `[:-4]` 剥除；随附 `.cpg` 同目录即被 GDAL 尊重（enc=None 让位）——przh/russ 诸层 UTF-8 赖此保全；`*images*` zip 自 findzips 排除（LVYYZC 子串误配 ru_images）。
+
+**批 2b 腿 J＋TGAZ（脚本 b2b2j）**：china_pop_1999_county **2,361**／thdl_tibet_adm_areas 166／gb_91_codes 3,389／**谭其骧 tan names1 36,780＋names2 38,500**／ngia 631／nima 641／workshop2001_index 29；TGAZ mysqldump→**33 表**（spelling 245,042／part_of 83,400／placename=present_loc=mv_pn_srch×3 各 82,117／v6_id 82,858／v5_id 77,769／snote 25,655／alt_name3 18,540…约 105 万行；ins==pg 33/33 全过；空表 6 保留如实；视图 5 SKIP_VIEW）。
+- **事件⑤谭图 GBK**：tan_gbk 件所有严格解码（含 gb18030）皆失败 → 兜底法＝`gb18030(replace)` 与 `utf-8(replace)` 比 CJK 字符数 → gb18030 胜且 **U+FFFD 零丢失**（样本实证：也儿的石河｜元朝｜水）。
+- **事件⑥TGAZ 解析**：mysqldump 之 CREATE TABLE 跨多行 → 单行正则碎裂 → 改块累加器状态机。
+
+**批 2b 腿 K（V2/V3/V4 档案，脚本 b2b3）**：向量 **107 层**（V2 37＋V3 25＋V4 45：russ 七套 CP1251 4024→4326〔Пекин/Гу-бей-кэу〕、1820/1911 全 set〔v2_1911_twn 151,254 行级、v4_1911_twn 38,599〕、dcw contour 92,626＋rds 27,256＋rvr 213,880、time 层 Krasovsky `-a_srs` 注记〔无 datum 移位，假定入账〕、citas90 三编码变体）＋**MDB 关系库 36 表**（v2db 11：main 36,529/gisinfo 38,179/partof 31,834/source_notes 2,524/xtra×7；v3db 12：main 49,255/gis_info 52,465/part_of 53,122/preceded_by 7,692…；v4db 13：main 58,399…）＋gns v4 并表 **126,566**（29 内层 zip，4610 米制→4326）＋xlsx 10 件（含 chinaw_master_beta）；**哈希去重 12 层 SKIP_DUP**（V3 内嵌 v2_* 字节级同份，hashreg.json 实证）；JX4KSQ SKIP_FMT（MDB 已装）。
+- **事件⑦MDB 管线**：容器 mdbtools 之 `mdb-schema` backend "postgresql"＝**Invalid backend type** → 改全文本列 CSV 管线（mdb-tables/mdb-export UTF-8→CREATE TABLE 全 text→COPY）；kozlov jpg 元数据 cp1251 致 UnicodeDecodeError 0xa8 → subprocess `errors='replace'`。
+- **事件⑧chgis_v2_database.ZIP NO_LAYER**：zip 内系 MDB 非 shp → 分类窥探：无 .shp 之 zip 将内层 .mdb/.xls(x) 路由 others 管线（ROUTED 19 行），否则 SKIP_FMT；basename 去重（V4 MDB 多路径三次误装→修）。
+
+**批 2b 腿 L（栅格）＋两轮修（脚本 b2b3 L 段/b2b3fix/b2b3fix2）**：
+- 首装：peking_1875（bretschneider 1875 北京）**275 瓦片 4326** ✓；atlas×3／v2_dem×6／gtopo30 首装 **srid=0 病**；worldfile TIF 误 SKIP_NOGEO；v3 DemTopo30 误 NORASTER。
+- **事件⑨raster srid=0**：epsg 提取正则 `ID\["EPSG",(\d+)\]` 抓 gdalinfo 全文，误中 **DATUM/UNIT 之 ID**（7049=Xian80 datum、9014、6610）而非 CRS → 正确检测＝`gdalsrsinfo -o epsg`；度像素无 SRS 者 `-s 4326` 赋标（**datum 按 WGS84 假定入账**）；米制 Xian80-GK19 者以规范 WKT warp→4326。
+- **事件⑩worldfile 漏抽**：`.tifw` 拼写不在解包过滤器 → 16 个 TIF 误判无配准 → 补抽并造 `.tfw`/`.tifw` 双拼写＋gdalinfo `Pixel Size` 实证 → 16/16 全落（度制 worldfile：pdb2 900 瓦／Ca1884_partial 380／ABPR9F map1-3 380/360/380／LVYYZC map1-11 320–425，全部 `-s 4326`）。
+- fix2 轮：**事件⑪GDAL 对含旋转项之 worldfile 只打 `GeoTransform =` 不打 `Pixel Size =`** → 检测字符串两度误判（atlas jgw 大旋转项＝扫描件歪斜；DemTopo30 微旋转项 5.4e-7）→ 检测改 `GeoTransform|Pixel Size`；atlas 三页补抽 .jgw＋PAM 自定义投影退化为 ENGCRS 不可 warp → `gdalwarp -s_srs xian80_gk19.wkt` 显式 → **1926 图集 01 全国页 220 瓦 ext 62.8–143.6E/14.5–57.0N、11 长江中下游 176 瓦 111.4–120.4E/24.2–30.1N、13 160 瓦 106.9–116.1E/24.5–30.2N（extent 与页题吻合）**；DemTopo30 3,948 瓦 60–149.1E/10–60N；v2_dem 六瓦 567–858 瓦；gtopo30 → warp `-r near` **6,095 瓦** ext 42.3,7.1–174.7,67.8（README 自述 "reprojected to Gauss Kruger Xian 1980 Zone 19"＝证据；**Byte RGB 可视化底图，非高程**）。纯扫描图存档不装（SKIP_NOGEO 终态 55，§14 差异项③兑现）。
+
+**验收八项初轮（b2acc）→ 编码大事件暴露**：④中文抽验见 `é¸å·`（＝霸州）、⑦a 1911 县面返 "Pu Zhou|æ¿®å·"——**系统性双重编码**。
+- **病理**：批 2 装载函数 D1/D2/D3/K/I 诸腿多传 enc=None（未设 SHAPE_ENCODING）→ GDAL 依 dbf LDID（多 0x57=ANSI）按 **ISO-8859-1** 猜解 → UTF-8 源字节被 latin1→UTF-8 双重编码入库。首批显式 `--config SHAPE_ENCODING UTF-8` 故无恙。
+- **检测演进（如实记）**：首轮扫 `[À-ÿ]{2}`（U+00C0–00FF）仅中 14 列——**漏检**：UTF-8 三字节汉字之 latin1 像＝E6 系字符＋**C1 控制段（U+0080–009F）**＋A0–BF 段字符（"æ¿®å·"之 ¿®· 皆出界、连排被打断）→ 二轮 `[\u0080-\u00FF]{2}` 全 Latin-1 补充块扫 3,760 列 → **中伤 820 表列**。
+- **分诊四路**：REPAIR_U8（latin1 型伤）117 表／REPAIR_1251（poddubnyi：CP1251 被当 latin1，`áåç èìåíè`＝без имени）／RELOAD（kozlov：UTF-8 源被 AUTO 误判强制 GBK，`斜械蟹`＝Пекин；gns：见下）／**LEGIT 源自带 11 表不动**（public.biog_main 2 行法籍传教士名"Hubert-Franççoi Schraven"、addr_codes 1 行、ethnicity_tribe_codes "Hü'üshin" 转写、merged_person_data 1 行、tgaz_snote 14 行〔中文注记＋西文引注〕、tgaz_alt_name3/present_loc〔Wade-Giles ü 合法〕、MDB source_notes 3/3/7 行西文引注、bgis bldg_mt_en "Buddhist nun's (庵)" 混排）。
+- **修复法（工程决策）**：ISO-8859-1 系 256 字节**全映射**（字节↔U+00XX 双射）→ `convert_from(convert_to(col,'LATIN1'),'UTF8')`＝**无损可逆修复**，免重装；守卫模式 `[\u00C2-\u00F4][\u0080-\u00BF]`（UTF-8 lead＋continuation 签名；合法 ü 单字符/西文重音不误伤）。批量 UPDATE **780 列/2,344,643 行**全过；24 列整句回滚报 invalid byte——**源 dbf 字段宽度截断多字节字符**（如 E7A5 缺第三字节）→ plpgsql 逐行＋裁尾重试（`left(v,len−k)`,k=0..2）**修 138,524 行／360 行源截断不可逆**（残伤 3 列如实入账：v2_time_cnty_pts.ch_orig 339＋pgn 20＋v4_1911_twn_pts.name_py 1）。poddubnyi 修 `convert_from(convert_to(…,'LATIN1'),'WIN1251')`（**PG 编码名系 WIN1251 非 CP1251，首试报错**）1,111 行→без имени/Цза-ра-ла ✓。
+- **修复后抽验（全净）**：霸州/仁本宗、濮州（⑦a 空间复测）、萧县/归善县、漠河/塔河、崇明寺、Пекин/Гу-бей-кэу、без имени/Бор-нуру、元朝｜水、云南府/杨林、伦珠寺/拉康寺、古宫/白塔寺、蝦夷地/北陸道、内藤義概/ないとうよしむね（汉字假名双列）、澎湖厅/双城厅、万善寺/东山寺、北京市轄縣、Mendong Gömpa。
+- **kozlov 重装事件（如实记）**：首重装把**宿主路径** `/mnt/nas-mirror/…` 传给容器内 ogr2ogr → 容器不见 → **静默未装**（old==new==2351 系假象，验证语句崩溃前未暴露）→ docker cp 入容器＋`--config SHAPE_ENCODING UTF-8` 强制（zip 内 cpg='UTF-8' 在而 GDAL 未采、LDID=0）真装 → 2,351/2,351 行西里尔 ✓。**教训：old==new 不等于成功，容器内命令须验容器侧可见路径。**
+- **gns 误标事件（字节实证）**：`v5_gns_*_gbk.zip` 原始字节 `48 73 FC 61 6E`＝"Hs\xFCan"——**ü 系 latin1 单字节 0xFC，文件名 `_gbk` 为误标**；CNTY_CH 等中文列实测全空 → v5_gns 以默认 enc（latin1 直通）重装 **130,665** ✓（ü 行 3,912：T'ai-yü-chen/Shuang-ch'üan-chen）。**v4_gns 不同**：原始字节 `ED B8 C9 BD CF D8`＝真 GBK 中文 → SHAPE_ENCODING=GBK＋`-t_srs EPSG:4326`（源 4610 米制）重装 **126,566** ✓；同列混编（GBK 中文＋latin1 ü）→ GBK 装载把 ü＋其后 ASCII 字符吞成 **GBK 用户区杂字**（FC61→黙、FC6E→黱、F66C→鰈＝öl、DC64→躣＝Üd——Wade-Giles 变音 äëïöüÄÖÜ 系 latin1 C0–FF 单字节）→ 系统化逆映射：distinct 非 ASCII 字符→`encode(ch,'GBK')` 前缀 C0–FF 且尾字节 40–7E 者→`chr(lead)+chr(trail)`，**83 映射清洗 1,183 处**（Sakya Gömpa/Pembar Gömpa ✓）；真汉字（GB2312 尾≥A1）不动——**v4 真中文本在 CNTY_CH 列**（措勤县/边坝县/萨迦县，GBK 装载本就正确；FIX4 账"CJK 行 1140"实为用户区杂字非汉字，勘正）；残杂字 **2 行**（lead<C0：燛rsha/Ør縨u＝GNS 九〇年代转写源自带退化，**不造数据**，如实入账）。
+- **gns CRS 误判与勘正（如实记）**：v5_gns 重装漏 `-t_srs` → srid=2333 米制；列 typmod `geometry(Point,2333)` 拒 UPDATE → 误判"prj 与数据不合、实为 2327"→ `ST_SetSRID(geom,2327)` 强转后**安徽落 129–131°E（错）**→ spatial_ref_sys 实证：**2333＝`+lon_0=111 +x_0=19500000` 本就是 6 度带 19 真解（FE 19.5M/CM 111），2327＝13 带（CM 75/FE 13.5M）——原 .prj 无错、我判错** → 逆变换 `ST_Transform(geom,2327)` 还原米制 → `ST_SetSRID(…,2333)` → `ALTER TYPE geometry(Geometry,4326) USING ST_Transform(…)`（typmod 一并解）→ ext **74.2–135.0E/18.2–53.5N 与 v4_gns 逐位互证**、安徽带 114.90–119.62 全同、西藏样 Lhazhong@86.67,32.05／Kugka Lhai@88.33,31.98 合理 ✓。
+- **tbrc FFFD 溯源**：DB 10 行 U+FFFD；源 dbf `Tibet_Monasteries_UTF8_v1_20120702.dbf` 字节探查 EF BF BD **恰 10 次**——源自带、装载零丢失 ✓。
+- **工具级教训汇总（如实记）**：①宿主路径入容器＝静默失败；②`-sql "…'{pv}'…"` 内层单引号顶破 bash -c 外层单引号（`Unrecognized field name beijing`）→ 改 ALTER＋UPDATE 补 prov 列；③ssh 管道无 pipefail → tee 吞 python 崩溃（b2fix2 exit 0 而 traceback）→ 此后全程 `set -o pipefail`；④重装未带 `-lco GEOMETRY_NAME=geom` → 列名 wkb_geometry（kozlov 例，后 RENAME 归位＋GiST 复证）；⑤检测字符串必先验 GDAL 输出形态（Pixel Size vs GeoTransform、[À-ÿ] vs [\u0080-\u00FF] 两度漏判）。
+
+**验收八项终态（b2acc2＋b2post，全过）**：
+- **①对账总账**：recon 1,757 行；终态 **OK 282＋REPAIRED 8＋AS_IS 3＋SPLIT_OK 1＋ROUTED 5**＋SKIP 族（**SKIP_DUP 110**〔字节哈希同份实证〕／**SKIP_FMT 186**〔MapInfo〔镜像无 MITAB 驱动〕/KMZ 重打包/纯图档等——存档留证〕／**SKIP_ENC 65**〔编码变体只装一份〕／**SKIP_NOGEO 55**〔纯扫描无配准——存档〕／SKIP_VIEW 5〔TGAZ 视图可随时重建〕／DERIV/COORDVAR/GEOMONLY/VAR/NOWORLD/NORASTER 各 1–2）；FAIL 4 行**皆被后续修复行取代**（hartwell_chin＝事件③半成品已 DROP〔实存=0 实证〕；FIX/FIX2 gns 3 行被 FIX4/FIX9 取代）＋NO_LAYER/NORASTER/SKIP_NOWORLD 各 1 亦被后续 OK 行取代——**未解决终态为零，无一静默丢**。
+- **②ADDR_XY**：19,249／哨兵 7,793 零／11,456 非零／6,722 有 source_ref ✓。
+- **③Hartwell**：九表合计 **21,497 == H 腿 src 和** 逐位全同 ✓。
+- **④编码族抽验十六项全净**（BIG5 藍關鎮〔capital_ch CJK 8,065〕／UTF-8 霸州濮州萧县归善县／GBK 漠河崇明寺／CP1251 Пекин без имени／gb18030 元朝｜水／TGAZ written_form 霸州新河縣密云縣／MDB Chengde Fu／纪年 秦｜秦 简繁双列／明驿 云南府杨林／gns Gömpa＋ü 3,912 行／tbrc 伦珠寺＋源生 FFFD 10 行／jp 内藤義概＋假名）；U+FFFD 零（除 tbrc 源生 10 行）、latin1 伤零。
+- **⑤GiST/栅格清点**：GiST **221**（chgis 162＋harv 59）＝向量 **192** 表＋栅格 **29** 表严丝合缝；带型账：**chgis.dem＝16BSI Int16 真高程**；gtopo30/v3_dem_topo30＝8BUI×3 **Byte RGB 可视化底图**（同点取值 48/48＝通道值非高程，高程真值唯 chgis.dem）；v2_dem 六瓦＝8BUI Byte（中心值 140/76/50/0/204/50）。
+- **⑥桥补 3,871 探索项（成败皆如实记）**：批 2 D1 重载 v6 两点层后桥余基数变为 **2,649**（首批口径 3,871 中 1,222 个新命中 v6 层）；以全部 sys_id/v5_id/v6_id 列试 join → **去重命中 1,494**＝ChinaW 三载体 1,449（v5_chinaw_pts〔shp〕/chinaw_master_beta〔xls〕/harv.chinaw_pts——**同内容三份、字节级去重防不了跨格式重复**，如实记）＋时序层 45（v5_time_cnty 112/v4_1911_cnty 67/pref 24/twn 10/v4_time 27/v3_time_prov 5/v5_smr_subr 30，去重后并 1,494）；**余 1,155 仍未对上**（推测指向 Hartwell 制式 ID 或年代包外时间片——探索项入账，不追加）。
+- **⑦空间复测三例**：a) 历山书院 (115.50,35.67)→`v5_1911_cnty_pgn` ST_Intersects＝**Pu Zhou｜濮州**（拼音汉字双列同中，与首批互证）；b) DEM 同点 **chgis.dem＝54m**（与首批逐位同）、gtopo30/v3＝48（Byte 通道值）、atlas 11 页范围内取值 141、v2 瓦片中心 0–204；c) 明驿路：三站（云南府/杨林/寻甸）→最近路线 KNN＝**0.00km**——驿站在驿路上，语义直中。
+- **⑧压力门禁**：全程 nice/ionice＋门禁，抽测 loadavg 0.37–0.55 未近阈 4.0；**pg32 canary＝1 恒、生产零感知**（docker stats：pg32 cpu 0.02–8.87% 瞬时/mem 66–70MiB；pg32b 峰值 mem 2.5G/7.3G）；收工后磁盘余 189G。
+- **VACUUM ANALYZE**（234 万行 UPDATE 后）：52 秒。
+
+**装了什么/为什么没装总账（§14.4 验收⑥兑现）**：装＝OK 282 目标＋REPAIRED 8＋AS_IS 3（向量 192 表、栅格 29 表、MDB 36 表、TGAZ 33 表、纪年/码表/xlsx 若干）；不装＝五类留证：SKIP_DUP 110（字节同份）／SKIP_FMT 186（格式不可装：MapInfo 无 MITAB 驱动、KMZ 重打包核证、纯图档等）／SKIP_ENC 65（编码变体一份制）／SKIP_NOGEO 55（纯扫描存档）／SKIP_VIEW 5＋零星裁决 7——**每一跳过皆有 recon 行**。
+
+**清点（第二批毕库态）**：cbdb 库 **4,770MB**（首批 1,543→＋3,227MB）；用户表 **394**（chgis **211**＋harv **97**＋public **86**；另 ogr_system_tables 1＝pg_tables 非目录总计 395）；总行 **≈8,580,012**（首批 5,686,842→＋2,893,170）；GiST 221；扩展 postgis 3.6.4＋**postgis_raster 3.6.4（本批新建）**；最大表序：biog_source_data 1,254,135／biog_main 661,969／…／tgaz_spelling 245,042／v4_dcw_rvr_lin 213,880（新增层跻身前十二）。
+
+**收尾**：审计件（recon_b2a.tsv 1,757 行＋脚本 22 支＋关键输出，共 36 件/576KB）收 `ops/harvard/load-b2/`（运维工作区，依 .gitignore 政策不入仓）；宿主 `/tmp/pg32b-load2`（1.3G，内含 ras/hw5/iext 等**外部数据解包副本——N-01 必删**）入账后已 rm；容器 /tmp 清空（7.1G→0）；§2 缓办段四条对账：②Hartwell ✓本批装、④CHGIS 其余层＋ADDR_XY ✓本批装、①版本堆仍存档不装、③ZZZ 仍不装——**第二批挂账清零**。36 仍不可达（缓办，非本批范围）。
+
+**事件账总（十一件＋教训五条，全自制全决全披露；库内数据完整性零遗留——唯三处源生缺陷如实入账：360 行 dbf 截断、2 行 GNS 转写退化、10 行 tbrc 源生 FFFD）**：①raster2pgsql 缺失→Debian 包提取；②psql 引号制式→`'\''` 统一；③Hartwell 混组→type×几何类重分组；④嵌套 zip→解包＋docker cp＋cpg 尊重；⑤谭图解码→gb18030(replace) CJK 计数比较；⑥TGAZ 多行 DDL→块累加器；⑦mdb-schema 无效→全文本列 CSV 管线；⑧MDB zip 误配→分类窥探＋basename 去重；⑨raster srid=0→gdalsrsinfo 实证＋规范 WKT warp；⑩worldfile 漏抽→双拼写补抽；⑪**编码大事件**（820 列中伤→修复 2,483,167 行〔780 列批量＋24 列逐行〕＋kozlov 重装＋gns 双表重装/清洗＋CRS 误判自纠）。教训五条见上"工具级教训汇总"。

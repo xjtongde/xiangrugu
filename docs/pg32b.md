@@ -165,3 +165,12 @@ dump 的生成与调度／备份文件落盘（NAS／nas-mirror 大盘）／端�
 - **压力实测**：施工 23:48–00:24 共 36 分钟（预算 2.5h 之 24%）；峰值 loadavg 1.87（闸门阈 4.0 未触）；**pg32 生产全程 healthy＋canary 查询 0.092→0.089s 零劣化**——共存实证通过。
 - **观察**：reload 触发 LOG "postgresql.conf contains errors; unaffected changes were applied"＝**镜像 entrypoint 固有怪癖**（restart-needed 参数之 conf 文件初始值 vs 命令行运行值分歧，任何 reload 皆触发；参数应用实测不受碍），无害；pg32 同血统潜伏（从未 reload、0 命中）；pg36 同构候恢复后核。
 - 36 仍不可达（本批 00:21 ssh Connection timed out 实测）——§11 pg36 核验项仍挂。
+
+## §13 第二批全量装载建成（2026-09-25 22:59 开工令"同意"→2026-09-26 02:50 验收八项全过；执行明细唯一展开＝`docs/cbdb-load.md` §15，本节只记实例级事实）
+
+- **cbdb 库扩容**：表 86→**395**（chgis **211**＋harv **97**〔本批新建 schema〕＋public 86＋ogr_system_tables 1）；总行 5,686,842→**≈8,580,012**（＋2,893,170）；库大小 1,543MB→**4,770MB**；GiST **221**（向量 192 表＋栅格 29 表严丝合缝）；扩展新增 **postgis_raster 3.6.4**；`raster2pgsql` 补装容器 `/usr/local/bin`（镜像原缺，Debian `postgis` 包 `dpkg-deb -x` 提取，RELEASE 3.6.4/ldd 净）。
+- **新装层色**：向量 192 表（CHGIS V2–V6 历代全 set、Hartwell 352 层并 9 表 21,497、TGAZ 33 表约 105 万行、谭其骧 75,280、明驿路 2,043、俄测图/日本藩图/TBRC 寺院/BGIS/DCW 水文 213,880 等专题）＋栅格 29 表（**chgis.dem＝Int16 真高程 3,358 瓦**、v2_dem 六瓦、1926 图集三页、przh 系 16 页 worldfile 扫描、peking_1875、gtopo30/v3＝Byte RGB 底图）＋MDB 36 表＋纪年/码表/xlsx。
+- **编码大事件与修复（实例级结论）**：批 2 初装多传 enc=None→GDAL 依 dbf LDID 猜 ISO-8859-1→**820 表列双重编码**；修复＝**SQL 无损逆变换 2,483,167 行**（`convert_from(convert_to(col,'LATIN1'),'UTF8')`，latin1 全映射保真；24 列源 dbf 截断者 plpgsql 逐行裁尾）＋kozlov/v5_gns/v4_gns 三表重装＋v4_gns GBK 用户区杂字 83 映射清洗；源生缺陷三处如实入账（360 行截断/2 行 GNS 转写退化/10 行 tbrc 源生 FFFD）。**恒久口径：本库装 shapefile 必显式 SHAPE_ENCODING（或验 cpg），装后必跑 `[\u0080-\u00FF]{2}` latin1 连排扫描**（`[À-ÿ]` 窄域会漏 C1 段——两度漏判实证；细节＝cbdb-load §15）。
+- **压力实测**：施工 22:59–02:50 约 3 小时 51 分（含六轮修复）；门禁 loadavg<4.0 恒过（抽测 0.37–0.55）；**pg32 生产全程 healthy＋canary=1 零劣化**；pg32b 峰值 mem 2.5G/7.3G；cpu_shares 512 持续生效；VACUUM ANALYZE 52s 收尾。
+- **收尾**：容器 /tmp 清空（7.1G→0）；宿主 `/tmp/pg32b-load2`（1.3G，内含 ras/hw5/iext 等外部数据解包副本，N-01）入账后 rm，磁盘余 189G；审计件 36 件/576KB＝工作区 `ops/harvard/load-b2/`（recon 1,757 行＋脚本 22 支＋关键输出）。
+- 36 仍不可达（缓办，非本批范围）。

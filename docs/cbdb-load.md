@@ -334,7 +334,7 @@ F-13（装数四问之①③④由本方案差异项承接裁决；②靶机改�
 - **工具级教训汇总（如实记）**：①宿主路径入容器＝静默失败；②`-sql "…'{pv}'…"` 内层单引号顶破 bash -c 外层单引号（`Unrecognized field name beijing`）→ 改 ALTER＋UPDATE 补 prov 列；③ssh 管道无 pipefail → tee 吞 python 崩溃（b2fix2 exit 0 而 traceback）→ 此后全程 `set -o pipefail`；④重装未带 `-lco GEOMETRY_NAME=geom` → 列名 wkb_geometry（kozlov 例，后 RENAME 归位＋GiST 复证）；⑤检测字符串必先验 GDAL 输出形态（Pixel Size vs GeoTransform、[À-ÿ] vs [\u0080-\u00FF] 两度漏判）。
 
 **验收八项终态（b2acc2＋b2post，全过）**：
-- **①对账总账**：recon 1,757 行；终态 **OK 282＋REPAIRED 8＋AS_IS 3＋SPLIT_OK 1＋ROUTED 5**＋SKIP 族（**SKIP_DUP 110**〔字节哈希同份实证〕／**SKIP_FMT 186**〔MapInfo〔镜像无 MITAB 驱动〕/KMZ 重打包/纯图档等——存档留证〕／**SKIP_ENC 65**〔编码变体只装一份〕／**SKIP_NOGEO 55**〔纯扫描无配准——存档〕／SKIP_VIEW 5〔TGAZ 视图可随时重建〕／DERIV/COORDVAR/GEOMONLY/VAR/NOWORLD/NORASTER 各 1–2）；FAIL 4 行**皆被后续修复行取代**（hartwell_chin＝事件③半成品已 DROP〔实存=0 实证〕；FIX/FIX2 gns 3 行被 FIX4/FIX9 取代）＋NO_LAYER/NORASTER/SKIP_NOWORLD 各 1 亦被后续 OK 行取代——**未解决终态为零，无一静默丢**。
+- **①对账总账**：recon 1,757 行；终态 **OK 282＋REPAIRED 8＋AS_IS 3＋SPLIT_OK 1＋ROUTED 5**＋SKIP 族（**SKIP_DUP 110**〔字节哈希同份实证〕／**SKIP_FMT 186**〔MapInfo〔镜像无 MITAB 驱动〕/KMZ 重打包/纯图档等——存档留证〕／**SKIP_ENC 65**〔编码变体只装一份〕／**SKIP_NOGEO 55**〔纯扫描无配准——存档〕／SKIP_VIEW 5〔TGAZ 视图可随时重建〕／DERIV/COORDVAR/GEOMONLY/VAR/NOWORLD/NORASTER 各 1–2）；FAIL 4 行**皆被后续修复行取代**（hartwell_chin＝事件③半成品已 DROP〔实存=0 实证〕；FIX/FIX2 gns 3 行被 FIX4/FIX9 取代）＋NO_LAYER/NORASTER/SKIP_NOWORLD 各 1 亦被后续 OK 行取代——**未解决终态为零，无一静默丢**。（**2026-09-27 补正：本句经只读审计证伪**——`v4_gns` 广西 4,099 条源记录静默漏装且**无任何 recon 行**；本项诸计数之基准亦未声明。详 §15.9 与 `docs/bugs.md` B-05／B-08。）
 - **②ADDR_XY**：19,249／哨兵 7,793 零／11,456 非零／6,722 有 source_ref ✓。
 - **③Hartwell**：九表合计 **21,497 == H 腿 src 和** 逐位全同 ✓。
 - **④编码族抽验十六项全净**（BIG5 藍關鎮〔capital_ch CJK 8,065〕／UTF-8 霸州濮州萧县归善县／GBK 漠河崇明寺／CP1251 Пекин без имени／gb18030 元朝｜水／TGAZ written_form 霸州新河縣密云縣／MDB Chengde Fu／纪年 秦｜秦 简繁双列／明驿 云南府杨林／gns Gömpa＋ü 3,912 行／tbrc 伦珠寺＋源生 FFFD 10 行／jp 内藤義概＋假名）；U+FFFD 零（除 tbrc 源生 10 行）、latin1 伤零。
@@ -344,10 +344,50 @@ F-13（装数四问之①③④由本方案差异项承接裁决；②靶机改�
 - **⑧压力门禁**：全程 nice/ionice＋门禁，抽测 loadavg 0.37–0.55 未近阈 4.0；**pg32 canary＝1 恒、生产零感知**（docker stats：pg32 cpu 0.02–8.87% 瞬时/mem 66–70MiB；pg32b 峰值 mem 2.5G/7.3G）；收工后磁盘余 189G。
 - **VACUUM ANALYZE**（234 万行 UPDATE 后）：52 秒。
 
-**装了什么/为什么没装总账（§14.4 验收⑥兑现）**：装＝OK 282 目标＋REPAIRED 8＋AS_IS 3（向量 192 表、栅格 29 表、MDB 36 表、TGAZ 33 表、纪年/码表/xlsx 若干）；不装＝五类留证：SKIP_DUP 110（字节同份）／SKIP_FMT 186（格式不可装：MapInfo 无 MITAB 驱动、KMZ 重打包核证、纯图档等）／SKIP_ENC 65（编码变体一份制）／SKIP_NOGEO 55（纯扫描存档）／SKIP_VIEW 5＋零星裁决 7——**每一跳过皆有 recon 行**。
+**装了什么/为什么没装总账（§14.4 验收⑥兑现）**：装＝OK 282 目标＋REPAIRED 8＋AS_IS 3（向量 192 表、栅格 29 表、MDB 36 表、TGAZ 33 表、纪年/码表/xlsx 若干）；不装＝五类留证：SKIP_DUP 110（字节同份）／SKIP_FMT 186（格式不可装：MapInfo 无 MITAB 驱动、KMZ 重打包核证、纯图档等）／SKIP_ENC 65（编码变体一份制）／SKIP_NOGEO 55（纯扫描存档）／SKIP_VIEW 5＋零星裁决 7——**每一跳过皆有 recon 行**。（**2026-09-27 补正：本句证伪**——广西 GNS 件既未装亦未记 SKIP，账面之外；详 §15.9 与 B-05。）
 
-**清点（第二批毕库态）**：cbdb 库 **4,770MB**（首批 1,543→＋3,227MB）；用户表 **394**（chgis **211**＋harv **97**＋public **86**；另 ogr_system_tables 1＝pg_tables 非目录总计 395）；总行 **≈8,580,012**（首批 5,686,842→＋2,893,170）；GiST 221（**2026-09-27 复测补正：终态真值 222**——kozlov 列名归位后之双索引，详 §15 验收⑤补正注；**同日奉令 DROP 冗余，终值复归 221、账实复合**）；扩展 postgis 3.6.4＋**postgis_raster 3.6.4（本批新建）**；最大表序：biog_source_data 1,254,135／biog_main 661,969／…／tgaz_spelling 245,042／v4_dcw_rvr_lin 213,880（新增层跻身前十二）。
+**清点（第二批毕库态）**：cbdb 库 **4,770MB**（首批 1,543→＋3,227MB）；用户表 **394**（chgis **211**＋harv **97**＋public **86**；另 ogr_system_tables 1＝pg_tables 非目录总计 395）；总行 **≈8,580,012**（首批 5,686,842→＋2,893,170）；GiST 221（**2026-09-27 复测补正：终态真值 222**——kozlov 列名归位后之双索引，详 §15 验收⑤补正注；**同日奉令 DROP 冗余，终值复归 221、账实复合**）；扩展 postgis 3.6.4＋**postgis_raster 3.6.4（本批新建）**；最大表序：biog_source_data 1,254,135／biog_main 661,969／…／tgaz_spelling 245,042／v4_dcw_rvr_lin 213,880（新增层跻身前十二）。（**2026-09-27 补正**：FIX10 补装广西 ＋4,099、FIX11 删八表非数据行 −14 → 总行 **8,584,097**、库 **4,771MB**；用户表 **395 不变**；首批 5,686,842 **未动**。详 §15.9。）
 
 **收尾**：审计件（recon_b2a.tsv 1,757 行＋脚本 22 支＋关键输出，共 36 件/576KB）收 `ops/harvard/load-b2/`（运维工作区，依 .gitignore 政策不入仓）；宿主 `/tmp/pg32b-load2`（1.3G，内含 ras/hw5/iext 等**外部数据解包副本——N-01 必删**）入账后已 rm；容器 /tmp 清空（7.1G→0）；§2 缓办段四条对账：②Hartwell ✓本批装、④CHGIS 其余层＋ADDR_XY ✓本批装、①版本堆仍存档不装、③ZZZ 仍不装——**第二批挂账清零**。36 仍不可达（缓办，非本批范围）。（**2026-09-26 补正续**：① 用户令"tmp下的文档不保留"——开发机 /tmp 指南系物件全删（`cbdbdoc` 解包树 23M／`cbdbp`／`cbdbt` 官网调研暂存／`g2025.txt`；wayback 2023 版件查实已不在；并行会话之 wiki 工作目录不在此列、未动）；② 答用户问"导入 pg32b 的数据用了哪个位置的源数据，都有记录吗"——recon src 列系文件基名、完整路径此前散于 §15 腿级叙述与脚本源码，现补全**`src_paths.tsv` 源文件映射表**入审计件：每 recon 行→NAS 实存源逐文件展开，1,757 行**未解析 0／异常多命中 0**（解析形态：文件级 1,472／外层 zip 级 233〔成员在 zip 内，inner 列注成员链〕／嵌套 zip 级 17〔如 `ZZKZ6U/CHGIS_V2.zip⊃v2_dem_nw_one.zip⊃nw_one.tif`〕／DOI 目录级 25〔描述性/多件引用〕／多档案级 1／修复验收行 5；DOI 消歧取自 b2*.py 脚本硬编码证据，生成器 `resolve_src.py` 同存可复跑）；源根两处＝32 镜像盘 `/mnt/nas-mirror/61/workmetadata/`（harvard-full DOI 树＋chgis-v6）＝开发机侧 `/mnt/wd61workmetadata/` 同一 61 共享；审计件现共 **38 件/864KB**。）（**2026-09-26 补正续2**：③ 承用户问"用的是 /mnt/wd61workmetadata/ 下哪些目录的数据"——src_paths.tsv 机械汇总出**目录级账**并把 harvard-full 65 树＋顶层目录全部对完，存 **`tree_coverage.tsv` 源覆盖审计表**入审计件（67 行：**第二批用 42 树/目录**〔41 DOI 树＋顶层 chgis-v6/，1,754 条 recon 行挂其下——前五 PDGOZ0 572 行/ZZKZ6U 356/HIMIVE 337/H3OB28 114/M7WEFY 83〕、**首批工作集 1**〔usedata/harvard/：cbdb/ 2 件 sqlite＋chgis/ 3 件 time zip＋tab/ 3 件＝7 件数据，另 PAGGQS/CBDB_20240208_sqlite.db 只读取 schema〕、**未触碰 24 树**逐一分类给实证）；④ 未触碰 24 树分类（各经实证）：**版本堆 5**（GNPNON/P8U8RC/F6BBOF/2UFYFG/SHMDGU——§2① 裁决存档不装）、**软件 2**（BWIBNL LoGaRT 权重／16PSZE 韩文罗马化转换器——工具非数据）、**文档树 7**（JJMYV7/AZYI17/MZANN5/IWOK2X/SNCEAU/FDLFJ3/6CHSR7——PDF/GIF 书目、论文、EULA、README、字典类）、**同内容已装 7**（I0Q7SM/WW1PD6/Q9VOF5 V6 时序三树之 utf_wgs84.zip 与 usedata/harvard/chgis/ 同名件 sha256 **字节全同三连**〔`d3aa9f39…`/`48f6a50b…`/`3b431d2e…`〕＝首批腿 B 已装；HTGBQ3/J6XRIV/CE4ZNG＝首批腿 C usedata/harvard/tab/ 三 .tab 原件之源树〔40,199/2,957/1,033 行已装〕；SC7AOU china_chron.ZIP＝F 腿源 chgis-v6/China_Periods_ReignDates.zip 之子集——5 同名成员 4 字节全同〔txt sha `4d41c5ec…` 同〕、唯 china_chron.xls 为格式变体而其 txt 已装 677 行）、**编码变体 2**（0P89R9＝1911 GBK／2K4FHX＝1820 GBK 孪生树——utf 版 HHVVHX/ST5KKM 已装、依编码变体一份制不重装；原 recon 对此二树无留证行＝账目小疵，tree_coverage.tsv 该行即留证）；⑤ **新缺口挂账（R-02）**：**TI8DFI「Multilingual Feature Type Crosswalk」**（多语言〔中/日/维等〕特征类型对照表）——含 ADL_FTT_V2.zip 80,559B／feat_class_xwalk_080502.zip 99,018B／xwalk_2004.zip 135,288B 三数据 zip＋PDF 一件——**§14 v2 货单未覆盖、第二批未装**；依"能装尽装"口径属真缺口，**补装候用户令**；审计件现共 **39 件/872KB**；人读摘要表＝**`docs/data-sources.md`**〔同日用户令开设、index.md 已登记——一页说清源文件→库位／来历与内容／对应规则，数字全部机械汇总自本批审计件＋库内实测〕。）（**2026-09-27 补正续3**：用户裁决（原话）"**不行。/mnt/nas-mirror 这个目录我们的项目不能用。我建立它的目的就是为了在32上备份nas的内容。**"——**nas-mirror＝用户自建之 32 本地 NAS 备份区，项目读写皆禁**（裁决权威展开＝`docs/codemap.md` §2"32 本地备份盘"专行）。史实不改写：两批装载实跑确曾读镜像盘侧（§10/§12/§14/§15 及 b2*.py 22 支脚本硬编码路径＝审计留证），**装载产物有效性不受影响**——镜像盘与直挂系字节级同一份数据（文件数 16,822＝同、纯文件字节和 21,492,791,579＝同、rsync 干跑零差异，2026-09-27 实测）；**项目从未写镜像盘**（工作集拷贝＝镜像盘读→NAS 写单程）。**此后任何装载/补装（含挂账中之 TI8DFI）/复核一律读 32 直挂 `/mnt/wd61workmetadata/`**（容器侧搬运法不变＝docker cp，kozlov 事件教训仍适用：容器内命令须验容器侧可见路径）；本文 §2"装数优先本地镜像读"与 §14 差异项⑨"直读镜像盘"两处旧表述作废（原文不改、前向注记于此）。）
 
-**事件账总（十一件＋教训五条，全自制全决全披露；库内数据完整性零遗留——唯三处源生缺陷如实入账：360 行 dbf 截断、2 行 GNS 转写退化、10 行 tbrc 源生 FFFD）**：①raster2pgsql 缺失→Debian 包提取；②psql 引号制式→`'\''` 统一；③Hartwell 混组→type×几何类重分组；④嵌套 zip→解包＋docker cp＋cpg 尊重；⑤谭图解码→gb18030(replace) CJK 计数比较；⑥TGAZ 多行 DDL→块累加器；⑦mdb-schema 无效→全文本列 CSV 管线；⑧MDB zip 误配→分类窥探＋basename 去重；⑨raster srid=0→gdalsrsinfo 实证＋规范 WKT warp；⑩worldfile 漏抽→双拼写补抽；⑪**编码大事件**（820 列中伤→修复 2,483,167 行〔780 列批量＋24 列逐行〕＋kozlov 重装＋gns 双表重装/清洗＋CRS 误判自纠）。教训五条见上"工具级教训汇总"。
+**事件账总（十一件＋教训五条，全自制全决全披露；库内数据完整性零遗留——唯三处源生缺陷如实入账：360 行 dbf 截断、2 行 GNS 转写退化、10 行 tbrc 源生 FFFD。**2026-09-27 补正：此"零遗留"经只读审计证伪**，另有四类：①`v4_gns` 广西 **4,099 行漏装**（B-05，已修）；②八表**表头污染**、114 个 `fieldN` 合成列（B-06，已修）；③`prov_py` **2,519 行不可用于筛省**（B-07，候令）；④29 省 `*_INT_ID`／`*_EXT_ID` **静默丢弃**（B-10，候令）——详 §15.9）**：①raster2pgsql 缺失→Debian 包提取；②psql 引号制式→`'\''` 统一；③Hartwell 混组→type×几何类重分组；④嵌套 zip→解包＋docker cp＋cpg 尊重；⑤谭图解码→gb18030(replace) CJK 计数比较；⑥TGAZ 多行 DDL→块累加器；⑦mdb-schema 无效→全文本列 CSV 管线；⑧MDB zip 误配→分类窥探＋basename 去重；⑨raster srid=0→gdalsrsinfo 实证＋规范 WKT warp；⑩worldfile 漏抽→双拼写补抽；⑪**编码大事件**（820 列中伤→修复 2,483,167 行〔780 列批量＋24 列逐行〕＋kozlov 重装＋gns 双表重装/清洗＋CRS 误判自纠）。教训五条见上"工具级教训汇总"。
+
+### §15.9 2026-09-27 补正注（只读审计后之 FIX10／FIX11 批；上文旧行依 R-04 一律不改写）
+
+> **缘起**：用户令「@docs/data-sources.md 我要你就根据这份文件，做一次只读审计」→ 他方审计报告经逐项独立复核**属实**（含其中心主张：V4 GNS 广西 4,099 条有效源记录、`chgis.v4_gns` 内 0 行）→ 用户令「**出现问题肯定要修复啊**」「**全修**」。本节为本文档内**唯一**之集中补正处；逐表明细＝`docs/data-sources.md` §六；根因／验收／回滚线＝`docs/bugs.md` B-05…B-10；候令改进＝`docs/improvements.md` I-01…I-03。
+
+**一、腿级与清点数字之补正**
+
+| 原载处 | 原载 | 实测终值 | 缘由 |
+|---|---|---|---|
+| 腿 F | `fields xls **21**` | **20** | FIX11：首行系表头，被当数据装入 |
+| 腿 J | `china_pop_1999_county **2,361**／thdl_tibet_adm_areas 166` | **2,357**／**165** | FIX11：前者删 3 行版权前言＋1 行表头；后者删 1 行表头 |
+| 腿 K | `gns v4 并表 **126,566**（29 内层 zip）` | **130,665**（**30** 内层 zip） | FIX10：广西件（双重后缀）漏装 4,099 行 |
+| 腿 K | `xlsx 10 件（含 chinaw_master_beta）` | 其中 **4 件**所成之表受表头污染（另 `.xls` 4 表同病） | FIX11 |
+| 验收① | `recon 1,757 行` | **1,770 数据行**（FIX10 4＋FIX11 9）；惟其中 **887 行重复**，五键去重后 **883** | B-08 |
+| 验收① | `OK 282＋REPAIRED 8＋AS_IS 3` | OK 之 distinct target 实测 **369**；REPAIRED（FIX10 前）**9** 行；AS_IS **3→5**（FIX10 增 2） | B-08 |
+| 验收① | `SKIP_DUP 110／SKIP_FMT 186／SKIP_ENC 65／SKIP_NOGEO 55` | 四项**皆可复现，惟基准不一且未声明**：`SKIP_DUP 110`＝**按 target**（按源件 131／原始行 265）；余三项＝**去重行／按源件** | B-08 |
+| 清点行 | `总行 **≈8,580,012**（首批 5,686,842→＋2,893,170）`、`4,770MB` | **8,584,097**（首批 5,686,842 **未动**→＋2,897,255）、**4,771MB**；用户表 **395 不变** | FIX10＋FIX11 |
+| 收尾行 | `recon_b2a.tsv 1,757 行`、`审计件现共 **38 件/864KB**` | **1,770 行**；普通文件 **39 件／876KB**（实测；`src_paths.tsv` 已同步 1,770 行并附两条前向补正注） | — |
+| 收尾行 | `源根两处＝32 镜像盘 /mnt/nas-mirror/…＝开发机侧 /mnt/wd61workmetadata/ 同一 61 共享` | 该等价说明系**历史口径**（两批装载实跑于镜像盘为真）；nas-mirror 自 2026-09-27 用户裁决起**读写皆禁**，今后唯一读取路径＝直挂。**12 支脚本仍硬编码旧路径**（本轮已改 `b2b3`／`b2fix2`／`b2fix4` 三支并留原值注释） | B-09 |
+
+**二、两句断言经审计证伪**
+
+1. 验收① "**未解决终态为零，无一静默丢**" —— **证伪**：`shapefiles/v4_gns_guangxi_gbk.zip.zip`（**全 212 档案中唯一之双重后缀件**，4,099 条源记录）静默漏装；因 `b2b3.py:145` 把 `v\d_gns_*` 从主路径 `continue` 掉、而三处 gns 正则又以 `\.zip$` **单层后缀收尾**，**两条路都不入 → 连 SKIP 行都没留下**；验收闸 `b2fix4.py:56` 之 `ok4=(cum4==126566)` **期望值取自装载器自身上一轮漏件枚举之输出**（自证闸），故恒过；`rec()` 标签又硬编码 `x29`，"x30→x29"无人追问。已 FIX10 补装、八项验收（B-05）。
+2. "装了什么/为什么没装总账" "**每一跳过皆有 recon 行**" —— **同上证伪**：该件既未装亦未记，落在账面之外。
+
+**三、新发现（原账面无一行提及）**
+
+- **表头污染八表**（B-06，已修）：GDAL `HEADERS=AUTO` 之判据为"首行以下有无数值型单元格"，**全文本表被判为无表头** → 合成 `Field1…N` 且把表头行当数据装入。**对照实验铁证**：同件 `v4_data_dictionary.xlsx` 加 `-oo HEADERS=FORCE` → 列名复原 `field/filename/description`、行数 **64**（AUTO 则 `Field1-3`／**65**）；`v4_feature_types.xlsx`（第二行有整数）AUTO 本就正确。`THDL` 表之 `Prov_ID=51` 貌似数字实为**文本格式存储**（GDAL 报 7 列全 String）→ 同陷。受害 8 表**全为纯文本表**、干净 3 表**皆有数值列**，无一例外。**`.xls`（BIFF）驱动在 GDAL 3.13.2 无任何开选项**（实测 `FORCE` 完全无效；`.xlsx` 合法值仅 `AUTO/FORCE/DISABLE`，`ON` 系非法值且被**静默忽略**）；`china_pop` 真表头在**第 4 行**，GDAL **无"跳过前 N 行"之选项** → 装载环节无解，唯 SQL 可修。
+- **`prov_py` 不可用于筛省**（B-07，候令）：源 DBF 实测——安徽 32 字段**含 `PROV_PY`**，海南／北京 **31 字段、无该字段** → `-append` 按名映射后 **2,501 行 NULL**（海南 1,358＋北京 1,143）；另浙江 **18 行**源值作 `Zhejiang`。`where prov_py='HAINAN'` → **0 行**。可靠列＝`prov`（全 30 省小写、零空值）。
+- **省前缀 ID 列静默丢弃**（B-10，候令）：`load_gns()` 以首省 `-overwrite` 建表（列名即安徽 `ah_*`），余 29 省 `-append` **按列名映射，名不匹配者静默丢弃** → `v4_gns`／`v5_gns` 仅存 `ah_int_id`／`ah_ext_id`。GNS 全局键 `ufi`／`uni` 俱在（`(ufi,uni)` 全表唯一 130,665／130,665），不致命。
+- **recon 台账质量**（B-08，候令）：887 重复行、4 幻影 target（`harv.china_gas_2013` 系拆表父名；`117表`／`同表`／`cbdb库` 系注记文字误入）、四种计数基准并存未声明 → **账面不可机械汇总**（本轮初次按行求和得 103 表"不符"，五键去重后仅剩 8 处真差异，**误报率 92%**）。
+- **67 个残余 `fieldN` 伪列**（I-02，候令）：FIX11 后三表仍留 `fieldN` 共 67 列（`thdl` 11／`china_chron` 1／`gazetteers_beta` 55），**逐列实测非空计数皆为 0**，源表头亦本空 → 不造名、不擅删。
+
+**四、本批所改脚本（防再犯）**
+
+`b2b3.py:182`／`b2fix2.py:96`／`b2fix4.py:48` 三处正则 `\.zip$`（或 `\.(zip|ZIP)$`）→ **`(\.zip)+$` 并加 `re.I`**（实测命中 **30** 件、**过度匹配 0 件**、源侧 DBF 头合计 **130,665**＝库内）；`b2fix4.py` **废两道自证闸**，新增 `dbf_count_zip()`／`expect_from_source()` 由**源侧逐件 DBF 头实测**推出期望值（`exp4`／`exp5`），`rec()` 标签之件数亦改实测；三支脚本源路径常量改指直挂 `/mnt/wd61workmetadata/` 并于改处留原值注释。**若 `expect_from_source()` 当日即在，FIX4 会直接报 FAIL（126,566≠130,665），广西件不会漏过。**
+
+**五、程序记要（如实记）**：R-01 默认"**先入账后动手**"；本批系依用户核准之**五步案**（①修数据 ②修脚本 ③入账 ④改文档 ⑤提交）执行，故 B-05／B-06 之入账在修复**之后**——口令要件已足（用户先令"修"、后令"全修"），惟账面顺序与 R-01 默认相反，记此备考。
+
+**六、未验证面（不敢冒充已验）**：29 张栅格表之**像素内容**未逐张比对；`gazetteers_beta` 之源始版式仅据库内行反推（其 65 列中 55 列全空）；`chgis_tmpl_28apr`／`chinaw_master_beta`／`minggarrisonssheet_29jan08` 三表**源侧行数从未入账**（惟其列名正常、首行即数据，判定为干净）；全库**字段级**内容比对未做；`.7z` 内 TIFF 之 GeoKey 未查（同系列 zip 成员已验为净）；`SK7KGK/GB_91_ENG_040201.xls`（679,936 B）**未装且无账**（候裁）。

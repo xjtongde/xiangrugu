@@ -56,8 +56,8 @@
 ### B-07 `chgis.v4_gns`／`v5_gns` 之 `prov_py` 列**不可用于筛省**（2,501 行空值＋18 行大小写混杂）
 - 开账日期 / 状态：2026-09-27 / **挂账**（候口令）
 - 症状与复现路径：`select count(*) from chgis.v4_gns where prov_py is null` → **2,501**（海南 1,358＋北京 1,143）；`v5_gns` **同数同分布**。另 `where prov_py ~ '[a-z]'` → **18 行 `zhejiang／Zhejiang`**（余省皆全大写如 `ANHUI`）。故 `where prov_py='HAINAN'` → **得 0 行**（静默漏 1,358 条）。
-- 根因分析：**源侧结构差异**——实测源 DBF：`v5_gns_anhui_gbk.zip` 32 字段**含 `PROV_PY`**；`v5_gns_hainan_gbk.zip`／`v5_gns_beijing_gbk.zip` **31 字段、无 `PROV_PY`**（只有 `PROV`）→ `-append` 按名映射后该二省行落 NULL。浙江 18 行系**源值本身**作 `Zhejiang`。`prov` 列则由装载器 `UPDATE SET prov='{pv}'` 统一补入，**全 30 省小写、零空值**（实测）。
-- 影响面：凡按 `prov_py` 分省之查询／连接／统计**静默漏 2,519 行**（2,501＋18）；`prov` 列可靠。两表同病。
+- 根因分析：**源侧结构差异**——实测源 DBF：`v5_gns_anhui_gbk.zip` 32 字段**含 `PROV_PY`**；`v5_gns_hainan_gbk.zip`／`v5_gns_beijing_gbk.zip` **31 字段、无 `PROV_PY`**（只有 `PROV`）→ `-append` 按名映射后该二省行落 NULL。浙江 18 行系**源值本身**作 `Zhejiang`。`prov` 列则由装载器 `UPDATE SET prov='{pv}'` 统一补入，**全 30 省小写、零空值**（实测）。（**2026-09-27 补正：此句有误**——实测 `prov` 系 **28 省小写＋`BEIJING`（1,143 行）／`HAINAN`（1,358 行）大写**，零空值仍确；`v4_gns` 与 `v5_gns` **分布全同**，故系**源生既有**、非本批所致〔此二省源 DBF 本带 `PROV` 字段而值作大写，余 28 省无该字段故由装载器补入小写〕。是以 `where prov='beijing'` **亦得 0 行**——`prov` 虽无空值，**大小写不一致同样是陷阱**，本条之影响面与候选方案①（建视图）应一并涵盖 `lower(prov)`。）
+- 影响面：凡按 `prov_py` 分省之查询／连接／统计**静默漏 2,519 行**（2,501＋18）；`prov` 列可靠。（**2026-09-27 补正**：`prov` 列**零空值确，但大小写不一致**——`BEIJING`／`HAINAN` 大写、余 28 省小写，故按 `prov='beijing'` 筛亦得 0 行，须一律 `lower(prov)`；详上"根因分析"末之补正。）两表同病。
 - 候选方案：① **建视图消陷阱**（`coalesce(upper(prov_py),upper(prov))` 为省键）——不改数据，建议此项；② 就地 `UPDATE … SET prov_py=upper(prov) WHERE prov_py IS NULL`（2,501 行）＋浙江 18 行 `upper()`——派生自既有列非造数据，但**抹掉"源无此字段"之真信息**；③ 维持现状＋示警。
 - 关联：B-10／B-05（同表）；`docs/data-sources.md` §三 D4／K 组。
 

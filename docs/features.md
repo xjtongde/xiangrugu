@@ -2,6 +2,7 @@
 
 > **定位（R-03）**：**新能力 / 新来源**需求记账处（"账装未有"）。默认**只挂账不开发**（R-02），"现在就做/启用"须用户明示口令。
 > 新条目追加于「在册」最上面；编号 `F-01` 起递增，永不复用。已结条目移入「已结」，正文不回改（R-04）。
+> **路径换算注（2026-09-28，全文级；旧行依 R-04 不回改）**：七棵网络下载树已整体搬入专门下载区 **`/mnt/wd61workmetadata/xiangrugudata/`**（用户令）。故本账内 `/mnt/wd61workmetadata/chgis-v6/…`（F 条 EULA 出处）、`/mnt/wd61workmetadata/harvard-full/…`（`harvard_manifest.txt` 等）字样，一律按「**于 `/mnt/wd61workmetadata/` 后插 `xiangrugudata/` 段**」换算即得现址。搬动系同一共享内 `mv`（实测纯改名）、**内容零改动**，故各条所记之许可结论、件数与字节数**依然有效**。权威展开＝`docs/data-sources.md` **§八**。
 
 **条目格式**：
 

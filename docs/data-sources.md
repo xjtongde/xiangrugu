@@ -9,6 +9,7 @@
 | | |
 |---|---|
 | **数据源目录（权威）** | **`/mnt/wd61workmetadata/usedata/`** —— **2026-09-28 用户令设立为 pg32b 导入之唯一权威数据源目录**（令文照录：「我现在要你把我们导入到pg32b里的源数据移动到/mnt/wd61workmetadata/usedata目录里。这个目录就是我们pg32b导入的权威数据源。」）。内含两批工作集：**首批 15 件**在 `/mnt/wd61workmetadata/usedata/harvard/`（2026-09-24 立，语义名布局；账＝`/mnt/wd61workmetadata/usedata/harvard/README.md`＋`/mnt/wd61workmetadata/usedata/harvard/SHA256SUMS`）；**第二批 173 件**在 `/mnt/wd61workmetadata/usedata/harvard-full/doi_10_7910/DVN/`（**36** 个 DOI 目录）与 `/mnt/wd61workmetadata/usedata/chgis-v6/`（2026-09-28 拷入，**镜像源树布局**；账＝`/mnt/wd61workmetadata/usedata/README-b2.md`＋`/mnt/wd61workmetadata/usedata/SHA256SUMS-b2`）。全目录现 **190 件／3.2 GB**（含两份账）。**换算规则**：`usedata 内绝对路径 ＝ /mnt/wd61workmetadata/usedata ＋ /root/xiangrugu/ops/harvard/load-b2/src_paths.tsv 之 nas_path 列`。<br>**纪律（用户令照录）**：「我们下载下来的源数据决不能修改。」→ 故系**拷入而非搬移**：下载原树 `/mnt/wd61workmetadata/harvard-full/`（仍 **65** 棵 DOI 树）与 `/mnt/wd61workmetadata/chgis-v6/` **完整保留为只读备份**；拷后**源端 sha256 复算 173/173 相符 → 原树内容零改动**，目标端 sha256 亦 **173/173 相符**，逐件体积 0 缺失、0 不符。<br>**历史口径（原文不回改）**：32 主机 `/mnt/wd61workmetadata/`（NAS 61 共享之直挂）。装载实跑经同机每日镜像 `/mnt/nas-mirror/61/workmetadata/` 读取——**同一份数据的两条路径**（实测：两侧同文件 sha256 相同、65 个 DOI 树同数）。**2026-09-27 用户裁决：nas-mirror＝用户自建之 32 本地 NAS 备份区，项目禁用（读写皆不碰）——此后项目唯一读取路径＝直挂**；前句"实跑经镜像盘"系两批装载之史实（与直挂字节级同一：文件数 16,822＝同、纯文件字节和 21,492,791,579＝同、rsync 干跑零差异，09-27 复测），本表路径口径＝用户所指直挂路径，恰即镜像盘之同步源（裁决权威＝`docs/codemap.md` §2 专行） |
+| **下载区（网络下载之原始数据）** | **`/mnt/wd61workmetadata/xiangrugudata/`** —— **2026-09-28 用户令设立**（令文照录：「从网下载下来的项目用数据要有一个专门目录。xiangrugudata，如果我们的数据库pg32b需要导入数据就从xiangrugudata里copy到usedata里。」）。内含**七棵下载树**：`harvard-full/`·`daizhigev20/`·`chinese-classical-corpus/`·`cbdb-project/`·`poetry-source/`·`chinese-poetry/`·`chgis-v6/`，合计 **16,803 件／20,868,871,885 B**（详 §八）。**数据流向＝下载区 → `copy` → 在用区 `/mnt/wd61workmetadata/usedata/` → 导入 pg32b**；下载区**只读不改**（纪律：「我们下载下来的源数据决不能修改」）。 |
 | **导入目的地** | 32 主机（192.168.3.32）Docker 容器 **pg32b**（端口 5433），PostgreSQL 18.6＋PostGIS 3.6.4，数据库 **cbdb** |
 | **库内四个 schema** | `public`＝CBDB 人物传记库＋独立小表；`chgis`＝CHGIS 历史地理信息系统（矢量＋栅格）；`harv`＝哈佛 Dataverse 各专题集；`ogr_system_tables`＝GDAL 自建之元数据表（1 表 184 行）。〔**2026-09-28 补正**：原书"三个 schema"，与下行为总账自列之 `ogr_system_tables` 及 `docs/pg32b.md` §13"chgis 211＋harv 97＋public 86＋ogr_system_tables 1＝395"自相矛盾，今从实测作**四个**〕 |
 | **总账（库内实数）** | **395 张表／8,584,097 行／4,771 MB**。＝首批 84 表 5,686,842 行（**本批未动**）＋第二批 309 表 2,888,570 行＋系统 2 表 8,685 行（PostGIS `spatial_ref_sys` 8,501＋`ogr_system_tables` 184，非导入数据）。〔**2026-09-28 补正**：原书 8,580,012 行／4,770 MB／第二批 2,884,485 行。本批 FIX10 补装 `v4_gns` 广西 **＋4,099**、FIX11 删八表非数据行 **−14**，净 **＋4,085**；表数 395 不变。逐表明细见 §六〕 |
@@ -107,12 +108,75 @@
 
 **二、换算规则（唯一，机械可核）**：`usedata 内绝对路径 ＝ /mnt/wd61workmetadata/usedata ＋ /root/xiangrugu/ops/harvard/load-b2/src_paths.tsv 之 nas_path 列`。前缀一换即得，零臆造命名——此即第二批取"镜像源树布局"而非语义分组之故（一档案常服务多腿，如 `/mnt/wd61workmetadata/usedata/harvard-full/doi_10_7910/DVN/PDGOZ0/V4_Data_Archive.zip` 同为 I／K／L 三组之源，语义归组须臆造取舍）。
 
-**三、收录范围之规程**：只收**实际被导入者**——由账面 1,770 行按装载状态筛出（`OK`／`REPAIRED`／`FIXED`／`SPLIT_OK`／`MULTI_LAYER`／`ROUTED`／`DONE`／`AS_IS`），**`SKIP_*` 类（触碰而未装）一律不收**（例：`WP1ASG` 西藏乡镇＝`SKIP_DUP`，同内容已由 D2 装入 `chgis.v5_2009_tibet_twns`，故其件不在目录内）；另按首批体例一并收入各 DOI 目录内之**随附账 48 件**（README／EULA／许可／数据字典／说明 PDF），使许可条款随数据同行（CHGIS V2–V6 各代 EULA 明载**学术用、禁商用、禁再分发**；同一 NAS 内之选辑副本非再分发）。`/mnt/wd61workmetadata/chgis-v6/` 之 5 件随附账首批已收于 `/mnt/wd61workmetadata/usedata/harvard/chgis/`，故第二批不重拷。
+**三、收录范围之规程**：只收**实际被导入者**——由账面 1,770 行按装载状态筛出（`OK`／`REPAIRED`／`FIXED`／`SPLIT_OK`／`MULTI_LAYER`／`ROUTED`／`DONE`／`AS_IS`），**`SKIP_*` 类（触碰而未装）一律不收**（例：`WP1ASG` 西藏乡镇＝`SKIP_DUP`，同内容已由 D2 装入 `chgis.v5_2009_tibet_twns`，故其件不在目录内）；另按首批体例一并收入各 DOI 目录内之**随附账 48 件**（README／EULA／许可／数据字典／说明 PDF），使许可条款随数据同行（CHGIS V2–V6 各代 EULA 明载**学术用、禁商用、禁再分发**；同一 NAS 内之选辑副本非再分发）。`/mnt/wd61workmetadata/chgis-v6/` 之 5 件随附账首批已收于 `/mnt/wd61workmetadata/usedata/harvard/chgis/`，故第二批不重拷。〔**2026-09-28 补正**：该下载树现已移入 `/mnt/wd61workmetadata/xiangrugudata/chgis-v6/`，详 §八；旧行依 R-04 不回改。〕
 
-**四、拷入而非搬移（依纪律裁定）**：令文用"移动"，惟搬移会改动下载树、与账面 1,770 行之路径记录脱钩，且直违「下载下来的源数据决不能修改」一句，故**取拷入**（用户 2026-09-28 核准，并循 2026-09-24 首批既定规程「copy 一份……原来那些就当是下载的原数据备份」）。下载原树 `/mnt/wd61workmetadata/harvard-full/`（仍 **65** 棵 DOI 树）与 `/mnt/wd61workmetadata/chgis-v6/` **完整保留为只读备份**。
+**四、拷入而非搬移（依纪律裁定）**：令文用"移动"，惟搬移会改动下载树、与账面 1,770 行之路径记录脱钩，且直违「下载下来的源数据决不能修改」一句，故**取拷入**（用户 2026-09-28 核准，并循 2026-09-24 首批既定规程「copy 一份……原来那些就当是下载的原数据备份」）。下载原树 `/mnt/wd61workmetadata/harvard-full/`（仍 **65** 棵 DOI 树）与 `/mnt/wd61workmetadata/chgis-v6/` **完整保留为只读备份**。〔**2026-09-28 补正**：七棵下载树（含此二树）已整体移入专门下载区 `/mnt/wd61workmetadata/xiangrugudata/`，故现址为 `/mnt/wd61workmetadata/xiangrugudata/harvard-full/`（仍 **65** 棵 DOI 树）与 `/mnt/wd61workmetadata/xiangrugudata/chgis-v6/`；"完整保留为只读备份"一句之实质未变——搬动系同共享内 `mv`（纯改名），实测 17,114 项之体积／mtime／类型／相对路径逐字节全同、173 件已导入之源文件重哈希 173/173 相符，详 §八。旧行依 R-04 不回改。〕
 
 **五、核验（2026-09-28 实测）**：逐件 `cp -p`（存原时间戳）后**两端各算 sha256**——目标端 **173/173 相符**；**源端亦 173/173 相符 → 下载原树内容零改动**；逐件体积 **0 缺失、0 不符**；`cd /mnt/wd61workmetadata/usedata && sha256sum -c SHA256SUMS-b2` → **173 行全"成功"**、零失败零警告；首批子树 `/mnt/wd61workmetadata/usedata/harvard/` 仍 **15 件未被触动**。执行处＝32 主机（数据主机、与 NAS 61 同网段；`/mnt/nas-mirror/` 已禁触，读写皆走直挂）。
 
 **六、逐件清单之权威**：`/mnt/wd61workmetadata/usedata/README-b2.md`（173 行表，每件含 usedata 绝对路径、大小、sha256 前 16 位、原树绝对路径、装数去向）。本文只列**组级**（§三）与**目录级**（本节），不复制逐件清单（R-04 单一源）。
 
 **七、日后增补之规程**：① 新装数据前，先按上述规程把源件拷入本目录；② 拷后两端各算 sha256 比对，新行追加于 `/mnt/wd61workmetadata/usedata/SHA256SUMS-b2`（旧行不回改）；③ **装载脚本之源路径常量一律改指本目录，不再指向下载原树**——此项**待行**：`/root/xiangrugu/ops/harvard/load-b2/` 下 22 支脚本，3 支已改指直挂 `/mnt/wd61workmetadata/`、余 12 支仍指禁触之 `/mnt/nas-mirror/`，**皆尚未改指 `/mnt/wd61workmetadata/usedata/`**（详 `docs/bugs.md` B-09）；④ 同步修订本文 §三／§七 与 recon／src_paths；⑤ **严禁修改本目录内任何文件之内容**（用户纪律），如需更正另存新件并记账。
+
+---
+
+## 八、下载区 `/mnt/wd61workmetadata/xiangrugudata/`（2026-09-28 用户令设立）
+
+> **令文照录**：「我们需要整理一下数据，从网下载下来的项目用数据要有一个专门目录。xiangrugudata，如果我们的数据库pg32b需要导入数据就从xiangrugudata里copy到usedata里。」
+
+**一、两层分离之数据流向**（本节与 §七 互为上下游）：
+
+```text
+网络下载 ──► /mnt/wd61workmetadata/xiangrugudata/   ← 下载区（原始数据，只读不改）
+                        │  copy（逐件 cp -p ＋ 两端各算 sha256 比对）
+                        ▼
+             /mnt/wd61workmetadata/usedata/          ← 在用区（pg32b 导入之唯一权威源，§七）
+                        │  导入
+                        ▼
+             pg32b（192.168.3.32:5433）之 cbdb 库
+```
+
+**二、目录构成（2026-09-28 搬入后实测）**：
+
+| 下载树（绝对路径） | 件数 | 字节 | 是否已为 pg32b 所用 |
+|---|---:|---:|---|
+| `/mnt/wd61workmetadata/xiangrugudata/harvard-full/` | 374 | 11,419,856,803 | ✅ 第二批 172 件之源（65 棵 DOI 树） |
+| `/mnt/wd61workmetadata/xiangrugudata/daizhigev20/` | 15,700 | 7,438,990,214 | 未装 |
+| `/mnt/wd61workmetadata/xiangrugudata/chinese-classical-corpus/` | 5 | 823,127,264 | 未装 |
+| `/mnt/wd61workmetadata/xiangrugudata/cbdb-project/` | 2 | 586,486,145 | 未装 |
+| `/mnt/wd61workmetadata/xiangrugudata/poetry-source/` | 3 | 374,310,661 | 未装 |
+| `/mnt/wd61workmetadata/xiangrugudata/chinese-poetry/` | 711 | 225,056,906 | 未装 |
+| `/mnt/wd61workmetadata/xiangrugudata/chgis-v6/` | 8 | 1,043,892 | ✅ 第二批 1 件＋首批 5 件随附账之源 |
+| **合计** | **16,803** | **20,868,871,885** | |
+
+**未随搬者（有意留在根下）**：`/mnt/wd61workmetadata/usedata/`（在用区，非下载物）；`/mnt/wd61workmetadata/爱因斯坦/`、`/mnt/wd61workmetadata/霍金/`（用户自置文本，**非"从网下载的项目用数据"**，用户 2026-09-28 核准留根下）。故根下现为 **4 项**。
+
+**三、搬动手法与核验**：同一 CIFS 共享内 `mv`，实测**系纯改名**（每棵 13–23 毫秒，与件数无关；`daizhigev20` 15,700 件亦 23ms）。核验**不靠抽样，四重实证**：
+
+| 检验 | 结果 |
+|---|---|
+| 17,114 项（16,803 文件＋311 目录）之**体积／mtime／类型／相对路径** | 搬前搬后两份全量清单**逐字节全同** |
+| `inode` 号 | 本机 CIFS 挂载所报改变（78250732→450），**32 主机同一文件仍报 78250732（与搬前一致）** ⇒ 证系服务端按会话合成 file-id，**非本体属性变动** |
+| `chgis-v6/` 对**发布方自带**之 `SHA256SUMS.txt` | **6 件全 OK** |
+| **173 件已导入之源文件**搬后重哈希 vs 已录存 sha256 | **173/173 相符**，覆盖 **2,764,772,927 B**（与拷入批字节数分毫不差） |
+
+另：逐树件数与 `du -sb` 全符；`/mnt/wd61workmetadata/usedata/` **未被波及**（190 件、`sha256sum -c SHA256SUMS-b2` 仍 **173/173 成功**）；根总量仍 **23G**（不增不减，证无重拷亦无丢失）。搬前搬后两份清单存 `/root/xiangrugu/ops/data-layout/pre_move_inventory.tsv`、`post_move_inventory.tsv`（各 17,114 行；`ops/` 依政策不入 git）。
+
+**四、双根共键之换算规则（A 案，用户 2026-09-28 核准）**：`src_paths.tsv` 之 `nas_path` 列系**纯相对键**（实测 1,770 数据行中含 `/mnt/` 者 **0 行**；值为 `/harvard-full/…` 1,747 行、`/chgis-v6/…` 17 行、FIX 类 6 行），故**同一相对键可拼两根**：
+
+- **下载区绝对路径 ＝ `/mnt/wd61workmetadata/xiangrugudata` ＋ `nas_path`**
+- **在用区绝对路径 ＝ `/mnt/wd61workmetadata/usedata` ＋ `nas_path`**（即 §七 二之原规则，**未变**）
+
+⇒ **台账 1,770 数据行零改动**；只在 `/root/xiangrugu/ops/harvard/load-b2/src_paths.tsv` 末尾追加**补正注③**、`tree_coverage.tsv` 末尾追加补正注（各 1 行，旧声明行依 R-04 不回改）。此亦为 §七 取"镜像源树布局"之利：布局与相对键同构，换根只是换前缀。
+
+**五、既成执行件中已失效之路径（依 R-04 不回改，按四之规则换算即得现址）**：
+
+| 件 | 失效处 | 处置 |
+|---|---|---|
+| `/root/xiangrugu/ops/harvard/load-b2/usedata_b2_manifest.tsv` | `src` 列 **173 行**记搬前源路径 | 原文留档；读取时于 `/mnt/wd61workmetadata/` 后插 `xiangrugudata/` 段 |
+| `/mnt/wd61workmetadata/usedata/README-b2.md` | 原树绝对路径 **176 处** | 同法；该文件已加前向补正注 |
+| `/root/xiangrugu/ops/harvard/load-b2/usedata_b2_copy_report.tsv` | **无失效**（`dst` 列 173 行全为 `usedata/` 路径） | 不需处置 |
+
+**六、对 32 主机备份区之后果（已报用户，项目不介入）**：32 上有 `cron` 两支（`0 12 * * *` 与 `@reboot sleep 180`）跑 `/opt/mirror-nas.sh`，其第 3 行自陈语义为 **`rsync -a --delete`（纯镜像，61 删了这里也删）**，把 `/mnt/wd61workmetadata/` 镜像到 `/mnt/nas-mirror/61/workmetadata/`（32 本地 ext4 盘 `/dev/sdb1`，现存 23G）。搬动后下一轮镜像会把源侧看成"根下七棵已消失、新增 `xiangrugudata/`"，于是**删镜像侧旧份＋重传 19.9 GB**：**不丢数据**（NAS 侧始终完整，镜像终将与新布局一致，此本为备份应有之行为），代价是一次性重传与传输期间之短暂不完整窗口。该脚本与该目录**自 2026-09-27 用户裁决起项目读写皆禁**，故**本项目不改它、不代触发**；搬毕是否立即手动跑一轮由用户自定（搬前最近一轮为 2026-09-28 12:51 完成，下次预定明日 12:00）。另实测**无 docker 容器挂载该共享**（pg32b 不依赖这些路径）。
+
+**七、日后规程**：① **新下载之项目用数据一律落入 `/mnt/wd61workmetadata/xiangrugudata/`**（不再散置根下），下载毕即请用户明示存址或删（数据落盘纪律）；② pg32b 需导入时，**自下载区 `copy` 入 `/mnt/wd61workmetadata/usedata/`**，逐件 `cp -p` 后两端各算 sha256 比对，新行追加于 `/mnt/wd61workmetadata/usedata/SHA256SUMS-b2`（旧行不回改）；③ **下载区只读**——严禁修改其中任何文件之内容，整理只得以"新建目录＋`mv` 整体搬动"或"另拷"为之，且搬后须按三之四重法核验；④ 同步修订本文 §一／§七／§八 与 `docs/holdings.md`、`docs/codemap.md`、recon／src_paths。

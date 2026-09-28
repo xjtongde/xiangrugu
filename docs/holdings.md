@@ -8,10 +8,10 @@
 
 | 位置 | 说明 |
 |---|---|
-| `/mnt/wd61workmetadata/` | **主存放盘**（WD61）。下表除注明者外全在此根下 |
+| `/mnt/wd61workmetadata/` | **主存放盘**（WD61）。**2026-09-28 起根下只 4 项**：`xiangrugudata/`（**下载区**——七棵网络下载树全在此下）、`usedata/`（**在用区**——pg32b 导入之权威源）、`爱因斯坦/`、`霍金/`（用户自置，非项目语料）。**下表所列 `harvard-full/`·`daizhigev20/`·`chinese-classical-corpus/`·`cbdb-project/`·`poetry-source/`·`chinese-poetry/`·`chgis-v6/` 七行现皆在 `/mnt/wd61workmetadata/xiangrugudata/` 下**（2026-09-28 用户令设专门下载区，同共享内整体 `mv` 搬入，实测系纯改名、内容零改动，详 `docs/data-sources.md` §八）；`usedata/` 行与 `爱因斯坦/`、`霍金/` 行仍在根下。表内相对名依 R-04 一律不回改，按本行换算即得现址 |
 | `/mnt/nas-mirror/61/workmetadata/` | 32 主机上的本地镜像，每日 12:00 `rsync`（出处＝`/mnt/wd61workmetadata/usedata/harvard/README.md`）。**镜像新鲜度本轮未复核**。**2026-09-27 用户裁决：此路径＝用户自建之 32 本地 NAS 备份区，项目禁用（读写皆不碰）**——本行自此只作**史实登记**（两批装载实跑曾读此镜像，与直挂字节级同一：文件数 16,822 同、纯文件字节和 21,492,791,579 同、rsync 干跑零差异）；**此后项目唯一读取路径＝直挂 `/mnt/wd61workmetadata/`**。裁决权威＝`docs/codemap.md` §2 专行 |
 
-**两类角色要分清（2026-09-28 更新）**：`/mnt/wd61workmetadata/usedata/` 是**装数权威数据源目录**——pg32b 导入之**唯一取数源**（用户令照录："这个目录就是我们pg32b导入的权威数据源"）；其余为**原数据备份树**（只读，不用于装数）。工作集按 2026-09-24 用户令自备份树复制而来；**2026-09-28 第二批扩为全目录**（原只 `usedata/harvard/` 一处，今含 `usedata/harvard-full/`＋`usedata/chgis-v6/` 两子树）。**系拷入而非搬移**——备份树完整仍在（守用户纪律"下载下来的源数据决不能修改"；拷后**源端 sha256 复算 173/173 相符 → 原树内容零改动**）。规程、换算规则与逐件账＝`docs/data-sources.md` §七＋`/mnt/wd61workmetadata/usedata/README-b2.md`。
+**两类角色要分清（2026-09-28 更新）**：`/mnt/wd61workmetadata/usedata/` 是**装数权威数据源目录**——pg32b 导入之**唯一取数源**（用户令照录："这个目录就是我们pg32b导入的权威数据源"）；其余为**原数据备份树**（只读，不用于装数）。工作集按 2026-09-24 用户令自备份树复制而来；**2026-09-28 第二批扩为全目录**（原只 `usedata/harvard/` 一处，今含 `usedata/harvard-full/`＋`usedata/chgis-v6/` 两子树）。**系拷入而非搬移**——备份树完整仍在（守用户纪律"下载下来的源数据决不能修改"；拷后**源端 sha256 复算 173/173 相符 → 原树内容零改动**）。规程、换算规则与逐件账＝`docs/data-sources.md` §七＋`/mnt/wd61workmetadata/usedata/README-b2.md`。**2026-09-28 再更新（下载区设立，上句"其余为原数据备份树"随之细化）**：现分**三层**——① **下载区** `/mnt/wd61workmetadata/xiangrugudata/`（七棵网络下载树，16,803 件／20,868,871,885 B，**只读不改**）；② **在用区** `/mnt/wd61workmetadata/usedata/`（pg32b 导入之唯一取数源，190 件／3.2 GB）；③ 用户自置之 `爱因斯坦/`、`霍金/`（不入项目数据流）。**流向＝下载区 →`copy`→ 在用区 → 导入 pg32b**；"原数据备份树"之实质未变（下载区即备份，只多了专门目录之名分）。权威展开＝`docs/data-sources.md` **§八**。
 
 ## 二、在册资料（按体量排序）
 

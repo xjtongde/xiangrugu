@@ -4,6 +4,7 @@
 > **性质**：外部资源档案，**备忘级资料，不作实施指导**（比照 N-01 精神）。官方口径随时点漂移，引用**必须带时点**；本档结构性改动记 `docs/log.md`（R-05）。
 > **证据纪律**：本档内容均系 2026-09-23 实测所得（来源随附）；官方项目站对机器访问一律 Akamai 403，官方侧引文取自 Dataverse API 回文、HuggingFace API／卡片与 RDH 刊出的项目综述（Peter K. Bol 撰）。
 > **外围知识层指针（2026-09-25）**：面向阅读与讨论的叙述性铺陈（学缘沿革、谁在使用、名词背景）在 Gitea wiki「外围知识层」——**非权威**，其数字与判词一律回指本档；本档仍是 CBDB 项目身份／沿革／规模／通道的唯一展开处（边界见 `rules.md` R-04）。
+> **路径换算注（2026-09-28，全文级；旧行依 R-04 不回改）**：用户令设专门下载区，七棵网络下载树已整体搬入 **`/mnt/wd61workmetadata/xiangrugudata/`**。故本档内 `/mnt/wd61workmetadata/harvard-full/…`（§七）与 `/mnt/wd61workmetadata/cbdb-project/…`（§九）等字样，一律按「**于 `/mnt/wd61workmetadata/` 后插 `xiangrugudata/` 段**」换算即得现址（例：`/mnt/wd61workmetadata/xiangrugudata/cbdb-project/cbdb_20260919.sqlite3`）。搬动系同一共享内 `mv`（实测纯改名），**文件内容零改动**（17,114 项之体积／mtime／类型／相对路径逐字节全同；本档所记 sha256 `bde1bb8e…` 等凭据**依然有效**）。权威展开＝`docs/data-sources.md` **§八**。
 
 ---
 

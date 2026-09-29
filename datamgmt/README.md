@@ -43,7 +43,7 @@ datamgmt/
 |---|---|
 | 该怎么装、怎么验、怎么测 | `docs/import-plan.md` |
 | 上次踩过什么坑、为什么这么设计 | **`PITFALLS.md`（本目录）** |
-| 源在哪、怎么换算路径、目标库是谁 | **`config/roots.yaml`（本目录）**；人读摘要＝`docs/data-sources.md` §七/§八 |
+| 源在哪、怎么换算路径、目标库是谁 | **`config/roots.yaml`（本目录）**；人读摘要＝`docs/holdings.md` |
 | 每个源件的真值是多少 | `recon/`＋`docs/source-truth.md`（阶段一产出，现未建） |
 | 数据是什么、源数据可疑处登记册 | `docs/cbdb.md` §9 |
 | 代码地图与部署位置 | `docs/codemap.md` |

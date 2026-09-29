@@ -1,6 +1,6 @@
 # import-plan.md —— 数据导入方案 v3（导入·验证·测试）
 
-> **定位（2026-09-29 用户令开设）**：本文是**把源数据无错导入 pg32b 这件事的唯一权威展开处**（R-04）。旧方案 `docs/cbdb-load.md`（v1 首批／v2 全量）自本方案立案起**退役为历史件**，其经验已提炼入 `datamgmt/PITFALLS.md`，正文不回改（R-04）。
+> **定位（2026-09-29 用户令开设）**：本文是**把源数据无错导入 pg32b 这件事的唯一权威展开处**（R-04）。旧方案 `cbdb-load.md`（v1 首批／v2 全量）**已于 2026-09-29 依用户令删除**：其经验提炼入 `datamgmt/PITFALLS.md`、其 §12 官方与社区调研收敛入**本文 §14**；原文可 `git show 75ecd77:docs/cbdb-load.md` 取回（R-04 留痕改以 git 回收点承载）。
 > **本文只写"应该怎么做"，不写"做过什么"**；执行记录一律另落 `docs/log.md` 一行＋本文 §11 执行账。
 > 三卷不可分割：**导入（§5）· 验证（§6）· 测试（§7）**。缺验证与测试的导入方案，按本项目的历史实证，等于没有方案（见 `datamgmt/PITFALLS.md` P-01／P-02）。
 
@@ -123,7 +123,7 @@ NAS 权威源 usedata/            源件字节
 
 | 字段 | 说明 | 硬约束 |
 |---|---|---|
-| `key` | 源件相对键＝`src_paths.tsv` 之 `nas_path`＋`inner` 成员链 | **禁止绝对路径**（双根共键：`usedata/` 或 `xiangrugudata/` ＋ 相对键，规则见 `data-sources.md` §八） |
+| `key` | 源件相对键＝`src_paths.tsv` 之 `nas_path`＋`inner` 成员链 | **禁止绝对路径**（双根共键：`usedata/` 或 `xiangrugudata/` ＋ 相对键，规则见 `datamgmt/config/roots.yaml` 之 `path_resolution`） |
 | `carrier` | 载体：`sqlite`／`shapefile`／`xls`／`xlsx`／`tsv`／`raster`／`zip-in-zip` | 决定用哪个 `truth/` 读取器与哪套闸 |
 | `target` | `schema.table` | 一源一表为原则；并表须显式列 `members:` 与合并键 |
 | `columns` | **逐列**：源字段名 → 库列名、源类型/宽度 → PG 类型、**解码规则 id** | **不用 GDAL 类型推断**；映射表见 §5.3 |
@@ -150,7 +150,7 @@ NAS 权威源 usedata/            源件字节
 
 | 源 | 映射 | 备注 |
 |---|---|---|
-| DBF `C(n)` | `text`（**不设长度上限**） | 列宽截断系源件固有（`cbdb-load.md` §10 已认定"原样保真不修"）→ 属 §6.4 白名单第②类 |
+| DBF `C(n)` | `text`（**不设长度上限**） | 列宽截断系源件固有（旧方案 §10 已认定"原样保真不修"；原件已删，见 `git show 75ecd77:docs/cbdb-load.md`）→ 属 §6.4 白名单第②类 |
 | DBF `N(w,0)` | `bigint`（超范围者 `numeric`） | 以**源件声明宽度**判，不以数据判 |
 | DBF `N(w,d>0)` | `numeric(w,d)` | 禁 `float`（避免十进制→二进制误差，破坏值级全等） |
 | DBF `D` | `text` 原样（`YYYYMMDD`） | 不转 `date`：源件有空值/零值形态，转换即改写 |
@@ -328,68 +328,52 @@ NAS 权威源 usedata/            源件字节
 
 ---
 
-## §9 文档结构（清清楚楚，一职一处）
+## §9 文档结构（2026-09-29 已按用户令**执行清理**）
 
-### 9.1 目标文档树
+> **用户令（原话照录）**：「**demo目录下的文档留下。其它的很多文档内容现在是干扰源了。我们要如何处理，你给个方案。**」→「**我的原则原来建立的文档能清空的就清空。能删除的就删除。以后不在使用。不能清空的留下简明扼要的内容，你先以这个原则去处理这些文档。**」
+> ⚠ **本节原稿（§9.1 目标树／§9.3"一份都不硬删、全部退役入 `archive/`"之建议）已被用户令推翻，并已执行完毕**；原稿可 `git show 75ecd77:docs/import-plan.md` 取回。以下记**清理后之现状**。
 
-```text
-AGENTS.md                项目目标与核心思想（§1 现可落笔：核心工作＝无错导入源数据至 pg32b）
-rules.md                 纪律总纲 R-01～R-07（不动）
-datamgmt/                ★数据管理模块（2026-09-29 用户令开设；本方案之**执行体**；一律入 git）
-├── README.md            模块定位、五条纪律、阶段表（模块唯一入口）
-├── PITFALLS.md          ★防坑条目录 P-01…P-23（原 `docs/pitfalls.md` 迁入，`git mv` 保历史）
-├── config/roots.yaml    ★数据源根与换算规则（用户令 1：源在 `/mnt/wd61workmetadata/usedata`）
-├── config/              `sources.yaml`／`decoding.yaml`／`g4_assertions.yaml`（阶段二建，候口令）
-└── truth/ verifier/ importer/ tests/ maintenance/ recon/   （阶段一起渐建；现为空壳占位）
-docs/
-├── index.md             索引＋权威优先级（每批同步登记/除名）
-├── import-plan.md       ★本文：导入方案 v3（导入·验证·测试）唯一权威
-├── source-truth.md      ★源件真值总账：一源一行（载体/成员数/行数/列集/CRS/编码判定/sha256）——阶段一产出，**现未建**
-├── data-sources.md      源件位置与台账（保留：§一 权威源、§七 换算规则、§八 下载区）
-├── cbdb.md              CBDB/CHGIS 数据结构知识 ＋ 源数据可疑处登记册（保留，重定位）
-├── codemap.md           代码地图与部署位置（保留，随 datamgmt/ 目录刷新）
-├── bugs.md              缺陷账（保留：我方缺陷＋源生条目并存，逐条标注归属）
-├── improvements.md      改进账（保留；被本方案承接者标注"已由 import-plan 承接"）
-├── features.md          需求账（保留）
-├── holdings.md          馆藏/资产（保留）
-├── pg32b.md             pg32b 实例事实（保留：容器/端口/镜像/参数——**实例不随删库而消失**）
-├── pg36.md              pg36 实例事实（保留：§7.4 演练靶机）
-├── log.md               文档变动日志（保留，只追加）
-└── archive/             ★退役区（**只退役不删除**，git 历史另有一层保险）
-    ├── cbdb-load.md     旧方案 v1/v2 ＋ 两批执行记录 ＋ §12 官方调研（**§12 仍被本文引用**）
-    ├── pg32-upgrade.md  已搁置的升级案
-    └── ops-legacy/      旧 23 支 b2*.py 脚本（P-01…P-22 的证据，归档不删）
-```
+### 9.1 现行文档结构
+
+**登记处＝`docs/index.md` §一**（一职一处，本节不复述清单）。要点四条：
+
+1. **必读链只 4 份**：`AGENTS.md` → `rules.md` → `docs/index.md` → `datamgmt/README.md`；`codemap.md` 系查询件**不入必读链**。
+2. **`docs/archive/` 退役区未设立**——用户令是"删"，且 git 已是留痕层，故不设。
+3. **`docs/source-truth.md` 仍未建**（阶段一产出，候口令）。
+4. **`demo/` 留下但未入 git**（I-05 候裁）。
 
 ### 9.2 职责边界（避免双账）
 
 | 事实 | 唯一权威 | 他处 |
 |---|---|---|
-| 该怎么装、怎么验、怎么测 | `import-plan.md` | 指针 |
+| 该怎么装、怎么验、怎么测 | **本文** | 指针 |
 | 上次踩过什么坑、为什么 | `datamgmt/PITFALLS.md` | 指针 |
-| 每个源件的真值是多少 | `source-truth.md`（由 `truth/` 现算生成） | 指针 |
-| 源件在哪、怎么换算路径 | `data-sources.md` | 指针 |
-| 数据结构语义、源数据可疑处 | `cbdb.md` §9 | 闸4 引用 |
-| 实例事实（容器/端口/参数） | `pg32b.md`／`pg36.md` | 指针 |
-| 缺陷与归属 | `bugs.md` | 指针 |
-| 做过什么（时间线） | `log.md` | —— |
+| 源件在哪、路径怎么换算、目标库是谁、**库有多少行/表/多大** | **`datamgmt/config/roots.yaml`** | 指针（人读摘要＝`docs/holdings.md`） |
+| 每个源件的真值是多少 | `docs/source-truth.md`（由 `truth/` 现算生成，**现未建**） | 指针 |
+| 数据结构语义、**源数据可疑处** | **`docs/cbdb.md` 登记册 G4-01…G4-16** | 闸4 引用 |
+| 官方与社区建议、出处链接 | **本文 §14** | 指针 |
+| 实例事实（容器/端口/参数/容量） | `docs/pg32b.md`／`docs/pg36.md` | 指针 |
+| 缺陷与归属 | `docs/bugs.md`（**我方**）＋`docs/cbdb.md`（**源生**） | 指针 |
+| 已持有资料与许可 | `docs/holdings.md` | 指针 |
+| 做过什么（时间线） | `docs/log.md`（**每行 ≤300 字**） | —— |
 
-### 9.3 文档处置建议（**候用户确认后方执行**）
+### 9.3 清理结果（2026-09-29 执行）
 
-| 文档 | 建议 | 理由 |
+| 处置 | 文档（字数） | 承重新去处 |
 |---|---|---|
-| `cbdb-load.md`（393 行） | **退役入 `archive/`，不删** | §13/§15 执行记录是历史（R-04 不回改）；**§12 官方调研仍被本文 §6/§7 引用**，删了就断锚；§15.9 的 FIX10/11 补正注是 P-08/P-10 的证据 |
-| `pg32-upgrade.md`（128 行） | **退役入 `archive/`** | 2026-09-23 已裁搁置（pg36 取代），无活跃引用 |
-| `pg36.md`／`pg32b.md` | **保留** | 实例事实仍真；pg36 是 §7.4 演练靶机 |
-| `data-sources.md`／`holdings.md` | **保留** | 源件位置与换算规则是新方案的地基（`sources.yaml` 的 `key` 直接依赖） |
-| `cbdb.md` | **保留，重定位** | 数据结构知识与源数据可疑处登记册＝闸4 的依据；删了新方案就没登记册 |
-| `bugs.md`／`improvements.md`／`features.md` | **保留** | 三本专职账是纪律载体（R-03）；被新方案承接的条目标注即可，**不回改正文** |
-| `log.md` | **保留，只追加** | R-05 |
-| `codemap.md` | **保留，刷新** | `datamgmt/` 目录取代 `ops/harvard/load-b2/` 后须同轮刷新（R-06） |
-| `ops/harvard/load-b2/` 23 支脚本 | **归档不删**（移 `archive/ops-legacy/` 或原地留＋文档声明退役） | 它们是 P-01…P-22 的**物证**；且 `recon_b2a.tsv`/`src_paths.tsv` 仍是 `sources.yaml` 的输入源 |
-| `demo/` | **另议**（I-05 待裁：是否入 git、是否登记 codemap） | 不属导入方案范围；其数字过期已入 B-13 |
+| **删除** | `docs/cbdb-load.md`（53,168） | §12 官方与社区调研 → **本文 §14**；§13/§15 执行记录之教训 → `PITFALLS.md` P-01…P-15；方法部分 → 本文全卷取代 |
+| **删除** | `docs/data-sources.md`（25,803） | §七 换算规则／§八 双根共键 → **`datamgmt/config/roots.yaml`**；人读摘要 → `docs/holdings.md` |
+| **删除** | `docs/pg32-upgrade.md`（7,083） | 2026-09-23 已搁置；结论体现于"新建独立全功能实例"（pg36→pg32b 复用同镜像） |
+| **清空重写** | `docs/log.md`（126,318） | **改制**：每行 ≤300 字，论证移入正文或 commit message（旧制单行最长 9,279 字符、占全项目 31.8%） |
+| **清空重写** | `index`／`codemap`／`cbdb`／`bugs`／`improvements`／`features`／`holdings`／`pg32b`／`pg36`（合 121,996） | 一律简明版；**`cbdb.md` 登记册 G4-01…G4-16 之数字全部重新直读上游 sqlite 现算**（非转录旧文） |
+| **不动** | `AGENTS.md`／`rules.md`／本文／`datamgmt/`／`memos/`／**`demo/`（用户令留下）** | — |
+| **不动（L3 原始证据层）** | `ops/harvard/load-b2/`（23 支 `b2*.py`＋`src_paths.tsv` 1,770 行） | `PITFALLS.md` 全部实证之出处；`roots.yaml` 相对键来源。**git 不跟踪 → 勿删** |
 
-**我的建议：一份都不硬删，全部"退役入 `archive/`"。**理由三条：① 你要的"防坑条目"每一条都要指向证据，删了证据 `datamgmt/PITFALLS.md` 就变成无法复核的断言（正是本项目最忌讳的"叙事账"）；② git 历史虽能找回，但找回成本高于留一个 `archive/`；③ R-04"历史账本不回改"的精神是**留痕**，退役区比删除更符合纪律。**若你仍要硬删，请点名删哪几份**，我照办并记 log。
+**回收点 `75ecd77`**：一切删除物可 `git show 75ecd77:<路径>` 取回。故 `PITFALLS.md` 之证据链**未断**——只是从"仓内文件"变为"仓内某 commit"，本文与 `PITFALLS.md` 内所有指向已删文档之处**已同批改为回收点式引用**。
+
+### 9.4 防再干扰五条（已落 `docs/index.md` §五，此处只列名）
+
+① **状态行强制**（无 `状态：`＋`as_of` 者不得作依据）；② **数字单一源**（库/源件之数字唯一权威＝`roots.yaml`）；③ **一职一处**（摘要 ≤3 行）；④ **禁用词表**（`/mnt/nas-mirror/`、`8,580,012`、`126,566`、`2,884,485`、`/tmp/pg32b-load2`）；⑤ 索引自身变动记 `log.md`。
 
 ---
 
@@ -421,7 +405,7 @@ docs/
 
 ---
 
-## §12 待裁口径（五条，未裁者按本文默认执行并在证书标注）
+## §12 待裁口径（九条；**第五条已裁并执行**，未裁者按本文默认执行并在证书标注）
 
 | # | 口径 | 本文默认 | 若改判的代价 |
 |---|---|---|---|
@@ -429,13 +413,61 @@ docs/
 | **二** | **结构还原的删除须机器可复核** | 采纳（H-4） | 若靠人眼，删行永远无法验收 |
 | **三** | **无唯一键表的值级比对法**：全列排序逐行比 ／ 行哈希多重集差集 | 默认**行哈希多重集差集**（代价低），差异非零时回退到排序逐行比以定位 | 若只取其一，另一类表将长期 `PARTIAL` |
 | **四** | **栅格值级比对的分级**：全量像素 ／ 统计＋分块抽样 | 默认**统计＋分块抽样**，覆盖率写入证书 | 全量则 29 表 DEM 比对代价显著上升 |
-| **五** | **旧文档处置**：退役入 `archive/` ／ 硬删 | 默认**退役不删**（§9.3 三条理由） | 硬删则 `datamgmt/PITFALLS.md` 的证据链断，且 `cbdb-load.md` §12 官方调研失去锚点 |
+| **五** | **旧文档处置**：退役入 `archive/` ／ 硬删 | ~~默认退役不删~~ → **已裁并执行**（2026-09-29 用户令「能清空的就清空。能删除的就删除。以后不在使用。不能清空的留下简明扼要的内容」）：删三份、清空重写十份、`demo/` 留下 | 已消解——**证据链未断**：一切删除物可 `git show 75ecd77:<路径>` 取回；§12 官方调研已收敛入**本文 §14**；详见 §9.3 |
+| **六** | **栅格腿之"验收不经 GDAL"** | **建议放宽**为"不复用装载器之代码路径与参数"（栅格无第二套独立读法可企及 GDAL 之 codec 覆盖） | 若不放宽，腿 E（29 表 DEM/raster）无法验收 → 只能全表 `PARTIAL` |
+| **七** | **合格证书之行数口径**：`count(*)` ／ pg_stat 估算 | **建议明订一律 `count(*)`**（精确、可复算）；pg_stat 只作旁证 | 现两口径差 **221**（8,584,318 vs 8,584,097，**B-13 悬案**）；不裁则证书行数永远可对不上账 |
+| **八** | **阶段四"删库重来"** | **建议推翻，改为同实例并行装新库名（如 `cbdb_v3`）**→ 全闸 → 与现库逐值差分 → 再裁旧库去留。**磁盘前提已现算核实**：32 主机 `/` 余 **189G**、`cbdb` 仅 **4,771 MB**（2026-09-29） | 一删就没得比——**验收本身需要现库当对照物**；且现无任何 dump（P-1 未满足），删库＝不可逆 |
+| **九** | **§7.4 重建彩排靶机 `pg36`** | ⚠ **2026-09-29 实测 36 主机完全不可达**（`ping` 100% 丢失／`ssh` No route to host／`5432` No route to host）→ 三条出路：**A** 等 36 恢复（全线阻塞）／**B** 改在 32 建临时库彩排（共生产主机，资源工时数据失真）／**C** 取消独立彩排，改为**并行装新库＋逐值差分**（差分本身替代彩排之主要作用）。**建议 C** | 若坚持 A，阶段三/四 全线阻塞于不可控之时点；若选 B，"连跑两遍逐值相同"之幂等断言仍可做，但资源实测无参考价值 |
 
 ---
 
 ## §13 与旧方案的关系
 
-- 旧方案 `cbdb-load.md` v1（首批 84 表／5,686,842 行）与 v2（全量 395 表／8,584,097 行账面）**已完成其历史任务**，其执行记录（§13／§15／§15.9）**不回改**（R-04），退役入 `archive/`。
-- 旧方案中**已被本方案吸收并升级**的部分：PG 官方 §14.4 九条对照（§12.1）→ 本文 §5.5 压力防护；PostGIS §4.7 装载法（§12.3）→ 本文 §5.2 腿 B/E；类型映射（§4.2）→ 本文 §5.3；三铁律"能装尽装"→ 本文 §5.1 源清单全覆盖。
+- 旧方案 `cbdb-load.md` v1（首批 84 表／5,686,842 行）与 v2（全量 395 表／8,584,097 行账面）**已完成其历史任务**，其执行记录（§13／§15／§15.9）**不回改**（R-04），**已于 2026-09-29 依用户令删除**（回收点 `75ecd77`，可 `git show 75ecd77:docs/cbdb-load.md` 取回）。
+- 旧方案中**已被本方案吸收并升级**的部分：PG 官方 §14.4 九条对照（旧案 §12.1 → **本文 §14.2**）→ 本文 §5.5 压力防护；PostGIS §4.7 装载法（旧案 §12.3 → **本文 §14.2**）→ 本文 §5.2 腿 B/E；类型映射（旧案 §4.2）→ 本文 §5.3；三铁律"能装尽装"→ 本文 §5.1 源清单全覆盖。
 - 旧方案中**被本方案推翻**的部分：就地 `UPDATE` 修复（FIX5/FIX9/FIX10/FIX11 手法）→ H-3 禁止；GDAL 默认编码/表头/类型推断 → §5.3/§5.4 显式；CRS"空间库实证"→ H-2 照 `.prj`；recon 落 `/tmp`＋append → §4.1 落仓内＋upsert；验收以行数/指纹为准 → §6.2 六道闸以值级为核心。
 - **旧方案踩的每一个坑都在 `datamgmt/PITFALLS.md` 有编号条目**，本文各规则均以 `P-xx` 反向指路——这是"经验变成资产"的唯一形态。
+
+---
+
+## §14 官方与社区建议摘要（2026-09-29 自旧方案 `cbdb-load.md` §12 抢救收敛；原件已删，全文可 `git show 75ecd77:docs/cbdb-load.md` 取回）
+
+**结论一句话：三层来源，两有一无——而"无"的那层恰恰决定了本方案只能以源件字节为唯一真值。**
+
+### 14.1 数据方（Harvard CBDB／CHGIS）：**对"入 PG"无任何建议**（全文实证）
+
+- HF 数据卡只有下载点与许可（CC BY-NC-SA 4.0），无迁移指引；
+- 《CBDB User's Guide》全文已抓并检索： Fuller 修订版 **153 页**（harvard 直连 403＝服务器端反爬 → 经 wayback 取 PDF）；另 NAS 上有 2025-05 档案件内 `HelpFiles/CBDB Users Guide.pdf` **160 页**（sha256 `3b703c8e…`）与独立件 `CBDB_Users_Guide_2018.pdf`（5,478,089 B）；
+- **无任何入库/迁移章节**；且 2018 版文本层 134,716 字符中搜 `9999` → **0 命中**，`placeholder`/`sentinel`/`unknown` 亦 0 命中 → **官方连占位符约定都不解释**；`CHGIS_PT_ID` 这座桥官方 Guide **从未提及**；
+- 社区亦无现成开源 CBDB→PG 管线（学术侧有 CBDB 关系库论文与 R/Python 访问包，皆非 PG 迁移）。
+- **⇒ 含义**：没有官方文档可当保真基准；真值只能来自源件自身结构与字节（DBF 头、`.prj`、zip 成员表、sqlite schema、xlsx 首行）。官方 Guide 只可当**旁证**（读它了解字段语义），不可当**判据**。
+
+### 14.2 平台方（PostgreSQL／PostGIS）：**有**，且已逐条对照
+
+- **PG18 官方《Populating a Database》（文档 §14.4）九条** vs 旧方案：七条天然吻合（关 autocommit／用 COPY 不用 INSERT／先去索引灌完再建／**去 FK 约束**／增大 `maintenance_work_mem`／灌毕 ANALYZE／pg_dump 恢复要点）；一条原缺后补入（**`max_wal_size` 临时 4GB、毕即 RESET**）；一条有据不采纳（`wal_level=minimal` 须重启实例且废既有基础备份，收益仅 600MB 级）。
+  - 其中第 4 条官方原话是 **"necessary, not just desirable"** → 与本方案"保真层不建 FK"**互相背书**（也解释了现库 FK＝0 系设计选择而非缺陷）。
+- **PostGIS 3.6 手册第 4 章 §4.7 "Loading Spatial Data"**：官方内建装载法两条——① SQL（WKT/WKB 经 `psql -f`）② **`shp2pgsql`**，关键旗标 `-D`（dump 格式＝COPY 快速模式，官方原话 *"Use this for very large data sets"*）。
+
+### 14.3 工具方（GDAL／ogr2ogr）：有行为文档，但**默认行为正是坑源**
+
+LDID 猜编码（→ 820 表列双重编码，P-05）／`-append` 按列名映射丢列不报 warning（→ P-09）／`.xls`(BIFF) 在 GDAL 3.13.2 **无任何表头开选项**（实测 `HEADERS=FORCE` 无效 → P-10）／`SHAPE_ENCODING=GBK` 下孤立 `0xFC` 静默丢弃（→ P-07）。
+**⇒ 含义**：方案中每一项都不得依赖 GDAL 默认值，必须在 `sources.yaml` 显式声明；凡工具无开选项可声明者，必须在 `verifier/` 侧用独立读法兜住。
+
+### 14.4 大路工具之取舍
+
+- **pgloader**（sqlite→PG 社区首推，Neon/Netbird/Render 三家迁移指南一致）：**本案不用**——装它＝32 宿主系统改动（超实例边界须另令），而本管线 python3 标准库零新装、且类型映射/BLOB 十六进制/NULL 语义全可控。
+- 社区踩坑清单（类型亲和性、BLOB、标识符大小写、布尔表示）：本文 §5.3 映射表逐条已覆盖。
+
+### 14.5 出处（外部资料，内容以原文为准）
+
+| 来源 | 址 |
+|---|---|
+| PostgreSQL 18 §14.4 Populating a Database | postgresql.org/docs/current/populate.html（经 web.archive 存档实抓全文） |
+| PostGIS 3.6 手册 §4.7 Loading Spatial Data | postgis.net/docs/manual-3.6/using_postgis_dbmanagement.html |
+| CBDB User's Guide（Fuller 修订版 153 页，PDF 生成 2023-10-06） | web.archive.org/web/20240914131845（harvard 直连 403） |
+| CBDB 官方 HF 数据卡 | huggingface.co/datasets/cbdb/cbdb-sqlite |
+| 社区迁移指南 | render.com《How to migrate from SQLite to PostgreSQL》；docs.netbird.io；github.com/open-webui/open-webui Discussion #21609 |
+| 编码旧案 | lists.osgeo.org pipermail postgis-devel #1303 |
+| CBDB 学术描述 | OpenHumanitiesData《CBDB: A Relational Database for Prosopographical Research of Pre-Modern China》(2022) |
+
+> **注**：本节系 2026-09-24 调研之结论收敛，**外部链接本轮未复测**（本环境无外网 DNS，`projects.fas.harvard.edu` 实测 `ENOTFOUND`）；引用时以原文为准。

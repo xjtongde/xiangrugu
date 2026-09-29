@@ -1,0 +1,152 @@
+# roots.yaml —— 数据源根、换算规则与目标库（唯一机器可读权威）
+#
+# 定位：datamgmt/ 模块一切代码读取源件路径与连接目标，**只许读本文件**（纪律 2：禁止硬编码绝对路径，P-17）。
+# 人读摘要＝ docs/data-sources.md §七（权威数据源目录）／§八（下载区与双根共键）；
+# 两者冲突时以本文件为准，并须同批改 docs/data-sources.md（R-04/R-06）。
+#
+# 数字纪律（P-20）：每个数字都带 as_of 与口径；`measured_by: this-session` 者系 2026-09-29 本模块开设时实测，
+# `measured_by: books` 者系账面值（出处已注），**用前须复测**。
+
+version: 1
+established: "2026-09-29"
+authority: |
+  用户令（原话照录）：「1，要导入数据源的在这个目录下：/mnt/wd61workmetadata/usedata」
+  配套标尺令：「源数据的错误与对，不是我们来判断的。我们的依据就是源数据。……
+  我们的核心工作就是无错的把源数据，导入到pg32b数据库。」（→ rules.md R-07）
+
+# ─────────────────────────────────────────────────────────────
+# 一、根（两个：权威在用区 ＋ 只读下载区）
+# ─────────────────────────────────────────────────────────────
+roots:
+
+  usedata:                              # ★导入唯一取材处（用户令 1）
+    path: /mnt/wd61workmetadata/usedata
+    host: 192.168.3.32
+    role: authoritative-source          # 权威数据源目录（2026-09-28 用户令设立）
+    access: read-only                   # 只读；源件决不可修改（R-07＋"下载源决不能修改"纪律）
+    as_of: "2026-09-29"
+    measured_by: this-session
+    inventory:                          # 实测：顶层 3 子树 ＋ 2 文件 ＝ 190 件
+      total_files: 190
+      subtrees:
+        - name: chgis-v6
+          files: 1
+          content: "China_Periods_ReignDates.zip（155,774 B）"
+        - name: harvard
+          files: 15
+          content: "首批装数工作集：cbdb/（sqlite3＋json）、chgis/（v6 三件 utf_wgs84＋EULA＋README＋data_dictionary＋SHA256SUMS.txt＋VERIFICATION.md）、tab/（三小件 .tab）、SHA256SUMS、README.md"
+        - name: harvard-full
+          files: 172
+          content: "第二批全量：doi_10_7910/DVN/<DOI>/ 逐档案原件（含 zip 套 zip）"
+      top_files:
+        - "README-b2.md（48,851 B，二批说明）"
+        - "SHA256SUMS-b2（22,071 B，二批校验账）"
+
+  download:                             # 下载区：从网下载之原件，只读、只作回溯与增补来源
+    path: /mnt/wd61workmetadata/xiangrugudata
+    host: 192.168.3.32
+    role: read-only-original
+    access: read-only
+    as_of: "2026-09-28"
+    measured_by: books                  # 账面值，出处 docs/data-sources.md §八；用前须复测
+    inventory:
+      trees: 7
+      total_files: 16803
+      total_bytes: 20868871885
+    note: "数据流向＝下载区 →copy→ 在用区 usedata/ → 导入 pg32b。**拷入而非搬移**（守'下载源决不能修改'纪律）。"
+
+# ─────────────────────────────────────────────────────────────
+# 二、完整性校验账（三份，路径基准各不同——用错基准即全盘报缺）
+# ─────────────────────────────────────────────────────────────
+checksums:
+  - file: /mnt/wd61workmetadata/usedata/SHA256SUMS-b2
+    lines: 173
+    as_of: "2026-09-29"
+    measured_by: this-session
+    path_base: usedata                  # ★行内路径相对于 usedata/（实测首二行：chgis-v6/…、harvard-full/…）
+    covers: 二批（chgis-v6 ＋ harvard-full）
+    last_verification:
+      result: "173/173 相符（usedata 与 xiangrugudata 两端各一次）"
+      as_of: "2026-09-28"
+      measured_by: books
+      source: docs/data-sources.md §七
+  - file: /mnt/wd61workmetadata/usedata/harvard/SHA256SUMS
+    lines: 13
+    as_of: "2026-09-29"
+    measured_by: this-session
+    path_base: harvard                  # 待阶段一闸0 核实
+    covers: 首批
+  - file: /mnt/wd61workmetadata/usedata/harvard/chgis/SHA256SUMS.txt
+    lines: 6
+    as_of: "2026-09-29"
+    measured_by: this-session
+    path_base: chgis                    # 发布方自带；覆盖范围待阶段一闸0 核实
+    covers: CHGIS v6 发布件
+    note: "发布方自带校验账（非我方生成）——闸0 须同时对我方账与发布方账，两者皆过才算完整。"
+
+# ─────────────────────────────────────────────────────────────
+# 三、路径换算（双根共键：一份台账，两个根都能落地）
+# ─────────────────────────────────────────────────────────────
+path_resolution:
+  ledger: /root/xiangrugu/ops/harvard/load-b2/src_paths.tsv     # 1,770 数据行／8 列（leg, src_token, target, status, nas_path, inner, n_hits, resolution）
+  ledger_as_of: "2026-09-28"
+  ledger_measured_by: books
+  rules:
+    - "usedata 内绝对路径 ＝ /mnt/wd61workmetadata/usedata ＋ src_paths.tsv 之 nas_path"
+    - "下载区绝对路径 　＝ /mnt/wd61workmetadata/xiangrugudata ＋ 同一 nas_path"
+    - "nas_path 指向外层 zip 时，成员由 inner 列给出成员链（zip 套 zip 者逐层）"
+  code_rule: |
+    代码内**只存相对键**（nas_path ＋ inner），根一律从本文件 roots.* 取。
+    成员枚举**禁止**用锚定单后缀正则（如 \.zip$）——须用 (\.zip)+$ 并加 re.I（P-11，实测命中 30 件、过度匹配 0 件）。
+  migration_note: "阶段二须把 src_paths.tsv 之相对键收敛进 config/sources.yaml；台账现仍在 ops/（不入 git，P-16），迁移前**不得删除原件**。"
+
+# ─────────────────────────────────────────────────────────────
+# 四、路径政策（P-17：路径腐化三层，实测 2026-09-29）
+# ─────────────────────────────────────────────────────────────
+path_policy:
+  - path: /mnt/wd61workmetadata/usedata/
+    status: only-legal-source-root      # ★唯一合法源根
+    note: "旧 23 支脚本中 **0 处**指向此根——即无一支脚本读权威源。本模块一律以此为准。"
+  - path: /mnt/nas-mirror/
+    status: forbidden                   # 项目读写皆禁
+    since: "2026-09-27"
+    note: "旧 23 支脚本中 **15 处**仍硬编码此根；该路径实测**仍存在**，故误用不会报错、只会静默读到禁用区——最危险的一类腐化。"
+  - path: /mnt/wd61workmetadata/harvard-full/
+    status: gone                        # 已不存在
+    since: "2026-09-28（七棵下载树整体搬入 xiangrugudata/）"
+    note: "旧脚本 **3 处**硬编码此根，照原样重跑即 FileNotFoundError（实测）。"
+  - path: /tmp/
+    status: forbidden-as-workledger     # 禁止作为工作账落点
+    note: "旧脚本工作目录 /tmp/pg32b-load2 实测**已不存在**，recon 台账靠事后抢救（P-12）。工作账唯一落点＝datamgmt/recon/。"
+
+# ─────────────────────────────────────────────────────────────
+# 五、目标库
+# ─────────────────────────────────────────────────────────────
+target:
+  instance: pg32b
+  host: 192.168.3.32
+  port: 5433                            # 5432 系 pg32 生产口，不动
+  database: cbdb
+  container: pg32b
+  user: postgres
+  image: "pg32b-full:18-pgdg（＝36 之 pg36-full:18-pgdg 同字节拷贝；PG 18.6＋PostGIS 3.6.4＋pgvector 0.8.6）"
+  access_pattern: 'ssh 192.168.3.32 "docker exec -i pg32b psql -U postgres -d cbdb -At -F''|''" <<SQL … SQL'
+  co_tenancy_warning: "pg32b 与生产 pg32 **同在 32 主机**（另有 n8n/chainlit/graphrag 等在跑）→ 一切装载须 nice -n 19 ionice -c3 ＋ loadavg<4.0 门禁（30s 轮询）＋ canary 计时。"
+  current_state:
+    as_of: "2026-09-29"
+    measured_by: this-session
+    schemas: "public（CBDB 86）／chgis（211，含全部 hartwell_*）／harv（97，TGaz）／ogr_system_tables（1，GDAL 副产物 metadata 184 行）"
+    relations: 399
+    user_tables: 395
+    rows_count_star: 8584318            # ★精确口径
+    rows_pg_stat: 8584097               # 账面口径，差 221（B-13 悬案）
+    size_mb: 4771
+    row_count_authority: "证书与对账一律用 count(*)；pg_stat 只作粗筛，不得入证书（import-plan §12 口径七，候裁）"
+  backup:
+    status: "现无任何 cbdb 库 dump"
+    note: "备份调度/落盘＝另派 agent（docs/codemap.md §2）→ 删库前必须由本模块先做 pg_dump（import-plan §3 前置 P-1）。"
+  known_nonconformance:
+    - "chgis.v4_gns.name／pref_py：2,288 值丢变音符（B-11，在册未修）"
+    - "chgis.v5_gns.geom：130,665 行经两次 ST_Transform，已非源件值（b2fix9.py:15；FIX6/FIX8 曾误判 2327）——我方引入，候令补立 B-15"
+    - "chgis.v4_gns.geom：同为 SRID 4326／经纬度，极可能同类，**待验**（源件在外层 zip 内，未解包）"
+    - "其余 397 个关系：从未做过值级对账，合格性**未知**"

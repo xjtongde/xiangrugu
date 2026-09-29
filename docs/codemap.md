@@ -16,24 +16,41 @@
 ```text
 /root/xiangrugu/
 ├── .git/                 Git 仓库（main 分支）
-├── .gitignore            忽略 `.agents/`（2026-09-22 用户口令"Skill不进git"）
+├── .gitignore            忽略 `.agents/`（2026-09-22 用户口令"Skill不进git"）＋`.secrets/`（机密件）＋**`ops/`（运维工作区，2026-09-23）**——⚠ `ops/` 被忽略致旧装载脚本 23 支**不入仓**，此为 **P-16**，故新模块 `datamgmt/` 一律入仓
 ├── .agents/              ⚠ git 不跟踪（工作区本地设施）
 │   └── skills/           项目级 skill（2026-09-22 自 translate 复制装入）
 │       ├── karpathy-guidelines/   LLM 编码行为纪律（想清再写/最简实现/外科手术式改动）
 │       └── frontend-design/       独特视觉设计指引（去模板脸/排版个性/结构即信息）
 ├── AGENTS.md             AI 助手入口：项目目标（待定义）＋必读链
 ├── rules.md              纪律总纲 R-01～R-07（R-08+ 预留）
+├── datamgmt/             ★**数据管理模块**（2026-09-29 用户令开设；`docs/import-plan.md` 之执行体；**入 git**）
+│   ├── README.md         模块入口：定位、两件必备内容之落点、目录职责、五阶段表、五条纪律
+│   ├── PITFALLS.md       防坑条目录 P-01…P-23（**2026-09-29 自 `docs/pitfalls.md` `git mv` 迁入**，正文未改）
+│   ├── config/
+│   │   └── roots.yaml    ★数据源根之唯一机器可读权威（`/mnt/wd61workmetadata/usedata` 只读、190 件、三份校验账、双根共键换算、路径政策四条、目标库 pg32b 事实与已知不合格四处）
+│   ├── truth/            源侧真值独立读取器（**不经 GDAL**）——空壳占位，阶段一候口令
+│   ├── importer/         装载器 `load.py`——空壳占位，阶段三候口令
+│   ├── verifier/         验证器 `verify.py`＋六道闸——空壳占位，阶段一候口令
+│   ├── tests/            单元／集成（含故意注错演练）／回归／彩排／换版——空壳占位
+│   ├── maintenance/      数据维护：巡检、账目核对、源件完整性复验、版本差分、退役脚本归档位
+│   └── recon/            工作账（**绝不落 `/tmp`**，P-12）：recon.tsv upsert、gates/、cert/
+├── ops/                  ⚠ git 不跟踪（`.gitignore:8`）——旧运维工作区
+│   └── harvard/load-b2/  旧装载脚本 23 支 `b2*.py` ＋ `src_paths.tsv`（1,770 数据行，**`datamgmt/config/roots.yaml` 之相对键来源**）＋ recon/manifest 等审计件；**NAS 无副本**（P-16），退役后拟归档不删（候裁）
+├── demo/                 ⚠ **git 未跟踪**（`?? demo/`）——人物/网络/漫游三页演示与其 build 脚本；登记缺口已挂账 **I-05**（是否入 git＋是否登记本表，候裁）
 ├── memos/
 │   └── memos.md          跨会话纪要备忘账（N-编号；讨论与分析备忘，非实施指导）
 └── docs/
     ├── index.md          文档索引＋权威优先级（登记处）
     ├── log.md            文档变动日志（R-05）
     ├── codemap.md        本文件：代码地图＋部署位置
-    ├── cbdb.md           外部数据源档案：CBDB 项目（2026-09-23 开设）
+    ├── import-plan.md    ★**数据导入方案 v3**（2026-09-29 开设，现行方案）：导入·验证·测试三卷、四条硬规则 H-1…H-4、六道闸、五层测试、五阶段执行、待裁口径
+    ├── cbdb.md           外部数据源档案：CBDB 项目（2026-09-23 开设）＋源数据可疑处登记册（§9）
+    ├── data-sources.md   pg32b 数据来源对照（人读摘要层，2026-09-26 开设；§七 权威源目录换算规则、§八 下载区双根共键）
+    ├── holdings.md       已持有资料索引（唯一账，2026-09-25 开设）
     ├── pg32-upgrade.md   实施方案：pg32 升级全功能镜像（2026-09-23 成文，**同日搁置**）
     ├── pg36.md           实施方案：36 新建 pg36 全功能实例（2026-09-23 成文；2026-09-24 已执行建成，§13 执行记录）
     ├── pg32b.md          实施方案：32 新建 pg32b 备份/演练实例（2026-09-24 成案；同日已执行建成，§9 执行记录；复用 pg36 镜像）
-    ├── cbdb-load.md      实施方案：哈佛资料装数首批→pg32b（2026-09-24 成案，用户令"36故障，你在32主机上搞"；同夜用户令"同意＋考虑到32主机的压力"开工→**首批已执行完毕，验收七项全过，执行记录＝§13**）
+    ├── cbdb-load.md      实施方案：哈佛资料装数首批→pg32b（2026-09-24 成案，用户令"36故障，你在32主机上搞"；同夜用户令"同意＋考虑到32主机的压力"开工→**首批已执行完毕，验收七项全过，执行记录＝§13**）；**2026-09-29 起方法部分被 v3 取代、执行记录退役为历史件**（正文不回改，处置候裁）
     ├── bugs.md           Bug 专职账（B-编号）
     ├── improvements.md   改进专职账（I-编号）
     └── features.md       新功能专职账（F-编号）
@@ -43,7 +60,11 @@
 
 | 路径 | 职责 | 依赖 | 权威文档 |
 |---|---|---|---|
-| （空——待代码落地） | | | |
+| `datamgmt/README.md` | 数据管理模块入口：定位、目录职责边界、五阶段表、五条纪律 | `docs/import-plan.md` | 自身（模块内唯一入口） |
+| `datamgmt/PITFALLS.md` | 旧库建设所踩坑之唯一登记处（P-01…P-23），一切设计决定之依据来源 | 实证出自 `docs/bugs.md`／`docs/cbdb-load.md` §13/§15/§15.9／`ops/harvard/load-b2/` | 自身 |
+| `datamgmt/config/roots.yaml` | **数据源根、只读声明、校验账、双根共键换算、路径政策、目标库连接事实**之唯一机器可读权威 | NAS `/mnt/wd61workmetadata/usedata`（只读）、`ops/harvard/load-b2/src_paths.tsv`（相对键） | 自身；人读摘要＝`docs/data-sources.md` §七/§八（冲突以本文件为准） |
+| `datamgmt/{truth,importer,verifier,tests,maintenance,recon}/` | 真值读取／装载／验证／测试／维护／工作账——**现为空壳占位**，代码候开工口令（R-01） | 阶段一至三 | `docs/import-plan.md` §4–§7 |
+| （其余空——待代码落地） | | | |
 
 ### 1.4 依赖与数据流
 

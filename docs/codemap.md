@@ -1,6 +1,6 @@
 # codemap.md —— 代码地图与部署位置
 
-> **状态：现行**｜as_of 2026-09-29
+> **状态：现行**｜as_of 2026-09-30
 > 本文件是**查询件**，**不入必读链**（见 `docs/index.md` §三）。
 
 ## 1 目录树（工作区 `/root/xiangrugu/`＝项目唯一权威源）
@@ -17,7 +17,7 @@
 │   ├── config/             sources.yaml／decoding.yaml／g4_assertions.yaml（阶段二，候口令）
 │   └── truth/ importer/ verifier/ tests/ maintenance/ recon/   空壳占位（候开工口令）
 ├── docs/                   文档（`index.md` 为登记处）
-├── demo/                   ⚠ **未入 git**——演示三页＋build 脚本（2026-09-29 用户令留下；缺口＝I-05）
+├── demo/                   ⚠ **未入 git**——演示三页＋build 脚本（2026-09-30 用户令留下；缺口＝I-05）
 ├── memos/memos.md          用户交录纪要（**非实施指导**）
 └── ops/harvard/load-b2/    ⚠ **git 不跟踪**——旧装载脚本 23 支 `b2*.py`＋`src_paths.tsv`（1,770 行台账）＋recon/manifest
                             ↑ **L3 原始证据层，勿删**：`roots.yaml` 之相对键来源、`PITFALLS.md` 全部实证之出处

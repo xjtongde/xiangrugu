@@ -1,10 +1,10 @@
 # roots.yaml —— 数据源根、换算规则与目标库（唯一机器可读权威）
 #
 # 定位：datamgmt/ 模块一切代码读取源件路径与连接目标，**只许读本文件**（纪律 2：禁止硬编码绝对路径，P-17）。
-# 人读摘要＝ docs/holdings.md（已持有资料与许可）。原 docs/data-sources.md 已于 2026-09-29 依用户令删除；
+# 人读摘要＝ docs/holdings.md（已持有资料与许可）。原 docs/data-sources.md 已于 2026-09-30 依用户令删除；
 # 两者冲突时以本文件为准，并须同批改 docs/holdings.md（R-04/R-06）。
 #
-# 数字纪律（P-20）：每个数字都带 as_of 与口径；`measured_by: this-session` 者系 2026-09-29 本模块开设时实测，
+# 数字纪律（P-20）：每个数字都带 as_of 与口径；`measured_by: this-session` 者系 2026-09-29（模块开设批）／2026-09-30（文档清理批）两批实测，逐处以该处 as_of 为准，
 # `measured_by: books` 者系账面值（出处已注），**用前须复测**。
 
 version: 1
@@ -48,7 +48,7 @@ roots:
     role: read-only-original
     access: read-only
     as_of: "2026-09-28"
-    measured_by: books                  # 账面值，出处＝原 docs/data-sources.md §八（已删，git show 75ecd77:docs/data-sources.md）；2026-09-29 已 ls 复核树数＝7 相符；用前须复测
+    measured_by: books                  # 账面值，出处＝原 docs/data-sources.md §八（已删，git show 75ecd77:docs/data-sources.md）；2026-09-30 已 ls 复核树数＝7 相符；用前须复测
     inventory:
       trees: 7
       total_files: 16803
@@ -130,12 +130,12 @@ target:
   container: pg32b
   user: postgres
   image: "pg32b-full:18-pgdg（＝36 之 pg36-full:18-pgdg 同字节拷贝；PG 18.6＋PostGIS 3.6.4＋pgvector 0.8.6）"
-  extensions_in_cbdb: "plpgsql 1.0／postgis 3.6.4／postgis_raster 3.6.4（2026-09-29 现算）。⚠ **镜像含 pgvector 0.8.6 但 cbdb 库未创建 vector 扩展** → F-04 向量检索层启用前须先 CREATE EXTENSION vector。"
+  extensions_in_cbdb: "plpgsql 1.0／postgis 3.6.4／postgis_raster 3.6.4（2026-09-30 现算）。⚠ **镜像含 pgvector 0.8.6 但 cbdb 库未创建 vector 扩展** → F-04 向量检索层启用前须先 CREATE EXTENSION vector。"
   access_pattern: 'ssh 192.168.3.32 "docker exec -i pg32b psql -U postgres -d cbdb -At -F''|''" <<SQL … SQL'
   sql_quoting_rule: "SQL 内字符串一律单引号；-At -F'|' 之外不要再套双引号（PG 中双引号＝标识符定界符，会报 column does not exist）。"
   co_tenancy_warning: "pg32b 与生产 pg32 **同在 32 主机**（另有 n8n/chainlit/graphrag 等在跑）→ 一切装载须 nice -n 19 ionice -c3 ＋ loadavg<4.0 门禁（30s 轮询）＋ canary 计时。"
-  host_capacity:                        # 2026-09-29 现算，供 import-plan §12 口径八（不删库、并行装新库）之裁
-    as_of: "2026-09-29"
+  host_capacity:                        # 2026-09-30 现算，供 import-plan §12 口径八（不删库、并行装新库）之裁
+    as_of: "2026-09-30"
     measured_by: this-session
     disk_root_avail_gb: 189             # /dev/sda1 233G 总、33G 已用、余 189G（15%）
     ram_total_gb: 7
@@ -143,13 +143,13 @@ target:
     loadavg_1m: 1.09
     verdict: "并行装一个新库名（如 cbdb_v3）余量充足（现库仅 4771 MB，需 ~10G 级）→ 口径八之磁盘前提成立"
   current_state:
-    as_of: "2026-09-29"
+    as_of: "2026-09-30"   # 09-29 首测、09-30 复核相符
     measured_by: this-session
     schemas: "public（CBDB 86）／chgis（211，含全部 hartwell_*）／harv（97，TGaz）／ogr_system_tables（1，GDAL 副产物 metadata 184 行）"
-    relations: 399                      # 2026-09-29 复核：relkind r=395 ＋ v=4 ＝ 399（另有 S 序列 235／c 复合类型 10／i 索引 772，不计）
+    relations: 399                      # 2026-09-30 复核：relkind r=395 ＋ v=4 ＝ 399（另有 S 序列 235／c 复合类型 10／i 索引 772，不计）
     user_tables: 395                    # 其中 394 在 public/chgis/harv，**1 张系 ogr_system_tables.metadata（GDAL 副产物，不来自源件）**
     rows_count_star: 8584318            # ★精确口径
-    rows_pg_stat: 8584097               # 账面口径（2026-09-29 复算 sum(n_live_tup) 相符），差 221（B-13 悬案）
+    rows_pg_stat: 8584097               # 账面口径（2026-09-30 复算 sum(n_live_tup) 相符），差 221（B-13 悬案）
     size_mb: 4771
     row_count_authority: "证书与对账一律用 count(*)；pg_stat 只作粗筛，不得入证书（import-plan §12 口径七，候裁）"
   backup:
@@ -157,6 +157,6 @@ target:
     note: "备份调度/落盘＝另派 agent（docs/pg32b.md §四）→ 删库前必须由本模块先做 pg_dump（import-plan §3 前置 P-1）。"
   known_nonconformance:
     - "chgis.v4_gns.name／pref_py：2,288 值丢变音符（B-11，在册未修）"
-    - "chgis.v5_gns.geom：130,665 行经两次 ST_Transform，已非源件值（b2fix9.py:15；FIX6/FIX8 曾误判 2327）——我方引入，**已立账 B-15**（2026-09-29）"
+    - "chgis.v5_gns.geom：130,665 行经两次 ST_Transform，已非源件值（b2fix9.py:15；FIX6/FIX8 曾误判 2327）——我方引入，**已立账 B-15**（2026-09-30）"
     - "chgis.v4_gns.geom：同为 SRID 4326／经纬度，极可能同类，**待验**（源件在外层 zip 内，未解包）——B-15 一并候验"
     - "其余 397 个关系：从未做过值级对账，合格性**未知**"

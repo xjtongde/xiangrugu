@@ -12,7 +12,7 @@
 ├── rules.md                纪律总纲 R-01～R-07（R-08+ 预留）
 ├── datamgmt/               ★数据管理模块（**入 git**）
 │   ├── README.md           模块入口：职责边界、五条纪律、五阶段表
-│   ├── PITFALLS.md         防坑条目录 P-01…P-23（一切设计决定之依据）
+│   ├── PITFALLS.md         防坑条目录 P-01…P-24（一切设计决定之依据）
 │   ├── config/roots.yaml   ★数据源根与目标库（机器可读权威）
 │   ├── config/             sources.yaml／decoding.yaml／g4_assertions.yaml（阶段二，候口令）
 │   └── truth/ importer/ verifier/ tests/ maintenance/ recon/   空壳占位（候开工口令）
@@ -38,7 +38,7 @@
 | 主机 | 硬件（as_of） | 实例 |
 |---|---|---|
 | **192.168.3.32** | i7-6567U；RAM 可用 5.5G；`/` 余 196G（09-24）；时区两文件正常（**无 B-02**） | `pg32` 生产 **5432**；**`pg32b` 5433**（`cbdb` 库宿主）；另有 nginx32（unhealthy 观察项）／n8n／chainlit／graphrag |
-| **192.168.3.36**（主机名 `one`） | AI/GPU 主力机；本地 NVMe 余 **268G**（**09-23 勘察值，用前须复测**）；⚠ `/etc/timezone` 系空目录（**B-02**） | **`pg36` 5432**（数据底座；`import-plan.md` §7.4 **重建彩排靶机**） |
+| **192.168.3.36**（主机名 `one`）<br>⚠ **本项目已不再依赖**（2026-09-30 用户令） | AI/GPU 主力机；**2026-09-30 实测完全不可达**（`ping` 100% 丢包／`ssh` 与 `5432` 皆 No route to host）；`/etc/timezone` 系空目录（**B-02**，已降为非阻塞） | **`pg36` 5432**——~~数据底座／彩排靶机~~ **已作废**；仅存关联＝`pg32b` 之镜像系其同字节拷贝。详见 `docs/pg36.md`（**状态：历史**） |
 | 192.168.3.35 | — | Gitea **17080**（含 wiki 仓） |
 
 ⚠ **共实例告警**：`pg32b` 与生产 `pg32` **同在 32 主机** → 任何装载/验证须 `nice`／`ionice` 且 **loadavg<4.0 门禁**（`roots.yaml` 已载）。

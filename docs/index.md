@@ -56,7 +56,9 @@ AGENTS.md → rules.md → docs/index.md → datamgmt/README.md → docs/import-
 
 **git 回收点 `75ecd77`**，恢复式：`git show 75ecd77:<路径>`
 
-| 已删 | 字 | 承重新去处 |
+> 下表所列路径**均已删除**，仅存于回收点；他文引用它们时一律须带"已删／回收点"限定，否则即属活悬空引用（R-06）。
+
+| 已删文档 | 字 | 承重新去处 |
 |---|---|---|
 | `docs/cbdb-load.md` | 53,168 | §12 官方与社区调研 → **`import-plan.md` §14**；§13/§15 执行记录之教训 → **`PITFALLS.md` P-01…P-15**；方法部分 → 被 v3 全卷取代 |
 | `docs/data-sources.md` | 25,803 | §七 权威源换算规则／§八 下载区双根共键 → **`datamgmt/config/roots.yaml`** |

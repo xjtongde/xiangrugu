@@ -132,7 +132,7 @@ NAS 权威源 usedata/            源件字节
 | `raster` | 像素类型、nodata、分块参数 | 分块参数须写入证书（栅格值级比对按块进行） |
 | `truth` | 期望真值的**算法**（不是数值） | 数值每次现算：DBF 头记录数／zip 成员数／sqlite `count(*)`／xlsx 数据行数 |
 | `key_cols` | 值级对账用的键；无键者声明 `keyless: true` | 无键表走 §6.3 多重集比对 |
-| `known_issues` | 源数据可疑处指针（`cbdb.md` §9.4 条目号／`bugs.md` B-编号） | **仅登记，不处置**（R-07） |
+| `known_issues` | 源数据可疑处指针（`cbdb.md` **§三 登记册 G4-xx** 条目号／`bugs.md` B-编号） | **仅登记，不处置**（R-07） |
 
 ### 5.2 装载分腿（按载体，不按"批次"）
 
@@ -167,7 +167,7 @@ NAS 权威源 usedata/            源件字节
 
 **问题**：DBF 存的是字节，同一个文件内**不同列可能是不同编码**（实证：`v5_gns_anhui_gbk.dbf` 之 `NAME`/`NM_ASCII`/`SORT_NAME`/`PREF_PY` 系单字节 latin1/cp1252——威妥玛拼音 `ü` 存作裸字节 `0xFC`；而 `CNTY_CH` 系真 GBK）。
 
-**判定表结构**（落 `datamgmt/config/decoding.yaml`，每条须带依据）：
+**判定表结构**（落 `datamgmt/config/decoding.yaml`（阶段二建，**现未建**），每条须带依据）：
 
 ```yaml
 - source: v5_gns_*_gbk.dbf        # 或按 DOI 目录/表族归并
@@ -310,11 +310,11 @@ NAS 权威源 usedata/            源件字节
 
 ### 8.2 登记册＝闸4 的断言集（一处两用，避免双账）
 
-登记册权威展开＝`docs/cbdb.md` §9.4（数据源档案）＋`docs/bugs.md`（源生条目，标注"源生／上游同值"）；其**机器可执行版**＝`datamgmt/config/g4_assertions.yaml`，每条形如：
+登记册权威展开＝`docs/cbdb.md` **§三 登记册 G4-01…G4-16**＋`docs/bugs.md`（源生条目，标注"源生／上游同值"，只留一行指针指向 G4-xx）；其**机器可执行版**＝`datamgmt/config/g4_assertions.yaml`（阶段二建，**现未建**），每条形如：
 
 ```yaml
 - id: G4-001
-  ref: "cbdb.md §9.4(4) / bugs B-12"
+  ref: "cbdb.md G4-04 / bugs B-12"
   sql: "select count(*) from assoc_data where c_assoc_first_year = -1"
   expect: 111268
   note: "占位符：未详。非错误，源数据特征。"

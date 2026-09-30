@@ -6,15 +6,6 @@
 
 ## 在册
 
-### B-15 `chgis.v5_gns.geom`／`v4_gns.geom` **已非源件之值**（我方引入）
-
-- **归属：我方缺陷**（非源数据）。
-- **实证**：`ops/harvard/load-b2/b2fix9.py:15` 执行
-  `ALTER TABLE chgis.v5_gns ALTER COLUMN geom TYPE geometry(Geometry,4326) USING ST_Transform(ST_SetSRID(ST_Transform(geom,2327),2333),4326)`
-  ——**两次 `ST_Transform`**；`v5_gns` **130,665 行**受影响。`v4_gns.geom` 极可能同类，**待验**。
-- **违反**：`docs/import-plan.md` **H-2**（源件已声明者照存不变换——`.prj` 明示 `Xian_1980_GK_Zone_19`／`Gauss_Kruger`／`False_Easting 19500000`／`Central_Meridian 111`）。
-- **状态：候令**。重建后由 H-2 自然消除；若不重建则须**重装该两表**（H-3：保真层永不 `UPDATE`，错→重装）。
-
 ### B-13 `demo/` 三页之数字**已过期**
 
 - **归属：我方缺陷**——库内数据无误，错在页面快照未随 FIX10／FIX11 重跑（`catalog` 页断言今天重跑即不符）。
@@ -37,9 +28,10 @@
 
 ## 已结／已作废（原 B-01…B-11 之去处）
 
-- **B-05…B-11**（装载缺陷七条：双重后缀件致 4,099 行静默漏装／八张 xls 表头当数据致 114 个 `fieldN` 伪列／`prov_py` 不可用于筛省／台账 887 重复行／`nas-mirror` 硬编码／`v4_gns` 丢末尾变音符（值级不合格 2,288 处，见 `roots.yaml` `known_nonconformance`）／仅存安徽省前缀 ID 列）
+- **B-05…B-11**（装载缺陷七条：双重后缀件致 4,099 行静默漏装／八张 xls 表头当数据致 114 个 `fieldN` 伪列／`prov_py` 不可用于筛省／台账 887 重复行／`nas-mirror` 硬编码／`v4_gns` 丢末尾变音符（值级不合格 2,288 处）／仅存安徽省前缀 ID 列）
   → **已全部提炼入 `datamgmt/PITFALLS.md` P-01…P-15**，且**重建后自动消除**（v3 不经 GDAL 默认、不做就地 `UPDATE`、显式声明编码与表头）。
 - **B-01**（助手未经确认擅自执行 skill 装入）→ 已结，教训已入 `rules.md` R-01。
 - **B-02**（某宿主 `/etc/timezone` 系空目录，致部署标准 §9 时区挂载失效）→ **作废**：2026-09-30 用户令该主机**视为不存在**；现用之 32 主机时区两文件正常，本项对本项目已无影响。
+- **B-15**（`chgis.v5_gns.geom`／`v4_gns.geom` 经两次 `ST_Transform` 已非源件值，**我方旧装载引入**，`b2fix9.py:15`）→ **不追修**：2026-09-30 用户令「就当第一次导入」，旧库不再处理；新导入由 **H-2**（照 `.prj` 存、禁止投影变换）天然不犯，教训即 H-2。
 
 > 原详细条目已删（2026-09-30 用户令「能清空的就清空」）；全文可 `git show 75ecd77:docs/bugs.md` 取回。

@@ -134,29 +134,3 @@ target:
   access_pattern: 'ssh 192.168.3.32 "docker exec -i pg32b psql -U postgres -d cbdb -At -F''|''" <<SQL … SQL'
   sql_quoting_rule: "SQL 内字符串一律单引号；-At -F'|' 之外不要再套双引号（PG 中双引号＝标识符定界符，会报 column does not exist）。"
   co_tenancy_warning: "pg32b 与生产 pg32 **同在 32 主机**（另有 n8n/chainlit/graphrag 等在跑）→ 一切装载须 nice -n 19 ionice -c3 ＋ loadavg<4.0 门禁（30s 轮询）＋ canary 计时。"
-  host_capacity:                        # 2026-09-30 现算，供 import-plan §12 口径八（不删库、并行装新库）之裁
-    as_of: "2026-09-30"
-    measured_by: this-session
-    disk_root_avail_gb: 189             # /dev/sda1 233G 总、33G 已用、余 189G（15%）
-    ram_total_gb: 7
-    ram_available_gb: 5
-    loadavg_1m: 1.09
-    verdict: "并行装一个新库名（如 cbdb_v3）余量充足（现库仅 4771 MB，需 ~10G 级）→ 口径八之磁盘前提成立"
-  current_state:
-    as_of: "2026-09-30"   # 09-29 首测、09-30 复核相符
-    measured_by: this-session
-    schemas: "public（CBDB 86）／chgis（211，含全部 hartwell_*）／harv（97，TGaz）／ogr_system_tables（1，GDAL 副产物 metadata 184 行）"
-    relations: 399                      # 2026-09-30 复核：relkind r=395 ＋ v=4 ＝ 399（另有 S 序列 235／c 复合类型 10／i 索引 772，不计）
-    user_tables: 395                    # 其中 394 在 public/chgis/harv，**1 张系 ogr_system_tables.metadata（GDAL 副产物，不来自源件）**
-    rows_count_star: 8584318            # ★精确口径
-    rows_pg_stat: 8584097               # 账面口径（2026-09-30 复算 sum(n_live_tup) 相符），差 221（B-13 悬案）
-    size_mb: 4771
-    row_count_authority: "证书与对账一律用 count(*)；pg_stat 只作粗筛，不得入证书（import-plan §12 口径七，候裁）"
-  backup:
-    status: "现无任何 cbdb 库 dump"
-    note: "备份调度/落盘＝另派 agent（docs/pg32b.md §四）→ 删库前必须由本模块先做 pg_dump（import-plan §3 前置 P-1）。"
-  known_nonconformance:
-    - "chgis.v4_gns.name／pref_py：2,288 值丢变音符（B-11，在册未修）"
-    - "chgis.v5_gns.geom：130,665 行经两次 ST_Transform，已非源件值（b2fix9.py:15；FIX6/FIX8 曾误判 2327）——我方引入，**已立账 B-15**（2026-09-30）"
-    - "chgis.v4_gns.geom：同为 SRID 4326／经纬度，极可能同类，**待验**（源件在外层 zip 内，未解包）——B-15 一并候验"
-    - "其余 397 个关系：从未做过值级对账，合格性**未知**"

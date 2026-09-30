@@ -22,7 +22,6 @@
 | `docs/features.md` | 需求账（F-编号） |
 | `docs/holdings.md` | 已持有资料与许可 |
 | `docs/pg32b.md` | pg32b 实例事实卡 |
-| `docs/pg36.md` | pg36 实例事实卡（**状态：历史**——2026-09-30 用户令不再考虑 36 主机；仅存关联＝`pg32b` 镜像出身） |
 | `docs/log.md` | 文档变动日志（**每行 ≤300 字**） |
 | `memos/memos.md` | 用户交录纪要（**非实施指导**） |
 | `demo/` | 演示三页（2026-09-30 用户令**留下**；⚠ **未入 git**，登记缺口＝I-05） |
@@ -62,11 +61,12 @@ AGENTS.md → rules.md → docs/index.md → datamgmt/README.md → docs/import-
 |---|---|---|
 | `docs/cbdb-load.md` | 53,168 | §12 官方与社区调研 → **`import-plan.md` §14**；§13/§15 执行记录之教训 → **`PITFALLS.md` P-01…P-15**；方法部分 → 被 v3 全卷取代 |
 | `docs/data-sources.md` | 25,803 | §七 权威源换算规则／§八 下载区双根共键 → **`datamgmt/config/roots.yaml`** |
-| `docs/pg32-upgrade.md` | 7,083 | 2026-09-23 已搁置，内容早已迁入 `docs/pg36.md` |
+| `docs/pg32-upgrade.md` | 7,083 | 2026-09-23 已搁置；内容曾迁入 `docs/pg36.md`（该件亦已删，见下行） |
+| `docs/pg36.md` | 2,159 | 用户令「**你就当36不存在**」→ 该主机视为不存在；`pg32b` 镜像出身之事实保留于 `docs/pg32b.md` §一 与 `roots.yaml` `target.image` |
 | `docs/log.md`（旧 223 行） | 126,318 | **改制重写**（旧制单行最长 9,279 字符、占全项目文档 31.8%，已成干扰源） |
 | 其余九份 | 121,996 | **清空后重写为简明版**（原正文全部可自回收点取回） |
 
-**九份重写者**：`index.md`／`codemap.md`／`cbdb.md`／`bugs.md`／`improvements.md`／`features.md`／`holdings.md`／`pg32b.md`／`pg36.md`。
+**九份重写者**：`index.md`／`codemap.md`／`cbdb.md`／`bugs.md`／`improvements.md`／`features.md`／`holdings.md`／`pg32b.md`／`pg36.md`（其中 `pg36.md` 已于同日后续**删除**）。
 
 ## 五、登记规则（防文档再度成为干扰源）
 

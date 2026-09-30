@@ -11,7 +11,7 @@
 ├── AGENTS.md               AI 助手入口（§1 项目目标**待用户定义**）
 ├── rules.md                纪律总纲 R-01～R-07（R-08+ 预留）
 ├── datamgmt/               ★数据管理模块（**入 git**）
-│   ├── README.md           模块入口：职责边界、五条纪律、五阶段表
+│   ├── README.md           模块入口：职责边界、五条纪律（阶段表见 `import-plan.md` §10）
 │   ├── PITFALLS.md         防坑条目录 P-01…P-25（一切设计决定之依据）
 │   ├── config/roots.yaml   ★数据源根与目标库（机器可读权威）
 │   ├── config/             sources.yaml／decoding.yaml／g4_assertions.yaml（阶段二，候口令）
@@ -29,7 +29,7 @@
 |---|---|---|
 | `datamgmt/config/roots.yaml` | 数据源根、只读声明、校验账、双根共键换算、路径政策、目标库事实 | 自身（**冲突时压过任何人读摘要**） |
 | `datamgmt/PITFALLS.md` | 旧库建设所踩坑之唯一登记处 | 自身（实证指向 `ops/` 与 `docs/bugs.md`） |
-| `datamgmt/README.md` | 模块定位、纪律、阶段表 | 自身 |
+| `datamgmt/README.md` | 模块定位、纪律（阶段表→`import-plan.md` §10） | 自身 |
 | `datamgmt/{truth,importer,verifier,tests,maintenance,recon}/` | 真值读取／装载／验证／测试／维护／工作账——**现为空壳**，候开工口令（R-01） | `docs/import-plan.md` §4–§7 |
 | `demo/` | 人物／网络／漫游三页演示＋build 脚本 | I-05（候裁：是否入 git） |
 

@@ -14,7 +14,7 @@
 | `docs/codemap.md` | 目录树、模块职责、主机与实例、存储路径、Git |
 | **`docs/import-plan.md`** | ★**数据导入方案 v3**：导入·验证·测试三卷＋四条硬规则＋六道闸＋五阶段；§14＝官方与社区建议摘要 |
 | **`datamgmt/README.md`** | ★**数据管理模块入口**：职责边界、五条纪律、五阶段表 |
-| **`datamgmt/PITFALLS.md`** | ★**防坑条目录 P-01…P-24**：一切设计决定之依据来源 |
+| **`datamgmt/PITFALLS.md`** | ★**防坑条目录 P-01…P-25**：一切设计决定之依据来源 |
 | **`datamgmt/config/roots.yaml`** | ★**数据源根、校验账、路径政策、目标库**（机器可读权威） |
 | `docs/cbdb.md` | 数据结构知识＋**源数据可疑处登记册 G4-01…G4-16**（闸4 依据） |
 | `docs/bugs.md` | 缺陷账（B-编号）：**我方之错**；源生条目只留指针 |
@@ -63,7 +63,7 @@ AGENTS.md → rules.md → docs/index.md → datamgmt/README.md → docs/import-
 | `docs/data-sources.md` | 25,803 | §七 权威源换算规则／§八 下载区双根共键 → **`datamgmt/config/roots.yaml`** |
 | `docs/pg32-upgrade.md` | 7,083 | 2026-09-23 已搁置；内容曾迁入 `docs/pg36.md`（该件亦已删，见下行） |
 | `docs/pg36.md` | 2,159 | 用户令「**你就当36不存在**」→ 该主机视为不存在；`pg32b` 镜像出身之事实保留于 `docs/pg32b.md` §一 与 `roots.yaml` `target.image` |
-| `docs/log.md`（旧 223 行） | 126,318 | **改制重写**（旧制单行最长 9,279 字符、占全项目文档 31.8%，已成干扰源） |
+| `docs/log.md`（旧 223 行） | 126,318 | **改制重写**（旧制单行最长 **5,568 字符**、99／223 行超 300 字、占全项目文档 **31.2%**，已成干扰源） |
 | 其余九份 | 121,996 | **清空后重写为简明版**（原正文全部可自回收点取回） |
 
 **九份重写者**：`index.md`／`codemap.md`／`cbdb.md`／`bugs.md`／`improvements.md`／`features.md`／`holdings.md`／`pg32b.md`／`pg36.md`（其中 `pg36.md` 已于同日后续**删除**）。

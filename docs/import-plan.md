@@ -62,7 +62,7 @@
 ```text
 datamgmt/                     ← 一律入 git（不再放 ops/；此为 P-16 之戒）
 ├── README.md                 模块定位、五条纪律、阶段表（唯一入口）        【已建】
-├── PITFALLS.md               ★防坑条目录 P-01…P-24（本方案各规则之依据）  【已建，自 docs/ 迁入】
+├── PITFALLS.md               ★防坑条目录 P-01…P-25（本方案各规则之依据）  【已建，自 docs/ 迁入】
 ├── config/
 │   ├── roots.yaml            ★数据源根、只读声明、双根共键换算、禁用路径、目标库  【已建】
 │   ├── sources.yaml          源清单：一源一条，"库应该长什么样"的唯一记载（§5.1）【阶段二，候口令】
@@ -367,7 +367,7 @@ NAS 权威源 usedata/            源件字节
 | **删除** | `docs/cbdb-load.md`（53,168） | §12 官方与社区调研 → **本文 §14**；§13/§15 执行记录之教训 → `PITFALLS.md` P-01…P-15；方法部分 → 本文全卷取代 |
 | **删除** | `docs/data-sources.md`（25,803） | §七 换算规则／§八 双根共键 → **`datamgmt/config/roots.yaml`**；人读摘要 → `docs/holdings.md` |
 | **删除** | `docs/pg32-upgrade.md`（7,083） | 2026-09-23 已搁置；结论体现于"新建独立全功能实例"（pg36→pg32b 复用同镜像） |
-| **清空重写** | `docs/log.md`（126,318） | **改制**：每行 ≤300 字，论证移入正文或 commit message（旧制单行最长 9,279 字符、占全项目 31.8%） |
+| **清空重写** | `docs/log.md`（126,318） | **改制**：每行 ≤300 字，论证移入正文或 commit message（旧制单行最长 **5,568 字符**、223 行中 **99 行超 300 字**、占全项目 **31.2%**） |
 | **删除（同日后续）** | `docs/pg36.md`（2,159） | 用户令「**你就当36不存在**」→ 该主机视为不存在；`pg32b` 镜像出身之事实保留于 `docs/pg32b.md` §一 与 `roots.yaml` `target.image` |
 | **清空重写** | `index`／`codemap`／`cbdb`／`bugs`／`improvements`／`features`／`holdings`／`pg32b`／`pg36`（合 121,996；其中 `pg36` 同日后续**又删除**，见上行） | 一律简明版；**`cbdb.md` 登记册 G4-01…G4-16 之数字全部重新直读上游 sqlite 现算**（非转录旧文） |
 | **不动** | `AGENTS.md`／`rules.md`／本文／`datamgmt/`／`memos/`／**`demo/`（用户令留下）** | — |

@@ -12,7 +12,7 @@
 ├── rules.md                纪律总纲 R-01～R-07（R-08+ 预留）
 ├── datamgmt/               ★数据管理模块（**入 git**）
 │   ├── README.md           模块入口：职责边界、五条纪律、五阶段表
-│   ├── PITFALLS.md         防坑条目录 P-01…P-24（一切设计决定之依据）
+│   ├── PITFALLS.md         防坑条目录 P-01…P-25（一切设计决定之依据）
 │   ├── config/roots.yaml   ★数据源根与目标库（机器可读权威）
 │   ├── config/             sources.yaml／decoding.yaml／g4_assertions.yaml（阶段二，候口令）
 │   └── truth/ importer/ verifier/ tests/ maintenance/ recon/   空壳占位（候开工口令）

@@ -23,11 +23,12 @@ roots:
     path: /mnt/wd61workmetadata/usedata
     host: 192.168.3.32
     role: authoritative-source          # 权威数据源目录（2026-09-28 用户令设立）
-    access: read-only                   # 只读；源件决不可修改（R-07＋"下载源决不能修改"纪律）
+    usage_policy: "2026-10-02 用户令：usedata 只含【本项目使用】件——使用件保留并记用途，不使用件清出（不判断源数据对错，仅按项目是否使用取舍）。"
+    access: read-only                   # 源件内容决不可改（R-07）；整件清出须经用户令并留痕
     as_of: "2026-09-29"
     measured_by: this-session
-    inventory:                          # 实测：顶层 3 子树 ＋ 2 文件 ＝ 190 件
-      total_files: 190
+    inventory:                          # 实测：顶层 3 子树 ＋ 2 文件 ＝ 189 件（2026-10-02 清出旧版 CBDB 后）
+      total_files: 189
       subtrees:
         - name: chgis-v6
           files: 1
@@ -36,11 +37,11 @@ roots:
           files: 15
           content: "首批装数工作集：cbdb/（sqlite3＋json）、chgis/（v6 三件 utf_wgs84＋EULA＋README＋data_dictionary＋SHA256SUMS.txt＋VERIFICATION.md）、tab/（三小件 .tab）、SHA256SUMS、README.md"
         - name: harvard-full
-          files: 172
-          content: "第二批全量：doi_10_7910/DVN/<DOI>/ 逐档案原件（含 zip 套 zip）"
+          files: 171
+          content: "第二批全量：doi_10_7910/DVN/<DOI>/ 逐档案原件（含 zip 套 zip）；2026-10-02 已清出旧版 CBDB_20240208_sqlite.db（PAGGQS 空目录随之删）"
       top_files:
         - "README-b2.md（48,851 B，二批说明）"
-        - "SHA256SUMS-b2（22,071 B，二批校验账）"
+        - "SHA256SUMS-b2（172 行，二批校验账，2026-10-02 清出旧版后重写）"
 
   download:                             # 下载区：从网下载之原件，只读、只作回溯与增补来源
     path: /mnt/wd61workmetadata/xiangrugudata
@@ -60,16 +61,17 @@ roots:
 # ─────────────────────────────────────────────────────────────
 checksums:
   - file: /mnt/wd61workmetadata/usedata/SHA256SUMS-b2
-    lines: 173
-    as_of: "2026-09-29"
+    lines: 172
+    as_of: "2026-10-02"
     measured_by: this-session
-    path_base: usedata                  # ★行内路径相对于 usedata/（实测首二行：chgis-v6/…、harvard-full/…）
-    covers: 二批（chgis-v6 ＋ harvard-full）
+    path_base: usedata                  # ★行内路径相对于 usedata/（实测首行：chgis-v6/…）
+    covers: 二批（chgis-v6 ＋ harvard-full，清出旧版 CBDB 后 172 件）
+    removal_note: "2026-10-02 用户令清出 harvard-full/DOI/PAGGQS/CBDB_20240208_sqlite.db（旧版），本账重写为 172 行。"
     last_verification:
-      result: "173/173 相符（usedata 与 xiangrugudata 两端各一次）"
-      as_of: "2026-09-28"
-      measured_by: books
-      source: docs/holdings.md §二（原 data-sources.md §七 已删）
+      result: "172/172 相符（2026-10-02 清出旧版后闸0 复验；harvard 账 13/13；发布方账 5/6，唯一 missing 系其列错路径）"
+      as_of: "2026-10-02"
+      measured_by: this-session
+      source: datamgmt/recon/gate0_integrity.json
   - file: /mnt/wd61workmetadata/usedata/harvard/SHA256SUMS
     lines: 13
     as_of: "2026-09-29"

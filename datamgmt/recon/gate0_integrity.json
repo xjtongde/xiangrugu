@@ -1,13 +1,13 @@
 {
   "root": "/mnt/wd61workmetadata/usedata",
-  "as_of_computed_utc": "2026-10-02T09:57:12Z",
+  "as_of_computed_utc": "2026-10-02T11:23:37Z",
   "accounts": [
     {
       "label": "我方二批账(b2)",
       "base": "/mnt/wd61workmetadata/usedata",
       "note": "路径相对 usedata/",
-      "checked": 173,
-      "passed": 173,
+      "checked": 172,
+      "passed": 172,
       "failed": [],
       "missing": []
     },
@@ -33,10 +33,10 @@
     }
   ],
   "totals": {
-    "checked": 192,
-    "passed": 191,
+    "checked": 191,
+    "passed": 190,
     "failed": 0,
     "missing": 1
   },
-  "elapsed_sec": 33.8
+  "elapsed_sec": 25.9
 }

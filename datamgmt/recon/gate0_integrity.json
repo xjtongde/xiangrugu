@@ -1,0 +1,42 @@
+{
+  "root": "/mnt/wd61workmetadata/usedata",
+  "as_of_computed_utc": "2026-10-02T09:57:12Z",
+  "accounts": [
+    {
+      "label": "我方二批账(b2)",
+      "base": "/mnt/wd61workmetadata/usedata",
+      "note": "路径相对 usedata/",
+      "checked": 173,
+      "passed": 173,
+      "failed": [],
+      "missing": []
+    },
+    {
+      "label": "我方首批账(harvard)",
+      "base": "/mnt/wd61workmetadata/usedata/harvard",
+      "note": "路径相对 harvard/（'./'前缀）",
+      "checked": 13,
+      "passed": 13,
+      "failed": [],
+      "missing": []
+    },
+    {
+      "label": "发布方账(chgis)",
+      "base": "/mnt/wd61workmetadata/usedata/harvard/chgis",
+      "note": "发布方原档；自身缺陷：缺 v6_time_pref_pgn 多边形件、且列表含 China_Periods_ReignDates.zip（实居 chgis-v6/，本账以其在 chgis/ 路径列出）",
+      "checked": 6,
+      "passed": 5,
+      "failed": [],
+      "missing": [
+        "China_Periods_ReignDates.zip"
+      ]
+    }
+  ],
+  "totals": {
+    "checked": 192,
+    "passed": 191,
+    "failed": 0,
+    "missing": 1
+  },
+  "elapsed_sec": 33.8
+}

@@ -1,0 +1,47 @@
+[
+  {
+    "path": "/mnt/wd61workmetadata/usedata/harvard/tab/ACADEMY_Data.tab",
+    "bytes": 714962,
+    "encoding": "utf8",
+    "rows_total": 2958,
+    "cols_first_line": 54,
+    "delimiter": "'\\t'",
+    "first_line": "﻿id\t书院名id(CBDB)\t书院id(CBDB)\t书院名\t建院时间\t建院年号\t建院朝代\t建書院者\t繁盛朝代\t书院地址\t书院地址x坐标\t书院地址y坐标\t建築\t"
+  },
+  {
+    "path": "/mnt/wd61workmetadata/usedata/harvard/tab/Index_of_the_Complete_Prose_of_the_Yuan_Dynasty_vol_1-60.tab",
+    "bytes": 2619410,
+    "encoding": "latin1_or_binary",
+    "rows_total": 40200,
+    "cols_first_line": 5,
+    "delimiter": "'\\t'",
+    "first_line": "﻿vol_juan\tname\ttitle\tpage\tvol"
+  },
+  {
+    "path": "/mnt/wd61workmetadata/usedata/harvard/tab/writings of the 19c missionaries in China.tab",
+    "bytes": 193811,
+    "encoding": "utf8",
+    "rows_total": 1034,
+    "cols_first_line": 11,
+    "delimiter": "'\\t'",
+    "first_line": "textid\tbook_title\tbook_title_chn\tauthor_id\tauthor_name\tpub_year\tsource\tpages\tnum"
+  },
+  {
+    "path": "/mnt/wd61workmetadata/usedata/harvard-full/doi_10_7910/DVN/MI56KU/2001_Shanghai_0_INDEX_OF_PRESENTATIONS.tab",
+    "bytes": 3727,
+    "encoding": "utf8",
+    "rows_total": 30,
+    "cols_first_line": 7,
+    "delimiter": "'\\t'",
+    "first_line": "authorlast\tauthorfirst\tformat\tlanguage\ttype\ttitle\tfilename"
+  },
+  {
+    "path": "/mnt/wd61workmetadata/usedata/harvard-full/doi_10_7910/DVN/SK7KGK/GB_91_HZ_040201_UTF8.tab",
+    "bytes": 137961,
+    "encoding": "utf8",
+    "rows_total": 3390,
+    "cols_first_line": 6,
+    "delimiter": "'\\t'",
+    "first_line": "GB_91\tHZ_NAME\tPY_NAME\tADM2\tADM1\tADM_LVL"
+  }
+]

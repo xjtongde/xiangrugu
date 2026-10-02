@@ -1,0 +1,21 @@
+{
+  "layers": 706,
+  "total_dbf_rows": 1503383,
+  "dbf_shp_mismatch": 0,
+  "encoding_sniff": {
+    "empty": 8,
+    "big5": 354,
+    "gbk": 137,
+    "utf8": 169,
+    "latin1_or_binary": 2,
+    "cp1251": 34,
+    "null": 2
+  },
+  "layers_with_non_ascii": 679,
+  "cpg_declared": {
+    "utf8": 17,
+    "gbk936": 0
+  },
+  "has_crs": 702,
+  "non_layer_entries": []
+}

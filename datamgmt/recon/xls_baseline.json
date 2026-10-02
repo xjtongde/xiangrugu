@@ -1,0 +1,16 @@
+[
+  {
+    "path": "harvard-full/doi_10_7910/DVN/EOH3FV/1999_gb_pop_uce.xls",
+    "magic": "d0cf11e0a1b11ae1",
+    "is_ole2_xls": true,
+    "readable_now": false,
+    "note": "无 xlrd/openpyxl/libreoffice；BIFF 直读留待阶段二判定表（列/行数届时补）"
+  },
+  {
+    "path": "harvard-full/doi_10_7910/DVN/PRCLTU/THDL_ADMareas_rev022401.xls",
+    "magic": "d0cf11e0a1b11ae1",
+    "is_ole2_xls": true,
+    "readable_now": false,
+    "note": "无 xlrd/openpyxl/libreoffice；BIFF 直读留待阶段二判定表（列/行数届时补）"
+  }
+]

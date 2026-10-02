@@ -152,20 +152,27 @@ def main():
             "note": "列名取自表头行；PG 类型待阶段三按§5.3逐列嗅探(表头+样本)",
         })
 
-    # xls 2（无读数器）
+    # xls 2（xlrd 已读全 schema，隔离环境 /tmp/xlsdeps）
     xls = json.load(open(os.path.join(RECON, "xls_baseline.json"), encoding="utf-8"))
     for x in xls:
+        if not x.get('registered'):
+            srcs.append({"key": x['path'], "carrier": "xls", "target": None,
+                         "columns": None, "status": "未登记不装"})
+            continue
+        cols = {c['name']: c['pg_type'] for c in x['columns']}
         srcs.append({
-            "key": x['path'], "carrier": "xls", "target": None,
-            "truth_rows": None, "columns": None,
-            "status": "reader-missing(不装,待 xls 读数器)",
+            "key": x['path'], "carrier": "xls",
+            "target": "harv." + os.path.basename(x['path']).rsplit('.', 1)[0],
+            "truth_rows": x['data_rows'], "columns": cols,
+            "sheet": x['sheet'], "header_row": x['header_row'],
+            "drop_cols": x['drop_cols'],
         })
 
     header = [
         "title: " + q("源清单 sources.yaml（§5.1）——阶段二生成，一源一条"),
         "generator: " + q("datamgmt/maintenance/build_sources_yaml.py"),
         "target: " + q("database=cbdb / host=192.168.3.32:5433 / instance=pg32b"),
-        "schema_map: " + q("sqlite→public, shapefile→chgis, mapinfo→harv, tab→harv, xls→harv(待读数器)"),
+        "schema_map: " + q("sqlite→public, shapefile→chgis, mapinfo→harv, tab→harv, xls→harv"),
         "geom_srid_status: " + q("shapefile SRID 已按 .prj 定：571 层确认(4326/2333/4610)＋4 层无 prj→0＋131 层非标准命名 review 待定"),
         "todo_key_cols: " + q("值级对账键各源按表性质定（§6.3），阶段三补"),
         "sources:",

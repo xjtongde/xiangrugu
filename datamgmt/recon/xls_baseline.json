@@ -1,16 +1,146 @@
 [
   {
     "path": "harvard-full/doi_10_7910/DVN/EOH3FV/1999_gb_pop_uce.xls",
-    "magic": "d0cf11e0a1b11ae1",
-    "is_ole2_xls": true,
-    "readable_now": false,
-    "note": "无 xlrd/openpyxl/libreoffice；BIFF 直读留待阶段二判定表（列/行数届时补）"
+    "registered": true,
+    "sheet": "adm3",
+    "nrows": 2361,
+    "ncols": 6,
+    "header_row": 3,
+    "data_rows": 2357,
+    "drop_cols": [],
+    "columns": [
+      {
+        "name": "GB_Code_99",
+        "pg_type": "text",
+        "note": "GB/T 2260 1999 县级代码，保前导零；1格被源件存为数字(232700)"
+      },
+      {
+        "name": "PINYIN_NAME",
+        "pg_type": "text",
+        "note": "县级名拼音"
+      },
+      {
+        "name": "PROVINCE",
+        "pg_type": "text",
+        "note": "省名"
+      },
+      {
+        "name": "PREFECTURE",
+        "pg_type": "text",
+        "note": "地级名"
+      },
+      {
+        "name": "POP_1999_C",
+        "pg_type": "bigint",
+        "note": "1999 人口数(整数值，格内为浮点)"
+      },
+      {
+        "name": "POP_NOTE_1999",
+        "pg_type": "text",
+        "note": "稀疏备注，全表约18格"
+      }
+    ]
   },
   {
     "path": "harvard-full/doi_10_7910/DVN/PRCLTU/THDL_ADMareas_rev022401.xls",
-    "magic": "d0cf11e0a1b11ae1",
-    "is_ole2_xls": true,
-    "readable_now": false,
-    "note": "无 xlrd/openpyxl/libreoffice；BIFF 直读留待阶段二判定表（列/行数届时补）"
+    "registered": true,
+    "sheet": "THDL_ADMareas",
+    "nrows": 166,
+    "ncols": 21,
+    "header_row": 0,
+    "data_rows": 165,
+    "drop_cols": [
+      10,
+      11,
+      15,
+      19
+    ],
+    "columns": [
+      {
+        "name": "Prov_ID",
+        "pg_type": "text",
+        "note": "省码，混合型(5数字+1文本)，按文本保字面"
+      },
+      {
+        "name": "Prov_Name",
+        "pg_type": "text",
+        "note": "省名"
+      },
+      {
+        "name": "Prov_Seat",
+        "pg_type": "text",
+        "note": "省政府驻地"
+      },
+      {
+        "name": "Pref_ID",
+        "pg_type": "text",
+        "note": "地级码，按文本保字面"
+      },
+      {
+        "name": "Pref_Name",
+        "pg_type": "text",
+        "note": "地级名"
+      },
+      {
+        "name": "Pref_Seat",
+        "pg_type": "text",
+        "note": "地级驻地"
+      },
+      {
+        "name": "GB_91",
+        "pg_type": "text",
+        "note": "GB 1991 县级代码，按文本保字面"
+      },
+      {
+        "name": "Cnty_Name_91",
+        "pg_type": "text",
+        "note": "1991 县名"
+      },
+      {
+        "name": "Cnty_Seat_ID",
+        "pg_type": "text",
+        "note": "县驻地码"
+      },
+      {
+        "name": "Cnty_Seat_Name",
+        "pg_type": "text",
+        "note": "县驻地名"
+      },
+      {
+        "name": "CG_91-95",
+        "pg_type": "text",
+        "note": "91→95 变更标记(N=未变)"
+      },
+      {
+        "name": "New_Name_95",
+        "pg_type": "text",
+        "note": "1995 新名"
+      },
+      {
+        "name": "GB_95",
+        "pg_type": "text",
+        "note": "GB 1995 县级代码"
+      },
+      {
+        "name": "CG_95-99",
+        "pg_type": "text",
+        "note": "95→99 变更标记"
+      },
+      {
+        "name": "New_Name_99",
+        "pg_type": "text",
+        "note": "1999 新名"
+      },
+      {
+        "name": "GB_99",
+        "pg_type": "text",
+        "note": "GB 1999 县级代码"
+      },
+      {
+        "name": "PY_ALT_99",
+        "pg_type": "text",
+        "note": "拼音别名(112格非空)"
+      }
+    ]
   }
 ]

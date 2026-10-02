@@ -1,7 +1,7 @@
 title: "源清单 sources.yaml（§5.1）——阶段二生成，一源一条"
 generator: "datamgmt/maintenance/build_sources_yaml.py"
 target: "database=cbdb / host=192.168.3.32:5433 / instance=pg32b"
-schema_map: "sqlite→public, shapefile→chgis, mapinfo→harv, tab→harv, xls→harv(待读数器)"
+schema_map: "sqlite→public, shapefile→chgis, mapinfo→harv, tab→harv, xls→harv"
 geom_srid_status: "shapefile SRID 已按 .prj 定：571 层确认(4326/2333/4610)＋4 层无 prj→0＋131 层非标准命名 review 待定"
 todo_key_cols: "值级对账键各源按表性质定（§6.3），阶段三补"
 sources:
@@ -935,5 +935,5 @@ sources:
   - {"carrier": "tsv", "columns": ["textid\tbook_title\tbook_title_chn\tauthor_id\tauthor_name\tpub_year\tsource\tpages\tnum"], "columns_typed": false, "encoding": "utf8", "key": "/mnt/wd61workmetadata/usedata/harvard/tab/writings of the 19c missionaries in China.tab", "note": "列名取自表头行；PG 类型待阶段三按§5.3逐列嗅探(表头+样本)", "target": "harv.writings of the 19c missionaries in China", "truth_rows": 1034}
   - {"carrier": "tsv", "columns": ["authorlast\tauthorfirst\tformat\tlanguage\ttype\ttitle\tfilename"], "columns_typed": false, "encoding": "utf8", "key": "/mnt/wd61workmetadata/usedata/harvard-full/doi_10_7910/DVN/MI56KU/2001_Shanghai_0_INDEX_OF_PRESENTATIONS.tab", "note": "列名取自表头行；PG 类型待阶段三按§5.3逐列嗅探(表头+样本)", "target": "harv.2001_Shanghai_0_INDEX_OF_PRESENTATIONS", "truth_rows": 30}
   - {"carrier": "tsv", "columns": ["GB_91\tHZ_NAME\tPY_NAME\tADM2\tADM1\tADM_LVL"], "columns_typed": false, "encoding": "utf8", "key": "/mnt/wd61workmetadata/usedata/harvard-full/doi_10_7910/DVN/SK7KGK/GB_91_HZ_040201_UTF8.tab", "note": "列名取自表头行；PG 类型待阶段三按§5.3逐列嗅探(表头+样本)", "target": "harv.GB_91_HZ_040201_UTF8", "truth_rows": 3390}
-  - {"carrier": "xls", "columns": null, "key": "harvard-full/doi_10_7910/DVN/EOH3FV/1999_gb_pop_uce.xls", "status": "reader-missing(不装,待 xls 读数器)", "target": null, "truth_rows": null}
-  - {"carrier": "xls", "columns": null, "key": "harvard-full/doi_10_7910/DVN/PRCLTU/THDL_ADMareas_rev022401.xls", "status": "reader-missing(不装,待 xls 读数器)", "target": null, "truth_rows": null}
+  - {"carrier": "xls", "columns": {"GB_Code_99": "text", "PINYIN_NAME": "text", "POP_1999_C": "bigint", "POP_NOTE_1999": "text", "PREFECTURE": "text", "PROVINCE": "text"}, "drop_cols": [], "header_row": 3, "key": "harvard-full/doi_10_7910/DVN/EOH3FV/1999_gb_pop_uce.xls", "sheet": "adm3", "target": "harv.1999_gb_pop_uce", "truth_rows": 2357}
+  - {"carrier": "xls", "columns": {"CG_91-95": "text", "CG_95-99": "text", "Cnty_Name_91": "text", "Cnty_Seat_ID": "text", "Cnty_Seat_Name": "text", "GB_91": "text", "GB_95": "text", "GB_99": "text", "New_Name_95": "text", "New_Name_99": "text", "PY_ALT_99": "text", "Pref_ID": "text", "Pref_Name": "text", "Pref_Seat": "text", "Prov_ID": "text", "Prov_Name": "text", "Prov_Seat": "text"}, "drop_cols": [10, 11, 15, 19], "header_row": 0, "key": "harvard-full/doi_10_7910/DVN/PRCLTU/THDL_ADMareas_rev022401.xls", "sheet": "THDL_ADMareas", "target": "harv.THDL_ADMareas_rev022401", "truth_rows": 165}

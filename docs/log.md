@@ -7,6 +7,7 @@
 
 ## 变动记录
 
+- **2026-10-02** | 补 xls 读数器：按"工具类隔离装"指令 xlrd@/tmp/xlsdeps（pip --target，不碰系统/项目）；读全两 .xls 入 sources.yaml：1999_gb_pop_uce(2357行6列)、THDL_ADMareas(165行17列,剔4空分隔列)；表头/跳行/列型逐列登记于 truth/read_xls.py 之 XLS_SPEC | **装载·判定表** | leg C 结构齐 | 待裁：tab 列型、131 SRID review、key_cols | 本 commit。
 - **2026-10-02** | 阶段二补：sources.yaml 补 SRID（.prj 直读 571 层确认 4326/2333/4610＋4 无prj→0＋131 非标准→review）＋MapInfo/tab 列映射；修 orphan 成员剔除与 key 含 dir | **装载·判定表** | 核实 2333=Xian1980 GK19、4610=Xian1980、4284=Pulkovo1942 | 待裁：131 SRID review、tab 列型、xls/mdb 读数器、key_cols | 本 commit。
 - **2026-10-02** | 阶段二（判定表）主体完成：`column_encoding.py` 逐列解码 12,044 列；产三清单 decoding(43族)、sources(933源=78+706+142+5+2)、g4_assertions(16条) | **装载·判定表** | 实证 Hartwell=Big5、v5_gns=GBK 对齐§5.4 | 待裁：SRID、key_cols、xls/mdb 读数器、2层无字段 | 本 commit。
 - **2026-10-02** | 清出 usedata 旧版 CBDB：删 `harvard-full/DOI/PAGGQS/CBDB_20240208_sqlite.db`(877MB)与空目录；重写 `SHA256SUMS-b2` 173→172 行；`roots.yaml`/`holdings.md` 件数 190→189、172→171；闸0 复验 172/172 | **源根清理** | 用户令「usedata 只含本项目使用件，不使用的清出」；定为 20260919 唯一 CBDB | 本 commit 起。

@@ -7,6 +7,7 @@
 
 ## 变动记录
 
+- **2026-10-02** | 阶段二（判定表）主体完成：`column_encoding.py` 逐列解码 12,044 列；产三清单 decoding(43族)、sources(933源=78+706+142+5+2)、g4_assertions(16条) | **装载·判定表** | 实证 Hartwell=Big5、v5_gns=GBK 对齐§5.4 | 待裁：SRID、key_cols、xls/mdb 读数器、2层无字段 | 本 commit。
 - **2026-10-02** | 清出 usedata 旧版 CBDB：删 `harvard-full/DOI/PAGGQS/CBDB_20240208_sqlite.db`(877MB)与空目录；重写 `SHA256SUMS-b2` 173→172 行；`roots.yaml`/`holdings.md` 件数 190→189、172→171；闸0 复验 172/172 | **源根清理** | 用户令「usedata 只含本项目使用件，不使用的清出」；定为 20260919 唯一 CBDB | 本 commit 起。
 - **2026-10-02** | 阶段一（体检）完成：新增 `truth/` 纯 py 读数器；闸0 过(186/186)；真值基线落 `recon/`＝shapefile 706 层＋MapInfo 142 表＋CBDB 78 表＋tab 5＋xls 2(待) | **装载·体检** | 直验 CBDB BIOG_MAIN=661,969、v5_gns=130,665 命中；编码普查 big5 354/gbk 137/utf8 169/cp1251 34 | 挂账：CBDB 两版待裁、xls/mdb 缺读数器 | 前 commit。
 - **2026-09-30** | `import-plan` §7.4 定测试机：不另开独立主机，测试与正式装载同在 32 主机 `pg32b` 实例、靠临时库名隔离 | **方案修订** | 用户令「你在同机能行就不必开一个主机」→ 我方判定同机可行且更可复现（环境一致） | 本 commit。

@@ -7,6 +7,7 @@
 
 ## 变动记录
 
+- **2026-10-02** | 阶段二补：sources.yaml 补 SRID（.prj 直读 571 层确认 4326/2333/4610＋4 无prj→0＋131 非标准→review）＋MapInfo/tab 列映射；修 orphan 成员剔除与 key 含 dir | **装载·判定表** | 核实 2333=Xian1980 GK19、4610=Xian1980、4284=Pulkovo1942 | 待裁：131 SRID review、tab 列型、xls/mdb 读数器、key_cols | 本 commit。
 - **2026-10-02** | 阶段二（判定表）主体完成：`column_encoding.py` 逐列解码 12,044 列；产三清单 decoding(43族)、sources(933源=78+706+142+5+2)、g4_assertions(16条) | **装载·判定表** | 实证 Hartwell=Big5、v5_gns=GBK 对齐§5.4 | 待裁：SRID、key_cols、xls/mdb 读数器、2层无字段 | 本 commit。
 - **2026-10-02** | 清出 usedata 旧版 CBDB：删 `harvard-full/DOI/PAGGQS/CBDB_20240208_sqlite.db`(877MB)与空目录；重写 `SHA256SUMS-b2` 173→172 行；`roots.yaml`/`holdings.md` 件数 190→189、172→171；闸0 复验 172/172 | **源根清理** | 用户令「usedata 只含本项目使用件，不使用的清出」；定为 20260919 唯一 CBDB | 本 commit 起。
 - **2026-10-02** | 阶段一（体检）完成：新增 `truth/` 纯 py 读数器；闸0 过(186/186)；真值基线落 `recon/`＝shapefile 706 层＋MapInfo 142 表＋CBDB 78 表＋tab 5＋xls 2(待) | **装载·体检** | 直验 CBDB BIOG_MAIN=661,969、v5_gns=130,665 命中；编码普查 big5 354/gbk 137/utf8 169/cp1251 34 | 挂账：CBDB 两版待裁、xls/mdb 缺读数器 | 前 commit。

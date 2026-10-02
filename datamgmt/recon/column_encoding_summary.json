@@ -1,0 +1,11 @@
+{
+  "layers_surveyed": 704,
+  "columns_by_verdict": {
+    "ascii": 8409,
+    "cjk-needs-pin": 2608,
+    "single-byte:latin": 201,
+    "single-byte:dense": 76,
+    "utf-8": 750
+  },
+  "needs_pin_count": 2885
+}

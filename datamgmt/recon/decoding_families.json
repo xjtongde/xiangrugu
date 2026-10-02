@@ -1,0 +1,786 @@
+{
+  "title": "列级解码判定表（§5.4）——阶段二生成",
+  "generator": "datamgmt/maintenance/build_decoding_yaml.py",
+  "default_cp1252_note": "single-byte:latin 例外统一取 cp1252（§5.4 威妥玛 ü=0xFC 例证；cp1252 系 Windows 西欧默认）",
+  "undetermined_policy": "undetermined 列显式不装（§5.4④ 宁缺勿错），装载时应在证书声明缺列",
+  "families": [
+    {
+      "id": "DOI_25413_nomark",
+      "doi": "25413",
+      "marker": null,
+      "layers": 1,
+      "default": {
+        "encoding": "GBK",
+        "evidence": "无标记；族内 big5-only/gbk-only 多数裁决＋字符实证（如 Hartwell CHARACTER_=藍田縣=Big5）"
+      },
+      "exceptions": {},
+      "undetermined": []
+    },
+    {
+      "id": "DOI_29302_nomark",
+      "doi": "29302",
+      "marker": null,
+      "layers": 355,
+      "default": {
+        "encoding": "Big5",
+        "evidence": "无标记；族内 big5-only/gbk-only 多数裁决＋字符实证（如 Hartwell CHARACTER_=藍田縣=Big5）"
+      },
+      "exceptions": {
+        "cp1252": [
+          "H_PINYIN_N",
+          "ITEM001",
+          "PINYIN_NAM"
+        ]
+      },
+      "undetermined": []
+    },
+    {
+      "id": "DOI_29302_big5",
+      "doi": "29302",
+      "marker": "big5",
+      "layers": 3,
+      "default": {
+        "encoding": "Big5",
+        "evidence": "文件名标记=big5"
+      },
+      "exceptions": {
+        "cp1252": [
+          "CAPITAL_CH",
+          "H_PINYIN_N",
+          "NOTES",
+          "PINYIN_NAM"
+        ]
+      },
+      "undetermined": []
+    },
+    {
+      "id": "DOI_2CVTR0_nomark",
+      "doi": "2CVTR0",
+      "marker": null,
+      "layers": 4,
+      "default": {
+        "encoding": "GBK",
+        "evidence": "无标记；族内 big5-only/gbk-only 多数裁决＋字符实证（如 Hartwell CHARACTER_=藍田縣=Big5）"
+      },
+      "exceptions": {
+        "cp1252": [
+          "NAME_ROM",
+          "PRESENT_RO",
+          "TYPE_ENG",
+          "TYPE_ROM",
+          "present_ro"
+        ],
+        "utf-8": [
+          "DMYO_KANA",
+          "DMYO_KJ",
+          "NAME_UTF",
+          "NAME_UTF_A",
+          "PRESENT_KA",
+          "SEAT_KANA",
+          "SEAT_KJ",
+          "TYPE_UTF",
+          "present_ka"
+        ]
+      },
+      "undetermined": []
+    },
+    {
+      "id": "DOI_5RUXK8_nomark",
+      "doi": "5RUXK8",
+      "marker": null,
+      "layers": 1,
+      "default": {
+        "encoding": "GBK",
+        "evidence": "无标记；族内 big5-only/gbk-only 多数裁决＋字符实证（如 Hartwell CHARACTER_=藍田縣=Big5）"
+      },
+      "exceptions": {
+        "cp1252": [
+          "name_py"
+        ],
+        "utf-8": [
+          "name_ch"
+        ]
+      },
+      "undetermined": []
+    },
+    {
+      "id": "DOI_?_utf8",
+      "doi": "?",
+      "marker": "utf8",
+      "layers": 3,
+      "default": {
+        "encoding": "utf-8",
+        "evidence": "文件名标记=utf8"
+      },
+      "exceptions": {
+        "GBK": [
+          "ENT_DATE"
+        ],
+        "cp1252": [
+          "NAME_PY"
+        ]
+      },
+      "undetermined": []
+    },
+    {
+      "id": "DOI_ABPR9F_nomark",
+      "doi": "ABPR9F",
+      "marker": null,
+      "layers": 1,
+      "default": {
+        "encoding": "GBK",
+        "evidence": "无标记；族内 big5-only/gbk-only 多数裁决＋字符实证（如 Hartwell CHARACTER_=藍田縣=Big5）"
+      },
+      "exceptions": {
+        "cp1252": [
+          "NAME_ROM"
+        ]
+      },
+      "undetermined": []
+    },
+    {
+      "id": "DOI_ABPR9F_utf8",
+      "doi": "ABPR9F",
+      "marker": "utf8",
+      "layers": 1,
+      "default": {
+        "encoding": "utf-8",
+        "evidence": "文件名标记=utf8"
+      },
+      "exceptions": {
+        "GBK": [
+          "NAME_RUS"
+        ]
+      },
+      "undetermined": []
+    },
+    {
+      "id": "DOI_E7HDYD_nomark",
+      "doi": "E7HDYD",
+      "marker": null,
+      "layers": 1,
+      "default": {
+        "encoding": "GBK",
+        "evidence": "无标记；族内 big5-only/gbk-only 多数裁决＋字符实证（如 Hartwell CHARACTER_=藍田縣=Big5）"
+      },
+      "exceptions": {
+        "cp1252": [
+          "NAME_ROM"
+        ]
+      },
+      "undetermined": []
+    },
+    {
+      "id": "DOI_E7HDYD_utf8",
+      "doi": "E7HDYD",
+      "marker": "utf8",
+      "layers": 1,
+      "default": {
+        "encoding": "utf-8",
+        "evidence": "文件名标记=utf8"
+      },
+      "exceptions": {
+        "GBK": [
+          "NAME_RUS"
+        ]
+      },
+      "undetermined": []
+    },
+    {
+      "id": "DOI_ELTD3L_nomark",
+      "doi": "ELTD3L",
+      "marker": null,
+      "layers": 1,
+      "default": {
+        "encoding": "GBK",
+        "evidence": "无标记；族内 big5-only/gbk-only 多数裁决＋字符实证（如 Hartwell CHARACTER_=藍田縣=Big5）"
+      },
+      "exceptions": {
+        "cp1252": [
+          "NAME_ROM",
+          "NAME_ROM_2"
+        ]
+      },
+      "undetermined": []
+    },
+    {
+      "id": "DOI_G9RKCW_nomark",
+      "doi": "G9RKCW",
+      "marker": null,
+      "layers": 1,
+      "default": {
+        "encoding": "GBK",
+        "evidence": "无标记；族内 big5-only/gbk-only 多数裁决＋字符实证（如 Hartwell CHARACTER_=藍田縣=Big5）"
+      },
+      "exceptions": {
+        "cp1252": [
+          "NAME_ROM"
+        ]
+      },
+      "undetermined": []
+    },
+    {
+      "id": "DOI_G9RKCW_utf8",
+      "doi": "G9RKCW",
+      "marker": "utf8",
+      "layers": 1,
+      "default": {
+        "encoding": "utf-8",
+        "evidence": "文件名标记=utf8"
+      },
+      "exceptions": {
+        "GBK": [
+          "NAME_RUS"
+        ]
+      },
+      "undetermined": []
+    },
+    {
+      "id": "DOI_HHVVHX_utf8",
+      "doi": "HHVVHX",
+      "marker": "utf8",
+      "layers": 7,
+      "default": {
+        "encoding": "utf-8",
+        "evidence": "文件名标记=utf8"
+      },
+      "exceptions": {
+        "GBK": [
+          "DYN_CH",
+          "DYN_CN"
+        ]
+      },
+      "undetermined": []
+    },
+    {
+      "id": "DOI_HIMIVE_nomark",
+      "doi": "HIMIVE",
+      "marker": null,
+      "layers": 13,
+      "default": {
+        "encoding": "GBK",
+        "evidence": "无标记；族内 big5-only/gbk-only 多数裁决＋字符实证（如 Hartwell CHARACTER_=藍田縣=Big5）"
+      },
+      "exceptions": {
+        "cp1252": [
+          "FULL_NAME",
+          "NAME_PY",
+          "NAME_ROM",
+          "PY_NAME"
+        ],
+        "utf-8": [
+          "HZ_NAME",
+          "NAME_HZ"
+        ]
+      },
+      "undetermined": []
+    },
+    {
+      "id": "DOI_HIMIVE_big5",
+      "doi": "HIMIVE",
+      "marker": "big5",
+      "layers": 1,
+      "default": {
+        "encoding": "Big5",
+        "evidence": "文件名标记=big5"
+      },
+      "exceptions": {},
+      "undetermined": []
+    },
+    {
+      "id": "DOI_HIMIVE_gbk",
+      "doi": "HIMIVE",
+      "marker": "gbk",
+      "layers": 25,
+      "default": {
+        "encoding": "GBK",
+        "evidence": "文件名标记=gbk"
+      },
+      "exceptions": {
+        "cp1252": [
+          "CNTY_PY",
+          "COUNT_PY",
+          "COUN_PY",
+          "DYN_PY",
+          "LEV1_PY",
+          "LEV2_PY",
+          "NAME_PY",
+          "PINYIN_NAM",
+          "TYPE_PY",
+          "TYPR_PY"
+        ]
+      },
+      "undetermined": []
+    },
+    {
+      "id": "DOI_HIMIVE_utf8",
+      "doi": "HIMIVE",
+      "marker": "utf8",
+      "layers": 26,
+      "default": {
+        "encoding": "utf-8",
+        "evidence": "文件名标记=utf8"
+      },
+      "exceptions": {
+        "GBK": [
+          "A101",
+          "A104",
+          "DYN_CH"
+        ]
+      },
+      "undetermined": []
+    },
+    {
+      "id": "DOI_J5U79Z_nomark",
+      "doi": "J5U79Z",
+      "marker": null,
+      "layers": 2,
+      "default": {
+        "encoding": "GBK",
+        "evidence": "无标记；族内 big5-only/gbk-only 多数裁决＋字符实证（如 Hartwell CHARACTER_=藍田縣=Big5）"
+      },
+      "exceptions": {},
+      "undetermined": []
+    },
+    {
+      "id": "DOI_JIISNB_nomark",
+      "doi": "JIISNB",
+      "marker": null,
+      "layers": 2,
+      "default": {
+        "encoding": "GBK",
+        "evidence": "无标记；族内 big5-only/gbk-only 多数裁决＋字符实证（如 Hartwell CHARACTER_=藍田縣=Big5）"
+      },
+      "exceptions": {
+        "cp1252": [
+          "line_py"
+        ],
+        "utf-8": [
+          "KML_FOLDER",
+          "NAME_ZH",
+          "line_chin",
+          "line_name"
+        ]
+      },
+      "undetermined": []
+    },
+    {
+      "id": "DOI_KUFJTG_nomark",
+      "doi": "KUFJTG",
+      "marker": null,
+      "layers": 1,
+      "default": {
+        "encoding": "GBK",
+        "evidence": "无标记；族内 big5-only/gbk-only 多数裁决＋字符实证（如 Hartwell CHARACTER_=藍田縣=Big5）"
+      },
+      "exceptions": {},
+      "undetermined": []
+    },
+    {
+      "id": "DOI_LVYYZC_nomark",
+      "doi": "LVYYZC",
+      "marker": null,
+      "layers": 1,
+      "default": {
+        "encoding": "GBK",
+        "evidence": "无标记；族内 big5-only/gbk-only 多数裁决＋字符实证（如 Hartwell CHARACTER_=藍田縣=Big5）"
+      },
+      "exceptions": {
+        "cp1252": [
+          "NAME_ROM"
+        ]
+      },
+      "undetermined": []
+    },
+    {
+      "id": "DOI_LVYYZC_utf8",
+      "doi": "LVYYZC",
+      "marker": "utf8",
+      "layers": 1,
+      "default": {
+        "encoding": "utf-8",
+        "evidence": "文件名标记=utf8"
+      },
+      "exceptions": {
+        "GBK": [
+          "NAME_RUS"
+        ]
+      },
+      "undetermined": []
+    },
+    {
+      "id": "DOI_M7WEFY_nomark",
+      "doi": "M7WEFY",
+      "marker": null,
+      "layers": 3,
+      "default": {
+        "encoding": "GBK",
+        "evidence": "无标记；族内 big5-only/gbk-only 多数裁决＋字符实证（如 Hartwell CHARACTER_=藍田縣=Big5）"
+      },
+      "exceptions": {
+        "cp1252": [
+          "eng_name"
+        ],
+        "utf-8": [
+          "chin_name"
+        ]
+      },
+      "undetermined": []
+    },
+    {
+      "id": "DOI_M7WEFY_gbk",
+      "doi": "M7WEFY",
+      "marker": "gbk",
+      "layers": 30,
+      "default": {
+        "encoding": "GBK",
+        "evidence": "文件名标记=gbk"
+      },
+      "exceptions": {
+        "cp1252": [
+          "CNTY_PY",
+          "NAME",
+          "NM_ASCII",
+          "PREF_PY",
+          "PROV_PY"
+        ]
+      },
+      "undetermined": []
+    },
+    {
+      "id": "DOI_M7WEFY_utf8",
+      "doi": "M7WEFY",
+      "marker": "utf8",
+      "layers": 33,
+      "default": {
+        "encoding": "utf-8",
+        "evidence": "文件名标记=utf8"
+      },
+      "exceptions": {
+        "GBK": [
+          "DYN_CH",
+          "DYN_CN"
+        ],
+        "cp1252": [
+          "Par_nm_alt",
+          "Pref_py",
+          "W3_PNAME"
+        ]
+      },
+      "undetermined": []
+    },
+    {
+      "id": "DOI_PDGOZ0_nomark",
+      "doi": "PDGOZ0",
+      "marker": null,
+      "layers": 15,
+      "default": {
+        "encoding": "GBK",
+        "evidence": "无标记；族内 big5-only/gbk-only 多数裁决＋字符实证（如 Hartwell CHARACTER_=藍田縣=Big5）"
+      },
+      "exceptions": {
+        "cp1252": [
+          "FULL_NAME",
+          "NAME_ROM"
+        ]
+      },
+      "undetermined": []
+    },
+    {
+      "id": "DOI_PDGOZ0_big5",
+      "doi": "PDGOZ0",
+      "marker": "big5",
+      "layers": 1,
+      "default": {
+        "encoding": "Big5",
+        "evidence": "文件名标记=big5"
+      },
+      "exceptions": {},
+      "undetermined": []
+    },
+    {
+      "id": "DOI_PDGOZ0_gbk",
+      "doi": "PDGOZ0",
+      "marker": "gbk",
+      "layers": 55,
+      "default": {
+        "encoding": "GBK",
+        "evidence": "文件名标记=gbk"
+      },
+      "exceptions": {
+        "cp1252": [
+          "CNTY_PY",
+          "DYN_PY",
+          "LEV1_PY",
+          "LEV2_PY",
+          "NAME",
+          "NAME_PY",
+          "NM_ASCII",
+          "PREF_PY",
+          "PROV_PY",
+          "TYPE_PY",
+          "W3_PNAME"
+        ],
+        "utf-8": [
+          "NAME_HZ"
+        ]
+      },
+      "undetermined": []
+    },
+    {
+      "id": "DOI_PDGOZ0_utf8",
+      "doi": "PDGOZ0",
+      "marker": "utf8",
+      "layers": 28,
+      "default": {
+        "encoding": "utf-8",
+        "evidence": "文件名标记=utf8"
+      },
+      "exceptions": {
+        "GBK": [
+          "A101",
+          "A104",
+          "DYN_CH",
+          "LEV1_CH"
+        ]
+      },
+      "undetermined": []
+    },
+    {
+      "id": "DOI_PJ8D45_nomark",
+      "doi": "PJ8D45",
+      "marker": null,
+      "layers": 2,
+      "default": {
+        "encoding": "GBK",
+        "evidence": "无标记；族内 big5-only/gbk-only 多数裁决＋字符实证（如 Hartwell CHARACTER_=藍田縣=Big5）"
+      },
+      "exceptions": {},
+      "undetermined": []
+    },
+    {
+      "id": "DOI_RXP4AA_nomark",
+      "doi": "RXP4AA",
+      "marker": null,
+      "layers": 1,
+      "default": {
+        "encoding": "GBK",
+        "evidence": "无标记；族内 big5-only/gbk-only 多数裁决＋字符实证（如 Hartwell CHARACTER_=藍田縣=Big5）"
+      },
+      "exceptions": {},
+      "undetermined": []
+    },
+    {
+      "id": "DOI_RXP4AA_utf8",
+      "doi": "RXP4AA",
+      "marker": "utf8",
+      "layers": 1,
+      "default": {
+        "encoding": "utf-8",
+        "evidence": "文件名标记=utf8"
+      },
+      "exceptions": {
+        "GBK": [
+          "NAME_ROM",
+          "NAME_RUS"
+        ]
+      },
+      "undetermined": []
+    },
+    {
+      "id": "DOI_SB8ZTM_nomark",
+      "doi": "SB8ZTM",
+      "marker": null,
+      "layers": 2,
+      "default": {
+        "encoding": "GBK",
+        "evidence": "无标记；族内 big5-only/gbk-only 多数裁决＋字符实证（如 Hartwell CHARACTER_=藍田縣=Big5）"
+      },
+      "exceptions": {
+        "cp1252": [
+          "YZNM_PY"
+        ],
+        "utf-8": [
+          "10CNTY_CH",
+          "10PREF_CH",
+          "10PROV_CH",
+          "YZNM_CH",
+          "YZNM_FT",
+          "YZ_LABEL"
+        ]
+      },
+      "undetermined": []
+    },
+    {
+      "id": "DOI_ST5KKM_utf8",
+      "doi": "ST5KKM",
+      "marker": "utf8",
+      "layers": 8,
+      "default": {
+        "encoding": "utf-8",
+        "evidence": "文件名标记=utf8"
+      },
+      "exceptions": {
+        "GBK": [
+          "DYN_CH"
+        ]
+      },
+      "undetermined": []
+    },
+    {
+      "id": "DOI_T27RQO_gbk",
+      "doi": "T27RQO",
+      "marker": "gbk",
+      "layers": 3,
+      "default": {
+        "encoding": "GBK",
+        "evidence": "文件名标记=gbk"
+      },
+      "exceptions": {
+        "cp1252": [
+          "CNTY_PY",
+          "NAME_PY",
+          "PROV_PY",
+          "PY_NAME"
+        ]
+      },
+      "undetermined": []
+    },
+    {
+      "id": "DOI_VAYEUZ_nomark",
+      "doi": "VAYEUZ",
+      "marker": null,
+      "layers": 1,
+      "default": {
+        "encoding": "GBK",
+        "evidence": "无标记；族内 big5-only/gbk-only 多数裁决＋字符实证（如 Hartwell CHARACTER_=藍田縣=Big5）"
+      },
+      "exceptions": {
+        "cp1252": [
+          "A1_PY_99",
+          "A2_PY_99",
+          "A3_PY_99",
+          "CITY_ENG",
+          "CNTY_ENG",
+          "HILL_ENG",
+          "NBR_ENG",
+          "NM_ENG",
+          "PROV_PY",
+          "SUBD_ENG",
+          "TWN_ENG",
+          "TYPE_ENG"
+        ]
+      },
+      "undetermined": []
+    },
+    {
+      "id": "DOI_VJHPVK_nomark",
+      "doi": "VJHPVK",
+      "marker": null,
+      "layers": 3,
+      "default": {
+        "encoding": "GBK",
+        "evidence": "无标记；族内 big5-only/gbk-only 多数裁决＋字符实证（如 Hartwell CHARACTER_=藍田縣=Big5）"
+      },
+      "exceptions": {
+        "cp1252": [
+          "Name_py",
+          "orig_eng"
+        ],
+        "utf-8": [
+          "Name_zh"
+        ]
+      },
+      "undetermined": []
+    },
+    {
+      "id": "DOI_W6PFXR_nomark",
+      "doi": "W6PFXR",
+      "marker": null,
+      "layers": 3,
+      "default": {
+        "encoding": "GBK",
+        "evidence": "无标记；族内 big5-only/gbk-only 多数裁决＋字符实证（如 Hartwell CHARACTER_=藍田縣=Big5）"
+      },
+      "exceptions": {
+        "utf-8": [
+          "M_NM_BO",
+          "M_NM_CH"
+        ]
+      },
+      "undetermined": []
+    },
+    {
+      "id": "DOI_W6PFXR_utf8",
+      "doi": "W6PFXR",
+      "marker": "utf8",
+      "layers": 1,
+      "default": {
+        "encoding": "utf-8",
+        "evidence": "文件名标记=utf8"
+      },
+      "exceptions": {},
+      "undetermined": []
+    },
+    {
+      "id": "DOI_ZZKZ6U_nomark",
+      "doi": "ZZKZ6U",
+      "marker": null,
+      "layers": 12,
+      "default": {
+        "encoding": "GBK",
+        "evidence": "无标记；族内 big5-only/gbk-only 多数裁决＋字符实证（如 Hartwell CHARACTER_=藍田縣=Big5）"
+      },
+      "exceptions": {
+        "cp1252": [
+          "FULL_NAME",
+          "NAME_ROM"
+        ]
+      },
+      "undetermined": []
+    },
+    {
+      "id": "DOI_ZZKZ6U_gbk",
+      "doi": "ZZKZ6U",
+      "marker": "gbk",
+      "layers": 24,
+      "default": {
+        "encoding": "GBK",
+        "evidence": "文件名标记=gbk"
+      },
+      "exceptions": {
+        "cp1252": [
+          "CNTY_PY",
+          "COUNT_PY",
+          "COUN_PY",
+          "DYN_PY",
+          "LEV1_PY",
+          "LEV2_PY",
+          "NAME_PY",
+          "PINYIN_NAM",
+          "TYPE_PY",
+          "TYPR_PY"
+        ]
+      },
+      "undetermined": []
+    },
+    {
+      "id": "DOI_ZZKZ6U_utf8",
+      "doi": "ZZKZ6U",
+      "marker": "utf8",
+      "layers": 25,
+      "default": {
+        "encoding": "utf-8",
+        "evidence": "文件名标记=utf8"
+      },
+      "exceptions": {
+        "GBK": [
+          "CH_ORIG",
+          "DYN_CH",
+          "LEV1_CH"
+        ]
+      },
+      "undetermined": []
+    }
+  ]
+}

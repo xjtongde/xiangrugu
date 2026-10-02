@@ -1,0 +1,154 @@
+# g4_assertions.yaml —— 闸4 语义哨兵断言集（§8.2）
+# 权威＝ docs/cbdb.md §三 登记册 G4-01…G4-16（数字 2026-09-30 直读权威源 20260919 现算）。
+# 表名：CBDB 原表落 public schema（数据库 cbdb）；CHGIS shapefile 落 chgis schema。
+# 规则：闸4 对每条 checks 跑 count(*)，与 expect 不符即报警——只有两种可能：我方引入，或源件换版。
+title: "闸4 语义哨兵断言集（≈cbdb.md §三 G4-01…G4-16）"
+authority: "docs/cbdb.md §三"
+rule: "count(*) 与 expect 不符即报警"
+
+entries:
+  - id: G4-01
+    ref: "cbdb.md G4-01"
+    note: "三种占位符并存且无一 NULL：-1=未详、0=未知、-9999=方志批次未详。"
+    checks:
+      - sql: "select count(*) from assoc_data where c_assoc_first_year = -1"
+        expect: 111268
+      - sql: "select count(*) from assoc_data where c_assoc_first_year = 0"
+        expect: 56382
+      - sql: "select count(*) from assoc_data where c_assoc_first_year = -9999"
+        expect: 6637
+      - sql: "select count(*) from assoc_data where c_assoc_first_year is null"
+        expect: 0
+      - sql: "select count(distinct c_source) from assoc_data where c_assoc_first_year = -9999"
+        expect: 48
+
+  - id: G4-02
+    ref: "cbdb.md G4-02"
+    note: "c_birthyear：0=未知哨兵非缺值；负年18行；五位数生年3行(显脏值)。"
+    checks:
+      - sql: "select count(*) from biog_main where c_birthyear = 0"
+        expect: 26710
+      - sql: "select count(*) from biog_main where c_birthyear is null"
+        expect: 575404
+      - sql: "select count(*) from biog_main where c_birthyear < 0"
+        expect: 18
+      - sql: "select count(*) from biog_main where c_birthyear >= 10000"
+        expect: 3
+      - sql: "select max(c_birthyear) from biog_main"
+        expect: 18961
+      - sql: "select min(c_birthyear) from biog_main"
+        expect: -551
+
+  - id: G4-03
+    ref: "cbdb.md G4-03"
+    note: "c_index_year 越界与未来时间戳。"
+    checks:
+      - sql: "select count(*) from biog_main where c_index_year > 1912"
+        expect: 70
+      - sql: "select count(*) from biog_main where c_index_year < 0"
+        expect: 39
+
+  - id: G4-04
+    ref: "cbdb.md G4-04 / bugs B-12"
+    note: "负年二行=張奕(-1)/劉文斗(-2)，系占位符。"
+    checks:
+      - sql: "select count(*) from posted_to_office_data where c_firstyear = 0"
+        expect: 116913
+      - sql: "select count(*) from posted_to_office_data where c_firstyear is null"
+        expect: 163293
+      - sql: "select count(*) from posted_to_office_data where c_firstyear < 0"
+        expect: 2
+
+  - id: G4-05
+    ref: "cbdb.md G4-05"
+    note: "c_addr_id=0 指 ADDR_CODES 第0行[未詳]＝任官而地点未详，非无地点。按地点聚合须先剔除。"
+    checks:
+      - sql: "select count(*) from posted_to_addr_data where c_addr_id = 0"
+        expect: 78921
+
+  - id: G4-06
+    ref: "cbdb.md G4-06 / bugs B-14"
+    note: "坐标覆盖仅半；福州离群两行(c_addr_id 3858/3859)被引用9次。"
+    checks:
+      - sql: "select count(*) from addr_codes"
+        expect: 30157
+      - sql: "select count(*) from addr_codes where x_coord is not null and x_coord != 0"
+        expect: 15555
+      - sql: "select count(*) from addr_codes where chgis_pt_id is not null"
+        expect: 10996
+
+  - id: G4-07
+    ref: "cbdb.md G4-07"
+    note: "全库 FK=0；MERGED_PERSON_DATA 12行 c_personid 悬空(上游同值)。"
+    checks:
+      - sql: "select count(*) from information_schema.table_constraints where constraint_type = 'FOREIGN KEY'"
+        expect: 0
+      - sql: "select count(*) from merged_person_data"
+        expect: 5994
+
+  - id: G4-08
+    ref: "cbdb.md G4-08"
+    note: "姓名绝不可作锚。同名同生年 169 组≠同人（语义，不判）。"
+    checks:
+      - sql: "select count(distinct c_name_chn) from biog_main where c_name_chn is not null"
+        expect: 487443
+
+  - id: G4-09
+    ref: "cbdb.md G4-09"
+    note: "源件显式索引=0，装载后须自行建。"
+    checks:
+      - sql: "select count(*) from pg_indexes where schemaname = 'public'"
+        expect: 0
+
+  - id: G4-10
+    ref: "cbdb.md G4-10"
+    note: "社会关系几乎无地点(>0 者仅 0.5%)。"
+    checks:
+      - sql: "select count(*) from assoc_data where c_addr_id > 0"
+        expect: 952
+
+  - id: G4-11
+    ref: "cbdb.md G4-11"
+    note: "事件层沉默，人物行迹不可由 EVENTS_DATA 构建。"
+    checks:
+      - sql: "select count(*) from events_data"
+        expect: 427
+      - sql: "select count(*) from events_data where c_personid = 3767"
+        expect: 0
+
+  - id: G4-12
+    ref: "cbdb.md G4-12"
+    note: "CHGIS_PT_ID 官方未定义语义；覆盖 10996/30157(36.5%)。"
+    checks:
+      - sql: "select count(*) from addr_codes where chgis_pt_id is not null"
+        expect: 10996
+
+  - id: G4-13
+    ref: "cbdb.md G4-13"
+    note: "纪年换算唯一现成件。陷阱一：c_nianhao_id=669 中華民國 1912→3000 假区间；陷阱二：年号非单键。"
+    checks:
+      - sql: "select count(*) from nian_hao"
+        expect: 682
+      - sql: "select count(distinct c_nianhao_chn) from nian_hao"
+        expect: 530
+      - sql: "select count(distinct c_dy) from nian_hao"
+        expect: 67
+
+  - id: G4-14
+    ref: "cbdb.md G4-14"
+    note_only: true
+    note: "跨源年界分歧(校勘，非取数)：西夏「貞觀」CBDB 1102–1114 vs CHGIS china_chron 1101–1113(Wikidata 亦 1101–1113)。留作回归用例，不做 count。"
+
+  - id: G4-15
+    ref: "cbdb.md G4-15 / improvements I-04"
+    note_only: true
+    note: "KIN_DATA 方向语义：c_kin_code 描述 c_personid 相对 c_kin_id 的身份；反向展示须换码，否则兄/弟颠倒。"
+
+  - id: G4-16
+    ref: "cbdb.md G4-16"
+    note: "上游 shapefile 自带讹字(務/婺 形近)，R-07 只登记不修改。落 chgis.hartwell_pref_pgn。"
+    checks:
+      - sql: "select count(*) from chgis.hartwell_pref_pgn where h_unicode_ = '務州'"
+        expect: 2
+      - sql: "select count(*) from chgis.hartwell_pref_pgn where h_unicode_ = '婺州'"
+        expect: 0

@@ -29,3 +29,20 @@ def probe_sqlite(path: str):
         return out
     finally:
         con.close()
+
+
+def read_values(path: str, table: str):
+    """直读某表全部行，返回 (colnames, rows)。
+
+    值忠实原样：None / int / float / str / bytes（sqlite3 原生类型，不二次转换）。
+    行序＝自然 rowid 序（与 count 一致）。
+    """
+    uri = f"file:{path}?mode=ro"
+    con = sqlite3.connect(uri, uri=True)
+    try:
+        cur = con.execute(f'SELECT * FROM "{table}"')
+        cols = [d[0] for d in cur.description]
+        rows = cur.fetchall()
+        return cols, list(rows)
+    finally:
+        con.close()

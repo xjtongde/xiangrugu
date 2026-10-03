@@ -18,6 +18,14 @@
 
 ## 二、两源结果
 
+**闸0 源件完整性**（段A两源定向复核，与账一致即可读，不猜）：
+
+- CBDB `cbdb_20260919.sqlite3` → `harvard/SHA256SUMS`（我方首批账），sha256 与发布侧
+  `cbdb_20260919.json` 自述一致 → **PASS**。
+- `v5_gns_anhui_gbk.zip` → `SHA256SUMS-b2`（我方二批账）→ **PASS**。
+- 全账总况 checked=191 / passed=190 / failed=0 / missing=1；唯一 missing＝发布方账(chgis)自列的
+  `China_Periods_ReignDates.zip`（发布方账自身路径缺陷：实居 chgis-v6/），非 usedata 源件、亦非段A源。
+
 | 源 | 载具 | 行/要素 | 解码 | 闸1结构 | 闸2计数 | 闸3值级 | 几何 |
 |---|---|---|---|---|---|---|---|
 | CBDB `NIAN_HAO` | sqlite(腿A) | 682 | UTF-8 原生 | ✅ | 682=682 ✅ | diff 0 ✅ | — |

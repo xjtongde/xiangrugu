@@ -40,3 +40,19 @@ def parse_shp(b: bytes):
         "bbox": list(bbox),
         "bytes": length,
     }
+
+
+def iter_points(b: bytes):
+    """仅 Point 型：逐条产出 (x, y) 双精度原值（IEEE double 原样，不换算不重投影）。"""
+    if struct.unpack_from("<I", b, 32)[0] != 1:
+        raise ValueError("iter_points 仅支持 Point 类型")
+    off, length = 100, len(b)
+    while off + 8 <= length:
+        clen = struct.unpack_from(">I", b, off + 4)[0]   # 内容长（16-bit 字）
+        cb = off + 8
+        if struct.unpack_from("<I", b, cb)[0] != 1:
+            raise ValueError("记录内形状类型非 Point")
+        x = struct.unpack_from("<d", b, cb + 4)[0]
+        y = struct.unpack_from("<d", b, cb + 12)[0]
+        yield x, y
+        off += 8 + clen * 2

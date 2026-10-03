@@ -88,6 +88,29 @@ def resolve_srid(prj_norm):
     return ("", "review")
 
 
+def doi_of(zip_path):
+    m = re.search(r'doi_10_7910/DVN/([A-Za-z0-9]+)', zip_path)
+    return m.group(1) if m else '?'
+
+
+def marker_of(zip_path, layer):
+    k = (zip_path + layer).lower()
+    if 'big5' in k:
+        return 'big5'
+    if 'gbk' in k or '_gb' in k or 'gb2312' in k:
+        return 'gbk'
+    if '_utf' in k:
+        return 'utf8'
+    return None
+
+
+def decoding_of(zip_path, layer):
+    """返回 decoding.yaml 族 id（DOI_{doi}_{marker|nomark}）。§6.1 两侧据此读同一份判表。"""
+    d = doi_of(zip_path)
+    m = marker_of(zip_path, layer)
+    return f"DOI_{d}_{m or 'nomark'}"
+
+
 def q(s):
     return json.dumps(s, ensure_ascii=False)
 
@@ -122,6 +145,7 @@ def main():
             "key": r['zip'] + "::" + member,
             "carrier": "shapefile", "target": "chgis." + r['layer'],
             "truth_rows": r.get('dbf_rows'), "columns": cols,
+            "decoding": decoding_of(r['zip'], r['layer']),
             "geom": {"srid": srid, "note": srid_note, "prj_present": bool(r.get('crs'))},
             "geometry_only": (not has_dbf) and has_shp,
         })

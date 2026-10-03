@@ -61,3 +61,15 @@ def parse_dbf(b: bytes):
         "fields": fields,
         "language_driver": lang,
     }
+
+
+def iter_records(b: bytes):
+    """逐条产出 (field_bytes: list[bytes], deleted: bool)。不剁 padding、不解码——值抽取交解码侧。"""
+    d = parse_dbf(b)
+    hs, rs = d["header_size"], d["record_size"]
+    fields = d["fields"]
+    for ri in range(d["records"]):
+        rec = b[hs + ri * rs: hs + (ri + 1) * rs]
+        deleted = rec[0] == 0x2A
+        vals = [rec[f["offset"]: f["offset"] + f["length"]] for f in fields]
+        yield vals, deleted

@@ -1,0 +1,50 @@
+{
+  "n_layers": 11,
+  "total_degenerate": 88,
+  "layers": [
+    {
+      "target": "chgis.Ming_Routes_2016",
+      "degenerate": 1
+    },
+    {
+      "target": "chgis.v2_1820_lks_pgn_gb",
+      "degenerate": 14
+    },
+    {
+      "target": "chgis.v2_1820_lks_pgn_utf",
+      "degenerate": 14
+    },
+    {
+      "target": "chgis.v4_1820_lks_pgn_gbk",
+      "degenerate": 14
+    },
+    {
+      "target": "chgis.v4_1820_lks_pgn_utf",
+      "degenerate": 14
+    },
+    {
+      "target": "chgis.v5_1200_chin_chn_1200_l",
+      "degenerate": 2
+    },
+    {
+      "target": "chgis.v5_1200_chin_chn_1200_p",
+      "degenerate": 2
+    },
+    {
+      "target": "chgis.v5_1200_pref_cdf_1200_p",
+      "degenerate": 1
+    },
+    {
+      "target": "chgis.v5_1200_pref_lz_1200_p",
+      "degenerate": 1
+    },
+    {
+      "target": "chgis.v5_1820_lks_pgn_utf",
+      "degenerate": 14
+    },
+    {
+      "target": "chgis.v6_1820_lks_pgn_utf",
+      "degenerate": 11
+    }
+  ]
+}

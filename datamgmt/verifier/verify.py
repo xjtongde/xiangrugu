@@ -205,11 +205,11 @@ def _feat_vertices_v(feat):
     if t == "MultiPoint":
         return [] if len(g) == 0 else list(g)
     if t == "MultiLineString":
-        if any(len(line) < 2 for line in g):
+        if len(g) == 0 or any(len(line) < 2 for line in g):
             return []
         return [v for line in g for v in line]
     if t == "MultiPolygon":
-        if any(len(ring) < 4 for poly in g for ring in poly):
+        if len(g) == 0 or any(len(poly) == 0 or any(len(ring) < 4 for ring in poly) for poly in g):
             return []
         return [v for poly in g for ring in poly for v in ring]
     return []

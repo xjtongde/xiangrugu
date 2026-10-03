@@ -212,9 +212,10 @@ def _is_degenerate_geom(feat):
     if t == "MultiPoint":
         return len(g) == 0
     if t == "MultiLineString":
-        return any(len(line) < 2 for line in g)
+        return len(g) == 0 or any(len(line) < 2 for line in g)
     if t == "MultiPolygon":
-        return any(len(ring) < 4 for poly in g for ring in poly)
+        # 空多重/空环/退变环（含「某部分 0 环 → MULTIPOLYGON(())」postgis 拒绝）一律退化
+        return len(g) == 0 or any(len(poly) == 0 or any(len(ring) < 4 for ring in poly) for poly in g)
     return False
 
 

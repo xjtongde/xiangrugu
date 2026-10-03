@@ -1,0 +1,53 @@
+{
+  "note": "闸4 语义哨兵·逐案裁决清单（段B 装配产物，只读源件得出，写库前后一致）",
+  "shuyang_muyang": {
+    "desc": "v2_1820_cnty_pts_{gb,utf} 两版副本 NAME_PY 一处 README 名差异",
+    "layers": ["chgis.v2_1820_cnty_pts_gb", "chgis.v2_1820_cnty_pts_utf"],
+    "default_loaded": "ZZKZ6U CHGIS_V2 本体（值=Muyang）",
+    "flagged_alt": "V3_Data_Archive(HIMIVE) 合集副本（值=Shuyang）",
+    "action": "已按『忠于图层本体 DOI』入 Muyang，Shuyang 逐案报请用户裁决"
+  },
+  "degenerate_geometry": {
+    "desc": "源 .shp 退化几何（环<4顶点/线<2顶点/Null），PostGIS 不可表示，装为 NULL geom 并保留其余属性",
+    "n_layers": 11,
+    "total_features": 88,
+    "layers": [
+      {"target": "chgis.Ming_Routes_2016", "n": 1},
+      {"target": "chgis.v2_1820_lks_pgn_gb", "n": 14},
+      {"target": "chgis.v2_1820_lks_pgn_utf", "n": 14},
+      {"target": "chgis.v4_1820_lks_pgn_gbk", "n": 14},
+      {"target": "chgis.v4_1820_lks_pgn_utf", "n": 14},
+      {"target": "chgis.v5_1200_chin_chn_1200_l", "n": 2},
+      {"target": "chgis.v5_1200_chin_chn_1200_p", "n": 2},
+      {"target": "chgis.v5_1200_pref_cdf_1200_p", "n": 1},
+      {"target": "chgis.v5_1200_pref_lz_1200_p", "n": 1},
+      {"target": "chgis.v5_1820_lks_pgn_utf", "n": 14},
+      {"target": "chgis.v6_1820_lks_pgn_utf", "n": 11}
+    ]
+  },
+  "numeric_overflows": {
+    "desc": "dBase N/Decimal 声明 (w,d) 失真或存 '*' 溢出/科学计数，改不限精度 numeric 入账",
+    "scientific_notation": ["chgis.citas90_cnty_pgn*（AREA 科学计数 1.9445e10 → 19445500000）"],
+    "asterisk_null": ["chgis.Tibet_Monasteries_UTF8_v1_20120702（chgis_id_1 存 '******' → NULL）"]
+  },
+  "truncation_marker": {
+    "desc": "定宽 C 字段截断多字节末字符（如于谦→于+截断、华阴+引子），解码以 U+FFFD 逐处标记，装载/校验两端一致",
+    "disposition": "照存（原字节可解部分 + U+FFFD），非静默改写，属源件定宽物理损失"
+  },
+  "mapinfo_geometry": {
+    "desc": "MapInfo 118 层仅装 .tab/.dat 属性；.map 几何未装（同内容几何已由 shapefile 载体承载，SRID/形状从 shapefile 侧核）",
+    "action": "如需 MapInfo .map 几何比对，逐案另行确认"
+  },
+  "dedup": {
+    "shapefile_collisions": 40,
+    "shapefile_identical": 38,
+    "shapefile_byte_diff": 2,
+    "mapinfo_collisions": 24,
+    "rule": "去 HIMIVE(V3_Data_Archive 合集镜像)；同 DOI 保留最少嵌套；差异逐案报告"
+  },
+  "encoding_survey": {
+    "非ASCII列编码": {"gbk": 1750, "utf-8": 902, "big5": 1535, "cp1251": 315, "cp1252": 77},
+    "mixed_columns": "survey 标记 4 列（mapinfo v4_1911_cnty_pts BEG_YR/END_YR）实为 Smallint 二进制字段被 .dat 头误标 'C'，装载按 int16 非文本，非真混合",
+    "russian": "NAME_RUS/NAME_RUO/NAME_RUS_2 → cp1251；GNS 藏文罗马字 NAME/NAME_ROM → cp1252"
+  }
+}

@@ -182,7 +182,7 @@ def main():
             "key": r['zip'] + "::" + member,
             "carrier": "shapefile", "target": "chgis." + r['layer'],
             "truth_rows": r.get('dbf_rows'), "columns": cols,
-            "decoding": decoding_of(r['zip'], r['layer']),
+            "decoding": r['layer'].lower(),
             "geom": {"srid": srid, "note": srid_note, "prj_present": bool(r.get('crs'))},
             "geometry_only": (not has_dbf) and has_shp,
         })

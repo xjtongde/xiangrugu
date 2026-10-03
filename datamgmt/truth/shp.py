@@ -56,3 +56,77 @@ def iter_points(b: bytes):
         y = struct.unpack_from("<d", b, cb + 12)[0]
         yield x, y
         off += 8 + clen * 2
+
+
+def _read_xy(b: bytes, off: int, n: int):
+    return [struct.unpack_from("<2d", b, off + i * 16) for i in range(n)]
+
+
+def iter_features(b: bytes):
+    """逐条产出规范化几何（含 Z，若有；Null 形状→geom=None）。调用侧按记录序号判定是否跳过删除记录。
+
+    产出 dict：{shape_type, type, z, geom}，canonical geom 依 type：
+      Point           -> (x, y) 或 (x, y, z)
+      MultiPoint      -> [(x,y), ...]
+      MultiLineString -> [[(x,y),...], ...]（PolyLine 各 part 一条线）
+      MultiPolygon    -> [[[(x,y),...], ...], ...]（Polygon 各 ring，含闭合点）
+      Null            -> None
+
+    支持类型：0 Null / 1 Point / 3 PolyLine / 5 Polygon / 8 MultiPoint / 11 PointZ / 13 PolyLineZ。
+    """
+    off, length = 100, len(b)
+    while off + 8 <= length:
+        clen = struct.unpack_from(">I", b, off + 4)[0]
+        cb = off + 8
+        rt = struct.unpack_from("<I", b, cb)[0]
+        if rt == 0:
+            yield {"shape_type": 0, "type": "Null", "z": False, "geom": None}
+        elif rt == 1:
+            x, y = struct.unpack_from("<2d", b, cb + 4)
+            yield {"shape_type": 1, "type": "Point", "z": False, "geom": (x, y)}
+        elif rt == 8:
+            n = struct.unpack_from("<I", b, cb + 36)[0]
+            yield {"shape_type": 8, "type": "MultiPoint", "z": False,
+                   "geom": [tuple(p) for p in _read_xy(b, cb + 40, n)]}
+        elif rt == 3:
+            np, npt = struct.unpack_from("<2I", b, cb + 36)
+            parts = struct.unpack_from(f"<{np}I", b, cb + 44)
+            xy = cb + 44 + np * 4
+            lines = []
+            for p in range(np):
+                s = parts[p]
+                e = parts[p + 1] if p + 1 < np else npt
+                lines.append([tuple(q) for q in _read_xy(b, xy + s * 16, e - s)])
+            yield {"shape_type": 3, "type": "MultiLineString", "z": False, "geom": lines}
+        elif rt == 5:
+            np, npt = struct.unpack_from("<2I", b, cb + 36)
+            parts = struct.unpack_from(f"<{np}I", b, cb + 44)
+            xy = cb + 44 + np * 4
+            rings = []
+            for p in range(np):
+                s = parts[p]
+                e = parts[p + 1] if p + 1 < np else npt
+                rings.append([tuple(q) for q in _read_xy(b, xy + s * 16, e - s)])
+            yield {"shape_type": 5, "type": "MultiPolygon", "z": False, "geom": [rings]}
+        elif rt == 11:  # PointZ（M 忽略；Z 保留）
+            x, y, z = struct.unpack_from("<3d", b, cb + 4)
+            yield {"shape_type": 11, "type": "Point", "z": True, "geom": (x, y, z)}
+        elif rt == 13:  # PolyLineZ（Z range 16 字节后接 Z 数组；M 忽略）
+            np, npt = struct.unpack_from("<2I", b, cb + 36)
+            parts = struct.unpack_from(f"<{np}I", b, cb + 44)
+            xy = cb + 44 + np * 4
+            zoff = xy + npt * 16 + 16
+            lines = []
+            for p in range(np):
+                s = parts[p]
+                e = parts[p + 1] if p + 1 < np else npt
+                line = []
+                for i in range(s, e):
+                    x, y = struct.unpack_from("<2d", b, xy + i * 16)
+                    z = struct.unpack_from("<d", b, zoff + i * 8)[0]
+                    line.append((x, y, z))
+                lines.append(line)
+            yield {"shape_type": 13, "type": "MultiLineString", "z": True, "geom": lines}
+        else:
+            raise ValueError(f"iter_features 未支持的形状类型 {rt}")
+        off += 8 + clen * 2

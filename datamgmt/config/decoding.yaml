@@ -1,437 +1,2939 @@
-title: "列级解码判定表（§5.4）——阶段二生成"
-generator: "datamgmt/maintenance/build_decoding_yaml.py"
-default_cp1252_note: "single-byte:latin 例外统一取 cp1252（§5.4 威妥玛 ü=0xFC 例证；cp1252 系 Windows 西欧默认）"
-undetermined_policy: "undetermined 列显式不装（§5.4④ 宁缺勿错），装载时应在证书声明缺列"
-families:
-  - id: "DOI_25413_nomark"
-    doi: "25413"
-    marker: null
-    layers: 1
+# 段B 逐图层解码判定表：default=该层非ASCII列众数编码，exceptions=偏离列。
+# 由 maintenance/survey_encoding.py 直读源件字节生成；importer/verifier 各自独立解码（§6.1）。
+layers:
+  - id: "asia_contour"
     default:
-      encoding: "GBK"
-      evidence: "无标记；族内 big5-only/gbk-only 多数裁决＋字符实证（如 Hartwell CHARACTER_=藍田縣=Big5）"
+      encoding: "utf-8"
     exceptions: {}
-    undetermined: []
-  - id: "DOI_29302_nomark"
-    doi: "29302"
-    marker: null
-    layers: 355
-    default:
-      encoding: "Big5"
-      evidence: "无标记；族内 big5-only/gbk-only 多数裁决＋字符实证（如 Hartwell CHARACTER_=藍田縣=Big5）"
-    exceptions:
-      "cp1252": ["H_PINYIN_N", "ITEM001", "PINYIN_NAM"]
-    undetermined: []
-  - id: "DOI_29302_big5"
-    doi: "29302"
-    marker: big5
-    layers: 3
-    default:
-      encoding: "Big5"
-      evidence: "文件名标记=big5"
-    exceptions:
-      "cp1252": ["CAPITAL_CH", "H_PINYIN_N", "NOTES", "PINYIN_NAM"]
-    undetermined: []
-  - id: "DOI_2CVTR0_nomark"
-    doi: "2CVTR0"
-    marker: null
-    layers: 4
-    default:
-      encoding: "GBK"
-      evidence: "无标记；族内 big5-only/gbk-only 多数裁决＋字符实证（如 Hartwell CHARACTER_=藍田縣=Big5）"
-    exceptions:
-      "cp1252": ["NAME_ROM", "PRESENT_RO", "TYPE_ENG", "TYPE_ROM", "present_ro"]
-      "utf-8": ["DMYO_KANA", "DMYO_KJ", "NAME_UTF", "NAME_UTF_A", "PRESENT_KA", "SEAT_KANA", "SEAT_KJ", "TYPE_UTF", "present_ka"]
-    undetermined: []
-  - id: "DOI_5RUXK8_nomark"
-    doi: "5RUXK8"
-    marker: null
-    layers: 1
-    default:
-      encoding: "GBK"
-      evidence: "无标记；族内 big5-only/gbk-only 多数裁决＋字符实证（如 Hartwell CHARACTER_=藍田縣=Big5）"
-    exceptions:
-      "cp1252": ["name_py"]
-      "utf-8": ["name_ch"]
-    undetermined: []
-  - id: "DOI_?_utf8"
-    doi: "?"
-    marker: utf8
-    layers: 3
+  - id: "beijing_sites_v1"
     default:
       encoding: "utf-8"
-      evidence: "文件名标记=utf8"
-    exceptions:
-      "GBK": ["ENT_DATE"]
-      "cp1252": ["NAME_PY"]
-    undetermined: []
-  - id: "DOI_ABPR9F_nomark"
-    doi: "ABPR9F"
-    marker: null
-    layers: 1
-    default:
-      encoding: "GBK"
-      evidence: "无标记；族内 big5-only/gbk-only 多数裁决＋字符实证（如 Hartwell CHARACTER_=藍田縣=Big5）"
-    exceptions:
-      "cp1252": ["NAME_ROM"]
-    undetermined: []
-  - id: "DOI_ABPR9F_utf8"
-    doi: "ABPR9F"
-    marker: utf8
-    layers: 1
-    default:
-      encoding: "utf-8"
-      evidence: "文件名标记=utf8"
-    exceptions:
-      "GBK": ["NAME_RUS"]
-    undetermined: []
-  - id: "DOI_E7HDYD_nomark"
-    doi: "E7HDYD"
-    marker: null
-    layers: 1
-    default:
-      encoding: "GBK"
-      evidence: "无标记；族内 big5-only/gbk-only 多数裁决＋字符实证（如 Hartwell CHARACTER_=藍田縣=Big5）"
-    exceptions:
-      "cp1252": ["NAME_ROM"]
-    undetermined: []
-  - id: "DOI_E7HDYD_utf8"
-    doi: "E7HDYD"
-    marker: utf8
-    layers: 1
-    default:
-      encoding: "utf-8"
-      evidence: "文件名标记=utf8"
-    exceptions:
-      "GBK": ["NAME_RUS"]
-    undetermined: []
-  - id: "DOI_ELTD3L_nomark"
-    doi: "ELTD3L"
-    marker: null
-    layers: 1
-    default:
-      encoding: "GBK"
-      evidence: "无标记；族内 big5-only/gbk-only 多数裁决＋字符实证（如 Hartwell CHARACTER_=藍田縣=Big5）"
-    exceptions:
-      "cp1252": ["NAME_ROM", "NAME_ROM_2"]
-    undetermined: []
-  - id: "DOI_G9RKCW_nomark"
-    doi: "G9RKCW"
-    marker: null
-    layers: 1
-    default:
-      encoding: "GBK"
-      evidence: "无标记；族内 big5-only/gbk-only 多数裁决＋字符实证（如 Hartwell CHARACTER_=藍田縣=Big5）"
-    exceptions:
-      "cp1252": ["NAME_ROM"]
-    undetermined: []
-  - id: "DOI_G9RKCW_utf8"
-    doi: "G9RKCW"
-    marker: utf8
-    layers: 1
-    default:
-      encoding: "utf-8"
-      evidence: "文件名标记=utf8"
-    exceptions:
-      "GBK": ["NAME_RUS"]
-    undetermined: []
-  - id: "DOI_HHVVHX_utf8"
-    doi: "HHVVHX"
-    marker: utf8
-    layers: 7
-    default:
-      encoding: "utf-8"
-      evidence: "文件名标记=utf8"
-    exceptions:
-      "GBK": ["DYN_CH", "DYN_CN"]
-    undetermined: []
-  - id: "DOI_HIMIVE_nomark"
-    doi: "HIMIVE"
-    marker: null
-    layers: 13
-    default:
-      encoding: "GBK"
-      evidence: "无标记；族内 big5-only/gbk-only 多数裁决＋字符实证（如 Hartwell CHARACTER_=藍田縣=Big5）"
-    exceptions:
-      "cp1252": ["FULL_NAME", "NAME_PY", "NAME_ROM", "PY_NAME"]
-      "utf-8": ["HZ_NAME", "NAME_HZ"]
-    undetermined: []
-  - id: "DOI_HIMIVE_big5"
-    doi: "HIMIVE"
-    marker: big5
-    layers: 1
-    default:
-      encoding: "Big5"
-      evidence: "文件名标记=big5"
     exceptions: {}
-    undetermined: []
-  - id: "DOI_HIMIVE_gbk"
-    doi: "HIMIVE"
-    marker: gbk
-    layers: 25
+  - id: "bgis_v1-1_20130306"
     default:
-      encoding: "GBK"
-      evidence: "文件名标记=gbk"
-    exceptions:
-      "cp1252": ["CNTY_PY", "COUNT_PY", "COUN_PY", "DYN_PY", "LEV1_PY", "LEV2_PY", "NAME_PY", "PINYIN_NAM", "TYPE_PY", "TYPR_PY"]
-    undetermined: []
-  - id: "DOI_HIMIVE_utf8"
-    doi: "HIMIVE"
-    marker: utf8
-    layers: 26
-    default:
-      encoding: "utf-8"
-      evidence: "文件名标记=utf8"
-    exceptions:
-      "GBK": ["A101", "A104", "DYN_CH"]
-    undetermined: []
-  - id: "DOI_J5U79Z_nomark"
-    doi: "J5U79Z"
-    marker: null
-    layers: 2
-    default:
-      encoding: "GBK"
-      evidence: "无标记；族内 big5-only/gbk-only 多数裁决＋字符实证（如 Hartwell CHARACTER_=藍田縣=Big5）"
+      encoding: "gbk"
     exceptions: {}
-    undetermined: []
-  - id: "DOI_JIISNB_nomark"
-    doi: "JIISNB"
-    marker: null
-    layers: 2
+  - id: "ca1876route_przh_1251"
     default:
-      encoding: "GBK"
-      evidence: "无标记；族内 big5-only/gbk-only 多数裁决＋字符实证（如 Hartwell CHARACTER_=藍田縣=Big5）"
-    exceptions:
-      "cp1252": ["line_py"]
-      "utf-8": ["KML_FOLDER", "NAME_ZH", "line_chin", "line_name"]
-    undetermined: []
-  - id: "DOI_KUFJTG_nomark"
-    doi: "KUFJTG"
-    marker: null
-    layers: 1
-    default:
-      encoding: "GBK"
-      evidence: "无标记；族内 big5-only/gbk-only 多数裁决＋字符实证（如 Hartwell CHARACTER_=藍田縣=Big5）"
+      encoding: "cp1251"
     exceptions: {}
-    undetermined: []
-  - id: "DOI_LVYYZC_nomark"
-    doi: "LVYYZC"
-    marker: null
-    layers: 1
+  - id: "ca1876route_przh_ru"
     default:
-      encoding: "GBK"
-      evidence: "无标记；族内 big5-only/gbk-only 多数裁决＋字符实证（如 Hartwell CHARACTER_=藍田縣=Big5）"
-    exceptions:
-      "cp1252": ["NAME_ROM"]
-    undetermined: []
-  - id: "DOI_LVYYZC_utf8"
-    doi: "LVYYZC"
-    marker: utf8
-    layers: 1
-    default:
-      encoding: "utf-8"
-      evidence: "文件名标记=utf8"
-    exceptions:
-      "GBK": ["NAME_RUS"]
-    undetermined: []
-  - id: "DOI_M7WEFY_nomark"
-    doi: "M7WEFY"
-    marker: null
-    layers: 3
-    default:
-      encoding: "GBK"
-      evidence: "无标记；族内 big5-only/gbk-only 多数裁决＋字符实证（如 Hartwell CHARACTER_=藍田縣=Big5）"
-    exceptions:
-      "cp1252": ["eng_name"]
-      "utf-8": ["chin_name"]
-    undetermined: []
-  - id: "DOI_M7WEFY_gbk"
-    doi: "M7WEFY"
-    marker: gbk
-    layers: 30
-    default:
-      encoding: "GBK"
-      evidence: "文件名标记=gbk"
-    exceptions:
-      "cp1252": ["CNTY_PY", "NAME", "NM_ASCII", "PREF_PY", "PROV_PY"]
-    undetermined: []
-  - id: "DOI_M7WEFY_utf8"
-    doi: "M7WEFY"
-    marker: utf8
-    layers: 33
-    default:
-      encoding: "utf-8"
-      evidence: "文件名标记=utf8"
-    exceptions:
-      "GBK": ["DYN_CH", "DYN_CN"]
-      "cp1252": ["Par_nm_alt", "Pref_py", "W3_PNAME"]
-    undetermined: []
-  - id: "DOI_PDGOZ0_nomark"
-    doi: "PDGOZ0"
-    marker: null
-    layers: 15
-    default:
-      encoding: "GBK"
-      evidence: "无标记；族内 big5-only/gbk-only 多数裁决＋字符实证（如 Hartwell CHARACTER_=藍田縣=Big5）"
-    exceptions:
-      "cp1252": ["FULL_NAME", "NAME_ROM"]
-    undetermined: []
-  - id: "DOI_PDGOZ0_big5"
-    doi: "PDGOZ0"
-    marker: big5
-    layers: 1
-    default:
-      encoding: "Big5"
-      evidence: "文件名标记=big5"
+      encoding: "cp1251"
     exceptions: {}
-    undetermined: []
-  - id: "DOI_PDGOZ0_gbk"
-    doi: "PDGOZ0"
-    marker: gbk
-    layers: 55
-    default:
-      encoding: "GBK"
-      evidence: "文件名标记=gbk"
-    exceptions:
-      "cp1252": ["CNTY_PY", "DYN_PY", "LEV1_PY", "LEV2_PY", "NAME", "NAME_PY", "NM_ASCII", "PREF_PY", "PROV_PY", "TYPE_PY", "W3_PNAME"]
-      "utf-8": ["NAME_HZ"]
-    undetermined: []
-  - id: "DOI_PDGOZ0_utf8"
-    doi: "PDGOZ0"
-    marker: utf8
-    layers: 28
+  - id: "ca1876route_przh_utf8"
     default:
       encoding: "utf-8"
-      evidence: "文件名标记=utf8"
-    exceptions:
-      "GBK": ["A101", "A104", "DYN_CH", "LEV1_CH"]
-    undetermined: []
-  - id: "DOI_PJ8D45_nomark"
-    doi: "PJ8D45"
-    marker: null
-    layers: 2
-    default:
-      encoding: "GBK"
-      evidence: "无标记；族内 big5-only/gbk-only 多数裁决＋字符实证（如 Hartwell CHARACTER_=藍田縣=Big5）"
     exceptions: {}
-    undetermined: []
-  - id: "DOI_RXP4AA_nomark"
-    doi: "RXP4AA"
-    marker: null
-    layers: 1
+  - id: "ca1884_przh_1251"
     default:
-      encoding: "GBK"
-      evidence: "无标记；族内 big5-only/gbk-only 多数裁决＋字符实证（如 Hartwell CHARACTER_=藍田縣=Big5）"
+      encoding: "cp1251"
     exceptions: {}
-    undetermined: []
-  - id: "DOI_RXP4AA_utf8"
-    doi: "RXP4AA"
-    marker: utf8
-    layers: 1
+  - id: "ca1884_przh_ru"
     default:
-      encoding: "utf-8"
-      evidence: "文件名标记=utf8"
-    exceptions:
-      "GBK": ["NAME_ROM", "NAME_RUS"]
-    undetermined: []
-  - id: "DOI_SB8ZTM_nomark"
-    doi: "SB8ZTM"
-    marker: null
-    layers: 2
-    default:
-      encoding: "GBK"
-      evidence: "无标记；族内 big5-only/gbk-only 多数裁决＋字符实证（如 Hartwell CHARACTER_=藍田縣=Big5）"
-    exceptions:
-      "cp1252": ["YZNM_PY"]
-      "utf-8": ["10CNTY_CH", "10PREF_CH", "10PROV_CH", "YZNM_CH", "YZNM_FT", "YZ_LABEL"]
-    undetermined: []
-  - id: "DOI_ST5KKM_utf8"
-    doi: "ST5KKM"
-    marker: utf8
-    layers: 8
-    default:
-      encoding: "utf-8"
-      evidence: "文件名标记=utf8"
-    exceptions:
-      "GBK": ["DYN_CH"]
-    undetermined: []
-  - id: "DOI_T27RQO_gbk"
-    doi: "T27RQO"
-    marker: gbk
-    layers: 3
-    default:
-      encoding: "GBK"
-      evidence: "文件名标记=gbk"
-    exceptions:
-      "cp1252": ["CNTY_PY", "NAME_PY", "PROV_PY", "PY_NAME"]
-    undetermined: []
-  - id: "DOI_VAYEUZ_nomark"
-    doi: "VAYEUZ"
-    marker: null
-    layers: 1
-    default:
-      encoding: "GBK"
-      evidence: "无标记；族内 big5-only/gbk-only 多数裁决＋字符实证（如 Hartwell CHARACTER_=藍田縣=Big5）"
-    exceptions:
-      "cp1252": ["A1_PY_99", "A2_PY_99", "A3_PY_99", "CITY_ENG", "CNTY_ENG", "HILL_ENG", "NBR_ENG", "NM_ENG", "PROV_PY", "SUBD_ENG", "TWN_ENG", "TYPE_ENG"]
-    undetermined: []
-  - id: "DOI_VJHPVK_nomark"
-    doi: "VJHPVK"
-    marker: null
-    layers: 3
-    default:
-      encoding: "GBK"
-      evidence: "无标记；族内 big5-only/gbk-only 多数裁决＋字符实证（如 Hartwell CHARACTER_=藍田縣=Big5）"
-    exceptions:
-      "cp1252": ["Name_py", "orig_eng"]
-      "utf-8": ["Name_zh"]
-    undetermined: []
-  - id: "DOI_W6PFXR_nomark"
-    doi: "W6PFXR"
-    marker: null
-    layers: 3
-    default:
-      encoding: "GBK"
-      evidence: "无标记；族内 big5-only/gbk-only 多数裁决＋字符实证（如 Hartwell CHARACTER_=藍田縣=Big5）"
-    exceptions:
-      "utf-8": ["M_NM_BO", "M_NM_CH"]
-    undetermined: []
-  - id: "DOI_W6PFXR_utf8"
-    doi: "W6PFXR"
-    marker: utf8
-    layers: 1
-    default:
-      encoding: "utf-8"
-      evidence: "文件名标记=utf8"
+      encoding: "cp1251"
     exceptions: {}
-    undetermined: []
-  - id: "DOI_ZZKZ6U_nomark"
-    doi: "ZZKZ6U"
-    marker: null
-    layers: 12
-    default:
-      encoding: "GBK"
-      evidence: "无标记；族内 big5-only/gbk-only 多数裁决＋字符实证（如 Hartwell CHARACTER_=藍田縣=Big5）"
-    exceptions:
-      "cp1252": ["FULL_NAME", "NAME_ROM"]
-    undetermined: []
-  - id: "DOI_ZZKZ6U_gbk"
-    doi: "ZZKZ6U"
-    marker: gbk
-    layers: 24
-    default:
-      encoding: "GBK"
-      evidence: "文件名标记=gbk"
-    exceptions:
-      "cp1252": ["CNTY_PY", "COUNT_PY", "COUN_PY", "DYN_PY", "LEV1_PY", "LEV2_PY", "NAME_PY", "PINYIN_NAM", "TYPE_PY", "TYPR_PY"]
-    undetermined: []
-  - id: "DOI_ZZKZ6U_utf8"
-    doi: "ZZKZ6U"
-    marker: utf8
-    layers: 25
+  - id: "ca1884_przh_utf8"
     default:
       encoding: "utf-8"
-      evidence: "文件名标记=utf8"
+    exceptions: {}
+  - id: "ca1884route_przh_1251"
+    default:
+      encoding: "cp1251"
+    exceptions: {}
+  - id: "ca1884route_przh_ru"
+    default:
+      encoding: "cp1251"
+    exceptions: {}
+  - id: "ca1884route_przh_utf8"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "chgis_tmpl_pts"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "chgis_v1_cst_lin"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "china_hsr_2016_lines"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "china_hsr_2016_stations"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "chinagaslinenodes_2013"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "chinagaspipelines_2013"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "chinaw_points_gbk"
+    default:
+      encoding: "gbk"
+    exceptions: {}
+  - id: "citas90_cnty_pgn"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "citas90_cnty_pgn_big5"
+    default:
+      encoding: "big5"
+    exceptions: {}
+  - id: "citas90_cnty_pgn_gbk"
+    default:
+      encoding: "gbk"
+    exceptions: {}
+  - id: "citas90_cnty_pgn_utf"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "citas90_pref_pgn"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "citas90_prov_pgn"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "eastasia1871_przh_1251"
+    default:
+      encoding: "cp1251"
+    exceptions: {}
+  - id: "eastasia1871_przh_ru"
+    default:
+      encoding: "cp1251"
+    exceptions: {}
+  - id: "eastasia1871_przh_utf8"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "jp_dmyo_1664"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "jp_toku_dmyo_pts"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "jp_toku_doo_pgn"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "jp_toku_kuni_pgn"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "kam1900_koz_ru"
+    default:
+      encoding: "cp1251"
+    exceptions: {}
+  - id: "manshu_200k_index"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "ming_garrisons"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "ming_routes_2016"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "ming_stations_2016"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "mk1899_koz_1251"
+    default:
+      encoding: "cp1251"
+    exceptions: {}
+  - id: "mk1899_koz_ru"
+    default:
+      encoding: "cp1251"
+    exceptions: {}
+  - id: "mk1899_koz_utf8"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "nima_cst_v1"
+    default:
+      encoding: "cp1252"
+    exceptions: {}
+  - id: "nima_mtns_v1"
+    default:
+      encoding: "cp1252"
+    exceptions: {}
+  - id: "physiogmacroregions_pgn"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "tbrc_major_monasteries_2014"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "tbrc_minor_monasteries_2014"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "tbrc_printeries_2014"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "teahorse_major_routes__2016-04-08"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "teahorse_minor_routes_2016-04-08"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "teahorse_nodes_2016-04-08"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "tib1900_pdb_ru"
+    default:
+      encoding: "cp1251"
+    exceptions: {}
+  - id: "tib19pdb"
+    default:
+      encoding: "cp1251"
+    exceptions: {}
+  - id: "tibet_monasteries_utf8_v1_20120702"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "v1_1820_thu_cnty_pgn_gb"
+    default:
+      encoding: "gbk"
+    exceptions: {}
+  - id: "v1_1820_thu_cnty_pgn_utf"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "v2_1820_cnty_pts_gb"
+    default:
+      encoding: "gbk"
+    exceptions: {}
+  - id: "v2_1820_cnty_pts_utf"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "v2_1820_lks_pgn_gb"
+    default:
+      encoding: "gbk"
+    exceptions: {}
+  - id: "v2_1820_lks_pgn_utf"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "v2_1820_pref_pgn_gb"
+    default:
+      encoding: "gbk"
+    exceptions: {}
+  - id: "v2_1820_pref_pgn_utf"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "v2_1820_pref_pts_gb"
+    default:
+      encoding: "gbk"
+    exceptions: {}
+  - id: "v2_1820_pref_pts_utf"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "v2_1820_prov_pgn_gb"
+    default:
+      encoding: "gbk"
+    exceptions: {}
+  - id: "v2_1820_prov_pgn_utf"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "v2_1820_prov_pts_gb"
+    default:
+      encoding: "gbk"
+    exceptions: {}
+  - id: "v2_1820_prov_pts_utf"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "v2_1820_rvr_lin_gb"
+    default:
+      encoding: "gbk"
+    exceptions: {}
+  - id: "v2_1820_rvr_lin_utf"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "v2_1820_twn_pts_gb"
+    default:
+      encoding: "gbk"
+    exceptions: {}
+  - id: "v2_1820_twn_pts_utf"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "v2_1911_cnty_pgn"
+    default:
+      encoding: "gbk"
+    exceptions: {}
+  - id: "v2_1911_cnty_pgn_utf"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "v2_1911_cnty_pts"
+    default:
+      encoding: "gbk"
+    exceptions: {}
+  - id: "v2_1911_cnty_pts_utf"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "v2_1911_pref_pgn"
+    default:
+      encoding: "gbk"
+    exceptions: {}
+  - id: "v2_1911_pref_pgn_utf"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "v2_1911_pref_pts"
+    default:
+      encoding: "gbk"
+    exceptions: {}
+  - id: "v2_1911_pref_pts_utf"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "v2_1911_prov_pgn"
+    default:
+      encoding: "gbk"
     exceptions:
-      "GBK": ["CH_ORIG", "DYN_CH", "LEV1_CH"]
-    undetermined: []
+      "utf-8": ["TYPE_CH"]
+  - id: "v2_1911_prov_pgn_utf"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "v2_1911_prov_pts"
+    default:
+      encoding: "gbk"
+    exceptions:
+      "utf-8": ["TYPE_CH"]
+  - id: "v2_1911_prov_pts_utf"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "v2_1911_twn_pts"
+    default:
+      encoding: "gbk"
+    exceptions: {}
+  - id: "v2_1911_twn_pts_utf"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "v2_beijing_pgn_utf"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "v2_dcw_contour_lin"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "v2_dcw_rds_lin"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "v2_time_cnty_pgn_gb"
+    default:
+      encoding: "gbk"
+    exceptions: {}
+  - id: "v2_time_cnty_pgn_utf"
+    default:
+      encoding: "utf-8"
+    exceptions:
+      "gbk": ["CH_ORIG"]
+  - id: "v2_time_cnty_pts_gb"
+    default:
+      encoding: "gbk"
+    exceptions: {}
+  - id: "v2_time_cnty_pts_utf"
+    default:
+      encoding: "utf-8"
+    exceptions:
+      "gbk": ["CH_ORIG"]
+  - id: "v2_time_pref_pgn_gb"
+    default:
+      encoding: "gbk"
+    exceptions: {}
+  - id: "v2_time_pref_pgn_utf"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "v2_time_pref_pts_gb"
+    default:
+      encoding: "gbk"
+    exceptions: {}
+  - id: "v2_time_pref_pts_utf"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "v2_time_prov_pgn_gb"
+    default:
+      encoding: "gbk"
+    exceptions: {}
+  - id: "v2_time_prov_pgn_utf"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "v2_time_prov_pts_gb"
+    default:
+      encoding: "gbk"
+    exceptions: {}
+  - id: "v2_time_prov_pts_utf"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "v2_time_reg_pgn_gb"
+    default:
+      encoding: "gbk"
+    exceptions: {}
+  - id: "v2_time_reg_pgn_utf"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "v2_time_reg_pts_gb"
+    default:
+      encoding: "gbk"
+    exceptions: {}
+  - id: "v2_time_reg_pts_utf"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "v3_1820_pref_pgn_gb"
+    default:
+      encoding: "gbk"
+    exceptions: {}
+  - id: "v3_1820_pref_pgn_utf"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "v3_1820_prov_pgn_gb"
+    default:
+      encoding: "gbk"
+    exceptions: {}
+  - id: "v3_1820_prov_pgn_utf"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "v3_1911_cnty_pgn_gb"
+    default:
+      encoding: "gbk"
+    exceptions: {}
+  - id: "v3_1911_cnty_pgn_utf"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "v3_1911_cnty_pts_gb"
+    default:
+      encoding: "gbk"
+    exceptions: {}
+  - id: "v3_1911_cnty_pts_utf"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "v3_1911_pref_pgn_gb"
+    default:
+      encoding: "gbk"
+    exceptions: {}
+  - id: "v3_1911_pref_pgn_utf"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "v3_1911_pref_pts_gb"
+    default:
+      encoding: "gbk"
+    exceptions: {}
+  - id: "v3_1911_pref_pts_utf"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "v3_1911_prov_pgn_gb"
+    default:
+      encoding: "gbk"
+    exceptions:
+      "utf-8": ["TYPE_CH"]
+  - id: "v3_1911_prov_pgn_utf"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "v3_1911_prov_pts_gb"
+    default:
+      encoding: "gbk"
+    exceptions:
+      "utf-8": ["TYPE_CH"]
+  - id: "v3_1911_prov_pts_utf"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "v3_1911_twn_pts_gb"
+    default:
+      encoding: "gbk"
+    exceptions: {}
+  - id: "v3_1911_twn_pts_utf"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "v3_arc_china_index"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "v3_time_cnty_pts_gb"
+    default:
+      encoding: "gbk"
+    exceptions: {}
+  - id: "v3_time_cnty_pts_utf"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "v3_time_pref_pgn_gb"
+    default:
+      encoding: "gbk"
+    exceptions: {}
+  - id: "v3_time_pref_pgn_utf"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "v3_time_pref_pts_gb"
+    default:
+      encoding: "gbk"
+    exceptions: {}
+  - id: "v3_time_pref_pts_utf"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "v3_time_prov_pgn_gb"
+    default:
+      encoding: "gbk"
+    exceptions: {}
+  - id: "v3_time_prov_pgn_utf"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "v3_time_prov_pts_gb"
+    default:
+      encoding: "gbk"
+    exceptions: {}
+  - id: "v3_time_prov_pts_utf"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "v4_1820_cnty_pts_gbk"
+    default:
+      encoding: "gbk"
+    exceptions: {}
+  - id: "v4_1820_cnty_pts_utf"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "v4_1820_coast_lin"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "v4_1820_coded_rvr_lin_utf"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "v4_1820_lks_pgn_gbk"
+    default:
+      encoding: "gbk"
+    exceptions: {}
+  - id: "v4_1820_lks_pgn_utf"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "v4_1820_pref_pgn_gbk"
+    default:
+      encoding: "gbk"
+    exceptions: {}
+  - id: "v4_1820_pref_pgn_utf"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "v4_1820_pref_pts_gbk"
+    default:
+      encoding: "gbk"
+    exceptions: {}
+  - id: "v4_1820_pref_pts_utf"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "v4_1820_prov_pgn_gbk"
+    default:
+      encoding: "gbk"
+    exceptions: {}
+  - id: "v4_1820_prov_pgn_utf"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "v4_1820_prov_pts_gbk"
+    default:
+      encoding: "gbk"
+    exceptions: {}
+  - id: "v4_1820_prov_pts_utf"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "v4_1820_rvr_lin_gbk"
+    default:
+      encoding: "gbk"
+    exceptions: {}
+  - id: "v4_1820_rvr_lin_utf"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "v4_1820_twn_pts_gbk"
+    default:
+      encoding: "gbk"
+    exceptions: {}
+  - id: "v4_1820_twn_pts_utf"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "v4_1911_cnty_pgn_gbk"
+    default:
+      encoding: "gbk"
+    exceptions: {}
+  - id: "v4_1911_cnty_pgn_utf"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "v4_1911_cnty_pts_gbk"
+    default:
+      encoding: "gbk"
+    exceptions: {}
+  - id: "v4_1911_cnty_pts_utf"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "v4_1911_pref_pgn_gbk"
+    default:
+      encoding: "gbk"
+    exceptions: {}
+  - id: "v4_1911_pref_pgn_utf"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "v4_1911_pref_pts_gbk"
+    default:
+      encoding: "gbk"
+    exceptions: {}
+  - id: "v4_1911_pref_pts_utf"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "v4_1911_prov_pgn_gbk"
+    default:
+      encoding: "gbk"
+    exceptions:
+      "utf-8": ["TYPE_CH"]
+  - id: "v4_1911_prov_pgn_utf"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "v4_1911_prov_pts_gbk"
+    default:
+      encoding: "gbk"
+    exceptions:
+      "utf-8": ["TYPE_CH"]
+  - id: "v4_1911_prov_pts_utf"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "v4_1911_twn_pts_gbk"
+    default:
+      encoding: "gbk"
+    exceptions: {}
+  - id: "v4_1911_twn_pts_utf"
+    default:
+      encoding: "utf-8"
+    exceptions:
+      "gbk": ["NAME_PY"]
+  - id: "v4_1997_prov_pgn_gbk"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "v4_1997_prov_pgn_utf"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "v4_arc_china_index"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "v4_buddhist_pts_utf"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "v4_citas90_cnty_pgn_big5_stats"
+    default:
+      encoding: "big5"
+    exceptions: {}
+  - id: "v4_citas90_cnty_pgn_gbk_stats"
+    default:
+      encoding: "gbk"
+    exceptions: {}
+  - id: "v4_citas90_cnty_pgn_utf_stats"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "v4_citas90_pref_pgn_utf"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "v4_citas90_prov_pgn_utf"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "v4_dcw_contour_lin"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "v4_dcw_rail_lin"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "v4_dcw_rds_lin"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "v4_dcw_rvr_lin"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "v4_gns_anhui_gbk"
+    default:
+      encoding: "cp1252"
+    exceptions:
+      "gbk": ["CNTY_CH"]
+  - id: "v4_gns_beijing_gbk"
+    default:
+      encoding: "cp1252"
+    exceptions:
+      "gbk": ["CNTY_CH"]
+  - id: "v4_gns_fujian_gbk"
+    default:
+      encoding: "cp1252"
+    exceptions:
+      "gbk": ["CNTY_CH"]
+  - id: "v4_gns_gansu_gbk"
+    default:
+      encoding: "gbk"
+    exceptions:
+      "cp1252": ["NAME"]
+  - id: "v4_gns_guangdong_gbk"
+    default:
+      encoding: "cp1252"
+    exceptions:
+      "gbk": ["CNTY_CH"]
+  - id: "v4_gns_guangxi_gbk"
+    default:
+      encoding: "cp1252"
+    exceptions:
+      "gbk": ["CNTY_CH"]
+  - id: "v4_gns_guizhou_gbk"
+    default:
+      encoding: "cp1252"
+    exceptions:
+      "gbk": ["CNTY_CH"]
+  - id: "v4_gns_hainan_gbk"
+    default:
+      encoding: "cp1252"
+    exceptions:
+      "gbk": ["CNTY_CH"]
+  - id: "v4_gns_hebei_gbk"
+    default:
+      encoding: "cp1252"
+    exceptions:
+      "gbk": ["CNTY_CH"]
+  - id: "v4_gns_heilongjiang_gbk"
+    default:
+      encoding: "cp1252"
+    exceptions:
+      "gbk": ["CNTY_CH"]
+  - id: "v4_gns_henan_gbk"
+    default:
+      encoding: "cp1252"
+    exceptions:
+      "gbk": ["CNTY_CH"]
+  - id: "v4_gns_hubei_gbk"
+    default:
+      encoding: "cp1252"
+    exceptions:
+      "gbk": ["CNTY_CH"]
+  - id: "v4_gns_hunan_gbk"
+    default:
+      encoding: "cp1252"
+    exceptions:
+      "gbk": ["CNTY_CH"]
+  - id: "v4_gns_jiangsu_gbk"
+    default:
+      encoding: "cp1252"
+    exceptions:
+      "gbk": ["CNTY_CH"]
+  - id: "v4_gns_jiangxi_gbk"
+    default:
+      encoding: "cp1252"
+    exceptions:
+      "gbk": ["CNTY_CH"]
+  - id: "v4_gns_jilin_gbk"
+    default:
+      encoding: "cp1252"
+    exceptions:
+      "gbk": ["CNTY_CH"]
+  - id: "v4_gns_liaoning_gbk"
+    default:
+      encoding: "cp1252"
+    exceptions:
+      "gbk": ["CNTY_CH"]
+  - id: "v4_gns_neimeng_gbk"
+    default:
+      encoding: "cp1252"
+    exceptions:
+      "gbk": ["CNTY_CH"]
+  - id: "v4_gns_ningxia_gbk"
+    default:
+      encoding: "cp1252"
+    exceptions:
+      "gbk": ["CNTY_CH"]
+  - id: "v4_gns_qinghai_gbk"
+    default:
+      encoding: "gbk"
+    exceptions:
+      "cp1252": ["NAME"]
+  - id: "v4_gns_shaanxi_gbk"
+    default:
+      encoding: "gbk"
+    exceptions:
+      "cp1252": ["NAME"]
+  - id: "v4_gns_shandong_gbk"
+    default:
+      encoding: "cp1252"
+    exceptions:
+      "gbk": ["CNTY_CH"]
+  - id: "v4_gns_shanghai_gbk"
+    default:
+      encoding: "cp1252"
+    exceptions:
+      "gbk": ["CNTY_CH"]
+  - id: "v4_gns_shanxi_gbk"
+    default:
+      encoding: "gbk"
+    exceptions:
+      "cp1252": ["NAME"]
+  - id: "v4_gns_sichuan_gbk"
+    default:
+      encoding: "gbk"
+    exceptions:
+      "cp1252": ["NAME"]
+  - id: "v4_gns_tianjin_gbk"
+    default:
+      encoding: "cp1252"
+    exceptions:
+      "gbk": ["CNTY_CH"]
+  - id: "v4_gns_tibet_gbk"
+    default:
+      encoding: "cp1252"
+    exceptions:
+      "gbk": ["CNTY_CH"]
+  - id: "v4_gns_xinjiang_gbk"
+    default:
+      encoding: "gbk"
+    exceptions:
+      "cp1252": ["NAME"]
+  - id: "v4_gns_yunnan_gbk"
+    default:
+      encoding: "gbk"
+    exceptions:
+      "cp1252": ["NAME"]
+  - id: "v4_gns_zhejiang_gbk"
+    default:
+      encoding: "cp1252"
+    exceptions:
+      "gbk": ["CNTY_CH"]
+  - id: "v4_nima_mtns_pts"
+    default:
+      encoding: "cp1252"
+    exceptions: {}
+  - id: "v4_nima_rocks_pts"
+    default:
+      encoding: "cp1252"
+    exceptions: {}
+  - id: "v4_ras_1871_neimeng_pts"
+    default:
+      encoding: "cp1251"
+    exceptions: {}
+  - id: "v4_ras_1876_xinjiang_pts"
+    default:
+      encoding: "cp1251"
+    exceptions: {}
+  - id: "v4_ras_1884_qinghai_pts"
+    default:
+      encoding: "cp1251"
+    exceptions: {}
+  - id: "v4_ras_1884_tarim_pts"
+    default:
+      encoding: "cp1251"
+    exceptions: {}
+  - id: "v4_ras_1899_meng_kham_pts"
+    default:
+      encoding: "cp1251"
+    exceptions: {}
+  - id: "v4_ras_1900_tibet_kham_pts"
+    default:
+      encoding: "cp1251"
+    exceptions: {}
+  - id: "v4_ras_1904_tibet_pts"
+    default:
+      encoding: "cp1251"
+    exceptions: {}
+  - id: "v4_time_cnty_pts_gbk"
+    default:
+      encoding: "gbk"
+    exceptions: {}
+  - id: "v4_time_cnty_pts_utf"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "v4_time_pref_pgn_gbk"
+    default:
+      encoding: "gbk"
+    exceptions: {}
+  - id: "v4_time_pref_pgn_utf"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "v4_time_pref_pts_gbk"
+    default:
+      encoding: "gbk"
+    exceptions: {}
+  - id: "v4_time_pref_pts_utf"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "v4_time_prov_pgn_gbk"
+    default:
+      encoding: "gbk"
+    exceptions: {}
+  - id: "v4_time_prov_pgn_utf"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "v4_time_prov_pts_gbk"
+    default:
+      encoding: "gbk"
+    exceptions: {}
+  - id: "v4_time_prov_pts_utf"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "v4_time_reg_pgn_gbk"
+    default:
+      encoding: "gbk"
+    exceptions: {}
+  - id: "v4_time_reg_pgn_utf"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "v4_time_reg_pts_gbk"
+    default:
+      encoding: "gbk"
+    exceptions: {}
+  - id: "v4_time_reg_pts_utf"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "v5_0741_chin_chn_0741_c"
+    default:
+      encoding: "big5"
+    exceptions:
+      "gbk": ["H_CHINPROV", "NOTES"]
+  - id: "v5_0741_chin_chn_0741_p"
+    default:
+      encoding: "big5"
+    exceptions: {}
+  - id: "v5_0741_circ_gn_0741_d"
+    default:
+      encoding: "gbk"
+    exceptions:
+      "big5": ["H_SUP_CHPV"]
+  - id: "v5_0741_circ_hb_0741_d"
+    default:
+      encoding: "big5"
+    exceptions: {}
+  - id: "v5_0741_circ_hd_0741_d"
+    default:
+      encoding: "gbk"
+    exceptions:
+      "big5": ["H_SUP_CHPV"]
+  - id: "v5_0741_circ_hn_0741_d"
+    default:
+      encoding: "gbk"
+    exceptions:
+      "big5": ["H_SUP_CHPV"]
+  - id: "v5_0741_circ_hun_0741_d"
+    default:
+      encoding: "gbk"
+    exceptions:
+      "big5": ["H_SUP_CHPV"]
+  - id: "v5_0741_circ_jgn_0741_d"
+    default:
+      encoding: "big5"
+    exceptions: {}
+  - id: "v5_0741_circ_jnn_0741_d"
+    default:
+      encoding: "gbk"
+    exceptions:
+      "big5": ["H_SUP_CHPV"]
+  - id: "v5_0741_circ_ln_0741_d"
+    default:
+      encoding: "gbk"
+    exceptions:
+      "big5": ["H_SUP_CHPV"]
+  - id: "v5_0741_circ_ly_0741_d"
+    default:
+      encoding: "big5"
+    exceptions: {}
+  - id: "v5_0741_circ_sn_0741_d"
+    default:
+      encoding: "big5"
+    exceptions: {}
+  - id: "v5_0741_cnty_gn_0741_c"
+    default:
+      encoding: "big5"
+    exceptions:
+      "gbk": ["H_CHINPROV", "NOTES"]
+  - id: "v5_0741_cnty_hb_0741_c"
+    default:
+      encoding: "big5"
+    exceptions:
+      "utf-8": ["NOTES"]
+  - id: "v5_0741_cnty_hd_0741_c"
+    default:
+      encoding: "big5"
+    exceptions:
+      "gbk": ["H_CHINPROV", "NOTES"]
+  - id: "v5_0741_cnty_hn_0741_c"
+    default:
+      encoding: "big5"
+    exceptions:
+      "gbk": ["H_CHINPROV", "NOTES"]
+  - id: "v5_0741_cnty_hun_0741_c"
+    default:
+      encoding: "big5"
+    exceptions:
+      "gbk": ["H_CHINPROV", "H_CHIN_PRF"]
+  - id: "v5_0741_cnty_jgn_0741_c"
+    default:
+      encoding: "big5"
+    exceptions:
+      "gbk": ["NOTES"]
+  - id: "v5_0741_cnty_jnn_0741_c"
+    default:
+      encoding: "big5"
+    exceptions:
+      "gbk": ["H_CHINPROV"]
+      "utf-8": ["NOTES"]
+  - id: "v5_0741_cnty_ln_0741_c"
+    default:
+      encoding: "big5"
+    exceptions:
+      "gbk": ["H_CHINPROV", "NOTES"]
+  - id: "v5_0741_cnty_ly_0741_c"
+    default:
+      encoding: "big5"
+    exceptions: {}
+  - id: "v5_0741_cnty_sn_0741_c"
+    default:
+      encoding: "big5"
+    exceptions:
+      "gbk": ["NOTES"]
+  - id: "v5_0741_indp_jnt_0741_p"
+    default:
+      encoding: "gbk"
+    exceptions: {}
+  - id: "v5_0741_indp_jntr_0741"
+    default:
+      encoding: "big5"
+    exceptions:
+      "gbk": ["CHINP090PV", "H_SUP_CHPV", "H_UNICODE_"]
+  - id: "v5_0741_indp_liu_0741_p"
+    default:
+      encoding: "gbk"
+    exceptions:
+      "big5": ["H_SUP_CHPV"]
+  - id: "v5_0741_indp_liuq_0741"
+    default:
+      encoding: "big5"
+    exceptions:
+      "gbk": ["H_CHINPROV", "H_UNICODE_"]
+  - id: "v5_0741_indp_tft_0741_p"
+    default:
+      encoding: "big5"
+    exceptions:
+      "gbk": ["H_SUP_CHPV"]
+  - id: "v5_0741_indp_tftr_0741"
+    default:
+      encoding: "big5"
+    exceptions:
+      "gbk": ["H_SUP_CHPV"]
+  - id: "v5_0741_pref_gn_0741_p"
+    default:
+      encoding: "big5"
+    exceptions:
+      "gbk": ["H_CHINPROV"]
+  - id: "v5_0741_pref_hb_0741_p"
+    default:
+      encoding: "big5"
+    exceptions: {}
+  - id: "v5_0741_pref_hd_0741_p"
+    default:
+      encoding: "big5"
+    exceptions:
+      "gbk": ["H_CHINPROV"]
+  - id: "v5_0741_pref_hn_0741_p"
+    default:
+      encoding: "big5"
+    exceptions:
+      "gbk": ["H_CHINPROV"]
+  - id: "v5_0741_pref_hun_0741_p"
+    default:
+      encoding: "gbk"
+    exceptions:
+      "big5": ["H_SUP_CHPV"]
+  - id: "v5_0741_pref_jgn_0741_p"
+    default:
+      encoding: "big5"
+    exceptions: {}
+  - id: "v5_0741_pref_jnn_0741_p"
+    default:
+      encoding: "big5"
+    exceptions:
+      "gbk": ["H_CHINPROV"]
+  - id: "v5_0741_pref_ln_0741_p"
+    default:
+      encoding: "big5"
+    exceptions:
+      "gbk": ["H_CHINPROV"]
+  - id: "v5_0741_pref_ly_0741_p"
+    default:
+      encoding: "big5"
+    exceptions: {}
+  - id: "v5_0741_pref_sn_0741_p"
+    default:
+      encoding: "big5"
+    exceptions: {}
+  - id: "v5_1080_chin_chn_1080_c"
+    default:
+      encoding: "big5"
+    exceptions: {}
+  - id: "v5_1080_chin_chn_1080_l"
+    default:
+      encoding: "big5"
+    exceptions: {}
+  - id: "v5_1080_chin_chn_1080_p"
+    default:
+      encoding: "big5"
+    exceptions: {}
+  - id: "v5_1080_chin_difang"
+    default:
+      encoding: "big5"
+    exceptions: {}
+  - id: "v5_1080_circ_cdf_1080_l"
+    default:
+      encoding: "gbk"
+    exceptions:
+      "big5": ["H_SUP_CHPV"]
+  - id: "v5_1080_circ_fj_1080_l"
+    default:
+      encoding: "big5"
+    exceptions: {}
+  - id: "v5_1080_circ_gnd_1080_l"
+    default:
+      encoding: "gbk"
+    exceptions:
+      "big5": ["H_SUP_CHPV"]
+  - id: "v5_1080_circ_gnx_1080_l"
+    default:
+      encoding: "gbk"
+    exceptions:
+      "big5": ["H_SUP_CHPV"]
+  - id: "v5_1080_circ_hbd_1080_l"
+    default:
+      encoding: "big5"
+    exceptions: {}
+  - id: "v5_1080_circ_hbx_1080_l"
+    default:
+      encoding: "big5"
+    exceptions: {}
+  - id: "v5_1080_circ_hd_1080_l"
+    default:
+      encoding: "gbk"
+    exceptions:
+      "big5": ["H_SUP_CHPV"]
+  - id: "v5_1080_circ_hnd_1080_l"
+    default:
+      encoding: "gbk"
+    exceptions:
+      "big5": ["H_SUP_CHPV"]
+  - id: "v5_1080_circ_hnx_1080_l"
+    default:
+      encoding: "gbk"
+    exceptions:
+      "big5": ["H_SUP_CHPV"]
+  - id: "v5_1080_circ_jdd_1080_l"
+    default:
+      encoding: "gbk"
+    exceptions:
+      "big5": ["H_SUP_CHPV"]
+  - id: "v5_1080_circ_jdx_1080_l"
+    default:
+      encoding: "gbk"
+    exceptions:
+      "big5": ["H_SUP_CHPV"]
+  - id: "v5_1080_circ_jhb_1080_l"
+    default:
+      encoding: "big5"
+    exceptions: {}
+  - id: "v5_1080_circ_jhn_1080_l"
+    default:
+      encoding: "big5"
+    exceptions: {}
+  - id: "v5_1080_circ_jj_1080_l"
+    default:
+      encoding: "gbk"
+    exceptions:
+      "big5": ["H_SUP_CHPV"]
+  - id: "v5_1080_circ_jnd_1080_l"
+    default:
+      encoding: "big5"
+    exceptions: {}
+  - id: "v5_1080_circ_jnx_1080_l"
+    default:
+      encoding: "big5"
+    exceptions: {}
+  - id: "v5_1080_circ_jxb_1080_l"
+    default:
+      encoding: "big5"
+    exceptions: {}
+  - id: "v5_1080_circ_jxn_1080_l"
+    default:
+      encoding: "gbk"
+    exceptions:
+      "big5": ["H_SUP_CHPV"]
+  - id: "v5_1080_circ_kz_1080_l"
+    default:
+      encoding: "big5"
+    exceptions: {}
+  - id: "v5_1080_circ_liz_1080_l"
+    default:
+      encoding: "big5"
+    exceptions: {}
+  - id: "v5_1080_circ_lz_1080_l"
+    default:
+      encoding: "big5"
+    exceptions: {}
+  - id: "v5_1080_circ_qf_1080_l"
+    default:
+      encoding: "big5"
+    exceptions: {}
+  - id: "v5_1080_circ_yx_1080_l"
+    default:
+      encoding: "gbk"
+    exceptions:
+      "big5": ["H_SUP_CHPV"]
+  - id: "v5_1080_circ_zz_1080_l"
+    default:
+      encoding: "big5"
+    exceptions: {}
+  - id: "v5_1080_cnty_cdf_1080_c"
+    default:
+      encoding: "big5"
+    exceptions:
+      "gbk": ["H_CHINPROV"]
+      "utf-8": ["NOTES"]
+  - id: "v5_1080_cnty_fj_1080_c"
+    default:
+      encoding: "big5"
+    exceptions: {}
+  - id: "v5_1080_cnty_gnd_1080_c"
+    default:
+      encoding: "big5"
+    exceptions:
+      "gbk": ["CHINP090PV", "H_CHINPROV"]
+  - id: "v5_1080_cnty_gnx_1080_c"
+    default:
+      encoding: "big5"
+    exceptions:
+      "gbk": ["H_CHINPROV"]
+      "utf-8": ["NOTES"]
+  - id: "v5_1080_cnty_hbd_1080_c"
+    default:
+      encoding: "big5"
+    exceptions: {}
+  - id: "v5_1080_cnty_hbx_1080_c"
+    default:
+      encoding: "big5"
+    exceptions:
+      "gbk": ["NOTES"]
+  - id: "v5_1080_cnty_hd_1080_c"
+    default:
+      encoding: "big5"
+    exceptions:
+      "gbk": ["H_CHINPROV"]
+  - id: "v5_1080_cnty_hnd_1080_c"
+    default:
+      encoding: "big5"
+    exceptions:
+      "gbk": ["H_CHINPROV"]
+  - id: "v5_1080_cnty_hnx_1080_c"
+    default:
+      encoding: "big5"
+    exceptions:
+      "gbk": ["H_CHINPROV"]
+  - id: "v5_1080_cnty_jdd_1080_c"
+    default:
+      encoding: "big5"
+    exceptions:
+      "gbk": ["H_CHINPROV"]
+  - id: "v5_1080_cnty_jdx_1080_c"
+    default:
+      encoding: "big5"
+    exceptions:
+      "gbk": ["H_CHINPROV", "NOTES"]
+  - id: "v5_1080_cnty_jhb_1080_c"
+    default:
+      encoding: "big5"
+    exceptions:
+      "gbk": ["NOTES"]
+  - id: "v5_1080_cnty_jhn_1080_c"
+    default:
+      encoding: "big5"
+    exceptions:
+      "gbk": ["CHINP090PV"]
+  - id: "v5_1080_cnty_jj_1080_c"
+    default:
+      encoding: "big5"
+    exceptions:
+      "gbk": ["CHINP090PV", "H_CHINPROV"]
+  - id: "v5_1080_cnty_jnd_1080_c"
+    default:
+      encoding: "big5"
+    exceptions:
+      "gbk": ["NOTES"]
+  - id: "v5_1080_cnty_jnx_1080_c"
+    default:
+      encoding: "big5"
+    exceptions:
+      "gbk": ["NOTES"]
+  - id: "v5_1080_cnty_jxb_1080_c"
+    default:
+      encoding: "big5"
+    exceptions: {}
+  - id: "v5_1080_cnty_jxn_1080_c"
+    default:
+      encoding: "big5"
+    exceptions:
+      "gbk": ["H_CHINPROV"]
+  - id: "v5_1080_cnty_kz_1080_c"
+    default:
+      encoding: "big5"
+    exceptions: {}
+  - id: "v5_1080_cnty_liz_1080_c"
+    default:
+      encoding: "big5"
+    exceptions:
+      "gbk": ["NOTES"]
+  - id: "v5_1080_cnty_lz_1080_c"
+    default:
+      encoding: "big5"
+    exceptions: {}
+  - id: "v5_1080_cnty_qf_1080_c"
+    default:
+      encoding: "big5"
+    exceptions: {}
+  - id: "v5_1080_cnty_yx_1080_c"
+    default:
+      encoding: "big5"
+    exceptions:
+      "gbk": ["H_CHINPROV", "NOTES"]
+  - id: "v5_1080_cnty_zz_1080_c"
+    default:
+      encoding: "big5"
+    exceptions:
+      "utf-8": ["NOTES"]
+  - id: "v5_1080_indp_abor_1080"
+    default:
+      encoding: "gbk"
+    exceptions:
+      "big5": ["CAPITAL_CH", "P90PRFCHIN"]
+  - id: "v5_1080_indp_dali_1080"
+    default:
+      encoding: "big5"
+    exceptions:
+      "gbk": ["CHINP090PV"]
+  - id: "v5_1080_indp_hei_1080"
+    default:
+      encoding: "gbk"
+    exceptions:
+      "big5": ["H_SUP_CHPV", "H_UNICODE_"]
+  - id: "v5_1080_indp_hotn_1080"
+    default:
+      encoding: "gbk"
+    exceptions:
+      "big5": ["H_SUP_CHPV", "H_UNICODE_"]
+  - id: "v5_1080_indp_ind_1080_l"
+    default:
+      encoding: "big5"
+    exceptions: {}
+  - id: "v5_1080_indp_ind_1080_p"
+    default:
+      encoding: "big5"
+    exceptions: {}
+  - id: "v5_1080_indp_liao_1080"
+    default:
+      encoding: "big5"
+    exceptions: {}
+  - id: "v5_1080_indp_liu_1080_l"
+    default:
+      encoding: "gbk"
+    exceptions:
+      "big5": ["H_SUP_CHPV"]
+  - id: "v5_1080_indp_liu_1080_p"
+    default:
+      encoding: "gbk"
+    exceptions:
+      "big5": ["H_SUP_CHPV"]
+  - id: "v5_1080_indp_liuq_1080"
+    default:
+      encoding: "big5"
+    exceptions:
+      "gbk": ["H_CHINPROV", "H_UNICODE_"]
+  - id: "v5_1080_indp_tufn_1080"
+    default:
+      encoding: "gbk"
+    exceptions:
+      "big5": ["H_SUP_CHPV", "H_UNICODE_"]
+  - id: "v5_1080_indp_uigr_1080"
+    default:
+      encoding: "big5"
+    exceptions:
+      "gbk": ["CHINP090PV"]
+  - id: "v5_1080_indp_xxia_1080"
+    default:
+      encoding: "big5"
+    exceptions:
+      "gbk": ["H_SUP_CHPV", "H_UNICODE_"]
+  - id: "v5_1080_liao_djd_1080_c"
+    default:
+      encoding: "big5"
+    exceptions:
+      "gbk": ["H_CHINPROV", "NOTES"]
+  - id: "v5_1080_liao_djd_1080_d"
+    default:
+      encoding: "gbk"
+    exceptions:
+      "big5": ["H_SUP_CHPV"]
+  - id: "v5_1080_liao_djd_1080_p"
+    default:
+      encoding: "big5"
+    exceptions:
+      "gbk": ["H_CHINPROV"]
+  - id: "v5_1080_liao_dtl_1080_d"
+    default:
+      encoding: "big5"
+    exceptions: {}
+  - id: "v5_1080_liao_dtl_1080_j"
+    default:
+      encoding: "big5"
+    exceptions: {}
+  - id: "v5_1080_liao_dtl_1080_p"
+    default:
+      encoding: "big5"
+    exceptions: {}
+  - id: "v5_1080_liao_njd_1080_c"
+    default:
+      encoding: "big5"
+    exceptions:
+      "gbk": ["H_CHINPROV"]
+  - id: "v5_1080_liao_njd_1080_d"
+    default:
+      encoding: "gbk"
+    exceptions:
+      "big5": ["H_SUP_CHPV"]
+  - id: "v5_1080_liao_njd_1080_p"
+    default:
+      encoding: "big5"
+    exceptions:
+      "gbk": ["H_CHINPROV"]
+  - id: "v5_1080_liao_sjd_1080_c"
+    default:
+      encoding: "big5"
+    exceptions: {}
+  - id: "v5_1080_liao_sjd_1080_d"
+    default:
+      encoding: "big5"
+    exceptions: {}
+  - id: "v5_1080_liao_sjd_1080_p"
+    default:
+      encoding: "big5"
+    exceptions: {}
+  - id: "v5_1080_liao_sjd_1080z"
+    default:
+      encoding: "big5"
+    exceptions: {}
+  - id: "v5_1080_liao_xjd_1080_c"
+    default:
+      encoding: "big5"
+    exceptions:
+      "gbk": ["H_CHINPROV", "NOTES"]
+  - id: "v5_1080_liao_xjd_1080_d"
+    default:
+      encoding: "gbk"
+    exceptions:
+      "big5": ["H_SUP_CHPV"]
+  - id: "v5_1080_liao_xjd_1080_p"
+    default:
+      encoding: "big5"
+    exceptions:
+      "gbk": ["H_CHINPROV"]
+  - id: "v5_1080_liao_zjd_1080_c"
+    default:
+      encoding: "big5"
+    exceptions:
+      "gbk": ["H_CHINPROV"]
+  - id: "v5_1080_liao_zjd_1080_d"
+    default:
+      encoding: "gbk"
+    exceptions:
+      "big5": ["H_SUP_CHPV"]
+  - id: "v5_1080_liao_zjd_1080_p"
+    default:
+      encoding: "big5"
+    exceptions:
+      "gbk": ["H_CHINPROV"]
+  - id: "v5_1080_pref_cdf_1080_p"
+    default:
+      encoding: "big5"
+    exceptions:
+      "gbk": ["H_CHINPROV"]
+  - id: "v5_1080_pref_fj_1080_p"
+    default:
+      encoding: "big5"
+    exceptions: {}
+  - id: "v5_1080_pref_gnd_1080_p"
+    default:
+      encoding: "big5"
+    exceptions:
+      "gbk": ["H_CHINPROV"]
+  - id: "v5_1080_pref_gnx_1080_p"
+    default:
+      encoding: "big5"
+    exceptions:
+      "gbk": ["H_CHINPROV"]
+  - id: "v5_1080_pref_hbd_1080_p"
+    default:
+      encoding: "big5"
+    exceptions: {}
+  - id: "v5_1080_pref_hbx_1080_p"
+    default:
+      encoding: "big5"
+    exceptions: {}
+  - id: "v5_1080_pref_hd_1080_p"
+    default:
+      encoding: "big5"
+    exceptions:
+      "gbk": ["H_CHINPROV"]
+  - id: "v5_1080_pref_hnd_1080_p"
+    default:
+      encoding: "big5"
+    exceptions:
+      "gbk": ["H_CHINPROV"]
+  - id: "v5_1080_pref_hnx_1080_p"
+    default:
+      encoding: "big5"
+    exceptions:
+      "gbk": ["H_CHINPROV"]
+  - id: "v5_1080_pref_jdd_1080_p"
+    default:
+      encoding: "big5"
+    exceptions:
+      "gbk": ["H_CHINPROV"]
+  - id: "v5_1080_pref_jdx_1080_p"
+    default:
+      encoding: "big5"
+    exceptions:
+      "gbk": ["H_CHINPROV"]
+  - id: "v5_1080_pref_jhb_1080_p"
+    default:
+      encoding: "big5"
+    exceptions: {}
+  - id: "v5_1080_pref_jhn_1080_p"
+    default:
+      encoding: "big5"
+    exceptions: {}
+  - id: "v5_1080_pref_jj_1080_p"
+    default:
+      encoding: "big5"
+    exceptions:
+      "gbk": ["H_CHINPROV"]
+  - id: "v5_1080_pref_jnd_1080_p"
+    default:
+      encoding: "big5"
+    exceptions: {}
+  - id: "v5_1080_pref_jnx_1080_p"
+    default:
+      encoding: "big5"
+    exceptions: {}
+  - id: "v5_1080_pref_jxb_1080_p"
+    default:
+      encoding: "big5"
+    exceptions: {}
+  - id: "v5_1080_pref_jxn_1080_p"
+    default:
+      encoding: "big5"
+    exceptions:
+      "gbk": ["H_CHINPROV"]
+  - id: "v5_1080_pref_kz_1080_p"
+    default:
+      encoding: "big5"
+    exceptions: {}
+  - id: "v5_1080_pref_liz_1080_p"
+    default:
+      encoding: "big5"
+    exceptions: {}
+  - id: "v5_1080_pref_lz_1080_p"
+    default:
+      encoding: "big5"
+    exceptions: {}
+  - id: "v5_1080_pref_qf_1080_p"
+    default:
+      encoding: "big5"
+    exceptions: {}
+  - id: "v5_1080_pref_upd_hbdp"
+    default:
+      encoding: "big5"
+    exceptions: {}
+  - id: "v5_1080_pref_yx_1080_p"
+    default:
+      encoding: "big5"
+    exceptions:
+      "gbk": ["H_CHINPROV"]
+  - id: "v5_1080_pref_zz_1080_p"
+    default:
+      encoding: "big5"
+    exceptions: {}
+  - id: "v5_1200_chin_chn_1200_c"
+    default:
+      encoding: "big5"
+    exceptions:
+      "gbk": ["NOTES"]
+  - id: "v5_1200_chin_chn_1200_l"
+    default:
+      encoding: "big5"
+    exceptions: {}
+  - id: "v5_1200_chin_chn_1200_p"
+    default:
+      encoding: "big5"
+    exceptions: {}
+  - id: "v5_1200_cnty_cdf_1200_c"
+    default:
+      encoding: "big5"
+    exceptions:
+      "gbk": ["H_CHINPROV"]
+      "utf-8": ["NOTES"]
+  - id: "v5_1200_cnty_fj_1200_c"
+    default:
+      encoding: "big5"
+    exceptions: {}
+  - id: "v5_1200_cnty_gnd_1200_c"
+    default:
+      encoding: "big5"
+    exceptions:
+      "gbk": ["CHINP090PV", "H_CHINPROV"]
+  - id: "v5_1200_cnty_gnx_1200_c"
+    default:
+      encoding: "big5"
+    exceptions:
+      "gbk": ["H_CHINPROV"]
+      "utf-8": ["NOTES"]
+  - id: "v5_1200_cnty_hnd_1200_c"
+    default:
+      encoding: "big5"
+    exceptions:
+      "gbk": ["H_CHINPROV"]
+  - id: "v5_1200_cnty_hnx_1200_c"
+    default:
+      encoding: "big5"
+    exceptions:
+      "gbk": ["H_CHINPROV", "NOTES"]
+  - id: "v5_1200_cnty_jhb_1200_c"
+    default:
+      encoding: "big5"
+    exceptions:
+      "gbk": ["NOTES"]
+  - id: "v5_1200_cnty_jhn_1200_c"
+    default:
+      encoding: "big5"
+    exceptions:
+      "gbk": ["CHINP090PV"]
+  - id: "v5_1200_cnty_jnd_1200_c"
+    default:
+      encoding: "big5"
+    exceptions:
+      "gbk": ["NOTES"]
+  - id: "v5_1200_cnty_jnx_1200_c"
+    default:
+      encoding: "big5"
+    exceptions:
+      "gbk": ["NOTES"]
+  - id: "v5_1200_cnty_jxn_1200_c"
+    default:
+      encoding: "big5"
+    exceptions:
+      "gbk": ["H_CHINPROV"]
+  - id: "v5_1200_cnty_kz_1200_c"
+    default:
+      encoding: "big5"
+    exceptions:
+      "gbk": ["NOTES"]
+  - id: "v5_1200_cnty_lz_1200_c"
+    default:
+      encoding: "big5"
+    exceptions:
+      "gbk": ["NOTES"]
+  - id: "v5_1200_cnty_tcf_1200_c"
+    default:
+      encoding: "big5"
+    exceptions:
+      "utf-8": ["NOTES"]
+  - id: "v5_1200_cnty_zd_1200_c"
+    default:
+      encoding: "big5"
+    exceptions:
+      "gbk": ["NOTES"]
+  - id: "v5_1200_cnty_zx_1200_c"
+    default:
+      encoding: "big5"
+    exceptions: {}
+  - id: "v5_1200_indp_dli_1200_c"
+    default:
+      encoding: "big5"
+    exceptions:
+      "gbk": ["CHINP090PV"]
+  - id: "v5_1200_indp_dli_1200_l"
+    default:
+      encoding: "big5"
+    exceptions: {}
+  - id: "v5_1200_indp_dli_1200_p"
+    default:
+      encoding: "big5"
+    exceptions: {}
+  - id: "v5_1200_indp_liu_1200_c"
+    default:
+      encoding: "big5"
+    exceptions:
+      "gbk": ["H_CHINPROV", "H_UNICODE_"]
+  - id: "v5_1200_indp_liu_1200_l"
+    default:
+      encoding: "gbk"
+    exceptions:
+      "big5": ["H_SUP_CHPV"]
+  - id: "v5_1200_indp_liu_1200_p"
+    default:
+      encoding: "gbk"
+    exceptions:
+      "big5": ["H_SUP_CHPV"]
+  - id: "v5_1200_indp_mng_1200_c"
+    default:
+      encoding: "big5"
+    exceptions: {}
+  - id: "v5_1200_indp_mng_1200_l"
+    default:
+      encoding: "big5"
+    exceptions: {}
+  - id: "v5_1200_indp_mng_1200_p"
+    default:
+      encoding: "big5"
+    exceptions: {}
+  - id: "v5_1200_indp_qar_1200_c"
+    default:
+      encoding: "gbk"
+    exceptions: {}
+  - id: "v5_1200_indp_qar_1200_l"
+    default:
+      encoding: "gbk"
+    exceptions: {}
+  - id: "v5_1200_indp_qar_1200_p"
+    default:
+      encoding: "gbk"
+    exceptions: {}
+  - id: "v5_1200_indp_tuf_1200_c"
+    default:
+      encoding: "gbk"
+    exceptions:
+      "big5": ["CHINP090PV", "H_SUP_CHPV", "H_UNICODE_"]
+  - id: "v5_1200_indp_tuf_1200_l"
+    default:
+      encoding: "big5"
+    exceptions: {}
+  - id: "v5_1200_indp_tuf_1200_p"
+    default:
+      encoding: "big5"
+    exceptions: {}
+  - id: "v5_1200_indp_xia_1200_c"
+    default:
+      encoding: "big5"
+    exceptions:
+      "gbk": ["H_UNICODE_"]
+  - id: "v5_1200_indp_xia_1200_l"
+    default:
+      encoding: "gbk"
+    exceptions:
+      "big5": ["H_SUP_CHPV"]
+  - id: "v5_1200_indp_xia_1200_p"
+    default:
+      encoding: "gbk"
+    exceptions:
+      "big5": ["H_SUP_CHPV"]
+  - id: "v5_1200_jin_cinty_bj_1200_c"
+    default:
+      encoding: "big5"
+    exceptions: {}
+  - id: "v5_1200_jin_cinty_dj_1200_c"
+    default:
+      encoding: "big5"
+    exceptions:
+      "gbk": ["H_CHINPROV"]
+  - id: "v5_1200_jin_cinty_dmf_1200_c"
+    default:
+      encoding: "big5"
+    exceptions: {}
+  - id: "v5_1200_jin_cinty_fxf_1200_c"
+    default:
+      encoding: "big5"
+    exceptions:
+      "gbk": ["H_CHINPROV"]
+  - id: "v5_1200_jin_cinty_fy_1200_c"
+    default:
+      encoding: "big5"
+    exceptions:
+      "gbk": ["CHINP090PV", "H_CHINPROV"]
+  - id: "v5_1200_jin_cinty_hbd_1200_c"
+    default:
+      encoding: "big5"
+    exceptions:
+      "utf-8": ["NOTES"]
+  - id: "v5_1200_jin_cinty_hbx_1200_c"
+    default:
+      encoding: "big5"
+    exceptions:
+      "gbk": ["NOTES"]
+  - id: "v5_1200_jin_cinty_hdb_1200_c"
+    default:
+      encoding: "big5"
+    exceptions: {}
+  - id: "v5_1200_jin_cinty_hdn_1200_c"
+    default:
+      encoding: "big5"
+    exceptions:
+      "gbk": ["H_CHINPROV"]
+  - id: "v5_1200_jin_cinty_jzf_1200_c"
+    default:
+      encoding: "big5"
+    exceptions:
+      "gbk": ["CHINP090PV", "NOTES"]
+  - id: "v5_1200_jin_cinty_lt_1200_c"
+    default:
+      encoding: "big5"
+    exceptions:
+      "gbk": ["CHINP090PV"]
+  - id: "v5_1200_jin_cinty_nj_1200_c"
+    default:
+      encoding: "big5"
+    exceptions:
+      "gbk": ["H_CHINPROV", "NOTES"]
+  - id: "v5_1200_jin_cinty_qy_1200_c"
+    default:
+      encoding: "big5"
+    exceptions:
+      "gbk": ["CHINP090PV", "P90PRFCHIN"]
+  - id: "v5_1200_jin_cinty_sdd_1200_c"
+    default:
+      encoding: "big5"
+    exceptions: {}
+  - id: "v5_1200_jin_cinty_sdx_1200_c"
+    default:
+      encoding: "big5"
+    exceptions: {}
+  - id: "v5_1200_jin_cinty_sj_1200_c"
+    default:
+      encoding: "big5"
+    exceptions: {}
+  - id: "v5_1200_jin_cinty_xj_1200_c"
+    default:
+      encoding: "big5"
+    exceptions:
+      "gbk": ["H_CHINPROV"]
+  - id: "v5_1200_jin_cinty_xp_1200_c"
+    default:
+      encoding: "big5"
+    exceptions:
+      "gbk": ["H_CHINPROV"]
+  - id: "v5_1200_jin_cinty_zd_1200_c"
+    default:
+      encoding: "big5"
+    exceptions:
+      "gbk": ["H_CHINPROV"]
+  - id: "v5_1200_jin_circ_bj_1200_l"
+    default:
+      encoding: "big5"
+    exceptions: {}
+  - id: "v5_1200_jin_circ_dj_1200_l"
+    default:
+      encoding: "gbk"
+    exceptions:
+      "big5": ["H_SUP_CHPV"]
+  - id: "v5_1200_jin_circ_dmf_1200_l"
+    default:
+      encoding: "big5"
+    exceptions: {}
+  - id: "v5_1200_jin_circ_fxf_1200_l"
+    default:
+      encoding: "gbk"
+    exceptions:
+      "big5": ["H_SUP_CHPV"]
+  - id: "v5_1200_jin_circ_fy_1200_l"
+    default:
+      encoding: "big5"
+    exceptions:
+      "gbk": ["H_CHINPROV"]
+  - id: "v5_1200_jin_circ_hbd_1200_l"
+    default:
+      encoding: "big5"
+    exceptions: {}
+  - id: "v5_1200_jin_circ_hbx_1200_l"
+    default:
+      encoding: "big5"
+    exceptions: {}
+  - id: "v5_1200_jin_circ_hdb_1200_l"
+    default:
+      encoding: "big5"
+    exceptions: {}
+  - id: "v5_1200_jin_circ_hdn_1200_l"
+    default:
+      encoding: "gbk"
+    exceptions:
+      "big5": ["H_SUP_CHPV"]
+  - id: "v5_1200_jin_circ_jzf_1200_l"
+    default:
+      encoding: "big5"
+    exceptions: {}
+  - id: "v5_1200_jin_circ_lt_1200_l"
+    default:
+      encoding: "big5"
+    exceptions: {}
+  - id: "v5_1200_jin_circ_nj_1200_l"
+    default:
+      encoding: "gbk"
+    exceptions:
+      "big5": ["H_SUP_CHPV"]
+  - id: "v5_1200_jin_circ_qy_1200_l"
+    default:
+      encoding: "big5"
+    exceptions: {}
+  - id: "v5_1200_jin_circ_sdd_1200_l"
+    default:
+      encoding: "big5"
+    exceptions: {}
+  - id: "v5_1200_jin_circ_sdx_1200_l"
+    default:
+      encoding: "gbk"
+    exceptions:
+      "big5": ["H_CHINPROV", "H_SUP_CHPV"]
+  - id: "v5_1200_jin_circ_sj_1200_l"
+    default:
+      encoding: "big5"
+    exceptions: {}
+  - id: "v5_1200_jin_circ_xj_1200_l"
+    default:
+      encoding: "gbk"
+    exceptions:
+      "big5": ["H_SUP_CHPV"]
+  - id: "v5_1200_jin_circ_xp_1200_l"
+    default:
+      encoding: "gbk"
+    exceptions:
+      "big5": ["H_SUP_CHPV"]
+  - id: "v5_1200_jin_circ_zd_1200_l"
+    default:
+      encoding: "gbk"
+    exceptions:
+      "big5": ["H_SUP_CHPV"]
+  - id: "v5_1200_jin_jin_1200"
+    default:
+      encoding: "big5"
+    exceptions: {}
+  - id: "v5_1200_jin_pref_bj_1200_p"
+    default:
+      encoding: "big5"
+    exceptions: {}
+  - id: "v5_1200_jin_pref_dj_1200_p"
+    default:
+      encoding: "big5"
+    exceptions:
+      "gbk": ["H_CHINPROV"]
+  - id: "v5_1200_jin_pref_dmf_1200_p"
+    default:
+      encoding: "big5"
+    exceptions: {}
+  - id: "v5_1200_jin_pref_fxf_1200_p"
+    default:
+      encoding: "big5"
+    exceptions:
+      "gbk": ["H_CHINPROV"]
+  - id: "v5_1200_jin_pref_fy_1200_p"
+    default:
+      encoding: "big5"
+    exceptions:
+      "gbk": ["H_CHINPROV"]
+  - id: "v5_1200_jin_pref_hbd_1200_p"
+    default:
+      encoding: "big5"
+    exceptions: {}
+  - id: "v5_1200_jin_pref_hbx_1200_p"
+    default:
+      encoding: "big5"
+    exceptions: {}
+  - id: "v5_1200_jin_pref_hdb_1200_p"
+    default:
+      encoding: "big5"
+    exceptions: {}
+  - id: "v5_1200_jin_pref_hdn_1200_p"
+    default:
+      encoding: "big5"
+    exceptions:
+      "gbk": ["H_CHINPROV"]
+  - id: "v5_1200_jin_pref_jzf_1200_p"
+    default:
+      encoding: "big5"
+    exceptions: {}
+  - id: "v5_1200_jin_pref_lt_1200_p"
+    default:
+      encoding: "big5"
+    exceptions: {}
+  - id: "v5_1200_jin_pref_nj_1200_p"
+    default:
+      encoding: "big5"
+    exceptions:
+      "gbk": ["H_CHINPROV"]
+  - id: "v5_1200_jin_pref_qy_1200_p"
+    default:
+      encoding: "big5"
+    exceptions: {}
+  - id: "v5_1200_jin_pref_sdd_1200_p"
+    default:
+      encoding: "big5"
+    exceptions: {}
+  - id: "v5_1200_jin_pref_sdx_1200_p"
+    default:
+      encoding: "big5"
+    exceptions: {}
+  - id: "v5_1200_jin_pref_sj_1200_p"
+    default:
+      encoding: "big5"
+    exceptions: {}
+  - id: "v5_1200_jin_pref_xj_1200_p"
+    default:
+      encoding: "big5"
+    exceptions:
+      "gbk": ["H_CHINPROV"]
+  - id: "v5_1200_jin_pref_xp_1200_p"
+    default:
+      encoding: "big5"
+    exceptions:
+      "gbk": ["H_CHINPROV"]
+  - id: "v5_1200_jin_pref_zd_1200_p"
+    default:
+      encoding: "big5"
+    exceptions:
+      "gbk": ["H_CHINPROV"]
+  - id: "v5_1200_pref_cdf_1200_p"
+    default:
+      encoding: "big5"
+    exceptions:
+      "gbk": ["H_CHINPROV"]
+  - id: "v5_1200_pref_fj_1200_p"
+    default:
+      encoding: "big5"
+    exceptions: {}
+  - id: "v5_1200_pref_gnd_1200_p"
+    default:
+      encoding: "big5"
+    exceptions:
+      "gbk": ["H_CHINPROV"]
+  - id: "v5_1200_pref_gnx_1200_p"
+    default:
+      encoding: "big5"
+    exceptions:
+      "gbk": ["H_CHINPROV"]
+  - id: "v5_1200_pref_hnd_1200_p"
+    default:
+      encoding: "big5"
+    exceptions:
+      "gbk": ["H_CHINPROV"]
+  - id: "v5_1200_pref_hnx_1200_p"
+    default:
+      encoding: "big5"
+    exceptions:
+      "gbk": ["H_CHINPROV"]
+  - id: "v5_1200_pref_jhb_1200_p"
+    default:
+      encoding: "big5"
+    exceptions: {}
+  - id: "v5_1200_pref_jhn_1200_p"
+    default:
+      encoding: "big5"
+    exceptions: {}
+  - id: "v5_1200_pref_jnd_1200_p"
+    default:
+      encoding: "big5"
+    exceptions: {}
+  - id: "v5_1200_pref_jnx_1200_p"
+    default:
+      encoding: "big5"
+    exceptions: {}
+  - id: "v5_1200_pref_jxn_1200_p"
+    default:
+      encoding: "big5"
+    exceptions:
+      "gbk": ["H_CHINPROV"]
+  - id: "v5_1200_pref_kz_1200_p"
+    default:
+      encoding: "big5"
+    exceptions: {}
+  - id: "v5_1200_pref_lz_1200_p"
+    default:
+      encoding: "big5"
+    exceptions: {}
+  - id: "v5_1200_pref_tcf_1200_p"
+    default:
+      encoding: "big5"
+    exceptions: {}
+  - id: "v5_1200_pref_zd_1200_p"
+    default:
+      encoding: "big5"
+    exceptions: {}
+  - id: "v5_1200_pref_zx_1200_p"
+    default:
+      encoding: "big5"
+    exceptions: {}
+  - id: "v5_1290_chin_chn_1290_c"
+    default:
+      encoding: "big5"
+    exceptions:
+      "gbk": ["H_DEP_PREF", "NOTES"]
+  - id: "v5_1290_chin_chn_1290_l"
+    default:
+      encoding: "big5"
+    exceptions: {}
+  - id: "v5_1290_chin_chn_1290_s"
+    default:
+      encoding: "big5"
+    exceptions: {}
+  - id: "v5_1290_circ_bei_1290_l"
+    default:
+      encoding: "big5"
+    exceptions: {}
+  - id: "v5_1290_circ_ckn_1290_l"
+    default:
+      encoding: "big5"
+    exceptions: {}
+  - id: "v5_1290_circ_gs_1290_l"
+    default:
+      encoding: "big5"
+    exceptions:
+      "gbk": ["H_CHINPROV"]
+  - id: "v5_1290_circ_ham_1290_l"
+    default:
+      encoding: "big5"
+    exceptions: {}
+  - id: "v5_1290_circ_haz_1290_l"
+    default:
+      encoding: "big5"
+    exceptions: {}
+  - id: "v5_1290_circ_hg_1290_l"
+    default:
+      encoding: "big5"
+    exceptions:
+      "gbk": ["H_CHINPROV", "H_CHIN_PRF"]
+  - id: "v5_1290_circ_hn_1290_l"
+    default:
+      encoding: "big5"
+    exceptions:
+      "gbk": ["H_CHINPROV"]
+  - id: "v5_1290_circ_jx_1290_l"
+    default:
+      encoding: "big5"
+    exceptions: {}
+  - id: "v5_1290_circ_jz_1290_l"
+    default:
+      encoding: "big5"
+    exceptions: {}
+  - id: "v5_1290_circ_lb_1290_l"
+    default:
+      encoding: "big5"
+    exceptions: {}
+  - id: "v5_1290_circ_ly_1290_l"
+    default:
+      encoding: "big5"
+    exceptions:
+      "gbk": ["H_CHINPROV"]
+  - id: "v5_1290_circ_si_1290_l"
+    default:
+      encoding: "big5"
+    exceptions: {}
+  - id: "v5_1290_circ_sx_1290_l"
+    default:
+      encoding: "big5"
+    exceptions:
+      "gbk": ["H_CHINPROV"]
+  - id: "v5_1290_circ_tai_1290_l"
+    default:
+      encoding: "gbk"
+    exceptions: {}
+  - id: "v5_1290_circ_xz_1200_l"
+    default:
+      encoding: "big5"
+    exceptions: {}
+  - id: "v5_1290_circ_yn_1290_l"
+    default:
+      encoding: "big5"
+    exceptions:
+      "gbk": ["H_CHINPROV", "H_CHIN_PRF"]
+  - id: "v5_1290_circ_zs_1290_l"
+    default:
+      encoding: "big5"
+    exceptions: {}
+  - id: "v5_1290_cnty_bei_1290_c"
+    default:
+      encoding: "gbk"
+    exceptions:
+      "big5": ["H_CHINPROV", "H_SUP_CHPV", "H_UNICODE_"]
+  - id: "v5_1290_cnty_ckn_1290_c"
+    default:
+      encoding: "big5"
+    exceptions:
+      "gbk": ["CHINP090PV"]
+  - id: "v5_1290_cnty_gs_1290_c"
+    default:
+      encoding: "big5"
+    exceptions:
+      "gbk": ["H_CHINPROV"]
+  - id: "v5_1290_cnty_ham_1290_c"
+    default:
+      encoding: "big5"
+    exceptions:
+      "gbk": ["CHINP090PV"]
+  - id: "v5_1290_cnty_haz_1290_c"
+    default:
+      encoding: "big5"
+    exceptions:
+      "gbk": ["CHINP090PV"]
+  - id: "v5_1290_cnty_hg_1290_c"
+    default:
+      encoding: "big5"
+    exceptions:
+      "gbk": ["H_CHINPROV", "H_CHIN_PRF", "NOTES"]
+  - id: "v5_1290_cnty_hn_1290_c"
+    default:
+      encoding: "big5"
+    exceptions:
+      "gbk": ["H_CHINPROV", "NOTES"]
+  - id: "v5_1290_cnty_jx_1290_c"
+    default:
+      encoding: "big5"
+    exceptions:
+      "gbk": ["H_DEP_PREF", "NOTES"]
+  - id: "v5_1290_cnty_jz_1290_c"
+    default:
+      encoding: "big5"
+    exceptions:
+      "gbk": ["NOTES"]
+  - id: "v5_1290_cnty_lb_1290_c"
+    default:
+      encoding: "big5"
+    exceptions: {}
+  - id: "v5_1290_cnty_ly_1290_c"
+    default:
+      encoding: "big5"
+    exceptions:
+      "gbk": ["H_CHINPROV"]
+  - id: "v5_1290_cnty_si_1290_c"
+    default:
+      encoding: "big5"
+    exceptions:
+      "gbk": ["NOTES"]
+  - id: "v5_1290_cnty_sx_1290_c"
+    default:
+      encoding: "big5"
+    exceptions:
+      "gbk": ["H_CHINPROV"]
+      "utf-8": ["NOTES"]
+  - id: "v5_1290_cnty_tai_1290_c"
+    default:
+      encoding: "big5"
+    exceptions:
+      "gbk": ["CHINP090PV", "H_UNICODE_"]
+  - id: "v5_1290_cnty_xz_1200_c"
+    default:
+      encoding: "big5"
+    exceptions:
+      "gbk": ["CHARACTER_", "CHINP090PV", "P90PRFCHIN"]
+  - id: "v5_1290_cnty_yn_1290_c"
+    default:
+      encoding: "big5"
+    exceptions:
+      "gbk": ["H_CHINPROV"]
+  - id: "v5_1290_cnty_zs_1290_c"
+    default:
+      encoding: "big5"
+    exceptions:
+      "gbk": ["NOTES"]
+  - id: "v5_1290_prov_bei_1290_s"
+    default:
+      encoding: "big5"
+    exceptions: {}
+  - id: "v5_1290_prov_ckn_1290_s"
+    default:
+      encoding: "big5"
+    exceptions: {}
+  - id: "v5_1290_prov_gs_1290_s"
+    default:
+      encoding: "big5"
+    exceptions:
+      "gbk": ["H_CHINPROV"]
+  - id: "v5_1290_prov_ham_1290_s"
+    default:
+      encoding: "big5"
+    exceptions: {}
+  - id: "v5_1290_prov_haz_1290_s"
+    default:
+      encoding: "big5"
+    exceptions: {}
+  - id: "v5_1290_prov_hg_1290_s"
+    default:
+      encoding: "big5"
+    exceptions:
+      "gbk": ["H_CHINPROV"]
+  - id: "v5_1290_prov_hn_1290_s"
+    default:
+      encoding: "big5"
+    exceptions:
+      "gbk": ["H_CHINPROV"]
+  - id: "v5_1290_prov_jx_1290_s"
+    default:
+      encoding: "big5"
+    exceptions: {}
+  - id: "v5_1290_prov_jz_1290_s"
+    default:
+      encoding: "big5"
+    exceptions: {}
+  - id: "v5_1290_prov_lb_1290_s"
+    default:
+      encoding: "big5"
+    exceptions: {}
+  - id: "v5_1290_prov_ly_1290_s"
+    default:
+      encoding: "big5"
+    exceptions:
+      "gbk": ["H_CHINPROV"]
+  - id: "v5_1290_prov_si_1290_s"
+    default:
+      encoding: "big5"
+    exceptions: {}
+  - id: "v5_1290_prov_sx_1290_s"
+    default:
+      encoding: "big5"
+    exceptions:
+      "gbk": ["H_CHINPROV"]
+  - id: "v5_1290_prov_tai_1290_s"
+    default:
+      encoding: "gbk"
+    exceptions: {}
+  - id: "v5_1290_prov_xz_1200s"
+    default:
+      encoding: "big5"
+    exceptions: {}
+  - id: "v5_1290_prov_yn_1290_s"
+    default:
+      encoding: "big5"
+    exceptions:
+      "gbk": ["H_CHINPROV"]
+  - id: "v5_1290_prov_zs_1290_s"
+    default:
+      encoding: "big5"
+    exceptions: {}
+  - id: "v5_1391_chin_chn_1391_c"
+    default:
+      encoding: "big5"
+    exceptions:
+      "gbk": ["NOTES"]
+  - id: "v5_1391_chin_chn_1391_p"
+    default:
+      encoding: "big5"
+    exceptions: {}
+  - id: "v5_1391_chin_chn_1391_s"
+    default:
+      encoding: "big5"
+    exceptions: {}
+  - id: "v5_1391_cnty_hn_1391_c"
+    default:
+      encoding: "big5"
+    exceptions:
+      "gbk": ["H_CHINCIR", "H_CHINPROV"]
+  - id: "v5_1391_cnty_js_1391_c"
+    default:
+      encoding: "big5"
+    exceptions:
+      "gbk": ["H_CHINCIR", "H_CHINPROV", "NOTES"]
+  - id: "v5_1391_cnty_ld_1391_c"
+    default:
+      encoding: "big5"
+    exceptions:
+      "gbk": ["H_CHINCIR", "H_CHINPROV"]
+  - id: "v5_1391_cnty_neg_1391_c"
+    default:
+      encoding: "big5"
+    exceptions:
+      "gbk": ["NOTES"]
+  - id: "v5_1391_cnty_nj_1391_c"
+    default:
+      encoding: "big5"
+    exceptions:
+      "gbk": ["H_CHINCIR", "H_CHINPROV", "H_CHIN_PRF", "NOTES"]
+  - id: "v5_1391_cnty_sa_1391_c"
+    default:
+      encoding: "big5"
+    exceptions:
+      "gbk": ["H_CHINCIR", "H_CHINPROV", "NOTES"]
+  - id: "v5_1391_cnty_sd_1391_c"
+    default:
+      encoding: "big5"
+    exceptions:
+      "gbk": ["NOTES"]
+  - id: "v5_1391_cnty_sx_1391_c"
+    default:
+      encoding: "big5"
+    exceptions: {}
+  - id: "v5_1391_cnty_zd_1391_c"
+    default:
+      encoding: "big5"
+    exceptions:
+      "gbk": ["H_CHINCIR", "H_CHINPROV", "NOTES"]
+  - id: "v5_1391_cnty_zlz_1391_c"
+    default:
+      encoding: "big5"
+    exceptions: {}
+  - id: "v5_1391_pref_dd_1391_p"
+    default:
+      encoding: "gbk"
+    exceptions:
+      "big5": ["H_SUP_CHPV"]
+  - id: "v5_1391_pref_dg_1391_p"
+    default:
+      encoding: "big5"
+    exceptions: {}
+  - id: "v5_1391_pref_dl_1391_p"
+    default:
+      encoding: "gbk"
+    exceptions:
+      "big5": ["H_SUP_CHPV"]
+  - id: "v5_1391_pref_fj_1391_p"
+    default:
+      encoding: "big5"
+    exceptions: {}
+  - id: "v5_1391_pref_gd_1391_p"
+    default:
+      encoding: "big5"
+    exceptions:
+      "gbk": ["H_CHINCIR", "H_CHINPROV", "H_CHIN_DPR"]
+  - id: "v5_1391_pref_gx_1391_p"
+    default:
+      encoding: "big5"
+    exceptions:
+      "gbk": ["H_CHINCIR", "H_CHINPROV"]
+  - id: "v5_1391_pref_gz_1391_p"
+    default:
+      encoding: "big5"
+    exceptions: {}
+  - id: "v5_1391_pref_hg_1391_p"
+    default:
+      encoding: "big5"
+    exceptions:
+      "gbk": ["H_CHINCIR", "H_CHINPROV"]
+  - id: "v5_1391_pref_hn_1391_p"
+    default:
+      encoding: "big5"
+    exceptions:
+      "gbk": ["H_CHINCIR", "H_CHINPROV"]
+  - id: "v5_1391_pref_js_1391_p"
+    default:
+      encoding: "big5"
+    exceptions:
+      "gbk": ["H_CHINCIR", "H_CHINPROV"]
+  - id: "v5_1391_pref_jx_1391_p"
+    default:
+      encoding: "big5"
+    exceptions: {}
+  - id: "v5_1391_pref_ld_1391_p"
+    default:
+      encoding: "big5"
+    exceptions:
+      "gbk": ["H_CHINCIR", "H_CHINPROV"]
+  - id: "v5_1391_pref_ned_1391_p"
+    default:
+      encoding: "big5"
+    exceptions: {}
+  - id: "v5_1391_pref_nj_1391_p"
+    default:
+      encoding: "gbk"
+    exceptions:
+      "big5": ["H_SUP_CHPV"]
+  - id: "v5_1391_pref_sa_1391_p"
+    default:
+      encoding: "big5"
+    exceptions:
+      "gbk": ["H_CHINCIR", "H_CHINPROV"]
+  - id: "v5_1391_pref_sd_1391_p"
+    default:
+      encoding: "big5"
+    exceptions: {}
+  - id: "v5_1391_pref_si_1391_p"
+    default:
+      encoding: "big5"
+    exceptions: {}
+  - id: "v5_1391_pref_sx_1391_p"
+    default:
+      encoding: "big5"
+    exceptions:
+      "gbk": ["H_CHIN_DPR"]
+  - id: "v5_1391_pref_tf_1391_p"
+    default:
+      encoding: "big5"
+    exceptions: {}
+  - id: "v5_1391_pref_tw_1391_p"
+    default:
+      encoding: "big5"
+    exceptions: {}
+  - id: "v5_1391_pref_wsx_1391_p"
+    default:
+      encoding: "big5"
+    exceptions: {}
+  - id: "v5_1391_pref_yl_1391_p"
+    default:
+      encoding: "big5"
+    exceptions: {}
+  - id: "v5_1391_pref_yn_1391_p"
+    default:
+      encoding: "big5"
+    exceptions:
+      "gbk": ["H_CHINCIR", "H_CHINPROV"]
+  - id: "v5_1391_pref_zd_1391_p"
+    default:
+      encoding: "big5"
+    exceptions:
+      "gbk": ["H_CHINCIR", "H_CHINPROV"]
+  - id: "v5_1391_pref_zj_1391_p"
+    default:
+      encoding: "big5"
+    exceptions: {}
+  - id: "v5_1391_pref_zlz_1391_p"
+    default:
+      encoding: "big5"
+    exceptions: {}
+  - id: "v5_1820_cnty_pts_utf"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "v5_1820_coast_lin"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "v5_1820_coded_rvr_lin_utf"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "v5_1820_lks_pgn_utf"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "v5_1820_pref_pgn_utf"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "v5_1820_pref_pts_utf"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "v5_1820_prov_pgn_utf"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "v5_1820_prov_pts_utf"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "v5_1820_twn_pts_utf"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "v5_1900_cnty_1990"
+    default:
+      encoding: "big5"
+    exceptions:
+      "cp1252": ["NOTES"]
+      "gbk": ["CAPITAL_AD"]
+  - id: "v5_1911_cnty_pgn_utf"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "v5_1911_cnty_pts_utf"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "v5_1911_pref_pgn_utf"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "v5_1911_pref_pts_utf"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "v5_1911_prov_pgn_utf"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "v5_1911_prov_pts_utf"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "v5_1911_twn_pts_utf"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "v5_1926_prov_pgn_utf"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "v5_1997_prov_pgn_utf"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "v5_2009_tibet_twns_pts_geom"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "v5_2009_tibet_twns_pts_utf"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "v5_chinaw_pts_utf"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "v5_citas90_cnty_pgn_utf"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "v5_citas90_pref_pgn_utf"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "v5_gns_anhui_gbk"
+    default:
+      encoding: "cp1252"
+    exceptions:
+      "gbk": ["CNTY_CH"]
+  - id: "v5_gns_beijing_gbk"
+    default:
+      encoding: "cp1252"
+    exceptions:
+      "gbk": ["CNTY_CH"]
+  - id: "v5_gns_fujian_gbk"
+    default:
+      encoding: "cp1252"
+    exceptions:
+      "gbk": ["CNTY_CH"]
+  - id: "v5_gns_gansu_gbk"
+    default:
+      encoding: "gbk"
+    exceptions:
+      "cp1252": ["NAME"]
+  - id: "v5_gns_guangdong_gbk"
+    default:
+      encoding: "cp1252"
+    exceptions:
+      "gbk": ["CNTY_CH"]
+  - id: "v5_gns_guangxi_gbk"
+    default:
+      encoding: "cp1252"
+    exceptions:
+      "gbk": ["CNTY_CH"]
+  - id: "v5_gns_guizhou_gbk"
+    default:
+      encoding: "cp1252"
+    exceptions:
+      "gbk": ["CNTY_CH"]
+  - id: "v5_gns_hainan_gbk"
+    default:
+      encoding: "cp1252"
+    exceptions:
+      "gbk": ["CNTY_CH"]
+  - id: "v5_gns_hebei_gbk"
+    default:
+      encoding: "cp1252"
+    exceptions:
+      "gbk": ["CNTY_CH"]
+  - id: "v5_gns_heilongjiang_gbk"
+    default:
+      encoding: "cp1252"
+    exceptions:
+      "gbk": ["CNTY_CH"]
+  - id: "v5_gns_henan_gbk"
+    default:
+      encoding: "cp1252"
+    exceptions:
+      "gbk": ["CNTY_CH"]
+  - id: "v5_gns_hubei_gbk"
+    default:
+      encoding: "cp1252"
+    exceptions:
+      "gbk": ["CNTY_CH"]
+  - id: "v5_gns_hunan_gbk"
+    default:
+      encoding: "cp1252"
+    exceptions:
+      "gbk": ["CNTY_CH"]
+  - id: "v5_gns_jiangsu_gbk"
+    default:
+      encoding: "cp1252"
+    exceptions:
+      "gbk": ["CNTY_CH"]
+  - id: "v5_gns_jiangxi_gbk"
+    default:
+      encoding: "cp1252"
+    exceptions:
+      "gbk": ["CNTY_CH"]
+  - id: "v5_gns_jilin_gbk"
+    default:
+      encoding: "cp1252"
+    exceptions:
+      "gbk": ["CNTY_CH"]
+  - id: "v5_gns_liaoning_gbk"
+    default:
+      encoding: "cp1252"
+    exceptions:
+      "gbk": ["CNTY_CH"]
+  - id: "v5_gns_neimeng_gbk"
+    default:
+      encoding: "cp1252"
+    exceptions:
+      "gbk": ["CNTY_CH"]
+  - id: "v5_gns_ningxia_gbk"
+    default:
+      encoding: "cp1252"
+    exceptions:
+      "gbk": ["CNTY_CH"]
+  - id: "v5_gns_qinghai_gbk"
+    default:
+      encoding: "gbk"
+    exceptions:
+      "cp1252": ["NAME"]
+  - id: "v5_gns_shaanxi_gbk"
+    default:
+      encoding: "gbk"
+    exceptions:
+      "cp1252": ["NAME"]
+  - id: "v5_gns_shandong_gbk"
+    default:
+      encoding: "cp1252"
+    exceptions:
+      "gbk": ["CNTY_CH"]
+  - id: "v5_gns_shanghai_gbk"
+    default:
+      encoding: "cp1252"
+    exceptions:
+      "gbk": ["CNTY_CH"]
+  - id: "v5_gns_shanxi_gbk"
+    default:
+      encoding: "gbk"
+    exceptions:
+      "cp1252": ["NAME"]
+  - id: "v5_gns_sichuan_gbk"
+    default:
+      encoding: "gbk"
+    exceptions:
+      "cp1252": ["NAME"]
+  - id: "v5_gns_tianjin_gbk"
+    default:
+      encoding: "cp1252"
+    exceptions:
+      "gbk": ["CNTY_CH"]
+  - id: "v5_gns_tibet_gbk"
+    default:
+      encoding: "cp1252"
+    exceptions:
+      "gbk": ["CNTY_CH"]
+  - id: "v5_gns_xinjiang_gbk"
+    default:
+      encoding: "gbk"
+    exceptions:
+      "cp1252": ["NAME"]
+  - id: "v5_gns_yunnan_gbk"
+    default:
+      encoding: "gbk"
+    exceptions:
+      "cp1252": ["NAME"]
+  - id: "v5_gns_zhejiang_gbk"
+    default:
+      encoding: "cp1252"
+    exceptions:
+      "gbk": ["CNTY_CH"]
+  - id: "v5_physiogmacroregions_pgn"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "v5_physiogmacroregions_pgn_utf"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "v5_smr_pgn_utf_wgs"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "v5_smr_pgn_utf_xian"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "v5_smr_subr_pgn_utf_wgs"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "v5_smr_subr_pgn_utf_xian"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "v5_time_cnty_pts_utf"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "v5_time_pref_pgn_utf"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "v5_time_pref_pts_utf"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "v6_1820_cnty_pts_utf"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "v6_1820_coded_rvr_lin_utf"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "v6_1820_lks_pgn_utf"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "v6_1820_pref_pgn_utf"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "v6_1820_pref_pts_utf"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "v6_1820_prov_pgn_utf"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "v6_1820_prov_pts_utf"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "v6_1820_twn_pts_utf"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "v6_1911_cnty_pgn_utf"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "v6_1911_cnty_pts_utf"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "v6_1911_pref_pgn_utf"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "v6_1911_pref_pts_utf"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "v6_1911_prov_pgn_utf"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "v6_1911_prov_pts_utf"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "v6_1911_twn_pts_utf"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "v6_citas90_cnty_pgn_gbk"
+    default:
+      encoding: "gbk"
+    exceptions: {}
+  - id: "v6_citas90_pref_pgn_gbk"
+    default:
+      encoding: "gbk"
+    exceptions: {}
+  - id: "v6_citas90_prov_pgn_gbk"
+    default:
+      encoding: "gbk"
+    exceptions: {}
+  - id: "v6_time_cnty_pts_utf_wgs84"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "v6_time_pref_pgn_utf_wgs84"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "v6_time_pref_pts_utf_wgs84"
+    default:
+      encoding: "utf-8"
+    exceptions: {}

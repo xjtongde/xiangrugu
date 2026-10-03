@@ -84,8 +84,8 @@ def promote(db, entry):
 def _shapefile_cell(raw, f, fam):
     """importer 侧列级解码（独立实现，§6.1）：raw 字段字节 → str|None。
 
-    N 字段按 ASCII 原样保真（禁 float）；C/D/L/M 按判表定编码 strict 解码；
-    判不定 → None（该列不装）。"""
+    N 字段按 ASCII 原样保真（禁 float）；C/D/L/M 按判表定编码解码，
+    非法/截断字节 → U+FFFD（每处一个，两端一致）；判不定 → None（该列不装）。"""
     if f["type"] == "N":
         s = raw.strip(b" \x00").decode("ascii", "strict")
         return None if s == "" else s
@@ -93,11 +93,49 @@ def _shapefile_cell(raw, f, fam):
     enc = decode.col_encoding(fam, f["name"])
     if enc is None:
         return None
-    return body.decode(enc, "strict")
+    return body.decode(enc, "replace")
 
 
 def _deleted_indices(dbf_bytes):
     return {i for i, (_, deleted) in enumerate(dbf.iter_records(dbf_bytes)) if deleted}
+
+
+def _feat_wkt(feat):
+    """规范化几何 → WKT（repr 双精度原样；含 Z；PolyLine/Polygon 一律 MULTI）。Null → None。"""
+    t = feat["type"]
+    if t == "Null":
+        return None
+    z = " Z" if feat.get("z") else ""
+    g = feat["geom"]
+    if t == "Point":
+        return f"POINT{z}({' '.join(repr(c) for c in g)})"
+    if t == "MultiPoint":
+        return "MULTIPOINT(" + ",".join("(" + " ".join(repr(c) for c in p) + ")" for p in g) + ")"
+    if t == "MultiLineString":
+        return (f"MULTILINESTRING{z}("
+                + ",".join("(" + ",".join(" ".join(repr(c) for c in v) for v in line) + ")" for line in g)
+                + ")")
+    if t == "MultiPolygon":
+        def ring(r):
+            return "(" + ",".join(" ".join(repr(c) for c in v) for v in r) + ")"
+        return "MULTIPOLYGON(" + ",".join("(" + ",".join(ring(r) for r in poly) + ")" for poly in g) + ")"
+    raise ValueError(f"未知几何类型 {t}")
+
+
+def _feat_vertices(feat):
+    """规范化几何 → 顶点扁平序列（canonical 顺序，含 Z；供校验器与 ST_DumpPoints 对齐）。"""
+    t = feat["type"]
+    if t in ("Null",):
+        return []
+    if t == "Point":
+        return [feat["geom"]]
+    if t == "MultiPoint":
+        return list(feat["geom"])
+    if t == "MultiLineString":
+        return [v for line in feat["geom"] for v in line]
+    if t == "MultiPolygon":
+        return [v for poly in feat["geom"] for ring in poly for v in ring]
+    return []
 
 
 def load_shapefile_staging(db, entry):
@@ -135,7 +173,8 @@ def load_shapefile_staging(db, entry):
 
 
 def load_shapefile_geom(db, entry):
-    """读 .shp Point 要素 → <table>__geom_stg(__rid, geom)。__rid 同源记录序号，跳过 DBF 删除标记者。CRS 照存不转。"""
+    """读 .shp 全类型要素 → <table>__geom_stg(__rid, geom)。__rid=源记录序号，跳过删除标记。CRS 照存不转。
+    几何类型照源（Point/ MultiPoint/ MultiLineString(PolyLine)/ MultiPolygon(Polygon)，Z 保留）。"""
     schema, tname = _target_parts(entry)
     srid = int(entry["geom"]["srid"])
     ensure_schemas(db)
@@ -143,28 +182,34 @@ def load_shapefile_geom(db, entry):
     shp_bytes = read_member(entry["key"], ".shp", required=True)
     dbf_bytes = read_member(entry["key"], ".dbf")
     delidx = _deleted_indices(dbf_bytes) if dbf_bytes is not None else set()
-    pts = [(i, x, y) for i, (x, y) in enumerate(shp.iter_points(shp_bytes)) if i not in delidx]
+
+    rows = []
+    for i, feat in enumerate(shp.iter_features(shp_bytes)):
+        if i in delidx:
+            continue
+        wkt = _feat_wkt(feat)
+        rows.append(f"{i}," + ("NULL" if wkt is None else _csv_field(wkt)))
 
     sq, gtab = quote_ident(schema), quote_ident(tname + "__geom_stg")
     execute(db, f"DROP TABLE IF EXISTS {sq}.{gtab};")
-    execute(db, f"CREATE TABLE {sq}.{gtab} (__rid bigint, geom geometry(Point,{srid}));")
+    execute(db, f"CREATE TABLE {sq}.{gtab} (__rid bigint, geom geometry);")
     scratch = quote_ident("_g_scratch")
     execute(db, f"DROP TABLE IF EXISTS {sq}.{scratch};")
-    execute(db, f"CREATE TABLE {sq}.{scratch}(__rid bigint, x double precision, y double precision);")
-    lines = [f"{i},{repr(x)},{repr(y)}" for (i, x, y) in pts]
-    copy_stream(db, f"COPY {sq}.{scratch}(__rid,x,y) FROM STDIN WITH (FORMAT csv);", "\n".join(lines))
-    execute(db, f"INSERT INTO {sq}.{gtab} SELECT __rid, ST_SetSRID(ST_Point(x,y), {srid}) FROM {sq}.{scratch};")
+    execute(db, f"CREATE TABLE {sq}.{scratch}(__rid bigint, wkt text);")
+    copy_stream(db, f"COPY {sq}.{scratch}(__rid,wkt) FROM STDIN WITH (FORMAT csv);", "\n".join(rows))
+    execute(db, f"INSERT INTO {sq}.{gtab} "
+                f"SELECT __rid, CASE WHEN wkt IS NULL THEN NULL ELSE ST_GeomFromText(wkt, {srid}) END "
+                f"FROM {sq}.{scratch};")
     execute(db, f"DROP TABLE IF EXISTS {sq}.{scratch};")
-    return gtab, len(pts)
+    return gtab, len(rows)
 
 
 def assemble_shapefile(db, entry):
-    """几何并入正表：__stg 加 geom 列→按 __rid 回填→去 __rid→删 __geom_stg→换名正表。§5.5。"""
+    """几何并入正表：__stg 加 geom 列（无 typmod，SRID 已烘焙于值）→按 __rid 回填→去 __rid→删 __geom_stg→换名正表。§5.5。"""
     schema, tname = _target_parts(entry)
-    srid = int(entry["geom"]["srid"])
     sq, stg = quote_ident(schema), quote_ident(tname + "__stg")
     gtab = quote_ident(tname + "__geom_stg")
-    execute(db, f"ALTER TABLE {sq}.{stg} ADD COLUMN geom geometry(Point,{srid});")
+    execute(db, f"ALTER TABLE {sq}.{stg} ADD COLUMN geom geometry;")
     execute(db, f"UPDATE {sq}.{stg} a SET geom = g.geom FROM {sq}.{gtab} g WHERE g.__rid = a.__rid;")
     execute(db, f"ALTER TABLE {sq}.{stg} DROP COLUMN __rid;")
     execute(db, f"DROP TABLE IF EXISTS {sq}.{gtab};")

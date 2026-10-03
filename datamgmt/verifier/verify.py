@@ -9,6 +9,7 @@ import csv
 import io
 import json
 import os
+import struct
 import sys
 from collections import Counter
 from decimal import Decimal
@@ -66,7 +67,7 @@ def _dbf_cell(raw, f, fam):
     enc = decode.col_encoding(fam, f["name"])
     if enc is None:
         return None
-    return body.decode(enc, "strict")
+    return body.decode(enc, "replace")
 
 
 def _gates(db, schema, tname, colnames, pg_types, src_cells):
@@ -123,8 +124,31 @@ def verify_sqlite(db, entry):
     return _gates(db, schema, tname, colnames, pg_types, src_cells)
 
 
+def _feat_vertices_v(feat):
+    """verifier 侧独立实现：规范化几何 → 顶点扁平序列（canonical 顺序，含 Z）。"""
+    t = feat["type"]
+    if t in ("Null",):
+        return []
+    if t == "Point":
+        return [feat["geom"]]
+    if t == "MultiPoint":
+        return list(feat["geom"])
+    if t == "MultiLineString":
+        return [v for line in feat["geom"] for v in line]
+    if t == "MultiPolygon":
+        return [v for poly in feat["geom"] for ring in poly for v in ring]
+    return []
+
+
+_EXPECT_GEOM_TYPES = {
+    1: {"ST_Point"}, 8: {"ST_MultiPoint"},
+    3: {"ST_MultiLineString"}, 5: {"ST_MultiPolygon"},
+    11: {"ST_Point", "ST_PointZ"}, 13: {"ST_MultiLineString", "ST_MultiLineStringZ"},
+}
+
+
 def verify_shapefile_geom(db, entry):
-    """腿B 几何闸：计数 / SRID / 类型 / 顶点多重集（与源 .shp 双精度原值逐点全等）。"""
+    """腿B 几何闸：计数 / SRID / 类型 / 顶点多重集（与源 .shp 双精度原值逐点全等，含 Z）。"""
     schema, tname = entry["target"].split(".", 1)
     tname = tname.lower()
     srid = str(entry["geom"]["srid"])
@@ -132,29 +156,44 @@ def verify_shapefile_geom(db, entry):
     dbf_bytes = srcopen.read_member(entry["key"], ".dbf")
     delidx = ({i for i, (_, deleted) in enumerate(dbf.iter_records(dbf_bytes)) if deleted}
               if dbf_bytes is not None else set())   # 无属性层（geometry_only）无 .dbf
-    pts = [(x, y) for i, (x, y) in enumerate(shp.iter_points(shp_bytes)) if i not in delidx]
-    src_multi = Counter((float(x).hex(), float(y).hex()) for x, y in pts)
+
+    header_type = struct.unpack_from("<I", shp_bytes, 32)[0]
+    feats = [f for i, f in enumerate(shp.iter_features(shp_bytes)) if i not in delidx]
+    src_multi = Counter()
+    for f in feats:
+        for v in _feat_vertices_v(f):
+            src_multi[tuple(c.hex() for c in v)] += 1
 
     sq, gtab = quote_ident(schema), quote_ident(tname + "__geom_stg")
     cnt = int(rows(db, f"SELECT count(*) FROM {sq}.{gtab};")[0][0])
-    if cnt != len(pts):
+    if cnt != len(feats):
         return {"table": f"{schema}.{tname}.geom", "verdict": "FAIL", "stopped_at": "g2_geom",
-                "g2_count": {"pass": False, "expect": len(pts), "got": cnt}}
+                "g2_count": {"pass": False, "expect": len(feats), "got": cnt}}
 
-    srids = [r[0] for r in rows(db, f"SELECT DISTINCT ST_SRID(geom)::text FROM {sq}.{gtab};")]
-    gtypes = [r[0] for r in rows(db, f"SELECT DISTINCT ST_GeometryType(geom) FROM {sq}.{gtab};")]
-    if srids != [srid] or gtypes != ["ST_Point"]:
+    srids = [r[0] for r in rows(db, f"SELECT DISTINCT ST_SRID(geom)::text FROM {sq}.{gtab} WHERE geom IS NOT NULL;")]
+    gtypes = [r[0] for r in rows(db, f"SELECT DISTINCT ST_GeometryType(geom) FROM {sq}.{gtab} WHERE geom IS NOT NULL;")]
+    expect_types = _EXPECT_GEOM_TYPES.get(header_type, set())
+    type_ok = srids == [srid] and (not gtypes or all(g in expect_types for g in gtypes))
+    if not type_ok:
         return {"table": f"{schema}.{tname}.geom", "verdict": "FAIL", "stopped_at": "g_geom_meta",
                 "srid": {"pass": srids == [srid], "expect": [srid], "got": srids},
-                "type": {"pass": gtypes == ["ST_Point"], "expect": ["ST_Point"], "got": gtypes}}
+                "type": {"pass": type_ok, "expect": sorted(expect_types), "got": gtypes}}
 
-    db_pts = rows(db, f"SELECT ST_X(geom)::text, ST_Y(geom)::text FROM {sq}.{gtab};")
-    db_multi = Counter((float(r[0]).hex(), float(r[1]).hex()) for r in db_pts)
+    zflag = header_type in (11, 13)
+    q = (f"SELECT g.__rid, ST_X((d).geom)::text, ST_Y((d).geom)::text, ST_Z((d).geom)::text "
+         f"FROM {sq}.{gtab} g, LATERAL ST_DumpPoints(g.geom) d "
+         f"ORDER BY g.__rid, (d).path;")
+    db_multi = Counter()
+    for r in rows(db, q):
+        x, y = float(r[1]).hex(), float(r[2]).hex()
+        key = (x, y, float(r[3]).hex()) if zflag else (x, y)
+        db_multi[key] += 1
+
     d1, d2 = src_multi - db_multi, db_multi - src_multi
     g3 = (not d1 and not d2)
     return {"table": f"{schema}.{tname}.geom", "verdict": "CONFORMS" if g3 else "FAIL",
-            "g2_count": {"pass": True, "expect": len(pts), "got": cnt},
-            "geom_meta": {"srid": srids, "type": gtypes},
+            "g2_count": {"pass": True, "expect": len(feats), "got": cnt},
+            "geom_meta": {"srid": srids, "type": gtypes, "z": zflag},
             "g3_vertex": {"pass": g3, "diff_src_only": len(d1), "diff_db_only": len(d2),
                           "samples_src_only": list(d1)[:5], "samples_db_only": list(d2)[:5]}}
 

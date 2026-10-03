@@ -1,0 +1,656 @@
+{
+  "n_issues": 58,
+  "issues": [
+    {
+      "target": "chgis.Ca1884route_przh_1251",
+      "col": "NAME_RUS",
+      "assigned": "GBK",
+      "sample_hex": "d2e0f2ebfbea2de1f3ebe0ea",
+      "sample_char": "Òàòëûê-áóëàê",
+      "decodes_fully": [
+        "cp1251",
+        "cp1252"
+      ]
+    },
+    {
+      "target": "chgis.China_HSR_2016_lines",
+      "col": "line_py",
+      "assigned": "cp1252",
+      "sample_hex": "6ec3ad6e672068c3a16e67206bc3a82079c3b96e207a6875c4816e207869c3a06e",
+      "sample_char": "nÃ­ng hÃ¡ng kÃ¨ yÃ¹n zhuÄ�n xiÃ n",
+      "decodes_fully": [
+        "utf-8",
+        "gb18030",
+        "gbk",
+        "cp1251"
+      ]
+    },
+    {
+      "target": "chgis.Ming_Garrisons",
+      "col": "type_ch",
+      "assigned": "GBK",
+      "sample_hex": "e58dab",
+      "sample_char": "å�«",
+      "decodes_fully": [
+        "utf-8",
+        "cp1251",
+        "cp932"
+      ]
+    },
+    {
+      "target": "chgis.TeaHorse_Minor_Routes_2016-04-08",
+      "col": "orig_zho",
+      "assigned": "GBK",
+      "sample_hex": "e5b08fe4b8ade794b8",
+      "sample_char": "å°�ä¸­ç”¸",
+      "decodes_fully": [
+        "utf-8"
+      ]
+    },
+    {
+      "target": "chgis.beijing_sites_v1",
+      "col": "hz_name",
+      "assigned": "GBK",
+      "sample_hex": "e58fa4e5aeab",
+      "sample_char": "å�¤å®«",
+      "decodes_fully": []
+    },
+    {
+      "target": "chgis.ca1876route_przh_1251",
+      "col": "NAME_RUS",
+      "assigned": "GBK",
+      "sample_hex": "d7e8ec2df7e82de3ee2de4e7fb",
+      "sample_char": "×èì-÷è-ãî-äçû",
+      "decodes_fully": [
+        "cp1251",
+        "cp1252"
+      ]
+    },
+    {
+      "target": "chgis.ca1876route_przh_ru",
+      "col": "NAME_RUS",
+      "assigned": "GBK",
+      "sample_hex": "d7e8ec2df7e82de3ee2de4e7fb",
+      "sample_char": "×èì-÷è-ãî-äçû",
+      "decodes_fully": [
+        "cp1251",
+        "cp1252"
+      ]
+    },
+    {
+      "target": "chgis.ca1884_przh_1251",
+      "col": "NAME_RUS",
+      "assigned": "GBK",
+      "sample_hex": "c1e0f82de0e3ece0",
+      "sample_char": "Áàø-àãìà",
+      "decodes_fully": [
+        "cp1251",
+        "cp1252"
+      ]
+    },
+    {
+      "target": "chgis.ca1884_przh_ru",
+      "col": "NAME_RUS",
+      "assigned": "GBK",
+      "sample_hex": "c1e0f82de0e3ece0",
+      "sample_char": "Áàø-àãìà",
+      "decodes_fully": [
+        "cp1251",
+        "cp1252"
+      ]
+    },
+    {
+      "target": "chgis.ca1884route_przh_ru",
+      "col": "NAME_RUS",
+      "assigned": "GBK",
+      "sample_hex": "d2e0f2ebfbea2de1f3ebe0ea",
+      "sample_char": "Òàòëûê-áóëàê",
+      "decodes_fully": [
+        "cp1251",
+        "cp1252"
+      ]
+    },
+    {
+      "target": "chgis.eastasia1871_przh_1251",
+      "col": "NAME_RUS",
+      "assigned": "GBK",
+      "sample_hex": "cfe5eae8ed",
+      "sample_char": "Ïåêèí",
+      "decodes_fully": [
+        "cp1251",
+        "cp1252"
+      ]
+    },
+    {
+      "target": "chgis.eastasia1871_przh_ru",
+      "col": "NAME_RUS",
+      "assigned": "GBK",
+      "sample_hex": "cfe5eae8ed",
+      "sample_char": "Ïåêèí",
+      "decodes_fully": [
+        "cp1251",
+        "cp1252"
+      ]
+    },
+    {
+      "target": "chgis.jp_dmyo_1664",
+      "col": "PRESENT_RO",
+      "assigned": "cp1252",
+      "sample_hex": "c58d747375736869",
+      "sample_char": "Å�tsushi",
+      "decodes_fully": [
+        "utf-8",
+        "gb18030",
+        "gbk",
+        "cp1251",
+        "cp932"
+      ]
+    },
+    {
+      "target": "chgis.jp_toku_dmyo_pts",
+      "col": "dmyo_kj",
+      "assigned": "GBK",
+      "sample_hex": "e4bd90e7abb9e7bea9e99a86",
+      "sample_char": "ä½�ç«¹ç¾©éš†",
+      "decodes_fully": []
+    },
+    {
+      "target": "chgis.jp_toku_dmyo_pts",
+      "col": "dmyo_kana",
+      "assigned": "GBK",
+      "sample_hex": "e381a4e3818ce3828be381aee381b6e381bee38195",
+      "sample_char": "ã�¤ã�Œã‚‹ã�®ã�¶ã�¾ã�•",
+      "decodes_fully": []
+    },
+    {
+      "target": "chgis.jp_toku_dmyo_pts",
+      "col": "seat_kj",
+      "assigned": "GBK",
+      "sample_hex": "e585abe688b8",
+      "sample_char": "å…«æˆ¸",
+      "decodes_fully": []
+    },
+    {
+      "target": "chgis.jp_toku_dmyo_pts",
+      "col": "seat_kana",
+      "assigned": "GBK",
+      "sample_hex": "e381a4e3818ce3828b",
+      "sample_char": "ã�¤ã�Œã‚‹",
+      "decodes_fully": []
+    },
+    {
+      "target": "chgis.jp_toku_dmyo_pts",
+      "col": "present_ro",
+      "assigned": "cp1252",
+      "sample_hex": "c58d74616b696d61636869",
+      "sample_char": "Å�takimachi",
+      "decodes_fully": [
+        "utf-8",
+        "gb18030",
+        "gbk",
+        "cp1251",
+        "cp932"
+      ]
+    },
+    {
+      "target": "chgis.kam1900_koz_ru",
+      "col": "NAME_RUS",
+      "assigned": "GBK",
+      "sample_hex": "cae0f0e02de3eeeb",
+      "sample_char": "Êàðà-ãîë",
+      "decodes_fully": [
+        "cp1251",
+        "cp1252"
+      ]
+    },
+    {
+      "target": "chgis.mk1899_koz_1251",
+      "col": "NAME_RUS",
+      "assigned": "GBK",
+      "sample_hex": "e1e5e720e8ece5ede8",
+      "sample_char": "áåç èìåíè",
+      "decodes_fully": [
+        "cp1251",
+        "cp1252"
+      ]
+    },
+    {
+      "target": "chgis.mk1899_koz_ru",
+      "col": "NAME_RUS",
+      "assigned": "GBK",
+      "sample_hex": "e1e5e720e8ece5ede8",
+      "sample_char": "áåç èìåíè",
+      "decodes_fully": [
+        "cp1251",
+        "cp1252"
+      ]
+    },
+    {
+      "target": "chgis.tib1900_pdb_ru",
+      "col": "NAME_RUS",
+      "assigned": "GBK",
+      "sample_hex": "e1e5e720e8ece5ede8",
+      "sample_char": "áåç èìåíè",
+      "decodes_fully": [
+        "cp1251",
+        "cp1252"
+      ]
+    },
+    {
+      "target": "chgis.tib19pdb",
+      "col": "NAME_RUS",
+      "assigned": "GBK",
+      "sample_hex": "e1e5e720e8ece5ede8",
+      "sample_char": "áåç èìåíè",
+      "decodes_fully": [
+        "cp1251",
+        "cp1252"
+      ]
+    },
+    {
+      "target": "chgis.tib19pdb",
+      "col": "NAME_RUS_2",
+      "assigned": "GBK",
+      "sample_hex": "cfe0ebf2e8",
+      "sample_char": "Ïàëòè",
+      "decodes_fully": [
+        "cp1251",
+        "cp1252",
+        "cp1253",
+        "cp932"
+      ]
+    },
+    {
+      "target": "chgis.tib19pdb",
+      "col": "NAME_RUO",
+      "assigned": "GBK",
+      "sample_hex": "e1e5e720e8ece5ede8",
+      "sample_char": "áåç èìåíè",
+      "decodes_fully": [
+        "cp1251",
+        "cp1252"
+      ]
+    },
+    {
+      "target": "chgis.v2_1820_pref_pgn_utf",
+      "col": "LEV1_CH",
+      "assigned": "GBK",
+      "sample_hex": "e4b98ce9878ce99b85e88b8fe58fb0",
+      "sample_char": "ä¹Œé‡Œé›…è‹�å�°",
+      "decodes_fully": [
+        "utf-8"
+      ]
+    },
+    {
+      "target": "chgis.v4_1820_pref_pgn_utf",
+      "col": "LEV1_CH",
+      "assigned": "GBK",
+      "sample_hex": "e4b98ce9878ce99b85e88b8fe58fb0",
+      "sample_char": "ä¹Œé‡Œé›…è‹�å�°",
+      "decodes_fully": [
+        "utf-8"
+      ]
+    },
+    {
+      "target": "chgis.v4_gns_gansu_gbk",
+      "col": "SHORT_FORM",
+      "assigned": "GBK",
+      "sample_hex": "4a6f6eea",
+      "sample_char": "Jonê",
+      "decodes_fully": [
+        "cp1251",
+        "cp1252",
+        "cp1253"
+      ]
+    },
+    {
+      "target": "chgis.v4_gns_qinghai_gbk",
+      "col": "SHORT_FORM",
+      "assigned": "GBK",
+      "sample_hex": "476164ea",
+      "sample_char": "Gadê",
+      "decodes_fully": [
+        "cp1251",
+        "cp1252",
+        "cp1253"
+      ]
+    },
+    {
+      "target": "chgis.v4_gns_sichuan_gbk",
+      "col": "SHORT_FORM",
+      "assigned": "GBK",
+      "sample_hex": "53ea7278fc",
+      "sample_char": "Sêrxü",
+      "decodes_fully": [
+        "cp1251",
+        "cp1252",
+        "cp1253"
+      ]
+    },
+    {
+      "target": "chgis.v4_gns_tibet_gbk",
+      "col": "SHORT_FORM",
+      "assigned": "GBK",
+      "sample_hex": "5269776f71ea",
+      "sample_char": "Riwoqê",
+      "decodes_fully": [
+        "cp1251",
+        "cp1252",
+        "cp1253"
+      ]
+    },
+    {
+      "target": "chgis.v4_ras_1871_neimeng_pts",
+      "col": "NAME_RUS",
+      "assigned": "GBK",
+      "sample_hex": "cfe5eae8ed",
+      "sample_char": "Ïåêèí",
+      "decodes_fully": [
+        "cp1251",
+        "cp1252"
+      ]
+    },
+    {
+      "target": "chgis.v4_ras_1876_xinjiang_pts",
+      "col": "NAME_RUS",
+      "assigned": "GBK",
+      "sample_hex": "d7e8ec2df7e82de3ee2de4e7fb",
+      "sample_char": "×èì-÷è-ãî-äçû",
+      "decodes_fully": [
+        "cp1251",
+        "cp1252"
+      ]
+    },
+    {
+      "target": "chgis.v4_ras_1884_qinghai_pts",
+      "col": "NAME_RUS",
+      "assigned": "GBK",
+      "sample_hex": "c1e0f82de0e3ece0",
+      "sample_char": "Áàø-àãìà",
+      "decodes_fully": [
+        "cp1251",
+        "cp1252"
+      ]
+    },
+    {
+      "target": "chgis.v4_ras_1884_tarim_pts",
+      "col": "NAME_RUS",
+      "assigned": "GBK",
+      "sample_hex": "d2e0f2ebfbea2de1f3ebe0ea",
+      "sample_char": "Òàòëûê-áóëàê",
+      "decodes_fully": [
+        "cp1251",
+        "cp1252"
+      ]
+    },
+    {
+      "target": "chgis.v4_ras_1899_meng_kham_pts",
+      "col": "NAME_RUS",
+      "assigned": "GBK",
+      "sample_hex": "e1e5e720e8ece5ede8",
+      "sample_char": "áåç èìåíè",
+      "decodes_fully": [
+        "cp1251",
+        "cp1252"
+      ]
+    },
+    {
+      "target": "chgis.v4_ras_1900_tibet_kham_pts",
+      "col": "NAME_RUS",
+      "assigned": "GBK",
+      "sample_hex": "cae0f0e02de3eeeb",
+      "sample_char": "Êàðà-ãîë",
+      "decodes_fully": [
+        "cp1251",
+        "cp1252"
+      ]
+    },
+    {
+      "target": "chgis.v4_ras_1904_tibet_pts",
+      "col": "NAME_RUS",
+      "assigned": "GBK",
+      "sample_hex": "e1e5e720e8ece5ede8",
+      "sample_char": "áåç èìåíè",
+      "decodes_fully": [
+        "cp1251",
+        "cp1252"
+      ]
+    },
+    {
+      "target": "chgis.v4_time_prov_pts_utf",
+      "col": "BEG_CHG_TY",
+      "assigned": "utf-8",
+      "sample_hex": "e69a82e697",
+      "sample_char": "æš‚æ—",
+      "decodes_fully": [
+        "cp1251"
+      ]
+    },
+    {
+      "target": "chgis.v5_0741_chin_chn_0741_c",
+      "col": "NOTES",
+      "assigned": "Big5",
+      "sample_hex": "b3c7cee4d5",
+      "sample_char": "³ÇÎäÕ",
+      "decodes_fully": [
+        "cp1251",
+        "cp1252"
+      ]
+    },
+    {
+      "target": "chgis.v5_0741_cnty_hb_0741_c",
+      "col": "NOTES",
+      "assigned": "Big5",
+      "sample_hex": "d4adceaaba",
+      "sample_char": "Ô­Îªº",
+      "decodes_fully": [
+        "cp1251",
+        "cp1252",
+        "cp932"
+      ]
+    },
+    {
+      "target": "chgis.v5_0741_cnty_hd_0741_c",
+      "col": "CAPITAL_CH",
+      "assigned": "Big5",
+      "sample_hex": "20abb0c3f6c2ed2020202020202020202020202020202020202020a1",
+      "sample_char": " «°ÃöÂí                    ¡",
+      "decodes_fully": [
+        "cp1251",
+        "cp1252"
+      ]
+    },
+    {
+      "target": "chgis.v5_0741_cnty_hn_0741_c",
+      "col": "NOTES",
+      "assigned": "Big5",
+      "sample_hex": "b3c7cee4d5",
+      "sample_char": "³ÇÎäÕ",
+      "decodes_fully": [
+        "cp1251",
+        "cp1252",
+        "cp1253"
+      ]
+    },
+    {
+      "target": "chgis.v5_1080_chin_chn_1080_c",
+      "col": "NOTES",
+      "assigned": "Big5",
+      "sample_hex": "bbaad2f5cf",
+      "sample_char": "»ªÒõÏ",
+      "decodes_fully": [
+        "cp1251",
+        "cp1252"
+      ]
+    },
+    {
+      "target": "chgis.v5_1080_cnty_kz_1080_c",
+      "col": "CAPITAL_CH",
+      "assigned": "Big5",
+      "sample_hex": "b9b6a7c2ed",
+      "sample_char": "¹¶§Âí",
+      "decodes_fully": [
+        "cp1251",
+        "cp1252"
+      ]
+    },
+    {
+      "target": "chgis.v5_1080_cnty_yx_1080_c",
+      "col": "NOTES",
+      "assigned": "Big5",
+      "sample_hex": "bbaad2f5cf",
+      "sample_char": "»ªÒõÏ",
+      "decodes_fully": [
+        "cp1251",
+        "cp1252",
+        "cp932"
+      ]
+    },
+    {
+      "target": "chgis.v5_1200_chin_chn_1200_c",
+      "col": "NOTES",
+      "assigned": "Big5",
+      "sample_hex": "d4adceaaba",
+      "sample_char": "Ô­Îªº",
+      "decodes_fully": [
+        "cp1251",
+        "cp1252"
+      ]
+    },
+    {
+      "target": "chgis.v5_1200_cnty_zd_1200_c",
+      "col": "NOTES",
+      "assigned": "Big5",
+      "sample_hex": "c1fac8aacfd8c1fad4a8d5f220494e20313939302043454e53555320424f4f4b",
+      "sample_char": "ÁúÈªÏØÁúÔ¨Õò IN 1990 CENSUS BOOK",
+      "decodes_fully": [
+        "gb18030",
+        "gbk",
+        "cp1251",
+        "cp1252"
+      ]
+    },
+    {
+      "target": "chgis.v5_1200_jin_cinty_hbd_1200_c",
+      "col": "NOTES",
+      "assigned": "Big5",
+      "sample_hex": "d4adceaaba",
+      "sample_char": "Ô­Îªº",
+      "decodes_fully": [
+        "cp1251",
+        "cp1252",
+        "cp932"
+      ]
+    },
+    {
+      "target": "chgis.v5_1290_chin_chn_1290_c",
+      "col": "NOTES",
+      "assigned": "Big5",
+      "sample_hex": "c1fac8aacfd8c1fad4a8d5f220494e20313939302043454e53555320424f4f4b",
+      "sample_char": "ÁúÈªÏØÁúÔ¨Õò IN 1990 CENSUS BOOK",
+      "decodes_fully": [
+        "gb18030",
+        "gbk",
+        "cp1251",
+        "cp1252"
+      ]
+    },
+    {
+      "target": "chgis.v5_1290_cnty_jz_1290_c",
+      "col": "NOTES",
+      "assigned": "Big5",
+      "sample_hex": "c1fac8aacfd8c1fad4a8d5f220494e20313939302043454e53555320424f4f4b",
+      "sample_char": "ÁúÈªÏØÁúÔ¨Õò IN 1990 CENSUS BOOK",
+      "decodes_fully": [
+        "gb18030",
+        "gbk",
+        "cp1251",
+        "cp1252"
+      ]
+    },
+    {
+      "target": "chgis.v5_1391_chin_chn_1391_c",
+      "col": "NOTES",
+      "assigned": "Big5",
+      "sample_hex": "c1fac8aacfd8c1fad4a8d5f220494e20313939302043454e53555320424f4f4b",
+      "sample_char": "ÁúÈªÏØÁúÔ¨Õò IN 1990 CENSUS BOOK",
+      "decodes_fully": [
+        "gb18030",
+        "gbk",
+        "cp1251",
+        "cp1252"
+      ]
+    },
+    {
+      "target": "chgis.v5_1391_cnty_sx_1391_c",
+      "col": "CAPITAL_CH",
+      "assigned": "Big5",
+      "sample_hex": "20abb0c3f6c2ed2020202020202020202020202020202020202020a1",
+      "sample_char": " «°ÃöÂí                    ¡",
+      "decodes_fully": [
+        "cp1251",
+        "cp1252"
+      ]
+    },
+    {
+      "target": "chgis.v5_1900_cnty_1990",
+      "col": "NOTES",
+      "assigned": "Big5",
+      "sample_hex": "c1fac8aacfd8c1fad4a8d5f220494e20313939302043454e53555320424f4f4b",
+      "sample_char": "ÁúÈªÏØÁúÔ¨Õò IN 1990 CENSUS BOOK",
+      "decodes_fully": [
+        "gb18030",
+        "cp1251",
+        "cp1252"
+      ]
+    },
+    {
+      "target": "chgis.v5_gns_gansu_gbk",
+      "col": "SHORT_FORM",
+      "assigned": "GBK",
+      "sample_hex": "4a6f6eea",
+      "sample_char": "Jonê",
+      "decodes_fully": [
+        "cp1251",
+        "cp1252",
+        "cp1253"
+      ]
+    },
+    {
+      "target": "chgis.v5_gns_qinghai_gbk",
+      "col": "SHORT_FORM",
+      "assigned": "GBK",
+      "sample_hex": "476164ea",
+      "sample_char": "Gadê",
+      "decodes_fully": [
+        "cp1251",
+        "cp1252",
+        "cp1253"
+      ]
+    },
+    {
+      "target": "chgis.v5_gns_sichuan_gbk",
+      "col": "SHORT_FORM",
+      "assigned": "GBK",
+      "sample_hex": "53ea7278fc",
+      "sample_char": "Sêrxü",
+      "decodes_fully": [
+        "cp1251",
+        "cp1252",
+        "cp1253"
+      ]
+    },
+    {
+      "target": "chgis.v5_gns_tibet_gbk",
+      "col": "SHORT_FORM",
+      "assigned": "GBK",
+      "sample_hex": "5269776f71ea",
+      "sample_char": "Riwoqê",
+      "decodes_fully": [
+        "cp1251",
+        "cp1252",
+        "cp1253"
+      ]
+    }
+  ]
+}

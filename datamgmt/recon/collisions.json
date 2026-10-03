@@ -1,0 +1,365 @@
+{
+  "n_collisions": 40,
+  "collisions": [
+    {
+      "target": "chgis.ca1876route_przh_ru",
+      "n_copies": 2,
+      "copies": [
+        "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip::shapefiles/russ_1876_xinjiang_pts.ZIP::ca1876route_przh_ru",
+        "harvard-full/doi_10_7910/DVN/ZZKZ6U/CHGIS_V2.zip::shapefiles/russ_1876_xinjiang_pts.ZIP::ca1876route_przh_ru"
+      ],
+      "kept": "harvard-full/doi_10_7910/DVN/ZZKZ6U/CHGIS_V2.zip::shapefiles/russ_1876_xinjiang_pts.ZIP::ca1876route_przh_ru"
+    },
+    {
+      "target": "chgis.ca1884_przh_ru",
+      "n_copies": 2,
+      "copies": [
+        "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip::shapefiles/russ_1884_qinghai_pts.ZIP::ca1884_przh_ru",
+        "harvard-full/doi_10_7910/DVN/ZZKZ6U/CHGIS_V2.zip::shapefiles/russ_1884_qinghai_pts.ZIP::ca1884_przh_ru"
+      ],
+      "kept": "harvard-full/doi_10_7910/DVN/ZZKZ6U/CHGIS_V2.zip::shapefiles/russ_1884_qinghai_pts.ZIP::ca1884_przh_ru"
+    },
+    {
+      "target": "chgis.ca1884route_przh_ru",
+      "n_copies": 2,
+      "copies": [
+        "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip::shapefiles/russ_1884_tarim_pts.ZIP::ca1884route_przh_ru",
+        "harvard-full/doi_10_7910/DVN/ZZKZ6U/CHGIS_V2.zip::shapefiles/russ_1884_tarim_pts.ZIP::ca1884route_przh_ru"
+      ],
+      "kept": "harvard-full/doi_10_7910/DVN/ZZKZ6U/CHGIS_V2.zip::shapefiles/russ_1884_tarim_pts.ZIP::ca1884route_przh_ru"
+    },
+    {
+      "target": "chgis.chgis_v1_cst_lin",
+      "n_copies": 2,
+      "copies": [
+        "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip::shapefiles/v2_1820_cst_lin_av.ZIP::chgis_v1_cst_lin",
+        "harvard-full/doi_10_7910/DVN/ZZKZ6U/CHGIS_V2.zip::shapefiles/v2_1820_cst_lin_av.ZIP::chgis_v1_cst_lin"
+      ],
+      "kept": "harvard-full/doi_10_7910/DVN/ZZKZ6U/CHGIS_V2.zip::shapefiles/v2_1820_cst_lin_av.ZIP::chgis_v1_cst_lin"
+    },
+    {
+      "target": "chgis.eastasia1871_przh_ru",
+      "n_copies": 2,
+      "copies": [
+        "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip::shapefiles/russ_1871_neimeng_pts.ZIP::eastasia1871_przh_ru",
+        "harvard-full/doi_10_7910/DVN/ZZKZ6U/CHGIS_V2.zip::shapefiles/russ_1871_neimeng_pts.ZIP::eastasia1871_przh_ru"
+      ],
+      "kept": "harvard-full/doi_10_7910/DVN/ZZKZ6U/CHGIS_V2.zip::shapefiles/russ_1871_neimeng_pts.ZIP::eastasia1871_przh_ru"
+    },
+    {
+      "target": "chgis.kam1900_koz_ru",
+      "n_copies": 2,
+      "copies": [
+        "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip::shapefiles/russ_1900_kham_pts.ZIP::kam1900_koz_ru",
+        "harvard-full/doi_10_7910/DVN/ZZKZ6U/CHGIS_V2.zip::shapefiles/russ_1900_kham_pts.ZIP::kam1900_koz_ru"
+      ],
+      "kept": "harvard-full/doi_10_7910/DVN/ZZKZ6U/CHGIS_V2.zip::shapefiles/russ_1900_kham_pts.ZIP::kam1900_koz_ru"
+    },
+    {
+      "target": "chgis.mk1899_koz_ru",
+      "n_copies": 2,
+      "copies": [
+        "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip::shapefiles/russ_1899_mk_pts.ZIP::mk1899_koz_ru",
+        "harvard-full/doi_10_7910/DVN/ZZKZ6U/CHGIS_V2.zip::shapefiles/russ_1899_mk_pts.ZIP::mk1899_koz_ru"
+      ],
+      "kept": "harvard-full/doi_10_7910/DVN/ZZKZ6U/CHGIS_V2.zip::shapefiles/russ_1899_mk_pts.ZIP::mk1899_koz_ru"
+    },
+    {
+      "target": "chgis.nima_cst_v1",
+      "n_copies": 2,
+      "copies": [
+        "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip::shapefiles/v2_nima_rocks_pts_av.ZIP::nima_cst_v1",
+        "harvard-full/doi_10_7910/DVN/ZZKZ6U/CHGIS_V2.zip::shapefiles/v2_nima_rocks_pts_av.ZIP::nima_cst_v1"
+      ],
+      "kept": "harvard-full/doi_10_7910/DVN/ZZKZ6U/CHGIS_V2.zip::shapefiles/v2_nima_rocks_pts_av.ZIP::nima_cst_v1"
+    },
+    {
+      "target": "chgis.nima_mtns_v1",
+      "n_copies": 2,
+      "copies": [
+        "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip::shapefiles/v2_nima_mtns_pts_av.ZIP::nima_mtns_v1",
+        "harvard-full/doi_10_7910/DVN/ZZKZ6U/CHGIS_V2.zip::shapefiles/v2_nima_mtns_pts_av.ZIP::nima_mtns_v1"
+      ],
+      "kept": "harvard-full/doi_10_7910/DVN/ZZKZ6U/CHGIS_V2.zip::shapefiles/v2_nima_mtns_pts_av.ZIP::nima_mtns_v1"
+    },
+    {
+      "target": "chgis.tib1900_pdb_ru",
+      "n_copies": 2,
+      "copies": [
+        "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip::shapefiles/russ_1904_tibet_pts.ZIP::tib1900_pdb_ru",
+        "harvard-full/doi_10_7910/DVN/ZZKZ6U/CHGIS_V2.zip::shapefiles/russ_1904_tibet_pts.ZIP::tib1900_pdb_ru"
+      ],
+      "kept": "harvard-full/doi_10_7910/DVN/ZZKZ6U/CHGIS_V2.zip::shapefiles/russ_1904_tibet_pts.ZIP::tib1900_pdb_ru"
+    },
+    {
+      "target": "chgis.v2_1820_cnty_pts_gb",
+      "n_copies": 2,
+      "copies": [
+        "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip::shapefiles/v2_1820_cnty_pts_gb.ZIP::v2_1820_cnty_pts_gb",
+        "harvard-full/doi_10_7910/DVN/ZZKZ6U/CHGIS_V2.zip::shapefiles/v2_1820_cnty_pts_gb.ZIP::v2_1820_cnty_pts_gb"
+      ],
+      "kept": "harvard-full/doi_10_7910/DVN/ZZKZ6U/CHGIS_V2.zip::shapefiles/v2_1820_cnty_pts_gb.ZIP::v2_1820_cnty_pts_gb"
+    },
+    {
+      "target": "chgis.v2_1820_cnty_pts_utf",
+      "n_copies": 2,
+      "copies": [
+        "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip::shapefiles/v2_1820_cnty_pts_utf.ZIP::v2_1820_cnty_pts_utf",
+        "harvard-full/doi_10_7910/DVN/ZZKZ6U/CHGIS_V2.zip::shapefiles/v2_1820_cnty_pts_utf.ZIP::v2_1820_cnty_pts_utf"
+      ],
+      "kept": "harvard-full/doi_10_7910/DVN/ZZKZ6U/CHGIS_V2.zip::shapefiles/v2_1820_cnty_pts_utf.ZIP::v2_1820_cnty_pts_utf"
+    },
+    {
+      "target": "chgis.v2_1820_lks_pgn_gb",
+      "n_copies": 2,
+      "copies": [
+        "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip::shapefiles/v2_1820_lks_pgn_gb.ZIP::v2_1820_lks_pgn_gb",
+        "harvard-full/doi_10_7910/DVN/ZZKZ6U/CHGIS_V2.zip::shapefiles/v2_1820_lks_pgn_gb.ZIP::v2_1820_lks_pgn_gb"
+      ],
+      "kept": "harvard-full/doi_10_7910/DVN/ZZKZ6U/CHGIS_V2.zip::shapefiles/v2_1820_lks_pgn_gb.ZIP::v2_1820_lks_pgn_gb"
+    },
+    {
+      "target": "chgis.v2_1820_lks_pgn_utf",
+      "n_copies": 2,
+      "copies": [
+        "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip::shapefiles/v2_1820_lks_pgn_utf.ZIP::v2_1820_lks_pgn_utf",
+        "harvard-full/doi_10_7910/DVN/ZZKZ6U/CHGIS_V2.zip::shapefiles/v2_1820_lks_pgn_utf.ZIP::v2_1820_lks_pgn_utf"
+      ],
+      "kept": "harvard-full/doi_10_7910/DVN/ZZKZ6U/CHGIS_V2.zip::shapefiles/v2_1820_lks_pgn_utf.ZIP::v2_1820_lks_pgn_utf"
+    },
+    {
+      "target": "chgis.v2_1820_pref_pgn_gb",
+      "n_copies": 2,
+      "copies": [
+        "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip::shapefiles/v2_1820_pref_pgn_gb.ZIP::v2_1820_pref_pgn_gb",
+        "harvard-full/doi_10_7910/DVN/ZZKZ6U/CHGIS_V2.zip::shapefiles/v2_1820_pref_pgn_gb.ZIP::v2_1820_pref_pgn_gb"
+      ],
+      "kept": "harvard-full/doi_10_7910/DVN/ZZKZ6U/CHGIS_V2.zip::shapefiles/v2_1820_pref_pgn_gb.ZIP::v2_1820_pref_pgn_gb"
+    },
+    {
+      "target": "chgis.v2_1820_pref_pgn_utf",
+      "n_copies": 2,
+      "copies": [
+        "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip::shapefiles/v2_1820_pref_pgn_utf.ZIP::v2_1820_pref_pgn_utf",
+        "harvard-full/doi_10_7910/DVN/ZZKZ6U/CHGIS_V2.zip::shapefiles/v2_1820_pref_pgn_utf.ZIP::v2_1820_pref_pgn_utf"
+      ],
+      "kept": "harvard-full/doi_10_7910/DVN/ZZKZ6U/CHGIS_V2.zip::shapefiles/v2_1820_pref_pgn_utf.ZIP::v2_1820_pref_pgn_utf"
+    },
+    {
+      "target": "chgis.v2_1820_pref_pts_gb",
+      "n_copies": 2,
+      "copies": [
+        "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip::shapefiles/v2_1820_pref_pts_gb.ZIP::v2_1820_pref_pts_gb",
+        "harvard-full/doi_10_7910/DVN/ZZKZ6U/CHGIS_V2.zip::shapefiles/v2_1820_pref_pts_gb.ZIP::v2_1820_pref_pts_gb"
+      ],
+      "kept": "harvard-full/doi_10_7910/DVN/ZZKZ6U/CHGIS_V2.zip::shapefiles/v2_1820_pref_pts_gb.ZIP::v2_1820_pref_pts_gb"
+    },
+    {
+      "target": "chgis.v2_1820_pref_pts_utf",
+      "n_copies": 2,
+      "copies": [
+        "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip::shapefiles/v2_1820_pref_pts_utf.ZIP::v2_1820_pref_pts_utf",
+        "harvard-full/doi_10_7910/DVN/ZZKZ6U/CHGIS_V2.zip::shapefiles/v2_1820_pref_pts_utf.ZIP::v2_1820_pref_pts_utf"
+      ],
+      "kept": "harvard-full/doi_10_7910/DVN/ZZKZ6U/CHGIS_V2.zip::shapefiles/v2_1820_pref_pts_utf.ZIP::v2_1820_pref_pts_utf"
+    },
+    {
+      "target": "chgis.v2_1820_prov_pgn_gb",
+      "n_copies": 2,
+      "copies": [
+        "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip::shapefiles/v2_1820_prov_pgn_gb.ZIP::v2_1820_prov_pgn_gb",
+        "harvard-full/doi_10_7910/DVN/ZZKZ6U/CHGIS_V2.zip::shapefiles/v2_1820_prov_pgn_gb.ZIP::v2_1820_prov_pgn_gb"
+      ],
+      "kept": "harvard-full/doi_10_7910/DVN/ZZKZ6U/CHGIS_V2.zip::shapefiles/v2_1820_prov_pgn_gb.ZIP::v2_1820_prov_pgn_gb"
+    },
+    {
+      "target": "chgis.v2_1820_prov_pgn_utf",
+      "n_copies": 2,
+      "copies": [
+        "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip::shapefiles/v2_1820_prov_pgn_utf.ZIP::v2_1820_prov_pgn_utf",
+        "harvard-full/doi_10_7910/DVN/ZZKZ6U/CHGIS_V2.zip::shapefiles/v2_1820_prov_pgn_utf.ZIP::v2_1820_prov_pgn_utf"
+      ],
+      "kept": "harvard-full/doi_10_7910/DVN/ZZKZ6U/CHGIS_V2.zip::shapefiles/v2_1820_prov_pgn_utf.ZIP::v2_1820_prov_pgn_utf"
+    },
+    {
+      "target": "chgis.v2_1820_prov_pts_gb",
+      "n_copies": 2,
+      "copies": [
+        "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip::shapefiles/v2_1820_prov_pts_gb.ZIP::v2_1820_prov_pts_gb",
+        "harvard-full/doi_10_7910/DVN/ZZKZ6U/CHGIS_V2.zip::shapefiles/v2_1820_prov_pts_gb.ZIP::v2_1820_prov_pts_gb"
+      ],
+      "kept": "harvard-full/doi_10_7910/DVN/ZZKZ6U/CHGIS_V2.zip::shapefiles/v2_1820_prov_pts_gb.ZIP::v2_1820_prov_pts_gb"
+    },
+    {
+      "target": "chgis.v2_1820_prov_pts_utf",
+      "n_copies": 2,
+      "copies": [
+        "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip::shapefiles/v2_1820_prov_pts_utf.ZIP::v2_1820_prov_pts_utf",
+        "harvard-full/doi_10_7910/DVN/ZZKZ6U/CHGIS_V2.zip::shapefiles/v2_1820_prov_pts_utf.ZIP::v2_1820_prov_pts_utf"
+      ],
+      "kept": "harvard-full/doi_10_7910/DVN/ZZKZ6U/CHGIS_V2.zip::shapefiles/v2_1820_prov_pts_utf.ZIP::v2_1820_prov_pts_utf"
+    },
+    {
+      "target": "chgis.v2_1820_rvr_lin_gb",
+      "n_copies": 2,
+      "copies": [
+        "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip::shapefiles/v2_1820_rvr_lin_gb.ZIP::v2_1820_rvr_lin_gb",
+        "harvard-full/doi_10_7910/DVN/ZZKZ6U/CHGIS_V2.zip::shapefiles/v2_1820_rvr_lin_gb.ZIP::v2_1820_rvr_lin_gb"
+      ],
+      "kept": "harvard-full/doi_10_7910/DVN/ZZKZ6U/CHGIS_V2.zip::shapefiles/v2_1820_rvr_lin_gb.ZIP::v2_1820_rvr_lin_gb"
+    },
+    {
+      "target": "chgis.v2_1820_rvr_lin_utf",
+      "n_copies": 2,
+      "copies": [
+        "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip::shapefiles/v2_1820_rvr_lin_utf.ZIP::v2_1820_rvr_lin_utf",
+        "harvard-full/doi_10_7910/DVN/ZZKZ6U/CHGIS_V2.zip::shapefiles/v2_1820_rvr_lin_utf.ZIP::v2_1820_rvr_lin_utf"
+      ],
+      "kept": "harvard-full/doi_10_7910/DVN/ZZKZ6U/CHGIS_V2.zip::shapefiles/v2_1820_rvr_lin_utf.ZIP::v2_1820_rvr_lin_utf"
+    },
+    {
+      "target": "chgis.v2_1820_twn_pts_gb",
+      "n_copies": 2,
+      "copies": [
+        "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip::shapefiles/v2_1820_twn_pts_gb.ZIP::v2_1820_twn_pts_gb",
+        "harvard-full/doi_10_7910/DVN/ZZKZ6U/CHGIS_V2.zip::shapefiles/v2_1820_twn_pts_gb.ZIP::v2_1820_twn_pts_gb"
+      ],
+      "kept": "harvard-full/doi_10_7910/DVN/ZZKZ6U/CHGIS_V2.zip::shapefiles/v2_1820_twn_pts_gb.ZIP::v2_1820_twn_pts_gb"
+    },
+    {
+      "target": "chgis.v2_1820_twn_pts_utf",
+      "n_copies": 2,
+      "copies": [
+        "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip::shapefiles/v2_1820_twn_pts_utf.ZIP::v2_1820_twn_pts_utf",
+        "harvard-full/doi_10_7910/DVN/ZZKZ6U/CHGIS_V2.zip::shapefiles/v2_1820_twn_pts_utf.ZIP::v2_1820_twn_pts_utf"
+      ],
+      "kept": "harvard-full/doi_10_7910/DVN/ZZKZ6U/CHGIS_V2.zip::shapefiles/v2_1820_twn_pts_utf.ZIP::v2_1820_twn_pts_utf"
+    },
+    {
+      "target": "chgis.v2_time_reg_pgn_gb",
+      "n_copies": 2,
+      "copies": [
+        "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip::shapefiles/v2_time_reg_pgn_gb.ZIP::v2_time_reg_pgn_gb",
+        "harvard-full/doi_10_7910/DVN/ZZKZ6U/CHGIS_V2.zip::shapefiles/v2_time_reg_pgn_gb.ZIP::v2_time_reg_pgn_gb"
+      ],
+      "kept": "harvard-full/doi_10_7910/DVN/ZZKZ6U/CHGIS_V2.zip::shapefiles/v2_time_reg_pgn_gb.ZIP::v2_time_reg_pgn_gb"
+    },
+    {
+      "target": "chgis.v2_time_reg_pgn_utf",
+      "n_copies": 2,
+      "copies": [
+        "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip::shapefiles/v2_time_reg_pgn_utf.ZIP::v2_time_reg_pgn_utf",
+        "harvard-full/doi_10_7910/DVN/ZZKZ6U/CHGIS_V2.zip::shapefiles/v2_time_reg_pgn_utf.ZIP::v2_time_reg_pgn_utf"
+      ],
+      "kept": "harvard-full/doi_10_7910/DVN/ZZKZ6U/CHGIS_V2.zip::shapefiles/v2_time_reg_pgn_utf.ZIP::v2_time_reg_pgn_utf"
+    },
+    {
+      "target": "chgis.v2_time_reg_pts_gb",
+      "n_copies": 2,
+      "copies": [
+        "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip::shapefiles/v2_time_reg_pts_gb.ZIP::v2_time_reg_pts_gb",
+        "harvard-full/doi_10_7910/DVN/ZZKZ6U/CHGIS_V2.zip::shapefiles/v2_time_reg_pts_gb.ZIP::v2_time_reg_pts_gb"
+      ],
+      "kept": "harvard-full/doi_10_7910/DVN/ZZKZ6U/CHGIS_V2.zip::shapefiles/v2_time_reg_pts_gb.ZIP::v2_time_reg_pts_gb"
+    },
+    {
+      "target": "chgis.v2_time_reg_pts_utf",
+      "n_copies": 2,
+      "copies": [
+        "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip::shapefiles/v2_time_reg_pts_utf.ZIP::v2_time_reg_pts_utf",
+        "harvard-full/doi_10_7910/DVN/ZZKZ6U/CHGIS_V2.zip::shapefiles/v2_time_reg_pts_utf.ZIP::v2_time_reg_pts_utf"
+      ],
+      "kept": "harvard-full/doi_10_7910/DVN/ZZKZ6U/CHGIS_V2.zip::shapefiles/v2_time_reg_pts_utf.ZIP::v2_time_reg_pts_utf"
+    },
+    {
+      "target": "chgis.v4_time_prov_pgn_utf",
+      "n_copies": 2,
+      "copies": [
+        "harvard-full/doi_10_7910/DVN/M7WEFY/v4_time_prov_pgn_utf.zip::v4_time_prov_pgn_utf",
+        "harvard-full/doi_10_7910/DVN/PDGOZ0/V4_Data_Archive.zip::shapefiles/v4_time_prov_pgn_utf.zip::v4_time_prov_pgn_utf"
+      ],
+      "kept": "harvard-full/doi_10_7910/DVN/M7WEFY/v4_time_prov_pgn_utf.zip::v4_time_prov_pgn_utf"
+    },
+    {
+      "target": "chgis.v4_time_prov_pts_utf",
+      "n_copies": 2,
+      "copies": [
+        "harvard-full/doi_10_7910/DVN/M7WEFY/v4_time_prov_pts_utf.zip::v4_time_prov_pts_utf",
+        "harvard-full/doi_10_7910/DVN/PDGOZ0/V4_Data_Archive.zip::shapefiles/v4_time_prov_pts_utf.zip::v4_time_prov_pts_utf"
+      ],
+      "kept": "harvard-full/doi_10_7910/DVN/M7WEFY/v4_time_prov_pts_utf.zip::v4_time_prov_pts_utf"
+    },
+    {
+      "target": "chgis.v5_1080_chin_chn_1080_c",
+      "n_copies": 2,
+      "copies": [
+        "harvard-full/doi_10_7910/DVN/29302/v5_Hartwell_2010.zip::v5_Hartwell/v5_1080_chin_chn_1080_c",
+        "harvard-full/doi_10_7910/DVN/29302/v5_Hartwell_2010.zip::v5_Hartwell/v5_1080_chin_chn_1080_p.zip::v5_1080_chin_chn_1080_c"
+      ],
+      "kept": "harvard-full/doi_10_7910/DVN/29302/v5_Hartwell_2010.zip::v5_Hartwell/v5_1080_chin_chn_1080_c"
+    },
+    {
+      "target": "chgis.v5_1080_chin_chn_1080_l",
+      "n_copies": 2,
+      "copies": [
+        "harvard-full/doi_10_7910/DVN/29302/v5_Hartwell_2010.zip::v5_Hartwell/v5_1080_chin_chn_1080_l",
+        "harvard-full/doi_10_7910/DVN/29302/v5_Hartwell_2010.zip::v5_Hartwell/v5_1080_chin_chn_1080_p.zip::v5_1080_chin_chn_1080_l"
+      ],
+      "kept": "harvard-full/doi_10_7910/DVN/29302/v5_Hartwell_2010.zip::v5_Hartwell/v5_1080_chin_chn_1080_l"
+    },
+    {
+      "target": "chgis.v5_1080_chin_chn_1080_p",
+      "n_copies": 2,
+      "copies": [
+        "harvard-full/doi_10_7910/DVN/29302/v5_Hartwell_2010.zip::v5_Hartwell/v5_1080_chin_chn_1080_p",
+        "harvard-full/doi_10_7910/DVN/29302/v5_Hartwell_2010.zip::v5_Hartwell/v5_1080_chin_chn_1080_p.zip::v5_1080_chin_chn_1080_p"
+      ],
+      "kept": "harvard-full/doi_10_7910/DVN/29302/v5_Hartwell_2010.zip::v5_Hartwell/v5_1080_chin_chn_1080_p"
+    },
+    {
+      "target": "chgis.v5_1200_chin_chn_1200_c",
+      "n_copies": 2,
+      "copies": [
+        "harvard-full/doi_10_7910/DVN/29302/v5_Hartwell_2010.zip::v5_Hartwell/v5_1200_chin_chn_1200_c",
+        "harvard-full/doi_10_7910/DVN/29302/v5_Hartwell_2010.zip::v5_Hartwell/v5_1200_hartwell_big5.zip::v5_1200_chin_chn_1200_c"
+      ],
+      "kept": "harvard-full/doi_10_7910/DVN/29302/v5_Hartwell_2010.zip::v5_Hartwell/v5_1200_chin_chn_1200_c"
+    },
+    {
+      "target": "chgis.v5_1200_chin_chn_1200_l",
+      "n_copies": 2,
+      "copies": [
+        "harvard-full/doi_10_7910/DVN/29302/v5_Hartwell_2010.zip::v5_Hartwell/v5_1200_chin_chn_1200_l",
+        "harvard-full/doi_10_7910/DVN/29302/v5_Hartwell_2010.zip::v5_Hartwell/v5_1200_hartwell_big5.zip::v5_1200_chin_chn_1200_l"
+      ],
+      "kept": "harvard-full/doi_10_7910/DVN/29302/v5_Hartwell_2010.zip::v5_Hartwell/v5_1200_chin_chn_1200_l"
+    },
+    {
+      "target": "chgis.v5_1200_chin_chn_1200_p",
+      "n_copies": 2,
+      "copies": [
+        "harvard-full/doi_10_7910/DVN/29302/v5_Hartwell_2010.zip::v5_Hartwell/v5_1200_chin_chn_1200_p",
+        "harvard-full/doi_10_7910/DVN/29302/v5_Hartwell_2010.zip::v5_Hartwell/v5_1200_hartwell_big5.zip::v5_1200_chin_chn_1200_p"
+      ],
+      "kept": "harvard-full/doi_10_7910/DVN/29302/v5_Hartwell_2010.zip::v5_Hartwell/v5_1200_chin_chn_1200_p"
+    },
+    {
+      "target": "chgis.v5_1911_cnty_pts_utf",
+      "n_copies": 2,
+      "copies": [
+        "harvard-full/doi_10_7910/DVN/M7WEFY/v5_1911_cnty_pts_utf.zip::v5_1911_cnty_pts_utf",
+        "harvard-full/doi_10_7910/DVN/M7WEFY/v5_time_pref_pgn_utf.zip::v5_1911_cnty_pts_utf.zip::v5_1911_cnty_pts_utf"
+      ],
+      "kept": "harvard-full/doi_10_7910/DVN/M7WEFY/v5_1911_cnty_pts_utf.zip::v5_1911_cnty_pts_utf"
+    },
+    {
+      "target": "chgis.v5_1911_pref_pgn_utf",
+      "n_copies": 2,
+      "copies": [
+        "harvard-full/doi_10_7910/DVN/M7WEFY/v5_1911_pref_pgn_utf.zip::v5_1911_pref_pgn_utf",
+        "harvard-full/doi_10_7910/DVN/M7WEFY/v5_PhysiogMacroregions_pgn_utf.zip::v5_1911_pref_pgn_utf.zip::v5_1911_pref_pgn_utf"
+      ],
+      "kept": "harvard-full/doi_10_7910/DVN/M7WEFY/v5_1911_pref_pgn_utf.zip::v5_1911_pref_pgn_utf"
+    }
+  ]
+}

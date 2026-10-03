@@ -52,6 +52,13 @@ def rows(db, sql):
     return [ln.split("|") for ln in out.split("\n")]
 
 
+def copy_to(db, sql):
+    """COPY … TO STDOUT：返回原始 stdout（csv 文本，可含 | 与换行——皆由 csv 引号包住）。"""
+    out, err, rc = query(db, sql)
+    _raise_if_error(out, err, rc, context=sql[:80])
+    return out
+
+
 def copy_stream(db, copy_sql, csv_text):
     """COPY ... FROM STDIN；csv_text 紧跟其后，以 \\. 收尾（全经 stdin）。"""
     payload = copy_sql.rstrip("\n") + "\n" + csv_text

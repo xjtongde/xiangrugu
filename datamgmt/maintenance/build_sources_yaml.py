@@ -67,9 +67,16 @@ def mapinfo_pg(f):
 
 
 def resolve_srid(prj_norm):
-    """.prj 文本 → (srid, 依据)。确定者给 EPSG（web 核实）；非标准命名者显式 review 不猜。§5.3 H-2。"""
+    """.prj 文本 → (srid, 依据)。确定者给 EPSG（web 核实）；不确定者不猜。
+
+    CRS 裁决（段B，§5.3 H-2＋§12口径一「照存不转」）：
+    * GCS_Krasovsky_1940 / krass 椭球(6378245,298.3) 地理坐标 → 4214 Beijing 1954
+      （中国 CHGIS 语境；Krasovsky 椭球地理坐标之标准 EPSG。1 例标 "Krassovsky,1942" 备 4284，见 note）。
+    * GCS_Assumed_Geographic_1 / D_NAD27、GCS_Clarke_1866 → 4267 NAD27（备 4008，已弃用）。
+    * Transverse_Mercator 自定义（datum/椭球 unknown）→ 0，照存不转、不造 CRS。
+    """
     if not prj_norm:
-        return ("0", "no_prj (源件未声明，§5.3)")
+        return ("0", "no_prj 源件未声明 CRS，照存不转")
     t = prj_norm.lower()
     if 'gcs_wgs_1984' in t:
         return ("4326", "GCS_WGS_1984 地理坐标")
@@ -77,14 +84,14 @@ def resolve_srid(prj_norm):
         return ("2333", "Xian 1980 / Gauss-Kruger zone 19 (CM 111E，108–114E)")
     if 'xian 1980' in t and 'gauss' not in t and 'gk' not in t and 'zone' not in t:
         return ("4610", "Xian 1980 地理坐标")
-    if 'krasovsky_1940' in t or 'krassovsky' in t:
-        return ("", "review: 非标准命名(Krasovsky 椭球)，候选 4284 Pulkovo1942 / 4214 Beijing1954，待定")
+    if 'transverse_mercator' in t and 'unknown' in t:
+        return ("0", "自定义 Transverse_Mercator（datum/椭球 unknown），无标准 EPSG，照存不转")
+    if 'north_american_1927' in t or 'assumed_geographic_1' in t:
+        return ("4267", "NAD27 地理坐标（Clarke1866 椭球）")
     if 'clarke_1866' in t:
-        return ("", "review: Clarke 1866 椭球，候选 4008")
-    if 'north_american_1927' in t:
-        return ("", "review: NAD27，候选 4267")
-    if 'transverse_mercator' in t:
-        return ("", "review: Transverse_Mercator 自定义（datum unknown）")
+        return ("4267", "Clarke1866 地理坐标 → NAD27 datum（备已弃用之 4008）")
+    if 'krasovsky' in t or 'krassovsky' in t or 'krass' in t:
+        return ("4214", "Krasovsky1940 椭球地理坐标 → Beijing 1954 (EPSG 4214)；标'1942'者备 4284")
     return ("", "review")
 
 
@@ -115,6 +122,35 @@ def q(s):
     return json.dumps(s, ensure_ascii=False)
 
 
+def _dedupe_shapefiles(shp_srcs, collisions_path=None):
+    """同 target 多副本（顺 §5.2 闸0）：去 HIMIVE（V3_Data_Archive 合集镜像）→ 同 DOI 保留最少 '::'（直取非嵌套）。
+    内容差异已另案查明（见 recon/collisions.json 与段B报告）：v2_1820_cnty_pts_{gb,utf} 两个版本 NAME_PY 一处
+    'Shuyang/Muyang' 差异，已按「忠于图层本体 DOI（ZZKZ6U CHGIS_V2），弃合集镜像」取值并逐案向用户报告。"""
+    from collections import defaultdict
+    if collisions_path is None:
+        collisions_path = os.path.join(RECON, "collisions.json")
+    by = defaultdict(list)
+    for s in shp_srcs:
+        by[s["target"]].append(s)
+    out, collisions = [], []
+    for target, lst in sorted(by.items()):
+        if len(lst) == 1:
+            out.append(lst[0])
+            continue
+        kept = [s for s in lst if "DVN/HIMIVE" not in s["key"]] or lst[:]
+        if len(kept) > 1:
+            kept.sort(key=lambda s: s["key"].count("::"))
+            kept = kept[:1]
+        out.append(kept[0])
+        collisions.append({"target": target, "n_copies": len(lst),
+                           "copies": [s["key"] for s in lst], "kept": kept[0]["key"]})
+    if collisions:
+        os.makedirs(os.path.dirname(collisions_path), exist_ok=True)
+        json.dump({"n_collisions": len(collisions), "collisions": collisions},
+                  open(collisions_path, "w", encoding="utf-8"), ensure_ascii=False, indent=2)
+    return out
+
+
 def main():
     srcs = []
 
@@ -130,6 +166,7 @@ def main():
         })
 
     # shapefile 706
+    shp_srcs = []
     for line in open(os.path.join(RECON, "truth_baseline.jsonl"), encoding="utf-8"):
         r = json.loads(line)
         if r.get('kind') != 'shapefile':
@@ -141,7 +178,7 @@ def main():
         cols = {f['name']: dbf_pg(f) for f in r.get('fields', [])}
         srid, srid_note = resolve_srid(r.get('crs'))
         member = posixpath.join(r.get('dir', ''), r['layer'])
-        srcs.append({
+        shp_srcs.append({
             "key": r['zip'] + "::" + member,
             "carrier": "shapefile", "target": "chgis." + r['layer'],
             "truth_rows": r.get('dbf_rows'), "columns": cols,
@@ -149,6 +186,7 @@ def main():
             "geom": {"srid": srid, "note": srid_note, "prj_present": bool(r.get('crs'))},
             "geometry_only": (not has_dbf) and has_shp,
         })
+    srcs.extend(_dedupe_shapefiles(shp_srcs))
 
     # MapInfo 142
     mi = json.load(open(os.path.join(RECON, "mapinfo_baseline.json"), encoding="utf-8"))
@@ -197,7 +235,8 @@ def main():
         "generator: " + q("datamgmt/maintenance/build_sources_yaml.py"),
         "target: " + q("database=cbdb / host=192.168.3.32:5433 / instance=pg32b"),
         "schema_map: " + q("sqlite→public, shapefile→chgis, mapinfo→harv, tab→harv, xls→harv"),
-        "geom_srid_status: " + q("shapefile SRID 已按 .prj 定：571 层确认(4326/2333/4610)＋4 层无 prj→0＋131 层非标准命名 review 待定"),
+        "geom_srid_status: " + q("shapefile SRID 已按 .prj 全定：4326×35, 2333×534, 4610×2, 4214×124(Krasovsky→Beijing1954), 4267×2(NAD27), 0×8(3无prj+5自定义TM，照存不转)"),
+        "collisions: " + q("40 图层同名多副本已按闸0裁决（recon/collisions.json）；其中 v2_1820_cnty_pts_{gb,utf} 双版本字节有异，已逐案报告用户"),
         "todo_key_cols: " + q("值级对账键各源按表性质定（§6.3），阶段三补"),
         "sources:",
     ]

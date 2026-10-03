@@ -3,12 +3,13 @@
 
 独立性（§6.1）：期望值由 truth/ 直读源件字节现算，绝不取自装载之库；解码判表读同一份
 decoding.yaml，但「字节→字符」之列级解码在本文件独立实现一遍（load.py 也各自写一遍）。
-闸3：类型感知多重集差集；null 显式化哨兵 '␀'(U+2400)；numeric/bigint 按 Decimal 归约禁 float。
-库侧读值经 -F'|'——段A 源表值不含 | 或换行（违者 assert 即停，另行换 COPY TO csv）。"""
+闸3：类型感知多重集差集；null 显式化哨兵 '␀'(U+2400)；numeric/bigint 按 Decimal 归约禁 float；
+double/real 按 float.hex() 逐位。库侧读值经 COPY TO STDOUT csv（robust 于 | 与换行）。"""
+import csv
+import io
 import json
 import os
 import sys
-import zipfile
 from collections import Counter
 from decimal import Decimal
 
@@ -18,8 +19,9 @@ if _DATAMGMT not in sys.path:
     sys.path.insert(0, _DATAMGMT)
 
 import decode  # noqa: E402  判表读取（config 层）
-from db import rows, quote_ident  # noqa: E402
+from db import rows, copy_to, quote_ident  # noqa: E402
 from truth import roots, sqlite, dbf, shp  # noqa: E402
+from truth import srcopen  # noqa: E402
 
 USEDATA = roots.usedata()
 CFG = os.path.join(_DATAMGMT, "config", "sources.yaml")
@@ -45,11 +47,13 @@ def _canon_num(s):
 
 
 def _canon_typed(v, pg_type):
-    """源/库两端口径统一：None 与哨兵→NULL；数值→Decimal 归约；其余 str。"""
+    """源/库两端口径统一：None 与哨兵→NULL；数值→Decimal 归约；浮点→float.hex()（逐位）；其余 str。"""
     if v is None or v == NULL_SENT:
         return NULL_SENT
-    if pg_type.startswith("numeric") or pg_type in ("bigint", "integer", "smallint"):
+    if pg_type in ("bigint", "integer", "smallint") or pg_type.startswith("numeric"):
         return _canon_num(str(v))
+    if pg_type in ("double precision", "real"):
+        return float(v).hex()
     return str(v)
 
 
@@ -72,7 +76,7 @@ def _gates(db, schema, tname, colnames, pg_types, src_cells):
         "SELECT column_name FROM information_schema.columns "
         f"WHERE table_schema='{schema}' AND table_name='{tname}__stg' ORDER BY ordinal_position;"
     ))
-    got_names = [r[0] for r in dbcols]
+    got_names = [r[0] for r in dbcols if r[0] != "__rid"]  # __rid 系内部对齐列，不入结构比对
     if got_names != expect_names:
         return {"table": f"{schema}.{tname}", "verdict": "FAIL", "stopped_at": "g1",
                 "g1_structure": {"pass": False, "expect": expect_names, "got": got_names}}
@@ -82,16 +86,15 @@ def _gates(db, schema, tname, colnames, pg_types, src_cells):
         return {"table": f"{schema}.{tname}", "verdict": "FAIL", "stopped_at": "g2",
                 "g2_count": {"pass": False, "expect": len(src_cells), "got": cnt}}
 
-    for cell in src_cells:
-        for v in cell:
-            assert "\n" not in v and "|" not in v, \
-                f"{tname} 值含 '|' 或换行：段A -F'|' 读法不适用（须换 COPY TO csv）"
-
     src_multi = Counter(src_cells)
     selexpr = ", ".join(
         f"COALESCE({quote_ident(c.lower())}::text,'{NULL_SENT}')" for c in colnames
     )
-    db_rows = rows(db, f"SELECT {selexpr} FROM {quote_ident(schema)}.{quote_ident(tname + '__stg')};")
+    csv_out = copy_to(db, (
+        f"COPY (SELECT {selexpr} FROM {quote_ident(schema)}.{quote_ident(tname + '__stg')}) "
+        "TO STDOUT WITH (FORMAT csv);"
+    ))
+    db_rows = list(csv.reader(io.StringIO(csv_out)))  # csv.reader 原位处理 | 与引号内换行
     db_multi = Counter(
         tuple(_canon_typed(r[i], pg_types[i]) for i in range(len(r))) for r in db_rows
     )
@@ -124,13 +127,13 @@ def verify_shapefile_geom(db, entry):
     """腿B 几何闸：计数 / SRID / 类型 / 顶点多重集（与源 .shp 双精度原值逐点全等）。"""
     schema, tname = entry["target"].split(".", 1)
     tname = tname.lower()
-    zip_path, member = entry["key"].split("::", 1)
-    zp = os.path.join(USEDATA, zip_path)
     srid = str(entry["geom"]["srid"])
-    with zipfile.ZipFile(zp) as z:
-        shp_bytes = z.read(member + ".shp")
-    pts = list(shp.iter_points(shp_bytes))
-    src_multi = Counter((repr(x), repr(y)) for x, y in pts)
+    shp_bytes = srcopen.read_member(entry["key"], ".shp", required=True)
+    dbf_bytes = srcopen.read_member(entry["key"], ".dbf")
+    delidx = ({i for i, (_, deleted) in enumerate(dbf.iter_records(dbf_bytes)) if deleted}
+              if dbf_bytes is not None else set())   # 无属性层（geometry_only）无 .dbf
+    pts = [(x, y) for i, (x, y) in enumerate(shp.iter_points(shp_bytes)) if i not in delidx]
+    src_multi = Counter((float(x).hex(), float(y).hex()) for x, y in pts)
 
     sq, gtab = quote_ident(schema), quote_ident(tname + "__geom_stg")
     cnt = int(rows(db, f"SELECT count(*) FROM {sq}.{gtab};")[0][0])
@@ -146,7 +149,7 @@ def verify_shapefile_geom(db, entry):
                 "type": {"pass": gtypes == ["ST_Point"], "expect": ["ST_Point"], "got": gtypes}}
 
     db_pts = rows(db, f"SELECT ST_X(geom)::text, ST_Y(geom)::text FROM {sq}.{gtab};")
-    db_multi = Counter(tuple(r) for r in db_pts)
+    db_multi = Counter((float(r[0]).hex(), float(r[1]).hex()) for r in db_pts)
     d1, d2 = src_multi - db_multi, db_multi - src_multi
     g3 = (not d1 and not d2)
     return {"table": f"{schema}.{tname}.geom", "verdict": "CONFORMS" if g3 else "FAIL",
@@ -159,11 +162,8 @@ def verify_shapefile_geom(db, entry):
 def verify_shapefile(db, entry):
     schema, tname = entry["target"].split(".", 1)
     tname = tname.lower()
-    zip_path, member = entry["key"].split("::", 1)
-    zp = os.path.join(USEDATA, zip_path)
     fam = decode.load_decoding().get(entry.get("decoding"))
-    with zipfile.ZipFile(zp) as z:
-        dbf_bytes = z.read(member + ".dbf")
+    dbf_bytes = srcopen.read_member(entry["key"], ".dbf", required=True)
     fields = dbf.parse_dbf(dbf_bytes)["fields"]
     colnames = [f["name"] for f in fields]
     pg_types = [entry["columns"][c] for c in colnames]

@@ -7,7 +7,6 @@
 """
 import json
 import os
-import zipfile
 
 _HERE = os.path.dirname(os.path.abspath(__file__))
 _DATAMGMT = os.path.dirname(_HERE)
@@ -17,6 +16,7 @@ if _DATAMGMT not in __import__("sys").path:
 import decode  # noqa: E402  解码判表读取（config 层）
 from db import execute, copy_stream, quote_ident, ensure_schemas  # noqa: E402
 from truth import roots, sqlite, dbf, shp  # noqa: E402
+from truth.srcopen import read_member  # noqa: E402
 
 USEDATA = roots.usedata()
 CFG = os.path.join(_DATAMGMT, "config", "sources.yaml")
@@ -96,16 +96,17 @@ def _shapefile_cell(raw, f, fam):
     return body.decode(enc, "strict")
 
 
+def _deleted_indices(dbf_bytes):
+    return {i for i, (_, deleted) in enumerate(dbf.iter_records(dbf_bytes)) if deleted}
+
+
 def load_shapefile_staging(db, entry):
-    """读 shapefile 之 .dbf（属性列）→ 落 <schema>.<table>__stg。段A腿B 先只装属性，几何另步。"""
-    zip_path, member = entry["key"].split("::", 1)
-    zp = os.path.join(USEDATA, zip_path)
+    """读 shapefile .dbf 属性 → 落 <schema>.<table>__stg（首列 __rid = 源记录原始序号，跳过删除标记者）。"""
     schema, tname = _target_parts(entry)
     fam = decode.load_decoding().get(entry.get("decoding"))
     ensure_schemas(db)
 
-    with zipfile.ZipFile(zp) as z:
-        dbf_bytes = z.read(member + ".dbf")
+    dbf_bytes = read_member(entry["key"], ".dbf", required=True)
     fields = dbf.parse_dbf(dbf_bytes)["fields"]
     colnames = [f["name"] for f in fields]
     pg_types = [entry["columns"][c] for c in colnames]
@@ -113,18 +114,20 @@ def load_shapefile_staging(db, entry):
     stg = tname + "__stg"
     sq, st = quote_ident(schema), quote_ident(stg)
     execute(db, f"DROP TABLE IF EXISTS {sq}.{st};")
-    coldefs = ", ".join(f"{quote_ident(c.lower())} {t}" for c, t in zip(colnames, pg_types))
+    coldefs = "__rid bigint, " + ", ".join(
+        f"{quote_ident(c.lower())} {t}" for c, t in zip(colnames, pg_types)
+    )
     execute(db, f"CREATE TABLE {sq}.{st} ({coldefs});")
 
     csv_lines, nrows = [], 0
-    for vals, deleted in dbf.iter_records(dbf_bytes):
+    for i, (vals, deleted) in enumerate(dbf.iter_records(dbf_bytes)):
         if deleted:
             continue
         cells = [_shapefile_cell(v, f, fam) for v, f in zip(vals, fields)]
-        csv_lines.append(",".join(_csv_field(v) for v in cells))
+        csv_lines.append(f"{i}," + ",".join(_csv_field(v) for v in cells))
         nrows += 1
     copy_cmd = (
-        f"COPY {sq}.{st} ({', '.join(quote_ident(c.lower()) for c in colnames)}) "
+        f"COPY {sq}.{st} (__rid, {', '.join(quote_ident(c.lower()) for c in colnames)}) "
         "FROM STDIN WITH (FORMAT csv);"
     )
     copy_stream(db, copy_cmd, "\n".join(csv_lines))
@@ -132,29 +135,49 @@ def load_shapefile_staging(db, entry):
 
 
 def load_shapefile_geom(db, entry):
-    """读 .shp Point 要素 → 落 独立几何 staging <table>__geom_stg(__rid, geom)。CRS 照存不转（§12口径一）。"""
-    zip_path, member = entry["key"].split("::", 1)
-    zp = os.path.join(USEDATA, zip_path)
+    """读 .shp Point 要素 → <table>__geom_stg(__rid, geom)。__rid 同源记录序号，跳过 DBF 删除标记者。CRS 照存不转。"""
     schema, tname = _target_parts(entry)
     srid = int(entry["geom"]["srid"])
     ensure_schemas(db)
 
-    with zipfile.ZipFile(zp) as z:
-        shp_bytes = z.read(member + ".shp")
-    pts = list(shp.iter_points(shp_bytes))
+    shp_bytes = read_member(entry["key"], ".shp", required=True)
+    dbf_bytes = read_member(entry["key"], ".dbf")
+    delidx = _deleted_indices(dbf_bytes) if dbf_bytes is not None else set()
+    pts = [(i, x, y) for i, (x, y) in enumerate(shp.iter_points(shp_bytes)) if i not in delidx]
 
     sq, gtab = quote_ident(schema), quote_ident(tname + "__geom_stg")
     execute(db, f"DROP TABLE IF EXISTS {sq}.{gtab};")
     execute(db, f"CREATE TABLE {sq}.{gtab} (__rid bigint, geom geometry(Point,{srid}));")
-    # 每 db.py 调 = 独立 psql 会话，跨调用 TEMP 表不存续 → 用持久 scratch（用完即 DROP）
     scratch = quote_ident("_g_scratch")
     execute(db, f"DROP TABLE IF EXISTS {sq}.{scratch};")
     execute(db, f"CREATE TABLE {sq}.{scratch}(__rid bigint, x double precision, y double precision);")
-    lines = [f"{i + 1},{repr(x)},{repr(y)}" for i, (x, y) in enumerate(pts)]
+    lines = [f"{i},{repr(x)},{repr(y)}" for (i, x, y) in pts]
     copy_stream(db, f"COPY {sq}.{scratch}(__rid,x,y) FROM STDIN WITH (FORMAT csv);", "\n".join(lines))
     execute(db, f"INSERT INTO {sq}.{gtab} SELECT __rid, ST_SetSRID(ST_Point(x,y), {srid}) FROM {sq}.{scratch};")
     execute(db, f"DROP TABLE IF EXISTS {sq}.{scratch};")
     return gtab, len(pts)
+
+
+def assemble_shapefile(db, entry):
+    """几何并入正表：__stg 加 geom 列→按 __rid 回填→去 __rid→删 __geom_stg→换名正表。§5.5。"""
+    schema, tname = _target_parts(entry)
+    srid = int(entry["geom"]["srid"])
+    sq, stg = quote_ident(schema), quote_ident(tname + "__stg")
+    gtab = quote_ident(tname + "__geom_stg")
+    execute(db, f"ALTER TABLE {sq}.{stg} ADD COLUMN geom geometry(Point,{srid});")
+    execute(db, f"UPDATE {sq}.{stg} a SET geom = g.geom FROM {sq}.{gtab} g WHERE g.__rid = a.__rid;")
+    execute(db, f"ALTER TABLE {sq}.{stg} DROP COLUMN __rid;")
+    execute(db, f"DROP TABLE IF EXISTS {sq}.{gtab};")
+    promote(db, entry)
+
+
+def promote_geom_only(db, entry):
+    """无属性层（geometry_only）：几何 staging 去 __rid 后换名正表。"""
+    schema, tname = _target_parts(entry)
+    sq, gtab = quote_ident(schema), quote_ident(tname + "__geom_stg")
+    execute(db, f"ALTER TABLE {sq}.{gtab} DROP COLUMN __rid;")
+    execute(db, f"DROP TABLE IF EXISTS {sq}.{quote_ident(tname)};")
+    execute(db, f"ALTER TABLE {sq}.{gtab} RENAME TO {quote_ident(tname)};")
 
 
 if __name__ == "__main__":

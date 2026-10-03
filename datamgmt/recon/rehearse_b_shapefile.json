@@ -1,0 +1,5998 @@
+{
+  "carrier": "shapefile",
+  "summary": {
+    "CONFORMS": 661,
+    "ERROR": 4
+  },
+  "results": [
+    {
+      "target": "chgis.BGIS_v1-1_20130306",
+      "carrier": "shapefile",
+      "rows": 18938,
+      "srid": "4326",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 13.9
+    },
+    {
+      "target": "chgis.Ca1884route_przh_1251",
+      "carrier": "shapefile",
+      "rows": 59,
+      "srid": "4326",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.7
+    },
+    {
+      "target": "chgis.Ca1884route_przh_utf8",
+      "carrier": "shapefile",
+      "rows": 59,
+      "srid": "4326",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 13.6
+    },
+    {
+      "target": "chgis.ChinaGasPipelines_2013",
+      "carrier": "shapefile",
+      "rows": 72,
+      "srid": "4326",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 12.7
+    },
+    {
+      "target": "chgis.ChinaGaslineNodes_2013",
+      "carrier": "shapefile",
+      "rows": 171,
+      "srid": "4326",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 10.5
+    },
+    {
+      "target": "chgis.ChinaW_points_gbk",
+      "carrier": "shapefile",
+      "rows": 2403,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 12.9
+    },
+    {
+      "target": "chgis.China_HSR_2016_lines",
+      "carrier": "shapefile",
+      "rows": 79,
+      "srid": "4326",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 12.7
+    },
+    {
+      "target": "chgis.China_HSR_2016_stations",
+      "carrier": "shapefile",
+      "rows": 748,
+      "srid": "4326",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 13.1
+    },
+    {
+      "target": "chgis.Manshu_200K_index",
+      "carrier": "shapefile",
+      "rows": 60,
+      "srid": "4326",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 13.1
+    },
+    {
+      "target": "chgis.Ming_Garrisons",
+      "carrier": "shapefile",
+      "rows": 375,
+      "srid": "4326",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 13.1
+    },
+    {
+      "target": "chgis.Ming_Routes_2016",
+      "carrier": "shapefile",
+      "rows": 1043,
+      "srid": "4326",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 12.8
+    },
+    {
+      "target": "chgis.Ming_Stations_2016",
+      "carrier": "shapefile",
+      "rows": 1000,
+      "srid": "4326",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 12.8
+    },
+    {
+      "target": "chgis.PhysiogMacroregions_pgn",
+      "carrier": "shapefile",
+      "rows": 17,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 12.8
+    },
+    {
+      "target": "chgis.TBRC_Major_Monasteries_2014",
+      "carrier": "shapefile",
+      "rows": 356,
+      "srid": "4326",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 13.2
+    },
+    {
+      "target": "chgis.TBRC_Minor_Monasteries_2014",
+      "carrier": "shapefile",
+      "rows": 2436,
+      "srid": "4326",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.9
+    },
+    {
+      "target": "chgis.TBRC_Printeries_2014",
+      "carrier": "shapefile",
+      "rows": 204,
+      "srid": "4326",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 10.9
+    },
+    {
+      "target": "chgis.TeaHorse_Major_Routes__2016-04-08",
+      "carrier": "shapefile",
+      "rows": 5,
+      "srid": "4610",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.0
+    },
+    {
+      "target": "chgis.TeaHorse_Minor_Routes_2016-04-08",
+      "carrier": "shapefile",
+      "rows": 37,
+      "srid": "4610",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 12.4
+    },
+    {
+      "target": "chgis.TeaHorse_Nodes_2016-04-08",
+      "carrier": "shapefile",
+      "rows": 212,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 13.3
+    },
+    {
+      "target": "chgis.Tibet_Monasteries_UTF8_v1_20120702",
+      "carrier": "shapefile",
+      "rows": 2926,
+      "srid": "4326",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 12.1
+    },
+    {
+      "target": "chgis.V5_1926_prov_pgn_utf",
+      "carrier": "shapefile",
+      "rows": 31,
+      "srid": "0",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 13.4
+    },
+    {
+      "target": "chgis.V5_2009_Tibet_twns_pts_GEOM",
+      "carrier": "shapefile",
+      "rows": 933,
+      "srid": "4214",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 13.0
+    },
+    {
+      "target": "chgis.V5_2009_Tibet_twns_pts_utf",
+      "carrier": "shapefile",
+      "rows": 933,
+      "srid": "4326",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 13.1
+    },
+    {
+      "target": "chgis.asia_contour",
+      "carrier": "shapefile",
+      "rows": 186130,
+      "srid": "4326",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 126.2
+    },
+    {
+      "target": "chgis.beijing_sites_v1",
+      "carrier": "shapefile",
+      "rows": 82,
+      "srid": "4326",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 12.5
+    },
+    {
+      "target": "chgis.ca1876route_przh_1251",
+      "carrier": "shapefile",
+      "rows": 111,
+      "srid": "4326",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 12.9
+    },
+    {
+      "target": "chgis.ca1876route_przh_ru",
+      "carrier": "shapefile",
+      "rows": 111,
+      "srid": "4214",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.9
+    },
+    {
+      "target": "chgis.ca1876route_przh_utf8",
+      "carrier": "shapefile",
+      "rows": 111,
+      "srid": "4326",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.4
+    },
+    {
+      "target": "chgis.ca1884_przh_1251",
+      "carrier": "shapefile",
+      "rows": 374,
+      "srid": "4326",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.6
+    },
+    {
+      "target": "chgis.ca1884_przh_ru",
+      "carrier": "shapefile",
+      "rows": 374,
+      "srid": "4214",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.5
+    },
+    {
+      "target": "chgis.ca1884_przh_utf8",
+      "carrier": "shapefile",
+      "rows": 374,
+      "srid": "4326",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 12.0
+    },
+    {
+      "target": "chgis.ca1884route_przh_ru",
+      "carrier": "shapefile",
+      "rows": 59,
+      "srid": "4214",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.8
+    },
+    {
+      "target": "chgis.chgis_tmpl_pts",
+      "carrier": "shapefile",
+      "rows": 2407,
+      "srid": "4214",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 12.3
+    },
+    {
+      "target": "chgis.chgis_v1_cst_lin",
+      "carrier": "shapefile",
+      "rows": 160,
+      "srid": "4214",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.6
+    },
+    {
+      "target": "chgis.citas90_cnty_pgn",
+      "carrier": "shapefile",
+      "rows": 2420,
+      "srid": "4214",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 18.5
+    },
+    {
+      "target": "chgis.citas90_cnty_pgn_big5",
+      "carrier": "shapefile",
+      "rows": 2975,
+      "srid": "4214",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 17.8
+    },
+    {
+      "target": "chgis.citas90_cnty_pgn_gbk",
+      "carrier": "shapefile",
+      "rows": 2975,
+      "srid": "4214",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 18.1
+    },
+    {
+      "target": "chgis.citas90_cnty_pgn_utf",
+      "carrier": "shapefile",
+      "rows": 2975,
+      "srid": "4214",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 18.0
+    },
+    {
+      "target": "chgis.citas90_pref_pgn",
+      "carrier": "shapefile",
+      "rows": 346,
+      "srid": "4214",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 14.9
+    },
+    {
+      "target": "chgis.citas90_prov_pgn",
+      "carrier": "shapefile",
+      "rows": 33,
+      "srid": "4214",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 12.8
+    },
+    {
+      "target": "chgis.eastasia1871_przh_1251",
+      "carrier": "shapefile",
+      "rows": 155,
+      "srid": "4326",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.4
+    },
+    {
+      "target": "chgis.eastasia1871_przh_ru",
+      "carrier": "shapefile",
+      "rows": 155,
+      "srid": "4214",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.7
+    },
+    {
+      "target": "chgis.eastasia1871_przh_utf8",
+      "carrier": "shapefile",
+      "rows": 155,
+      "srid": "4326",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.2
+    },
+    {
+      "target": "chgis.jp_dmyo_1664",
+      "carrier": "shapefile",
+      "rows": 206,
+      "srid": "4267",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.9
+    },
+    {
+      "target": "chgis.jp_toku_dmyo_pts",
+      "carrier": "shapefile",
+      "rows": 206,
+      "srid": "4326",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.3
+    },
+    {
+      "target": "chgis.jp_toku_doo_pgn",
+      "carrier": "shapefile",
+      "rows": 9,
+      "srid": "4326",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.6
+    },
+    {
+      "target": "chgis.jp_toku_kuni_pgn",
+      "carrier": "shapefile",
+      "rows": 69,
+      "srid": "4326",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.9
+    },
+    {
+      "target": "chgis.kam1900_koz_ru",
+      "carrier": "shapefile",
+      "rows": 266,
+      "srid": "4214",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.4
+    },
+    {
+      "target": "chgis.mk1899_koz_1251",
+      "carrier": "shapefile",
+      "rows": 2351,
+      "srid": "4326",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.8
+    },
+    {
+      "target": "chgis.mk1899_koz_ru",
+      "carrier": "shapefile",
+      "rows": 2351,
+      "srid": "4214",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.7
+    },
+    {
+      "target": "chgis.mk1899_koz_utf8",
+      "carrier": "shapefile",
+      "rows": 2351,
+      "srid": "4326",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.7
+    },
+    {
+      "target": "chgis.nima_cst_v1",
+      "carrier": "shapefile",
+      "rows": 1862,
+      "srid": "4214",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.7
+    },
+    {
+      "target": "chgis.nima_mtns_v1",
+      "carrier": "shapefile",
+      "rows": 2084,
+      "srid": "4214",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.9
+    },
+    {
+      "target": "chgis.tib1900_pdb_ru",
+      "carrier": "shapefile",
+      "rows": 555,
+      "srid": "4214",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 12.4
+    },
+    {
+      "target": "chgis.tib19pdb",
+      "carrier": "shapefile",
+      "rows": 555,
+      "srid": "0",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.4
+    },
+    {
+      "target": "chgis.v1_1820_thu_cnty_pgn_gb",
+      "carrier": "shapefile",
+      "rows": 71,
+      "srid": "4214",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.5
+    },
+    {
+      "target": "chgis.v1_1820_thu_cnty_pgn_utf",
+      "carrier": "shapefile",
+      "rows": 71,
+      "srid": "4214",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.8
+    },
+    {
+      "target": "chgis.v2_1820_cnty_pts_gb",
+      "carrier": "shapefile",
+      "rows": 1859,
+      "srid": "4214",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.5
+    },
+    {
+      "target": "chgis.v2_1820_cnty_pts_utf",
+      "carrier": "shapefile",
+      "rows": 1859,
+      "srid": "4214",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.6
+    },
+    {
+      "target": "chgis.v2_1820_lks_pgn_gb",
+      "carrier": "shapefile",
+      "rows": 370,
+      "srid": "4214",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 12.5
+    },
+    {
+      "target": "chgis.v2_1820_lks_pgn_utf",
+      "carrier": "shapefile",
+      "rows": 370,
+      "srid": "4214",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 12.3
+    },
+    {
+      "target": "chgis.v2_1820_pref_pgn_gb",
+      "carrier": "shapefile",
+      "rows": 320,
+      "srid": "4214",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 14.5
+    },
+    {
+      "target": "chgis.v2_1820_pref_pgn_utf",
+      "carrier": "shapefile",
+      "rows": 320,
+      "srid": "4214",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 14.2
+    },
+    {
+      "target": "chgis.v2_1820_pref_pts_gb",
+      "carrier": "shapefile",
+      "rows": 301,
+      "srid": "4214",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.3
+    },
+    {
+      "target": "chgis.v2_1820_pref_pts_utf",
+      "carrier": "shapefile",
+      "rows": 301,
+      "srid": "4214",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.5
+    },
+    {
+      "target": "chgis.v2_1820_prov_pgn_gb",
+      "carrier": "shapefile",
+      "rows": 32,
+      "srid": "4214",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 13.0
+    },
+    {
+      "target": "chgis.v2_1820_prov_pgn_utf",
+      "carrier": "shapefile",
+      "rows": 32,
+      "srid": "4214",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 12.8
+    },
+    {
+      "target": "chgis.v2_1820_prov_pts_gb",
+      "carrier": "shapefile",
+      "rows": 24,
+      "srid": "4214",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.8
+    },
+    {
+      "target": "chgis.v2_1820_prov_pts_utf",
+      "carrier": "shapefile",
+      "rows": 24,
+      "srid": "4214",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.6
+    },
+    {
+      "target": "chgis.v2_1820_rvr_lin_gb",
+      "carrier": "shapefile",
+      "rows": 2778,
+      "srid": "4214",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 15.7
+    },
+    {
+      "target": "chgis.v2_1820_rvr_lin_utf",
+      "carrier": "shapefile",
+      "rows": 2778,
+      "srid": "4214",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 15.5
+    },
+    {
+      "target": "chgis.v2_1820_twn_pts_gb",
+      "carrier": "shapefile",
+      "rows": 8659,
+      "srid": "4214",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 12.3
+    },
+    {
+      "target": "chgis.v2_1820_twn_pts_utf",
+      "carrier": "shapefile",
+      "rows": 8659,
+      "srid": "4214",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 12.3
+    },
+    {
+      "target": "chgis.v2_1911_cnty_pgn",
+      "carrier": "shapefile",
+      "rows": 810,
+      "srid": "4214",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 14.5
+    },
+    {
+      "target": "chgis.v2_1911_cnty_pgn_utf",
+      "carrier": "shapefile",
+      "rows": 810,
+      "srid": "4214",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 14.4
+    },
+    {
+      "target": "chgis.v2_1911_cnty_pts",
+      "carrier": "shapefile",
+      "rows": 779,
+      "srid": "4214",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.6
+    },
+    {
+      "target": "chgis.v2_1911_cnty_pts_utf",
+      "carrier": "shapefile",
+      "rows": 779,
+      "srid": "4214",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.3
+    },
+    {
+      "target": "chgis.v2_1911_pref_pgn",
+      "carrier": "shapefile",
+      "rows": 137,
+      "srid": "4214",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 12.8
+    },
+    {
+      "target": "chgis.v2_1911_pref_pgn_utf",
+      "carrier": "shapefile",
+      "rows": 137,
+      "srid": "4214",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 13.0
+    },
+    {
+      "target": "chgis.v2_1911_pref_pts",
+      "carrier": "shapefile",
+      "rows": 137,
+      "srid": "4214",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.6
+    },
+    {
+      "target": "chgis.v2_1911_pref_pts_utf",
+      "carrier": "shapefile",
+      "rows": 137,
+      "srid": "4214",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.7
+    },
+    {
+      "target": "chgis.v2_1911_prov_pgn",
+      "carrier": "shapefile",
+      "rows": 9,
+      "srid": "4214",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.9
+    },
+    {
+      "target": "chgis.v2_1911_prov_pgn_utf",
+      "carrier": "shapefile",
+      "rows": 9,
+      "srid": "4214",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 12.1
+    },
+    {
+      "target": "chgis.v2_1911_prov_pts",
+      "carrier": "shapefile",
+      "rows": 10,
+      "srid": "4214",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.5
+    },
+    {
+      "target": "chgis.v2_1911_prov_pts_utf",
+      "carrier": "shapefile",
+      "rows": 10,
+      "srid": "4214",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.5
+    },
+    {
+      "target": "chgis.v2_1911_twn_pts",
+      "carrier": "shapefile",
+      "rows": 17466,
+      "srid": "4214",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 13.3
+    },
+    {
+      "target": "chgis.v2_1911_twn_pts_utf",
+      "carrier": "shapefile",
+      "rows": 17466,
+      "srid": "4214",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 12.8
+    },
+    {
+      "target": "chgis.v2_beijing_pgn_utf",
+      "carrier": "shapefile",
+      "rows": 82,
+      "srid": "4326",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.3
+    },
+    {
+      "target": "chgis.v2_dcw_contour_lin",
+      "carrier": "shapefile",
+      "rows": 92626,
+      "srid": "4214",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 52.5
+    },
+    {
+      "target": "chgis.v2_dcw_rds_lin",
+      "carrier": "shapefile",
+      "rows": 27256,
+      "srid": "4214",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 16.0
+    },
+    {
+      "target": "chgis.v2_time_cnty_pgn_gb",
+      "carrier": "shapefile",
+      "rows": 27,
+      "srid": "4214",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.7
+    },
+    {
+      "target": "chgis.v2_time_cnty_pgn_utf",
+      "carrier": "shapefile",
+      "rows": 27,
+      "srid": "0",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.6
+    },
+    {
+      "target": "chgis.v2_time_cnty_pts_gb",
+      "carrier": "shapefile",
+      "rows": 741,
+      "srid": "4214",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.6
+    },
+    {
+      "target": "chgis.v2_time_cnty_pts_utf",
+      "carrier": "shapefile",
+      "rows": 741,
+      "srid": "0",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.6
+    },
+    {
+      "target": "chgis.v2_time_pref_pgn_gb",
+      "carrier": "shapefile",
+      "rows": 463,
+      "srid": "4214",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 17.8
+    },
+    {
+      "target": "chgis.v2_time_pref_pgn_utf",
+      "carrier": "shapefile",
+      "rows": 463,
+      "srid": "4214",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 17.4
+    },
+    {
+      "target": "chgis.v2_time_pref_pts_gb",
+      "carrier": "shapefile",
+      "rows": 285,
+      "srid": "4214",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.4
+    },
+    {
+      "target": "chgis.v2_time_pref_pts_utf",
+      "carrier": "shapefile",
+      "rows": 285,
+      "srid": "4214",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.6
+    },
+    {
+      "target": "chgis.v2_time_prov_pgn_gb",
+      "carrier": "shapefile",
+      "rows": 162,
+      "srid": "4214",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 16.8
+    },
+    {
+      "target": "chgis.v2_time_prov_pgn_utf",
+      "carrier": "shapefile",
+      "rows": 162,
+      "srid": "4214",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 16.8
+    },
+    {
+      "target": "chgis.v2_time_prov_pts_gb",
+      "carrier": "shapefile",
+      "rows": 114,
+      "srid": "4214",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.3
+    },
+    {
+      "target": "chgis.v2_time_prov_pts_utf",
+      "carrier": "shapefile",
+      "rows": 114,
+      "srid": "4267",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.6
+    },
+    {
+      "target": "chgis.v2_time_reg_pgn_gb",
+      "carrier": "shapefile",
+      "rows": 11,
+      "srid": "4214",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.8
+    },
+    {
+      "target": "chgis.v2_time_reg_pgn_utf",
+      "carrier": "shapefile",
+      "rows": 11,
+      "srid": "4214",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.5
+    },
+    {
+      "target": "chgis.v2_time_reg_pts_gb",
+      "carrier": "shapefile",
+      "rows": 7,
+      "srid": "4214",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.3
+    },
+    {
+      "target": "chgis.v2_time_reg_pts_utf",
+      "carrier": "shapefile",
+      "rows": 7,
+      "srid": "4214",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.4
+    },
+    {
+      "target": "chgis.v3_1820_pref_pgn_gb",
+      "carrier": "shapefile",
+      "rows": 320,
+      "srid": "4214",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 14.5
+    },
+    {
+      "target": "chgis.v3_1820_pref_pgn_utf",
+      "carrier": "shapefile",
+      "rows": 320,
+      "srid": "4214",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 14.2
+    },
+    {
+      "target": "chgis.v3_1820_prov_pgn_gb",
+      "carrier": "shapefile",
+      "rows": 32,
+      "srid": "4214",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 12.8
+    },
+    {
+      "target": "chgis.v3_1820_prov_pgn_utf",
+      "carrier": "shapefile",
+      "rows": 32,
+      "srid": "4214",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 13.0
+    },
+    {
+      "target": "chgis.v3_1911_cnty_pgn_gb",
+      "carrier": "shapefile",
+      "rows": 1191,
+      "srid": "4214",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 16.3
+    },
+    {
+      "target": "chgis.v3_1911_cnty_pgn_utf",
+      "carrier": "shapefile",
+      "rows": 1191,
+      "srid": "4214",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 15.8
+    },
+    {
+      "target": "chgis.v3_1911_cnty_pts_gb",
+      "carrier": "shapefile",
+      "rows": 1135,
+      "srid": "4214",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.7
+    },
+    {
+      "target": "chgis.v3_1911_cnty_pts_utf",
+      "carrier": "shapefile",
+      "rows": 1135,
+      "srid": "4214",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.5
+    },
+    {
+      "target": "chgis.v3_1911_pref_pgn_gb",
+      "carrier": "shapefile",
+      "rows": 202,
+      "srid": "4214",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 13.5
+    },
+    {
+      "target": "chgis.v3_1911_pref_pgn_utf",
+      "carrier": "shapefile",
+      "rows": 202,
+      "srid": "4214",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 14.0
+    },
+    {
+      "target": "chgis.v3_1911_pref_pts_gb",
+      "carrier": "shapefile",
+      "rows": 212,
+      "srid": "4214",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.5
+    },
+    {
+      "target": "chgis.v3_1911_pref_pts_utf",
+      "carrier": "shapefile",
+      "rows": 212,
+      "srid": "4214",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.6
+    },
+    {
+      "target": "chgis.v3_1911_prov_pgn_gb",
+      "carrier": "shapefile",
+      "rows": 13,
+      "srid": "4214",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 12.2
+    },
+    {
+      "target": "chgis.v3_1911_prov_pgn_utf",
+      "carrier": "shapefile",
+      "rows": 13,
+      "srid": "4214",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 12.1
+    },
+    {
+      "target": "chgis.v3_1911_prov_pts_gb",
+      "carrier": "shapefile",
+      "rows": 14,
+      "srid": "4214",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.3
+    },
+    {
+      "target": "chgis.v3_1911_prov_pts_utf",
+      "carrier": "shapefile",
+      "rows": 14,
+      "srid": "4214",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.6
+    },
+    {
+      "target": "chgis.v3_1911_twn_pts_gb",
+      "carrier": "shapefile",
+      "rows": 27424,
+      "srid": "4214",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 14.1
+    },
+    {
+      "target": "chgis.v3_1911_twn_pts_utf",
+      "carrier": "shapefile",
+      "rows": 27424,
+      "srid": "4214",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 13.8
+    },
+    {
+      "target": "chgis.v3_arc_china_index",
+      "carrier": "shapefile",
+      "rows": 77,
+      "srid": "4214",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.5
+    },
+    {
+      "target": "chgis.v3_time_cnty_pts_gb",
+      "carrier": "shapefile",
+      "rows": 2761,
+      "srid": "4214",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.8
+    },
+    {
+      "target": "chgis.v3_time_cnty_pts_utf",
+      "carrier": "shapefile",
+      "rows": 2761,
+      "srid": "4214",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.0
+    },
+    {
+      "target": "chgis.v3_time_pref_pgn_gb",
+      "carrier": "shapefile",
+      "rows": 2016,
+      "srid": "4214",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 35.8
+    },
+    {
+      "target": "chgis.v3_time_pref_pgn_utf",
+      "carrier": "shapefile",
+      "rows": 2016,
+      "srid": "4214",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 36.4
+    },
+    {
+      "target": "chgis.v3_time_pref_pts_gb",
+      "carrier": "shapefile",
+      "rows": 1220,
+      "srid": "4214",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.8
+    },
+    {
+      "target": "chgis.v3_time_pref_pts_utf",
+      "carrier": "shapefile",
+      "rows": 1220,
+      "srid": "4214",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.5
+    },
+    {
+      "target": "chgis.v3_time_prov_pgn_gb",
+      "carrier": "shapefile",
+      "rows": 487,
+      "srid": "4214",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 29.8
+    },
+    {
+      "target": "chgis.v3_time_prov_pgn_utf",
+      "carrier": "shapefile",
+      "rows": 487,
+      "srid": "4214",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 29.7
+    },
+    {
+      "target": "chgis.v3_time_prov_pts_gb",
+      "carrier": "shapefile",
+      "rows": 312,
+      "srid": "4214",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.5
+    },
+    {
+      "target": "chgis.v3_time_prov_pts_utf",
+      "carrier": "shapefile",
+      "rows": 312,
+      "srid": "4214",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.4
+    },
+    {
+      "target": "chgis.v4_1820_cnty_pts_gbk",
+      "carrier": "shapefile",
+      "rows": 1859,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 12.0
+    },
+    {
+      "target": "chgis.v4_1820_cnty_pts_utf",
+      "carrier": "shapefile",
+      "rows": 1859,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.8
+    },
+    {
+      "target": "chgis.v4_1820_coast_lin",
+      "carrier": "shapefile",
+      "rows": 160,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 12.1
+    },
+    {
+      "target": "chgis.v4_1820_coded_rvr_lin_utf",
+      "carrier": "shapefile",
+      "rows": 5983,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 15.7
+    },
+    {
+      "target": "chgis.v4_1820_lks_pgn_gbk",
+      "carrier": "shapefile",
+      "rows": 370,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 12.5
+    },
+    {
+      "target": "chgis.v4_1820_lks_pgn_utf",
+      "carrier": "shapefile",
+      "rows": 370,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 12.1
+    },
+    {
+      "target": "chgis.v4_1820_pref_pgn_gbk",
+      "carrier": "shapefile",
+      "rows": 320,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 15.4
+    },
+    {
+      "target": "chgis.v4_1820_pref_pgn_utf",
+      "carrier": "shapefile",
+      "rows": 320,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 15.6
+    },
+    {
+      "target": "chgis.v4_1820_pref_pts_gbk",
+      "carrier": "shapefile",
+      "rows": 301,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.4
+    },
+    {
+      "target": "chgis.v4_1820_pref_pts_utf",
+      "carrier": "shapefile",
+      "rows": 301,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.6
+    },
+    {
+      "target": "chgis.v4_1820_prov_pgn_gbk",
+      "carrier": "shapefile",
+      "rows": 32,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 13.3
+    },
+    {
+      "target": "chgis.v4_1820_prov_pgn_utf",
+      "carrier": "shapefile",
+      "rows": 32,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 13.1
+    },
+    {
+      "target": "chgis.v4_1820_prov_pts_gbk",
+      "carrier": "shapefile",
+      "rows": 24,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.6
+    },
+    {
+      "target": "chgis.v4_1820_prov_pts_utf",
+      "carrier": "shapefile",
+      "rows": 24,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.7
+    },
+    {
+      "target": "chgis.v4_1820_rvr_lin_gbk",
+      "carrier": "shapefile",
+      "rows": 2778,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "ERROR",
+      "err": "[db] SELECT count(*) FROM \"chgis\".\"v4_1820_rvr_lin_gbk__geom_stg\"; rc=255\n--- stdout ---\n\n--- stderr ---\nConnection closed by 192.168.3.32 port 22\r\n",
+      "sec": 10.0
+    },
+    {
+      "target": "chgis.v4_1820_rvr_lin_utf",
+      "carrier": "shapefile",
+      "rows": 2778,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 16.4
+    },
+    {
+      "target": "chgis.v4_1820_twn_pts_gbk",
+      "carrier": "shapefile",
+      "rows": 8659,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 12.5
+    },
+    {
+      "target": "chgis.v4_1820_twn_pts_utf",
+      "carrier": "shapefile",
+      "rows": 8659,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 12.7
+    },
+    {
+      "target": "chgis.v4_1911_cnty_pgn_gbk",
+      "carrier": "shapefile",
+      "rows": 1502,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 18.2
+    },
+    {
+      "target": "chgis.v4_1911_cnty_pgn_utf",
+      "carrier": "shapefile",
+      "rows": 1502,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 18.5
+    },
+    {
+      "target": "chgis.v4_1911_cnty_pts_gbk",
+      "carrier": "shapefile",
+      "rows": 1426,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.4
+    },
+    {
+      "target": "chgis.v4_1911_cnty_pts_utf",
+      "carrier": "shapefile",
+      "rows": 1426,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.6
+    },
+    {
+      "target": "chgis.v4_1911_pref_pgn_gbk",
+      "carrier": "shapefile",
+      "rows": 267,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 14.7
+    },
+    {
+      "target": "chgis.v4_1911_pref_pgn_utf",
+      "carrier": "shapefile",
+      "rows": 267,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 15.0
+    },
+    {
+      "target": "chgis.v4_1911_pref_pts_gbk",
+      "carrier": "shapefile",
+      "rows": 270,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.4
+    },
+    {
+      "target": "chgis.v4_1911_pref_pts_utf",
+      "carrier": "shapefile",
+      "rows": 270,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.6
+    },
+    {
+      "target": "chgis.v4_1911_prov_pgn_gbk",
+      "carrier": "shapefile",
+      "rows": 18,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 12.6
+    },
+    {
+      "target": "chgis.v4_1911_prov_pgn_utf",
+      "carrier": "shapefile",
+      "rows": 18,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 13.0
+    },
+    {
+      "target": "chgis.v4_1911_prov_pts_gbk",
+      "carrier": "shapefile",
+      "rows": 17,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.5
+    },
+    {
+      "target": "chgis.v4_1911_prov_pts_utf",
+      "carrier": "shapefile",
+      "rows": 17,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.3
+    },
+    {
+      "target": "chgis.v4_1911_twn_pts_gbk",
+      "carrier": "shapefile",
+      "rows": 38599,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 16.1
+    },
+    {
+      "target": "chgis.v4_1911_twn_pts_utf",
+      "carrier": "shapefile",
+      "rows": 38599,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 17.1
+    },
+    {
+      "target": "chgis.v4_1997_prov_pgn_gbk",
+      "carrier": "shapefile",
+      "rows": 34,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 12.8
+    },
+    {
+      "target": "chgis.v4_1997_prov_pgn_utf",
+      "carrier": "shapefile",
+      "rows": 34,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 12.8
+    },
+    {
+      "target": "chgis.v4_arc_china_index",
+      "carrier": "shapefile",
+      "rows": 77,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.8
+    },
+    {
+      "target": "chgis.v4_buddhist_pts_utf",
+      "carrier": "shapefile",
+      "rows": 2407,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.6
+    },
+    {
+      "target": "chgis.v4_citas90_cnty_pgn_big5_stats",
+      "carrier": "shapefile",
+      "rows": 2975,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 17.8
+    },
+    {
+      "target": "chgis.v4_citas90_cnty_pgn_gbk_stats",
+      "carrier": "shapefile",
+      "rows": 2975,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 17.6
+    },
+    {
+      "target": "chgis.v4_citas90_cnty_pgn_utf_stats",
+      "carrier": "shapefile",
+      "rows": 2975,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 18.0
+    },
+    {
+      "target": "chgis.v4_citas90_pref_pgn_utf",
+      "carrier": "shapefile",
+      "rows": 346,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 14.8
+    },
+    {
+      "target": "chgis.v4_citas90_prov_pgn_utf",
+      "carrier": "shapefile",
+      "rows": 33,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 12.6
+    },
+    {
+      "target": "chgis.v4_dcw_contour_lin",
+      "carrier": "shapefile",
+      "rows": 92626,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 55.0
+    },
+    {
+      "target": "chgis.v4_dcw_rail_lin",
+      "carrier": "shapefile",
+      "rows": 5556,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 12.1
+    },
+    {
+      "target": "chgis.v4_dcw_rds_lin",
+      "carrier": "shapefile",
+      "rows": 27256,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "ERROR",
+      "err": "[db] SELECT column_name FROM information_schema.columns WHERE table_schema='chgis' AN rc=255\n--- stdout ---\n\n--- stderr ---\nConnection closed by 192.168.3.32 port 22\r\n",
+      "sec": 3.0
+    },
+    {
+      "target": "chgis.v4_dcw_rvr_lin",
+      "carrier": "shapefile",
+      "rows": 213880,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 51.6
+    },
+    {
+      "target": "chgis.v4_gns_anhui_gbk",
+      "carrier": "shapefile",
+      "rows": 12511,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 12.6
+    },
+    {
+      "target": "chgis.v4_gns_beijing_gbk",
+      "carrier": "shapefile",
+      "rows": 1143,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.7
+    },
+    {
+      "target": "chgis.v4_gns_fujian_gbk",
+      "carrier": "shapefile",
+      "rows": 3728,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 12.2
+    },
+    {
+      "target": "chgis.v4_gns_gansu_gbk",
+      "carrier": "shapefile",
+      "rows": 2323,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.6
+    },
+    {
+      "target": "chgis.v4_gns_guangdong_gbk",
+      "carrier": "shapefile",
+      "rows": 4822,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 12.3
+    },
+    {
+      "target": "chgis.v4_gns_guangxi_gbk",
+      "carrier": "shapefile",
+      "rows": 4099,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 12.2
+    },
+    {
+      "target": "chgis.v4_gns_guizhou_gbk",
+      "carrier": "shapefile",
+      "rows": 5220,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 12.2
+    },
+    {
+      "target": "chgis.v4_gns_hainan_gbk",
+      "carrier": "shapefile",
+      "rows": 1358,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.9
+    },
+    {
+      "target": "chgis.v4_gns_hebei_gbk",
+      "carrier": "shapefile",
+      "rows": 7376,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 12.4
+    },
+    {
+      "target": "chgis.v4_gns_heilongjiang_gbk",
+      "carrier": "shapefile",
+      "rows": 3122,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 12.0
+    },
+    {
+      "target": "chgis.v4_gns_henan_gbk",
+      "carrier": "shapefile",
+      "rows": 3432,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.8
+    },
+    {
+      "target": "chgis.v4_gns_hubei_gbk",
+      "carrier": "shapefile",
+      "rows": 3598,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 12.0
+    },
+    {
+      "target": "chgis.v4_gns_hunan_gbk",
+      "carrier": "shapefile",
+      "rows": 3382,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 12.3
+    },
+    {
+      "target": "chgis.v4_gns_jiangsu_gbk",
+      "carrier": "shapefile",
+      "rows": 10277,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 12.5
+    },
+    {
+      "target": "chgis.v4_gns_jiangxi_gbk",
+      "carrier": "shapefile",
+      "rows": 3329,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 12.0
+    },
+    {
+      "target": "chgis.v4_gns_jilin_gbk",
+      "carrier": "shapefile",
+      "rows": 2960,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.7
+    },
+    {
+      "target": "chgis.v4_gns_liaoning_gbk",
+      "carrier": "shapefile",
+      "rows": 3155,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 12.2
+    },
+    {
+      "target": "chgis.v4_gns_neimeng_gbk",
+      "carrier": "shapefile",
+      "rows": 4474,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 12.3
+    },
+    {
+      "target": "chgis.v4_gns_ningxia_gbk",
+      "carrier": "shapefile",
+      "rows": 848,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.4
+    },
+    {
+      "target": "chgis.v4_gns_qinghai_gbk",
+      "carrier": "shapefile",
+      "rows": 1832,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 12.1
+    },
+    {
+      "target": "chgis.v4_gns_shaanxi_gbk",
+      "carrier": "shapefile",
+      "rows": 6151,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 12.3
+    },
+    {
+      "target": "chgis.v4_gns_shandong_gbk",
+      "carrier": "shapefile",
+      "rows": 4260,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 12.2
+    },
+    {
+      "target": "chgis.v4_gns_shanghai_gbk",
+      "carrier": "shapefile",
+      "rows": 1352,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.7
+    },
+    {
+      "target": "chgis.v4_gns_shanxi_gbk",
+      "carrier": "shapefile",
+      "rows": 9124,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 12.8
+    },
+    {
+      "target": "chgis.v4_gns_sichuan_gbk",
+      "carrier": "shapefile",
+      "rows": 5390,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 12.4
+    },
+    {
+      "target": "chgis.v4_gns_tianjin_gbk",
+      "carrier": "shapefile",
+      "rows": 869,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.8
+    },
+    {
+      "target": "chgis.v4_gns_tibet_gbk",
+      "carrier": "shapefile",
+      "rows": 2466,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 12.0
+    },
+    {
+      "target": "chgis.v4_gns_xinjiang_gbk",
+      "carrier": "shapefile",
+      "rows": 3828,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.9
+    },
+    {
+      "target": "chgis.v4_gns_yunnan_gbk",
+      "carrier": "shapefile",
+      "rows": 3203,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.7
+    },
+    {
+      "target": "chgis.v4_gns_zhejiang_gbk",
+      "carrier": "shapefile",
+      "rows": 11033,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 12.7
+    },
+    {
+      "target": "chgis.v4_nima_mtns_pts",
+      "carrier": "shapefile",
+      "rows": 2084,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.8
+    },
+    {
+      "target": "chgis.v4_nima_rocks_pts",
+      "carrier": "shapefile",
+      "rows": 1862,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.6
+    },
+    {
+      "target": "chgis.v4_ras_1871_neimeng_pts",
+      "carrier": "shapefile",
+      "rows": 155,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.8
+    },
+    {
+      "target": "chgis.v4_ras_1876_xinjiang_pts",
+      "carrier": "shapefile",
+      "rows": 111,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.4
+    },
+    {
+      "target": "chgis.v4_ras_1884_qinghai_pts",
+      "carrier": "shapefile",
+      "rows": 374,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.8
+    },
+    {
+      "target": "chgis.v4_ras_1884_tarim_pts",
+      "carrier": "shapefile",
+      "rows": 59,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.4
+    },
+    {
+      "target": "chgis.v4_ras_1899_meng_kham_pts",
+      "carrier": "shapefile",
+      "rows": 2351,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.9
+    },
+    {
+      "target": "chgis.v4_ras_1900_tibet_kham_pts",
+      "carrier": "shapefile",
+      "rows": 266,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.8
+    },
+    {
+      "target": "chgis.v4_ras_1904_tibet_pts",
+      "carrier": "shapefile",
+      "rows": 555,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.9
+    },
+    {
+      "target": "chgis.v4_time_cnty_pts_gbk",
+      "carrier": "shapefile",
+      "rows": 4891,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 12.0
+    },
+    {
+      "target": "chgis.v4_time_cnty_pts_utf",
+      "carrier": "shapefile",
+      "rows": 4891,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 12.3
+    },
+    {
+      "target": "chgis.v4_time_pref_pgn_gbk",
+      "carrier": "shapefile",
+      "rows": 2016,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 42.3
+    },
+    {
+      "target": "chgis.v4_time_pref_pgn_utf",
+      "carrier": "shapefile",
+      "rows": 2016,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 43.0
+    },
+    {
+      "target": "chgis.v4_time_pref_pts_gbk",
+      "carrier": "shapefile",
+      "rows": 1232,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.4
+    },
+    {
+      "target": "chgis.v4_time_pref_pts_utf",
+      "carrier": "shapefile",
+      "rows": 1232,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 12.0
+    },
+    {
+      "target": "chgis.v4_time_prov_pgn_gbk",
+      "carrier": "shapefile",
+      "rows": 489,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 35.2
+    },
+    {
+      "target": "chgis.v4_time_prov_pgn_utf",
+      "carrier": "shapefile",
+      "rows": 489,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 34.0
+    },
+    {
+      "target": "chgis.v4_time_prov_pts_gbk",
+      "carrier": "shapefile",
+      "rows": 312,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.6
+    },
+    {
+      "target": "chgis.v4_time_prov_pts_utf",
+      "carrier": "shapefile",
+      "rows": 312,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.6
+    },
+    {
+      "target": "chgis.v4_time_reg_pgn_gbk",
+      "carrier": "shapefile",
+      "rows": 11,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.7
+    },
+    {
+      "target": "chgis.v4_time_reg_pgn_utf",
+      "carrier": "shapefile",
+      "rows": 11,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 12.0
+    },
+    {
+      "target": "chgis.v4_time_reg_pts_gbk",
+      "carrier": "shapefile",
+      "rows": 6,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.4
+    },
+    {
+      "target": "chgis.v4_time_reg_pts_utf",
+      "carrier": "shapefile",
+      "rows": 6,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.3
+    },
+    {
+      "target": "chgis.v5_0741_chin_chn_0741_c",
+      "carrier": "shapefile",
+      "rows": 1498,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 15.5
+    },
+    {
+      "target": "chgis.v5_0741_chin_chn_0741_p",
+      "carrier": "shapefile",
+      "rows": 339,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 13.6
+    },
+    {
+      "target": "chgis.v5_0741_circ_gn_0741_d",
+      "carrier": "shapefile",
+      "rows": 1,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.2
+    },
+    {
+      "target": "chgis.v5_0741_circ_hb_0741_d",
+      "carrier": "shapefile",
+      "rows": 1,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.9
+    },
+    {
+      "target": "chgis.v5_0741_circ_hd_0741_d",
+      "carrier": "shapefile",
+      "rows": 1,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.6
+    },
+    {
+      "target": "chgis.v5_0741_circ_hn_0741_d",
+      "carrier": "shapefile",
+      "rows": 1,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.7
+    },
+    {
+      "target": "chgis.v5_0741_circ_hun_0741_d",
+      "carrier": "shapefile",
+      "rows": 1,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.5
+    },
+    {
+      "target": "chgis.v5_0741_circ_jgn_0741_d",
+      "carrier": "shapefile",
+      "rows": 1,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.8
+    },
+    {
+      "target": "chgis.v5_0741_circ_jnn_0741_d",
+      "carrier": "shapefile",
+      "rows": 1,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.5
+    },
+    {
+      "target": "chgis.v5_0741_circ_ln_0741_d",
+      "carrier": "shapefile",
+      "rows": 1,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.4
+    },
+    {
+      "target": "chgis.v5_0741_circ_ly_0741_d",
+      "carrier": "shapefile",
+      "rows": 1,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.7
+    },
+    {
+      "target": "chgis.v5_0741_circ_sn_0741_d",
+      "carrier": "shapefile",
+      "rows": 1,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.2
+    },
+    {
+      "target": "chgis.v5_0741_cnty_gn_0741_c",
+      "carrier": "shapefile",
+      "rows": 134,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.9
+    },
+    {
+      "target": "chgis.v5_0741_cnty_hb_0741_c",
+      "carrier": "shapefile",
+      "rows": 160,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 12.0
+    },
+    {
+      "target": "chgis.v5_0741_cnty_hd_0741_c",
+      "carrier": "shapefile",
+      "rows": 126,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 12.0
+    },
+    {
+      "target": "chgis.v5_0741_cnty_hn_0741_c",
+      "carrier": "shapefile",
+      "rows": 206,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.8
+    },
+    {
+      "target": "chgis.v5_0741_cnty_hun_0741_c",
+      "carrier": "shapefile",
+      "rows": 31,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.6
+    },
+    {
+      "target": "chgis.v5_0741_cnty_jgn_0741_c",
+      "carrier": "shapefile",
+      "rows": 259,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 12.6
+    },
+    {
+      "target": "chgis.v5_0741_cnty_jnn_0741_c",
+      "carrier": "shapefile",
+      "rows": 174,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.8
+    },
+    {
+      "target": "chgis.v5_0741_cnty_ln_0741_c",
+      "carrier": "shapefile",
+      "rows": 191,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 12.2
+    },
+    {
+      "target": "chgis.v5_0741_cnty_ly_0741_c",
+      "carrier": "shapefile",
+      "rows": 58,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.8
+    },
+    {
+      "target": "chgis.v5_0741_cnty_sn_0741_c",
+      "carrier": "shapefile",
+      "rows": 160,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 12.0
+    },
+    {
+      "target": "chgis.v5_0741_indp_jnt_0741_p",
+      "carrier": "shapefile",
+      "rows": 1,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.5
+    },
+    {
+      "target": "chgis.v5_0741_indp_jntr_0741",
+      "carrier": "shapefile",
+      "rows": 1,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.9
+    },
+    {
+      "target": "chgis.v5_0741_indp_liu_0741_p",
+      "carrier": "shapefile",
+      "rows": 1,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.5
+    },
+    {
+      "target": "chgis.v5_0741_indp_liuq_0741",
+      "carrier": "shapefile",
+      "rows": 1,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.4
+    },
+    {
+      "target": "chgis.v5_0741_indp_tft_0741_p",
+      "carrier": "shapefile",
+      "rows": 1,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.3
+    },
+    {
+      "target": "chgis.v5_0741_indp_tftr_0741",
+      "carrier": "shapefile",
+      "rows": 1,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.3
+    },
+    {
+      "target": "chgis.v5_0741_pref_gn_0741_p",
+      "carrier": "shapefile",
+      "rows": 25,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.8
+    },
+    {
+      "target": "chgis.v5_0741_pref_hb_0741_p",
+      "carrier": "shapefile",
+      "rows": 34,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.7
+    },
+    {
+      "target": "chgis.v5_0741_pref_hd_0741_p",
+      "carrier": "shapefile",
+      "rows": 21,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.8
+    },
+    {
+      "target": "chgis.v5_0741_pref_hn_0741_p",
+      "carrier": "shapefile",
+      "rows": 31,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.7
+    },
+    {
+      "target": "chgis.v5_0741_pref_hun_0741_p",
+      "carrier": "shapefile",
+      "rows": 7,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.7
+    },
+    {
+      "target": "chgis.v5_0741_pref_jgn_0741_p",
+      "carrier": "shapefile",
+      "rows": 59,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 12.1
+    },
+    {
+      "target": "chgis.v5_0741_pref_jnn_0741_p",
+      "carrier": "shapefile",
+      "rows": 41,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.7
+    },
+    {
+      "target": "chgis.v5_0741_pref_ln_0741_p",
+      "carrier": "shapefile",
+      "rows": 62,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 12.0
+    },
+    {
+      "target": "chgis.v5_0741_pref_ly_0741_p",
+      "carrier": "shapefile",
+      "rows": 21,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.8
+    },
+    {
+      "target": "chgis.v5_0741_pref_sn_0741_p",
+      "carrier": "shapefile",
+      "rows": 35,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.6
+    },
+    {
+      "target": "chgis.v5_1080_chin_chn_1080_c",
+      "carrier": "shapefile",
+      "rows": 1487,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 15.0
+    },
+    {
+      "target": "chgis.v5_1080_chin_chn_1080_l",
+      "carrier": "shapefile",
+      "rows": 38,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 12.4
+    },
+    {
+      "target": "chgis.v5_1080_chin_chn_1080_p",
+      "carrier": "shapefile",
+      "rows": 410,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 13.8
+    },
+    {
+      "target": "chgis.v5_1080_chin_difang",
+      "carrier": "shapefile",
+      "rows": 957,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.5
+    },
+    {
+      "target": "chgis.v5_1080_circ_cdf_1080_l",
+      "carrier": "shapefile",
+      "rows": 1,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.4
+    },
+    {
+      "target": "chgis.v5_1080_circ_fj_1080_l",
+      "carrier": "shapefile",
+      "rows": 1,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.2
+    },
+    {
+      "target": "chgis.v5_1080_circ_gnd_1080_l",
+      "carrier": "shapefile",
+      "rows": 1,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.4
+    },
+    {
+      "target": "chgis.v5_1080_circ_gnx_1080_l",
+      "carrier": "shapefile",
+      "rows": 1,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.7
+    },
+    {
+      "target": "chgis.v5_1080_circ_hbd_1080_l",
+      "carrier": "shapefile",
+      "rows": 1,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.1
+    },
+    {
+      "target": "chgis.v5_1080_circ_hbx_1080_l",
+      "carrier": "shapefile",
+      "rows": 1,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.3
+    },
+    {
+      "target": "chgis.v5_1080_circ_hd_1080_l",
+      "carrier": "shapefile",
+      "rows": 1,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.4
+    },
+    {
+      "target": "chgis.v5_1080_circ_hnd_1080_l",
+      "carrier": "shapefile",
+      "rows": 1,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.2
+    },
+    {
+      "target": "chgis.v5_1080_circ_hnx_1080_l",
+      "carrier": "shapefile",
+      "rows": 1,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.3
+    },
+    {
+      "target": "chgis.v5_1080_circ_jdd_1080_l",
+      "carrier": "shapefile",
+      "rows": 1,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.7
+    },
+    {
+      "target": "chgis.v5_1080_circ_jdx_1080_l",
+      "carrier": "shapefile",
+      "rows": 1,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.4
+    },
+    {
+      "target": "chgis.v5_1080_circ_jhb_1080_l",
+      "carrier": "shapefile",
+      "rows": 1,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.7
+    },
+    {
+      "target": "chgis.v5_1080_circ_jhn_1080_l",
+      "carrier": "shapefile",
+      "rows": 1,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.5
+    },
+    {
+      "target": "chgis.v5_1080_circ_jj_1080_l",
+      "carrier": "shapefile",
+      "rows": 1,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.3
+    },
+    {
+      "target": "chgis.v5_1080_circ_jnd_1080_l",
+      "carrier": "shapefile",
+      "rows": 1,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.5
+    },
+    {
+      "target": "chgis.v5_1080_circ_jnx_1080_l",
+      "carrier": "shapefile",
+      "rows": 1,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.2
+    },
+    {
+      "target": "chgis.v5_1080_circ_jxb_1080_l",
+      "carrier": "shapefile",
+      "rows": 1,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.4
+    },
+    {
+      "target": "chgis.v5_1080_circ_jxn_1080_l",
+      "carrier": "shapefile",
+      "rows": 1,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.4
+    },
+    {
+      "target": "chgis.v5_1080_circ_kz_1080_l",
+      "carrier": "shapefile",
+      "rows": 1,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.2
+    },
+    {
+      "target": "chgis.v5_1080_circ_liz_1080_l",
+      "carrier": "shapefile",
+      "rows": 1,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.6
+    },
+    {
+      "target": "chgis.v5_1080_circ_lz_1080_l",
+      "carrier": "shapefile",
+      "rows": 1,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.9
+    },
+    {
+      "target": "chgis.v5_1080_circ_qf_1080_l",
+      "carrier": "shapefile",
+      "rows": 1,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.6
+    },
+    {
+      "target": "chgis.v5_1080_circ_yx_1080_l",
+      "carrier": "shapefile",
+      "rows": 1,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.3
+    },
+    {
+      "target": "chgis.v5_1080_circ_zz_1080_l",
+      "carrier": "shapefile",
+      "rows": 1,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.4
+    },
+    {
+      "target": "chgis.v5_1080_cnty_cdf_1080_c",
+      "carrier": "shapefile",
+      "rows": 60,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.8
+    },
+    {
+      "target": "chgis.v5_1080_cnty_fj_1080_c",
+      "carrier": "shapefile",
+      "rows": 45,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.7
+    },
+    {
+      "target": "chgis.v5_1080_cnty_gnd_1080_c",
+      "carrier": "shapefile",
+      "rows": 40,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.9
+    },
+    {
+      "target": "chgis.v5_1080_cnty_gnx_1080_c",
+      "carrier": "shapefile",
+      "rows": 69,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.7
+    },
+    {
+      "target": "chgis.v5_1080_cnty_hbd_1080_c",
+      "carrier": "shapefile",
+      "rows": 55,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.6
+    },
+    {
+      "target": "chgis.v5_1080_cnty_hbx_1080_c",
+      "carrier": "shapefile",
+      "rows": 55,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.5
+    },
+    {
+      "target": "chgis.v5_1080_cnty_hd_1080_c",
+      "carrier": "shapefile",
+      "rows": 79,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.6
+    },
+    {
+      "target": "chgis.v5_1080_cnty_hnd_1080_c",
+      "carrier": "shapefile",
+      "rows": 37,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.7
+    },
+    {
+      "target": "chgis.v5_1080_cnty_hnx_1080_c",
+      "carrier": "shapefile",
+      "rows": 31,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.8
+    },
+    {
+      "target": "chgis.v5_1080_cnty_jdd_1080_c",
+      "carrier": "shapefile",
+      "rows": 36,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.4
+    },
+    {
+      "target": "chgis.v5_1080_cnty_jdx_1080_c",
+      "carrier": "shapefile",
+      "rows": 41,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.4
+    },
+    {
+      "target": "chgis.v5_1080_cnty_jhb_1080_c",
+      "carrier": "shapefile",
+      "rows": 57,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.9
+    },
+    {
+      "target": "chgis.v5_1080_cnty_jhn_1080_c",
+      "carrier": "shapefile",
+      "rows": 33,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.6
+    },
+    {
+      "target": "chgis.v5_1080_cnty_jj_1080_c",
+      "carrier": "shapefile",
+      "rows": 22,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.4
+    },
+    {
+      "target": "chgis.v5_1080_cnty_jnd_1080_c",
+      "carrier": "shapefile",
+      "rows": 48,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.7
+    },
+    {
+      "target": "chgis.v5_1080_cnty_jnx_1080_c",
+      "carrier": "shapefile",
+      "rows": 47,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.8
+    },
+    {
+      "target": "chgis.v5_1080_cnty_jxb_1080_c",
+      "carrier": "shapefile",
+      "rows": 51,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.6
+    },
+    {
+      "target": "chgis.v5_1080_cnty_jxn_1080_c",
+      "carrier": "shapefile",
+      "rows": 30,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.4
+    },
+    {
+      "target": "chgis.v5_1080_cnty_kz_1080_c",
+      "carrier": "shapefile",
+      "rows": 54,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.7
+    },
+    {
+      "target": "chgis.v5_1080_cnty_liz_1080_c",
+      "carrier": "shapefile",
+      "rows": 40,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.8
+    },
+    {
+      "target": "chgis.v5_1080_cnty_lz_1080_c",
+      "carrier": "shapefile",
+      "rows": 79,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 12.1
+    },
+    {
+      "target": "chgis.v5_1080_cnty_qf_1080_c",
+      "carrier": "shapefile",
+      "rows": 45,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.9
+    },
+    {
+      "target": "chgis.v5_1080_cnty_yx_1080_c",
+      "carrier": "shapefile",
+      "rows": 87,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.6
+    },
+    {
+      "target": "chgis.v5_1080_cnty_zz_1080_c",
+      "carrier": "shapefile",
+      "rows": 57,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.5
+    },
+    {
+      "target": "chgis.v5_1080_indp_abor_1080",
+      "carrier": "shapefile",
+      "rows": 1,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.1
+    },
+    {
+      "target": "chgis.v5_1080_indp_dali_1080",
+      "carrier": "shapefile",
+      "rows": 1,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.7
+    },
+    {
+      "target": "chgis.v5_1080_indp_hei_1080",
+      "carrier": "shapefile",
+      "rows": 1,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.5
+    },
+    {
+      "target": "chgis.v5_1080_indp_hotn_1080",
+      "carrier": "shapefile",
+      "rows": 1,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.3
+    },
+    {
+      "target": "chgis.v5_1080_indp_ind_1080_l",
+      "carrier": "shapefile",
+      "rows": 7,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.4
+    },
+    {
+      "target": "chgis.v5_1080_indp_ind_1080_p",
+      "carrier": "shapefile",
+      "rows": 7,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.8
+    },
+    {
+      "target": "chgis.v5_1080_indp_liao_1080",
+      "carrier": "shapefile",
+      "rows": 101,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 12.1
+    },
+    {
+      "target": "chgis.v5_1080_indp_liu_1080_l",
+      "carrier": "shapefile",
+      "rows": 1,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.6
+    },
+    {
+      "target": "chgis.v5_1080_indp_liu_1080_p",
+      "carrier": "shapefile",
+      "rows": 1,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.6
+    },
+    {
+      "target": "chgis.v5_1080_indp_liuq_1080",
+      "carrier": "shapefile",
+      "rows": 1,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.5
+    },
+    {
+      "target": "chgis.v5_1080_indp_tufn_1080",
+      "carrier": "shapefile",
+      "rows": 1,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.6
+    },
+    {
+      "target": "chgis.v5_1080_indp_uigr_1080",
+      "carrier": "shapefile",
+      "rows": 1,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.3
+    },
+    {
+      "target": "chgis.v5_1080_indp_xxia_1080",
+      "carrier": "shapefile",
+      "rows": 1,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.7
+    },
+    {
+      "target": "chgis.v5_1080_liao_djd_1080_c",
+      "carrier": "shapefile",
+      "rows": 100,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 12.0
+    },
+    {
+      "target": "chgis.v5_1080_liao_djd_1080_d",
+      "carrier": "shapefile",
+      "rows": 1,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.7
+    },
+    {
+      "target": "chgis.v5_1080_liao_djd_1080_p",
+      "carrier": "shapefile",
+      "rows": 50,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.5
+    },
+    {
+      "target": "chgis.v5_1080_liao_dtl_1080_d",
+      "carrier": "shapefile",
+      "rows": 1,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.3
+    },
+    {
+      "target": "chgis.v5_1080_liao_dtl_1080_j",
+      "carrier": "shapefile",
+      "rows": 1,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.8
+    },
+    {
+      "target": "chgis.v5_1080_liao_dtl_1080_p",
+      "carrier": "shapefile",
+      "rows": 1,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.3
+    },
+    {
+      "target": "chgis.v5_1080_liao_njd_1080_c",
+      "carrier": "shapefile",
+      "rows": 35,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.5
+    },
+    {
+      "target": "chgis.v5_1080_liao_njd_1080_d",
+      "carrier": "shapefile",
+      "rows": 1,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.4
+    },
+    {
+      "target": "chgis.v5_1080_liao_njd_1080_p",
+      "carrier": "shapefile",
+      "rows": 2,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.4
+    },
+    {
+      "target": "chgis.v5_1080_liao_sjd_1080_c",
+      "carrier": "shapefile",
+      "rows": 49,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.3
+    },
+    {
+      "target": "chgis.v5_1080_liao_sjd_1080_d",
+      "carrier": "shapefile",
+      "rows": 1,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.6
+    },
+    {
+      "target": "chgis.v5_1080_liao_sjd_1080_p",
+      "carrier": "shapefile",
+      "rows": 31,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.5
+    },
+    {
+      "target": "chgis.v5_1080_liao_sjd_1080z",
+      "carrier": "shapefile",
+      "rows": 48,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.4
+    },
+    {
+      "target": "chgis.v5_1080_liao_xjd_1080_c",
+      "carrier": "shapefile",
+      "rows": 43,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.6
+    },
+    {
+      "target": "chgis.v5_1080_liao_xjd_1080_d",
+      "carrier": "shapefile",
+      "rows": 1,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.7
+    },
+    {
+      "target": "chgis.v5_1080_liao_xjd_1080_p",
+      "carrier": "shapefile",
+      "rows": 10,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.6
+    },
+    {
+      "target": "chgis.v5_1080_liao_zjd_1080_c",
+      "carrier": "shapefile",
+      "rows": 54,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.3
+    },
+    {
+      "target": "chgis.v5_1080_liao_zjd_1080_d",
+      "carrier": "shapefile",
+      "rows": 1,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.4
+    },
+    {
+      "target": "chgis.v5_1080_liao_zjd_1080_p",
+      "carrier": "shapefile",
+      "rows": 7,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.5
+    },
+    {
+      "target": "chgis.v5_1080_pref_cdf_1080_p",
+      "carrier": "shapefile",
+      "rows": 14,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.7
+    },
+    {
+      "target": "chgis.v5_1080_pref_fj_1080_p",
+      "carrier": "shapefile",
+      "rows": 8,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.3
+    },
+    {
+      "target": "chgis.v5_1080_pref_gnd_1080_p",
+      "carrier": "shapefile",
+      "rows": 14,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.5
+    },
+    {
+      "target": "chgis.v5_1080_pref_gnx_1080_p",
+      "carrier": "shapefile",
+      "rows": 29,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.6
+    },
+    {
+      "target": "chgis.v5_1080_pref_hbd_1080_p",
+      "carrier": "shapefile",
+      "rows": 17,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.7
+    },
+    {
+      "target": "chgis.v5_1080_pref_hbx_1080_p",
+      "carrier": "shapefile",
+      "rows": 16,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.5
+    },
+    {
+      "target": "chgis.v5_1080_pref_hd_1080_p",
+      "carrier": "shapefile",
+      "rows": 21,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.5
+    },
+    {
+      "target": "chgis.v5_1080_pref_hnd_1080_p",
+      "carrier": "shapefile",
+      "rows": 10,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.7
+    },
+    {
+      "target": "chgis.v5_1080_pref_hnx_1080_p",
+      "carrier": "shapefile",
+      "rows": 9,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.9
+    },
+    {
+      "target": "chgis.v5_1080_pref_jdd_1080_p",
+      "carrier": "shapefile",
+      "rows": 9,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.8
+    },
+    {
+      "target": "chgis.v5_1080_pref_jdx_1080_p",
+      "carrier": "shapefile",
+      "rows": 8,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.3
+    },
+    {
+      "target": "chgis.v5_1080_pref_jhb_1080_p",
+      "carrier": "shapefile",
+      "rows": 11,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.6
+    },
+    {
+      "target": "chgis.v5_1080_pref_jhn_1080_p",
+      "carrier": "shapefile",
+      "rows": 8,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.5
+    },
+    {
+      "target": "chgis.v5_1080_pref_jj_1080_p",
+      "carrier": "shapefile",
+      "rows": 1,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.3
+    },
+    {
+      "target": "chgis.v5_1080_pref_jnd_1080_p",
+      "carrier": "shapefile",
+      "rows": 10,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.9
+    },
+    {
+      "target": "chgis.v5_1080_pref_jnx_1080_p",
+      "carrier": "shapefile",
+      "rows": 10,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.7
+    },
+    {
+      "target": "chgis.v5_1080_pref_jxb_1080_p",
+      "carrier": "shapefile",
+      "rows": 8,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.6
+    },
+    {
+      "target": "chgis.v5_1080_pref_jxn_1080_p",
+      "carrier": "shapefile",
+      "rows": 8,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.8
+    },
+    {
+      "target": "chgis.v5_1080_pref_kz_1080_p",
+      "carrier": "shapefile",
+      "rows": 17,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.6
+    },
+    {
+      "target": "chgis.v5_1080_pref_liz_1080_p",
+      "carrier": "shapefile",
+      "rows": 11,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.8
+    },
+    {
+      "target": "chgis.v5_1080_pref_lz_1080_p",
+      "carrier": "shapefile",
+      "rows": 14,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.8
+    },
+    {
+      "target": "chgis.v5_1080_pref_qf_1080_p",
+      "carrier": "shapefile",
+      "rows": 15,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.7
+    },
+    {
+      "target": "chgis.v5_1080_pref_upd_hbdp",
+      "carrier": "shapefile",
+      "rows": 2,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.4
+    },
+    {
+      "target": "chgis.v5_1080_pref_yx_1080_p",
+      "carrier": "shapefile",
+      "rows": 19,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.5
+    },
+    {
+      "target": "chgis.v5_1080_pref_zz_1080_p",
+      "carrier": "shapefile",
+      "rows": 14,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 12.0
+    },
+    {
+      "target": "chgis.v5_1200_chin_chn_1200_c",
+      "carrier": "shapefile",
+      "rows": 1458,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 15.0
+    },
+    {
+      "target": "chgis.v5_1200_chin_chn_1200_l",
+      "carrier": "shapefile",
+      "rows": 44,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 12.1
+    },
+    {
+      "target": "chgis.v5_1200_chin_chn_1200_p",
+      "carrier": "shapefile",
+      "rows": 398,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 14.1
+    },
+    {
+      "target": "chgis.v5_1200_cnty_cdf_1200_c",
+      "carrier": "shapefile",
+      "rows": 64,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "ERROR",
+      "err": "[db] COPY \"chgis\".\"_g_scratch\"(__rid,wkt) FROM STDIN WITH (FORMAT csv); rc=3\n--- stdout ---\n\n--- stderr ---\nERROR:  relation \"chgis._g_scratch\" does not exist\n",
+      "sec": 6.2
+    },
+    {
+      "target": "chgis.v5_1200_cnty_fj_1200_c",
+      "carrier": "shapefile",
+      "rows": 47,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 10.7
+    },
+    {
+      "target": "chgis.v5_1200_cnty_gnd_1200_c",
+      "carrier": "shapefile",
+      "rows": 39,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.7
+    },
+    {
+      "target": "chgis.v5_1200_cnty_gnx_1200_c",
+      "carrier": "shapefile",
+      "rows": 79,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.8
+    },
+    {
+      "target": "chgis.v5_1200_cnty_hnd_1200_c",
+      "carrier": "shapefile",
+      "rows": 20,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.4
+    },
+    {
+      "target": "chgis.v5_1200_cnty_hnx_1200_c",
+      "carrier": "shapefile",
+      "rows": 32,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.5
+    },
+    {
+      "target": "chgis.v5_1200_cnty_jhb_1200_c",
+      "carrier": "shapefile",
+      "rows": 64,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.9
+    },
+    {
+      "target": "chgis.v5_1200_cnty_jhn_1200_c",
+      "carrier": "shapefile",
+      "rows": 38,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.6
+    },
+    {
+      "target": "chgis.v5_1200_cnty_jnd_1200_c",
+      "carrier": "shapefile",
+      "rows": 43,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.5
+    },
+    {
+      "target": "chgis.v5_1200_cnty_jnx_1200_c",
+      "carrier": "shapefile",
+      "rows": 56,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.9
+    },
+    {
+      "target": "chgis.v5_1200_cnty_jxn_1200_c",
+      "carrier": "shapefile",
+      "rows": 14,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.7
+    },
+    {
+      "target": "chgis.v5_1200_cnty_kz_1200_c",
+      "carrier": "shapefile",
+      "rows": 58,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.7
+    },
+    {
+      "target": "chgis.v5_1200_cnty_lz_1200_c",
+      "carrier": "shapefile",
+      "rows": 59,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.6
+    },
+    {
+      "target": "chgis.v5_1200_cnty_tcf_1200_c",
+      "carrier": "shapefile",
+      "rows": 66,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.7
+    },
+    {
+      "target": "chgis.v5_1200_cnty_zd_1200_c",
+      "carrier": "shapefile",
+      "rows": 43,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.6
+    },
+    {
+      "target": "chgis.v5_1200_cnty_zx_1200_c",
+      "carrier": "shapefile",
+      "rows": 38,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.7
+    },
+    {
+      "target": "chgis.v5_1200_indp_dli_1200_c",
+      "carrier": "shapefile",
+      "rows": 1,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.5
+    },
+    {
+      "target": "chgis.v5_1200_indp_dli_1200_l",
+      "carrier": "shapefile",
+      "rows": 1,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.6
+    },
+    {
+      "target": "chgis.v5_1200_indp_dli_1200_p",
+      "carrier": "shapefile",
+      "rows": 1,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.4
+    },
+    {
+      "target": "chgis.v5_1200_indp_liu_1200_c",
+      "carrier": "shapefile",
+      "rows": 1,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.3
+    },
+    {
+      "target": "chgis.v5_1200_indp_liu_1200_l",
+      "carrier": "shapefile",
+      "rows": 1,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.4
+    },
+    {
+      "target": "chgis.v5_1200_indp_liu_1200_p",
+      "carrier": "shapefile",
+      "rows": 1,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.4
+    },
+    {
+      "target": "chgis.v5_1200_indp_mng_1200_c",
+      "carrier": "shapefile",
+      "rows": 1,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.4
+    },
+    {
+      "target": "chgis.v5_1200_indp_mng_1200_l",
+      "carrier": "shapefile",
+      "rows": 1,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.6
+    },
+    {
+      "target": "chgis.v5_1200_indp_mng_1200_p",
+      "carrier": "shapefile",
+      "rows": 1,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.3
+    },
+    {
+      "target": "chgis.v5_1200_indp_qar_1200_c",
+      "carrier": "shapefile",
+      "rows": 1,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.5
+    },
+    {
+      "target": "chgis.v5_1200_indp_qar_1200_l",
+      "carrier": "shapefile",
+      "rows": 1,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.3
+    },
+    {
+      "target": "chgis.v5_1200_indp_qar_1200_p",
+      "carrier": "shapefile",
+      "rows": 1,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.6
+    },
+    {
+      "target": "chgis.v5_1200_indp_tuf_1200_c",
+      "carrier": "shapefile",
+      "rows": 2,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.9
+    },
+    {
+      "target": "chgis.v5_1200_indp_tuf_1200_l",
+      "carrier": "shapefile",
+      "rows": 2,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.7
+    },
+    {
+      "target": "chgis.v5_1200_indp_tuf_1200_p",
+      "carrier": "shapefile",
+      "rows": 2,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.7
+    },
+    {
+      "target": "chgis.v5_1200_indp_xia_1200_c",
+      "carrier": "shapefile",
+      "rows": 2,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.1
+    },
+    {
+      "target": "chgis.v5_1200_indp_xia_1200_l",
+      "carrier": "shapefile",
+      "rows": 2,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.6
+    },
+    {
+      "target": "chgis.v5_1200_indp_xia_1200_p",
+      "carrier": "shapefile",
+      "rows": 2,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.7
+    },
+    {
+      "target": "chgis.v5_1200_jin_cinty_bj_1200_c",
+      "carrier": "shapefile",
+      "rows": 42,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.5
+    },
+    {
+      "target": "chgis.v5_1200_jin_cinty_dj_1200_c",
+      "carrier": "shapefile",
+      "rows": 21,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.6
+    },
+    {
+      "target": "chgis.v5_1200_jin_cinty_dmf_1200_c",
+      "carrier": "shapefile",
+      "rows": 19,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.4
+    },
+    {
+      "target": "chgis.v5_1200_jin_cinty_fxf_1200_c",
+      "carrier": "shapefile",
+      "rows": 28,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.5
+    },
+    {
+      "target": "chgis.v5_1200_jin_cinty_fy_1200_c",
+      "carrier": "shapefile",
+      "rows": 17,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.6
+    },
+    {
+      "target": "chgis.v5_1200_jin_cinty_hbd_1200_c",
+      "carrier": "shapefile",
+      "rows": 30,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.7
+    },
+    {
+      "target": "chgis.v5_1200_jin_cinty_hbx_1200_c",
+      "carrier": "shapefile",
+      "rows": 60,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.7
+    },
+    {
+      "target": "chgis.v5_1200_jin_cinty_hdb_1200_c",
+      "carrier": "shapefile",
+      "rows": 39,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.4
+    },
+    {
+      "target": "chgis.v5_1200_jin_cinty_hdn_1200_c",
+      "carrier": "shapefile",
+      "rows": 66,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.6
+    },
+    {
+      "target": "chgis.v5_1200_jin_cinty_jzf_1200_c",
+      "carrier": "shapefile",
+      "rows": 36,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.7
+    },
+    {
+      "target": "chgis.v5_1200_jin_cinty_lt_1200_c",
+      "carrier": "shapefile",
+      "rows": 18,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.4
+    },
+    {
+      "target": "chgis.v5_1200_jin_cinty_nj_1200_c",
+      "carrier": "shapefile",
+      "rows": 108,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.7
+    },
+    {
+      "target": "chgis.v5_1200_jin_cinty_qy_1200_c",
+      "carrier": "shapefile",
+      "rows": 19,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.5
+    },
+    {
+      "target": "chgis.v5_1200_jin_cinty_sdd_1200_c",
+      "carrier": "shapefile",
+      "rows": 51,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.6
+    },
+    {
+      "target": "chgis.v5_1200_jin_cinty_sdx_1200_c",
+      "carrier": "shapefile",
+      "rows": 37,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.8
+    },
+    {
+      "target": "chgis.v5_1200_jin_cinty_sj_1200_c",
+      "carrier": "shapefile",
+      "rows": 9,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.5
+    },
+    {
+      "target": "chgis.v5_1200_jin_cinty_xj_1200_c",
+      "carrier": "shapefile",
+      "rows": 37,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.6
+    },
+    {
+      "target": "chgis.v5_1200_jin_cinty_xp_1200_c",
+      "carrier": "shapefile",
+      "rows": 8,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.3
+    },
+    {
+      "target": "chgis.v5_1200_jin_cinty_zd_1200_c",
+      "carrier": "shapefile",
+      "rows": 46,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.6
+    },
+    {
+      "target": "chgis.v5_1200_jin_circ_bj_1200_l",
+      "carrier": "shapefile",
+      "rows": 1,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.5
+    },
+    {
+      "target": "chgis.v5_1200_jin_circ_dj_1200_l",
+      "carrier": "shapefile",
+      "rows": 1,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.5
+    },
+    {
+      "target": "chgis.v5_1200_jin_circ_dmf_1200_l",
+      "carrier": "shapefile",
+      "rows": 1,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.3
+    },
+    {
+      "target": "chgis.v5_1200_jin_circ_fxf_1200_l",
+      "carrier": "shapefile",
+      "rows": 1,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 12.6
+    },
+    {
+      "target": "chgis.v5_1200_jin_circ_fy_1200_l",
+      "carrier": "shapefile",
+      "rows": 1,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.7
+    },
+    {
+      "target": "chgis.v5_1200_jin_circ_hbd_1200_l",
+      "carrier": "shapefile",
+      "rows": 1,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.7
+    },
+    {
+      "target": "chgis.v5_1200_jin_circ_hbx_1200_l",
+      "carrier": "shapefile",
+      "rows": 1,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.4
+    },
+    {
+      "target": "chgis.v5_1200_jin_circ_hdb_1200_l",
+      "carrier": "shapefile",
+      "rows": 1,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.6
+    },
+    {
+      "target": "chgis.v5_1200_jin_circ_hdn_1200_l",
+      "carrier": "shapefile",
+      "rows": 1,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.6
+    },
+    {
+      "target": "chgis.v5_1200_jin_circ_jzf_1200_l",
+      "carrier": "shapefile",
+      "rows": 1,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.6
+    },
+    {
+      "target": "chgis.v5_1200_jin_circ_lt_1200_l",
+      "carrier": "shapefile",
+      "rows": 1,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.5
+    },
+    {
+      "target": "chgis.v5_1200_jin_circ_nj_1200_l",
+      "carrier": "shapefile",
+      "rows": 1,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.3
+    },
+    {
+      "target": "chgis.v5_1200_jin_circ_qy_1200_l",
+      "carrier": "shapefile",
+      "rows": 1,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.1
+    },
+    {
+      "target": "chgis.v5_1200_jin_circ_sdd_1200_l",
+      "carrier": "shapefile",
+      "rows": 1,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.8
+    },
+    {
+      "target": "chgis.v5_1200_jin_circ_sdx_1200_l",
+      "carrier": "shapefile",
+      "rows": 1,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.5
+    },
+    {
+      "target": "chgis.v5_1200_jin_circ_sj_1200_l",
+      "carrier": "shapefile",
+      "rows": 1,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.6
+    },
+    {
+      "target": "chgis.v5_1200_jin_circ_xj_1200_l",
+      "carrier": "shapefile",
+      "rows": 1,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.3
+    },
+    {
+      "target": "chgis.v5_1200_jin_circ_xp_1200_l",
+      "carrier": "shapefile",
+      "rows": 1,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.4
+    },
+    {
+      "target": "chgis.v5_1200_jin_circ_zd_1200_l",
+      "carrier": "shapefile",
+      "rows": 1,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.5
+    },
+    {
+      "target": "chgis.v5_1200_jin_jin_1200",
+      "carrier": "shapefile",
+      "rows": 23,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.7
+    },
+    {
+      "target": "chgis.v5_1200_jin_pref_bj_1200_p",
+      "carrier": "shapefile",
+      "rows": 15,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.5
+    },
+    {
+      "target": "chgis.v5_1200_jin_pref_dj_1200_p",
+      "carrier": "shapefile",
+      "rows": 8,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.6
+    },
+    {
+      "target": "chgis.v5_1200_jin_pref_dmf_1200_p",
+      "carrier": "shapefile",
+      "rows": 4,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.6
+    },
+    {
+      "target": "chgis.v5_1200_jin_pref_fxf_1200_p",
+      "carrier": "shapefile",
+      "rows": 6,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.5
+    },
+    {
+      "target": "chgis.v5_1200_jin_pref_fy_1200_p",
+      "carrier": "shapefile",
+      "rows": 6,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.5
+    },
+    {
+      "target": "chgis.v5_1200_jin_pref_hbd_1200_p",
+      "carrier": "shapefile",
+      "rows": 9,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.2
+    },
+    {
+      "target": "chgis.v5_1200_jin_pref_hbx_1200_p",
+      "carrier": "shapefile",
+      "rows": 12,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.5
+    },
+    {
+      "target": "chgis.v5_1200_jin_pref_hdb_1200_p",
+      "carrier": "shapefile",
+      "rows": 13,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.4
+    },
+    {
+      "target": "chgis.v5_1200_jin_pref_hdn_1200_p",
+      "carrier": "shapefile",
+      "rows": 12,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.2
+    },
+    {
+      "target": "chgis.v5_1200_jin_pref_jzf_1200_p",
+      "carrier": "shapefile",
+      "rows": 7,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.6
+    },
+    {
+      "target": "chgis.v5_1200_jin_pref_lt_1200_p",
+      "carrier": "shapefile",
+      "rows": 7,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.5
+    },
+    {
+      "target": "chgis.v5_1200_jin_pref_nj_1200_p",
+      "carrier": "shapefile",
+      "rows": 22,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.9
+    },
+    {
+      "target": "chgis.v5_1200_jin_pref_qy_1200_p",
+      "carrier": "shapefile",
+      "rows": 6,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.3
+    },
+    {
+      "target": "chgis.v5_1200_jin_pref_sdd_1200_p",
+      "carrier": "shapefile",
+      "rows": 13,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.7
+    },
+    {
+      "target": "chgis.v5_1200_jin_pref_sdx_1200_p",
+      "carrier": "shapefile",
+      "rows": 10,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.5
+    },
+    {
+      "target": "chgis.v5_1200_jin_pref_sj_1200_p",
+      "carrier": "shapefile",
+      "rows": 8,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.5
+    },
+    {
+      "target": "chgis.v5_1200_jin_pref_xj_1200_p",
+      "carrier": "shapefile",
+      "rows": 16,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.7
+    },
+    {
+      "target": "chgis.v5_1200_jin_pref_xp_1200_p",
+      "carrier": "shapefile",
+      "rows": 2,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.6
+    },
+    {
+      "target": "chgis.v5_1200_jin_pref_zd_1200_p",
+      "carrier": "shapefile",
+      "rows": 14,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.7
+    },
+    {
+      "target": "chgis.v5_1200_pref_cdf_1200_p",
+      "carrier": "shapefile",
+      "rows": 16,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.6
+    },
+    {
+      "target": "chgis.v5_1200_pref_fj_1200_p",
+      "carrier": "shapefile",
+      "rows": 8,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.7
+    },
+    {
+      "target": "chgis.v5_1200_pref_gnd_1200_p",
+      "carrier": "shapefile",
+      "rows": 14,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.5
+    },
+    {
+      "target": "chgis.v5_1200_pref_gnx_1200_p",
+      "carrier": "shapefile",
+      "rows": 28,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.9
+    },
+    {
+      "target": "chgis.v5_1200_pref_hnd_1200_p",
+      "carrier": "shapefile",
+      "rows": 9,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.4
+    },
+    {
+      "target": "chgis.v5_1200_pref_hnx_1200_p",
+      "carrier": "shapefile",
+      "rows": 9,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.6
+    },
+    {
+      "target": "chgis.v5_1200_pref_jhb_1200_p",
+      "carrier": "shapefile",
+      "rows": 15,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.6
+    },
+    {
+      "target": "chgis.v5_1200_pref_jhn_1200_p",
+      "carrier": "shapefile",
+      "rows": 10,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.7
+    },
+    {
+      "target": "chgis.v5_1200_pref_jnd_1200_p",
+      "carrier": "shapefile",
+      "rows": 9,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.4
+    },
+    {
+      "target": "chgis.v5_1200_pref_jnx_1200_p",
+      "carrier": "shapefile",
+      "rows": 11,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.7
+    },
+    {
+      "target": "chgis.v5_1200_pref_jxn_1200_p",
+      "carrier": "shapefile",
+      "rows": 7,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.4
+    },
+    {
+      "target": "chgis.v5_1200_pref_kz_1200_p",
+      "carrier": "shapefile",
+      "rows": 18,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.5
+    },
+    {
+      "target": "chgis.v5_1200_pref_lz_1200_p",
+      "carrier": "shapefile",
+      "rows": 17,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.4
+    },
+    {
+      "target": "chgis.v5_1200_pref_tcf_1200_p",
+      "carrier": "shapefile",
+      "rows": 15,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.7
+    },
+    {
+      "target": "chgis.v5_1200_pref_zd_1200_p",
+      "carrier": "shapefile",
+      "rows": 7,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.7
+    },
+    {
+      "target": "chgis.v5_1200_pref_zx_1200_p",
+      "carrier": "shapefile",
+      "rows": 8,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.5
+    },
+    {
+      "target": "chgis.v5_1290_chin_chn_1290_c",
+      "carrier": "shapefile",
+      "rows": 1476,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 15.8
+    },
+    {
+      "target": "chgis.v5_1290_chin_chn_1290_l",
+      "carrier": "shapefile",
+      "rows": 281,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 13.8
+    },
+    {
+      "target": "chgis.v5_1290_chin_chn_1290_s",
+      "carrier": "shapefile",
+      "rows": 17,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 12.3
+    },
+    {
+      "target": "chgis.v5_1290_circ_bei_1290_l",
+      "carrier": "shapefile",
+      "rows": 1,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.6
+    },
+    {
+      "target": "chgis.v5_1290_circ_ckn_1290_l",
+      "carrier": "shapefile",
+      "rows": 1,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.5
+    },
+    {
+      "target": "chgis.v5_1290_circ_gs_1290_l",
+      "carrier": "shapefile",
+      "rows": 9,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.4
+    },
+    {
+      "target": "chgis.v5_1290_circ_ham_1290_l",
+      "carrier": "shapefile",
+      "rows": 1,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.4
+    },
+    {
+      "target": "chgis.v5_1290_circ_haz_1290_l",
+      "carrier": "shapefile",
+      "rows": 1,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.5
+    },
+    {
+      "target": "chgis.v5_1290_circ_hg_1290_l",
+      "carrier": "shapefile",
+      "rows": 56,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 12.3
+    },
+    {
+      "target": "chgis.v5_1290_circ_hn_1290_l",
+      "carrier": "shapefile",
+      "rows": 20,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.9
+    },
+    {
+      "target": "chgis.v5_1290_circ_jx_1290_l",
+      "carrier": "shapefile",
+      "rows": 27,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.9
+    },
+    {
+      "target": "chgis.v5_1290_circ_jz_1290_l",
+      "carrier": "shapefile",
+      "rows": 33,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.7
+    },
+    {
+      "target": "chgis.v5_1290_circ_lb_1290_l",
+      "carrier": "shapefile",
+      "rows": 4,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.7
+    },
+    {
+      "target": "chgis.v5_1290_circ_ly_1290_l",
+      "carrier": "shapefile",
+      "rows": 7,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.5
+    },
+    {
+      "target": "chgis.v5_1290_circ_si_1290_l",
+      "carrier": "shapefile",
+      "rows": 14,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.7
+    },
+    {
+      "target": "chgis.v5_1290_circ_sx_1290_l",
+      "carrier": "shapefile",
+      "rows": 34,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.7
+    },
+    {
+      "target": "chgis.v5_1290_circ_tai_1290_l",
+      "carrier": "shapefile",
+      "rows": 1,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.6
+    },
+    {
+      "target": "chgis.v5_1290_circ_xz_1200_l",
+      "carrier": "shapefile",
+      "rows": 1,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.5
+    },
+    {
+      "target": "chgis.v5_1290_circ_yn_1290_l",
+      "carrier": "shapefile",
+      "rows": 35,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.6
+    },
+    {
+      "target": "chgis.v5_1290_circ_zs_1290_l",
+      "carrier": "shapefile",
+      "rows": 36,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 12.1
+    },
+    {
+      "target": "chgis.v5_1290_cnty_bei_1290_c",
+      "carrier": "shapefile",
+      "rows": 1,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.4
+    },
+    {
+      "target": "chgis.v5_1290_cnty_ckn_1290_c",
+      "carrier": "shapefile",
+      "rows": 1,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.3
+    },
+    {
+      "target": "chgis.v5_1290_cnty_gs_1290_c",
+      "carrier": "shapefile",
+      "rows": 15,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.6
+    },
+    {
+      "target": "chgis.v5_1290_cnty_ham_1290_c",
+      "carrier": "shapefile",
+      "rows": 1,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.3
+    },
+    {
+      "target": "chgis.v5_1290_cnty_haz_1290_c",
+      "carrier": "shapefile",
+      "rows": 1,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.3
+    },
+    {
+      "target": "chgis.v5_1290_cnty_hg_1290_c",
+      "carrier": "shapefile",
+      "rows": 218,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 12.5
+    },
+    {
+      "target": "chgis.v5_1290_cnty_hn_1290_c",
+      "carrier": "shapefile",
+      "rows": 187,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.9
+    },
+    {
+      "target": "chgis.v5_1290_cnty_jx_1290_c",
+      "carrier": "shapefile",
+      "rows": 97,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.9
+    },
+    {
+      "target": "chgis.v5_1290_cnty_jz_1290_c",
+      "carrier": "shapefile",
+      "rows": 175,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 12.3
+    },
+    {
+      "target": "chgis.v5_1290_cnty_lb_1290_c",
+      "carrier": "shapefile",
+      "rows": 4,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.6
+    },
+    {
+      "target": "chgis.v5_1290_cnty_ly_1290_c",
+      "carrier": "shapefile",
+      "rows": 25,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.6
+    },
+    {
+      "target": "chgis.v5_1290_cnty_si_1290_c",
+      "carrier": "shapefile",
+      "rows": 114,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.6
+    },
+    {
+      "target": "chgis.v5_1290_cnty_sx_1290_c",
+      "carrier": "shapefile",
+      "rows": 115,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.7
+    },
+    {
+      "target": "chgis.v5_1290_cnty_tai_1290_c",
+      "carrier": "shapefile",
+      "rows": 1,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.4
+    },
+    {
+      "target": "chgis.v5_1290_cnty_xz_1200_c",
+      "carrier": "shapefile",
+      "rows": 1,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.5
+    },
+    {
+      "target": "chgis.v5_1290_cnty_yn_1290_c",
+      "carrier": "shapefile",
+      "rows": 143,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.9
+    },
+    {
+      "target": "chgis.v5_1290_cnty_zs_1290_c",
+      "carrier": "shapefile",
+      "rows": 377,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 12.2
+    },
+    {
+      "target": "chgis.v5_1290_prov_bei_1290_s",
+      "carrier": "shapefile",
+      "rows": 1,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.3
+    },
+    {
+      "target": "chgis.v5_1290_prov_ckn_1290_s",
+      "carrier": "shapefile",
+      "rows": 1,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.3
+    },
+    {
+      "target": "chgis.v5_1290_prov_gs_1290_s",
+      "carrier": "shapefile",
+      "rows": 1,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.7
+    },
+    {
+      "target": "chgis.v5_1290_prov_ham_1290_s",
+      "carrier": "shapefile",
+      "rows": 1,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.3
+    },
+    {
+      "target": "chgis.v5_1290_prov_haz_1290_s",
+      "carrier": "shapefile",
+      "rows": 1,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.4
+    },
+    {
+      "target": "chgis.v5_1290_prov_hg_1290_s",
+      "carrier": "shapefile",
+      "rows": 1,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.8
+    },
+    {
+      "target": "chgis.v5_1290_prov_hn_1290_s",
+      "carrier": "shapefile",
+      "rows": 1,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.4
+    },
+    {
+      "target": "chgis.v5_1290_prov_jx_1290_s",
+      "carrier": "shapefile",
+      "rows": 1,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.5
+    },
+    {
+      "target": "chgis.v5_1290_prov_jz_1290_s",
+      "carrier": "shapefile",
+      "rows": 1,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.6
+    },
+    {
+      "target": "chgis.v5_1290_prov_lb_1290_s",
+      "carrier": "shapefile",
+      "rows": 1,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.4
+    },
+    {
+      "target": "chgis.v5_1290_prov_ly_1290_s",
+      "carrier": "shapefile",
+      "rows": 1,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.5
+    },
+    {
+      "target": "chgis.v5_1290_prov_si_1290_s",
+      "carrier": "shapefile",
+      "rows": 1,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.4
+    },
+    {
+      "target": "chgis.v5_1290_prov_sx_1290_s",
+      "carrier": "shapefile",
+      "rows": 1,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.6
+    },
+    {
+      "target": "chgis.v5_1290_prov_tai_1290_s",
+      "carrier": "shapefile",
+      "rows": 1,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.3
+    },
+    {
+      "target": "chgis.v5_1290_prov_xz_1200s",
+      "carrier": "shapefile",
+      "rows": 1,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.4
+    },
+    {
+      "target": "chgis.v5_1290_prov_yn_1290_s",
+      "carrier": "shapefile",
+      "rows": 1,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.6
+    },
+    {
+      "target": "chgis.v5_1290_prov_zs_1290_s",
+      "carrier": "shapefile",
+      "rows": 1,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.6
+    },
+    {
+      "target": "chgis.v5_1391_chin_chn_1391_c",
+      "carrier": "shapefile",
+      "rows": 1625,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 15.4
+    },
+    {
+      "target": "chgis.v5_1391_chin_chn_1391_p",
+      "carrier": "shapefile",
+      "rows": 305,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 13.9
+    },
+    {
+      "target": "chgis.v5_1391_chin_chn_1391_s",
+      "carrier": "shapefile",
+      "rows": 26,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 12.6
+    },
+    {
+      "target": "chgis.v5_1391_cnty_hn_1391_c",
+      "carrier": "shapefile",
+      "rows": 101,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.8
+    },
+    {
+      "target": "chgis.v5_1391_cnty_js_1391_c",
+      "carrier": "shapefile",
+      "rows": 162,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.7
+    },
+    {
+      "target": "chgis.v5_1391_cnty_ld_1391_c",
+      "carrier": "shapefile",
+      "rows": 22,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.9
+    },
+    {
+      "target": "chgis.v5_1391_cnty_neg_1391_c",
+      "carrier": "shapefile",
+      "rows": 31,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.6
+    },
+    {
+      "target": "chgis.v5_1391_cnty_nj_1391_c",
+      "carrier": "shapefile",
+      "rows": 7,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.6
+    },
+    {
+      "target": "chgis.v5_1391_cnty_sa_1391_c",
+      "carrier": "shapefile",
+      "rows": 135,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.6
+    },
+    {
+      "target": "chgis.v5_1391_cnty_sd_1391_c",
+      "carrier": "shapefile",
+      "rows": 103,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.7
+    },
+    {
+      "target": "chgis.v5_1391_cnty_sx_1391_c",
+      "carrier": "shapefile",
+      "rows": 109,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.9
+    },
+    {
+      "target": "chgis.v5_1391_cnty_zd_1391_c",
+      "carrier": "shapefile",
+      "rows": 102,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.4
+    },
+    {
+      "target": "chgis.v5_1391_cnty_zlz_1391_c",
+      "carrier": "shapefile",
+      "rows": 5,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.5
+    },
+    {
+      "target": "chgis.v5_1391_pref_dd_1391_p",
+      "carrier": "shapefile",
+      "rows": 1,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.4
+    },
+    {
+      "target": "chgis.v5_1391_pref_dg_1391_p",
+      "carrier": "shapefile",
+      "rows": 1,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.5
+    },
+    {
+      "target": "chgis.v5_1391_pref_dl_1391_p",
+      "carrier": "shapefile",
+      "rows": 1,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.3
+    },
+    {
+      "target": "chgis.v5_1391_pref_fj_1391_p",
+      "carrier": "shapefile",
+      "rows": 8,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.5
+    },
+    {
+      "target": "chgis.v5_1391_pref_gd_1391_p",
+      "carrier": "shapefile",
+      "rows": 10,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 12.1
+    },
+    {
+      "target": "chgis.v5_1391_pref_gx_1391_p",
+      "carrier": "shapefile",
+      "rows": 23,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.6
+    },
+    {
+      "target": "chgis.v5_1391_pref_gz_1391_p",
+      "carrier": "shapefile",
+      "rows": 25,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.2
+    },
+    {
+      "target": "chgis.v5_1391_pref_hg_1391_p",
+      "carrier": "shapefile",
+      "rows": 19,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.6
+    },
+    {
+      "target": "chgis.v5_1391_pref_hn_1391_p",
+      "carrier": "shapefile",
+      "rows": 7,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.4
+    },
+    {
+      "target": "chgis.v5_1391_pref_js_1391_p",
+      "carrier": "shapefile",
+      "rows": 12,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.5
+    },
+    {
+      "target": "chgis.v5_1391_pref_jx_1391_p",
+      "carrier": "shapefile",
+      "rows": 13,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.7
+    },
+    {
+      "target": "chgis.v5_1391_pref_ld_1391_p",
+      "carrier": "shapefile",
+      "rows": 22,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.5
+    },
+    {
+      "target": "chgis.v5_1391_pref_ned_1391_p",
+      "carrier": "shapefile",
+      "rows": 31,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.7
+    },
+    {
+      "target": "chgis.v5_1391_pref_nj_1391_p",
+      "carrier": "shapefile",
+      "rows": 1,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.6
+    },
+    {
+      "target": "chgis.v5_1391_pref_sa_1391_p",
+      "carrier": "shapefile",
+      "rows": 19,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.3
+    },
+    {
+      "target": "chgis.v5_1391_pref_sd_1391_p",
+      "carrier": "shapefile",
+      "rows": 6,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.7
+    },
+    {
+      "target": "chgis.v5_1391_pref_si_1391_p",
+      "carrier": "shapefile",
+      "rows": 27,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.5
+    },
+    {
+      "target": "chgis.v5_1391_pref_sx_1391_p",
+      "carrier": "shapefile",
+      "rows": 8,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.8
+    },
+    {
+      "target": "chgis.v5_1391_pref_tf_1391_p",
+      "carrier": "shapefile",
+      "rows": 1,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.5
+    },
+    {
+      "target": "chgis.v5_1391_pref_tw_1391_p",
+      "carrier": "shapefile",
+      "rows": 1,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.3
+    },
+    {
+      "target": "chgis.v5_1391_pref_wsx_1391_p",
+      "carrier": "shapefile",
+      "rows": 1,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.9
+    },
+    {
+      "target": "chgis.v5_1391_pref_yl_1391_p",
+      "carrier": "shapefile",
+      "rows": 1,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.2
+    },
+    {
+      "target": "chgis.v5_1391_pref_yn_1391_p",
+      "carrier": "shapefile",
+      "rows": 34,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.6
+    },
+    {
+      "target": "chgis.v5_1391_pref_zd_1391_p",
+      "carrier": "shapefile",
+      "rows": 17,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.7
+    },
+    {
+      "target": "chgis.v5_1391_pref_zj_1391_p",
+      "carrier": "shapefile",
+      "rows": 11,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.7
+    },
+    {
+      "target": "chgis.v5_1391_pref_zlz_1391_p",
+      "carrier": "shapefile",
+      "rows": 5,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.4
+    },
+    {
+      "target": "chgis.v5_1820_cnty_pts_utf",
+      "carrier": "shapefile",
+      "rows": 1859,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.4
+    },
+    {
+      "target": "chgis.v5_1820_coast_lin",
+      "carrier": "shapefile",
+      "rows": 160,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.7
+    },
+    {
+      "target": "chgis.v5_1820_coded_rvr_lin_utf",
+      "carrier": "shapefile",
+      "rows": 5983,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 15.7
+    },
+    {
+      "target": "chgis.v5_1820_lks_pgn_utf",
+      "carrier": "shapefile",
+      "rows": 370,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 12.6
+    },
+    {
+      "target": "chgis.v5_1820_pref_pgn_utf",
+      "carrier": "shapefile",
+      "rows": 320,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 15.0
+    },
+    {
+      "target": "chgis.v5_1820_pref_pts_utf",
+      "carrier": "shapefile",
+      "rows": 301,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.5
+    },
+    {
+      "target": "chgis.v5_1820_prov_pgn_utf",
+      "carrier": "shapefile",
+      "rows": 32,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 13.2
+    },
+    {
+      "target": "chgis.v5_1820_prov_pts_utf",
+      "carrier": "shapefile",
+      "rows": 24,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.3
+    },
+    {
+      "target": "chgis.v5_1820_twn_pts_utf",
+      "carrier": "shapefile",
+      "rows": 8659,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 12.3
+    },
+    {
+      "target": "chgis.v5_1900_cnty_1990",
+      "carrier": "shapefile",
+      "rows": 2436,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "ERROR",
+      "err": "[db] INSERT INTO \"chgis\".\"v5_1900_cnty_1990__geom_stg\" SELECT __rid, CASE WHEN wkt IS rc=3\n--- stdout ---\n\n--- stderr ---\nERROR:  parse error - invalid geometry\nHINT:  \"MULTIPOLYGON(())\" <-- parse error at position 16 within geometry\n",
+      "sec": 8.4
+    },
+    {
+      "target": "chgis.v5_1911_cnty_pgn_utf",
+      "carrier": "shapefile",
+      "rows": 1986,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 21.1
+    },
+    {
+      "target": "chgis.v5_1911_cnty_pts_utf",
+      "carrier": "shapefile",
+      "rows": 2154,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.8
+    },
+    {
+      "target": "chgis.v5_1911_pref_pgn_utf",
+      "carrier": "shapefile",
+      "rows": 381,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 17.3
+    },
+    {
+      "target": "chgis.v5_1911_pref_pts_utf",
+      "carrier": "shapefile",
+      "rows": 355,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.8
+    },
+    {
+      "target": "chgis.v5_1911_prov_pgn_utf",
+      "carrier": "shapefile",
+      "rows": 27,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 13.9
+    },
+    {
+      "target": "chgis.v5_1911_prov_pts_utf",
+      "carrier": "shapefile",
+      "rows": 24,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.4
+    },
+    {
+      "target": "chgis.v5_1911_twn_pts_utf",
+      "carrier": "shapefile",
+      "rows": 40020,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 15.2
+    },
+    {
+      "target": "chgis.v5_1997_prov_pgn_utf",
+      "carrier": "shapefile",
+      "rows": 34,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 12.7
+    },
+    {
+      "target": "chgis.v5_ChinaW_pts_utf",
+      "carrier": "shapefile",
+      "rows": 2403,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.9
+    },
+    {
+      "target": "chgis.v5_PhysiogMacroregions_pgn",
+      "carrier": "shapefile",
+      "rows": 18,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.7
+    },
+    {
+      "target": "chgis.v5_PhysiogMacroregions_pgn_utf",
+      "carrier": "shapefile",
+      "rows": 18,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.6
+    },
+    {
+      "target": "chgis.v5_SMR_SubR_pgn_utf_wgs",
+      "carrier": "shapefile",
+      "rows": 33,
+      "srid": "4326",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 13.1
+    },
+    {
+      "target": "chgis.v5_SMR_SubR_pgn_utf_xian",
+      "carrier": "shapefile",
+      "rows": 33,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 13.3
+    },
+    {
+      "target": "chgis.v5_SMR_pgn_utf_wgs",
+      "carrier": "shapefile",
+      "rows": 10,
+      "srid": "4326",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 12.0
+    },
+    {
+      "target": "chgis.v5_SMR_pgn_utf_xian",
+      "carrier": "shapefile",
+      "rows": 10,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 12.1
+    },
+    {
+      "target": "chgis.v5_citas90_cnty_pgn_utf",
+      "carrier": "shapefile",
+      "rows": 2438,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 17.1
+    },
+    {
+      "target": "chgis.v5_citas90_pref_pgn_utf",
+      "carrier": "shapefile",
+      "rows": 346,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 14.8
+    },
+    {
+      "target": "chgis.v5_gns_anhui_gbk",
+      "carrier": "shapefile",
+      "rows": 12511,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 12.9
+    },
+    {
+      "target": "chgis.v5_gns_beijing_gbk",
+      "carrier": "shapefile",
+      "rows": 1143,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.6
+    },
+    {
+      "target": "chgis.v5_gns_fujian_gbk",
+      "carrier": "shapefile",
+      "rows": 3728,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 12.2
+    },
+    {
+      "target": "chgis.v5_gns_gansu_gbk",
+      "carrier": "shapefile",
+      "rows": 2323,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.7
+    },
+    {
+      "target": "chgis.v5_gns_guangdong_gbk",
+      "carrier": "shapefile",
+      "rows": 4822,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 12.0
+    },
+    {
+      "target": "chgis.v5_gns_guangxi_gbk",
+      "carrier": "shapefile",
+      "rows": 4099,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.6
+    },
+    {
+      "target": "chgis.v5_gns_guizhou_gbk",
+      "carrier": "shapefile",
+      "rows": 5220,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 12.1
+    },
+    {
+      "target": "chgis.v5_gns_hainan_gbk",
+      "carrier": "shapefile",
+      "rows": 1358,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.7
+    },
+    {
+      "target": "chgis.v5_gns_hebei_gbk",
+      "carrier": "shapefile",
+      "rows": 7376,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 12.4
+    },
+    {
+      "target": "chgis.v5_gns_heilongjiang_gbk",
+      "carrier": "shapefile",
+      "rows": 3122,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 12.0
+    },
+    {
+      "target": "chgis.v5_gns_henan_gbk",
+      "carrier": "shapefile",
+      "rows": 3432,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 12.0
+    },
+    {
+      "target": "chgis.v5_gns_hubei_gbk",
+      "carrier": "shapefile",
+      "rows": 3598,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 12.1
+    },
+    {
+      "target": "chgis.v5_gns_hunan_gbk",
+      "carrier": "shapefile",
+      "rows": 3382,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.8
+    },
+    {
+      "target": "chgis.v5_gns_jiangsu_gbk",
+      "carrier": "shapefile",
+      "rows": 10277,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 12.8
+    },
+    {
+      "target": "chgis.v5_gns_jiangxi_gbk",
+      "carrier": "shapefile",
+      "rows": 3329,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 12.0
+    },
+    {
+      "target": "chgis.v5_gns_jilin_gbk",
+      "carrier": "shapefile",
+      "rows": 2960,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.7
+    },
+    {
+      "target": "chgis.v5_gns_liaoning_gbk",
+      "carrier": "shapefile",
+      "rows": 3155,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 12.0
+    },
+    {
+      "target": "chgis.v5_gns_neimeng_gbk",
+      "carrier": "shapefile",
+      "rows": 4474,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.7
+    },
+    {
+      "target": "chgis.v5_gns_ningxia_gbk",
+      "carrier": "shapefile",
+      "rows": 848,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.5
+    },
+    {
+      "target": "chgis.v5_gns_qinghai_gbk",
+      "carrier": "shapefile",
+      "rows": 1832,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.9
+    },
+    {
+      "target": "chgis.v5_gns_shaanxi_gbk",
+      "carrier": "shapefile",
+      "rows": 6151,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.9
+    },
+    {
+      "target": "chgis.v5_gns_shandong_gbk",
+      "carrier": "shapefile",
+      "rows": 4260,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 12.2
+    },
+    {
+      "target": "chgis.v5_gns_shanghai_gbk",
+      "carrier": "shapefile",
+      "rows": 1352,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.5
+    },
+    {
+      "target": "chgis.v5_gns_shanxi_gbk",
+      "carrier": "shapefile",
+      "rows": 9124,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 12.4
+    },
+    {
+      "target": "chgis.v5_gns_sichuan_gbk",
+      "carrier": "shapefile",
+      "rows": 5390,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 12.0
+    },
+    {
+      "target": "chgis.v5_gns_tianjin_gbk",
+      "carrier": "shapefile",
+      "rows": 869,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.2
+    },
+    {
+      "target": "chgis.v5_gns_tibet_gbk",
+      "carrier": "shapefile",
+      "rows": 2466,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 12.0
+    },
+    {
+      "target": "chgis.v5_gns_xinjiang_gbk",
+      "carrier": "shapefile",
+      "rows": 3828,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 12.0
+    },
+    {
+      "target": "chgis.v5_gns_yunnan_gbk",
+      "carrier": "shapefile",
+      "rows": 3203,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.6
+    },
+    {
+      "target": "chgis.v5_gns_zhejiang_gbk",
+      "carrier": "shapefile",
+      "rows": 11033,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 12.9
+    },
+    {
+      "target": "chgis.v5_time_cnty_pts_utf",
+      "carrier": "shapefile",
+      "rows": 10507,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 12.4
+    },
+    {
+      "target": "chgis.v5_time_pref_pgn_utf",
+      "carrier": "shapefile",
+      "rows": 3059,
+      "srid": "0",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 52.4
+    },
+    {
+      "target": "chgis.v5_time_pref_pts_utf",
+      "carrier": "shapefile",
+      "rows": 3409,
+      "srid": "2333",
+      "geom_only": true,
+      "verdict": "CONFORMS",
+      "sec": 6.9
+    },
+    {
+      "target": "chgis.v6_1820_cnty_pts_utf",
+      "carrier": "shapefile",
+      "rows": 1859,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.8
+    },
+    {
+      "target": "chgis.v6_1820_coded_rvr_lin_utf",
+      "carrier": "shapefile",
+      "rows": 5983,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 15.6
+    },
+    {
+      "target": "chgis.v6_1820_lks_pgn_utf",
+      "carrier": "shapefile",
+      "rows": 363,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 12.4
+    },
+    {
+      "target": "chgis.v6_1820_pref_pgn_utf",
+      "carrier": "shapefile",
+      "rows": 320,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 15.1
+    },
+    {
+      "target": "chgis.v6_1820_pref_pts_utf",
+      "carrier": "shapefile",
+      "rows": 301,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.4
+    },
+    {
+      "target": "chgis.v6_1820_prov_pgn_utf",
+      "carrier": "shapefile",
+      "rows": 32,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 13.5
+    },
+    {
+      "target": "chgis.v6_1820_prov_pts_utf",
+      "carrier": "shapefile",
+      "rows": 24,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.6
+    },
+    {
+      "target": "chgis.v6_1820_twn_pts_utf",
+      "carrier": "shapefile",
+      "rows": 8659,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 12.3
+    },
+    {
+      "target": "chgis.v6_1911_cnty_pgn_utf",
+      "carrier": "shapefile",
+      "rows": 1986,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 21.2
+    },
+    {
+      "target": "chgis.v6_1911_cnty_pts_utf",
+      "carrier": "shapefile",
+      "rows": 2154,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.8
+    },
+    {
+      "target": "chgis.v6_1911_pref_pgn_utf",
+      "carrier": "shapefile",
+      "rows": 381,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 17.1
+    },
+    {
+      "target": "chgis.v6_1911_pref_pts_utf",
+      "carrier": "shapefile",
+      "rows": 355,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.7
+    },
+    {
+      "target": "chgis.v6_1911_prov_pgn_utf",
+      "carrier": "shapefile",
+      "rows": 27,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 13.8
+    },
+    {
+      "target": "chgis.v6_1911_prov_pts_utf",
+      "carrier": "shapefile",
+      "rows": 24,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 11.4
+    },
+    {
+      "target": "chgis.v6_1911_twn_pts_utf",
+      "carrier": "shapefile",
+      "rows": 40020,
+      "srid": "2333",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 15.1
+    },
+    {
+      "target": "chgis.v6_citas90_cnty_pgn_gbk",
+      "carrier": "shapefile",
+      "rows": 2438,
+      "srid": "0",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 17.3
+    },
+    {
+      "target": "chgis.v6_citas90_pref_pgn_gbk",
+      "carrier": "shapefile",
+      "rows": 346,
+      "srid": "0",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 14.7
+    },
+    {
+      "target": "chgis.v6_citas90_prov_pgn_gbk",
+      "carrier": "shapefile",
+      "rows": 33,
+      "srid": "0",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 12.4
+    },
+    {
+      "target": "chgis.v6_time_cnty_pts_utf_wgs84",
+      "carrier": "shapefile",
+      "rows": 10522,
+      "srid": "4326",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 12.2
+    },
+    {
+      "target": "chgis.v6_time_pref_pgn_utf_wgs84",
+      "carrier": "shapefile",
+      "rows": 3830,
+      "srid": "4326",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 65.5
+    },
+    {
+      "target": "chgis.v6_time_pref_pts_utf_wgs84",
+      "carrier": "shapefile",
+      "rows": 5226,
+      "srid": "4326",
+      "geom_only": false,
+      "verdict": "CONFORMS",
+      "sec": 12.0
+    }
+  ]
+}

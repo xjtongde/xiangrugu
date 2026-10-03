@@ -1,0 +1,834 @@
+{
+  "carrier": "mapinfo",
+  "summary": {
+    "CONFORMS": 118
+  },
+  "results": [
+    {
+      "target": "harv.CHGIS_V1_CST_LIN",
+      "carrier": "mapinfo",
+      "rows": 160,
+      "verdict": "CONFORMS",
+      "sec": 4.6
+    },
+    {
+      "target": "harv.V3_time_pref_pgn_PRC",
+      "carrier": "mapinfo",
+      "rows": 1989,
+      "verdict": "CONFORMS",
+      "sec": 4.2
+    },
+    {
+      "target": "harv.V3_time_pref_pgn_USA",
+      "carrier": "mapinfo",
+      "rows": 1989,
+      "verdict": "CONFORMS",
+      "sec": 3.9
+    },
+    {
+      "target": "harv.v1_1820_thu_cnty_pgn_prc",
+      "carrier": "mapinfo",
+      "rows": 71,
+      "verdict": "CONFORMS",
+      "sec": 3.8
+    },
+    {
+      "target": "harv.v1_1820_thu_cnty_pgn_usa",
+      "carrier": "mapinfo",
+      "rows": 71,
+      "verdict": "CONFORMS",
+      "sec": 3.6
+    },
+    {
+      "target": "harv.v2_1820_cnty_pts_PRC",
+      "carrier": "mapinfo",
+      "rows": 1859,
+      "verdict": "CONFORMS",
+      "sec": 3.6
+    },
+    {
+      "target": "harv.v2_1820_cnty_pts_USA",
+      "carrier": "mapinfo",
+      "rows": 1859,
+      "verdict": "CONFORMS",
+      "sec": 3.6
+    },
+    {
+      "target": "harv.v2_1820_lks_pgn_prc",
+      "carrier": "mapinfo",
+      "rows": 381,
+      "verdict": "CONFORMS",
+      "sec": 3.5
+    },
+    {
+      "target": "harv.v2_1820_lks_pgn_usa",
+      "carrier": "mapinfo",
+      "rows": 370,
+      "verdict": "CONFORMS",
+      "sec": 3.9
+    },
+    {
+      "target": "harv.v2_1820_pref_pgn_PRC",
+      "carrier": "mapinfo",
+      "rows": 320,
+      "verdict": "CONFORMS",
+      "sec": 4.3
+    },
+    {
+      "target": "harv.v2_1820_pref_pgn_USA",
+      "carrier": "mapinfo",
+      "rows": 324,
+      "verdict": "CONFORMS",
+      "sec": 4.3
+    },
+    {
+      "target": "harv.v2_1820_pref_pts_PRC",
+      "carrier": "mapinfo",
+      "rows": 301,
+      "verdict": "CONFORMS",
+      "sec": 4.1
+    },
+    {
+      "target": "harv.v2_1820_pref_pts_USA",
+      "carrier": "mapinfo",
+      "rows": 301,
+      "verdict": "CONFORMS",
+      "sec": 4.5
+    },
+    {
+      "target": "harv.v2_1820_prov_pgn_PRC",
+      "carrier": "mapinfo",
+      "rows": 32,
+      "verdict": "CONFORMS",
+      "sec": 4.4
+    },
+    {
+      "target": "harv.v2_1820_prov_pgn_USA",
+      "carrier": "mapinfo",
+      "rows": 32,
+      "verdict": "CONFORMS",
+      "sec": 4.6
+    },
+    {
+      "target": "harv.v2_1820_prov_pts_PRC",
+      "carrier": "mapinfo",
+      "rows": 24,
+      "verdict": "CONFORMS",
+      "sec": 3.9
+    },
+    {
+      "target": "harv.v2_1820_prov_pts_USA",
+      "carrier": "mapinfo",
+      "rows": 24,
+      "verdict": "CONFORMS",
+      "sec": 4.1
+    },
+    {
+      "target": "harv.v2_1820_rvr_lin_prc",
+      "carrier": "mapinfo",
+      "rows": 2778,
+      "verdict": "CONFORMS",
+      "sec": 4.8
+    },
+    {
+      "target": "harv.v2_1820_rvr_lin_usa",
+      "carrier": "mapinfo",
+      "rows": 2778,
+      "verdict": "CONFORMS",
+      "sec": 4.4
+    },
+    {
+      "target": "harv.v2_1820_twn_pts_PRC",
+      "carrier": "mapinfo",
+      "rows": 8659,
+      "verdict": "CONFORMS",
+      "sec": 5.0
+    },
+    {
+      "target": "harv.v2_1820_twn_pts_USA",
+      "carrier": "mapinfo",
+      "rows": 8659,
+      "verdict": "CONFORMS",
+      "sec": 4.9
+    },
+    {
+      "target": "harv.v2_1911_cnty_pgn_PRC",
+      "carrier": "mapinfo",
+      "rows": 810,
+      "verdict": "CONFORMS",
+      "sec": 4.0
+    },
+    {
+      "target": "harv.v2_1911_cnty_pgn_USA",
+      "carrier": "mapinfo",
+      "rows": 810,
+      "verdict": "CONFORMS",
+      "sec": 4.3
+    },
+    {
+      "target": "harv.v2_1911_cnty_pts_PRC",
+      "carrier": "mapinfo",
+      "rows": 779,
+      "verdict": "CONFORMS",
+      "sec": 3.9
+    },
+    {
+      "target": "harv.v2_1911_cnty_pts_USA",
+      "carrier": "mapinfo",
+      "rows": 779,
+      "verdict": "CONFORMS",
+      "sec": 4.2
+    },
+    {
+      "target": "harv.v2_1911_pref_pgn_USA",
+      "carrier": "mapinfo",
+      "rows": 137,
+      "verdict": "CONFORMS",
+      "sec": 4.7
+    },
+    {
+      "target": "harv.v2_1911_pref_pts_PRC",
+      "carrier": "mapinfo",
+      "rows": 137,
+      "verdict": "CONFORMS",
+      "sec": 3.9
+    },
+    {
+      "target": "harv.v2_1911_pref_pts_USA",
+      "carrier": "mapinfo",
+      "rows": 137,
+      "verdict": "CONFORMS",
+      "sec": 5.0
+    },
+    {
+      "target": "harv.v2_1911_prov_pgn_PRC",
+      "carrier": "mapinfo",
+      "rows": 9,
+      "verdict": "CONFORMS",
+      "sec": 5.1
+    },
+    {
+      "target": "harv.v2_1911_prov_pgn_USA",
+      "carrier": "mapinfo",
+      "rows": 9,
+      "verdict": "CONFORMS",
+      "sec": 5.1
+    },
+    {
+      "target": "harv.v2_1911_prov_pts_PRC",
+      "carrier": "mapinfo",
+      "rows": 10,
+      "verdict": "CONFORMS",
+      "sec": 4.6
+    },
+    {
+      "target": "harv.v2_1911_prov_pts_USA",
+      "carrier": "mapinfo",
+      "rows": 10,
+      "verdict": "CONFORMS",
+      "sec": 3.9
+    },
+    {
+      "target": "harv.v2_1911_twn_pts_PRC",
+      "carrier": "mapinfo",
+      "rows": 17466,
+      "verdict": "CONFORMS",
+      "sec": 5.3
+    },
+    {
+      "target": "harv.v2_1911_twn_pts_USA",
+      "carrier": "mapinfo",
+      "rows": 17466,
+      "verdict": "CONFORMS",
+      "sec": 5.0
+    },
+    {
+      "target": "harv.v2_time_cnty_pgn_PRC",
+      "carrier": "mapinfo",
+      "rows": 27,
+      "verdict": "CONFORMS",
+      "sec": 4.4
+    },
+    {
+      "target": "harv.v2_time_cnty_pgn_USA",
+      "carrier": "mapinfo",
+      "rows": 27,
+      "verdict": "CONFORMS",
+      "sec": 4.3
+    },
+    {
+      "target": "harv.v2_time_cnty_pts_PRC",
+      "carrier": "mapinfo",
+      "rows": 741,
+      "verdict": "CONFORMS",
+      "sec": 4.3
+    },
+    {
+      "target": "harv.v2_time_cnty_pts_USA",
+      "carrier": "mapinfo",
+      "rows": 741,
+      "verdict": "CONFORMS",
+      "sec": 4.2
+    },
+    {
+      "target": "harv.v2_time_pref_pgn_PRC",
+      "carrier": "mapinfo",
+      "rows": 463,
+      "verdict": "CONFORMS",
+      "sec": 4.8
+    },
+    {
+      "target": "harv.v2_time_pref_pgn_USA",
+      "carrier": "mapinfo",
+      "rows": 463,
+      "verdict": "CONFORMS",
+      "sec": 4.2
+    },
+    {
+      "target": "harv.v2_time_pref_pts_PRC",
+      "carrier": "mapinfo",
+      "rows": 285,
+      "verdict": "CONFORMS",
+      "sec": 4.6
+    },
+    {
+      "target": "harv.v2_time_pref_pts_USA",
+      "carrier": "mapinfo",
+      "rows": 285,
+      "verdict": "CONFORMS",
+      "sec": 4.9
+    },
+    {
+      "target": "harv.v2_time_prov_pgn_PRC",
+      "carrier": "mapinfo",
+      "rows": 162,
+      "verdict": "CONFORMS",
+      "sec": 4.9
+    },
+    {
+      "target": "harv.v2_time_prov_pgn_USA",
+      "carrier": "mapinfo",
+      "rows": 164,
+      "verdict": "CONFORMS",
+      "sec": 4.8
+    },
+    {
+      "target": "harv.v2_time_prov_pts_PRC",
+      "carrier": "mapinfo",
+      "rows": 114,
+      "verdict": "CONFORMS",
+      "sec": 4.9
+    },
+    {
+      "target": "harv.v2_time_prov_pts_USA",
+      "carrier": "mapinfo",
+      "rows": 114,
+      "verdict": "CONFORMS",
+      "sec": 4.9
+    },
+    {
+      "target": "harv.v2_time_reg_pgn_PRC",
+      "carrier": "mapinfo",
+      "rows": 11,
+      "verdict": "CONFORMS",
+      "sec": 5.0
+    },
+    {
+      "target": "harv.v2_time_reg_pgn_USA",
+      "carrier": "mapinfo",
+      "rows": 11,
+      "verdict": "CONFORMS",
+      "sec": 4.6
+    },
+    {
+      "target": "harv.v2_time_reg_pts_PRC",
+      "carrier": "mapinfo",
+      "rows": 7,
+      "verdict": "CONFORMS",
+      "sec": 4.9
+    },
+    {
+      "target": "harv.v2_time_reg_pts_USA",
+      "carrier": "mapinfo",
+      "rows": 7,
+      "verdict": "CONFORMS",
+      "sec": 4.9
+    },
+    {
+      "target": "harv.v3_1911_cnty_pgn_PRC",
+      "carrier": "mapinfo",
+      "rows": 1191,
+      "verdict": "CONFORMS",
+      "sec": 4.5
+    },
+    {
+      "target": "harv.v3_1911_cnty_pgn_USA",
+      "carrier": "mapinfo",
+      "rows": 1191,
+      "verdict": "CONFORMS",
+      "sec": 4.7
+    },
+    {
+      "target": "harv.v3_1911_cnty_pts_PRC",
+      "carrier": "mapinfo",
+      "rows": 1136,
+      "verdict": "CONFORMS",
+      "sec": 4.9
+    },
+    {
+      "target": "harv.v3_1911_cnty_pts_USA",
+      "carrier": "mapinfo",
+      "rows": 1136,
+      "verdict": "CONFORMS",
+      "sec": 4.6
+    },
+    {
+      "target": "harv.v3_1911_pref_pgn_PRC",
+      "carrier": "mapinfo",
+      "rows": 202,
+      "verdict": "CONFORMS",
+      "sec": 5.2
+    },
+    {
+      "target": "harv.v3_1911_pref_pgn_USA",
+      "carrier": "mapinfo",
+      "rows": 202,
+      "verdict": "CONFORMS",
+      "sec": 4.8
+    },
+    {
+      "target": "harv.v3_1911_pref_pts_PRC",
+      "carrier": "mapinfo",
+      "rows": 212,
+      "verdict": "CONFORMS",
+      "sec": 4.2
+    },
+    {
+      "target": "harv.v3_1911_pref_pts_USA",
+      "carrier": "mapinfo",
+      "rows": 212,
+      "verdict": "CONFORMS",
+      "sec": 5.0
+    },
+    {
+      "target": "harv.v3_1911_prov_pgn_PRC",
+      "carrier": "mapinfo",
+      "rows": 13,
+      "verdict": "CONFORMS",
+      "sec": 4.8
+    },
+    {
+      "target": "harv.v3_1911_prov_pgn_USA",
+      "carrier": "mapinfo",
+      "rows": 13,
+      "verdict": "CONFORMS",
+      "sec": 4.7
+    },
+    {
+      "target": "harv.v3_1911_prov_pts_PRC",
+      "carrier": "mapinfo",
+      "rows": 14,
+      "verdict": "CONFORMS",
+      "sec": 4.8
+    },
+    {
+      "target": "harv.v3_1911_prov_pts_USA",
+      "carrier": "mapinfo",
+      "rows": 14,
+      "verdict": "CONFORMS",
+      "sec": 3.7
+    },
+    {
+      "target": "harv.v3_1911_twn_pts_PRC",
+      "carrier": "mapinfo",
+      "rows": 27424,
+      "verdict": "CONFORMS",
+      "sec": 5.8
+    },
+    {
+      "target": "harv.v3_1911_twn_pts_USA",
+      "carrier": "mapinfo",
+      "rows": 27424,
+      "verdict": "CONFORMS",
+      "sec": 5.9
+    },
+    {
+      "target": "harv.v3_time_cnty_pts_PRC",
+      "carrier": "mapinfo",
+      "rows": 2812,
+      "verdict": "CONFORMS",
+      "sec": 4.1
+    },
+    {
+      "target": "harv.v3_time_cnty_pts_USA",
+      "carrier": "mapinfo",
+      "rows": 2814,
+      "verdict": "CONFORMS",
+      "sec": 4.5
+    },
+    {
+      "target": "harv.v3_time_pref_pts_PRC",
+      "carrier": "mapinfo",
+      "rows": 1223,
+      "verdict": "CONFORMS",
+      "sec": 4.3
+    },
+    {
+      "target": "harv.v3_time_pref_pts_USA",
+      "carrier": "mapinfo",
+      "rows": 1223,
+      "verdict": "CONFORMS",
+      "sec": 4.7
+    },
+    {
+      "target": "harv.v3_time_prov_pgn_prc",
+      "carrier": "mapinfo",
+      "rows": 488,
+      "verdict": "CONFORMS",
+      "sec": 4.7
+    },
+    {
+      "target": "harv.v3_time_prov_pts_prc",
+      "carrier": "mapinfo",
+      "rows": 312,
+      "verdict": "CONFORMS",
+      "sec": 5.0
+    },
+    {
+      "target": "harv.v3_time_prov_pts_usa",
+      "carrier": "mapinfo",
+      "rows": 312,
+      "verdict": "CONFORMS",
+      "sec": 5.0
+    },
+    {
+      "target": "harv.v4_1820_cnty_pts_prc",
+      "carrier": "mapinfo",
+      "rows": 1859,
+      "verdict": "CONFORMS",
+      "sec": 4.8
+    },
+    {
+      "target": "harv.v4_1820_cnty_pts_usa",
+      "carrier": "mapinfo",
+      "rows": 1859,
+      "verdict": "CONFORMS",
+      "sec": 4.4
+    },
+    {
+      "target": "harv.v4_1820_coast_lin",
+      "carrier": "mapinfo",
+      "rows": 228,
+      "verdict": "CONFORMS",
+      "sec": 4.9
+    },
+    {
+      "target": "harv.v4_1820_lks_pgn_prc",
+      "carrier": "mapinfo",
+      "rows": 357,
+      "verdict": "CONFORMS",
+      "sec": 3.4
+    },
+    {
+      "target": "harv.v4_1820_lks_pgn_usa",
+      "carrier": "mapinfo",
+      "rows": 357,
+      "verdict": "CONFORMS",
+      "sec": 4.6
+    },
+    {
+      "target": "harv.v4_1820_pref_pgn_prc",
+      "carrier": "mapinfo",
+      "rows": 320,
+      "verdict": "CONFORMS",
+      "sec": 3.7
+    },
+    {
+      "target": "harv.v4_1820_pref_pgn_usa",
+      "carrier": "mapinfo",
+      "rows": 324,
+      "verdict": "CONFORMS",
+      "sec": 4.0
+    },
+    {
+      "target": "harv.v4_1820_pref_pts_prc",
+      "carrier": "mapinfo",
+      "rows": 301,
+      "verdict": "CONFORMS",
+      "sec": 4.9
+    },
+    {
+      "target": "harv.v4_1820_pref_pts_usa",
+      "carrier": "mapinfo",
+      "rows": 301,
+      "verdict": "CONFORMS",
+      "sec": 5.1
+    },
+    {
+      "target": "harv.v4_1820_prov_pgn_prc",
+      "carrier": "mapinfo",
+      "rows": 32,
+      "verdict": "CONFORMS",
+      "sec": 4.4
+    },
+    {
+      "target": "harv.v4_1820_prov_pgn_usa",
+      "carrier": "mapinfo",
+      "rows": 32,
+      "verdict": "CONFORMS",
+      "sec": 5.2
+    },
+    {
+      "target": "harv.v4_1820_prov_pts_prc",
+      "carrier": "mapinfo",
+      "rows": 24,
+      "verdict": "CONFORMS",
+      "sec": 4.8
+    },
+    {
+      "target": "harv.v4_1820_prov_pts_usa",
+      "carrier": "mapinfo",
+      "rows": 24,
+      "verdict": "CONFORMS",
+      "sec": 4.4
+    },
+    {
+      "target": "harv.v4_1820_rvr_lin_prc",
+      "carrier": "mapinfo",
+      "rows": 2760,
+      "verdict": "CONFORMS",
+      "sec": 4.4
+    },
+    {
+      "target": "harv.v4_1820_rvr_lin_usa",
+      "carrier": "mapinfo",
+      "rows": 2760,
+      "verdict": "CONFORMS",
+      "sec": 4.1
+    },
+    {
+      "target": "harv.v4_1820_twn_pts_prc",
+      "carrier": "mapinfo",
+      "rows": 8659,
+      "verdict": "CONFORMS",
+      "sec": 4.8
+    },
+    {
+      "target": "harv.v4_1820_twn_pts_usa",
+      "carrier": "mapinfo",
+      "rows": 8659,
+      "verdict": "CONFORMS",
+      "sec": 4.9
+    },
+    {
+      "target": "harv.v4_1911_cnty_pgn_prc",
+      "carrier": "mapinfo",
+      "rows": 1502,
+      "verdict": "CONFORMS",
+      "sec": 4.1
+    },
+    {
+      "target": "harv.v4_1911_cnty_pgn_usa",
+      "carrier": "mapinfo",
+      "rows": 1502,
+      "verdict": "CONFORMS",
+      "sec": 4.0
+    },
+    {
+      "target": "harv.v4_1911_cnty_pts_prc",
+      "carrier": "mapinfo",
+      "rows": 1426,
+      "verdict": "CONFORMS",
+      "sec": 3.9
+    },
+    {
+      "target": "harv.v4_1911_cnty_pts_usa",
+      "carrier": "mapinfo",
+      "rows": 1426,
+      "verdict": "CONFORMS",
+      "sec": 3.9
+    },
+    {
+      "target": "harv.v4_1911_pref_pgn_prc",
+      "carrier": "mapinfo",
+      "rows": 267,
+      "verdict": "CONFORMS",
+      "sec": 3.6
+    },
+    {
+      "target": "harv.v4_1911_pref_pgn_usa",
+      "carrier": "mapinfo",
+      "rows": 267,
+      "verdict": "CONFORMS",
+      "sec": 3.6
+    },
+    {
+      "target": "harv.v4_1911_pref_pts_prc",
+      "carrier": "mapinfo",
+      "rows": 270,
+      "verdict": "CONFORMS",
+      "sec": 3.6
+    },
+    {
+      "target": "harv.v4_1911_pref_pts_usa",
+      "carrier": "mapinfo",
+      "rows": 270,
+      "verdict": "CONFORMS",
+      "sec": 4.0
+    },
+    {
+      "target": "harv.v4_1911_prov_pgn_prc",
+      "carrier": "mapinfo",
+      "rows": 18,
+      "verdict": "CONFORMS",
+      "sec": 4.3
+    },
+    {
+      "target": "harv.v4_1911_prov_pgn_usa",
+      "carrier": "mapinfo",
+      "rows": 18,
+      "verdict": "CONFORMS",
+      "sec": 4.3
+    },
+    {
+      "target": "harv.v4_1911_prov_pts_prc",
+      "carrier": "mapinfo",
+      "rows": 17,
+      "verdict": "CONFORMS",
+      "sec": 4.0
+    },
+    {
+      "target": "harv.v4_1911_prov_pts_usa",
+      "carrier": "mapinfo",
+      "rows": 17,
+      "verdict": "CONFORMS",
+      "sec": 4.4
+    },
+    {
+      "target": "harv.v4_1911_twn_pts_prc",
+      "carrier": "mapinfo",
+      "rows": 38599,
+      "verdict": "CONFORMS",
+      "sec": 7.8
+    },
+    {
+      "target": "harv.v4_1911_twn_pts_usa",
+      "carrier": "mapinfo",
+      "rows": 38599,
+      "verdict": "CONFORMS",
+      "sec": 7.5
+    },
+    {
+      "target": "harv.v4_time_cnty_pts_prc",
+      "carrier": "mapinfo",
+      "rows": 5004,
+      "verdict": "CONFORMS",
+      "sec": 5.1
+    },
+    {
+      "target": "harv.v4_time_cnty_pts_usa",
+      "carrier": "mapinfo",
+      "rows": 5004,
+      "verdict": "CONFORMS",
+      "sec": 4.2
+    },
+    {
+      "target": "harv.v4_time_fujian_cnty_pgn_prc",
+      "carrier": "mapinfo",
+      "rows": 148,
+      "verdict": "CONFORMS",
+      "sec": 3.5
+    },
+    {
+      "target": "harv.v4_time_fujian_cnty_pgn_usa",
+      "carrier": "mapinfo",
+      "rows": 148,
+      "verdict": "CONFORMS",
+      "sec": 4.1
+    },
+    {
+      "target": "harv.v4_time_pref_pgn_prc",
+      "carrier": "mapinfo",
+      "rows": 2016,
+      "verdict": "CONFORMS",
+      "sec": 4.7
+    },
+    {
+      "target": "harv.v4_time_pref_pgn_usa",
+      "carrier": "mapinfo",
+      "rows": 2028,
+      "verdict": "CONFORMS",
+      "sec": 4.6
+    },
+    {
+      "target": "harv.v4_time_pref_pts_prc",
+      "carrier": "mapinfo",
+      "rows": 1232,
+      "verdict": "CONFORMS",
+      "sec": 4.2
+    },
+    {
+      "target": "harv.v4_time_pref_pts_usa",
+      "carrier": "mapinfo",
+      "rows": 1232,
+      "verdict": "CONFORMS",
+      "sec": 4.7
+    },
+    {
+      "target": "harv.v4_time_prov_pgn_prc",
+      "carrier": "mapinfo",
+      "rows": 489,
+      "verdict": "CONFORMS",
+      "sec": 4.5
+    },
+    {
+      "target": "harv.v4_time_prov_pgn_usa",
+      "carrier": "mapinfo",
+      "rows": 491,
+      "verdict": "CONFORMS",
+      "sec": 4.2
+    },
+    {
+      "target": "harv.v4_time_prov_pts_prc",
+      "carrier": "mapinfo",
+      "rows": 312,
+      "verdict": "CONFORMS",
+      "sec": 4.7
+    },
+    {
+      "target": "harv.v4_time_prov_pts_usa",
+      "carrier": "mapinfo",
+      "rows": 312,
+      "verdict": "CONFORMS",
+      "sec": 5.0
+    },
+    {
+      "target": "harv.v4_time_reg_pgn_prc",
+      "carrier": "mapinfo",
+      "rows": 11,
+      "verdict": "CONFORMS",
+      "sec": 4.7
+    },
+    {
+      "target": "harv.v4_time_reg_pgn_usa",
+      "carrier": "mapinfo",
+      "rows": 11,
+      "verdict": "CONFORMS",
+      "sec": 4.6
+    },
+    {
+      "target": "harv.v4_time_reg_pts_prc",
+      "carrier": "mapinfo",
+      "rows": 6,
+      "verdict": "CONFORMS",
+      "sec": 4.9
+    },
+    {
+      "target": "harv.v4_time_reg_pts_usa",
+      "carrier": "mapinfo",
+      "rows": 6,
+      "verdict": "CONFORMS",
+      "sec": 4.5
+    }
+  ]
+}

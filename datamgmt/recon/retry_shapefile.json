@@ -1,0 +1,40 @@
+[
+  {
+    "target": "chgis.v4_1820_rvr_lin_gbk",
+    "first": "ERROR",
+    "first_err": "[db] SELECT count(*) FROM \"chgis\".\"v4_1820_rvr_lin_gbk__geom_stg\"; rc=255\n--- stdout ---\n\n--- stderr ---\nConnection closed by 192.168.3.32 port 22\r\n",
+    "verdict": "CONFORMS",
+    "attr": "CONFORMS",
+    "geom": "CONFORMS",
+    "sec": 16.9
+  },
+  {
+    "target": "chgis.v4_dcw_rds_lin",
+    "first": "ERROR",
+    "first_err": "[db] SELECT column_name FROM information_schema.columns WHERE table_schema='chgis' AN rc=255\n--- stdout ---\n\n--- stderr ---\nConnection closed by 192.168.3.32 port 22\r\n",
+    "verdict": "CONFORMS",
+    "err": "[db] SELECT column_name FROM information_schema.columns WHERE table_schema='chgis' AN rc=255\n--- stdout ---\n\n--- stderr ---\nConnection closed by 192.168.3.32 port 22\r\n",
+    "sec": 3.0,
+    "attr": "CONFORMS",
+    "geom": "CONFORMS",
+    "note": "两次 ssh Connection closed by port 22 暂态；第3次手跑 CONFORMS"
+  },
+  {
+    "target": "chgis.v5_1200_cnty_cdf_1200_c",
+    "first": "ERROR",
+    "first_err": "[db] COPY \"chgis\".\"_g_scratch\"(__rid,wkt) FROM STDIN WITH (FORMAT csv); rc=3\n--- stdout ---\n\n--- stderr ---\nERROR:  relation \"chgis._g_scratch\" does not exist\n",
+    "verdict": "CONFORMS",
+    "attr": "CONFORMS",
+    "geom": "CONFORMS",
+    "sec": 11.8
+  },
+  {
+    "target": "chgis.v5_1900_cnty_1990",
+    "first": "ERROR",
+    "first_err": "[db] INSERT INTO \"chgis\".\"v5_1900_cnty_1990__geom_stg\" SELECT __rid, CASE WHEN wkt IS rc=3\n--- stdout ---\n\n--- stderr ---\nERROR:  parse error - invalid geometry\nHINT:  \"MULTIPOLYGON(())\" <-- parse error at position 16 within geometry\n",
+    "verdict": "CONFORMS",
+    "attr": "CONFORMS",
+    "geom": "CONFORMS",
+    "sec": 16.8
+  }
+]

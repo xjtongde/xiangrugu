@@ -8,9 +8,9 @@
     "action": "已按『忠于图层本体 DOI』入 Muyang，Shuyang 逐案报请用户裁决"
   },
   "degenerate_geometry": {
-    "desc": "源 .shp 退化几何（环<4顶点/线<2顶点/Null），PostGIS 不可表示，装为 NULL geom 并保留其余属性",
-    "n_layers": 11,
-    "total_features": 88,
+    "desc": "源 .shp 退化几何（环<4顶点/线<2顶点/空环/空多重/Null），PostGIS 不可表示，装为 NULL geom 并保留其余属性",
+    "n_layers": 12,
+    "total_features": 90,
     "layers": [
       {"target": "chgis.Ming_Routes_2016", "n": 1},
       {"target": "chgis.v2_1820_lks_pgn_gb", "n": 14},
@@ -22,6 +22,7 @@
       {"target": "chgis.v5_1200_pref_cdf_1200_p", "n": 1},
       {"target": "chgis.v5_1200_pref_lz_1200_p", "n": 1},
       {"target": "chgis.v5_1820_lks_pgn_utf", "n": 14},
+      {"target": "chgis.v5_1900_cnty_1990", "n": 2},
       {"target": "chgis.v6_1820_lks_pgn_utf", "n": 11}
     ]
   },

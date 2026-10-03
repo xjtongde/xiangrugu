@@ -1,6 +1,6 @@
 {
-  "n_layers": 11,
-  "total_degenerate": 88,
+  "n_layers": 12,
+  "total_degenerate": 90,
   "layers": [
     {
       "target": "chgis.Ming_Routes_2016",
@@ -41,6 +41,10 @@
     {
       "target": "chgis.v5_1820_lks_pgn_utf",
       "degenerate": 14
+    },
+    {
+      "target": "chgis.v5_1900_cnty_1990",
+      "degenerate": 2
     },
     {
       "target": "chgis.v6_1820_lks_pgn_utf",

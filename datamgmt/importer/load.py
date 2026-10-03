@@ -7,6 +7,7 @@
 """
 import json
 import os
+import struct
 
 _HERE = os.path.dirname(os.path.abspath(__file__))
 _DATAMGMT = os.path.dirname(_HERE)
@@ -15,7 +16,7 @@ if _DATAMGMT not in __import__("sys").path:
 
 import decode  # noqa: E402  解码判表读取（config 层）
 from db import execute, copy_stream, quote_ident, ensure_schemas  # noqa: E402
-from truth import roots, sqlite, dbf, shp  # noqa: E402
+from truth import roots, sqlite, dbf, shp, mapinfo  # noqa: E402
 from truth.srcopen import read_member  # noqa: E402
 
 USEDATA = roots.usedata()
@@ -81,6 +82,106 @@ def promote(db, entry):
     execute(db, f"ALTER TABLE {sq}.{stg} RENAME TO {t};")
 
 
+def load_text_staging(db, entry, colnames, rows):
+    """通用纯属性源(tsv/xls)落 staging：colnames+rows(元素 str|None) → COPY。"""
+    schema, tname = _target_parts(entry)
+    pg_types = [entry["columns"][c] for c in colnames]
+    ensure_schemas(db)
+
+    stg = tname + "__stg"
+    sq, st = quote_ident(schema), quote_ident(stg)
+    execute(db, f"DROP TABLE IF EXISTS {sq}.{st};")
+    coldefs = ", ".join(f"{quote_ident(c.lower())} {t}" for c, t in zip(colnames, pg_types))
+    execute(db, f"CREATE TABLE {sq}.{st} ({coldefs});")
+
+    csv_lines = [",".join(_csv_field(v) for v in row) for row in rows]
+    copy_cmd = (
+        f"COPY {sq}.{st} ({', '.join(quote_ident(c.lower()) for c in colnames)}) "
+        "FROM STDIN WITH (FORMAT csv);"
+    )
+    copy_stream(db, copy_cmd, "\n".join(csv_lines))
+    return stg, colnames, pg_types, len(rows)
+
+
+def load_tsv_staging(db, entry):
+    """腿D TSV：读源文本(带引号/内嵌换行) 落 staging。"""
+    from truth import read_text
+    colnames, rows = read_text.read_tsv(entry["key"], entry.get("encoding", "utf-8"))
+    return load_text_staging(db, entry, colnames, rows)
+
+
+def load_xls_staging(db, entry):
+    """腿C XLS：xlrd 按 XLS_SPEC 读单元格落 staging。"""
+    import sys as _sys
+    if "/tmp/xlsdeps" not in _sys.path:
+        _sys.path.insert(0, "/tmp/xlsdeps")
+    import xlrd
+    from truth import read_xls
+    colnames, rows = read_xls.read_cells(entry["key"], xlrd)
+    return load_text_staging(db, entry, colnames, rows)
+
+
+def _mapinfo_cell(raw, tf, fam):
+    """MapInfo 腿A 单元解码（importer 侧独立，§6.1）：raw 字段字节 + .tab 真型 → 值|None。
+
+    Char 按判表列级解码；Decimal 系 ASCII 十进制；Smallint/Integer/Float 系二进制数（LE）。"""
+    t = tf["type"]
+    if t == "Char":
+        body = raw.rstrip(b" \x00")
+        enc = decode.col_encoding(fam, tf["name"])
+        if enc is None:
+            return None
+        return body.decode(enc, "replace")
+    if t == "Decimal":
+        s = raw.strip(b" \x00").decode("ascii", "strict")
+        return None if (s == "" or "*" in s) else s
+    if t == "Smallint":
+        return struct.unpack("<h", raw[:2])[0]
+    if t == "Integer":
+        return struct.unpack("<i", raw[:4])[0]
+    if t == "Float":
+        return struct.unpack("<d", raw[:8])[0]
+    if t == "Logical":
+        s = raw[:1].decode("ascii", "replace")
+        return None if s.strip() == "" else s
+    # Date/Time/DateTime 等：ASCII 原样（本项目 118 层未见）
+    s = raw.rstrip(b" \x00").decode("ascii", "replace")
+    return None if s == "" else s
+
+
+def load_mapinfo_staging(db, entry):
+    """腿A MapInfo 属性：.tab 真型 + .dat(dBase IV) 定宽字节 → 逐列解码 → staging（属性-only，无 .map 几何）。"""
+    schema, tname = _target_parts(entry)
+    fam = decode.load_decoding().get(entry.get("decoding"))
+    ensure_schemas(db)
+
+    tab_fields, dat = mapinfo.read_table(entry["key"])
+    if dat is None:
+        raise ValueError("MapInfo 缺 .dat")
+    colnames = dbf.disambiguate([f["name"] for f in tab_fields])
+    pg_types = [entry["columns"][c] for c in colnames]
+
+    stg = tname + "__stg"
+    sq, st = quote_ident(schema), quote_ident(stg)
+    execute(db, f"DROP TABLE IF EXISTS {sq}.{st};")
+    coldefs = ", ".join(f"{quote_ident(c.lower())} {t}" for c, t in zip(colnames, pg_types))
+    execute(db, f"CREATE TABLE {sq}.{st} ({coldefs});")
+
+    csv_lines, nrows = [], 0
+    for vals, deleted in dbf.iter_records(dat):
+        if deleted:
+            continue
+        cells = [_mapinfo_cell(v, tf, fam) for v, tf in zip(vals, tab_fields)]
+        csv_lines.append(",".join(_csv_field(v) for v in cells))
+        nrows += 1
+    copy_cmd = (
+        f"COPY {sq}.{st} ({', '.join(quote_ident(c.lower()) for c in colnames)}) "
+        "FROM STDIN WITH (FORMAT csv);"
+    )
+    copy_stream(db, copy_cmd, "\n".join(csv_lines))
+    return stg, colnames, pg_types, nrows
+
+
 def _shapefile_cell(raw, f, fam):
     """importer 侧列级解码（独立实现，§6.1）：raw 字段字节 → str|None。
 
@@ -88,7 +189,7 @@ def _shapefile_cell(raw, f, fam):
     非法/截断字节 → U+FFFD（每处一个，两端一致）；判不定 → None（该列不装）。"""
     if f["type"] == "N":
         s = raw.strip(b" \x00").decode("ascii", "strict")
-        return None if s == "" else s
+        return None if (s == "" or "*" in s) else s  # '*'=dBASE 溢出标记（值不可知）
     body = raw.rstrip(b" \x00")
     enc = decode.col_encoding(fam, f["name"])
     if enc is None:
@@ -100,11 +201,28 @@ def _deleted_indices(dbf_bytes):
     return {i for i, (_, deleted) in enumerate(dbf.iter_records(dbf_bytes)) if deleted}
 
 
-def _feat_wkt(feat):
-    """规范化几何 → WKT（repr 双精度原样；含 Z；PolyLine/Polygon 一律 MULTI）。Null → None。"""
+def _is_degenerate_geom(feat):
+    """源几何退化（PostGIS 不可表示，§5.4）：线<2顶点 / 环<4顶点 / MultiPoint 空 / Null。"""
     t = feat["type"]
     if t == "Null":
+        return True
+    g = feat["geom"]
+    if t == "Point":
+        return False
+    if t == "MultiPoint":
+        return len(g) == 0
+    if t == "MultiLineString":
+        return any(len(line) < 2 for line in g)
+    if t == "MultiPolygon":
+        return any(len(ring) < 4 for poly in g for ring in poly)
+    return False
+
+
+def _feat_wkt(feat):
+    """规范化几何 → WKT（repr 双精度原样；含 Z；PolyLine/Polygon 一律 MULTI）。Null/退化 → None。"""
+    if _is_degenerate_geom(feat):
         return None
+    t = feat["type"]
     z = " Z" if feat.get("z") else ""
     g = feat["geom"]
     if t == "Point":
@@ -124,9 +242,9 @@ def _feat_wkt(feat):
 
 def _feat_vertices(feat):
     """规范化几何 → 顶点扁平序列（canonical 顺序，含 Z；供校验器与 ST_DumpPoints 对齐）。"""
-    t = feat["type"]
-    if t in ("Null",):
+    if _is_degenerate_geom(feat):
         return []
+    t = feat["type"]
     if t == "Point":
         return [feat["geom"]]
     if t == "MultiPoint":
@@ -146,7 +264,7 @@ def load_shapefile_staging(db, entry):
 
     dbf_bytes = read_member(entry["key"], ".dbf", required=True)
     fields = dbf.parse_dbf(dbf_bytes)["fields"]
-    colnames = [f["name"] for f in fields]
+    colnames = dbf.disambiguate([f["name"] for f in fields])
     pg_types = [entry["columns"][c] for c in colnames]
 
     stg = tname + "__stg"
@@ -188,7 +306,7 @@ def load_shapefile_geom(db, entry):
         if i in delidx:
             continue
         wkt = _feat_wkt(feat)
-        rows.append(f"{i}," + ("NULL" if wkt is None else _csv_field(wkt)))
+        rows.append(f"{i}," + ("" if wkt is None else _csv_field(wkt)))
 
     sq, gtab = quote_ident(schema), quote_ident(tname + "__geom_stg")
     execute(db, f"DROP TABLE IF EXISTS {sq}.{gtab};")

@@ -73,3 +73,18 @@ def iter_records(b: bytes):
         deleted = rec[0] == 0x2A
         vals = [rec[f["offset"]: f["offset"] + f["length"]] for f in fields]
         yield vals, deleted
+
+
+def disambiguate(names):
+    """定宽字段重名去歧（§5.2 闸0）：首见原样小写；复见续 _2、_3…（确定性，两端同用）。"""
+    seen = {}
+    out = []
+    for n in names:
+        k = n.lower()
+        c = seen.get(k, 0)
+        if c == 0:
+            out.append(k)
+        else:
+            out.append(f"{k}_{c + 1}")
+        seen[k] = c + 1
+    return out

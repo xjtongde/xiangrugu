@@ -77,6 +77,39 @@ def read_schema(relpath, xlrd):
     }
 
 
+def _cell_str(cell, pg_type, xlrd):
+    """xls 单元格 → str|None：空/白→None；bigint→int 化；数值列去尾 .0；其余字面。"""
+    ct = cell.ctype
+    if ct in (xlrd.XL_CELL_EMPTY, xlrd.XL_CELL_BLANK):
+        return None
+    v = cell.value
+    if pg_type == "bigint":
+        return str(int(v))
+    if ct == xlrd.XL_CELL_NUMBER:
+        if isinstance(v, float) and v == int(v):
+            return str(int(v))
+        return repr(v)
+    return str(v)
+
+
+def read_cells(relpath, xlrd):
+    """按 XLS_SPEC 读数据行（表头行之后，跳过 drop_cols）→ (colnames, rows)。"""
+    sp = XLS_SPEC[relpath]
+    wb = xlrd.open_workbook(os.path.join(USEDATA, relpath), on_demand=True)
+    sh = wb.sheet_by_name(sp["sheet"])
+    keep = [i for i in range(sh.ncols) if i not in sp["drop_cols"]]
+    colnames = [n for (n, t, no) in sp["columns"]]
+    assert len(keep) >= len(colnames), (relpath, keep, colnames)
+    rows = []
+    for r in range(sp["header_row"] + 1, sh.nrows):
+        vals = []
+        for ci, (n, t, no) in enumerate(sp["columns"]):
+            cell = sh.cell(r, keep[ci])
+            vals.append(_cell_str(cell, t, xlrd))
+        rows.append(vals)
+    return colnames, rows
+
+
 def main():
     import xlrd
     out = [read_schema(p, xlrd) for p in XLS_SPEC]

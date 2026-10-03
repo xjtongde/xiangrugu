@@ -8,7 +8,7 @@
     "charset_codec": "gbk",
     "type": "NATIVE",
     "n_fields": 23,
-    "parsed_fields": 20,
+    "parsed_fields": 23,
     "fields": [
       {
         "name": "NAME_PY",
@@ -27,6 +27,18 @@
         "type": "Char",
         "width": 30,
         "decimals": null
+      },
+      {
+        "name": "X_COOR",
+        "type": "Decimal",
+        "width": 10,
+        "decimals": 6
+      },
+      {
+        "name": "Y_COOR",
+        "type": "Decimal",
+        "width": 10,
+        "decimals": 6
       },
       {
         "name": "PRES_LOC",
@@ -89,6 +101,12 @@
         "decimals": null
       },
       {
+        "name": "SYS_ID",
+        "type": "Integer",
+        "width": null,
+        "decimals": null
+      },
+      {
         "name": "GEO_SRC",
         "type": "Char",
         "width": 10,
@@ -141,7 +159,7 @@
     "charset_codec": "cp1252",
     "type": "NATIVE",
     "n_fields": 28,
-    "parsed_fields": 26,
+    "parsed_fields": 28,
     "fields": [
       {
         "name": "NAME_PY",
@@ -160,6 +178,18 @@
         "type": "Char",
         "width": 30,
         "decimals": null
+      },
+      {
+        "name": "X_COOR",
+        "type": "Decimal",
+        "width": 10,
+        "decimals": 6
+      },
+      {
+        "name": "Y_COOR",
+        "type": "Decimal",
+        "width": 10,
+        "decimals": 6
       },
       {
         "name": "PRES_LOC",
@@ -485,8 +515,14 @@
     "charset_codec": "cp1252",
     "type": "NATIVE",
     "n_fields": 3,
-    "parsed_fields": 2,
+    "parsed_fields": 3,
     "fields": [
+      {
+        "name": "Sea_ID",
+        "type": "Smallint",
+        "width": null,
+        "decimals": null
+      },
       {
         "name": "Source",
         "type": "Char",
@@ -510,8 +546,14 @@
     "charset_codec": "cp1252",
     "type": "NATIVE",
     "n_fields": 5,
-    "parsed_fields": 4,
+    "parsed_fields": 5,
     "fields": [
+      {
+        "name": "Lks_id",
+        "type": "Smallint",
+        "width": null,
+        "decimals": null
+      },
       {
         "name": "Character_name",
         "type": "Char",
@@ -547,8 +589,14 @@
     "charset_codec": "cp1252",
     "type": "NATIVE",
     "n_fields": 5,
-    "parsed_fields": 4,
+    "parsed_fields": 5,
     "fields": [
+      {
+        "name": "Lks_id",
+        "type": "Smallint",
+        "width": null,
+        "decimals": null
+      },
       {
         "name": "Character",
         "type": "Char",
@@ -584,7 +632,7 @@
     "charset_codec": "cp1252",
     "type": "NATIVE",
     "n_fields": 30,
-    "parsed_fields": 27,
+    "parsed_fields": 30,
     "fields": [
       {
         "name": "NAME_PY",
@@ -593,10 +641,28 @@
         "decimals": null
       },
       {
+        "name": "NAME_CH",
+        "type": "Char",
+        "width": 30,
+        "decimals": null
+      },
+      {
         "name": "NAME_FT",
         "type": "Char",
         "width": 30,
         "decimals": null
+      },
+      {
+        "name": "X_COOR",
+        "type": "Decimal",
+        "width": 10,
+        "decimals": 6
+      },
+      {
+        "name": "Y_COOR",
+        "type": "Decimal",
+        "width": 10,
+        "decimals": 6
       },
       {
         "name": "PRES_LOC",
@@ -952,7 +1018,7 @@
     "charset_codec": "cp1252",
     "type": "NATIVE",
     "n_fields": 28,
-    "parsed_fields": 24,
+    "parsed_fields": 28,
     "fields": [
       {
         "name": "NAME_PY",
@@ -971,6 +1037,18 @@
         "type": "Char",
         "width": 30,
         "decimals": null
+      },
+      {
+        "name": "X_COOR",
+        "type": "Decimal",
+        "width": 10,
+        "decimals": 6
+      },
+      {
+        "name": "Y_COOR",
+        "type": "Decimal",
+        "width": 10,
+        "decimals": 6
       },
       {
         "name": "PRES_LOC",
@@ -1066,6 +1144,18 @@
         "name": "OBJ_TYPE",
         "type": "Char",
         "width": 7,
+        "decimals": null
+      },
+      {
+        "name": "SYS_ID",
+        "type": "Smallint",
+        "width": null,
+        "decimals": null
+      },
+      {
+        "name": "GEO_ID",
+        "type": "Integer",
+        "width": null,
         "decimals": null
       },
       {
@@ -1290,7 +1380,7 @@
     "charset_codec": "cp1252",
     "type": "NATIVE",
     "n_fields": 30,
-    "parsed_fields": 28,
+    "parsed_fields": 30,
     "fields": [
       {
         "name": "NAME_PY",
@@ -1309,6 +1399,18 @@
         "type": "Char",
         "width": 30,
         "decimals": null
+      },
+      {
+        "name": "X_COOR",
+        "type": "Decimal",
+        "width": 10,
+        "decimals": 6
+      },
+      {
+        "name": "Y_COOR",
+        "type": "Decimal",
+        "width": 10,
+        "decimals": 6
       },
       {
         "name": "PRES_LOC",
@@ -1610,7 +1712,7 @@
     "charset_codec": "cp1252",
     "type": "NATIVE",
     "n_fields": 28,
-    "parsed_fields": 24,
+    "parsed_fields": 28,
     "fields": [
       {
         "name": "NAME_PY",
@@ -1619,10 +1721,28 @@
         "decimals": null
       },
       {
+        "name": "NAME_CH",
+        "type": "Char",
+        "width": 30,
+        "decimals": null
+      },
+      {
         "name": "NAME_FT",
         "type": "Char",
         "width": 30,
         "decimals": null
+      },
+      {
+        "name": "X_COOR",
+        "type": "Decimal",
+        "width": 10,
+        "decimals": 6
+      },
+      {
+        "name": "Y_COOR",
+        "type": "Decimal",
+        "width": 10,
+        "decimals": 6
       },
       {
         "name": "PRES_LOC",
@@ -1718,6 +1838,12 @@
         "name": "OBJ_TYPE",
         "type": "Char",
         "width": 7,
+        "decimals": null
+      },
+      {
+        "name": "SYS_ID",
+        "type": "Smallint",
+        "width": null,
         "decimals": null
       },
       {
@@ -1948,8 +2074,14 @@
     "charset_codec": "cp1252",
     "type": "NATIVE",
     "n_fields": 5,
-    "parsed_fields": 4,
+    "parsed_fields": 5,
     "fields": [
+      {
+        "name": "Key_ID",
+        "type": "Smallint",
+        "width": null,
+        "decimals": null
+      },
       {
         "name": "Character_name",
         "type": "Char",
@@ -1985,8 +2117,14 @@
     "charset_codec": "cp1252",
     "type": "NATIVE",
     "n_fields": 5,
-    "parsed_fields": 4,
+    "parsed_fields": 5,
     "fields": [
+      {
+        "name": "Key_ID",
+        "type": "Smallint",
+        "width": null,
+        "decimals": null
+      },
       {
         "name": "Pinyin_name",
         "type": "Char",
@@ -2022,7 +2160,7 @@
     "charset_codec": "cp1252",
     "type": "NATIVE",
     "n_fields": 29,
-    "parsed_fields": 26,
+    "parsed_fields": 29,
     "fields": [
       {
         "name": "NAME_PY",
@@ -2041,6 +2179,18 @@
         "type": "Char",
         "width": 30,
         "decimals": null
+      },
+      {
+        "name": "X_COOR",
+        "type": "Decimal",
+        "width": 10,
+        "decimals": 6
+      },
+      {
+        "name": "Y_COOR",
+        "type": "Decimal",
+        "width": 10,
+        "decimals": 6
       },
       {
         "name": "PRES_LOC",
@@ -2116,6 +2266,12 @@
       },
       {
         "name": "LEV2_PY",
+        "type": "Char",
+        "width": 30,
+        "decimals": null
+      },
+      {
+        "name": "LEV2_CH",
         "type": "Char",
         "width": 30,
         "decimals": null
@@ -2378,7 +2534,7 @@
     "charset_codec": "cp1252",
     "type": "NATIVE",
     "n_fields": 21,
-    "parsed_fields": 19,
+    "parsed_fields": 21,
     "fields": [
       {
         "name": "NAME_PY",
@@ -2397,6 +2553,18 @@
         "type": "Char",
         "width": 30,
         "decimals": null
+      },
+      {
+        "name": "X_COOR",
+        "type": "Decimal",
+        "width": 10,
+        "decimals": 6
+      },
+      {
+        "name": "Y_COOR",
+        "type": "Decimal",
+        "width": 10,
+        "decimals": 6
       },
       {
         "name": "PRES_LOC",
@@ -2644,7 +2812,7 @@
     "charset_codec": "cp1252",
     "type": "NATIVE",
     "n_fields": 21,
-    "parsed_fields": 19,
+    "parsed_fields": 21,
     "fields": [
       {
         "name": "NAME_PY",
@@ -2663,6 +2831,18 @@
         "type": "Char",
         "width": 30,
         "decimals": null
+      },
+      {
+        "name": "X_COOR",
+        "type": "Decimal",
+        "width": 10,
+        "decimals": 6
+      },
+      {
+        "name": "Y_COOR",
+        "type": "Decimal",
+        "width": 10,
+        "decimals": 6
       },
       {
         "name": "PRES_LOC",
@@ -2910,7 +3090,7 @@
     "charset_codec": "gbk",
     "type": "NATIVE",
     "n_fields": 25,
-    "parsed_fields": 24,
+    "parsed_fields": 25,
     "fields": [
       {
         "name": "NAME_PY",
@@ -3027,6 +3207,12 @@
         "decimals": null
       },
       {
+        "name": "SYS_ID",
+        "type": "Char",
+        "width": 12,
+        "decimals": null
+      },
+      {
         "name": "GEO_SRC",
         "type": "Char",
         "width": 10,
@@ -3067,8 +3253,14 @@
     "charset_codec": "cp1252",
     "type": "NATIVE",
     "n_fields": 25,
-    "parsed_fields": 23,
+    "parsed_fields": 25,
     "fields": [
+      {
+        "name": "SYS_ID",
+        "type": "Char",
+        "width": 12,
+        "decimals": null
+      },
       {
         "name": "NAME_PY",
         "type": "Char",
@@ -3178,6 +3370,12 @@
         "decimals": null
       },
       {
+        "name": "SYS_ID_2",
+        "type": "Char",
+        "width": 6,
+        "decimals": null
+      },
+      {
         "name": "GEO_SRC",
         "type": "Char",
         "width": 7,
@@ -3218,7 +3416,7 @@
     "charset_codec": "gbk",
     "type": "NATIVE",
     "n_fields": 23,
-    "parsed_fields": 21,
+    "parsed_fields": 23,
     "fields": [
       {
         "name": "NAME_PY",
@@ -3237,6 +3435,18 @@
         "type": "Char",
         "width": 30,
         "decimals": null
+      },
+      {
+        "name": "X_COOR",
+        "type": "Decimal",
+        "width": 10,
+        "decimals": 6
+      },
+      {
+        "name": "Y_COOR",
+        "type": "Decimal",
+        "width": 10,
+        "decimals": 6
       },
       {
         "name": "PRES_LOC",
@@ -3357,7 +3567,7 @@
     "charset_codec": "cp1252",
     "type": "NATIVE",
     "n_fields": 24,
-    "parsed_fields": 23,
+    "parsed_fields": 24,
     "fields": [
       {
         "name": "SYS_ID",
@@ -3468,6 +3678,12 @@
         "decimals": null
       },
       {
+        "name": "SYS_ID_2",
+        "type": "Char",
+        "width": 6,
+        "decimals": null
+      },
+      {
         "name": "GEO_SRC",
         "type": "Char",
         "width": 10,
@@ -3508,7 +3724,7 @@
     "charset_codec": "gbk",
     "type": "NATIVE",
     "n_fields": 25,
-    "parsed_fields": 23,
+    "parsed_fields": 25,
     "fields": [
       {
         "name": "NAME_PY",
@@ -3527,6 +3743,18 @@
         "type": "Char",
         "width": 30,
         "decimals": null
+      },
+      {
+        "name": "X_COOR",
+        "type": "Decimal",
+        "width": 10,
+        "decimals": 6
+      },
+      {
+        "name": "Y_COOR",
+        "type": "Decimal",
+        "width": 10,
+        "decimals": 6
       },
       {
         "name": "PRES_LOC",
@@ -3659,7 +3887,7 @@
     "charset_codec": "cp1252",
     "type": "NATIVE",
     "n_fields": 25,
-    "parsed_fields": 24,
+    "parsed_fields": 25,
     "fields": [
       {
         "name": "SYS_ID",
@@ -3776,6 +4004,12 @@
         "decimals": null
       },
       {
+        "name": "SYS_ID_2",
+        "type": "Char",
+        "width": 6,
+        "decimals": null
+      },
+      {
         "name": "GEO_SRC",
         "type": "Char",
         "width": 7,
@@ -3816,7 +4050,7 @@
     "charset_codec": "gbk",
     "type": "NATIVE",
     "n_fields": 29,
-    "parsed_fields": 27,
+    "parsed_fields": 29,
     "fields": [
       {
         "name": "NAME_PY",
@@ -3835,6 +4069,18 @@
         "type": "Char",
         "width": 30,
         "decimals": null
+      },
+      {
+        "name": "X_COOR",
+        "type": "Decimal",
+        "width": 10,
+        "decimals": 6
+      },
+      {
+        "name": "Y_COOR",
+        "type": "Decimal",
+        "width": 10,
+        "decimals": 6
       },
       {
         "name": "PRES_LOC",
@@ -4154,7 +4400,7 @@
     "charset_codec": "gbk",
     "type": "NATIVE",
     "n_fields": 23,
-    "parsed_fields": 21,
+    "parsed_fields": 23,
     "fields": [
       {
         "name": "NAME_PY",
@@ -4173,6 +4419,18 @@
         "type": "Char",
         "width": 30,
         "decimals": null
+      },
+      {
+        "name": "X_COOR",
+        "type": "Decimal",
+        "width": 10,
+        "decimals": 6
+      },
+      {
+        "name": "Y_COOR",
+        "type": "Decimal",
+        "width": 10,
+        "decimals": 6
       },
       {
         "name": "PRES_LOC",
@@ -4293,7 +4551,7 @@
     "charset_codec": "cp1252",
     "type": "NATIVE",
     "n_fields": 19,
-    "parsed_fields": 18,
+    "parsed_fields": 19,
     "fields": [
       {
         "name": "SYS_ID",
@@ -4374,6 +4632,12 @@
         "decimals": null
       },
       {
+        "name": "SYS_ID_2",
+        "type": "Char",
+        "width": 6,
+        "decimals": null
+      },
+      {
         "name": "GEO_SRC",
         "type": "Char",
         "width": 7,
@@ -4414,7 +4678,7 @@
     "charset_codec": "gbk",
     "type": "NATIVE",
     "n_fields": 23,
-    "parsed_fields": 21,
+    "parsed_fields": 23,
     "fields": [
       {
         "name": "NAME_PY",
@@ -4433,6 +4697,18 @@
         "type": "Char",
         "width": 30,
         "decimals": null
+      },
+      {
+        "name": "X_COOR",
+        "type": "Decimal",
+        "width": 10,
+        "decimals": 6
+      },
+      {
+        "name": "Y_COOR",
+        "type": "Decimal",
+        "width": 10,
+        "decimals": 6
       },
       {
         "name": "PRES_LOC",
@@ -4553,7 +4829,7 @@
     "charset_codec": "cp1252",
     "type": "NATIVE",
     "n_fields": 24,
-    "parsed_fields": 23,
+    "parsed_fields": 24,
     "fields": [
       {
         "name": "SYS_ID",
@@ -4661,6 +4937,12 @@
         "name": "OBJ_TYPE",
         "type": "Char",
         "width": 5,
+        "decimals": null
+      },
+      {
+        "name": "SYS_ID_2",
+        "type": "Char",
+        "width": 6,
         "decimals": null
       },
       {
@@ -4891,7 +5173,7 @@
     "charset_codec": "cp1252",
     "type": "NATIVE",
     "n_fields": 30,
-    "parsed_fields": 29,
+    "parsed_fields": 30,
     "fields": [
       {
         "name": "SYS_ID",
@@ -5038,6 +5320,12 @@
         "decimals": null
       },
       {
+        "name": "SYS_ID_2",
+        "type": "Char",
+        "width": 6,
+        "decimals": null
+      },
+      {
         "name": "GEO_SRC",
         "type": "Char",
         "width": 7,
@@ -5078,7 +5366,7 @@
     "charset_codec": "gbk",
     "type": "NATIVE",
     "n_fields": 24,
-    "parsed_fields": 22,
+    "parsed_fields": 24,
     "fields": [
       {
         "name": "NAME_PY",
@@ -5097,6 +5385,18 @@
         "type": "Char",
         "width": 30,
         "decimals": null
+      },
+      {
+        "name": "X_COOR",
+        "type": "Decimal",
+        "width": 10,
+        "decimals": 6
+      },
+      {
+        "name": "Y_COOR",
+        "type": "Decimal",
+        "width": 10,
+        "decimals": 6
       },
       {
         "name": "PRES_LOC",
@@ -5223,7 +5523,7 @@
     "charset_codec": "cp1252",
     "type": "NATIVE",
     "n_fields": 25,
-    "parsed_fields": 24,
+    "parsed_fields": 25,
     "fields": [
       {
         "name": "SYS_ID",
@@ -5322,6 +5622,12 @@
         "decimals": null
       },
       {
+        "name": "SYS_ID_2",
+        "type": "Char",
+        "width": 5,
+        "decimals": null
+      },
+      {
         "name": "PREC_BY",
         "type": "Char",
         "width": 5,
@@ -5380,7 +5686,7 @@
     "charset_codec": "gbk",
     "type": "NATIVE",
     "n_fields": 23,
-    "parsed_fields": 20,
+    "parsed_fields": 23,
     "fields": [
       {
         "name": "NAME_PY",
@@ -5399,6 +5705,18 @@
         "type": "Char",
         "width": 30,
         "decimals": null
+      },
+      {
+        "name": "X_COOR",
+        "type": "Decimal",
+        "width": 10,
+        "decimals": 6
+      },
+      {
+        "name": "Y_COOR",
+        "type": "Decimal",
+        "width": 10,
+        "decimals": 6
       },
       {
         "name": "PRES_LOC",
@@ -5461,6 +5779,12 @@
         "decimals": null
       },
       {
+        "name": "SYS_ID",
+        "type": "Integer",
+        "width": null,
+        "decimals": null
+      },
+      {
         "name": "GEO_SRC",
         "type": "Char",
         "width": 10,
@@ -5513,7 +5837,7 @@
     "charset_codec": "cp1252",
     "type": "NATIVE",
     "n_fields": 21,
-    "parsed_fields": 20,
+    "parsed_fields": 21,
     "fields": [
       {
         "name": "SYS_ID",
@@ -5594,6 +5918,12 @@
         "decimals": null
       },
       {
+        "name": "SYS_ID_2",
+        "type": "Char",
+        "width": 5,
+        "decimals": null
+      },
+      {
         "name": "GEO_SRC",
         "type": "Char",
         "width": 7,
@@ -5646,7 +5976,7 @@
     "charset_codec": "gbk",
     "type": "NATIVE",
     "n_fields": 24,
-    "parsed_fields": 22,
+    "parsed_fields": 24,
     "fields": [
       {
         "name": "NAME_PY",
@@ -5665,6 +5995,18 @@
         "type": "Char",
         "width": 30,
         "decimals": null
+      },
+      {
+        "name": "X_COOR",
+        "type": "Decimal",
+        "width": 10,
+        "decimals": 6
+      },
+      {
+        "name": "Y_COOR",
+        "type": "Decimal",
+        "width": 10,
+        "decimals": 6
       },
       {
         "name": "PRES_LOC",
@@ -5791,7 +6133,7 @@
     "charset_codec": "cp1252",
     "type": "NATIVE",
     "n_fields": 25,
-    "parsed_fields": 24,
+    "parsed_fields": 25,
     "fields": [
       {
         "name": "SYS_ID",
@@ -5890,6 +6232,12 @@
         "decimals": null
       },
       {
+        "name": "SYS_ID_2",
+        "type": "Char",
+        "width": 5,
+        "decimals": null
+      },
+      {
         "name": "PREC_BY",
         "type": "Char",
         "width": 5,
@@ -5948,7 +6296,7 @@
     "charset_codec": "gbk",
     "type": "NATIVE",
     "n_fields": 23,
-    "parsed_fields": 21,
+    "parsed_fields": 23,
     "fields": [
       {
         "name": "NAME_PY",
@@ -5967,6 +6315,18 @@
         "type": "Char",
         "width": 30,
         "decimals": null
+      },
+      {
+        "name": "X_COOR",
+        "type": "Decimal",
+        "width": 10,
+        "decimals": 6
+      },
+      {
+        "name": "Y_COOR",
+        "type": "Decimal",
+        "width": 10,
+        "decimals": 6
       },
       {
         "name": "PRES_LOC",
@@ -6226,7 +6586,7 @@
     "charset_codec": "gbk",
     "type": "NATIVE",
     "n_fields": 23,
-    "parsed_fields": 21,
+    "parsed_fields": 23,
     "fields": [
       {
         "name": "NAME_PY",
@@ -6245,6 +6605,18 @@
         "type": "Char",
         "width": 30,
         "decimals": null
+      },
+      {
+        "name": "X_COOR",
+        "type": "Decimal",
+        "width": 10,
+        "decimals": 6
+      },
+      {
+        "name": "Y_COOR",
+        "type": "Decimal",
+        "width": 10,
+        "decimals": 6
       },
       {
         "name": "PRES_LOC",
@@ -6516,7 +6888,7 @@
     "charset_codec": "gbk",
     "type": "NATIVE",
     "n_fields": 28,
-    "parsed_fields": 26,
+    "parsed_fields": 28,
     "fields": [
       {
         "name": "NAME_PY",
@@ -6535,6 +6907,18 @@
         "type": "Char",
         "width": 30,
         "decimals": null
+      },
+      {
+        "name": "X_COOR",
+        "type": "Decimal",
+        "width": 10,
+        "decimals": 6
+      },
+      {
+        "name": "Y_COOR",
+        "type": "Decimal",
+        "width": 10,
+        "decimals": 6
       },
       {
         "name": "PRES_LOC",
@@ -6685,7 +7069,7 @@
     "charset_codec": "cp1252",
     "type": "NATIVE",
     "n_fields": 29,
-    "parsed_fields": 28,
+    "parsed_fields": 29,
     "fields": [
       {
         "name": "SYS_ID",
@@ -6820,6 +7204,12 @@
         "decimals": null
       },
       {
+        "name": "SYS_ID_2",
+        "type": "Char",
+        "width": 5,
+        "decimals": null
+      },
+      {
         "name": "GEO_ID",
         "type": "Integer",
         "width": null,
@@ -6885,8 +7275,14 @@
     "charset_codec": "gbk",
     "type": "NATIVE",
     "n_fields": 6,
-    "parsed_fields": 4,
+    "parsed_fields": 6,
     "fields": [
+      {
+        "name": "LKS_ID",
+        "type": "Decimal",
+        "width": 11,
+        "decimals": 0
+      },
       {
         "name": "KEY_ID",
         "type": "Char",
@@ -6910,6 +7306,12 @@
         "type": "Char",
         "width": 30,
         "decimals": null
+      },
+      {
+        "name": "SYSTEM_ID",
+        "type": "Decimal",
+        "width": 4,
+        "decimals": 0
       }
     ]
   },
@@ -6922,8 +7324,14 @@
     "charset_codec": "cp1252",
     "type": "NATIVE",
     "n_fields": 7,
-    "parsed_fields": 5,
+    "parsed_fields": 7,
     "fields": [
+      {
+        "name": "SYSTEM_ID",
+        "type": "Decimal",
+        "width": 4,
+        "decimals": 0
+      },
       {
         "name": "LKS_ID",
         "type": "Smallint",
@@ -6953,6 +7361,12 @@
         "type": "Char",
         "width": 30,
         "decimals": null
+      },
+      {
+        "name": "SYSTEM_ID_2",
+        "type": "Smallint",
+        "width": null,
+        "decimals": null
       }
     ]
   },
@@ -6965,7 +7379,7 @@
     "charset_codec": "gbk",
     "type": "NATIVE",
     "n_fields": 30,
-    "parsed_fields": 27,
+    "parsed_fields": 30,
     "fields": [
       {
         "name": "NAME_PY",
@@ -6974,10 +7388,28 @@
         "decimals": null
       },
       {
+        "name": "NAME_CH",
+        "type": "Char",
+        "width": 30,
+        "decimals": null
+      },
+      {
         "name": "NAME_FT",
         "type": "Char",
         "width": 30,
         "decimals": null
+      },
+      {
+        "name": "X_COOR",
+        "type": "Decimal",
+        "width": 10,
+        "decimals": 6
+      },
+      {
+        "name": "Y_COOR",
+        "type": "Decimal",
+        "width": 10,
+        "decimals": 6
       },
       {
         "name": "PRES_LOC",
@@ -7333,7 +7765,7 @@
     "charset_codec": "gbk",
     "type": "NATIVE",
     "n_fields": 28,
-    "parsed_fields": 26,
+    "parsed_fields": 28,
     "fields": [
       {
         "name": "NAME_PY",
@@ -7352,6 +7784,18 @@
         "type": "Char",
         "width": 30,
         "decimals": null
+      },
+      {
+        "name": "X_COOR",
+        "type": "Decimal",
+        "width": 10,
+        "decimals": 6
+      },
+      {
+        "name": "Y_COOR",
+        "type": "Decimal",
+        "width": 10,
+        "decimals": 6
       },
       {
         "name": "PRES_LOC",
@@ -7683,7 +8127,7 @@
     "charset_codec": "gbk",
     "type": "NATIVE",
     "n_fields": 30,
-    "parsed_fields": 28,
+    "parsed_fields": 30,
     "fields": [
       {
         "name": "NAME_PY",
@@ -7702,6 +8146,18 @@
         "type": "Char",
         "width": 30,
         "decimals": null
+      },
+      {
+        "name": "X_COOR",
+        "type": "Decimal",
+        "width": 10,
+        "decimals": 6
+      },
+      {
+        "name": "Y_COOR",
+        "type": "Decimal",
+        "width": 10,
+        "decimals": 6
       },
       {
         "name": "PRES_LOC",
@@ -8057,7 +8513,7 @@
     "charset_codec": "gbk",
     "type": "NATIVE",
     "n_fields": 28,
-    "parsed_fields": 25,
+    "parsed_fields": 28,
     "fields": [
       {
         "name": "NAME_PY",
@@ -8066,10 +8522,28 @@
         "decimals": null
       },
       {
+        "name": "NAME_CH",
+        "type": "Char",
+        "width": 30,
+        "decimals": null
+      },
+      {
         "name": "NAME_FT",
         "type": "Char",
         "width": 30,
         "decimals": null
+      },
+      {
+        "name": "X_COOR",
+        "type": "Decimal",
+        "width": 10,
+        "decimals": 6
+      },
+      {
+        "name": "Y_COOR",
+        "type": "Decimal",
+        "width": 10,
+        "decimals": 6
       },
       {
         "name": "PRES_LOC",
@@ -8220,7 +8694,7 @@
     "charset_codec": "cp1252",
     "type": "NATIVE",
     "n_fields": 29,
-    "parsed_fields": 28,
+    "parsed_fields": 29,
     "fields": [
       {
         "name": "SYS_ID_orig",
@@ -8355,6 +8829,12 @@
         "decimals": null
       },
       {
+        "name": "SYS_ID",
+        "type": "Char",
+        "width": 5,
+        "decimals": null
+      },
+      {
         "name": "GEO_ID",
         "type": "Integer",
         "width": null,
@@ -8401,8 +8881,20 @@
     "charset_codec": "gbk",
     "type": "NATIVE",
     "n_fields": 6,
-    "parsed_fields": 3,
+    "parsed_fields": 6,
     "fields": [
+      {
+        "name": "RIVERS_ID",
+        "type": "Decimal",
+        "width": 11,
+        "decimals": 0
+      },
+      {
+        "name": "KEY_ID",
+        "type": "Decimal",
+        "width": 6,
+        "decimals": 0
+      },
       {
         "name": "HZ_JIANTI_",
         "type": "Char",
@@ -8420,6 +8912,12 @@
         "type": "Char",
         "width": 30,
         "decimals": null
+      },
+      {
+        "name": "SYSTEM_ID",
+        "type": "Decimal",
+        "width": 5,
+        "decimals": 0
       }
     ]
   },
@@ -8432,7 +8930,7 @@
     "charset_codec": "cp1252",
     "type": "NATIVE",
     "n_fields": 5,
-    "parsed_fields": 4,
+    "parsed_fields": 5,
     "fields": [
       {
         "name": "RIVERS_ID",
@@ -8457,6 +8955,12 @@
         "type": "Char",
         "width": 30,
         "decimals": null
+      },
+      {
+        "name": "SYSTEM_ID",
+        "type": "Smallint",
+        "width": null,
+        "decimals": null
       }
     ]
   },
@@ -8469,7 +8973,7 @@
     "charset_codec": "gbk",
     "type": "NATIVE",
     "n_fields": 30,
-    "parsed_fields": 27,
+    "parsed_fields": 30,
     "fields": [
       {
         "name": "NAME_PY",
@@ -8488,6 +8992,18 @@
         "type": "Char",
         "width": 30,
         "decimals": null
+      },
+      {
+        "name": "X_COOR",
+        "type": "Decimal",
+        "width": 10,
+        "decimals": 6
+      },
+      {
+        "name": "Y_COOR",
+        "type": "Decimal",
+        "width": 10,
+        "decimals": 6
       },
       {
         "name": "PRES_LOC",
@@ -8563,6 +9079,12 @@
       },
       {
         "name": "LEV2_PY",
+        "type": "Char",
+        "width": 30,
+        "decimals": null
+      },
+      {
+        "name": "LEV2_CH",
         "type": "Char",
         "width": 30,
         "decimals": null
@@ -8644,8 +9166,14 @@
     "charset_codec": "cp1252",
     "type": "NATIVE",
     "n_fields": 30,
-    "parsed_fields": 29,
+    "parsed_fields": 30,
     "fields": [
+      {
+        "name": "SYS_ID",
+        "type": "Char",
+        "width": 16,
+        "decimals": null
+      },
       {
         "name": "NAME_PY",
         "type": "Char",
@@ -8831,7 +9359,7 @@
     "charset_codec": "gbk",
     "type": "NATIVE",
     "n_fields": 27,
-    "parsed_fields": 25,
+    "parsed_fields": 27,
     "fields": [
       {
         "name": "NAME_PY",
@@ -8850,6 +9378,18 @@
         "type": "Char",
         "width": 30,
         "decimals": null
+      },
+      {
+        "name": "X_COORD",
+        "type": "Decimal",
+        "width": 10,
+        "decimals": 6
+      },
+      {
+        "name": "Y_COORD",
+        "type": "Decimal",
+        "width": 10,
+        "decimals": 6
       },
       {
         "name": "PRES_LOC",
@@ -8994,7 +9534,7 @@
     "charset_codec": "cp1252",
     "type": "NATIVE",
     "n_fields": 28,
-    "parsed_fields": 27,
+    "parsed_fields": 28,
     "fields": [
       {
         "name": "SYS_ID",
@@ -9129,6 +9669,12 @@
         "decimals": null
       },
       {
+        "name": "SYS_ID_2",
+        "type": "Integer",
+        "width": null,
+        "decimals": null
+      },
+      {
         "name": "GEO_SRC",
         "type": "Char",
         "width": 7,
@@ -9169,7 +9715,7 @@
     "charset_codec": "gbk",
     "type": "NATIVE",
     "n_fields": 29,
-    "parsed_fields": 27,
+    "parsed_fields": 29,
     "fields": [
       {
         "name": "NAME_PY",
@@ -9188,6 +9734,18 @@
         "type": "Char",
         "width": 30,
         "decimals": null
+      },
+      {
+        "name": "X_COORD",
+        "type": "Decimal",
+        "width": 10,
+        "decimals": 6
+      },
+      {
+        "name": "Y_COORD",
+        "type": "Decimal",
+        "width": 10,
+        "decimals": 6
       },
       {
         "name": "PRES_LOC",
@@ -9531,7 +10089,7 @@
     "charset_codec": "gbk",
     "type": "NATIVE",
     "n_fields": 27,
-    "parsed_fields": 25,
+    "parsed_fields": 27,
     "fields": [
       {
         "name": "NAME_PY",
@@ -9550,6 +10108,18 @@
         "type": "Char",
         "width": 30,
         "decimals": null
+      },
+      {
+        "name": "X_COORD",
+        "type": "Decimal",
+        "width": 10,
+        "decimals": 6
+      },
+      {
+        "name": "Y_COORD",
+        "type": "Decimal",
+        "width": 10,
+        "decimals": 6
       },
       {
         "name": "PRES_LOC",
@@ -9694,7 +10264,7 @@
     "charset_codec": "cp1252",
     "type": "NATIVE",
     "n_fields": 28,
-    "parsed_fields": 27,
+    "parsed_fields": 28,
     "fields": [
       {
         "name": "SYS_ID",
@@ -9829,6 +10399,12 @@
         "decimals": null
       },
       {
+        "name": "SYS_ID_2",
+        "type": "Integer",
+        "width": null,
+        "decimals": null
+      },
+      {
         "name": "GEO_SRC",
         "type": "Char",
         "width": 7,
@@ -9869,7 +10445,7 @@
     "charset_codec": "gbk",
     "type": "NATIVE",
     "n_fields": 29,
-    "parsed_fields": 27,
+    "parsed_fields": 29,
     "fields": [
       {
         "name": "NAME_PY",
@@ -9888,6 +10464,18 @@
         "type": "Char",
         "width": 30,
         "decimals": null
+      },
+      {
+        "name": "X_COORD",
+        "type": "Decimal",
+        "width": 10,
+        "decimals": 6
+      },
+      {
+        "name": "Y_COORD",
+        "type": "Decimal",
+        "width": 10,
+        "decimals": 6
       },
       {
         "name": "PRES_LOC",
@@ -10044,7 +10632,7 @@
     "charset_codec": "cp1252",
     "type": "NATIVE",
     "n_fields": 30,
-    "parsed_fields": 29,
+    "parsed_fields": 30,
     "fields": [
       {
         "name": "SYS_ID",
@@ -10191,6 +10779,12 @@
         "decimals": null
       },
       {
+        "name": "SYS_ID_2",
+        "type": "Integer",
+        "width": null,
+        "decimals": null
+      },
+      {
         "name": "GEO_SRC",
         "type": "Char",
         "width": 7,
@@ -10231,7 +10825,7 @@
     "charset_codec": "gbk",
     "type": "NATIVE",
     "n_fields": 27,
-    "parsed_fields": 25,
+    "parsed_fields": 27,
     "fields": [
       {
         "name": "NAME_PY",
@@ -10250,6 +10844,18 @@
         "type": "Char",
         "width": 30,
         "decimals": null
+      },
+      {
+        "name": "X_COORD",
+        "type": "Decimal",
+        "width": 10,
+        "decimals": 6
+      },
+      {
+        "name": "Y_COORD",
+        "type": "Decimal",
+        "width": 10,
+        "decimals": 6
       },
       {
         "name": "PRES_LOC",
@@ -10394,7 +11000,7 @@
     "charset_codec": "cp1252",
     "type": "NATIVE",
     "n_fields": 28,
-    "parsed_fields": 27,
+    "parsed_fields": 28,
     "fields": [
       {
         "name": "SYS_ID",
@@ -10529,6 +11135,12 @@
         "decimals": null
       },
       {
+        "name": "SYS_ID_2",
+        "type": "Integer",
+        "width": null,
+        "decimals": null
+      },
+      {
         "name": "GEO_SRC",
         "type": "Char",
         "width": 7,
@@ -10569,7 +11181,7 @@
     "charset_codec": "gbk",
     "type": "NATIVE",
     "n_fields": 27,
-    "parsed_fields": 25,
+    "parsed_fields": 27,
     "fields": [
       {
         "name": "NAME_PY",
@@ -10588,6 +11200,18 @@
         "type": "Char",
         "width": 30,
         "decimals": null
+      },
+      {
+        "name": "X_COORD",
+        "type": "Decimal",
+        "width": 10,
+        "decimals": 6
+      },
+      {
+        "name": "Y_COORD",
+        "type": "Decimal",
+        "width": 10,
+        "decimals": 6
       },
       {
         "name": "PRES_LOC",
@@ -10732,7 +11356,7 @@
     "charset_codec": "cp1252",
     "type": "NATIVE",
     "n_fields": 28,
-    "parsed_fields": 27,
+    "parsed_fields": 28,
     "fields": [
       {
         "name": "SYS_ID",
@@ -10867,6 +11491,12 @@
         "decimals": null
       },
       {
+        "name": "SYS_ID_2",
+        "type": "Integer",
+        "width": null,
+        "decimals": null
+      },
+      {
         "name": "GEO_SRC",
         "type": "Char",
         "width": 7,
@@ -10907,7 +11537,7 @@
     "charset_codec": "gbk",
     "type": "NATIVE",
     "n_fields": 29,
-    "parsed_fields": 27,
+    "parsed_fields": 29,
     "fields": [
       {
         "name": "NAME_PY",
@@ -10926,6 +11556,18 @@
         "type": "Char",
         "width": 30,
         "decimals": null
+      },
+      {
+        "name": "X_COORD",
+        "type": "Decimal",
+        "width": 10,
+        "decimals": 6
+      },
+      {
+        "name": "Y_COORD",
+        "type": "Decimal",
+        "width": 10,
+        "decimals": 6
       },
       {
         "name": "PRES_LOC",
@@ -11082,7 +11724,7 @@
     "charset_codec": "cp1252",
     "type": "NATIVE",
     "n_fields": 30,
-    "parsed_fields": 29,
+    "parsed_fields": 30,
     "fields": [
       {
         "name": "SYS_ID",
@@ -11229,6 +11871,12 @@
         "decimals": null
       },
       {
+        "name": "SYS_ID_2",
+        "type": "Integer",
+        "width": null,
+        "decimals": null
+      },
+      {
         "name": "GEO_SRC",
         "type": "Char",
         "width": 7,
@@ -11269,7 +11917,7 @@
     "charset_codec": "gbk",
     "type": "NATIVE",
     "n_fields": 23,
-    "parsed_fields": 21,
+    "parsed_fields": 23,
     "fields": [
       {
         "name": "NAME_PY",
@@ -11288,6 +11936,18 @@
         "type": "Char",
         "width": 30,
         "decimals": null
+      },
+      {
+        "name": "X_COORD",
+        "type": "Decimal",
+        "width": 10,
+        "decimals": 6
+      },
+      {
+        "name": "Y_COORD",
+        "type": "Decimal",
+        "width": 10,
+        "decimals": 6
       },
       {
         "name": "PRES_LOC",
@@ -11408,7 +12068,7 @@
     "charset_codec": "cp1252",
     "type": "NATIVE",
     "n_fields": 24,
-    "parsed_fields": 23,
+    "parsed_fields": 24,
     "fields": [
       {
         "name": "SYS_ID",
@@ -11504,6 +12164,12 @@
         "name": "OBJ_TYPE",
         "type": "Char",
         "width": 5,
+        "decimals": null
+      },
+      {
+        "name": "SYS_ID_2",
+        "type": "Integer",
+        "width": null,
         "decimals": null
       },
       {
@@ -11704,7 +12370,7 @@
     "charset_codec": "cp1252",
     "type": "NATIVE",
     "n_fields": 23,
-    "parsed_fields": 22,
+    "parsed_fields": 23,
     "fields": [
       {
         "name": "SYS_ID",
@@ -11791,6 +12457,12 @@
         "decimals": null
       },
       {
+        "name": "SYS_ID_2",
+        "type": "Integer",
+        "width": null,
+        "decimals": null
+      },
+      {
         "name": "GEO_ID",
         "type": "Smallint",
         "width": null,
@@ -11849,7 +12521,7 @@
     "charset_codec": "gbk",
     "type": "NATIVE",
     "n_fields": 21,
-    "parsed_fields": 20,
+    "parsed_fields": 21,
     "fields": [
       {
         "name": "NAME_PY",
@@ -11918,6 +12590,12 @@
         "decimals": null
       },
       {
+        "name": "NOTE_ID",
+        "type": "Integer",
+        "width": null,
+        "decimals": null
+      },
+      {
         "name": "OBJ_TYPE",
         "type": "Char",
         "width": 7,
@@ -11982,7 +12660,7 @@
     "charset_codec": "cp1252",
     "type": "NATIVE",
     "n_fields": 22,
-    "parsed_fields": 21,
+    "parsed_fields": 22,
     "fields": [
       {
         "name": "SYS_ID",
@@ -12069,6 +12747,12 @@
         "decimals": null
       },
       {
+        "name": "SYS_ID_2",
+        "type": "Integer",
+        "width": null,
+        "decimals": null
+      },
+      {
         "name": "GEO_SRC",
         "type": "Char",
         "width": 7,
@@ -12121,7 +12805,7 @@
     "charset_codec": "gbk",
     "type": "NATIVE",
     "n_fields": 23,
-    "parsed_fields": 21,
+    "parsed_fields": 23,
     "fields": [
       {
         "name": "NAME_PY",
@@ -12140,6 +12824,18 @@
         "type": "Char",
         "width": 30,
         "decimals": null
+      },
+      {
+        "name": "X_COORD",
+        "type": "Decimal",
+        "width": 10,
+        "decimals": 6
+      },
+      {
+        "name": "Y_COORD",
+        "type": "Decimal",
+        "width": 10,
+        "decimals": 6
       },
       {
         "name": "PRES_LOC",
@@ -12260,7 +12956,7 @@
     "charset_codec": "cp1252",
     "type": "NATIVE",
     "n_fields": 24,
-    "parsed_fields": 23,
+    "parsed_fields": 24,
     "fields": [
       {
         "name": "SYS_ID",
@@ -12356,6 +13052,12 @@
         "name": "OBJ_TYPE",
         "type": "Char",
         "width": 5,
+        "decimals": null
+      },
+      {
+        "name": "SYS_ID_2",
+        "type": "Integer",
+        "width": null,
         "decimals": null
       },
       {
@@ -12550,7 +13252,7 @@
     "charset_codec": "cp1252",
     "type": "NATIVE",
     "n_fields": 22,
-    "parsed_fields": 21,
+    "parsed_fields": 22,
     "fields": [
       {
         "name": "SYS_ID",
@@ -12637,6 +13339,12 @@
         "decimals": null
       },
       {
+        "name": "SYS_ID_2",
+        "type": "Integer",
+        "width": null,
+        "decimals": null
+      },
+      {
         "name": "GEO_SRC",
         "type": "Char",
         "width": 7,
@@ -12689,7 +13397,7 @@
     "charset_codec": "gbk",
     "type": "NATIVE",
     "n_fields": 23,
-    "parsed_fields": 21,
+    "parsed_fields": 23,
     "fields": [
       {
         "name": "NAME_PY",
@@ -12708,6 +13416,18 @@
         "type": "Char",
         "width": 30,
         "decimals": null
+      },
+      {
+        "name": "X_COORD",
+        "type": "Decimal",
+        "width": 10,
+        "decimals": 6
+      },
+      {
+        "name": "Y_COORD",
+        "type": "Decimal",
+        "width": 10,
+        "decimals": 6
       },
       {
         "name": "PRES_LOC",
@@ -12828,7 +13548,7 @@
     "charset_codec": "cp1252",
     "type": "NATIVE",
     "n_fields": 24,
-    "parsed_fields": 23,
+    "parsed_fields": 24,
     "fields": [
       {
         "name": "SYS_ID",
@@ -12924,6 +13644,12 @@
         "name": "OBJ_TYPE",
         "type": "Char",
         "width": 5,
+        "decimals": null
+      },
+      {
+        "name": "SYS_ID_2",
+        "type": "Smallint",
+        "width": null,
         "decimals": null
       },
       {
@@ -13106,7 +13832,7 @@
     "charset_codec": "cp1252",
     "type": "NATIVE",
     "n_fields": 20,
-    "parsed_fields": 19,
+    "parsed_fields": 20,
     "fields": [
       {
         "name": "SYS_ID",
@@ -13193,6 +13919,12 @@
         "decimals": null
       },
       {
+        "name": "SYS_ID_2",
+        "type": "Integer",
+        "width": null,
+        "decimals": null
+      },
+      {
         "name": "GEO_SRC",
         "type": "Char",
         "width": 7,
@@ -13233,7 +13965,7 @@
     "charset_codec": "gbk",
     "type": "NATIVE",
     "n_fields": 21,
-    "parsed_fields": 19,
+    "parsed_fields": 21,
     "fields": [
       {
         "name": "NAME_PY",
@@ -13252,6 +13984,18 @@
         "type": "Char",
         "width": 30,
         "decimals": null
+      },
+      {
+        "name": "X_COORD",
+        "type": "Decimal",
+        "width": 10,
+        "decimals": 6
+      },
+      {
+        "name": "Y_COORD",
+        "type": "Decimal",
+        "width": 10,
+        "decimals": 6
       },
       {
         "name": "PRES_LOC",
@@ -13360,7 +14104,7 @@
     "charset_codec": "cp1252",
     "type": "NATIVE",
     "n_fields": 22,
-    "parsed_fields": 21,
+    "parsed_fields": 22,
     "fields": [
       {
         "name": "SYS_ID",
@@ -13459,6 +14203,12 @@
         "decimals": null
       },
       {
+        "name": "SYS_ID_2",
+        "type": "Integer",
+        "width": null,
+        "decimals": null
+      },
+      {
         "name": "GEO_SRC",
         "type": "Char",
         "width": 7,
@@ -13499,8 +14249,14 @@
     "charset_codec": "cp1252",
     "type": "NATIVE",
     "n_fields": 6,
-    "parsed_fields": 5,
+    "parsed_fields": 6,
     "fields": [
+      {
+        "name": "Key_id",
+        "type": "Smallint",
+        "width": null,
+        "decimals": null
+      },
       {
         "name": "character_name",
         "type": "Char",
@@ -13542,8 +14298,14 @@
     "charset_codec": "cp1252",
     "type": "NATIVE",
     "n_fields": 6,
-    "parsed_fields": 5,
+    "parsed_fields": 6,
     "fields": [
+      {
+        "name": "Key_id",
+        "type": "Smallint",
+        "width": null,
+        "decimals": null
+      },
       {
         "name": "character_name",
         "type": "Char",
@@ -13585,7 +14347,7 @@
     "charset_codec": "cp1252",
     "type": "NATIVE",
     "n_fields": 28,
-    "parsed_fields": 26,
+    "parsed_fields": 28,
     "fields": [
       {
         "name": "NAME_PY",
@@ -13604,6 +14366,18 @@
         "type": "Char",
         "width": 30,
         "decimals": null
+      },
+      {
+        "name": "X_COOR",
+        "type": "Decimal",
+        "width": 10,
+        "decimals": 6
+      },
+      {
+        "name": "Y_COOR",
+        "type": "Decimal",
+        "width": 10,
+        "decimals": 6
       },
       {
         "name": "PRES_LOC",
@@ -13929,8 +14703,14 @@
     "charset_codec": "cp1252",
     "type": "NATIVE",
     "n_fields": 3,
-    "parsed_fields": 2,
+    "parsed_fields": 3,
     "fields": [
+      {
+        "name": "Sea_ID",
+        "type": "Smallint",
+        "width": null,
+        "decimals": null
+      },
       {
         "name": "Source",
         "type": "Char",
@@ -13954,8 +14734,14 @@
     "charset_codec": "cp1252",
     "type": "NATIVE",
     "n_fields": 5,
-    "parsed_fields": 4,
+    "parsed_fields": 5,
     "fields": [
+      {
+        "name": "Lks_id",
+        "type": "Smallint",
+        "width": null,
+        "decimals": null
+      },
       {
         "name": "Character_name",
         "type": "Char",
@@ -13991,8 +14777,14 @@
     "charset_codec": "cp1252",
     "type": "NATIVE",
     "n_fields": 5,
-    "parsed_fields": 4,
+    "parsed_fields": 5,
     "fields": [
+      {
+        "name": "Lks_id",
+        "type": "Smallint",
+        "width": null,
+        "decimals": null
+      },
       {
         "name": "Character",
         "type": "Char",
@@ -14028,7 +14820,7 @@
     "charset_codec": "cp1252",
     "type": "NATIVE",
     "n_fields": 30,
-    "parsed_fields": 27,
+    "parsed_fields": 30,
     "fields": [
       {
         "name": "NAME_PY",
@@ -14037,10 +14829,28 @@
         "decimals": null
       },
       {
+        "name": "NAME_CH",
+        "type": "Char",
+        "width": 30,
+        "decimals": null
+      },
+      {
         "name": "NAME_FT",
         "type": "Char",
         "width": 30,
         "decimals": null
+      },
+      {
+        "name": "X_COOR",
+        "type": "Decimal",
+        "width": 10,
+        "decimals": 6
+      },
+      {
+        "name": "Y_COOR",
+        "type": "Decimal",
+        "width": 10,
+        "decimals": 6
       },
       {
         "name": "PRES_LOC",
@@ -14396,7 +15206,7 @@
     "charset_codec": "cp1252",
     "type": "NATIVE",
     "n_fields": 28,
-    "parsed_fields": 24,
+    "parsed_fields": 28,
     "fields": [
       {
         "name": "NAME_PY",
@@ -14415,6 +15225,18 @@
         "type": "Char",
         "width": 30,
         "decimals": null
+      },
+      {
+        "name": "X_COOR",
+        "type": "Decimal",
+        "width": 10,
+        "decimals": 6
+      },
+      {
+        "name": "Y_COOR",
+        "type": "Decimal",
+        "width": 10,
+        "decimals": 6
       },
       {
         "name": "PRES_LOC",
@@ -14510,6 +15332,18 @@
         "name": "OBJ_TYPE",
         "type": "Char",
         "width": 7,
+        "decimals": null
+      },
+      {
+        "name": "SYS_ID",
+        "type": "Smallint",
+        "width": null,
+        "decimals": null
+      },
+      {
+        "name": "GEO_ID",
+        "type": "Integer",
+        "width": null,
         "decimals": null
       },
       {
@@ -14734,7 +15568,7 @@
     "charset_codec": "cp1252",
     "type": "NATIVE",
     "n_fields": 30,
-    "parsed_fields": 28,
+    "parsed_fields": 30,
     "fields": [
       {
         "name": "NAME_PY",
@@ -14753,6 +15587,18 @@
         "type": "Char",
         "width": 30,
         "decimals": null
+      },
+      {
+        "name": "X_COOR",
+        "type": "Decimal",
+        "width": 10,
+        "decimals": 6
+      },
+      {
+        "name": "Y_COOR",
+        "type": "Decimal",
+        "width": 10,
+        "decimals": 6
       },
       {
         "name": "PRES_LOC",
@@ -15054,7 +15900,7 @@
     "charset_codec": "cp1252",
     "type": "NATIVE",
     "n_fields": 28,
-    "parsed_fields": 24,
+    "parsed_fields": 28,
     "fields": [
       {
         "name": "NAME_PY",
@@ -15063,10 +15909,28 @@
         "decimals": null
       },
       {
+        "name": "NAME_CH",
+        "type": "Char",
+        "width": 30,
+        "decimals": null
+      },
+      {
         "name": "NAME_FT",
         "type": "Char",
         "width": 30,
         "decimals": null
+      },
+      {
+        "name": "X_COOR",
+        "type": "Decimal",
+        "width": 10,
+        "decimals": 6
+      },
+      {
+        "name": "Y_COOR",
+        "type": "Decimal",
+        "width": 10,
+        "decimals": 6
       },
       {
         "name": "PRES_LOC",
@@ -15162,6 +16026,12 @@
         "name": "OBJ_TYPE",
         "type": "Char",
         "width": 7,
+        "decimals": null
+      },
+      {
+        "name": "SYS_ID",
+        "type": "Smallint",
+        "width": null,
         "decimals": null
       },
       {
@@ -15392,8 +16262,14 @@
     "charset_codec": "cp1252",
     "type": "NATIVE",
     "n_fields": 5,
-    "parsed_fields": 4,
+    "parsed_fields": 5,
     "fields": [
+      {
+        "name": "Key_ID",
+        "type": "Smallint",
+        "width": null,
+        "decimals": null
+      },
       {
         "name": "Character_name",
         "type": "Char",
@@ -15429,8 +16305,14 @@
     "charset_codec": "cp1252",
     "type": "NATIVE",
     "n_fields": 5,
-    "parsed_fields": 4,
+    "parsed_fields": 5,
     "fields": [
+      {
+        "name": "Key_ID",
+        "type": "Smallint",
+        "width": null,
+        "decimals": null
+      },
       {
         "name": "Pinyin_name",
         "type": "Char",
@@ -15466,7 +16348,7 @@
     "charset_codec": "cp1252",
     "type": "NATIVE",
     "n_fields": 29,
-    "parsed_fields": 26,
+    "parsed_fields": 29,
     "fields": [
       {
         "name": "NAME_PY",
@@ -15485,6 +16367,18 @@
         "type": "Char",
         "width": 30,
         "decimals": null
+      },
+      {
+        "name": "X_COOR",
+        "type": "Decimal",
+        "width": 10,
+        "decimals": 6
+      },
+      {
+        "name": "Y_COOR",
+        "type": "Decimal",
+        "width": 10,
+        "decimals": 6
       },
       {
         "name": "PRES_LOC",
@@ -15560,6 +16454,12 @@
       },
       {
         "name": "LEV2_PY",
+        "type": "Char",
+        "width": 30,
+        "decimals": null
+      },
+      {
+        "name": "LEV2_CH",
         "type": "Char",
         "width": 30,
         "decimals": null
@@ -15822,7 +16722,7 @@
     "charset_codec": "cp1252",
     "type": "NATIVE",
     "n_fields": 27,
-    "parsed_fields": 23,
+    "parsed_fields": 27,
     "fields": [
       {
         "name": "NAME_PY",
@@ -15831,10 +16731,28 @@
         "decimals": null
       },
       {
+        "name": "NAME_CH",
+        "type": "Char",
+        "width": 30,
+        "decimals": null
+      },
+      {
         "name": "NAME_FT",
         "type": "Char",
         "width": 30,
         "decimals": null
+      },
+      {
+        "name": "X_COOR",
+        "type": "Decimal",
+        "width": 10,
+        "decimals": 6
+      },
+      {
+        "name": "Y_COOR",
+        "type": "Decimal",
+        "width": 10,
+        "decimals": 6
       },
       {
         "name": "PRES_LOC",
@@ -15900,6 +16818,12 @@
         "name": "LEV1_PY",
         "type": "Char",
         "width": 30,
+        "decimals": null
+      },
+      {
+        "name": "LEV1_CH",
+        "type": "Char",
+        "width": 20,
         "decimals": null
       },
       {
@@ -16148,7 +17072,7 @@
     "charset_codec": "cp1252",
     "type": "NATIVE",
     "n_fields": 29,
-    "parsed_fields": 27,
+    "parsed_fields": 29,
     "fields": [
       {
         "name": "NAME_PY",
@@ -16167,6 +17091,18 @@
         "type": "Char",
         "width": 30,
         "decimals": null
+      },
+      {
+        "name": "X_COOR",
+        "type": "Decimal",
+        "width": 10,
+        "decimals": 6
+      },
+      {
+        "name": "Y_COOR",
+        "type": "Decimal",
+        "width": 10,
+        "decimals": 6
       },
       {
         "name": "PRES_LOC",
@@ -16510,7 +17446,7 @@
     "charset_codec": "cp1252",
     "type": "NATIVE",
     "n_fields": 27,
-    "parsed_fields": 24,
+    "parsed_fields": 27,
     "fields": [
       {
         "name": "NAME_PY",
@@ -16519,10 +17455,28 @@
         "decimals": null
       },
       {
+        "name": "NAME_CH",
+        "type": "Char",
+        "width": 30,
+        "decimals": null
+      },
+      {
         "name": "NAME_FT",
         "type": "Char",
         "width": 30,
         "decimals": null
+      },
+      {
+        "name": "X_COOR",
+        "type": "Decimal",
+        "width": 10,
+        "decimals": 6
+      },
+      {
+        "name": "Y_COOR",
+        "type": "Decimal",
+        "width": 10,
+        "decimals": 6
       },
       {
         "name": "PRES_LOC",
@@ -16842,7 +17796,7 @@
     "charset_codec": "cp1252",
     "type": "NATIVE",
     "n_fields": 29,
-    "parsed_fields": 27,
+    "parsed_fields": 29,
     "fields": [
       {
         "name": "NAME_PY",
@@ -16861,6 +17815,18 @@
         "type": "Char",
         "width": 30,
         "decimals": null
+      },
+      {
+        "name": "X_COOR",
+        "type": "Decimal",
+        "width": 10,
+        "decimals": 6
+      },
+      {
+        "name": "Y_COOR",
+        "type": "Decimal",
+        "width": 10,
+        "decimals": 6
       },
       {
         "name": "PRES_LOC",
@@ -17204,7 +18170,7 @@
     "charset_codec": "cp1252",
     "type": "NATIVE",
     "n_fields": 27,
-    "parsed_fields": 24,
+    "parsed_fields": 27,
     "fields": [
       {
         "name": "NAME_PY",
@@ -17213,10 +18179,28 @@
         "decimals": null
       },
       {
+        "name": "NAME_CH",
+        "type": "Char",
+        "width": 30,
+        "decimals": null
+      },
+      {
         "name": "NAME_FT",
         "type": "Char",
         "width": 30,
         "decimals": null
+      },
+      {
+        "name": "X_COOR",
+        "type": "Decimal",
+        "width": 10,
+        "decimals": 6
+      },
+      {
+        "name": "Y_COOR",
+        "type": "Decimal",
+        "width": 10,
+        "decimals": 6
       },
       {
         "name": "PRES_LOC",
@@ -17536,7 +18520,7 @@
     "charset_codec": "cp1252",
     "type": "NATIVE",
     "n_fields": 27,
-    "parsed_fields": 24,
+    "parsed_fields": 27,
     "fields": [
       {
         "name": "NAME_PY",
@@ -17545,10 +18529,28 @@
         "decimals": null
       },
       {
+        "name": "NAME_CH",
+        "type": "Char",
+        "width": 30,
+        "decimals": null
+      },
+      {
         "name": "NAME_FT",
         "type": "Char",
         "width": 30,
         "decimals": null
+      },
+      {
+        "name": "X_COOR",
+        "type": "Decimal",
+        "width": 10,
+        "decimals": 6
+      },
+      {
+        "name": "Y_COOR",
+        "type": "Decimal",
+        "width": 10,
+        "decimals": 6
       },
       {
         "name": "PRES_LOC",
@@ -17868,7 +18870,7 @@
     "charset_codec": "cp1252",
     "type": "NATIVE",
     "n_fields": 29,
-    "parsed_fields": 26,
+    "parsed_fields": 29,
     "fields": [
       {
         "name": "NAME_PY",
@@ -17887,6 +18889,18 @@
         "type": "Char",
         "width": 30,
         "decimals": null
+      },
+      {
+        "name": "X_COOR",
+        "type": "Decimal",
+        "width": 10,
+        "decimals": 6
+      },
+      {
+        "name": "Y_COOR",
+        "type": "Decimal",
+        "width": 10,
+        "decimals": 6
       },
       {
         "name": "PRES_LOC",
@@ -17964,6 +18978,12 @@
         "name": "LEV2_PY",
         "type": "Char",
         "width": 30,
+        "decimals": null
+      },
+      {
+        "name": "LEV2_CH",
+        "type": "Char",
+        "width": 20,
         "decimals": null
       },
       {
@@ -18502,7 +19522,7 @@
     "charset_codec": "cp1252",
     "type": "NATIVE",
     "n_fields": 21,
-    "parsed_fields": 18,
+    "parsed_fields": 21,
     "fields": [
       {
         "name": "NAME_PY",
@@ -18511,10 +19531,28 @@
         "decimals": null
       },
       {
+        "name": "NAME_CH",
+        "type": "Char",
+        "width": 30,
+        "decimals": null
+      },
+      {
         "name": "NAME_FT",
         "type": "Char",
         "width": 30,
         "decimals": null
+      },
+      {
+        "name": "X_COOR",
+        "type": "Decimal",
+        "width": 10,
+        "decimals": 6
+      },
+      {
+        "name": "Y_COOR",
+        "type": "Decimal",
+        "width": 10,
+        "decimals": 6
       },
       {
         "name": "PRES_LOC",
@@ -19058,7 +20096,7 @@
     "charset_codec": "cp1252",
     "type": "NATIVE",
     "n_fields": 22,
-    "parsed_fields": 17,
+    "parsed_fields": 22,
     "fields": [
       {
         "name": "NAME_PY",
@@ -19067,10 +20105,28 @@
         "decimals": null
       },
       {
+        "name": "NAME_CH",
+        "type": "Char",
+        "width": 30,
+        "decimals": null
+      },
+      {
         "name": "NAME_FT",
         "type": "Char",
         "width": 30,
         "decimals": null
+      },
+      {
+        "name": "X_COOR",
+        "type": "Decimal",
+        "width": 10,
+        "decimals": 6
+      },
+      {
+        "name": "Y_COOR",
+        "type": "Decimal",
+        "width": 10,
+        "decimals": 6
       },
       {
         "name": "PRES_LOC",
@@ -19121,9 +20177,21 @@
         "decimals": null
       },
       {
+        "name": "NOTE_ID",
+        "type": "Integer",
+        "width": null,
+        "decimals": null
+      },
+      {
         "name": "OBJ_TYPE",
         "type": "Char",
         "width": 7,
+        "decimals": null
+      },
+      {
+        "name": "SYS_ID",
+        "type": "Integer",
+        "width": null,
         "decimals": null
       },
       {
@@ -19173,8 +20241,14 @@
     "charset_codec": "cp1252",
     "type": "NATIVE",
     "n_fields": 21,
-    "parsed_fields": 20,
+    "parsed_fields": 21,
     "fields": [
+      {
+        "name": "SYS_ID",
+        "type": "Char",
+        "width": 16,
+        "decimals": null
+      },
       {
         "name": "NAME_PY",
         "type": "Char",
@@ -19306,7 +20380,7 @@
     "charset_codec": "cp1252",
     "type": "NATIVE",
     "n_fields": 21,
-    "parsed_fields": 19,
+    "parsed_fields": 21,
     "fields": [
       {
         "name": "NAME_PY",
@@ -19325,6 +20399,18 @@
         "type": "Char",
         "width": 30,
         "decimals": null
+      },
+      {
+        "name": "X_COOR",
+        "type": "Decimal",
+        "width": 10,
+        "decimals": 6
+      },
+      {
+        "name": "Y_COOR",
+        "type": "Decimal",
+        "width": 10,
+        "decimals": 6
       },
       {
         "name": "PRES_LOC",
@@ -19572,7 +20658,7 @@
     "charset_codec": "cp1252",
     "type": "NATIVE",
     "n_fields": 21,
-    "parsed_fields": 19,
+    "parsed_fields": 21,
     "fields": [
       {
         "name": "NAME_PY",
@@ -19591,6 +20677,18 @@
         "type": "Char",
         "width": 30,
         "decimals": null
+      },
+      {
+        "name": "X_COOR",
+        "type": "Decimal",
+        "width": 10,
+        "decimals": 6
+      },
+      {
+        "name": "Y_COOR",
+        "type": "Decimal",
+        "width": 10,
+        "decimals": 6
       },
       {
         "name": "PRES_LOC",
@@ -19844,7 +20942,7 @@
     "charset_codec": "cp1252",
     "type": "NATIVE",
     "n_fields": 21,
-    "parsed_fields": 19,
+    "parsed_fields": 21,
     "fields": [
       {
         "name": "NAME_PY",
@@ -19863,6 +20961,18 @@
         "type": "Char",
         "width": 30,
         "decimals": null
+      },
+      {
+        "name": "X_COOR",
+        "type": "Decimal",
+        "width": 10,
+        "decimals": 6
+      },
+      {
+        "name": "Y_COOR",
+        "type": "Decimal",
+        "width": 10,
+        "decimals": 6
       },
       {
         "name": "PRES_LOC",
@@ -20110,7 +21220,7 @@
     "charset_codec": "cp1252",
     "type": "NATIVE",
     "n_fields": 21,
-    "parsed_fields": 19,
+    "parsed_fields": 21,
     "fields": [
       {
         "name": "NAME_PY",
@@ -20129,6 +21239,18 @@
         "type": "Char",
         "width": 30,
         "decimals": null
+      },
+      {
+        "name": "X_COOR",
+        "type": "Decimal",
+        "width": 10,
+        "decimals": 6
+      },
+      {
+        "name": "Y_COOR",
+        "type": "Decimal",
+        "width": 10,
+        "decimals": 6
       },
       {
         "name": "PRES_LOC",

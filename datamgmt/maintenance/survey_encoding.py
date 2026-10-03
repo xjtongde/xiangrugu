@@ -83,26 +83,26 @@ def detect(samples, layer, col):
     return "mixed"
 
 
-def main():
-    entries = [json.loads(l.strip()[2:]) for l in open(CFG, encoding="utf-8")
-               if l.strip().startswith("- ")]
+def _survey_carrier(entries, carrier, get_dbf):
+    """对某 carrier 的每个源：读 dbf 型属性字节(dbf/dat)，逐 C 列采样 detect 真编码。"""
     rows = []
-    ncol = 0
     for e in entries:
-        if e["carrier"] != "shapefile" or e.get("geometry_only"):
+        if e["carrier"] != carrier:
             continue
-        b = srcopen.read_member(e["key"], ".dbf", required=True)
+        if carrier == "shapefile" and e.get("geometry_only"):
+            continue
+        b = get_dbf(e)
+        if b is None:
+            continue
         fields = dbf.parse_dbf(b)["fields"]
-        for f in fields:
+        for i, f in enumerate(fields):
             if f["type"] != "C":
                 continue
-            ncol += 1
-            fi = next(i for i, x in enumerate(fields) if x["name"] == f["name"])
             samples = []
             for vals, deleted in dbf.iter_records(b):
                 if deleted:
                     continue
-                raw = vals[fi].rstrip(b" \x00")
+                raw = vals[i].rstrip(b" \x00")
                 if raw and any(x >= 0x80 for x in raw):
                     samples.append(raw)
                 if len(samples) >= 200:
@@ -110,6 +110,19 @@ def main():
             enc = detect(samples, e["target"].split(".", 1)[1], f["name"])
             rows.append({"target": e["target"], "col": f["name"],
                          "detected": enc, "has_nonascii": bool(samples)})
+    return rows
+
+
+def main():
+    entries = [json.loads(l.strip()[2:]) for l in open(CFG, encoding="utf-8")
+               if l.strip().startswith("- ")]
+    rows = []
+    rows += _survey_carrier(entries, "shapefile",
+                            lambda e: srcopen.read_member(e["key"], ".dbf", required=True))
+    rows += _survey_carrier(entries, "mapinfo",
+                            lambda e: srcopen.read_mapinfo_sibling(e["key"], ".dat"))
+
+    ncol = len(rows)
     os.makedirs(os.path.dirname(OUT), exist_ok=True)
     with open(OUT, "w", encoding="utf-8") as fh:
         for r in rows:

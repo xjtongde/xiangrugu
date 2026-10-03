@@ -37,3 +37,17 @@ def read_member(key, ext="", required=False):
             return None
     finally:
         z.close()
+
+
+def read_mapinfo_sibling(key, ext):
+    """读 MapInfo 表同基名兄弟文件（.DAT/.MAP/.ID，大小写无关）。key 末段为 .TAB；ext 形如 '.dat'。"""
+    z, member = open_nested(key)
+    try:
+        base = member[:-4] if member.lower().endswith(".tab") else member
+        want = base.lower() + ext.lower()
+        for n in z.namelist():
+            if n.lower() == want:
+                return z.read(n)
+        return None
+    finally:
+        z.close()

@@ -1,2939 +1,3505 @@
 # 段B 逐图层解码判定表：default=该层非ASCII列众数编码，exceptions=偏离列。
 # 由 maintenance/survey_encoding.py 直读源件字节生成；importer/verifier 各自独立解码（§6.1）。
 layers:
-  - id: "asia_contour"
+  - id: "chgis.asia_contour"
     default:
       encoding: "utf-8"
     exceptions: {}
-  - id: "beijing_sites_v1"
+  - id: "chgis.beijing_sites_v1"
     default:
       encoding: "utf-8"
     exceptions: {}
-  - id: "bgis_v1-1_20130306"
+  - id: "chgis.bgis_v1-1_20130306"
     default:
       encoding: "gbk"
     exceptions: {}
-  - id: "ca1876route_przh_1251"
+  - id: "chgis.ca1876route_przh_1251"
     default:
       encoding: "cp1251"
     exceptions: {}
-  - id: "ca1876route_przh_ru"
+  - id: "chgis.ca1876route_przh_ru"
     default:
       encoding: "cp1251"
     exceptions: {}
-  - id: "ca1876route_przh_utf8"
+  - id: "chgis.ca1876route_przh_utf8"
     default:
       encoding: "utf-8"
     exceptions: {}
-  - id: "ca1884_przh_1251"
+  - id: "chgis.ca1884_przh_1251"
     default:
       encoding: "cp1251"
     exceptions: {}
-  - id: "ca1884_przh_ru"
+  - id: "chgis.ca1884_przh_ru"
     default:
       encoding: "cp1251"
     exceptions: {}
-  - id: "ca1884_przh_utf8"
+  - id: "chgis.ca1884_przh_utf8"
     default:
       encoding: "utf-8"
     exceptions: {}
-  - id: "ca1884route_przh_1251"
+  - id: "chgis.ca1884route_przh_1251"
     default:
       encoding: "cp1251"
     exceptions: {}
-  - id: "ca1884route_przh_ru"
+  - id: "chgis.ca1884route_przh_ru"
     default:
       encoding: "cp1251"
     exceptions: {}
-  - id: "ca1884route_przh_utf8"
+  - id: "chgis.ca1884route_przh_utf8"
     default:
       encoding: "utf-8"
     exceptions: {}
-  - id: "chgis_tmpl_pts"
+  - id: "chgis.chgis_tmpl_pts"
     default:
       encoding: "utf-8"
     exceptions: {}
-  - id: "chgis_v1_cst_lin"
+  - id: "chgis.chgis_v1_cst_lin"
     default:
       encoding: "utf-8"
     exceptions: {}
-  - id: "china_hsr_2016_lines"
+  - id: "chgis.china_hsr_2016_lines"
     default:
       encoding: "utf-8"
     exceptions: {}
-  - id: "china_hsr_2016_stations"
+  - id: "chgis.china_hsr_2016_stations"
     default:
       encoding: "utf-8"
     exceptions: {}
-  - id: "chinagaslinenodes_2013"
+  - id: "chgis.chinagaslinenodes_2013"
     default:
       encoding: "utf-8"
     exceptions: {}
-  - id: "chinagaspipelines_2013"
+  - id: "chgis.chinagaspipelines_2013"
     default:
       encoding: "utf-8"
     exceptions: {}
-  - id: "chinaw_points_gbk"
+  - id: "chgis.chinaw_points_gbk"
     default:
       encoding: "gbk"
     exceptions: {}
-  - id: "citas90_cnty_pgn"
+  - id: "chgis.citas90_cnty_pgn"
     default:
       encoding: "utf-8"
     exceptions: {}
-  - id: "citas90_cnty_pgn_big5"
+  - id: "chgis.citas90_cnty_pgn_big5"
     default:
       encoding: "big5"
     exceptions: {}
-  - id: "citas90_cnty_pgn_gbk"
+  - id: "chgis.citas90_cnty_pgn_gbk"
     default:
       encoding: "gbk"
     exceptions: {}
-  - id: "citas90_cnty_pgn_utf"
+  - id: "chgis.citas90_cnty_pgn_utf"
     default:
       encoding: "utf-8"
     exceptions: {}
-  - id: "citas90_pref_pgn"
+  - id: "chgis.citas90_pref_pgn"
     default:
       encoding: "utf-8"
     exceptions: {}
-  - id: "citas90_prov_pgn"
+  - id: "chgis.citas90_prov_pgn"
     default:
       encoding: "utf-8"
     exceptions: {}
-  - id: "eastasia1871_przh_1251"
+  - id: "chgis.eastasia1871_przh_1251"
     default:
       encoding: "cp1251"
     exceptions: {}
-  - id: "eastasia1871_przh_ru"
+  - id: "chgis.eastasia1871_przh_ru"
     default:
       encoding: "cp1251"
     exceptions: {}
-  - id: "eastasia1871_przh_utf8"
+  - id: "chgis.eastasia1871_przh_utf8"
     default:
       encoding: "utf-8"
     exceptions: {}
-  - id: "jp_dmyo_1664"
+  - id: "chgis.jp_dmyo_1664"
     default:
       encoding: "utf-8"
     exceptions: {}
-  - id: "jp_toku_dmyo_pts"
+  - id: "chgis.jp_toku_dmyo_pts"
     default:
       encoding: "utf-8"
     exceptions: {}
-  - id: "jp_toku_doo_pgn"
+  - id: "chgis.jp_toku_doo_pgn"
     default:
       encoding: "utf-8"
     exceptions: {}
-  - id: "jp_toku_kuni_pgn"
+  - id: "chgis.jp_toku_kuni_pgn"
     default:
       encoding: "utf-8"
     exceptions: {}
-  - id: "kam1900_koz_ru"
+  - id: "chgis.kam1900_koz_ru"
     default:
       encoding: "cp1251"
     exceptions: {}
-  - id: "manshu_200k_index"
+  - id: "chgis.manshu_200k_index"
     default:
       encoding: "utf-8"
     exceptions: {}
-  - id: "ming_garrisons"
+  - id: "chgis.ming_garrisons"
     default:
       encoding: "utf-8"
     exceptions: {}
-  - id: "ming_routes_2016"
+  - id: "chgis.ming_routes_2016"
     default:
       encoding: "utf-8"
     exceptions: {}
-  - id: "ming_stations_2016"
+  - id: "chgis.ming_stations_2016"
     default:
       encoding: "utf-8"
     exceptions: {}
-  - id: "mk1899_koz_1251"
+  - id: "chgis.mk1899_koz_1251"
     default:
       encoding: "cp1251"
     exceptions: {}
-  - id: "mk1899_koz_ru"
+  - id: "chgis.mk1899_koz_ru"
     default:
       encoding: "cp1251"
     exceptions: {}
-  - id: "mk1899_koz_utf8"
+  - id: "chgis.mk1899_koz_utf8"
     default:
       encoding: "utf-8"
     exceptions: {}
-  - id: "nima_cst_v1"
+  - id: "chgis.nima_cst_v1"
     default:
       encoding: "cp1252"
     exceptions: {}
-  - id: "nima_mtns_v1"
+  - id: "chgis.nima_mtns_v1"
     default:
       encoding: "cp1252"
     exceptions: {}
-  - id: "physiogmacroregions_pgn"
+  - id: "chgis.physiogmacroregions_pgn"
     default:
       encoding: "utf-8"
     exceptions: {}
-  - id: "tbrc_major_monasteries_2014"
+  - id: "chgis.tbrc_major_monasteries_2014"
     default:
       encoding: "utf-8"
     exceptions: {}
-  - id: "tbrc_minor_monasteries_2014"
+  - id: "chgis.tbrc_minor_monasteries_2014"
     default:
       encoding: "utf-8"
     exceptions: {}
-  - id: "tbrc_printeries_2014"
+  - id: "chgis.tbrc_printeries_2014"
     default:
       encoding: "utf-8"
     exceptions: {}
-  - id: "teahorse_major_routes__2016-04-08"
+  - id: "chgis.teahorse_major_routes__2016-04-08"
     default:
       encoding: "utf-8"
     exceptions: {}
-  - id: "teahorse_minor_routes_2016-04-08"
+  - id: "chgis.teahorse_minor_routes_2016-04-08"
     default:
       encoding: "utf-8"
     exceptions: {}
-  - id: "teahorse_nodes_2016-04-08"
+  - id: "chgis.teahorse_nodes_2016-04-08"
     default:
       encoding: "utf-8"
     exceptions: {}
-  - id: "tib1900_pdb_ru"
+  - id: "chgis.tib1900_pdb_ru"
     default:
       encoding: "cp1251"
     exceptions: {}
-  - id: "tib19pdb"
+  - id: "chgis.tib19pdb"
     default:
       encoding: "cp1251"
     exceptions: {}
-  - id: "tibet_monasteries_utf8_v1_20120702"
+  - id: "chgis.tibet_monasteries_utf8_v1_20120702"
     default:
       encoding: "utf-8"
     exceptions: {}
-  - id: "v1_1820_thu_cnty_pgn_gb"
+  - id: "chgis.v1_1820_thu_cnty_pgn_gb"
     default:
       encoding: "gbk"
     exceptions: {}
-  - id: "v1_1820_thu_cnty_pgn_utf"
+  - id: "chgis.v1_1820_thu_cnty_pgn_utf"
     default:
       encoding: "utf-8"
     exceptions: {}
-  - id: "v2_1820_cnty_pts_gb"
+  - id: "chgis.v2_1820_cnty_pts_gb"
     default:
       encoding: "gbk"
     exceptions: {}
-  - id: "v2_1820_cnty_pts_utf"
+  - id: "chgis.v2_1820_cnty_pts_utf"
     default:
       encoding: "utf-8"
     exceptions: {}
-  - id: "v2_1820_lks_pgn_gb"
+  - id: "chgis.v2_1820_lks_pgn_gb"
     default:
       encoding: "gbk"
     exceptions: {}
-  - id: "v2_1820_lks_pgn_utf"
+  - id: "chgis.v2_1820_lks_pgn_utf"
     default:
       encoding: "utf-8"
     exceptions: {}
-  - id: "v2_1820_pref_pgn_gb"
+  - id: "chgis.v2_1820_pref_pgn_gb"
     default:
       encoding: "gbk"
     exceptions: {}
-  - id: "v2_1820_pref_pgn_utf"
+  - id: "chgis.v2_1820_pref_pgn_utf"
     default:
       encoding: "utf-8"
     exceptions: {}
-  - id: "v2_1820_pref_pts_gb"
+  - id: "chgis.v2_1820_pref_pts_gb"
     default:
       encoding: "gbk"
     exceptions: {}
-  - id: "v2_1820_pref_pts_utf"
+  - id: "chgis.v2_1820_pref_pts_utf"
     default:
       encoding: "utf-8"
     exceptions: {}
-  - id: "v2_1820_prov_pgn_gb"
+  - id: "chgis.v2_1820_prov_pgn_gb"
     default:
       encoding: "gbk"
     exceptions: {}
-  - id: "v2_1820_prov_pgn_utf"
+  - id: "chgis.v2_1820_prov_pgn_utf"
     default:
       encoding: "utf-8"
     exceptions: {}
-  - id: "v2_1820_prov_pts_gb"
+  - id: "chgis.v2_1820_prov_pts_gb"
     default:
       encoding: "gbk"
     exceptions: {}
-  - id: "v2_1820_prov_pts_utf"
+  - id: "chgis.v2_1820_prov_pts_utf"
     default:
       encoding: "utf-8"
     exceptions: {}
-  - id: "v2_1820_rvr_lin_gb"
+  - id: "chgis.v2_1820_rvr_lin_gb"
     default:
       encoding: "gbk"
     exceptions: {}
-  - id: "v2_1820_rvr_lin_utf"
+  - id: "chgis.v2_1820_rvr_lin_utf"
     default:
       encoding: "utf-8"
     exceptions: {}
-  - id: "v2_1820_twn_pts_gb"
+  - id: "chgis.v2_1820_twn_pts_gb"
     default:
       encoding: "gbk"
     exceptions: {}
-  - id: "v2_1820_twn_pts_utf"
+  - id: "chgis.v2_1820_twn_pts_utf"
     default:
       encoding: "utf-8"
     exceptions: {}
-  - id: "v2_1911_cnty_pgn"
+  - id: "chgis.v2_1911_cnty_pgn"
     default:
       encoding: "gbk"
     exceptions: {}
-  - id: "v2_1911_cnty_pgn_utf"
+  - id: "chgis.v2_1911_cnty_pgn_utf"
     default:
       encoding: "utf-8"
     exceptions: {}
-  - id: "v2_1911_cnty_pts"
+  - id: "chgis.v2_1911_cnty_pts"
     default:
       encoding: "gbk"
     exceptions: {}
-  - id: "v2_1911_cnty_pts_utf"
+  - id: "chgis.v2_1911_cnty_pts_utf"
     default:
       encoding: "utf-8"
     exceptions: {}
-  - id: "v2_1911_pref_pgn"
+  - id: "chgis.v2_1911_pref_pgn"
     default:
       encoding: "gbk"
     exceptions: {}
-  - id: "v2_1911_pref_pgn_utf"
+  - id: "chgis.v2_1911_pref_pgn_utf"
     default:
       encoding: "utf-8"
     exceptions: {}
-  - id: "v2_1911_pref_pts"
+  - id: "chgis.v2_1911_pref_pts"
     default:
       encoding: "gbk"
     exceptions: {}
-  - id: "v2_1911_pref_pts_utf"
+  - id: "chgis.v2_1911_pref_pts_utf"
     default:
       encoding: "utf-8"
     exceptions: {}
-  - id: "v2_1911_prov_pgn"
+  - id: "chgis.v2_1911_prov_pgn"
     default:
       encoding: "gbk"
     exceptions:
       "utf-8": ["TYPE_CH"]
-  - id: "v2_1911_prov_pgn_utf"
+  - id: "chgis.v2_1911_prov_pgn_utf"
     default:
       encoding: "utf-8"
     exceptions: {}
-  - id: "v2_1911_prov_pts"
+  - id: "chgis.v2_1911_prov_pts"
     default:
       encoding: "gbk"
     exceptions:
       "utf-8": ["TYPE_CH"]
-  - id: "v2_1911_prov_pts_utf"
+  - id: "chgis.v2_1911_prov_pts_utf"
     default:
       encoding: "utf-8"
     exceptions: {}
-  - id: "v2_1911_twn_pts"
+  - id: "chgis.v2_1911_twn_pts"
     default:
       encoding: "gbk"
     exceptions: {}
-  - id: "v2_1911_twn_pts_utf"
+  - id: "chgis.v2_1911_twn_pts_utf"
     default:
       encoding: "utf-8"
     exceptions: {}
-  - id: "v2_beijing_pgn_utf"
+  - id: "chgis.v2_beijing_pgn_utf"
     default:
       encoding: "utf-8"
     exceptions: {}
-  - id: "v2_dcw_contour_lin"
+  - id: "chgis.v2_dcw_contour_lin"
     default:
       encoding: "utf-8"
     exceptions: {}
-  - id: "v2_dcw_rds_lin"
+  - id: "chgis.v2_dcw_rds_lin"
     default:
       encoding: "utf-8"
     exceptions: {}
-  - id: "v2_time_cnty_pgn_gb"
+  - id: "chgis.v2_time_cnty_pgn_gb"
     default:
       encoding: "gbk"
     exceptions: {}
-  - id: "v2_time_cnty_pgn_utf"
+  - id: "chgis.v2_time_cnty_pgn_utf"
     default:
       encoding: "utf-8"
     exceptions:
       "gbk": ["CH_ORIG"]
-  - id: "v2_time_cnty_pts_gb"
+  - id: "chgis.v2_time_cnty_pts_gb"
     default:
       encoding: "gbk"
     exceptions: {}
-  - id: "v2_time_cnty_pts_utf"
+  - id: "chgis.v2_time_cnty_pts_utf"
     default:
       encoding: "utf-8"
     exceptions:
       "gbk": ["CH_ORIG"]
-  - id: "v2_time_pref_pgn_gb"
+  - id: "chgis.v2_time_pref_pgn_gb"
     default:
       encoding: "gbk"
     exceptions: {}
-  - id: "v2_time_pref_pgn_utf"
+  - id: "chgis.v2_time_pref_pgn_utf"
     default:
       encoding: "utf-8"
     exceptions: {}
-  - id: "v2_time_pref_pts_gb"
+  - id: "chgis.v2_time_pref_pts_gb"
     default:
       encoding: "gbk"
     exceptions: {}
-  - id: "v2_time_pref_pts_utf"
+  - id: "chgis.v2_time_pref_pts_utf"
     default:
       encoding: "utf-8"
     exceptions: {}
-  - id: "v2_time_prov_pgn_gb"
+  - id: "chgis.v2_time_prov_pgn_gb"
     default:
       encoding: "gbk"
     exceptions: {}
-  - id: "v2_time_prov_pgn_utf"
+  - id: "chgis.v2_time_prov_pgn_utf"
     default:
       encoding: "utf-8"
     exceptions: {}
-  - id: "v2_time_prov_pts_gb"
+  - id: "chgis.v2_time_prov_pts_gb"
     default:
       encoding: "gbk"
     exceptions: {}
-  - id: "v2_time_prov_pts_utf"
+  - id: "chgis.v2_time_prov_pts_utf"
     default:
       encoding: "utf-8"
     exceptions: {}
-  - id: "v2_time_reg_pgn_gb"
+  - id: "chgis.v2_time_reg_pgn_gb"
     default:
       encoding: "gbk"
     exceptions: {}
-  - id: "v2_time_reg_pgn_utf"
+  - id: "chgis.v2_time_reg_pgn_utf"
     default:
       encoding: "utf-8"
     exceptions: {}
-  - id: "v2_time_reg_pts_gb"
+  - id: "chgis.v2_time_reg_pts_gb"
     default:
       encoding: "gbk"
     exceptions: {}
-  - id: "v2_time_reg_pts_utf"
+  - id: "chgis.v2_time_reg_pts_utf"
     default:
       encoding: "utf-8"
     exceptions: {}
-  - id: "v3_1820_pref_pgn_gb"
+  - id: "chgis.v3_1820_pref_pgn_gb"
     default:
       encoding: "gbk"
     exceptions: {}
-  - id: "v3_1820_pref_pgn_utf"
+  - id: "chgis.v3_1820_pref_pgn_utf"
     default:
       encoding: "utf-8"
     exceptions: {}
-  - id: "v3_1820_prov_pgn_gb"
+  - id: "chgis.v3_1820_prov_pgn_gb"
     default:
       encoding: "gbk"
     exceptions: {}
-  - id: "v3_1820_prov_pgn_utf"
+  - id: "chgis.v3_1820_prov_pgn_utf"
     default:
       encoding: "utf-8"
     exceptions: {}
-  - id: "v3_1911_cnty_pgn_gb"
+  - id: "chgis.v3_1911_cnty_pgn_gb"
     default:
       encoding: "gbk"
     exceptions: {}
-  - id: "v3_1911_cnty_pgn_utf"
+  - id: "chgis.v3_1911_cnty_pgn_utf"
     default:
       encoding: "utf-8"
     exceptions: {}
-  - id: "v3_1911_cnty_pts_gb"
+  - id: "chgis.v3_1911_cnty_pts_gb"
     default:
       encoding: "gbk"
     exceptions: {}
-  - id: "v3_1911_cnty_pts_utf"
+  - id: "chgis.v3_1911_cnty_pts_utf"
     default:
       encoding: "utf-8"
     exceptions: {}
-  - id: "v3_1911_pref_pgn_gb"
+  - id: "chgis.v3_1911_pref_pgn_gb"
     default:
       encoding: "gbk"
     exceptions: {}
-  - id: "v3_1911_pref_pgn_utf"
+  - id: "chgis.v3_1911_pref_pgn_utf"
     default:
       encoding: "utf-8"
     exceptions: {}
-  - id: "v3_1911_pref_pts_gb"
+  - id: "chgis.v3_1911_pref_pts_gb"
     default:
       encoding: "gbk"
     exceptions: {}
-  - id: "v3_1911_pref_pts_utf"
+  - id: "chgis.v3_1911_pref_pts_utf"
     default:
       encoding: "utf-8"
     exceptions: {}
-  - id: "v3_1911_prov_pgn_gb"
-    default:
-      encoding: "gbk"
-    exceptions:
-      "utf-8": ["TYPE_CH"]
-  - id: "v3_1911_prov_pgn_utf"
-    default:
-      encoding: "utf-8"
-    exceptions: {}
-  - id: "v3_1911_prov_pts_gb"
+  - id: "chgis.v3_1911_prov_pgn_gb"
     default:
       encoding: "gbk"
     exceptions:
       "utf-8": ["TYPE_CH"]
-  - id: "v3_1911_prov_pts_utf"
+  - id: "chgis.v3_1911_prov_pgn_utf"
     default:
       encoding: "utf-8"
     exceptions: {}
-  - id: "v3_1911_twn_pts_gb"
-    default:
-      encoding: "gbk"
-    exceptions: {}
-  - id: "v3_1911_twn_pts_utf"
-    default:
-      encoding: "utf-8"
-    exceptions: {}
-  - id: "v3_arc_china_index"
-    default:
-      encoding: "utf-8"
-    exceptions: {}
-  - id: "v3_time_cnty_pts_gb"
-    default:
-      encoding: "gbk"
-    exceptions: {}
-  - id: "v3_time_cnty_pts_utf"
-    default:
-      encoding: "utf-8"
-    exceptions: {}
-  - id: "v3_time_pref_pgn_gb"
-    default:
-      encoding: "gbk"
-    exceptions: {}
-  - id: "v3_time_pref_pgn_utf"
-    default:
-      encoding: "utf-8"
-    exceptions: {}
-  - id: "v3_time_pref_pts_gb"
-    default:
-      encoding: "gbk"
-    exceptions: {}
-  - id: "v3_time_pref_pts_utf"
-    default:
-      encoding: "utf-8"
-    exceptions: {}
-  - id: "v3_time_prov_pgn_gb"
-    default:
-      encoding: "gbk"
-    exceptions: {}
-  - id: "v3_time_prov_pgn_utf"
-    default:
-      encoding: "utf-8"
-    exceptions: {}
-  - id: "v3_time_prov_pts_gb"
-    default:
-      encoding: "gbk"
-    exceptions: {}
-  - id: "v3_time_prov_pts_utf"
-    default:
-      encoding: "utf-8"
-    exceptions: {}
-  - id: "v4_1820_cnty_pts_gbk"
-    default:
-      encoding: "gbk"
-    exceptions: {}
-  - id: "v4_1820_cnty_pts_utf"
-    default:
-      encoding: "utf-8"
-    exceptions: {}
-  - id: "v4_1820_coast_lin"
-    default:
-      encoding: "utf-8"
-    exceptions: {}
-  - id: "v4_1820_coded_rvr_lin_utf"
-    default:
-      encoding: "utf-8"
-    exceptions: {}
-  - id: "v4_1820_lks_pgn_gbk"
-    default:
-      encoding: "gbk"
-    exceptions: {}
-  - id: "v4_1820_lks_pgn_utf"
-    default:
-      encoding: "utf-8"
-    exceptions: {}
-  - id: "v4_1820_pref_pgn_gbk"
-    default:
-      encoding: "gbk"
-    exceptions: {}
-  - id: "v4_1820_pref_pgn_utf"
-    default:
-      encoding: "utf-8"
-    exceptions: {}
-  - id: "v4_1820_pref_pts_gbk"
-    default:
-      encoding: "gbk"
-    exceptions: {}
-  - id: "v4_1820_pref_pts_utf"
-    default:
-      encoding: "utf-8"
-    exceptions: {}
-  - id: "v4_1820_prov_pgn_gbk"
-    default:
-      encoding: "gbk"
-    exceptions: {}
-  - id: "v4_1820_prov_pgn_utf"
-    default:
-      encoding: "utf-8"
-    exceptions: {}
-  - id: "v4_1820_prov_pts_gbk"
-    default:
-      encoding: "gbk"
-    exceptions: {}
-  - id: "v4_1820_prov_pts_utf"
-    default:
-      encoding: "utf-8"
-    exceptions: {}
-  - id: "v4_1820_rvr_lin_gbk"
-    default:
-      encoding: "gbk"
-    exceptions: {}
-  - id: "v4_1820_rvr_lin_utf"
-    default:
-      encoding: "utf-8"
-    exceptions: {}
-  - id: "v4_1820_twn_pts_gbk"
-    default:
-      encoding: "gbk"
-    exceptions: {}
-  - id: "v4_1820_twn_pts_utf"
-    default:
-      encoding: "utf-8"
-    exceptions: {}
-  - id: "v4_1911_cnty_pgn_gbk"
-    default:
-      encoding: "gbk"
-    exceptions: {}
-  - id: "v4_1911_cnty_pgn_utf"
-    default:
-      encoding: "utf-8"
-    exceptions: {}
-  - id: "v4_1911_cnty_pts_gbk"
-    default:
-      encoding: "gbk"
-    exceptions: {}
-  - id: "v4_1911_cnty_pts_utf"
-    default:
-      encoding: "utf-8"
-    exceptions: {}
-  - id: "v4_1911_pref_pgn_gbk"
-    default:
-      encoding: "gbk"
-    exceptions: {}
-  - id: "v4_1911_pref_pgn_utf"
-    default:
-      encoding: "utf-8"
-    exceptions: {}
-  - id: "v4_1911_pref_pts_gbk"
-    default:
-      encoding: "gbk"
-    exceptions: {}
-  - id: "v4_1911_pref_pts_utf"
-    default:
-      encoding: "utf-8"
-    exceptions: {}
-  - id: "v4_1911_prov_pgn_gbk"
+  - id: "chgis.v3_1911_prov_pts_gb"
     default:
       encoding: "gbk"
     exceptions:
       "utf-8": ["TYPE_CH"]
-  - id: "v4_1911_prov_pgn_utf"
+  - id: "chgis.v3_1911_prov_pts_utf"
     default:
       encoding: "utf-8"
     exceptions: {}
-  - id: "v4_1911_prov_pts_gbk"
+  - id: "chgis.v3_1911_twn_pts_gb"
+    default:
+      encoding: "gbk"
+    exceptions: {}
+  - id: "chgis.v3_1911_twn_pts_utf"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "chgis.v3_arc_china_index"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "chgis.v3_time_cnty_pts_gb"
+    default:
+      encoding: "gbk"
+    exceptions: {}
+  - id: "chgis.v3_time_cnty_pts_utf"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "chgis.v3_time_pref_pgn_gb"
+    default:
+      encoding: "gbk"
+    exceptions: {}
+  - id: "chgis.v3_time_pref_pgn_utf"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "chgis.v3_time_pref_pts_gb"
+    default:
+      encoding: "gbk"
+    exceptions: {}
+  - id: "chgis.v3_time_pref_pts_utf"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "chgis.v3_time_prov_pgn_gb"
+    default:
+      encoding: "gbk"
+    exceptions: {}
+  - id: "chgis.v3_time_prov_pgn_utf"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "chgis.v3_time_prov_pts_gb"
+    default:
+      encoding: "gbk"
+    exceptions: {}
+  - id: "chgis.v3_time_prov_pts_utf"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "chgis.v4_1820_cnty_pts_gbk"
+    default:
+      encoding: "gbk"
+    exceptions: {}
+  - id: "chgis.v4_1820_cnty_pts_utf"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "chgis.v4_1820_coast_lin"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "chgis.v4_1820_coded_rvr_lin_utf"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "chgis.v4_1820_lks_pgn_gbk"
+    default:
+      encoding: "gbk"
+    exceptions: {}
+  - id: "chgis.v4_1820_lks_pgn_utf"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "chgis.v4_1820_pref_pgn_gbk"
+    default:
+      encoding: "gbk"
+    exceptions: {}
+  - id: "chgis.v4_1820_pref_pgn_utf"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "chgis.v4_1820_pref_pts_gbk"
+    default:
+      encoding: "gbk"
+    exceptions: {}
+  - id: "chgis.v4_1820_pref_pts_utf"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "chgis.v4_1820_prov_pgn_gbk"
+    default:
+      encoding: "gbk"
+    exceptions: {}
+  - id: "chgis.v4_1820_prov_pgn_utf"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "chgis.v4_1820_prov_pts_gbk"
+    default:
+      encoding: "gbk"
+    exceptions: {}
+  - id: "chgis.v4_1820_prov_pts_utf"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "chgis.v4_1820_rvr_lin_gbk"
+    default:
+      encoding: "gbk"
+    exceptions: {}
+  - id: "chgis.v4_1820_rvr_lin_utf"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "chgis.v4_1820_twn_pts_gbk"
+    default:
+      encoding: "gbk"
+    exceptions: {}
+  - id: "chgis.v4_1820_twn_pts_utf"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "chgis.v4_1911_cnty_pgn_gbk"
+    default:
+      encoding: "gbk"
+    exceptions: {}
+  - id: "chgis.v4_1911_cnty_pgn_utf"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "chgis.v4_1911_cnty_pts_gbk"
+    default:
+      encoding: "gbk"
+    exceptions: {}
+  - id: "chgis.v4_1911_cnty_pts_utf"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "chgis.v4_1911_pref_pgn_gbk"
+    default:
+      encoding: "gbk"
+    exceptions: {}
+  - id: "chgis.v4_1911_pref_pgn_utf"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "chgis.v4_1911_pref_pts_gbk"
+    default:
+      encoding: "gbk"
+    exceptions: {}
+  - id: "chgis.v4_1911_pref_pts_utf"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "chgis.v4_1911_prov_pgn_gbk"
     default:
       encoding: "gbk"
     exceptions:
       "utf-8": ["TYPE_CH"]
-  - id: "v4_1911_prov_pts_utf"
+  - id: "chgis.v4_1911_prov_pgn_utf"
     default:
       encoding: "utf-8"
     exceptions: {}
-  - id: "v4_1911_twn_pts_gbk"
+  - id: "chgis.v4_1911_prov_pts_gbk"
+    default:
+      encoding: "gbk"
+    exceptions:
+      "utf-8": ["TYPE_CH"]
+  - id: "chgis.v4_1911_prov_pts_utf"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "chgis.v4_1911_twn_pts_gbk"
     default:
       encoding: "gbk"
     exceptions: {}
-  - id: "v4_1911_twn_pts_utf"
+  - id: "chgis.v4_1911_twn_pts_utf"
     default:
       encoding: "utf-8"
     exceptions:
       "gbk": ["NAME_PY"]
-  - id: "v4_1997_prov_pgn_gbk"
+  - id: "chgis.v4_1997_prov_pgn_gbk"
     default:
       encoding: "utf-8"
     exceptions: {}
-  - id: "v4_1997_prov_pgn_utf"
+  - id: "chgis.v4_1997_prov_pgn_utf"
     default:
       encoding: "utf-8"
     exceptions: {}
-  - id: "v4_arc_china_index"
+  - id: "chgis.v4_arc_china_index"
     default:
       encoding: "utf-8"
     exceptions: {}
-  - id: "v4_buddhist_pts_utf"
+  - id: "chgis.v4_buddhist_pts_utf"
     default:
       encoding: "utf-8"
     exceptions: {}
-  - id: "v4_citas90_cnty_pgn_big5_stats"
+  - id: "chgis.v4_citas90_cnty_pgn_big5_stats"
     default:
       encoding: "big5"
     exceptions: {}
-  - id: "v4_citas90_cnty_pgn_gbk_stats"
+  - id: "chgis.v4_citas90_cnty_pgn_gbk_stats"
     default:
       encoding: "gbk"
     exceptions: {}
-  - id: "v4_citas90_cnty_pgn_utf_stats"
+  - id: "chgis.v4_citas90_cnty_pgn_utf_stats"
     default:
       encoding: "utf-8"
     exceptions: {}
-  - id: "v4_citas90_pref_pgn_utf"
+  - id: "chgis.v4_citas90_pref_pgn_utf"
     default:
       encoding: "utf-8"
     exceptions: {}
-  - id: "v4_citas90_prov_pgn_utf"
+  - id: "chgis.v4_citas90_prov_pgn_utf"
     default:
       encoding: "utf-8"
     exceptions: {}
-  - id: "v4_dcw_contour_lin"
+  - id: "chgis.v4_dcw_contour_lin"
     default:
       encoding: "utf-8"
     exceptions: {}
-  - id: "v4_dcw_rail_lin"
+  - id: "chgis.v4_dcw_rail_lin"
     default:
       encoding: "utf-8"
     exceptions: {}
-  - id: "v4_dcw_rds_lin"
+  - id: "chgis.v4_dcw_rds_lin"
     default:
       encoding: "utf-8"
     exceptions: {}
-  - id: "v4_dcw_rvr_lin"
+  - id: "chgis.v4_dcw_rvr_lin"
     default:
       encoding: "utf-8"
     exceptions: {}
-  - id: "v4_gns_anhui_gbk"
+  - id: "chgis.v4_gns_anhui_gbk"
     default:
       encoding: "cp1252"
     exceptions:
       "gbk": ["CNTY_CH"]
-  - id: "v4_gns_beijing_gbk"
+  - id: "chgis.v4_gns_beijing_gbk"
     default:
       encoding: "cp1252"
     exceptions:
       "gbk": ["CNTY_CH"]
-  - id: "v4_gns_fujian_gbk"
+  - id: "chgis.v4_gns_fujian_gbk"
     default:
       encoding: "cp1252"
     exceptions:
       "gbk": ["CNTY_CH"]
-  - id: "v4_gns_gansu_gbk"
+  - id: "chgis.v4_gns_gansu_gbk"
     default:
       encoding: "gbk"
     exceptions:
       "cp1252": ["NAME"]
-  - id: "v4_gns_guangdong_gbk"
+  - id: "chgis.v4_gns_guangdong_gbk"
     default:
       encoding: "cp1252"
     exceptions:
       "gbk": ["CNTY_CH"]
-  - id: "v4_gns_guangxi_gbk"
+  - id: "chgis.v4_gns_guangxi_gbk"
     default:
       encoding: "cp1252"
     exceptions:
       "gbk": ["CNTY_CH"]
-  - id: "v4_gns_guizhou_gbk"
+  - id: "chgis.v4_gns_guizhou_gbk"
     default:
       encoding: "cp1252"
     exceptions:
       "gbk": ["CNTY_CH"]
-  - id: "v4_gns_hainan_gbk"
+  - id: "chgis.v4_gns_hainan_gbk"
     default:
       encoding: "cp1252"
     exceptions:
       "gbk": ["CNTY_CH"]
-  - id: "v4_gns_hebei_gbk"
+  - id: "chgis.v4_gns_hebei_gbk"
     default:
       encoding: "cp1252"
     exceptions:
       "gbk": ["CNTY_CH"]
-  - id: "v4_gns_heilongjiang_gbk"
+  - id: "chgis.v4_gns_heilongjiang_gbk"
     default:
       encoding: "cp1252"
     exceptions:
       "gbk": ["CNTY_CH"]
-  - id: "v4_gns_henan_gbk"
+  - id: "chgis.v4_gns_henan_gbk"
     default:
       encoding: "cp1252"
     exceptions:
       "gbk": ["CNTY_CH"]
-  - id: "v4_gns_hubei_gbk"
+  - id: "chgis.v4_gns_hubei_gbk"
     default:
       encoding: "cp1252"
     exceptions:
       "gbk": ["CNTY_CH"]
-  - id: "v4_gns_hunan_gbk"
+  - id: "chgis.v4_gns_hunan_gbk"
     default:
       encoding: "cp1252"
     exceptions:
       "gbk": ["CNTY_CH"]
-  - id: "v4_gns_jiangsu_gbk"
+  - id: "chgis.v4_gns_jiangsu_gbk"
     default:
       encoding: "cp1252"
     exceptions:
       "gbk": ["CNTY_CH"]
-  - id: "v4_gns_jiangxi_gbk"
+  - id: "chgis.v4_gns_jiangxi_gbk"
     default:
       encoding: "cp1252"
     exceptions:
       "gbk": ["CNTY_CH"]
-  - id: "v4_gns_jilin_gbk"
+  - id: "chgis.v4_gns_jilin_gbk"
     default:
       encoding: "cp1252"
     exceptions:
       "gbk": ["CNTY_CH"]
-  - id: "v4_gns_liaoning_gbk"
+  - id: "chgis.v4_gns_liaoning_gbk"
     default:
       encoding: "cp1252"
     exceptions:
       "gbk": ["CNTY_CH"]
-  - id: "v4_gns_neimeng_gbk"
+  - id: "chgis.v4_gns_neimeng_gbk"
     default:
       encoding: "cp1252"
     exceptions:
       "gbk": ["CNTY_CH"]
-  - id: "v4_gns_ningxia_gbk"
+  - id: "chgis.v4_gns_ningxia_gbk"
     default:
       encoding: "cp1252"
     exceptions:
       "gbk": ["CNTY_CH"]
-  - id: "v4_gns_qinghai_gbk"
+  - id: "chgis.v4_gns_qinghai_gbk"
     default:
       encoding: "gbk"
     exceptions:
       "cp1252": ["NAME"]
-  - id: "v4_gns_shaanxi_gbk"
+  - id: "chgis.v4_gns_shaanxi_gbk"
     default:
       encoding: "gbk"
     exceptions:
       "cp1252": ["NAME"]
-  - id: "v4_gns_shandong_gbk"
+  - id: "chgis.v4_gns_shandong_gbk"
     default:
       encoding: "cp1252"
     exceptions:
       "gbk": ["CNTY_CH"]
-  - id: "v4_gns_shanghai_gbk"
+  - id: "chgis.v4_gns_shanghai_gbk"
     default:
       encoding: "cp1252"
     exceptions:
       "gbk": ["CNTY_CH"]
-  - id: "v4_gns_shanxi_gbk"
+  - id: "chgis.v4_gns_shanxi_gbk"
     default:
       encoding: "gbk"
     exceptions:
       "cp1252": ["NAME"]
-  - id: "v4_gns_sichuan_gbk"
+  - id: "chgis.v4_gns_sichuan_gbk"
     default:
       encoding: "gbk"
     exceptions:
       "cp1252": ["NAME"]
-  - id: "v4_gns_tianjin_gbk"
+  - id: "chgis.v4_gns_tianjin_gbk"
     default:
       encoding: "cp1252"
     exceptions:
       "gbk": ["CNTY_CH"]
-  - id: "v4_gns_tibet_gbk"
+  - id: "chgis.v4_gns_tibet_gbk"
     default:
       encoding: "cp1252"
     exceptions:
       "gbk": ["CNTY_CH"]
-  - id: "v4_gns_xinjiang_gbk"
+  - id: "chgis.v4_gns_xinjiang_gbk"
     default:
       encoding: "gbk"
     exceptions:
       "cp1252": ["NAME"]
-  - id: "v4_gns_yunnan_gbk"
+  - id: "chgis.v4_gns_yunnan_gbk"
     default:
       encoding: "gbk"
     exceptions:
       "cp1252": ["NAME"]
-  - id: "v4_gns_zhejiang_gbk"
+  - id: "chgis.v4_gns_zhejiang_gbk"
     default:
       encoding: "cp1252"
     exceptions:
       "gbk": ["CNTY_CH"]
-  - id: "v4_nima_mtns_pts"
+  - id: "chgis.v4_nima_mtns_pts"
     default:
       encoding: "cp1252"
     exceptions: {}
-  - id: "v4_nima_rocks_pts"
+  - id: "chgis.v4_nima_rocks_pts"
     default:
       encoding: "cp1252"
     exceptions: {}
-  - id: "v4_ras_1871_neimeng_pts"
+  - id: "chgis.v4_ras_1871_neimeng_pts"
     default:
       encoding: "cp1251"
     exceptions: {}
-  - id: "v4_ras_1876_xinjiang_pts"
+  - id: "chgis.v4_ras_1876_xinjiang_pts"
     default:
       encoding: "cp1251"
     exceptions: {}
-  - id: "v4_ras_1884_qinghai_pts"
+  - id: "chgis.v4_ras_1884_qinghai_pts"
     default:
       encoding: "cp1251"
     exceptions: {}
-  - id: "v4_ras_1884_tarim_pts"
+  - id: "chgis.v4_ras_1884_tarim_pts"
     default:
       encoding: "cp1251"
     exceptions: {}
-  - id: "v4_ras_1899_meng_kham_pts"
+  - id: "chgis.v4_ras_1899_meng_kham_pts"
     default:
       encoding: "cp1251"
     exceptions: {}
-  - id: "v4_ras_1900_tibet_kham_pts"
+  - id: "chgis.v4_ras_1900_tibet_kham_pts"
     default:
       encoding: "cp1251"
     exceptions: {}
-  - id: "v4_ras_1904_tibet_pts"
+  - id: "chgis.v4_ras_1904_tibet_pts"
     default:
       encoding: "cp1251"
     exceptions: {}
-  - id: "v4_time_cnty_pts_gbk"
+  - id: "chgis.v4_time_cnty_pts_gbk"
     default:
       encoding: "gbk"
     exceptions: {}
-  - id: "v4_time_cnty_pts_utf"
+  - id: "chgis.v4_time_cnty_pts_utf"
     default:
       encoding: "utf-8"
     exceptions: {}
-  - id: "v4_time_pref_pgn_gbk"
+  - id: "chgis.v4_time_pref_pgn_gbk"
     default:
       encoding: "gbk"
     exceptions: {}
-  - id: "v4_time_pref_pgn_utf"
+  - id: "chgis.v4_time_pref_pgn_utf"
     default:
       encoding: "utf-8"
     exceptions: {}
-  - id: "v4_time_pref_pts_gbk"
+  - id: "chgis.v4_time_pref_pts_gbk"
     default:
       encoding: "gbk"
     exceptions: {}
-  - id: "v4_time_pref_pts_utf"
+  - id: "chgis.v4_time_pref_pts_utf"
     default:
       encoding: "utf-8"
     exceptions: {}
-  - id: "v4_time_prov_pgn_gbk"
+  - id: "chgis.v4_time_prov_pgn_gbk"
     default:
       encoding: "gbk"
     exceptions: {}
-  - id: "v4_time_prov_pgn_utf"
+  - id: "chgis.v4_time_prov_pgn_utf"
     default:
       encoding: "utf-8"
     exceptions: {}
-  - id: "v4_time_prov_pts_gbk"
+  - id: "chgis.v4_time_prov_pts_gbk"
     default:
       encoding: "gbk"
     exceptions: {}
-  - id: "v4_time_prov_pts_utf"
+  - id: "chgis.v4_time_prov_pts_utf"
     default:
       encoding: "utf-8"
     exceptions: {}
-  - id: "v4_time_reg_pgn_gbk"
+  - id: "chgis.v4_time_reg_pgn_gbk"
     default:
       encoding: "gbk"
     exceptions: {}
-  - id: "v4_time_reg_pgn_utf"
+  - id: "chgis.v4_time_reg_pgn_utf"
     default:
       encoding: "utf-8"
     exceptions: {}
-  - id: "v4_time_reg_pts_gbk"
+  - id: "chgis.v4_time_reg_pts_gbk"
     default:
       encoding: "gbk"
     exceptions: {}
-  - id: "v4_time_reg_pts_utf"
+  - id: "chgis.v4_time_reg_pts_utf"
     default:
       encoding: "utf-8"
     exceptions: {}
-  - id: "v5_0741_chin_chn_0741_c"
+  - id: "chgis.v5_0741_chin_chn_0741_c"
     default:
       encoding: "big5"
     exceptions:
       "gbk": ["H_CHINPROV", "NOTES"]
-  - id: "v5_0741_chin_chn_0741_p"
+  - id: "chgis.v5_0741_chin_chn_0741_p"
     default:
       encoding: "big5"
     exceptions: {}
-  - id: "v5_0741_circ_gn_0741_d"
+  - id: "chgis.v5_0741_circ_gn_0741_d"
     default:
       encoding: "gbk"
     exceptions:
       "big5": ["H_SUP_CHPV"]
-  - id: "v5_0741_circ_hb_0741_d"
+  - id: "chgis.v5_0741_circ_hb_0741_d"
     default:
       encoding: "big5"
     exceptions: {}
-  - id: "v5_0741_circ_hd_0741_d"
+  - id: "chgis.v5_0741_circ_hd_0741_d"
     default:
       encoding: "gbk"
     exceptions:
       "big5": ["H_SUP_CHPV"]
-  - id: "v5_0741_circ_hn_0741_d"
+  - id: "chgis.v5_0741_circ_hn_0741_d"
     default:
       encoding: "gbk"
     exceptions:
       "big5": ["H_SUP_CHPV"]
-  - id: "v5_0741_circ_hun_0741_d"
+  - id: "chgis.v5_0741_circ_hun_0741_d"
     default:
       encoding: "gbk"
     exceptions:
       "big5": ["H_SUP_CHPV"]
-  - id: "v5_0741_circ_jgn_0741_d"
+  - id: "chgis.v5_0741_circ_jgn_0741_d"
     default:
       encoding: "big5"
     exceptions: {}
-  - id: "v5_0741_circ_jnn_0741_d"
+  - id: "chgis.v5_0741_circ_jnn_0741_d"
     default:
       encoding: "gbk"
     exceptions:
       "big5": ["H_SUP_CHPV"]
-  - id: "v5_0741_circ_ln_0741_d"
+  - id: "chgis.v5_0741_circ_ln_0741_d"
     default:
       encoding: "gbk"
     exceptions:
       "big5": ["H_SUP_CHPV"]
-  - id: "v5_0741_circ_ly_0741_d"
+  - id: "chgis.v5_0741_circ_ly_0741_d"
     default:
       encoding: "big5"
     exceptions: {}
-  - id: "v5_0741_circ_sn_0741_d"
+  - id: "chgis.v5_0741_circ_sn_0741_d"
     default:
       encoding: "big5"
     exceptions: {}
-  - id: "v5_0741_cnty_gn_0741_c"
+  - id: "chgis.v5_0741_cnty_gn_0741_c"
     default:
       encoding: "big5"
     exceptions:
       "gbk": ["H_CHINPROV", "NOTES"]
-  - id: "v5_0741_cnty_hb_0741_c"
+  - id: "chgis.v5_0741_cnty_hb_0741_c"
     default:
       encoding: "big5"
     exceptions:
       "utf-8": ["NOTES"]
-  - id: "v5_0741_cnty_hd_0741_c"
+  - id: "chgis.v5_0741_cnty_hd_0741_c"
     default:
       encoding: "big5"
     exceptions:
       "gbk": ["H_CHINPROV", "NOTES"]
-  - id: "v5_0741_cnty_hn_0741_c"
+  - id: "chgis.v5_0741_cnty_hn_0741_c"
     default:
       encoding: "big5"
     exceptions:
       "gbk": ["H_CHINPROV", "NOTES"]
-  - id: "v5_0741_cnty_hun_0741_c"
+  - id: "chgis.v5_0741_cnty_hun_0741_c"
     default:
       encoding: "big5"
     exceptions:
       "gbk": ["H_CHINPROV", "H_CHIN_PRF"]
-  - id: "v5_0741_cnty_jgn_0741_c"
+  - id: "chgis.v5_0741_cnty_jgn_0741_c"
     default:
       encoding: "big5"
     exceptions:
       "gbk": ["NOTES"]
-  - id: "v5_0741_cnty_jnn_0741_c"
+  - id: "chgis.v5_0741_cnty_jnn_0741_c"
     default:
       encoding: "big5"
     exceptions:
       "gbk": ["H_CHINPROV"]
       "utf-8": ["NOTES"]
-  - id: "v5_0741_cnty_ln_0741_c"
+  - id: "chgis.v5_0741_cnty_ln_0741_c"
     default:
       encoding: "big5"
     exceptions:
       "gbk": ["H_CHINPROV", "NOTES"]
-  - id: "v5_0741_cnty_ly_0741_c"
+  - id: "chgis.v5_0741_cnty_ly_0741_c"
     default:
       encoding: "big5"
     exceptions: {}
-  - id: "v5_0741_cnty_sn_0741_c"
+  - id: "chgis.v5_0741_cnty_sn_0741_c"
     default:
       encoding: "big5"
     exceptions:
       "gbk": ["NOTES"]
-  - id: "v5_0741_indp_jnt_0741_p"
+  - id: "chgis.v5_0741_indp_jnt_0741_p"
     default:
       encoding: "gbk"
     exceptions: {}
-  - id: "v5_0741_indp_jntr_0741"
+  - id: "chgis.v5_0741_indp_jntr_0741"
     default:
       encoding: "big5"
     exceptions:
       "gbk": ["CHINP090PV", "H_SUP_CHPV", "H_UNICODE_"]
-  - id: "v5_0741_indp_liu_0741_p"
+  - id: "chgis.v5_0741_indp_liu_0741_p"
     default:
       encoding: "gbk"
     exceptions:
       "big5": ["H_SUP_CHPV"]
-  - id: "v5_0741_indp_liuq_0741"
+  - id: "chgis.v5_0741_indp_liuq_0741"
     default:
       encoding: "big5"
     exceptions:
       "gbk": ["H_CHINPROV", "H_UNICODE_"]
-  - id: "v5_0741_indp_tft_0741_p"
+  - id: "chgis.v5_0741_indp_tft_0741_p"
     default:
       encoding: "big5"
     exceptions:
       "gbk": ["H_SUP_CHPV"]
-  - id: "v5_0741_indp_tftr_0741"
+  - id: "chgis.v5_0741_indp_tftr_0741"
     default:
       encoding: "big5"
     exceptions:
       "gbk": ["H_SUP_CHPV"]
-  - id: "v5_0741_pref_gn_0741_p"
+  - id: "chgis.v5_0741_pref_gn_0741_p"
     default:
       encoding: "big5"
     exceptions:
       "gbk": ["H_CHINPROV"]
-  - id: "v5_0741_pref_hb_0741_p"
+  - id: "chgis.v5_0741_pref_hb_0741_p"
     default:
       encoding: "big5"
     exceptions: {}
-  - id: "v5_0741_pref_hd_0741_p"
+  - id: "chgis.v5_0741_pref_hd_0741_p"
     default:
       encoding: "big5"
     exceptions:
       "gbk": ["H_CHINPROV"]
-  - id: "v5_0741_pref_hn_0741_p"
+  - id: "chgis.v5_0741_pref_hn_0741_p"
     default:
       encoding: "big5"
     exceptions:
       "gbk": ["H_CHINPROV"]
-  - id: "v5_0741_pref_hun_0741_p"
+  - id: "chgis.v5_0741_pref_hun_0741_p"
     default:
       encoding: "gbk"
     exceptions:
       "big5": ["H_SUP_CHPV"]
-  - id: "v5_0741_pref_jgn_0741_p"
+  - id: "chgis.v5_0741_pref_jgn_0741_p"
     default:
       encoding: "big5"
     exceptions: {}
-  - id: "v5_0741_pref_jnn_0741_p"
+  - id: "chgis.v5_0741_pref_jnn_0741_p"
     default:
       encoding: "big5"
     exceptions:
       "gbk": ["H_CHINPROV"]
-  - id: "v5_0741_pref_ln_0741_p"
+  - id: "chgis.v5_0741_pref_ln_0741_p"
     default:
       encoding: "big5"
     exceptions:
       "gbk": ["H_CHINPROV"]
-  - id: "v5_0741_pref_ly_0741_p"
+  - id: "chgis.v5_0741_pref_ly_0741_p"
     default:
       encoding: "big5"
     exceptions: {}
-  - id: "v5_0741_pref_sn_0741_p"
+  - id: "chgis.v5_0741_pref_sn_0741_p"
     default:
       encoding: "big5"
     exceptions: {}
-  - id: "v5_1080_chin_chn_1080_c"
+  - id: "chgis.v5_1080_chin_chn_1080_c"
     default:
       encoding: "big5"
     exceptions: {}
-  - id: "v5_1080_chin_chn_1080_l"
+  - id: "chgis.v5_1080_chin_chn_1080_l"
     default:
       encoding: "big5"
     exceptions: {}
-  - id: "v5_1080_chin_chn_1080_p"
+  - id: "chgis.v5_1080_chin_chn_1080_p"
     default:
       encoding: "big5"
     exceptions: {}
-  - id: "v5_1080_chin_difang"
+  - id: "chgis.v5_1080_chin_difang"
     default:
       encoding: "big5"
     exceptions: {}
-  - id: "v5_1080_circ_cdf_1080_l"
+  - id: "chgis.v5_1080_circ_cdf_1080_l"
     default:
       encoding: "gbk"
     exceptions:
       "big5": ["H_SUP_CHPV"]
-  - id: "v5_1080_circ_fj_1080_l"
+  - id: "chgis.v5_1080_circ_fj_1080_l"
     default:
       encoding: "big5"
     exceptions: {}
-  - id: "v5_1080_circ_gnd_1080_l"
+  - id: "chgis.v5_1080_circ_gnd_1080_l"
     default:
       encoding: "gbk"
     exceptions:
       "big5": ["H_SUP_CHPV"]
-  - id: "v5_1080_circ_gnx_1080_l"
+  - id: "chgis.v5_1080_circ_gnx_1080_l"
     default:
       encoding: "gbk"
     exceptions:
       "big5": ["H_SUP_CHPV"]
-  - id: "v5_1080_circ_hbd_1080_l"
+  - id: "chgis.v5_1080_circ_hbd_1080_l"
     default:
       encoding: "big5"
     exceptions: {}
-  - id: "v5_1080_circ_hbx_1080_l"
+  - id: "chgis.v5_1080_circ_hbx_1080_l"
     default:
       encoding: "big5"
     exceptions: {}
-  - id: "v5_1080_circ_hd_1080_l"
+  - id: "chgis.v5_1080_circ_hd_1080_l"
     default:
       encoding: "gbk"
     exceptions:
       "big5": ["H_SUP_CHPV"]
-  - id: "v5_1080_circ_hnd_1080_l"
+  - id: "chgis.v5_1080_circ_hnd_1080_l"
     default:
       encoding: "gbk"
     exceptions:
       "big5": ["H_SUP_CHPV"]
-  - id: "v5_1080_circ_hnx_1080_l"
+  - id: "chgis.v5_1080_circ_hnx_1080_l"
     default:
       encoding: "gbk"
     exceptions:
       "big5": ["H_SUP_CHPV"]
-  - id: "v5_1080_circ_jdd_1080_l"
+  - id: "chgis.v5_1080_circ_jdd_1080_l"
     default:
       encoding: "gbk"
     exceptions:
       "big5": ["H_SUP_CHPV"]
-  - id: "v5_1080_circ_jdx_1080_l"
+  - id: "chgis.v5_1080_circ_jdx_1080_l"
     default:
       encoding: "gbk"
     exceptions:
       "big5": ["H_SUP_CHPV"]
-  - id: "v5_1080_circ_jhb_1080_l"
+  - id: "chgis.v5_1080_circ_jhb_1080_l"
     default:
       encoding: "big5"
     exceptions: {}
-  - id: "v5_1080_circ_jhn_1080_l"
+  - id: "chgis.v5_1080_circ_jhn_1080_l"
     default:
       encoding: "big5"
     exceptions: {}
-  - id: "v5_1080_circ_jj_1080_l"
+  - id: "chgis.v5_1080_circ_jj_1080_l"
     default:
       encoding: "gbk"
     exceptions:
       "big5": ["H_SUP_CHPV"]
-  - id: "v5_1080_circ_jnd_1080_l"
+  - id: "chgis.v5_1080_circ_jnd_1080_l"
     default:
       encoding: "big5"
     exceptions: {}
-  - id: "v5_1080_circ_jnx_1080_l"
+  - id: "chgis.v5_1080_circ_jnx_1080_l"
     default:
       encoding: "big5"
     exceptions: {}
-  - id: "v5_1080_circ_jxb_1080_l"
+  - id: "chgis.v5_1080_circ_jxb_1080_l"
     default:
       encoding: "big5"
     exceptions: {}
-  - id: "v5_1080_circ_jxn_1080_l"
+  - id: "chgis.v5_1080_circ_jxn_1080_l"
     default:
       encoding: "gbk"
     exceptions:
       "big5": ["H_SUP_CHPV"]
-  - id: "v5_1080_circ_kz_1080_l"
+  - id: "chgis.v5_1080_circ_kz_1080_l"
     default:
       encoding: "big5"
     exceptions: {}
-  - id: "v5_1080_circ_liz_1080_l"
+  - id: "chgis.v5_1080_circ_liz_1080_l"
     default:
       encoding: "big5"
     exceptions: {}
-  - id: "v5_1080_circ_lz_1080_l"
+  - id: "chgis.v5_1080_circ_lz_1080_l"
     default:
       encoding: "big5"
     exceptions: {}
-  - id: "v5_1080_circ_qf_1080_l"
+  - id: "chgis.v5_1080_circ_qf_1080_l"
     default:
       encoding: "big5"
     exceptions: {}
-  - id: "v5_1080_circ_yx_1080_l"
+  - id: "chgis.v5_1080_circ_yx_1080_l"
     default:
       encoding: "gbk"
     exceptions:
       "big5": ["H_SUP_CHPV"]
-  - id: "v5_1080_circ_zz_1080_l"
+  - id: "chgis.v5_1080_circ_zz_1080_l"
     default:
       encoding: "big5"
     exceptions: {}
-  - id: "v5_1080_cnty_cdf_1080_c"
+  - id: "chgis.v5_1080_cnty_cdf_1080_c"
     default:
       encoding: "big5"
     exceptions:
       "gbk": ["H_CHINPROV"]
       "utf-8": ["NOTES"]
-  - id: "v5_1080_cnty_fj_1080_c"
+  - id: "chgis.v5_1080_cnty_fj_1080_c"
     default:
       encoding: "big5"
     exceptions: {}
-  - id: "v5_1080_cnty_gnd_1080_c"
+  - id: "chgis.v5_1080_cnty_gnd_1080_c"
     default:
       encoding: "big5"
     exceptions:
       "gbk": ["CHINP090PV", "H_CHINPROV"]
-  - id: "v5_1080_cnty_gnx_1080_c"
+  - id: "chgis.v5_1080_cnty_gnx_1080_c"
     default:
       encoding: "big5"
     exceptions:
       "gbk": ["H_CHINPROV"]
       "utf-8": ["NOTES"]
-  - id: "v5_1080_cnty_hbd_1080_c"
+  - id: "chgis.v5_1080_cnty_hbd_1080_c"
     default:
       encoding: "big5"
     exceptions: {}
-  - id: "v5_1080_cnty_hbx_1080_c"
+  - id: "chgis.v5_1080_cnty_hbx_1080_c"
     default:
       encoding: "big5"
     exceptions:
       "gbk": ["NOTES"]
-  - id: "v5_1080_cnty_hd_1080_c"
+  - id: "chgis.v5_1080_cnty_hd_1080_c"
     default:
       encoding: "big5"
     exceptions:
       "gbk": ["H_CHINPROV"]
-  - id: "v5_1080_cnty_hnd_1080_c"
+  - id: "chgis.v5_1080_cnty_hnd_1080_c"
     default:
       encoding: "big5"
     exceptions:
       "gbk": ["H_CHINPROV"]
-  - id: "v5_1080_cnty_hnx_1080_c"
+  - id: "chgis.v5_1080_cnty_hnx_1080_c"
     default:
       encoding: "big5"
     exceptions:
       "gbk": ["H_CHINPROV"]
-  - id: "v5_1080_cnty_jdd_1080_c"
+  - id: "chgis.v5_1080_cnty_jdd_1080_c"
     default:
       encoding: "big5"
     exceptions:
       "gbk": ["H_CHINPROV"]
-  - id: "v5_1080_cnty_jdx_1080_c"
+  - id: "chgis.v5_1080_cnty_jdx_1080_c"
     default:
       encoding: "big5"
     exceptions:
       "gbk": ["H_CHINPROV", "NOTES"]
-  - id: "v5_1080_cnty_jhb_1080_c"
+  - id: "chgis.v5_1080_cnty_jhb_1080_c"
     default:
       encoding: "big5"
     exceptions:
       "gbk": ["NOTES"]
-  - id: "v5_1080_cnty_jhn_1080_c"
+  - id: "chgis.v5_1080_cnty_jhn_1080_c"
     default:
       encoding: "big5"
     exceptions:
       "gbk": ["CHINP090PV"]
-  - id: "v5_1080_cnty_jj_1080_c"
+  - id: "chgis.v5_1080_cnty_jj_1080_c"
     default:
       encoding: "big5"
     exceptions:
       "gbk": ["CHINP090PV", "H_CHINPROV"]
-  - id: "v5_1080_cnty_jnd_1080_c"
+  - id: "chgis.v5_1080_cnty_jnd_1080_c"
     default:
       encoding: "big5"
     exceptions:
       "gbk": ["NOTES"]
-  - id: "v5_1080_cnty_jnx_1080_c"
+  - id: "chgis.v5_1080_cnty_jnx_1080_c"
     default:
       encoding: "big5"
     exceptions:
       "gbk": ["NOTES"]
-  - id: "v5_1080_cnty_jxb_1080_c"
+  - id: "chgis.v5_1080_cnty_jxb_1080_c"
     default:
       encoding: "big5"
     exceptions: {}
-  - id: "v5_1080_cnty_jxn_1080_c"
+  - id: "chgis.v5_1080_cnty_jxn_1080_c"
     default:
       encoding: "big5"
     exceptions:
       "gbk": ["H_CHINPROV"]
-  - id: "v5_1080_cnty_kz_1080_c"
+  - id: "chgis.v5_1080_cnty_kz_1080_c"
     default:
       encoding: "big5"
     exceptions: {}
-  - id: "v5_1080_cnty_liz_1080_c"
+  - id: "chgis.v5_1080_cnty_liz_1080_c"
     default:
       encoding: "big5"
     exceptions:
       "gbk": ["NOTES"]
-  - id: "v5_1080_cnty_lz_1080_c"
+  - id: "chgis.v5_1080_cnty_lz_1080_c"
     default:
       encoding: "big5"
     exceptions: {}
-  - id: "v5_1080_cnty_qf_1080_c"
+  - id: "chgis.v5_1080_cnty_qf_1080_c"
     default:
       encoding: "big5"
     exceptions: {}
-  - id: "v5_1080_cnty_yx_1080_c"
+  - id: "chgis.v5_1080_cnty_yx_1080_c"
     default:
       encoding: "big5"
     exceptions:
       "gbk": ["H_CHINPROV", "NOTES"]
-  - id: "v5_1080_cnty_zz_1080_c"
+  - id: "chgis.v5_1080_cnty_zz_1080_c"
     default:
       encoding: "big5"
     exceptions:
       "utf-8": ["NOTES"]
-  - id: "v5_1080_indp_abor_1080"
+  - id: "chgis.v5_1080_indp_abor_1080"
     default:
       encoding: "gbk"
     exceptions:
       "big5": ["CAPITAL_CH", "P90PRFCHIN"]
-  - id: "v5_1080_indp_dali_1080"
+  - id: "chgis.v5_1080_indp_dali_1080"
     default:
       encoding: "big5"
     exceptions:
       "gbk": ["CHINP090PV"]
-  - id: "v5_1080_indp_hei_1080"
+  - id: "chgis.v5_1080_indp_hei_1080"
     default:
       encoding: "gbk"
     exceptions:
       "big5": ["H_SUP_CHPV", "H_UNICODE_"]
-  - id: "v5_1080_indp_hotn_1080"
+  - id: "chgis.v5_1080_indp_hotn_1080"
     default:
       encoding: "gbk"
     exceptions:
       "big5": ["H_SUP_CHPV", "H_UNICODE_"]
-  - id: "v5_1080_indp_ind_1080_l"
+  - id: "chgis.v5_1080_indp_ind_1080_l"
     default:
       encoding: "big5"
     exceptions: {}
-  - id: "v5_1080_indp_ind_1080_p"
+  - id: "chgis.v5_1080_indp_ind_1080_p"
     default:
       encoding: "big5"
     exceptions: {}
-  - id: "v5_1080_indp_liao_1080"
+  - id: "chgis.v5_1080_indp_liao_1080"
     default:
       encoding: "big5"
     exceptions: {}
-  - id: "v5_1080_indp_liu_1080_l"
+  - id: "chgis.v5_1080_indp_liu_1080_l"
     default:
       encoding: "gbk"
     exceptions:
       "big5": ["H_SUP_CHPV"]
-  - id: "v5_1080_indp_liu_1080_p"
+  - id: "chgis.v5_1080_indp_liu_1080_p"
     default:
       encoding: "gbk"
     exceptions:
       "big5": ["H_SUP_CHPV"]
-  - id: "v5_1080_indp_liuq_1080"
+  - id: "chgis.v5_1080_indp_liuq_1080"
     default:
       encoding: "big5"
     exceptions:
       "gbk": ["H_CHINPROV", "H_UNICODE_"]
-  - id: "v5_1080_indp_tufn_1080"
+  - id: "chgis.v5_1080_indp_tufn_1080"
     default:
       encoding: "gbk"
     exceptions:
       "big5": ["H_SUP_CHPV", "H_UNICODE_"]
-  - id: "v5_1080_indp_uigr_1080"
+  - id: "chgis.v5_1080_indp_uigr_1080"
     default:
       encoding: "big5"
     exceptions:
       "gbk": ["CHINP090PV"]
-  - id: "v5_1080_indp_xxia_1080"
+  - id: "chgis.v5_1080_indp_xxia_1080"
     default:
       encoding: "big5"
     exceptions:
       "gbk": ["H_SUP_CHPV", "H_UNICODE_"]
-  - id: "v5_1080_liao_djd_1080_c"
+  - id: "chgis.v5_1080_liao_djd_1080_c"
     default:
       encoding: "big5"
     exceptions:
       "gbk": ["H_CHINPROV", "NOTES"]
-  - id: "v5_1080_liao_djd_1080_d"
+  - id: "chgis.v5_1080_liao_djd_1080_d"
     default:
       encoding: "gbk"
     exceptions:
       "big5": ["H_SUP_CHPV"]
-  - id: "v5_1080_liao_djd_1080_p"
+  - id: "chgis.v5_1080_liao_djd_1080_p"
     default:
       encoding: "big5"
     exceptions:
       "gbk": ["H_CHINPROV"]
-  - id: "v5_1080_liao_dtl_1080_d"
+  - id: "chgis.v5_1080_liao_dtl_1080_d"
     default:
       encoding: "big5"
     exceptions: {}
-  - id: "v5_1080_liao_dtl_1080_j"
+  - id: "chgis.v5_1080_liao_dtl_1080_j"
     default:
       encoding: "big5"
     exceptions: {}
-  - id: "v5_1080_liao_dtl_1080_p"
+  - id: "chgis.v5_1080_liao_dtl_1080_p"
     default:
       encoding: "big5"
     exceptions: {}
-  - id: "v5_1080_liao_njd_1080_c"
+  - id: "chgis.v5_1080_liao_njd_1080_c"
     default:
       encoding: "big5"
     exceptions:
       "gbk": ["H_CHINPROV"]
-  - id: "v5_1080_liao_njd_1080_d"
+  - id: "chgis.v5_1080_liao_njd_1080_d"
     default:
       encoding: "gbk"
     exceptions:
       "big5": ["H_SUP_CHPV"]
-  - id: "v5_1080_liao_njd_1080_p"
+  - id: "chgis.v5_1080_liao_njd_1080_p"
     default:
       encoding: "big5"
     exceptions:
       "gbk": ["H_CHINPROV"]
-  - id: "v5_1080_liao_sjd_1080_c"
+  - id: "chgis.v5_1080_liao_sjd_1080_c"
     default:
       encoding: "big5"
     exceptions: {}
-  - id: "v5_1080_liao_sjd_1080_d"
+  - id: "chgis.v5_1080_liao_sjd_1080_d"
     default:
       encoding: "big5"
     exceptions: {}
-  - id: "v5_1080_liao_sjd_1080_p"
+  - id: "chgis.v5_1080_liao_sjd_1080_p"
     default:
       encoding: "big5"
     exceptions: {}
-  - id: "v5_1080_liao_sjd_1080z"
+  - id: "chgis.v5_1080_liao_sjd_1080z"
     default:
       encoding: "big5"
     exceptions: {}
-  - id: "v5_1080_liao_xjd_1080_c"
+  - id: "chgis.v5_1080_liao_xjd_1080_c"
     default:
       encoding: "big5"
     exceptions:
       "gbk": ["H_CHINPROV", "NOTES"]
-  - id: "v5_1080_liao_xjd_1080_d"
+  - id: "chgis.v5_1080_liao_xjd_1080_d"
     default:
       encoding: "gbk"
     exceptions:
       "big5": ["H_SUP_CHPV"]
-  - id: "v5_1080_liao_xjd_1080_p"
+  - id: "chgis.v5_1080_liao_xjd_1080_p"
     default:
       encoding: "big5"
     exceptions:
       "gbk": ["H_CHINPROV"]
-  - id: "v5_1080_liao_zjd_1080_c"
+  - id: "chgis.v5_1080_liao_zjd_1080_c"
     default:
       encoding: "big5"
     exceptions:
       "gbk": ["H_CHINPROV"]
-  - id: "v5_1080_liao_zjd_1080_d"
+  - id: "chgis.v5_1080_liao_zjd_1080_d"
     default:
       encoding: "gbk"
     exceptions:
       "big5": ["H_SUP_CHPV"]
-  - id: "v5_1080_liao_zjd_1080_p"
+  - id: "chgis.v5_1080_liao_zjd_1080_p"
     default:
       encoding: "big5"
     exceptions:
       "gbk": ["H_CHINPROV"]
-  - id: "v5_1080_pref_cdf_1080_p"
+  - id: "chgis.v5_1080_pref_cdf_1080_p"
     default:
       encoding: "big5"
     exceptions:
       "gbk": ["H_CHINPROV"]
-  - id: "v5_1080_pref_fj_1080_p"
+  - id: "chgis.v5_1080_pref_fj_1080_p"
     default:
       encoding: "big5"
     exceptions: {}
-  - id: "v5_1080_pref_gnd_1080_p"
+  - id: "chgis.v5_1080_pref_gnd_1080_p"
     default:
       encoding: "big5"
     exceptions:
       "gbk": ["H_CHINPROV"]
-  - id: "v5_1080_pref_gnx_1080_p"
+  - id: "chgis.v5_1080_pref_gnx_1080_p"
     default:
       encoding: "big5"
     exceptions:
       "gbk": ["H_CHINPROV"]
-  - id: "v5_1080_pref_hbd_1080_p"
+  - id: "chgis.v5_1080_pref_hbd_1080_p"
     default:
       encoding: "big5"
     exceptions: {}
-  - id: "v5_1080_pref_hbx_1080_p"
+  - id: "chgis.v5_1080_pref_hbx_1080_p"
     default:
       encoding: "big5"
     exceptions: {}
-  - id: "v5_1080_pref_hd_1080_p"
+  - id: "chgis.v5_1080_pref_hd_1080_p"
     default:
       encoding: "big5"
     exceptions:
       "gbk": ["H_CHINPROV"]
-  - id: "v5_1080_pref_hnd_1080_p"
+  - id: "chgis.v5_1080_pref_hnd_1080_p"
     default:
       encoding: "big5"
     exceptions:
       "gbk": ["H_CHINPROV"]
-  - id: "v5_1080_pref_hnx_1080_p"
+  - id: "chgis.v5_1080_pref_hnx_1080_p"
     default:
       encoding: "big5"
     exceptions:
       "gbk": ["H_CHINPROV"]
-  - id: "v5_1080_pref_jdd_1080_p"
+  - id: "chgis.v5_1080_pref_jdd_1080_p"
     default:
       encoding: "big5"
     exceptions:
       "gbk": ["H_CHINPROV"]
-  - id: "v5_1080_pref_jdx_1080_p"
+  - id: "chgis.v5_1080_pref_jdx_1080_p"
     default:
       encoding: "big5"
     exceptions:
       "gbk": ["H_CHINPROV"]
-  - id: "v5_1080_pref_jhb_1080_p"
+  - id: "chgis.v5_1080_pref_jhb_1080_p"
     default:
       encoding: "big5"
     exceptions: {}
-  - id: "v5_1080_pref_jhn_1080_p"
+  - id: "chgis.v5_1080_pref_jhn_1080_p"
     default:
       encoding: "big5"
     exceptions: {}
-  - id: "v5_1080_pref_jj_1080_p"
+  - id: "chgis.v5_1080_pref_jj_1080_p"
     default:
       encoding: "big5"
     exceptions:
       "gbk": ["H_CHINPROV"]
-  - id: "v5_1080_pref_jnd_1080_p"
+  - id: "chgis.v5_1080_pref_jnd_1080_p"
     default:
       encoding: "big5"
     exceptions: {}
-  - id: "v5_1080_pref_jnx_1080_p"
+  - id: "chgis.v5_1080_pref_jnx_1080_p"
     default:
       encoding: "big5"
     exceptions: {}
-  - id: "v5_1080_pref_jxb_1080_p"
+  - id: "chgis.v5_1080_pref_jxb_1080_p"
     default:
       encoding: "big5"
     exceptions: {}
-  - id: "v5_1080_pref_jxn_1080_p"
+  - id: "chgis.v5_1080_pref_jxn_1080_p"
     default:
       encoding: "big5"
     exceptions:
       "gbk": ["H_CHINPROV"]
-  - id: "v5_1080_pref_kz_1080_p"
+  - id: "chgis.v5_1080_pref_kz_1080_p"
     default:
       encoding: "big5"
     exceptions: {}
-  - id: "v5_1080_pref_liz_1080_p"
+  - id: "chgis.v5_1080_pref_liz_1080_p"
     default:
       encoding: "big5"
     exceptions: {}
-  - id: "v5_1080_pref_lz_1080_p"
+  - id: "chgis.v5_1080_pref_lz_1080_p"
     default:
       encoding: "big5"
     exceptions: {}
-  - id: "v5_1080_pref_qf_1080_p"
+  - id: "chgis.v5_1080_pref_qf_1080_p"
     default:
       encoding: "big5"
     exceptions: {}
-  - id: "v5_1080_pref_upd_hbdp"
+  - id: "chgis.v5_1080_pref_upd_hbdp"
     default:
       encoding: "big5"
     exceptions: {}
-  - id: "v5_1080_pref_yx_1080_p"
+  - id: "chgis.v5_1080_pref_yx_1080_p"
     default:
       encoding: "big5"
     exceptions:
       "gbk": ["H_CHINPROV"]
-  - id: "v5_1080_pref_zz_1080_p"
+  - id: "chgis.v5_1080_pref_zz_1080_p"
     default:
       encoding: "big5"
     exceptions: {}
-  - id: "v5_1200_chin_chn_1200_c"
+  - id: "chgis.v5_1200_chin_chn_1200_c"
     default:
       encoding: "big5"
     exceptions:
       "gbk": ["NOTES"]
-  - id: "v5_1200_chin_chn_1200_l"
+  - id: "chgis.v5_1200_chin_chn_1200_l"
     default:
       encoding: "big5"
     exceptions: {}
-  - id: "v5_1200_chin_chn_1200_p"
+  - id: "chgis.v5_1200_chin_chn_1200_p"
     default:
       encoding: "big5"
     exceptions: {}
-  - id: "v5_1200_cnty_cdf_1200_c"
+  - id: "chgis.v5_1200_cnty_cdf_1200_c"
     default:
       encoding: "big5"
     exceptions:
       "gbk": ["H_CHINPROV"]
       "utf-8": ["NOTES"]
-  - id: "v5_1200_cnty_fj_1200_c"
+  - id: "chgis.v5_1200_cnty_fj_1200_c"
     default:
       encoding: "big5"
     exceptions: {}
-  - id: "v5_1200_cnty_gnd_1200_c"
+  - id: "chgis.v5_1200_cnty_gnd_1200_c"
     default:
       encoding: "big5"
     exceptions:
       "gbk": ["CHINP090PV", "H_CHINPROV"]
-  - id: "v5_1200_cnty_gnx_1200_c"
+  - id: "chgis.v5_1200_cnty_gnx_1200_c"
     default:
       encoding: "big5"
     exceptions:
       "gbk": ["H_CHINPROV"]
       "utf-8": ["NOTES"]
-  - id: "v5_1200_cnty_hnd_1200_c"
+  - id: "chgis.v5_1200_cnty_hnd_1200_c"
     default:
       encoding: "big5"
     exceptions:
       "gbk": ["H_CHINPROV"]
-  - id: "v5_1200_cnty_hnx_1200_c"
+  - id: "chgis.v5_1200_cnty_hnx_1200_c"
     default:
       encoding: "big5"
     exceptions:
       "gbk": ["H_CHINPROV", "NOTES"]
-  - id: "v5_1200_cnty_jhb_1200_c"
+  - id: "chgis.v5_1200_cnty_jhb_1200_c"
     default:
       encoding: "big5"
     exceptions:
       "gbk": ["NOTES"]
-  - id: "v5_1200_cnty_jhn_1200_c"
+  - id: "chgis.v5_1200_cnty_jhn_1200_c"
     default:
       encoding: "big5"
     exceptions:
       "gbk": ["CHINP090PV"]
-  - id: "v5_1200_cnty_jnd_1200_c"
+  - id: "chgis.v5_1200_cnty_jnd_1200_c"
     default:
       encoding: "big5"
     exceptions:
       "gbk": ["NOTES"]
-  - id: "v5_1200_cnty_jnx_1200_c"
+  - id: "chgis.v5_1200_cnty_jnx_1200_c"
     default:
       encoding: "big5"
     exceptions:
       "gbk": ["NOTES"]
-  - id: "v5_1200_cnty_jxn_1200_c"
+  - id: "chgis.v5_1200_cnty_jxn_1200_c"
     default:
       encoding: "big5"
     exceptions:
       "gbk": ["H_CHINPROV"]
-  - id: "v5_1200_cnty_kz_1200_c"
+  - id: "chgis.v5_1200_cnty_kz_1200_c"
     default:
       encoding: "big5"
     exceptions:
       "gbk": ["NOTES"]
-  - id: "v5_1200_cnty_lz_1200_c"
+  - id: "chgis.v5_1200_cnty_lz_1200_c"
     default:
       encoding: "big5"
     exceptions:
       "gbk": ["NOTES"]
-  - id: "v5_1200_cnty_tcf_1200_c"
+  - id: "chgis.v5_1200_cnty_tcf_1200_c"
     default:
       encoding: "big5"
     exceptions:
       "utf-8": ["NOTES"]
-  - id: "v5_1200_cnty_zd_1200_c"
+  - id: "chgis.v5_1200_cnty_zd_1200_c"
     default:
       encoding: "big5"
     exceptions:
       "gbk": ["NOTES"]
-  - id: "v5_1200_cnty_zx_1200_c"
+  - id: "chgis.v5_1200_cnty_zx_1200_c"
     default:
       encoding: "big5"
     exceptions: {}
-  - id: "v5_1200_indp_dli_1200_c"
+  - id: "chgis.v5_1200_indp_dli_1200_c"
     default:
       encoding: "big5"
     exceptions:
       "gbk": ["CHINP090PV"]
-  - id: "v5_1200_indp_dli_1200_l"
+  - id: "chgis.v5_1200_indp_dli_1200_l"
     default:
       encoding: "big5"
     exceptions: {}
-  - id: "v5_1200_indp_dli_1200_p"
+  - id: "chgis.v5_1200_indp_dli_1200_p"
     default:
       encoding: "big5"
     exceptions: {}
-  - id: "v5_1200_indp_liu_1200_c"
+  - id: "chgis.v5_1200_indp_liu_1200_c"
     default:
       encoding: "big5"
     exceptions:
       "gbk": ["H_CHINPROV", "H_UNICODE_"]
-  - id: "v5_1200_indp_liu_1200_l"
+  - id: "chgis.v5_1200_indp_liu_1200_l"
     default:
       encoding: "gbk"
     exceptions:
       "big5": ["H_SUP_CHPV"]
-  - id: "v5_1200_indp_liu_1200_p"
+  - id: "chgis.v5_1200_indp_liu_1200_p"
     default:
       encoding: "gbk"
     exceptions:
       "big5": ["H_SUP_CHPV"]
-  - id: "v5_1200_indp_mng_1200_c"
+  - id: "chgis.v5_1200_indp_mng_1200_c"
     default:
       encoding: "big5"
     exceptions: {}
-  - id: "v5_1200_indp_mng_1200_l"
+  - id: "chgis.v5_1200_indp_mng_1200_l"
     default:
       encoding: "big5"
     exceptions: {}
-  - id: "v5_1200_indp_mng_1200_p"
+  - id: "chgis.v5_1200_indp_mng_1200_p"
     default:
       encoding: "big5"
     exceptions: {}
-  - id: "v5_1200_indp_qar_1200_c"
+  - id: "chgis.v5_1200_indp_qar_1200_c"
     default:
       encoding: "gbk"
     exceptions: {}
-  - id: "v5_1200_indp_qar_1200_l"
+  - id: "chgis.v5_1200_indp_qar_1200_l"
     default:
       encoding: "gbk"
     exceptions: {}
-  - id: "v5_1200_indp_qar_1200_p"
+  - id: "chgis.v5_1200_indp_qar_1200_p"
     default:
       encoding: "gbk"
     exceptions: {}
-  - id: "v5_1200_indp_tuf_1200_c"
+  - id: "chgis.v5_1200_indp_tuf_1200_c"
     default:
       encoding: "gbk"
     exceptions:
       "big5": ["CHINP090PV", "H_SUP_CHPV", "H_UNICODE_"]
-  - id: "v5_1200_indp_tuf_1200_l"
+  - id: "chgis.v5_1200_indp_tuf_1200_l"
     default:
       encoding: "big5"
     exceptions: {}
-  - id: "v5_1200_indp_tuf_1200_p"
+  - id: "chgis.v5_1200_indp_tuf_1200_p"
     default:
       encoding: "big5"
     exceptions: {}
-  - id: "v5_1200_indp_xia_1200_c"
+  - id: "chgis.v5_1200_indp_xia_1200_c"
     default:
       encoding: "big5"
     exceptions:
       "gbk": ["H_UNICODE_"]
-  - id: "v5_1200_indp_xia_1200_l"
+  - id: "chgis.v5_1200_indp_xia_1200_l"
     default:
       encoding: "gbk"
     exceptions:
       "big5": ["H_SUP_CHPV"]
-  - id: "v5_1200_indp_xia_1200_p"
+  - id: "chgis.v5_1200_indp_xia_1200_p"
     default:
       encoding: "gbk"
     exceptions:
       "big5": ["H_SUP_CHPV"]
-  - id: "v5_1200_jin_cinty_bj_1200_c"
+  - id: "chgis.v5_1200_jin_cinty_bj_1200_c"
     default:
       encoding: "big5"
     exceptions: {}
-  - id: "v5_1200_jin_cinty_dj_1200_c"
+  - id: "chgis.v5_1200_jin_cinty_dj_1200_c"
     default:
       encoding: "big5"
     exceptions:
       "gbk": ["H_CHINPROV"]
-  - id: "v5_1200_jin_cinty_dmf_1200_c"
+  - id: "chgis.v5_1200_jin_cinty_dmf_1200_c"
     default:
       encoding: "big5"
     exceptions: {}
-  - id: "v5_1200_jin_cinty_fxf_1200_c"
+  - id: "chgis.v5_1200_jin_cinty_fxf_1200_c"
     default:
       encoding: "big5"
     exceptions:
       "gbk": ["H_CHINPROV"]
-  - id: "v5_1200_jin_cinty_fy_1200_c"
+  - id: "chgis.v5_1200_jin_cinty_fy_1200_c"
     default:
       encoding: "big5"
     exceptions:
       "gbk": ["CHINP090PV", "H_CHINPROV"]
-  - id: "v5_1200_jin_cinty_hbd_1200_c"
+  - id: "chgis.v5_1200_jin_cinty_hbd_1200_c"
     default:
       encoding: "big5"
     exceptions:
       "utf-8": ["NOTES"]
-  - id: "v5_1200_jin_cinty_hbx_1200_c"
+  - id: "chgis.v5_1200_jin_cinty_hbx_1200_c"
     default:
       encoding: "big5"
     exceptions:
       "gbk": ["NOTES"]
-  - id: "v5_1200_jin_cinty_hdb_1200_c"
+  - id: "chgis.v5_1200_jin_cinty_hdb_1200_c"
     default:
       encoding: "big5"
     exceptions: {}
-  - id: "v5_1200_jin_cinty_hdn_1200_c"
+  - id: "chgis.v5_1200_jin_cinty_hdn_1200_c"
     default:
       encoding: "big5"
     exceptions:
       "gbk": ["H_CHINPROV"]
-  - id: "v5_1200_jin_cinty_jzf_1200_c"
+  - id: "chgis.v5_1200_jin_cinty_jzf_1200_c"
     default:
       encoding: "big5"
     exceptions:
       "gbk": ["CHINP090PV", "NOTES"]
-  - id: "v5_1200_jin_cinty_lt_1200_c"
+  - id: "chgis.v5_1200_jin_cinty_lt_1200_c"
     default:
       encoding: "big5"
     exceptions:
       "gbk": ["CHINP090PV"]
-  - id: "v5_1200_jin_cinty_nj_1200_c"
+  - id: "chgis.v5_1200_jin_cinty_nj_1200_c"
     default:
       encoding: "big5"
     exceptions:
       "gbk": ["H_CHINPROV", "NOTES"]
-  - id: "v5_1200_jin_cinty_qy_1200_c"
+  - id: "chgis.v5_1200_jin_cinty_qy_1200_c"
     default:
       encoding: "big5"
     exceptions:
       "gbk": ["CHINP090PV", "P90PRFCHIN"]
-  - id: "v5_1200_jin_cinty_sdd_1200_c"
+  - id: "chgis.v5_1200_jin_cinty_sdd_1200_c"
     default:
       encoding: "big5"
     exceptions: {}
-  - id: "v5_1200_jin_cinty_sdx_1200_c"
+  - id: "chgis.v5_1200_jin_cinty_sdx_1200_c"
     default:
       encoding: "big5"
     exceptions: {}
-  - id: "v5_1200_jin_cinty_sj_1200_c"
+  - id: "chgis.v5_1200_jin_cinty_sj_1200_c"
     default:
       encoding: "big5"
     exceptions: {}
-  - id: "v5_1200_jin_cinty_xj_1200_c"
+  - id: "chgis.v5_1200_jin_cinty_xj_1200_c"
     default:
       encoding: "big5"
     exceptions:
       "gbk": ["H_CHINPROV"]
-  - id: "v5_1200_jin_cinty_xp_1200_c"
+  - id: "chgis.v5_1200_jin_cinty_xp_1200_c"
     default:
       encoding: "big5"
     exceptions:
       "gbk": ["H_CHINPROV"]
-  - id: "v5_1200_jin_cinty_zd_1200_c"
+  - id: "chgis.v5_1200_jin_cinty_zd_1200_c"
     default:
       encoding: "big5"
     exceptions:
       "gbk": ["H_CHINPROV"]
-  - id: "v5_1200_jin_circ_bj_1200_l"
+  - id: "chgis.v5_1200_jin_circ_bj_1200_l"
     default:
       encoding: "big5"
     exceptions: {}
-  - id: "v5_1200_jin_circ_dj_1200_l"
+  - id: "chgis.v5_1200_jin_circ_dj_1200_l"
     default:
       encoding: "gbk"
     exceptions:
       "big5": ["H_SUP_CHPV"]
-  - id: "v5_1200_jin_circ_dmf_1200_l"
+  - id: "chgis.v5_1200_jin_circ_dmf_1200_l"
     default:
       encoding: "big5"
     exceptions: {}
-  - id: "v5_1200_jin_circ_fxf_1200_l"
+  - id: "chgis.v5_1200_jin_circ_fxf_1200_l"
     default:
       encoding: "gbk"
     exceptions:
       "big5": ["H_SUP_CHPV"]
-  - id: "v5_1200_jin_circ_fy_1200_l"
+  - id: "chgis.v5_1200_jin_circ_fy_1200_l"
     default:
       encoding: "big5"
     exceptions:
       "gbk": ["H_CHINPROV"]
-  - id: "v5_1200_jin_circ_hbd_1200_l"
+  - id: "chgis.v5_1200_jin_circ_hbd_1200_l"
     default:
       encoding: "big5"
     exceptions: {}
-  - id: "v5_1200_jin_circ_hbx_1200_l"
+  - id: "chgis.v5_1200_jin_circ_hbx_1200_l"
     default:
       encoding: "big5"
     exceptions: {}
-  - id: "v5_1200_jin_circ_hdb_1200_l"
+  - id: "chgis.v5_1200_jin_circ_hdb_1200_l"
     default:
       encoding: "big5"
     exceptions: {}
-  - id: "v5_1200_jin_circ_hdn_1200_l"
+  - id: "chgis.v5_1200_jin_circ_hdn_1200_l"
     default:
       encoding: "gbk"
     exceptions:
       "big5": ["H_SUP_CHPV"]
-  - id: "v5_1200_jin_circ_jzf_1200_l"
+  - id: "chgis.v5_1200_jin_circ_jzf_1200_l"
     default:
       encoding: "big5"
     exceptions: {}
-  - id: "v5_1200_jin_circ_lt_1200_l"
+  - id: "chgis.v5_1200_jin_circ_lt_1200_l"
     default:
       encoding: "big5"
     exceptions: {}
-  - id: "v5_1200_jin_circ_nj_1200_l"
+  - id: "chgis.v5_1200_jin_circ_nj_1200_l"
     default:
       encoding: "gbk"
     exceptions:
       "big5": ["H_SUP_CHPV"]
-  - id: "v5_1200_jin_circ_qy_1200_l"
+  - id: "chgis.v5_1200_jin_circ_qy_1200_l"
     default:
       encoding: "big5"
     exceptions: {}
-  - id: "v5_1200_jin_circ_sdd_1200_l"
+  - id: "chgis.v5_1200_jin_circ_sdd_1200_l"
     default:
       encoding: "big5"
     exceptions: {}
-  - id: "v5_1200_jin_circ_sdx_1200_l"
+  - id: "chgis.v5_1200_jin_circ_sdx_1200_l"
     default:
       encoding: "gbk"
     exceptions:
       "big5": ["H_CHINPROV", "H_SUP_CHPV"]
-  - id: "v5_1200_jin_circ_sj_1200_l"
+  - id: "chgis.v5_1200_jin_circ_sj_1200_l"
     default:
       encoding: "big5"
     exceptions: {}
-  - id: "v5_1200_jin_circ_xj_1200_l"
+  - id: "chgis.v5_1200_jin_circ_xj_1200_l"
     default:
       encoding: "gbk"
     exceptions:
       "big5": ["H_SUP_CHPV"]
-  - id: "v5_1200_jin_circ_xp_1200_l"
+  - id: "chgis.v5_1200_jin_circ_xp_1200_l"
     default:
       encoding: "gbk"
     exceptions:
       "big5": ["H_SUP_CHPV"]
-  - id: "v5_1200_jin_circ_zd_1200_l"
+  - id: "chgis.v5_1200_jin_circ_zd_1200_l"
     default:
       encoding: "gbk"
     exceptions:
       "big5": ["H_SUP_CHPV"]
-  - id: "v5_1200_jin_jin_1200"
+  - id: "chgis.v5_1200_jin_jin_1200"
     default:
       encoding: "big5"
     exceptions: {}
-  - id: "v5_1200_jin_pref_bj_1200_p"
+  - id: "chgis.v5_1200_jin_pref_bj_1200_p"
     default:
       encoding: "big5"
     exceptions: {}
-  - id: "v5_1200_jin_pref_dj_1200_p"
+  - id: "chgis.v5_1200_jin_pref_dj_1200_p"
     default:
       encoding: "big5"
     exceptions:
       "gbk": ["H_CHINPROV"]
-  - id: "v5_1200_jin_pref_dmf_1200_p"
+  - id: "chgis.v5_1200_jin_pref_dmf_1200_p"
     default:
       encoding: "big5"
     exceptions: {}
-  - id: "v5_1200_jin_pref_fxf_1200_p"
+  - id: "chgis.v5_1200_jin_pref_fxf_1200_p"
     default:
       encoding: "big5"
     exceptions:
       "gbk": ["H_CHINPROV"]
-  - id: "v5_1200_jin_pref_fy_1200_p"
+  - id: "chgis.v5_1200_jin_pref_fy_1200_p"
     default:
       encoding: "big5"
     exceptions:
       "gbk": ["H_CHINPROV"]
-  - id: "v5_1200_jin_pref_hbd_1200_p"
+  - id: "chgis.v5_1200_jin_pref_hbd_1200_p"
     default:
       encoding: "big5"
     exceptions: {}
-  - id: "v5_1200_jin_pref_hbx_1200_p"
+  - id: "chgis.v5_1200_jin_pref_hbx_1200_p"
     default:
       encoding: "big5"
     exceptions: {}
-  - id: "v5_1200_jin_pref_hdb_1200_p"
+  - id: "chgis.v5_1200_jin_pref_hdb_1200_p"
     default:
       encoding: "big5"
     exceptions: {}
-  - id: "v5_1200_jin_pref_hdn_1200_p"
+  - id: "chgis.v5_1200_jin_pref_hdn_1200_p"
     default:
       encoding: "big5"
     exceptions:
       "gbk": ["H_CHINPROV"]
-  - id: "v5_1200_jin_pref_jzf_1200_p"
+  - id: "chgis.v5_1200_jin_pref_jzf_1200_p"
     default:
       encoding: "big5"
     exceptions: {}
-  - id: "v5_1200_jin_pref_lt_1200_p"
+  - id: "chgis.v5_1200_jin_pref_lt_1200_p"
     default:
       encoding: "big5"
     exceptions: {}
-  - id: "v5_1200_jin_pref_nj_1200_p"
+  - id: "chgis.v5_1200_jin_pref_nj_1200_p"
     default:
       encoding: "big5"
     exceptions:
       "gbk": ["H_CHINPROV"]
-  - id: "v5_1200_jin_pref_qy_1200_p"
+  - id: "chgis.v5_1200_jin_pref_qy_1200_p"
     default:
       encoding: "big5"
     exceptions: {}
-  - id: "v5_1200_jin_pref_sdd_1200_p"
+  - id: "chgis.v5_1200_jin_pref_sdd_1200_p"
     default:
       encoding: "big5"
     exceptions: {}
-  - id: "v5_1200_jin_pref_sdx_1200_p"
+  - id: "chgis.v5_1200_jin_pref_sdx_1200_p"
     default:
       encoding: "big5"
     exceptions: {}
-  - id: "v5_1200_jin_pref_sj_1200_p"
+  - id: "chgis.v5_1200_jin_pref_sj_1200_p"
     default:
       encoding: "big5"
     exceptions: {}
-  - id: "v5_1200_jin_pref_xj_1200_p"
+  - id: "chgis.v5_1200_jin_pref_xj_1200_p"
     default:
       encoding: "big5"
     exceptions:
       "gbk": ["H_CHINPROV"]
-  - id: "v5_1200_jin_pref_xp_1200_p"
+  - id: "chgis.v5_1200_jin_pref_xp_1200_p"
     default:
       encoding: "big5"
     exceptions:
       "gbk": ["H_CHINPROV"]
-  - id: "v5_1200_jin_pref_zd_1200_p"
+  - id: "chgis.v5_1200_jin_pref_zd_1200_p"
     default:
       encoding: "big5"
     exceptions:
       "gbk": ["H_CHINPROV"]
-  - id: "v5_1200_pref_cdf_1200_p"
+  - id: "chgis.v5_1200_pref_cdf_1200_p"
     default:
       encoding: "big5"
     exceptions:
       "gbk": ["H_CHINPROV"]
-  - id: "v5_1200_pref_fj_1200_p"
+  - id: "chgis.v5_1200_pref_fj_1200_p"
     default:
       encoding: "big5"
     exceptions: {}
-  - id: "v5_1200_pref_gnd_1200_p"
+  - id: "chgis.v5_1200_pref_gnd_1200_p"
     default:
       encoding: "big5"
     exceptions:
       "gbk": ["H_CHINPROV"]
-  - id: "v5_1200_pref_gnx_1200_p"
+  - id: "chgis.v5_1200_pref_gnx_1200_p"
     default:
       encoding: "big5"
     exceptions:
       "gbk": ["H_CHINPROV"]
-  - id: "v5_1200_pref_hnd_1200_p"
+  - id: "chgis.v5_1200_pref_hnd_1200_p"
     default:
       encoding: "big5"
     exceptions:
       "gbk": ["H_CHINPROV"]
-  - id: "v5_1200_pref_hnx_1200_p"
+  - id: "chgis.v5_1200_pref_hnx_1200_p"
     default:
       encoding: "big5"
     exceptions:
       "gbk": ["H_CHINPROV"]
-  - id: "v5_1200_pref_jhb_1200_p"
+  - id: "chgis.v5_1200_pref_jhb_1200_p"
     default:
       encoding: "big5"
     exceptions: {}
-  - id: "v5_1200_pref_jhn_1200_p"
+  - id: "chgis.v5_1200_pref_jhn_1200_p"
     default:
       encoding: "big5"
     exceptions: {}
-  - id: "v5_1200_pref_jnd_1200_p"
+  - id: "chgis.v5_1200_pref_jnd_1200_p"
     default:
       encoding: "big5"
     exceptions: {}
-  - id: "v5_1200_pref_jnx_1200_p"
+  - id: "chgis.v5_1200_pref_jnx_1200_p"
     default:
       encoding: "big5"
     exceptions: {}
-  - id: "v5_1200_pref_jxn_1200_p"
+  - id: "chgis.v5_1200_pref_jxn_1200_p"
     default:
       encoding: "big5"
     exceptions:
       "gbk": ["H_CHINPROV"]
-  - id: "v5_1200_pref_kz_1200_p"
+  - id: "chgis.v5_1200_pref_kz_1200_p"
     default:
       encoding: "big5"
     exceptions: {}
-  - id: "v5_1200_pref_lz_1200_p"
+  - id: "chgis.v5_1200_pref_lz_1200_p"
     default:
       encoding: "big5"
     exceptions: {}
-  - id: "v5_1200_pref_tcf_1200_p"
+  - id: "chgis.v5_1200_pref_tcf_1200_p"
     default:
       encoding: "big5"
     exceptions: {}
-  - id: "v5_1200_pref_zd_1200_p"
+  - id: "chgis.v5_1200_pref_zd_1200_p"
     default:
       encoding: "big5"
     exceptions: {}
-  - id: "v5_1200_pref_zx_1200_p"
+  - id: "chgis.v5_1200_pref_zx_1200_p"
     default:
       encoding: "big5"
     exceptions: {}
-  - id: "v5_1290_chin_chn_1290_c"
+  - id: "chgis.v5_1290_chin_chn_1290_c"
     default:
       encoding: "big5"
     exceptions:
       "gbk": ["H_DEP_PREF", "NOTES"]
-  - id: "v5_1290_chin_chn_1290_l"
+  - id: "chgis.v5_1290_chin_chn_1290_l"
     default:
       encoding: "big5"
     exceptions: {}
-  - id: "v5_1290_chin_chn_1290_s"
+  - id: "chgis.v5_1290_chin_chn_1290_s"
     default:
       encoding: "big5"
     exceptions: {}
-  - id: "v5_1290_circ_bei_1290_l"
+  - id: "chgis.v5_1290_circ_bei_1290_l"
     default:
       encoding: "big5"
     exceptions: {}
-  - id: "v5_1290_circ_ckn_1290_l"
+  - id: "chgis.v5_1290_circ_ckn_1290_l"
     default:
       encoding: "big5"
     exceptions: {}
-  - id: "v5_1290_circ_gs_1290_l"
+  - id: "chgis.v5_1290_circ_gs_1290_l"
     default:
       encoding: "big5"
     exceptions:
       "gbk": ["H_CHINPROV"]
-  - id: "v5_1290_circ_ham_1290_l"
+  - id: "chgis.v5_1290_circ_ham_1290_l"
     default:
       encoding: "big5"
     exceptions: {}
-  - id: "v5_1290_circ_haz_1290_l"
+  - id: "chgis.v5_1290_circ_haz_1290_l"
     default:
       encoding: "big5"
     exceptions: {}
-  - id: "v5_1290_circ_hg_1290_l"
+  - id: "chgis.v5_1290_circ_hg_1290_l"
     default:
       encoding: "big5"
     exceptions:
       "gbk": ["H_CHINPROV", "H_CHIN_PRF"]
-  - id: "v5_1290_circ_hn_1290_l"
+  - id: "chgis.v5_1290_circ_hn_1290_l"
     default:
       encoding: "big5"
     exceptions:
       "gbk": ["H_CHINPROV"]
-  - id: "v5_1290_circ_jx_1290_l"
+  - id: "chgis.v5_1290_circ_jx_1290_l"
     default:
       encoding: "big5"
     exceptions: {}
-  - id: "v5_1290_circ_jz_1290_l"
+  - id: "chgis.v5_1290_circ_jz_1290_l"
     default:
       encoding: "big5"
     exceptions: {}
-  - id: "v5_1290_circ_lb_1290_l"
+  - id: "chgis.v5_1290_circ_lb_1290_l"
     default:
       encoding: "big5"
     exceptions: {}
-  - id: "v5_1290_circ_ly_1290_l"
+  - id: "chgis.v5_1290_circ_ly_1290_l"
     default:
       encoding: "big5"
     exceptions:
       "gbk": ["H_CHINPROV"]
-  - id: "v5_1290_circ_si_1290_l"
+  - id: "chgis.v5_1290_circ_si_1290_l"
     default:
       encoding: "big5"
     exceptions: {}
-  - id: "v5_1290_circ_sx_1290_l"
+  - id: "chgis.v5_1290_circ_sx_1290_l"
     default:
       encoding: "big5"
     exceptions:
       "gbk": ["H_CHINPROV"]
-  - id: "v5_1290_circ_tai_1290_l"
+  - id: "chgis.v5_1290_circ_tai_1290_l"
     default:
       encoding: "gbk"
     exceptions: {}
-  - id: "v5_1290_circ_xz_1200_l"
+  - id: "chgis.v5_1290_circ_xz_1200_l"
     default:
       encoding: "big5"
     exceptions: {}
-  - id: "v5_1290_circ_yn_1290_l"
+  - id: "chgis.v5_1290_circ_yn_1290_l"
     default:
       encoding: "big5"
     exceptions:
       "gbk": ["H_CHINPROV", "H_CHIN_PRF"]
-  - id: "v5_1290_circ_zs_1290_l"
+  - id: "chgis.v5_1290_circ_zs_1290_l"
     default:
       encoding: "big5"
     exceptions: {}
-  - id: "v5_1290_cnty_bei_1290_c"
+  - id: "chgis.v5_1290_cnty_bei_1290_c"
     default:
       encoding: "gbk"
     exceptions:
       "big5": ["H_CHINPROV", "H_SUP_CHPV", "H_UNICODE_"]
-  - id: "v5_1290_cnty_ckn_1290_c"
+  - id: "chgis.v5_1290_cnty_ckn_1290_c"
     default:
       encoding: "big5"
     exceptions:
       "gbk": ["CHINP090PV"]
-  - id: "v5_1290_cnty_gs_1290_c"
+  - id: "chgis.v5_1290_cnty_gs_1290_c"
     default:
       encoding: "big5"
     exceptions:
       "gbk": ["H_CHINPROV"]
-  - id: "v5_1290_cnty_ham_1290_c"
+  - id: "chgis.v5_1290_cnty_ham_1290_c"
     default:
       encoding: "big5"
     exceptions:
       "gbk": ["CHINP090PV"]
-  - id: "v5_1290_cnty_haz_1290_c"
+  - id: "chgis.v5_1290_cnty_haz_1290_c"
     default:
       encoding: "big5"
     exceptions:
       "gbk": ["CHINP090PV"]
-  - id: "v5_1290_cnty_hg_1290_c"
+  - id: "chgis.v5_1290_cnty_hg_1290_c"
     default:
       encoding: "big5"
     exceptions:
       "gbk": ["H_CHINPROV", "H_CHIN_PRF", "NOTES"]
-  - id: "v5_1290_cnty_hn_1290_c"
+  - id: "chgis.v5_1290_cnty_hn_1290_c"
     default:
       encoding: "big5"
     exceptions:
       "gbk": ["H_CHINPROV", "NOTES"]
-  - id: "v5_1290_cnty_jx_1290_c"
+  - id: "chgis.v5_1290_cnty_jx_1290_c"
     default:
       encoding: "big5"
     exceptions:
       "gbk": ["H_DEP_PREF", "NOTES"]
-  - id: "v5_1290_cnty_jz_1290_c"
+  - id: "chgis.v5_1290_cnty_jz_1290_c"
     default:
       encoding: "big5"
     exceptions:
       "gbk": ["NOTES"]
-  - id: "v5_1290_cnty_lb_1290_c"
+  - id: "chgis.v5_1290_cnty_lb_1290_c"
     default:
       encoding: "big5"
     exceptions: {}
-  - id: "v5_1290_cnty_ly_1290_c"
+  - id: "chgis.v5_1290_cnty_ly_1290_c"
     default:
       encoding: "big5"
     exceptions:
       "gbk": ["H_CHINPROV"]
-  - id: "v5_1290_cnty_si_1290_c"
+  - id: "chgis.v5_1290_cnty_si_1290_c"
     default:
       encoding: "big5"
     exceptions:
       "gbk": ["NOTES"]
-  - id: "v5_1290_cnty_sx_1290_c"
+  - id: "chgis.v5_1290_cnty_sx_1290_c"
     default:
       encoding: "big5"
     exceptions:
       "gbk": ["H_CHINPROV"]
       "utf-8": ["NOTES"]
-  - id: "v5_1290_cnty_tai_1290_c"
+  - id: "chgis.v5_1290_cnty_tai_1290_c"
     default:
       encoding: "big5"
     exceptions:
       "gbk": ["CHINP090PV", "H_UNICODE_"]
-  - id: "v5_1290_cnty_xz_1200_c"
+  - id: "chgis.v5_1290_cnty_xz_1200_c"
     default:
       encoding: "big5"
     exceptions:
       "gbk": ["CHARACTER_", "CHINP090PV", "P90PRFCHIN"]
-  - id: "v5_1290_cnty_yn_1290_c"
+  - id: "chgis.v5_1290_cnty_yn_1290_c"
     default:
       encoding: "big5"
     exceptions:
       "gbk": ["H_CHINPROV"]
-  - id: "v5_1290_cnty_zs_1290_c"
+  - id: "chgis.v5_1290_cnty_zs_1290_c"
     default:
       encoding: "big5"
     exceptions:
       "gbk": ["NOTES"]
-  - id: "v5_1290_prov_bei_1290_s"
+  - id: "chgis.v5_1290_prov_bei_1290_s"
     default:
       encoding: "big5"
     exceptions: {}
-  - id: "v5_1290_prov_ckn_1290_s"
+  - id: "chgis.v5_1290_prov_ckn_1290_s"
     default:
       encoding: "big5"
     exceptions: {}
-  - id: "v5_1290_prov_gs_1290_s"
+  - id: "chgis.v5_1290_prov_gs_1290_s"
     default:
       encoding: "big5"
     exceptions:
       "gbk": ["H_CHINPROV"]
-  - id: "v5_1290_prov_ham_1290_s"
+  - id: "chgis.v5_1290_prov_ham_1290_s"
     default:
       encoding: "big5"
     exceptions: {}
-  - id: "v5_1290_prov_haz_1290_s"
+  - id: "chgis.v5_1290_prov_haz_1290_s"
     default:
       encoding: "big5"
     exceptions: {}
-  - id: "v5_1290_prov_hg_1290_s"
+  - id: "chgis.v5_1290_prov_hg_1290_s"
     default:
       encoding: "big5"
     exceptions:
       "gbk": ["H_CHINPROV"]
-  - id: "v5_1290_prov_hn_1290_s"
+  - id: "chgis.v5_1290_prov_hn_1290_s"
     default:
       encoding: "big5"
     exceptions:
       "gbk": ["H_CHINPROV"]
-  - id: "v5_1290_prov_jx_1290_s"
+  - id: "chgis.v5_1290_prov_jx_1290_s"
     default:
       encoding: "big5"
     exceptions: {}
-  - id: "v5_1290_prov_jz_1290_s"
+  - id: "chgis.v5_1290_prov_jz_1290_s"
     default:
       encoding: "big5"
     exceptions: {}
-  - id: "v5_1290_prov_lb_1290_s"
+  - id: "chgis.v5_1290_prov_lb_1290_s"
     default:
       encoding: "big5"
     exceptions: {}
-  - id: "v5_1290_prov_ly_1290_s"
+  - id: "chgis.v5_1290_prov_ly_1290_s"
     default:
       encoding: "big5"
     exceptions:
       "gbk": ["H_CHINPROV"]
-  - id: "v5_1290_prov_si_1290_s"
+  - id: "chgis.v5_1290_prov_si_1290_s"
     default:
       encoding: "big5"
     exceptions: {}
-  - id: "v5_1290_prov_sx_1290_s"
+  - id: "chgis.v5_1290_prov_sx_1290_s"
     default:
       encoding: "big5"
     exceptions:
       "gbk": ["H_CHINPROV"]
-  - id: "v5_1290_prov_tai_1290_s"
+  - id: "chgis.v5_1290_prov_tai_1290_s"
     default:
       encoding: "gbk"
     exceptions: {}
-  - id: "v5_1290_prov_xz_1200s"
+  - id: "chgis.v5_1290_prov_xz_1200s"
     default:
       encoding: "big5"
     exceptions: {}
-  - id: "v5_1290_prov_yn_1290_s"
+  - id: "chgis.v5_1290_prov_yn_1290_s"
     default:
       encoding: "big5"
     exceptions:
       "gbk": ["H_CHINPROV"]
-  - id: "v5_1290_prov_zs_1290_s"
+  - id: "chgis.v5_1290_prov_zs_1290_s"
     default:
       encoding: "big5"
     exceptions: {}
-  - id: "v5_1391_chin_chn_1391_c"
+  - id: "chgis.v5_1391_chin_chn_1391_c"
     default:
       encoding: "big5"
     exceptions:
       "gbk": ["NOTES"]
-  - id: "v5_1391_chin_chn_1391_p"
+  - id: "chgis.v5_1391_chin_chn_1391_p"
     default:
       encoding: "big5"
     exceptions: {}
-  - id: "v5_1391_chin_chn_1391_s"
+  - id: "chgis.v5_1391_chin_chn_1391_s"
     default:
       encoding: "big5"
     exceptions: {}
-  - id: "v5_1391_cnty_hn_1391_c"
+  - id: "chgis.v5_1391_cnty_hn_1391_c"
     default:
       encoding: "big5"
     exceptions:
       "gbk": ["H_CHINCIR", "H_CHINPROV"]
-  - id: "v5_1391_cnty_js_1391_c"
+  - id: "chgis.v5_1391_cnty_js_1391_c"
     default:
       encoding: "big5"
     exceptions:
       "gbk": ["H_CHINCIR", "H_CHINPROV", "NOTES"]
-  - id: "v5_1391_cnty_ld_1391_c"
+  - id: "chgis.v5_1391_cnty_ld_1391_c"
     default:
       encoding: "big5"
     exceptions:
       "gbk": ["H_CHINCIR", "H_CHINPROV"]
-  - id: "v5_1391_cnty_neg_1391_c"
+  - id: "chgis.v5_1391_cnty_neg_1391_c"
     default:
       encoding: "big5"
     exceptions:
       "gbk": ["NOTES"]
-  - id: "v5_1391_cnty_nj_1391_c"
+  - id: "chgis.v5_1391_cnty_nj_1391_c"
     default:
       encoding: "big5"
     exceptions:
       "gbk": ["H_CHINCIR", "H_CHINPROV", "H_CHIN_PRF", "NOTES"]
-  - id: "v5_1391_cnty_sa_1391_c"
+  - id: "chgis.v5_1391_cnty_sa_1391_c"
     default:
       encoding: "big5"
     exceptions:
       "gbk": ["H_CHINCIR", "H_CHINPROV", "NOTES"]
-  - id: "v5_1391_cnty_sd_1391_c"
+  - id: "chgis.v5_1391_cnty_sd_1391_c"
     default:
       encoding: "big5"
     exceptions:
       "gbk": ["NOTES"]
-  - id: "v5_1391_cnty_sx_1391_c"
+  - id: "chgis.v5_1391_cnty_sx_1391_c"
     default:
       encoding: "big5"
     exceptions: {}
-  - id: "v5_1391_cnty_zd_1391_c"
+  - id: "chgis.v5_1391_cnty_zd_1391_c"
     default:
       encoding: "big5"
     exceptions:
       "gbk": ["H_CHINCIR", "H_CHINPROV", "NOTES"]
-  - id: "v5_1391_cnty_zlz_1391_c"
+  - id: "chgis.v5_1391_cnty_zlz_1391_c"
     default:
       encoding: "big5"
     exceptions: {}
-  - id: "v5_1391_pref_dd_1391_p"
+  - id: "chgis.v5_1391_pref_dd_1391_p"
     default:
       encoding: "gbk"
     exceptions:
       "big5": ["H_SUP_CHPV"]
-  - id: "v5_1391_pref_dg_1391_p"
+  - id: "chgis.v5_1391_pref_dg_1391_p"
     default:
       encoding: "big5"
     exceptions: {}
-  - id: "v5_1391_pref_dl_1391_p"
+  - id: "chgis.v5_1391_pref_dl_1391_p"
     default:
       encoding: "gbk"
     exceptions:
       "big5": ["H_SUP_CHPV"]
-  - id: "v5_1391_pref_fj_1391_p"
+  - id: "chgis.v5_1391_pref_fj_1391_p"
     default:
       encoding: "big5"
     exceptions: {}
-  - id: "v5_1391_pref_gd_1391_p"
+  - id: "chgis.v5_1391_pref_gd_1391_p"
     default:
       encoding: "big5"
     exceptions:
       "gbk": ["H_CHINCIR", "H_CHINPROV", "H_CHIN_DPR"]
-  - id: "v5_1391_pref_gx_1391_p"
+  - id: "chgis.v5_1391_pref_gx_1391_p"
     default:
       encoding: "big5"
     exceptions:
       "gbk": ["H_CHINCIR", "H_CHINPROV"]
-  - id: "v5_1391_pref_gz_1391_p"
+  - id: "chgis.v5_1391_pref_gz_1391_p"
     default:
       encoding: "big5"
     exceptions: {}
-  - id: "v5_1391_pref_hg_1391_p"
+  - id: "chgis.v5_1391_pref_hg_1391_p"
     default:
       encoding: "big5"
     exceptions:
       "gbk": ["H_CHINCIR", "H_CHINPROV"]
-  - id: "v5_1391_pref_hn_1391_p"
+  - id: "chgis.v5_1391_pref_hn_1391_p"
     default:
       encoding: "big5"
     exceptions:
       "gbk": ["H_CHINCIR", "H_CHINPROV"]
-  - id: "v5_1391_pref_js_1391_p"
+  - id: "chgis.v5_1391_pref_js_1391_p"
     default:
       encoding: "big5"
     exceptions:
       "gbk": ["H_CHINCIR", "H_CHINPROV"]
-  - id: "v5_1391_pref_jx_1391_p"
+  - id: "chgis.v5_1391_pref_jx_1391_p"
     default:
       encoding: "big5"
     exceptions: {}
-  - id: "v5_1391_pref_ld_1391_p"
+  - id: "chgis.v5_1391_pref_ld_1391_p"
     default:
       encoding: "big5"
     exceptions:
       "gbk": ["H_CHINCIR", "H_CHINPROV"]
-  - id: "v5_1391_pref_ned_1391_p"
+  - id: "chgis.v5_1391_pref_ned_1391_p"
     default:
       encoding: "big5"
     exceptions: {}
-  - id: "v5_1391_pref_nj_1391_p"
+  - id: "chgis.v5_1391_pref_nj_1391_p"
     default:
       encoding: "gbk"
     exceptions:
       "big5": ["H_SUP_CHPV"]
-  - id: "v5_1391_pref_sa_1391_p"
+  - id: "chgis.v5_1391_pref_sa_1391_p"
     default:
       encoding: "big5"
     exceptions:
       "gbk": ["H_CHINCIR", "H_CHINPROV"]
-  - id: "v5_1391_pref_sd_1391_p"
+  - id: "chgis.v5_1391_pref_sd_1391_p"
     default:
       encoding: "big5"
     exceptions: {}
-  - id: "v5_1391_pref_si_1391_p"
+  - id: "chgis.v5_1391_pref_si_1391_p"
     default:
       encoding: "big5"
     exceptions: {}
-  - id: "v5_1391_pref_sx_1391_p"
+  - id: "chgis.v5_1391_pref_sx_1391_p"
     default:
       encoding: "big5"
     exceptions:
       "gbk": ["H_CHIN_DPR"]
-  - id: "v5_1391_pref_tf_1391_p"
+  - id: "chgis.v5_1391_pref_tf_1391_p"
     default:
       encoding: "big5"
     exceptions: {}
-  - id: "v5_1391_pref_tw_1391_p"
+  - id: "chgis.v5_1391_pref_tw_1391_p"
     default:
       encoding: "big5"
     exceptions: {}
-  - id: "v5_1391_pref_wsx_1391_p"
+  - id: "chgis.v5_1391_pref_wsx_1391_p"
     default:
       encoding: "big5"
     exceptions: {}
-  - id: "v5_1391_pref_yl_1391_p"
+  - id: "chgis.v5_1391_pref_yl_1391_p"
     default:
       encoding: "big5"
     exceptions: {}
-  - id: "v5_1391_pref_yn_1391_p"
-    default:
-      encoding: "big5"
-    exceptions:
-      "gbk": ["H_CHINCIR", "H_CHINPROV"]
-  - id: "v5_1391_pref_zd_1391_p"
+  - id: "chgis.v5_1391_pref_yn_1391_p"
     default:
       encoding: "big5"
     exceptions:
       "gbk": ["H_CHINCIR", "H_CHINPROV"]
-  - id: "v5_1391_pref_zj_1391_p"
+  - id: "chgis.v5_1391_pref_zd_1391_p"
+    default:
+      encoding: "big5"
+    exceptions:
+      "gbk": ["H_CHINCIR", "H_CHINPROV"]
+  - id: "chgis.v5_1391_pref_zj_1391_p"
     default:
       encoding: "big5"
     exceptions: {}
-  - id: "v5_1391_pref_zlz_1391_p"
+  - id: "chgis.v5_1391_pref_zlz_1391_p"
     default:
       encoding: "big5"
     exceptions: {}
-  - id: "v5_1820_cnty_pts_utf"
+  - id: "chgis.v5_1820_cnty_pts_utf"
     default:
       encoding: "utf-8"
     exceptions: {}
-  - id: "v5_1820_coast_lin"
+  - id: "chgis.v5_1820_coast_lin"
     default:
       encoding: "utf-8"
     exceptions: {}
-  - id: "v5_1820_coded_rvr_lin_utf"
+  - id: "chgis.v5_1820_coded_rvr_lin_utf"
     default:
       encoding: "utf-8"
     exceptions: {}
-  - id: "v5_1820_lks_pgn_utf"
+  - id: "chgis.v5_1820_lks_pgn_utf"
     default:
       encoding: "utf-8"
     exceptions: {}
-  - id: "v5_1820_pref_pgn_utf"
+  - id: "chgis.v5_1820_pref_pgn_utf"
     default:
       encoding: "utf-8"
     exceptions: {}
-  - id: "v5_1820_pref_pts_utf"
+  - id: "chgis.v5_1820_pref_pts_utf"
     default:
       encoding: "utf-8"
     exceptions: {}
-  - id: "v5_1820_prov_pgn_utf"
+  - id: "chgis.v5_1820_prov_pgn_utf"
     default:
       encoding: "utf-8"
     exceptions: {}
-  - id: "v5_1820_prov_pts_utf"
+  - id: "chgis.v5_1820_prov_pts_utf"
     default:
       encoding: "utf-8"
     exceptions: {}
-  - id: "v5_1820_twn_pts_utf"
+  - id: "chgis.v5_1820_twn_pts_utf"
     default:
       encoding: "utf-8"
     exceptions: {}
-  - id: "v5_1900_cnty_1990"
+  - id: "chgis.v5_1900_cnty_1990"
     default:
       encoding: "big5"
     exceptions:
       "cp1252": ["NOTES"]
       "gbk": ["CAPITAL_AD"]
-  - id: "v5_1911_cnty_pgn_utf"
+  - id: "chgis.v5_1911_cnty_pgn_utf"
     default:
       encoding: "utf-8"
     exceptions: {}
-  - id: "v5_1911_cnty_pts_utf"
+  - id: "chgis.v5_1911_cnty_pts_utf"
     default:
       encoding: "utf-8"
     exceptions: {}
-  - id: "v5_1911_pref_pgn_utf"
+  - id: "chgis.v5_1911_pref_pgn_utf"
     default:
       encoding: "utf-8"
     exceptions: {}
-  - id: "v5_1911_pref_pts_utf"
+  - id: "chgis.v5_1911_pref_pts_utf"
     default:
       encoding: "utf-8"
     exceptions: {}
-  - id: "v5_1911_prov_pgn_utf"
+  - id: "chgis.v5_1911_prov_pgn_utf"
     default:
       encoding: "utf-8"
     exceptions: {}
-  - id: "v5_1911_prov_pts_utf"
+  - id: "chgis.v5_1911_prov_pts_utf"
     default:
       encoding: "utf-8"
     exceptions: {}
-  - id: "v5_1911_twn_pts_utf"
+  - id: "chgis.v5_1911_twn_pts_utf"
     default:
       encoding: "utf-8"
     exceptions: {}
-  - id: "v5_1926_prov_pgn_utf"
+  - id: "chgis.v5_1926_prov_pgn_utf"
     default:
       encoding: "utf-8"
     exceptions: {}
-  - id: "v5_1997_prov_pgn_utf"
+  - id: "chgis.v5_1997_prov_pgn_utf"
     default:
       encoding: "utf-8"
     exceptions: {}
-  - id: "v5_2009_tibet_twns_pts_geom"
+  - id: "chgis.v5_2009_tibet_twns_pts_geom"
     default:
       encoding: "utf-8"
     exceptions: {}
-  - id: "v5_2009_tibet_twns_pts_utf"
+  - id: "chgis.v5_2009_tibet_twns_pts_utf"
     default:
       encoding: "utf-8"
     exceptions: {}
-  - id: "v5_chinaw_pts_utf"
+  - id: "chgis.v5_chinaw_pts_utf"
     default:
       encoding: "utf-8"
     exceptions: {}
-  - id: "v5_citas90_cnty_pgn_utf"
+  - id: "chgis.v5_citas90_cnty_pgn_utf"
     default:
       encoding: "utf-8"
     exceptions: {}
-  - id: "v5_citas90_pref_pgn_utf"
+  - id: "chgis.v5_citas90_pref_pgn_utf"
     default:
       encoding: "utf-8"
     exceptions: {}
-  - id: "v5_gns_anhui_gbk"
+  - id: "chgis.v5_gns_anhui_gbk"
     default:
       encoding: "cp1252"
     exceptions:
       "gbk": ["CNTY_CH"]
-  - id: "v5_gns_beijing_gbk"
+  - id: "chgis.v5_gns_beijing_gbk"
     default:
       encoding: "cp1252"
     exceptions:
       "gbk": ["CNTY_CH"]
-  - id: "v5_gns_fujian_gbk"
+  - id: "chgis.v5_gns_fujian_gbk"
     default:
       encoding: "cp1252"
     exceptions:
       "gbk": ["CNTY_CH"]
-  - id: "v5_gns_gansu_gbk"
+  - id: "chgis.v5_gns_gansu_gbk"
     default:
       encoding: "gbk"
     exceptions:
       "cp1252": ["NAME"]
-  - id: "v5_gns_guangdong_gbk"
+  - id: "chgis.v5_gns_guangdong_gbk"
     default:
       encoding: "cp1252"
     exceptions:
       "gbk": ["CNTY_CH"]
-  - id: "v5_gns_guangxi_gbk"
+  - id: "chgis.v5_gns_guangxi_gbk"
     default:
       encoding: "cp1252"
     exceptions:
       "gbk": ["CNTY_CH"]
-  - id: "v5_gns_guizhou_gbk"
+  - id: "chgis.v5_gns_guizhou_gbk"
     default:
       encoding: "cp1252"
     exceptions:
       "gbk": ["CNTY_CH"]
-  - id: "v5_gns_hainan_gbk"
+  - id: "chgis.v5_gns_hainan_gbk"
     default:
       encoding: "cp1252"
     exceptions:
       "gbk": ["CNTY_CH"]
-  - id: "v5_gns_hebei_gbk"
+  - id: "chgis.v5_gns_hebei_gbk"
     default:
       encoding: "cp1252"
     exceptions:
       "gbk": ["CNTY_CH"]
-  - id: "v5_gns_heilongjiang_gbk"
+  - id: "chgis.v5_gns_heilongjiang_gbk"
     default:
       encoding: "cp1252"
     exceptions:
       "gbk": ["CNTY_CH"]
-  - id: "v5_gns_henan_gbk"
+  - id: "chgis.v5_gns_henan_gbk"
     default:
       encoding: "cp1252"
     exceptions:
       "gbk": ["CNTY_CH"]
-  - id: "v5_gns_hubei_gbk"
+  - id: "chgis.v5_gns_hubei_gbk"
     default:
       encoding: "cp1252"
     exceptions:
       "gbk": ["CNTY_CH"]
-  - id: "v5_gns_hunan_gbk"
+  - id: "chgis.v5_gns_hunan_gbk"
     default:
       encoding: "cp1252"
     exceptions:
       "gbk": ["CNTY_CH"]
-  - id: "v5_gns_jiangsu_gbk"
+  - id: "chgis.v5_gns_jiangsu_gbk"
     default:
       encoding: "cp1252"
     exceptions:
       "gbk": ["CNTY_CH"]
-  - id: "v5_gns_jiangxi_gbk"
+  - id: "chgis.v5_gns_jiangxi_gbk"
     default:
       encoding: "cp1252"
     exceptions:
       "gbk": ["CNTY_CH"]
-  - id: "v5_gns_jilin_gbk"
+  - id: "chgis.v5_gns_jilin_gbk"
     default:
       encoding: "cp1252"
     exceptions:
       "gbk": ["CNTY_CH"]
-  - id: "v5_gns_liaoning_gbk"
+  - id: "chgis.v5_gns_liaoning_gbk"
     default:
       encoding: "cp1252"
     exceptions:
       "gbk": ["CNTY_CH"]
-  - id: "v5_gns_neimeng_gbk"
+  - id: "chgis.v5_gns_neimeng_gbk"
     default:
       encoding: "cp1252"
     exceptions:
       "gbk": ["CNTY_CH"]
-  - id: "v5_gns_ningxia_gbk"
+  - id: "chgis.v5_gns_ningxia_gbk"
     default:
       encoding: "cp1252"
     exceptions:
       "gbk": ["CNTY_CH"]
-  - id: "v5_gns_qinghai_gbk"
+  - id: "chgis.v5_gns_qinghai_gbk"
     default:
       encoding: "gbk"
     exceptions:
       "cp1252": ["NAME"]
-  - id: "v5_gns_shaanxi_gbk"
+  - id: "chgis.v5_gns_shaanxi_gbk"
     default:
       encoding: "gbk"
     exceptions:
       "cp1252": ["NAME"]
-  - id: "v5_gns_shandong_gbk"
+  - id: "chgis.v5_gns_shandong_gbk"
     default:
       encoding: "cp1252"
     exceptions:
       "gbk": ["CNTY_CH"]
-  - id: "v5_gns_shanghai_gbk"
+  - id: "chgis.v5_gns_shanghai_gbk"
     default:
       encoding: "cp1252"
     exceptions:
       "gbk": ["CNTY_CH"]
-  - id: "v5_gns_shanxi_gbk"
+  - id: "chgis.v5_gns_shanxi_gbk"
     default:
       encoding: "gbk"
     exceptions:
       "cp1252": ["NAME"]
-  - id: "v5_gns_sichuan_gbk"
+  - id: "chgis.v5_gns_sichuan_gbk"
     default:
       encoding: "gbk"
     exceptions:
       "cp1252": ["NAME"]
-  - id: "v5_gns_tianjin_gbk"
+  - id: "chgis.v5_gns_tianjin_gbk"
     default:
       encoding: "cp1252"
     exceptions:
       "gbk": ["CNTY_CH"]
-  - id: "v5_gns_tibet_gbk"
+  - id: "chgis.v5_gns_tibet_gbk"
     default:
       encoding: "cp1252"
     exceptions:
       "gbk": ["CNTY_CH"]
-  - id: "v5_gns_xinjiang_gbk"
+  - id: "chgis.v5_gns_xinjiang_gbk"
     default:
       encoding: "gbk"
     exceptions:
       "cp1252": ["NAME"]
-  - id: "v5_gns_yunnan_gbk"
+  - id: "chgis.v5_gns_yunnan_gbk"
     default:
       encoding: "gbk"
     exceptions:
       "cp1252": ["NAME"]
-  - id: "v5_gns_zhejiang_gbk"
+  - id: "chgis.v5_gns_zhejiang_gbk"
     default:
       encoding: "cp1252"
     exceptions:
       "gbk": ["CNTY_CH"]
-  - id: "v5_physiogmacroregions_pgn"
+  - id: "chgis.v5_physiogmacroregions_pgn"
     default:
       encoding: "utf-8"
     exceptions: {}
-  - id: "v5_physiogmacroregions_pgn_utf"
+  - id: "chgis.v5_physiogmacroregions_pgn_utf"
     default:
       encoding: "utf-8"
     exceptions: {}
-  - id: "v5_smr_pgn_utf_wgs"
+  - id: "chgis.v5_smr_pgn_utf_wgs"
     default:
       encoding: "utf-8"
     exceptions: {}
-  - id: "v5_smr_pgn_utf_xian"
+  - id: "chgis.v5_smr_pgn_utf_xian"
     default:
       encoding: "utf-8"
     exceptions: {}
-  - id: "v5_smr_subr_pgn_utf_wgs"
+  - id: "chgis.v5_smr_subr_pgn_utf_wgs"
     default:
       encoding: "utf-8"
     exceptions: {}
-  - id: "v5_smr_subr_pgn_utf_xian"
+  - id: "chgis.v5_smr_subr_pgn_utf_xian"
     default:
       encoding: "utf-8"
     exceptions: {}
-  - id: "v5_time_cnty_pts_utf"
+  - id: "chgis.v5_time_cnty_pts_utf"
     default:
       encoding: "utf-8"
     exceptions: {}
-  - id: "v5_time_pref_pgn_utf"
+  - id: "chgis.v5_time_pref_pgn_utf"
     default:
       encoding: "utf-8"
     exceptions: {}
-  - id: "v5_time_pref_pts_utf"
+  - id: "chgis.v5_time_pref_pts_utf"
     default:
       encoding: "utf-8"
     exceptions: {}
-  - id: "v6_1820_cnty_pts_utf"
+  - id: "chgis.v6_1820_cnty_pts_utf"
     default:
       encoding: "utf-8"
     exceptions: {}
-  - id: "v6_1820_coded_rvr_lin_utf"
+  - id: "chgis.v6_1820_coded_rvr_lin_utf"
     default:
       encoding: "utf-8"
     exceptions: {}
-  - id: "v6_1820_lks_pgn_utf"
+  - id: "chgis.v6_1820_lks_pgn_utf"
     default:
       encoding: "utf-8"
     exceptions: {}
-  - id: "v6_1820_pref_pgn_utf"
+  - id: "chgis.v6_1820_pref_pgn_utf"
     default:
       encoding: "utf-8"
     exceptions: {}
-  - id: "v6_1820_pref_pts_utf"
+  - id: "chgis.v6_1820_pref_pts_utf"
     default:
       encoding: "utf-8"
     exceptions: {}
-  - id: "v6_1820_prov_pgn_utf"
+  - id: "chgis.v6_1820_prov_pgn_utf"
     default:
       encoding: "utf-8"
     exceptions: {}
-  - id: "v6_1820_prov_pts_utf"
+  - id: "chgis.v6_1820_prov_pts_utf"
     default:
       encoding: "utf-8"
     exceptions: {}
-  - id: "v6_1820_twn_pts_utf"
+  - id: "chgis.v6_1820_twn_pts_utf"
     default:
       encoding: "utf-8"
     exceptions: {}
-  - id: "v6_1911_cnty_pgn_utf"
+  - id: "chgis.v6_1911_cnty_pgn_utf"
     default:
       encoding: "utf-8"
     exceptions: {}
-  - id: "v6_1911_cnty_pts_utf"
+  - id: "chgis.v6_1911_cnty_pts_utf"
     default:
       encoding: "utf-8"
     exceptions: {}
-  - id: "v6_1911_pref_pgn_utf"
+  - id: "chgis.v6_1911_pref_pgn_utf"
     default:
       encoding: "utf-8"
     exceptions: {}
-  - id: "v6_1911_pref_pts_utf"
+  - id: "chgis.v6_1911_pref_pts_utf"
     default:
       encoding: "utf-8"
     exceptions: {}
-  - id: "v6_1911_prov_pgn_utf"
+  - id: "chgis.v6_1911_prov_pgn_utf"
     default:
       encoding: "utf-8"
     exceptions: {}
-  - id: "v6_1911_prov_pts_utf"
+  - id: "chgis.v6_1911_prov_pts_utf"
     default:
       encoding: "utf-8"
     exceptions: {}
-  - id: "v6_1911_twn_pts_utf"
+  - id: "chgis.v6_1911_twn_pts_utf"
     default:
       encoding: "utf-8"
     exceptions: {}
-  - id: "v6_citas90_cnty_pgn_gbk"
+  - id: "chgis.v6_citas90_cnty_pgn_gbk"
     default:
       encoding: "gbk"
     exceptions: {}
-  - id: "v6_citas90_pref_pgn_gbk"
+  - id: "chgis.v6_citas90_pref_pgn_gbk"
     default:
       encoding: "gbk"
     exceptions: {}
-  - id: "v6_citas90_prov_pgn_gbk"
+  - id: "chgis.v6_citas90_prov_pgn_gbk"
     default:
       encoding: "gbk"
     exceptions: {}
-  - id: "v6_time_cnty_pts_utf_wgs84"
+  - id: "chgis.v6_time_cnty_pts_utf_wgs84"
     default:
       encoding: "utf-8"
     exceptions: {}
-  - id: "v6_time_pref_pgn_utf_wgs84"
+  - id: "chgis.v6_time_pref_pgn_utf_wgs84"
     default:
       encoding: "utf-8"
     exceptions: {}
-  - id: "v6_time_pref_pts_utf_wgs84"
+  - id: "chgis.v6_time_pref_pts_utf_wgs84"
     default:
       encoding: "utf-8"
     exceptions: {}
+  - id: "harv.chgis_v1_cst_lin"
+    default:
+      encoding: "utf-8"
+    exceptions:
+      "cp1252": ["system_id"]
+  - id: "harv.v1_1820_thu_cnty_pgn_prc"
+    default:
+      encoding: "cp1252"
+    exceptions: {}
+  - id: "harv.v1_1820_thu_cnty_pgn_usa"
+    default:
+      encoding: "gbk"
+    exceptions:
+      "cp1251": ["system_id"]
+      "cp1252": ["Key_id"]
+  - id: "harv.v2_1820_cnty_pts_prc"
+    default:
+      encoding: "cp1251"
+    exceptions:
+      "gbk": ["NOTE_ID"]
+  - id: "harv.v2_1820_cnty_pts_usa"
+    default:
+      encoding: "gbk"
+    exceptions:
+      "cp1251": ["BEG_YR", "X_COOR", "Y_COOR"]
+  - id: "harv.v2_1820_lks_pgn_prc"
+    default:
+      encoding: "utf-8"
+    exceptions:
+      "cp1251": ["SYSTEM_ID"]
+  - id: "harv.v2_1820_lks_pgn_usa"
+    default:
+      encoding: "gbk"
+    exceptions:
+      "cp1251": ["SYSTEM_ID"]
+      "utf-8": ["Lks_id"]
+  - id: "harv.v2_1820_pref_pgn_prc"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "harv.v2_1820_pref_pgn_usa"
+    default:
+      encoding: "gbk"
+    exceptions: {}
+  - id: "harv.v2_1820_pref_pts_prc"
+    default:
+      encoding: "cp1251"
+    exceptions:
+      "gbk": ["NOTE_ID"]
+  - id: "harv.v2_1820_pref_pts_usa"
+    default:
+      encoding: "gbk"
+    exceptions:
+      "cp1251": ["BEG_YR", "X_COOR", "Y_COOR"]
+  - id: "harv.v2_1820_prov_pgn_prc"
+    default:
+      encoding: "gbk"
+    exceptions: {}
+  - id: "harv.v2_1820_prov_pgn_usa"
+    default:
+      encoding: "gbk"
+    exceptions: {}
+  - id: "harv.v2_1820_prov_pts_prc"
+    default:
+      encoding: "gbk"
+    exceptions:
+      "cp1251": ["BEG_YR"]
+  - id: "harv.v2_1820_prov_pts_usa"
+    default:
+      encoding: "gbk"
+    exceptions:
+      "cp1251": ["BEG_YR", "X_COOR", "Y_COOR"]
+  - id: "harv.v2_1820_rvr_lin_prc"
+    default:
+      encoding: "cp1251"
+    exceptions: {}
+  - id: "harv.v2_1820_rvr_lin_usa"
+    default:
+      encoding: "cp1251"
+    exceptions:
+      "gbk": ["hz_fanti_n", "hz_jianti_"]
+  - id: "harv.v2_1820_twn_pts_prc"
+    default:
+      encoding: "gbk"
+    exceptions:
+      "cp1251": ["SYS_ID"]
+  - id: "harv.v2_1820_twn_pts_usa"
+    default:
+      encoding: "gbk"
+    exceptions:
+      "cp1251": ["X_COOR", "Y_COOR"]
+  - id: "harv.v2_1911_cnty_pgn_prc"
+    default:
+      encoding: "cp1251"
+    exceptions: {}
+  - id: "harv.v2_1911_cnty_pgn_usa"
+    default:
+      encoding: "gbk"
+    exceptions:
+      "cp1251": ["BEG_YR", "END_YR"]
+  - id: "harv.v2_1911_cnty_pts_prc"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "harv.v2_1911_cnty_pts_usa"
+    default:
+      encoding: "gbk"
+    exceptions:
+      "cp1251": ["X_COOR", "Y_COOR"]
+  - id: "harv.v2_1911_pref_pgn_usa"
+    default:
+      encoding: "gbk"
+    exceptions: {}
+  - id: "harv.v2_1911_pref_pts_prc"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "harv.v2_1911_pref_pts_usa"
+    default:
+      encoding: "gbk"
+    exceptions:
+      "cp1251": ["X_COOR", "Y_COOR"]
+  - id: "harv.v2_1911_prov_pgn_prc"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "harv.v2_1911_prov_pgn_usa"
+    default:
+      encoding: "gbk"
+    exceptions:
+      "utf-8": ["TYPE_CH"]
+  - id: "harv.v2_1911_prov_pts_prc"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "harv.v2_1911_prov_pts_usa"
+    default:
+      encoding: "gbk"
+    exceptions:
+      "cp1251": ["X_COOR", "Y_COOR"]
+      "utf-8": ["TYPE_CH"]
+  - id: "harv.v2_1911_twn_pts_prc"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "harv.v2_1911_twn_pts_usa"
+    default:
+      encoding: "gbk"
+    exceptions:
+      "cp1251": ["X_COOR", "Y_COOR"]
+  - id: "harv.v2_time_cnty_pgn_prc"
+    default:
+      encoding: "cp1251"
+    exceptions: {}
+  - id: "harv.v2_time_cnty_pgn_usa"
+    default:
+      encoding: "gbk"
+    exceptions:
+      "cp1251": ["BEG_YR", "END_YR"]
+  - id: "harv.v2_time_cnty_pts_prc"
+    default:
+      encoding: "cp1251"
+    exceptions: {}
+  - id: "harv.v2_time_cnty_pts_usa"
+    default:
+      encoding: "gbk"
+    exceptions:
+      "cp1251": ["BEG_YR", "END_YR", "X_COOR", "Y_COOR"]
+  - id: "harv.v2_time_pref_pgn_prc"
+    default:
+      encoding: "cp1251"
+    exceptions: {}
+  - id: "harv.v2_time_pref_pgn_usa"
+    default:
+      encoding: "gbk"
+    exceptions:
+      "cp1251": ["BEG_YR", "END_YR"]
+  - id: "harv.v2_time_pref_pts_prc"
+    default:
+      encoding: "cp1251"
+    exceptions: {}
+  - id: "harv.v2_time_pref_pts_usa"
+    default:
+      encoding: "gbk"
+    exceptions:
+      "cp1251": ["BEG_YR", "END_YR", "X_COOR", "Y_COOR"]
+  - id: "harv.v2_time_prov_pgn_prc"
+    default:
+      encoding: "cp1251"
+    exceptions: {}
+  - id: "harv.v2_time_prov_pgn_usa"
+    default:
+      encoding: "gbk"
+    exceptions:
+      "cp1251": ["BEG_YR", "END_YR"]
+  - id: "harv.v2_time_prov_pts_prc"
+    default:
+      encoding: "cp1251"
+    exceptions: {}
+  - id: "harv.v2_time_prov_pts_usa"
+    default:
+      encoding: "gbk"
+    exceptions:
+      "cp1251": ["BEG_YR", "END_YR", "X_COOR", "Y_COOR"]
+  - id: "harv.v2_time_reg_pgn_prc"
+    default:
+      encoding: "cp1251"
+    exceptions: {}
+  - id: "harv.v2_time_reg_pgn_usa"
+    default:
+      encoding: "gbk"
+    exceptions:
+      "cp1251": ["BEG_YR", "END_YR"]
+  - id: "harv.v2_time_reg_pts_prc"
+    default:
+      encoding: "cp1251"
+    exceptions: {}
+  - id: "harv.v2_time_reg_pts_usa"
+    default:
+      encoding: "gbk"
+    exceptions:
+      "cp1251": ["BEG_YR", "END_YR", "X_COOR", "Y_COOR"]
+  - id: "harv.v3_1911_cnty_pgn_prc"
+    default:
+      encoding: "gbk"
+    exceptions:
+      "cp1251": ["BEG_YR", "END_YR"]
+  - id: "harv.v3_1911_cnty_pgn_usa"
+    default:
+      encoding: "gbk"
+    exceptions:
+      "cp1251": ["BEG_YR", "END_YR"]
+  - id: "harv.v3_1911_cnty_pts_prc"
+    default:
+      encoding: "gbk"
+    exceptions: {}
+  - id: "harv.v3_1911_cnty_pts_usa"
+    default:
+      encoding: "gbk"
+    exceptions:
+      "cp1251": ["X_COOR", "Y_COOR"]
+  - id: "harv.v3_1911_pref_pgn_prc"
+    default:
+      encoding: "gbk"
+    exceptions: {}
+  - id: "harv.v3_1911_pref_pgn_usa"
+    default:
+      encoding: "gbk"
+    exceptions: {}
+  - id: "harv.v3_1911_pref_pts_prc"
+    default:
+      encoding: "gbk"
+    exceptions: {}
+  - id: "harv.v3_1911_pref_pts_usa"
+    default:
+      encoding: "gbk"
+    exceptions:
+      "cp1251": ["X_COOR", "Y_COOR"]
+  - id: "harv.v3_1911_prov_pgn_prc"
+    default:
+      encoding: "gbk"
+    exceptions:
+      "utf-8": ["TYPE_CH"]
+  - id: "harv.v3_1911_prov_pgn_usa"
+    default:
+      encoding: "gbk"
+    exceptions:
+      "utf-8": ["TYPE_CH"]
+  - id: "harv.v3_1911_prov_pts_prc"
+    default:
+      encoding: "gbk"
+    exceptions:
+      "utf-8": ["TYPE_CH"]
+  - id: "harv.v3_1911_prov_pts_usa"
+    default:
+      encoding: "gbk"
+    exceptions:
+      "cp1251": ["X_COOR", "Y_COOR"]
+      "utf-8": ["TYPE_CH"]
+  - id: "harv.v3_1911_twn_pts_prc"
+    default:
+      encoding: "gbk"
+    exceptions: {}
+  - id: "harv.v3_1911_twn_pts_usa"
+    default:
+      encoding: "gbk"
+    exceptions: {}
+  - id: "harv.v3_time_cnty_pts_prc"
+    default:
+      encoding: "gbk"
+    exceptions:
+      "cp1251": ["BEG_YR", "END_YR"]
+  - id: "harv.v3_time_cnty_pts_usa"
+    default:
+      encoding: "gbk"
+    exceptions:
+      "cp1251": ["BEG_YR", "END_YR", "X_COOR", "Y_COOR"]
+  - id: "harv.v3_time_pref_pgn_prc"
+    default:
+      encoding: "gbk"
+    exceptions:
+      "cp1251": ["BEG_YR", "END_YR", "NOTE_ID", "SYS_ID"]
+  - id: "harv.v3_time_pref_pgn_usa"
+    default:
+      encoding: "gbk"
+    exceptions:
+      "cp1251": ["BEG_YR", "END_YR"]
+  - id: "harv.v3_time_pref_pts_prc"
+    default:
+      encoding: "gbk"
+    exceptions:
+      "cp1251": ["BEG_YR", "END_YR"]
+  - id: "harv.v3_time_pref_pts_usa"
+    default:
+      encoding: "gbk"
+    exceptions:
+      "cp1251": ["BEG_YR", "END_YR", "X_COOR", "Y_COOR"]
+  - id: "harv.v3_time_prov_pgn_prc"
+    default:
+      encoding: "gbk"
+    exceptions:
+      "cp1251": ["BEG_YR", "END_YR", "NOTE_ID", "SYS_ID"]
+  - id: "harv.v3_time_prov_pts_prc"
+    default:
+      encoding: "gbk"
+    exceptions:
+      "cp1251": ["BEG_YR", "END_YR", "NOTE_ID"]
+      "cp1252": ["SYS_ID"]
+  - id: "harv.v3_time_prov_pts_usa"
+    default:
+      encoding: "gbk"
+    exceptions:
+      "cp1251": ["BEG_YR", "END_YR", "NOTE_ID", "X_COOR", "Y_COOR"]
+  - id: "harv.v4_1820_cnty_pts_prc"
+    default:
+      encoding: "gbk"
+    exceptions:
+      "cp1251": ["BEG_YR", "GEO_ID"]
+  - id: "harv.v4_1820_cnty_pts_usa"
+    default:
+      encoding: "gbk"
+    exceptions:
+      "cp1251": ["BEG_YR", "GEO_ID", "X_COOR", "Y_COOR"]
+  - id: "harv.v4_1820_coast_lin"
+    default:
+      encoding: "utf-8"
+    exceptions: {}
+  - id: "harv.v4_1820_lks_pgn_prc"
+    default:
+      encoding: "gbk"
+    exceptions: {}
+  - id: "harv.v4_1820_lks_pgn_usa"
+    default:
+      encoding: "gbk"
+    exceptions:
+      "cp1251": ["SYSTEM_ID_"]
+      "utf-8": ["LKS_ID"]
+  - id: "harv.v4_1820_pref_pgn_prc"
+    default:
+      encoding: "gbk"
+    exceptions: {}
+  - id: "harv.v4_1820_pref_pgn_usa"
+    default:
+      encoding: "gbk"
+    exceptions: {}
+  - id: "harv.v4_1820_pref_pts_prc"
+    default:
+      encoding: "gbk"
+    exceptions:
+      "cp1251": ["BEG_YR", "GEO_ID"]
+  - id: "harv.v4_1820_pref_pts_usa"
+    default:
+      encoding: "gbk"
+    exceptions:
+      "cp1251": ["BEG_YR", "GEO_ID", "X_COOR", "Y_COOR"]
+  - id: "harv.v4_1820_prov_pgn_prc"
+    default:
+      encoding: "gbk"
+    exceptions: {}
+  - id: "harv.v4_1820_prov_pgn_usa"
+    default:
+      encoding: "gbk"
+    exceptions: {}
+  - id: "harv.v4_1820_prov_pts_prc"
+    default:
+      encoding: "gbk"
+    exceptions:
+      "cp1251": ["BEG_YR"]
+  - id: "harv.v4_1820_prov_pts_usa"
+    default:
+      encoding: "gbk"
+    exceptions:
+      "cp1251": ["BEG_YR", "X_COOR", "Y_COOR"]
+  - id: "harv.v4_1820_rvr_lin_prc"
+    default:
+      encoding: "gbk"
+    exceptions: {}
+  - id: "harv.v4_1820_rvr_lin_usa"
+    default:
+      encoding: "cp1251"
+    exceptions:
+      "gbk": ["NAME_PY"]
+  - id: "harv.v4_1820_twn_pts_prc"
+    default:
+      encoding: "gbk"
+    exceptions:
+      "cp1251": ["LOC_ID"]
+  - id: "harv.v4_1820_twn_pts_usa"
+    default:
+      encoding: "gbk"
+    exceptions:
+      "cp1251": ["LOC_ID", "X_COOR", "Y_COOR"]
+  - id: "harv.v4_1911_cnty_pgn_prc"
+    default:
+      encoding: "gbk"
+    exceptions:
+      "cp1251": ["BEG_YR", "END_YR", "SYS_ID"]
+  - id: "harv.v4_1911_cnty_pgn_usa"
+    default:
+      encoding: "gbk"
+    exceptions:
+      "cp1251": ["BEG_YR", "END_YR", "SYS_ID", "SYS_ID_2", "X_COORD", "Y_COORD"]
+  - id: "harv.v4_1911_cnty_pts_prc"
+    default:
+      encoding: "gbk"
+    exceptions:
+      "cp1251": ["SYS_ID"]
+      "mixed": ["BEG_YR", "END_YR"]
+  - id: "harv.v4_1911_cnty_pts_usa"
+    default:
+      encoding: "gbk"
+    exceptions:
+      "cp1251": ["SYS_ID", "X_COORD", "Y_COORD"]
+      "mixed": ["BEG_YR", "END_YR"]
+  - id: "harv.v4_1911_pref_pgn_prc"
+    default:
+      encoding: "gbk"
+    exceptions:
+      "cp1251": ["SYS_ID"]
+  - id: "harv.v4_1911_pref_pgn_usa"
+    default:
+      encoding: "gbk"
+    exceptions:
+      "cp1251": ["SYS_ID", "SYS_ID_2"]
+  - id: "harv.v4_1911_pref_pts_prc"
+    default:
+      encoding: "gbk"
+    exceptions:
+      "cp1251": ["SYS_ID"]
+  - id: "harv.v4_1911_pref_pts_usa"
+    default:
+      encoding: "gbk"
+    exceptions:
+      "cp1251": ["SYS_ID", "SYS_ID_2", "X_COORD", "Y_COORD"]
+  - id: "harv.v4_1911_prov_pgn_prc"
+    default:
+      encoding: "gbk"
+    exceptions:
+      "utf-8": ["TYPE_CH"]
+  - id: "harv.v4_1911_prov_pgn_usa"
+    default:
+      encoding: "gbk"
+    exceptions:
+      "utf-8": ["TYPE_CH"]
+  - id: "harv.v4_1911_prov_pts_prc"
+    default:
+      encoding: "gbk"
+    exceptions:
+      "utf-8": ["TYPE_CH"]
+  - id: "harv.v4_1911_prov_pts_usa"
+    default:
+      encoding: "gbk"
+    exceptions:
+      "cp1251": ["X_COORD", "Y_COORD"]
+      "utf-8": ["TYPE_CH"]
+  - id: "harv.v4_1911_twn_pts_prc"
+    default:
+      encoding: "gbk"
+    exceptions:
+      "cp1251": ["SYS_ID"]
+  - id: "harv.v4_1911_twn_pts_usa"
+    default:
+      encoding: "gbk"
+    exceptions:
+      "cp1251": ["SYS_ID", "SYS_ID_2", "X_COORD", "Y_COORD"]
+  - id: "harv.v4_time_cnty_pts_prc"
+    default:
+      encoding: "gbk"
+    exceptions:
+      "cp1251": ["BEG_YR", "END_YR", "NOTE_ID", "SYS_ID"]
+  - id: "harv.v4_time_cnty_pts_usa"
+    default:
+      encoding: "gbk"
+    exceptions:
+      "cp1251": ["BEG_YR", "END_YR", "NOTE_ID", "SYS_ID", "SYS_ID_2", "X_COORD", "Y_COORD"]
+  - id: "harv.v4_time_fujian_cnty_pgn_prc"
+    default:
+      encoding: "cp1251"
+    exceptions: {}
+  - id: "harv.v4_time_fujian_cnty_pgn_usa"
+    default:
+      encoding: "gbk"
+    exceptions:
+      "cp1251": ["BEG_YR", "END_YR", "NOTE_ID", "SYS_ID", "SYS_ID_2"]
+  - id: "harv.v4_time_pref_pgn_prc"
+    default:
+      encoding: "gbk"
+    exceptions:
+      "cp1251": ["BEG_YR", "END_YR", "NOTE_ID", "SYS_ID"]
+  - id: "harv.v4_time_pref_pgn_usa"
+    default:
+      encoding: "gbk"
+    exceptions:
+      "cp1251": ["BEG_YR", "END_YR", "NOTE_ID", "SYS_ID", "SYS_ID_2"]
+  - id: "harv.v4_time_pref_pts_prc"
+    default:
+      encoding: "gbk"
+    exceptions:
+      "cp1251": ["BEG_YR", "END_YR", "NOTE_ID", "SYS_ID"]
+  - id: "harv.v4_time_pref_pts_usa"
+    default:
+      encoding: "gbk"
+    exceptions:
+      "cp1251": ["BEG_YR", "END_YR", "NOTE_ID", "SYS_ID", "SYS_ID_2", "X_COORD", "Y_COORD"]
+  - id: "harv.v4_time_prov_pgn_prc"
+    default:
+      encoding: "gbk"
+    exceptions:
+      "cp1251": ["BEG_YR", "END_YR", "NOTE_ID", "SYS_ID"]
+  - id: "harv.v4_time_prov_pgn_usa"
+    default:
+      encoding: "gbk"
+    exceptions:
+      "cp1251": ["BEG_YR", "END_YR", "NOTE_ID", "SYS_ID", "SYS_ID_2"]
+  - id: "harv.v4_time_prov_pts_prc"
+    default:
+      encoding: "gbk"
+    exceptions:
+      "cp1251": ["BEG_YR", "END_YR", "NOTE_ID"]
+      "cp1252": ["SYS_ID"]
+  - id: "harv.v4_time_prov_pts_usa"
+    default:
+      encoding: "gbk"
+    exceptions:
+      "cp1251": ["BEG_YR", "END_YR", "NOTE_ID", "X_COORD", "Y_COORD"]
+      "cp1252": ["SYS_ID", "SYS_ID_2"]
+  - id: "harv.v4_time_reg_pgn_prc"
+    default:
+      encoding: "gbk"
+    exceptions:
+      "cp1251": ["BEG_YR", "END_YR"]
+  - id: "harv.v4_time_reg_pgn_usa"
+    default:
+      encoding: "gbk"
+    exceptions:
+      "cp1251": ["BEG_YR", "END_YR"]
+  - id: "harv.v4_time_reg_pts_prc"
+    default:
+      encoding: "gbk"
+    exceptions:
+      "cp1251": ["BEG_YR", "END_YR", "NOTE_ID", "SYS_ID"]
+  - id: "harv.v4_time_reg_pts_usa"
+    default:
+      encoding: "cp1251"
+    exceptions:
+      "gbk": ["COMPILER", "GEOCOMP", "NAME_CH", "NAME_FT", "PRES_LOC", "TYPE_CH"]

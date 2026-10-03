@@ -1,0 +1,43 @@
+{
+  "carrier": "tsv",
+  "summary": {
+    "CONFORMS": 5
+  },
+  "results": [
+    {
+      "target": "harv.ACADEMY_Data",
+      "carrier": "tsv",
+      "rows": 2957,
+      "verdict": "CONFORMS",
+      "sec": 4.7
+    },
+    {
+      "target": "harv.Index_of_the_Complete_Prose_of_the_Yuan_Dynasty_vol_1-60",
+      "carrier": "tsv",
+      "rows": 40199,
+      "verdict": "CONFORMS",
+      "sec": 4.5
+    },
+    {
+      "target": "harv.writings of the 19c missionaries in China",
+      "carrier": "tsv",
+      "rows": 1033,
+      "verdict": "CONFORMS",
+      "sec": 4.7
+    },
+    {
+      "target": "harv.2001_Shanghai_0_INDEX_OF_PRESENTATIONS",
+      "carrier": "tsv",
+      "rows": 29,
+      "verdict": "CONFORMS",
+      "sec": 4.7
+    },
+    {
+      "target": "harv.GB_91_HZ_040201_UTF8",
+      "carrier": "tsv",
+      "rows": 3389,
+      "verdict": "CONFORMS",
+      "sec": 5.3
+    }
+  ]
+}

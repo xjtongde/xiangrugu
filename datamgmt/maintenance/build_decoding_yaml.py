@@ -22,16 +22,18 @@ def main():
     layers = []
     for line in open(os.path.join(CONFIG, "sources.yaml"), encoding="utf-8"):
         s = line.strip()
-        if s.startswith("- ") and '"carrier": "shapefile"' in s:
+        if s.startswith("- ") and ('"carrier": "shapefile"' in s or '"carrier": "mapinfo"' in s):
             e = json.loads(s[2:])
-            layers.append(e["target"].split(".", 1)[1].lower())
+            if e.get("status"):
+                continue
+            layers.append(e["target"].lower())
 
     truth = collections.defaultdict(dict)
     for line in open(os.path.join(RECON, "encoding_survey.jsonl"), encoding="utf-8"):
         r = json.loads(line)
         if not r["has_nonascii"]:
             continue
-        truth[r["target"].split(".", 1)[1].lower()][r["col"]] = r["detected"]
+        truth[r["target"].lower()][r["col"]] = r["detected"]
 
     out = [
         "# 段B 逐图层解码判定表：default=该层非ASCII列众数编码，exceptions=偏离列。",

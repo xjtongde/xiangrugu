@@ -17,12 +17,17 @@ import json
 import os
 import posixpath
 import re
-
+import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 DATAMGMT = os.path.dirname(HERE)
+if DATAMGMT not in sys.path:
+    sys.path.insert(0, DATAMGMT)
 CONFIG = os.path.join(DATAMGMT, "config")
 RECON = os.path.join(DATAMGMT, "recon")
+
+from truth import srcopen as _SO  # noqa: E402  嵌套 zip 读成员/兄弟（.dat）
+from truth import dbf as _DBF  # noqa: E402  dBase 字段解析 + 重名列去歧
 
 
 def dbf_pg(f):
@@ -30,7 +35,9 @@ def dbf_pg(f):
     if t == 'C':
         return 'text'
     if t == 'N':
-        return 'bigint' if f['decimals'] == 0 else f"numeric({f['length']},{f['decimals']})"
+        # MapInfo 导出的 dBase N(w,d) 声明常失真（如 LONG N(33,31) 实存 103.415…、AREA 存科学计数
+        # 1.9445…e+010，按 w-d-1 定 typmod 必溢出）。改用不限精度 numeric：值照源十进制全等保留、天然防溢出。
+        return 'numeric'
     if t in ('D', 'L', 'M'):
         return 'text'
     if t == 'F':
@@ -60,8 +67,8 @@ def mapinfo_pg(f):
     if t == 'float':
         return 'double precision'
     if t == 'decimal':
-        return f"numeric({f['width']},{f['decimals']})"
-    if t in ('logical', 'date'):
+        return 'numeric'  # 同 dBase N：声明 (w,d) 常失真，用不限精度 numeric 防溢出
+    if t in ('logical', 'date', 'time', 'datetime'):
         return 'text'
     return 'text'
 
@@ -122,15 +129,16 @@ def q(s):
     return json.dumps(s, ensure_ascii=False)
 
 
-def _dedupe_shapefiles(shp_srcs, collisions_path=None):
-    """同 target 多副本（顺 §5.2 闸0）：去 HIMIVE（V3_Data_Archive 合集镜像）→ 同 DOI 保留最少 '::'（直取非嵌套）。
-    内容差异已另案查明（见 recon/collisions.json 与段B报告）：v2_1820_cnty_pts_{gb,utf} 两个版本 NAME_PY 一处
-    'Shuyang/Muyang' 差异，已按「忠于图层本体 DOI（ZZKZ6U CHGIS_V2），弃合集镜像」取值并逐案向用户报告。"""
+def _dedupe(srcs, collisions_path=None):
+    """同 target 多副本（顺 §5.2 闸0，shapefile/mapinfo 通用）：去 HIMIVE（V3_Data_Archive 合集镜像）
+    → 同 DOI 保留最少 '::'（直取非嵌套）。内容差异已另案查明（见 recon/collisions.json 与段B报告）：
+    v2_1820_cnty_pts_{gb,utf} 两个版本 NAME_PY 一处 'Shuyang/Muyang' 差异，已按
+    「忠于图层本体 DOI（ZZKZ6U CHGIS_V2），弃合集镜像」取值并逐案向用户报告。"""
     from collections import defaultdict
     if collisions_path is None:
         collisions_path = os.path.join(RECON, "collisions.json")
     by = defaultdict(list)
-    for s in shp_srcs:
+    for s in srcs:
         by[s["target"]].append(s)
     out, collisions = [], []
     for target, lst in sorted(by.items()):
@@ -175,43 +183,55 @@ def main():
         has_shp = 'shp_rows' in r
         if not has_dbf and not has_shp:
             continue    # 孤儿成员（如 Ming_Stations_2016 残留 .cpg）——非真实图层，剔除
-        cols = {f['name']: dbf_pg(f) for f in r.get('fields', [])}
+        cols = {n: dbf_pg(f) for n, f in zip(_DBF.disambiguate([x['name'] for x in r.get('fields', [])]),
+                                             r.get('fields', []))}
         srid, srid_note = resolve_srid(r.get('crs'))
         member = posixpath.join(r.get('dir', ''), r['layer'])
         shp_srcs.append({
             "key": r['zip'] + "::" + member,
             "carrier": "shapefile", "target": "chgis." + r['layer'],
             "truth_rows": r.get('dbf_rows'), "columns": cols,
-            "decoding": r['layer'].lower(),
+            "decoding": ("chgis." + r['layer']).lower(),
             "geom": {"srid": srid, "note": srid_note, "prj_present": bool(r.get('crs'))},
             "geometry_only": (not has_dbf) and has_shp,
         })
-    srcs.extend(_dedupe_shapefiles(shp_srcs))
+    srcs.extend(_dedupe(shp_srcs))
 
-    # MapInfo 142
+    # MapInfo .dat 系 dBase IV，字段/记录真值自 .dat 读；.tab 头仅给 charset 申明
     mi = json.load(open(os.path.join(RECON, "mapinfo_baseline.json"), encoding="utf-8"))
+    mi_srcs = []
     for m in mi:
-        cols = {f['name']: mapinfo_pg(f) for f in m.get('fields', [])}
-        srcs.append({
-            "key": m['zip'] + "::" + m.get('member', '?'),
-            "carrier": "mapinfo", "target": "harv." + (m.get('member', '?').rsplit('.', 1)[0]),
-            "truth_rows": m.get('rows'),
+        if not m.get('is_mapinfo'):
+            continue
+        key = m['zip'] + "::" + m.get('member', '?')
+        layer = m.get('member', '?').rsplit('.', 1)[0]
+        tab_fields = m.get('fields', [])
+        dat = _SO.read_mapinfo_sibling(key, ".dat")
+        if dat is None:
+            mi_srcs.append({"key": key, "carrier": "mapinfo", "target": "harv." + layer,
+                            "status": "无 .dat 不装"})
+            continue
+        cols = {n: mapinfo_pg(f) for n, f in zip(_DBF.disambiguate([x['name'] for x in tab_fields]), tab_fields)}
+        mi_srcs.append({
+            "key": key, "carrier": "mapinfo", "target": "harv." + layer,
+            "truth_rows": _DBF.parse_dbf(dat).get("records"),
             "charset": m.get('charset_codec'),
+            "decoding": ("harv." + layer).lower(),
             "columns": cols,
-            "parsed_n": m.get('parsed_fields'), "declared_n": m.get('n_fields'),
         })
+    srcs.extend(_dedupe(mi_srcs, os.path.join(RECON, "collisions_mapinfo.json")))
 
-    # tab 5
+    # tab 5（TSV 纯文本分列；列型按 §5.3 逐列嗅探）
+    from truth import read_text as RT
     tab = json.load(open(os.path.join(RECON, "tab_baseline.json"), encoding="utf-8"))
     for t_ in tab:
         name = os.path.basename(t_['path']).replace('.tab', '')
-        hdr = t_.get('first_line', '').lstrip('\ufeff')
-        names = hdr.split(t_.get('delimiter', '\t')) if hdr else []
+        enc = RT.decode_full(open(t_['path'], 'rb').read())
+        colnames, trows = RT.read_tsv(t_['path'], enc)
+        types = RT.sniff_pg_types(colnames, trows)
         srcs.append({
             "key": t_['path'], "carrier": "tsv", "target": "harv." + name,
-            "truth_rows": t_['rows_total'], "encoding": t_['encoding'],
-            "columns": [n for n in names if n], "columns_typed": False,
-            "note": "列名取自表头行；PG 类型待阶段三按§5.3逐列嗅探(表头+样本)",
+            "truth_rows": len(trows), "encoding": enc, "columns": types,
         })
 
     # xls 2（xlrd 已读全 schema，隔离环境 /tmp/xlsdeps）

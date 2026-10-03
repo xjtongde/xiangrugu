@@ -21,7 +21,7 @@ if _DATAMGMT not in sys.path:
 
 import decode  # noqa: E402  判表读取（config 层）
 from db import rows, copy_to, quote_ident  # noqa: E402
-from truth import roots, sqlite, dbf, shp  # noqa: E402
+from truth import roots, sqlite, dbf, shp, mapinfo  # noqa: E402
 from truth import srcopen  # noqa: E402
 
 USEDATA = roots.usedata()
@@ -62,7 +62,7 @@ def _dbf_cell(raw, f, fam):
     """verifier 侧列级解码（独立实现）：raw 字段字节 → str|None。"""
     if f["type"] == "N":
         s = raw.strip(b" \x00").decode("ascii", "strict")
-        return None if s == "" else s
+        return None if (s == "" or "*" in s) else s
     body = raw.rstrip(b" \x00")
     enc = decode.col_encoding(fam, f["name"])
     if enc is None:
@@ -124,19 +124,94 @@ def verify_sqlite(db, entry):
     return _gates(db, schema, tname, colnames, pg_types, src_cells)
 
 
+def verify_text(db, entry, colnames, rows):
+    """纯属性源(tsv/xls) 闸1-3：源侧现读字节，类型感知归一后与库比较多重集。"""
+    schema, tname = entry["target"].split(".", 1)
+    tname = tname.lower()
+    pg_types = [entry["columns"][c] for c in colnames]
+    src_cells = [tuple(_canon_typed(v, pt) for v, pt in zip(r, pg_types)) for r in rows]
+    return _gates(db, schema, tname, colnames, pg_types, src_cells)
+
+
+def verify_tsv(db, entry):
+    from truth import read_text
+    colnames, rows = read_text.read_tsv(entry["key"], entry.get("encoding", "utf-8"))
+    return verify_text(db, entry, colnames, rows)
+
+
+def verify_xls(db, entry):
+    import sys as _s
+    if "/tmp/xlsdeps" not in _s.path:
+        _s.path.insert(0, "/tmp/xlsdeps")
+    import xlrd
+    from truth import read_xls
+    colnames, rows = read_xls.read_cells(entry["key"], xlrd)
+    return verify_text(db, entry, colnames, rows)
+
+
+def _mapinfo_cell_v(raw, tf, fam):
+    """verifier 侧独立实现：raw 字段字节 + .tab 真型 → 值|None（Char 列级解码独立实现）。"""
+    t = tf["type"]
+    if t == "Char":
+        body = raw.rstrip(b" \x00")
+        enc = decode.col_encoding(fam, tf["name"])
+        if enc is None:
+            return None
+        return body.decode(enc, "replace")
+    if t == "Decimal":
+        s = raw.strip(b" \x00").decode("ascii", "strict")
+        return None if (s == "" or "*" in s) else s
+    if t == "Smallint":
+        return struct.unpack("<h", raw[:2])[0]
+    if t == "Integer":
+        return struct.unpack("<i", raw[:4])[0]
+    if t == "Float":
+        return struct.unpack("<d", raw[:8])[0]
+    if t == "Logical":
+        s = raw[:1].decode("ascii", "replace")
+        return None if s.strip() == "" else s
+    s = raw.rstrip(b" \x00").decode("ascii", "replace")
+    return None if s == "" else s
+
+
+def verify_mapinfo(db, entry):
+    """腿A MapInfo 属性闸：.tab 真型 + .dat 定宽字节现读，逐列解码，闸1-3（属性-only）。"""
+    schema, tname = entry["target"].split(".", 1)
+    tname = tname.lower()
+    fam = decode.load_decoding().get(entry.get("decoding"))
+    tab_fields, dat = mapinfo.read_table(entry["key"])
+    if dat is None:
+        return {"table": f"{schema}.{tname}", "verdict": "ERROR", "stopped_at": "g1",
+                "err": "MapInfo 缺 .dat"}
+    colnames = dbf.disambiguate([f["name"] for f in tab_fields])
+    pg_types = [entry["columns"][c] for c in colnames]
+    src_cells = []
+    for vals, deleted in dbf.iter_records(dat):
+        if deleted:
+            continue
+        cells = [_mapinfo_cell_v(v, tf, fam) for v, tf in zip(vals, tab_fields)]
+        src_cells.append(tuple(_canon_typed(c, pt) for c, pt in zip(cells, pg_types)))
+    return _gates(db, schema, tname, colnames, pg_types, src_cells)
+
+
 def _feat_vertices_v(feat):
-    """verifier 侧独立实现：规范化几何 → 顶点扁平序列（canonical 顺序，含 Z）。"""
+    """verifier 侧独立实现：规范化几何 → 顶点扁平序列（canonical 顺序，含 Z）。退化/Null → []。"""
     t = feat["type"]
-    if t in ("Null",):
+    if t == "Null":
         return []
     if t == "Point":
         return [feat["geom"]]
+    g = feat["geom"]
     if t == "MultiPoint":
-        return list(feat["geom"])
+        return [] if len(g) == 0 else list(g)
     if t == "MultiLineString":
-        return [v for line in feat["geom"] for v in line]
+        if any(len(line) < 2 for line in g):
+            return []
+        return [v for line in g for v in line]
     if t == "MultiPolygon":
-        return [v for poly in feat["geom"] for ring in poly for v in ring]
+        if any(len(ring) < 4 for poly in g for ring in poly):
+            return []
+        return [v for poly in g for ring in poly for v in ring]
     return []
 
 
@@ -204,7 +279,7 @@ def verify_shapefile(db, entry):
     fam = decode.load_decoding().get(entry.get("decoding"))
     dbf_bytes = srcopen.read_member(entry["key"], ".dbf", required=True)
     fields = dbf.parse_dbf(dbf_bytes)["fields"]
-    colnames = [f["name"] for f in fields]
+    colnames = dbf.disambiguate([f["name"] for f in fields])
     pg_types = [entry["columns"][c] for c in colnames]
     src_cells = []
     for vals, deleted in dbf.iter_records(dbf_bytes):

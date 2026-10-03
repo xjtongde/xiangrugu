@@ -22,6 +22,31 @@ _CHARSET_MAP = {
     "UTF-8": "utf-8",
 }
 
+# 原生 .dat 中按**二进制**存放的 MapInfo 类型宽度（Char/Decimal 存 ASCII，宽度取 .tab 声明）。
+_TYPE_BYTES = {"Smallint": 2, "Integer": 4, "Float": 8, "Logical": 1, "Date": 4}
+
+
+def read_table(key):
+    """读 .tab（字段真型）＋ .dat（定宽字节）→ (tab_fields, dat_bytes|None)。
+
+    .dat 系 dBase IV 布局，字段宽/顺序同 .tab，但 Smallint/Integer/Float 以二进制存而 .dat 头段
+    一律标 'C'/'N'，故字段**类型**务必取 .tab；记录切段宽/偏移可借 dbf.parse_dbf(dat)。
+    """
+    from . import srcopen
+    z, member = srcopen.open_nested(key)
+    try:
+        tab_text = z.read(member).decode("cp1252", errors="replace")
+        hdr = parse_tab_header(tab_text)
+        base = member[:-4] if member.lower().endswith(".tab") else member
+        dat = None
+        for n in z.namelist():
+            if n.lower() == base.lower() + ".dat":
+                dat = z.read(n)
+                break
+        return hdr.get("fields", []), dat
+    finally:
+        z.close()
+
 
 def parse_tab_header(text: str):
     """解析 MapInfo .tab 头文本，返回 {charset, type, n_fields, fields, is_mapinfo}。"""
@@ -46,8 +71,11 @@ def parse_tab_header(text: str):
             in_fields = True
             continue
         if in_fields:
-            # 字段行：NAME TYPE [(width)] ;  ；遇 '  ' 或 表尾则止
-            mm = re.match(r"^\s*([A-Za-z0-9_]+)\s+([A-Za-z]+)\s*(\((\d+)(?:,(\d+))?\))?\s*;?\s*$", line)
+            # 字段行：NAME TYPE [(w[, d])] [Index N] ;  ；遇字段区结束则止（'  ' 缩进变化或表段首）
+            mm = re.match(
+                r"^\s*([A-Za-z0-9_]+)\s+([A-Za-z]+)\s*"
+                r"(\((\d+)(?:\s*,\s*(\d+))?\))?\s*"
+                r"(?:Index\s+\d+\s*)?;?\s*$", line)
             if mm:
                 fields.append({
                     "name": mm.group(1),

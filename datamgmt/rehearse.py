@@ -85,6 +85,58 @@ def run_shapefile(db="cbdb_reh", only=None, promote=True):
     return results
 
 
+def run_text(db, carrier, only=None, promote=True):
+    results = []
+    entries = [e for e in load.load_entries() if e["carrier"] == carrier]
+    for i, e in enumerate(entries):
+        if only and only not in e["target"]:
+            continue
+        t0 = time.time()
+        rec = {"target": e["target"], "carrier": carrier, "rows": _entry_rows(e)}
+        try:
+            if carrier == "tsv":
+                stg, cols, types, nrows = load.load_tsv_staging(db, e)
+                r = verify.verify_tsv(db, e)
+            else:
+                stg, cols, types, nrows = load.load_xls_staging(db, e)
+                r = verify.verify_xls(db, e)
+            rec["verdict"] = r["verdict"]
+            rec["rows"] = nrows
+            if r["verdict"] == "CONFORMS" and promote:
+                load.promote(db, e)
+        except Exception as ex:  # noqa: BLE001
+            rec["verdict"] = "ERROR"
+            rec["err"] = str(ex)[:300]
+        rec["sec"] = round(time.time() - t0, 1)
+        results.append(rec)
+        print(f"[{i+1}/{len(entries)}] {rec['target'][5:]:46s} {str(rec.get('rows', '?')):>8} 行  -> {rec['verdict']}  {rec['sec']}s", flush=True)
+    return results
+
+
+def run_mapinfo(db="cbdb_reh", only=None, promote=True):
+    results = []
+    entries = [e for e in load.load_entries() if e["carrier"] == "mapinfo" and not e.get("status")]
+    for i, e in enumerate(entries):
+        if only and only not in e["target"]:
+            continue
+        t0 = time.time()
+        rec = {"target": e["target"], "carrier": "mapinfo", "rows": _entry_rows(e)}
+        try:
+            stg, cols, types, nrows = load.load_mapinfo_staging(db, e)
+            r = verify.verify_mapinfo(db, e)
+            rec["verdict"] = r["verdict"]
+            rec["rows"] = nrows
+            if r["verdict"] == "CONFORMS" and promote:
+                load.promote(db, e)
+        except Exception as ex:  # noqa: BLE001
+            rec["verdict"] = "ERROR"
+            rec["err"] = str(ex)[:300]
+        rec["sec"] = round(time.time() - t0, 1)
+        results.append(rec)
+        print(f"[{i+1}/{len(entries)}] {rec['target'][5:]:46s} {str(rec.get('rows', '?')):>8} 行  -> {rec['verdict']}  {rec['sec']}s", flush=True)
+    return results
+
+
 def _summary(results):
     from collections import Counter
     return dict(Counter(r["verdict"] for r in results))
@@ -99,9 +151,11 @@ if __name__ == "__main__":
     ap.add_argument("--no-promote", action="store_true")
     args = ap.parse_args()
 
-    fn = {"sqlite": run_sqlite, "shapefile": run_shapefile}.get(args.carrier)
+    fn = {"sqlite": run_sqlite, "shapefile": run_shapefile, "mapinfo": run_mapinfo,
+          "tsv": (lambda db, only=None, promote=True: run_text(db, "tsv", only, promote)),
+          "xls": (lambda db, only=None, promote=True: run_text(db, "xls", only, promote))}.get(args.carrier)
     if fn is None:
-        raise SystemExit("本驱动暂支持 sqlite/shapefile；mapinfo/tsv/xls 后续接入")
+        raise SystemExit("本次彩排支持 sqlite/shapefile/mapinfo/tsv/xls")
     results = fn(args.db, only=args.only, promote=not args.no_promote)
 
     os.makedirs(RECON, exist_ok=True)

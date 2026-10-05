@@ -26,8 +26,6 @@
 | `memos/memos.md` | 用户交录纪要（**非实施指导**） |
 | `demo/` | 演示三页（2026-09-30 用户令**留下**；⚠ **未入 git**，登记缺口＝I-05） |
 
-**不在版本库内、仅存溯源**：`ops/harvard/` 现只有 harvard-full「出生纸」溯源件（`README_provenance.md`＋`datasets.tsv`＋`harvard_dl.tsv`＋fetch 脚本等）——旧装载 `load-b2/`（23 支 b2*.py＋`src_paths.tsv`）已 **2026-10-05 用户令删除**（旧方案退役）。
-
 ## 二、权威优先级
 
 ```text

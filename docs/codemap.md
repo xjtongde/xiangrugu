@@ -7,7 +7,7 @@
 
 ```text
 /root/xiangrugu/
-├── .gitignore              忽略 `.agents/`（用户令"Skill不进git"）、`.secrets/`、**`ops/`**
+├── .gitignore              忽略 `.agents/`（用户令"Skill不进git"）、`.secrets/`
 ├── AGENTS.md               AI 助手入口（§1 项目目标**待用户定义**）
 ├── rules.md                纪律总纲 R-01～R-08（R-09+ 预留）
 ├── datamgmt/               ★数据管理模块（**入 git**）
@@ -18,9 +18,7 @@
 │   └── truth/ importer/ verifier/ tests/ maintenance/ recon/   空壳占位（候开工口令）
 ├── docs/                   文档（`index.md` 为登记处）
 ├── demo/                   ⚠ **未入 git**——演示三页＋build 脚本（2026-09-30 用户令留下；缺口＝I-05）
-├── memos/memos.md          用户交录纪要（**非实施指导**）
-└── ops/harvard/            ⚠ **git 不跟踪**——harvard-full 下载＋溯源「出生纸」：`README_provenance.md`／`datasets.tsv`／`harvard_dl.tsv`／fetch 脚本／下载流水
-                            ↑ 旧装载 `load-b2/`（23 支 b2*.py＋src_paths.tsv＋recon 等）已 **2026-10-05 用户令删除**（旧方案退役）；路径账改 `datamgmt/recon/` 新鲜枚举
+└── memos/memos.md          用户交录纪要（**非实施指导**）
 ```
 
 ## 2 模块职责

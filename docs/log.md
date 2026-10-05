@@ -7,6 +7,7 @@
 
 ## 变动记录
 
+- **2026-10-05** | HANDOFF 正文订正（R-06）：成员 7572→7219、底账落 1172/1153、去 recon_b2a/src_paths 定名残留、生产库 cbdb→新库名候裁、§4 改「交核对底账」、补正注改「正文已订正」 | **文档清理·对齐** | 用户问「其它 agent 看来是否仍乱」 | 本 commit。
 - **2026-10-05** | 删老库 cbdb＋作废 868 产物 15 件：recon/ cbdb_provenance*、prov_*_tables、retry_shapefile.json、maintenance/retry_shapefile.py、config/sources.yaml(868)＋decoding.yaml、rehearse_b*、docs/import-rehearsal-A.md；HANDOFF/codemap 改指已删 | **文档清理** | 用户令「不需要的删，数据来自 usedata」 | 本 commit。
 - **2026-10-05** | `ops/` 整体删除（含前轮所留「出生纸」溯源件）：判定导入工作用不上——溯源＋许可已由 `holdings.md` 单源承载、DOI 编在路径内、许可原文在源件包内；同步 `holdings.md` 无需改、除 `.gitignore` ops/ 行、codemap/index 去 ops 残留 | **源根清理·删净 ops** | 用户令「用不上就删，不要污染以后的工作」 | 本 commit。
 - **2026-10-05** | **对齐核查（R-06）**：删旧装载后全查悬空引用→修 PITFALLS 证据指针等共 8 处改指 recon；冗余✓（口径仍 §5.1/§12 单源）、矛盾✓（无「勿删 load-b2」残留）、锚点✓（inventory_members/出生纸实存）、账目✓（log 已记、无新三账/注册文档） | **对齐核查** | R-06 | 本 commit。

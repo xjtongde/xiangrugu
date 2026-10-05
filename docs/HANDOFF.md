@@ -3,6 +3,8 @@
 > 新会话接手时：先读本文件，再读 `docs/import-plan.md`（唯一权威展开处），即可无缝续作。
 > 交接给用户的唯一话术：**「继续香如故项目的数据库导入工作，先读 docs/HANDOFF.md」**。
 
+> **补正注（2026-10-05，R-06 矛盾查）**：本文件下文 §1.2(b)、§2.1、§3 所称「表名/分区照 `ops/harvard/load-b2/recon_b2a.tsv`＋`usedata/README-b2.md` 既定定名」**已被取代**。用户已定「不管旧库里的东西，唯一依据＝usedata 源件」；现行口径＝**表名照源件自身名**，权威展开见 `docs/import-plan.md` §5.1「命名与去重口径」＋§12 口径十（已裁）。旧装载账 `recon_b2a.tsv`／`src_paths.tsv` 一律**不作命名与建库清单依据**，仅作 `PITFALLS.md` 历史实证保留。
+
 ## 0. 一句话定位
 
 把 `/mnt/wd61workmetadata/usedata/` 里的数据**忠实、无损、一件不落**地导入 pg32b 数据库，验收标尺＝「库值 == 源件字节按列级解码判定表读出的值，差异为 0」。全部纪律见 `docs/import-plan.md` 与 `rules.md`（R-07 源数据只记不改／R-08 忠实导入优先）。

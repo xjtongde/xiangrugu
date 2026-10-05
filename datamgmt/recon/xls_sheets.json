@@ -1,0 +1,187 @@
+[
+  {
+    "file": "china_chron.xls",
+    "sheets": [
+      "Nian_hao_strip3"
+    ],
+    "mirrors": [
+      "chgis-v6/China_Periods_ReignDates.zip::china_chron/china_chron.xls"
+    ]
+  },
+  {
+    "file": "china_chron_fields.xls",
+    "sheets": [
+      "Sheet1",
+      "Sheet2",
+      "Sheet3"
+    ],
+    "mirrors": [
+      "chgis-v6/China_Periods_ReignDates.zip::china_chron/china_chron_fields.xls"
+    ]
+  },
+  {
+    "file": "v6_data_dictionary.xlsx",
+    "sheets": [
+      "v4_data_dictionary"
+    ],
+    "mirrors": [
+      "harvard/chgis/CHGIS_data_dictionary.zip::v6_data_dictionary.xlsx"
+    ]
+  },
+  {
+    "file": "v6_feature_types.xlsx",
+    "sheets": [
+      "v4_feature_types"
+    ],
+    "mirrors": [
+      "harvard/chgis/CHGIS_data_dictionary.zip::v6_feature_types.xlsx"
+    ]
+  },
+  {
+    "file": "xtra_change_types.xlsx",
+    "sheets": [
+      "xtra_change_types"
+    ],
+    "mirrors": [
+      "harvard/chgis/CHGIS_data_dictionary.zip::xtra_change_types.xlsx",
+      "harvard-full/doi_10_7910/DVN/PDGOZ0/V4_Data_Archive.zip::metadata/xtra_change_types.xlsx"
+    ]
+  },
+  {
+    "file": "xtra_contributors.xlsx",
+    "sheets": [
+      "xtra_contributors"
+    ],
+    "mirrors": [
+      "harvard/chgis/CHGIS_data_dictionary.zip::xtra_contributors.xlsx",
+      "harvard-full/doi_10_7910/DVN/PDGOZ0/V4_Data_Archive.zip::metadata/xtra_contributors.xlsx"
+    ]
+  },
+  {
+    "file": "xtra_date_rules.xlsx",
+    "sheets": [
+      "xtra_date_rules"
+    ],
+    "mirrors": [
+      "harvard/chgis/CHGIS_data_dictionary.zip::xtra_date_rules.xlsx",
+      "harvard-full/doi_10_7910/DVN/PDGOZ0/V4_Data_Archive.zip::metadata/xtra_date_rules.xlsx"
+    ]
+  },
+  {
+    "file": "xtra_geo_source.xlsx",
+    "sheets": [
+      "xtra_geo_source"
+    ],
+    "mirrors": [
+      "harvard/chgis/CHGIS_data_dictionary.zip::xtra_geo_source.xlsx",
+      "harvard-full/doi_10_7910/DVN/PDGOZ0/V4_Data_Archive.zip::metadata/xtra_geo_source.xlsx"
+    ]
+  },
+  {
+    "file": "Tib19pdb_orig.xls",
+    "sheets": [
+      "Tib19pdb_orig"
+    ],
+    "mirrors": [
+      "harvard-full/doi_10_7910/DVN/ELTD3L/RAS_1900_pdb2_gis.ZIP::Tib19pdb_orig.xls"
+    ]
+  },
+  {
+    "file": "1999_gb_pop_uce.xls",
+    "sheets": [
+      "adm3"
+    ],
+    "mirrors": [
+      "harvard-full/doi_10_7910/DVN/EOH3FV/1999_gb_pop_uce.xls"
+    ]
+  },
+  {
+    "file": "CHGIS_TMPL_28apr.xls",
+    "sheets": [
+      "temples_mainA_21aprJOIN"
+    ],
+    "mirrors": [
+      "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip::shapefiles/chgis_tmpl_pts_utf.ZIP::CHGIS_TMPL_28apr.xls",
+      "harvard-full/doi_10_7910/DVN/PDGOZ0/V4_Data_Archive.zip::KML/CHGIS_v4_buddhist_KML.zip::CHGIS_TMPL_28apr.xls",
+      "harvard-full/doi_10_7910/DVN/PDGOZ0/V4_Data_Archive.zip::shapefiles/v4_buddhist_pts_utf.zip::CHGIS_TMPL_28apr.xls"
+    ]
+  },
+  {
+    "file": "Manshu_Index_Stanford_links.xlsx",
+    "sheets": [
+      "Sheet1"
+    ],
+    "mirrors": [
+      "harvard-full/doi_10_7910/DVN/M7WEFY/Manshu_200K_index_SHP.zip::Manshu_Index_Stanford_links.xlsx"
+    ]
+  },
+  {
+    "file": "Gazetteers.Beta.xls",
+    "sheets": [
+      "TEMP1"
+    ],
+    "mirrors": [
+      "harvard-full/doi_10_7910/DVN/PDGOZ0/V4_Data_Archive.zip::KML/ChinaW_KML_utf.zip::Gazetteers.Beta.xls",
+      "harvard-full/doi_10_7910/DVN/PDGOZ0/V4_Data_Archive.zip::shapefiles/ChinaW_pts_gbk.zip::Gazetteers.Beta.xls"
+    ]
+  },
+  {
+    "file": "ChinaW.Master.Beta.xls",
+    "sheets": [
+      "ChinaW"
+    ],
+    "mirrors": [
+      "harvard-full/doi_10_7910/DVN/PDGOZ0/V4_Data_Archive.zip::KML/ChinaW_KML_utf.zip::ChinaW.Master.Beta.xls",
+      "harvard-full/doi_10_7910/DVN/PDGOZ0/V4_Data_Archive.zip::shapefiles/ChinaW_pts_gbk.zip::ChinaW.Master.Beta.xls"
+    ]
+  },
+  {
+    "file": "MingGarrisonsSheet_29jan08.xls",
+    "sheets": [
+      "Sheet1",
+      "Sheet2",
+      "Sheet3"
+    ],
+    "mirrors": [
+      "harvard-full/doi_10_7910/DVN/PDGOZ0/V4_Data_Archive.zip::KML/ming_garrisons_KML.zip::MingGarrisonsSheet_29jan08.xls"
+    ]
+  },
+  {
+    "file": "v4_data_dictionary.xlsx",
+    "sheets": [
+      "v4_data_dictionary"
+    ],
+    "mirrors": [
+      "harvard-full/doi_10_7910/DVN/PDGOZ0/V4_Data_Archive.zip::metadata/v4_data_dictionary.xlsx"
+    ]
+  },
+  {
+    "file": "v4_feature_types.xlsx",
+    "sheets": [
+      "v4_feature_types"
+    ],
+    "mirrors": [
+      "harvard-full/doi_10_7910/DVN/PDGOZ0/V4_Data_Archive.zip::metadata/v4_feature_types.xlsx"
+    ]
+  },
+  {
+    "file": "THDL_ADMareas_rev022401.xls",
+    "sheets": [
+      "THDL_ADMareas"
+    ],
+    "mirrors": [
+      "harvard-full/doi_10_7910/DVN/PRCLTU/THDL_ADMareas_rev022401.xls"
+    ]
+  },
+  {
+    "file": "CodeBook_Tibet_Monasteries_20120629.xls",
+    "sheets": [
+      "Sheet1",
+      "Sheet2",
+      "Sheet3"
+    ],
+    "mirrors": [
+      "harvard-full/doi_10_7910/DVN/W6PFXR/Tibet_Monasteries_TBRC_V1_2013.zip::CodeBook_Tibet_Monasteries_20120629.xls"
+    ]
+  }
+]

@@ -7,6 +7,8 @@
 
 ## 变动记录
 
+- **2026-10-05** | **对齐核查（R-06）**：冗余查✓（口径单源 §5.1、§12 十为指针）；矛盾查→修 1 处＝`HANDOFF` §1.2(b)/§2.1/§3 仍称「照 recon_b2a 定名」与 §5.1「照源件自身名」冲突，顶部补正注前向指路（历史正文不回改）；锚点查✓（§12十→§5.1、findings→recon 均实存）；账目闭环✓（无新三账/新注册文档，codemap 无需刷新） | **对齐核查** | R-06 | 本 commit。
+- **2026-10-05** | `import-plan.md` §5.1 立「源件→表 命名与去重口径」、§12 增口径十（已裁）；`datamgmt/recon/` 落底账 ledger_final（7219 成员→1172 行/1153 表，含 mdb/sql/xls 内部结构现读） | **方案修订·底账** | 用户令「不管旧库，把 usedata 忠实导入 pg32b」＋「这点很重要，要记录到导入说明文档」 | 本 commit。
 - **2026-10-02** | 补 xls 读数器：按"工具类隔离装"指令 xlrd@/tmp/xlsdeps（pip --target，不碰系统/项目）；读全两 .xls 入 sources.yaml：1999_gb_pop_uce(2357行6列)、THDL_ADMareas(165行17列,剔4空分隔列)；表头/跳行/列型逐列登记于 truth/read_xls.py 之 XLS_SPEC | **装载·判定表** | leg C 结构齐 | 待裁：tab 列型、131 SRID review、key_cols | 本 commit。
 - **2026-10-02** | 阶段二补：sources.yaml 补 SRID（.prj 直读 571 层确认 4326/2333/4610＋4 无prj→0＋131 非标准→review）＋MapInfo/tab 列映射；修 orphan 成员剔除与 key 含 dir | **装载·判定表** | 核实 2333=Xian1980 GK19、4610=Xian1980、4284=Pulkovo1942 | 待裁：131 SRID review、tab 列型、xls/mdb 读数器、key_cols | 本 commit。
 - **2026-10-02** | 阶段二（判定表）主体完成：`column_encoding.py` 逐列解码 12,044 列；产三清单 decoding(43族)、sources(933源=78+706+142+5+2)、g4_assertions(16条) | **装载·判定表** | 实证 Hartwell=Big5、v5_gns=GBK 对齐§5.4 | 待裁：SRID、key_cols、xls/mdb 读数器、2层无字段 | 本 commit。

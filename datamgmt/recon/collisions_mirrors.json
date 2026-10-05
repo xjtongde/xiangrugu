@@ -1,0 +1,908 @@
+[
+  {
+    "kind": "shp",
+    "name": "v5_1080_chin_chn_1080_c",
+    "identical": true,
+    "groups": [
+      {
+        "md5": "cd41864cef1d",
+        "members": [
+          "harvard-full/doi_10_7910/DVN/29302/v5_Hartwell_2010.zip::v5_Hartwell/v5_1080_chin_chn_1080_c.shp",
+          "harvard-full/doi_10_7910/DVN/29302/v5_Hartwell_2010.zip::v5_Hartwell/v5_1080_chin_chn_1080_p.zip::v5_1080_chin_chn_1080_c.shp"
+        ]
+      }
+    ]
+  },
+  {
+    "kind": "shp",
+    "name": "v5_1080_chin_chn_1080_l",
+    "identical": true,
+    "groups": [
+      {
+        "md5": "4bb9cb39fea6",
+        "members": [
+          "harvard-full/doi_10_7910/DVN/29302/v5_Hartwell_2010.zip::v5_Hartwell/v5_1080_chin_chn_1080_l.shp",
+          "harvard-full/doi_10_7910/DVN/29302/v5_Hartwell_2010.zip::v5_Hartwell/v5_1080_chin_chn_1080_p.zip::v5_1080_chin_chn_1080_l.shp"
+        ]
+      }
+    ]
+  },
+  {
+    "kind": "shp",
+    "name": "v5_1080_chin_chn_1080_p",
+    "identical": true,
+    "groups": [
+      {
+        "md5": "230d97bcbfab",
+        "members": [
+          "harvard-full/doi_10_7910/DVN/29302/v5_Hartwell_2010.zip::v5_Hartwell/v5_1080_chin_chn_1080_p.shp",
+          "harvard-full/doi_10_7910/DVN/29302/v5_Hartwell_2010.zip::v5_Hartwell/v5_1080_chin_chn_1080_p.zip::v5_1080_chin_chn_1080_p.shp"
+        ]
+      }
+    ]
+  },
+  {
+    "kind": "shp",
+    "name": "v5_1200_chin_chn_1200_c",
+    "identical": true,
+    "groups": [
+      {
+        "md5": "db4f88152ecf",
+        "members": [
+          "harvard-full/doi_10_7910/DVN/29302/v5_Hartwell_2010.zip::v5_Hartwell/v5_1200_chin_chn_1200_c.shp",
+          "harvard-full/doi_10_7910/DVN/29302/v5_Hartwell_2010.zip::v5_Hartwell/v5_1200_hartwell_big5.zip::v5_1200_chin_chn_1200_c.shp"
+        ]
+      }
+    ]
+  },
+  {
+    "kind": "shp",
+    "name": "v5_1200_chin_chn_1200_l",
+    "identical": true,
+    "groups": [
+      {
+        "md5": "31f3792c8712",
+        "members": [
+          "harvard-full/doi_10_7910/DVN/29302/v5_Hartwell_2010.zip::v5_Hartwell/v5_1200_chin_chn_1200_l.shp",
+          "harvard-full/doi_10_7910/DVN/29302/v5_Hartwell_2010.zip::v5_Hartwell/v5_1200_hartwell_big5.zip::v5_1200_chin_chn_1200_l.shp"
+        ]
+      }
+    ]
+  },
+  {
+    "kind": "shp",
+    "name": "v5_1200_chin_chn_1200_p",
+    "identical": true,
+    "groups": [
+      {
+        "md5": "bf9b44face46",
+        "members": [
+          "harvard-full/doi_10_7910/DVN/29302/v5_Hartwell_2010.zip::v5_Hartwell/v5_1200_chin_chn_1200_p.shp",
+          "harvard-full/doi_10_7910/DVN/29302/v5_Hartwell_2010.zip::v5_Hartwell/v5_1200_hartwell_big5.zip::v5_1200_chin_chn_1200_p.shp"
+        ]
+      }
+    ]
+  },
+  {
+    "kind": "shp",
+    "name": "eastasia1871_przh_ru",
+    "identical": true,
+    "groups": [
+      {
+        "md5": "5f9a25fbaf89",
+        "members": [
+          "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip::shapefiles/russ_1871_neimeng_pts.ZIP::eastasia1871_przh_ru.shp",
+          "harvard-full/doi_10_7910/DVN/ZZKZ6U/CHGIS_V2.zip::shapefiles/russ_1871_neimeng_pts.ZIP::eastasia1871_przh_ru.shp"
+        ]
+      }
+    ]
+  },
+  {
+    "kind": "shp",
+    "name": "ca1876route_przh_ru",
+    "identical": true,
+    "groups": [
+      {
+        "md5": "df18f04d0af0",
+        "members": [
+          "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip::shapefiles/russ_1876_xinjiang_pts.ZIP::ca1876route_przh_ru.shp",
+          "harvard-full/doi_10_7910/DVN/ZZKZ6U/CHGIS_V2.zip::shapefiles/russ_1876_xinjiang_pts.ZIP::ca1876route_przh_ru.shp"
+        ]
+      }
+    ]
+  },
+  {
+    "kind": "shp",
+    "name": "ca1884_przh_ru",
+    "identical": true,
+    "groups": [
+      {
+        "md5": "e37c8480b582",
+        "members": [
+          "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip::shapefiles/russ_1884_qinghai_pts.ZIP::ca1884_przh_ru.shp",
+          "harvard-full/doi_10_7910/DVN/ZZKZ6U/CHGIS_V2.zip::shapefiles/russ_1884_qinghai_pts.ZIP::ca1884_przh_ru.shp"
+        ]
+      }
+    ]
+  },
+  {
+    "kind": "shp",
+    "name": "ca1884route_przh_ru",
+    "identical": true,
+    "groups": [
+      {
+        "md5": "1e06e64eaa2f",
+        "members": [
+          "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip::shapefiles/russ_1884_tarim_pts.ZIP::ca1884route_przh_ru.shp",
+          "harvard-full/doi_10_7910/DVN/ZZKZ6U/CHGIS_V2.zip::shapefiles/russ_1884_tarim_pts.ZIP::ca1884route_przh_ru.shp"
+        ]
+      }
+    ]
+  },
+  {
+    "kind": "shp",
+    "name": "mk1899_koz_ru",
+    "identical": true,
+    "groups": [
+      {
+        "md5": "9e8bcfada6b2",
+        "members": [
+          "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip::shapefiles/russ_1899_mk_pts.ZIP::mk1899_koz_ru.shp",
+          "harvard-full/doi_10_7910/DVN/ZZKZ6U/CHGIS_V2.zip::shapefiles/russ_1899_mk_pts.ZIP::mk1899_koz_ru.shp"
+        ]
+      }
+    ]
+  },
+  {
+    "kind": "shp",
+    "name": "kam1900_koz_ru",
+    "identical": true,
+    "groups": [
+      {
+        "md5": "117daee165b5",
+        "members": [
+          "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip::shapefiles/russ_1900_kham_pts.ZIP::kam1900_koz_ru.shp",
+          "harvard-full/doi_10_7910/DVN/ZZKZ6U/CHGIS_V2.zip::shapefiles/russ_1900_kham_pts.ZIP::kam1900_koz_ru.shp"
+        ]
+      }
+    ]
+  },
+  {
+    "kind": "shp",
+    "name": "tib1900_pdb_ru",
+    "identical": true,
+    "groups": [
+      {
+        "md5": "577864a5d845",
+        "members": [
+          "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip::shapefiles/russ_1904_tibet_pts.ZIP::tib1900_pdb_ru.shp",
+          "harvard-full/doi_10_7910/DVN/ZZKZ6U/CHGIS_V2.zip::shapefiles/russ_1904_tibet_pts.ZIP::tib1900_pdb_ru.shp"
+        ]
+      }
+    ]
+  },
+  {
+    "kind": "shp",
+    "name": "v2_1820_cnty_pts_gb",
+    "identical": false,
+    "groups": [
+      {
+        "md5": "5ef31531c688",
+        "members": [
+          "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip::shapefiles/v2_1820_cnty_pts_gb.ZIP::v2_1820_cnty_pts_gb.shp"
+        ]
+      },
+      {
+        "md5": "23e61d378272",
+        "members": [
+          "harvard-full/doi_10_7910/DVN/ZZKZ6U/CHGIS_V2.zip::shapefiles/v2_1820_cnty_pts_gb.ZIP::v2_1820_cnty_pts_gb.shp"
+        ]
+      }
+    ]
+  },
+  {
+    "kind": "shp",
+    "name": "v2_1820_cnty_pts_utf",
+    "identical": false,
+    "groups": [
+      {
+        "md5": "6615b3bd4f3b",
+        "members": [
+          "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip::shapefiles/v2_1820_cnty_pts_utf.ZIP::v2_1820_cnty_pts_utf.shp"
+        ]
+      },
+      {
+        "md5": "600d98255b3f",
+        "members": [
+          "harvard-full/doi_10_7910/DVN/ZZKZ6U/CHGIS_V2.zip::shapefiles/v2_1820_cnty_pts_utf.ZIP::v2_1820_cnty_pts_utf.shp"
+        ]
+      }
+    ]
+  },
+  {
+    "kind": "shp",
+    "name": "chgis_v1_cst_lin",
+    "identical": true,
+    "groups": [
+      {
+        "md5": "0afd0f3597f7",
+        "members": [
+          "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip::shapefiles/v2_1820_cst_lin_av.ZIP::chgis_v1_cst_lin.shp",
+          "harvard-full/doi_10_7910/DVN/ZZKZ6U/CHGIS_V2.zip::shapefiles/v2_1820_cst_lin_av.ZIP::chgis_v1_cst_lin.shp"
+        ]
+      }
+    ]
+  },
+  {
+    "kind": "shp",
+    "name": "v2_1820_lks_pgn_gb",
+    "identical": true,
+    "groups": [
+      {
+        "md5": "71e3efcd294c",
+        "members": [
+          "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip::shapefiles/v2_1820_lks_pgn_gb.ZIP::v2_1820_lks_pgn_gb.shp",
+          "harvard-full/doi_10_7910/DVN/ZZKZ6U/CHGIS_V2.zip::shapefiles/v2_1820_lks_pgn_gb.ZIP::v2_1820_lks_pgn_gb.shp"
+        ]
+      }
+    ]
+  },
+  {
+    "kind": "shp",
+    "name": "v2_1820_lks_pgn_utf",
+    "identical": true,
+    "groups": [
+      {
+        "md5": "defbfc7b4bb2",
+        "members": [
+          "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip::shapefiles/v2_1820_lks_pgn_utf.ZIP::v2_1820_lks_pgn_utf.shp",
+          "harvard-full/doi_10_7910/DVN/ZZKZ6U/CHGIS_V2.zip::shapefiles/v2_1820_lks_pgn_utf.ZIP::v2_1820_lks_pgn_utf.shp"
+        ]
+      }
+    ]
+  },
+  {
+    "kind": "shp",
+    "name": "v2_1820_pref_pgn_gb",
+    "identical": true,
+    "groups": [
+      {
+        "md5": "d622018fed33",
+        "members": [
+          "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip::shapefiles/v2_1820_pref_pgn_gb.ZIP::v2_1820_pref_pgn_gb.shp",
+          "harvard-full/doi_10_7910/DVN/ZZKZ6U/CHGIS_V2.zip::shapefiles/v2_1820_pref_pgn_gb.ZIP::v2_1820_pref_pgn_gb.shp"
+        ]
+      }
+    ]
+  },
+  {
+    "kind": "shp",
+    "name": "v2_1820_pref_pgn_utf",
+    "identical": true,
+    "groups": [
+      {
+        "md5": "a596acbef960",
+        "members": [
+          "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip::shapefiles/v2_1820_pref_pgn_utf.ZIP::v2_1820_pref_pgn_utf.shp",
+          "harvard-full/doi_10_7910/DVN/ZZKZ6U/CHGIS_V2.zip::shapefiles/v2_1820_pref_pgn_utf.ZIP::v2_1820_pref_pgn_utf.shp"
+        ]
+      }
+    ]
+  },
+  {
+    "kind": "shp",
+    "name": "v2_1820_pref_pts_gb",
+    "identical": true,
+    "groups": [
+      {
+        "md5": "8b0805306726",
+        "members": [
+          "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip::shapefiles/v2_1820_pref_pts_gb.ZIP::v2_1820_pref_pts_gb.shp",
+          "harvard-full/doi_10_7910/DVN/ZZKZ6U/CHGIS_V2.zip::shapefiles/v2_1820_pref_pts_gb.ZIP::v2_1820_pref_pts_gb.shp"
+        ]
+      }
+    ]
+  },
+  {
+    "kind": "shp",
+    "name": "v2_1820_pref_pts_utf",
+    "identical": true,
+    "groups": [
+      {
+        "md5": "d6d462ad254b",
+        "members": [
+          "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip::shapefiles/v2_1820_pref_pts_utf.ZIP::v2_1820_pref_pts_utf.shp",
+          "harvard-full/doi_10_7910/DVN/ZZKZ6U/CHGIS_V2.zip::shapefiles/v2_1820_pref_pts_utf.ZIP::v2_1820_pref_pts_utf.shp"
+        ]
+      }
+    ]
+  },
+  {
+    "kind": "shp",
+    "name": "v2_1820_prov_pgn_gb",
+    "identical": true,
+    "groups": [
+      {
+        "md5": "fa3a8c4676d0",
+        "members": [
+          "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip::shapefiles/v2_1820_prov_pgn_gb.ZIP::v2_1820_prov_pgn_gb.shp",
+          "harvard-full/doi_10_7910/DVN/ZZKZ6U/CHGIS_V2.zip::shapefiles/v2_1820_prov_pgn_gb.ZIP::v2_1820_prov_pgn_gb.shp"
+        ]
+      }
+    ]
+  },
+  {
+    "kind": "shp",
+    "name": "v2_1820_prov_pgn_utf",
+    "identical": true,
+    "groups": [
+      {
+        "md5": "8244c62d4add",
+        "members": [
+          "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip::shapefiles/v2_1820_prov_pgn_utf.ZIP::v2_1820_prov_pgn_utf.shp",
+          "harvard-full/doi_10_7910/DVN/ZZKZ6U/CHGIS_V2.zip::shapefiles/v2_1820_prov_pgn_utf.ZIP::v2_1820_prov_pgn_utf.shp"
+        ]
+      }
+    ]
+  },
+  {
+    "kind": "shp",
+    "name": "v2_1820_prov_pts_gb",
+    "identical": true,
+    "groups": [
+      {
+        "md5": "03e09dbafd1c",
+        "members": [
+          "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip::shapefiles/v2_1820_prov_pts_gb.ZIP::v2_1820_prov_pts_gb.shp",
+          "harvard-full/doi_10_7910/DVN/ZZKZ6U/CHGIS_V2.zip::shapefiles/v2_1820_prov_pts_gb.ZIP::v2_1820_prov_pts_gb.shp"
+        ]
+      }
+    ]
+  },
+  {
+    "kind": "shp",
+    "name": "v2_1820_prov_pts_utf",
+    "identical": true,
+    "groups": [
+      {
+        "md5": "c3342f5ab5fb",
+        "members": [
+          "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip::shapefiles/v2_1820_prov_pts_utf.ZIP::v2_1820_prov_pts_utf.shp",
+          "harvard-full/doi_10_7910/DVN/ZZKZ6U/CHGIS_V2.zip::shapefiles/v2_1820_prov_pts_utf.ZIP::v2_1820_prov_pts_utf.shp"
+        ]
+      }
+    ]
+  },
+  {
+    "kind": "shp",
+    "name": "v2_1820_rvr_lin_gb",
+    "identical": true,
+    "groups": [
+      {
+        "md5": "a868cd373a20",
+        "members": [
+          "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip::shapefiles/v2_1820_rvr_lin_gb.ZIP::v2_1820_rvr_lin_gb.shp",
+          "harvard-full/doi_10_7910/DVN/ZZKZ6U/CHGIS_V2.zip::shapefiles/v2_1820_rvr_lin_gb.ZIP::v2_1820_rvr_lin_gb.shp"
+        ]
+      }
+    ]
+  },
+  {
+    "kind": "shp",
+    "name": "v2_1820_rvr_lin_utf",
+    "identical": true,
+    "groups": [
+      {
+        "md5": "00d05f0e547e",
+        "members": [
+          "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip::shapefiles/v2_1820_rvr_lin_utf.ZIP::v2_1820_rvr_lin_utf.shp",
+          "harvard-full/doi_10_7910/DVN/ZZKZ6U/CHGIS_V2.zip::shapefiles/v2_1820_rvr_lin_utf.ZIP::v2_1820_rvr_lin_utf.shp"
+        ]
+      }
+    ]
+  },
+  {
+    "kind": "shp",
+    "name": "v2_1820_twn_pts_gb",
+    "identical": true,
+    "groups": [
+      {
+        "md5": "a97f3490a720",
+        "members": [
+          "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip::shapefiles/v2_1820_twn_pts_gb.ZIP::v2_1820_twn_pts_gb.shp",
+          "harvard-full/doi_10_7910/DVN/ZZKZ6U/CHGIS_V2.zip::shapefiles/v2_1820_twn_pts_gb.ZIP::v2_1820_twn_pts_gb.shp"
+        ]
+      }
+    ]
+  },
+  {
+    "kind": "shp",
+    "name": "v2_1820_twn_pts_utf",
+    "identical": true,
+    "groups": [
+      {
+        "md5": "fa2507e9ce74",
+        "members": [
+          "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip::shapefiles/v2_1820_twn_pts_utf.ZIP::v2_1820_twn_pts_utf.shp",
+          "harvard-full/doi_10_7910/DVN/ZZKZ6U/CHGIS_V2.zip::shapefiles/v2_1820_twn_pts_utf.ZIP::v2_1820_twn_pts_utf.shp"
+        ]
+      }
+    ]
+  },
+  {
+    "kind": "shp",
+    "name": "nima_mtns_v1",
+    "identical": true,
+    "groups": [
+      {
+        "md5": "6ffdf47489f7",
+        "members": [
+          "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip::shapefiles/v2_nima_mtns_pts_av.ZIP::nima_mtns_v1.shp",
+          "harvard-full/doi_10_7910/DVN/ZZKZ6U/CHGIS_V2.zip::shapefiles/v2_nima_mtns_pts_av.ZIP::nima_mtns_v1.shp"
+        ]
+      }
+    ]
+  },
+  {
+    "kind": "shp",
+    "name": "nima_cst_v1",
+    "identical": true,
+    "groups": [
+      {
+        "md5": "71ed7c1fba37",
+        "members": [
+          "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip::shapefiles/v2_nima_rocks_pts_av.ZIP::nima_cst_v1.shp",
+          "harvard-full/doi_10_7910/DVN/ZZKZ6U/CHGIS_V2.zip::shapefiles/v2_nima_rocks_pts_av.ZIP::nima_cst_v1.shp"
+        ]
+      }
+    ]
+  },
+  {
+    "kind": "shp",
+    "name": "v2_time_reg_pgn_gb",
+    "identical": true,
+    "groups": [
+      {
+        "md5": "e78ac454bbe3",
+        "members": [
+          "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip::shapefiles/v2_time_reg_pgn_gb.ZIP::v2_time_reg_pgn_gb.shp",
+          "harvard-full/doi_10_7910/DVN/ZZKZ6U/CHGIS_V2.zip::shapefiles/v2_time_reg_pgn_gb.ZIP::v2_time_reg_pgn_gb.shp"
+        ]
+      }
+    ]
+  },
+  {
+    "kind": "shp",
+    "name": "v2_time_reg_pgn_utf",
+    "identical": true,
+    "groups": [
+      {
+        "md5": "5cdc37b3a6d6",
+        "members": [
+          "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip::shapefiles/v2_time_reg_pgn_utf.ZIP::v2_time_reg_pgn_utf.shp",
+          "harvard-full/doi_10_7910/DVN/ZZKZ6U/CHGIS_V2.zip::shapefiles/v2_time_reg_pgn_utf.ZIP::v2_time_reg_pgn_utf.shp"
+        ]
+      }
+    ]
+  },
+  {
+    "kind": "shp",
+    "name": "v2_time_reg_pts_gb",
+    "identical": true,
+    "groups": [
+      {
+        "md5": "c9e8855ec51d",
+        "members": [
+          "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip::shapefiles/v2_time_reg_pts_gb.ZIP::v2_time_reg_pts_gb.shp",
+          "harvard-full/doi_10_7910/DVN/ZZKZ6U/CHGIS_V2.zip::shapefiles/v2_time_reg_pts_gb.ZIP::v2_time_reg_pts_gb.shp"
+        ]
+      }
+    ]
+  },
+  {
+    "kind": "shp",
+    "name": "v2_time_reg_pts_utf",
+    "identical": true,
+    "groups": [
+      {
+        "md5": "1cae3ba19cfb",
+        "members": [
+          "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip::shapefiles/v2_time_reg_pts_utf.ZIP::v2_time_reg_pts_utf.shp",
+          "harvard-full/doi_10_7910/DVN/ZZKZ6U/CHGIS_V2.zip::shapefiles/v2_time_reg_pts_utf.ZIP::v2_time_reg_pts_utf.shp"
+        ]
+      }
+    ]
+  },
+  {
+    "kind": "shp",
+    "name": "v4_time_prov_pgn_utf",
+    "identical": true,
+    "groups": [
+      {
+        "md5": "a50d2ca97ee1",
+        "members": [
+          "harvard-full/doi_10_7910/DVN/M7WEFY/v4_time_prov_pgn_utf.zip::v4_time_prov_pgn_utf.shp",
+          "harvard-full/doi_10_7910/DVN/PDGOZ0/V4_Data_Archive.zip::shapefiles/v4_time_prov_pgn_utf.zip::v4_time_prov_pgn_utf.shp"
+        ]
+      }
+    ]
+  },
+  {
+    "kind": "shp",
+    "name": "v4_time_prov_pts_utf",
+    "identical": true,
+    "groups": [
+      {
+        "md5": "e333bb5c9887",
+        "members": [
+          "harvard-full/doi_10_7910/DVN/M7WEFY/v4_time_prov_pts_utf.zip::v4_time_prov_pts_utf.shp",
+          "harvard-full/doi_10_7910/DVN/PDGOZ0/V4_Data_Archive.zip::shapefiles/v4_time_prov_pts_utf.zip::v4_time_prov_pts_utf.shp"
+        ]
+      }
+    ]
+  },
+  {
+    "kind": "shp",
+    "name": "v5_1911_cnty_pts_utf",
+    "identical": true,
+    "groups": [
+      {
+        "md5": "34aed77930f9",
+        "members": [
+          "harvard-full/doi_10_7910/DVN/M7WEFY/v5_1911_cnty_pts_utf.zip::v5_1911_cnty_pts_utf.shp",
+          "harvard-full/doi_10_7910/DVN/M7WEFY/v5_time_pref_pgn_utf.zip::v5_1911_cnty_pts_utf.zip::v5_1911_cnty_pts_utf.shp"
+        ]
+      }
+    ]
+  },
+  {
+    "kind": "shp",
+    "name": "v5_1911_pref_pgn_utf",
+    "identical": true,
+    "groups": [
+      {
+        "md5": "6e4aa2b65a9a",
+        "members": [
+          "harvard-full/doi_10_7910/DVN/M7WEFY/v5_1911_pref_pgn_utf.zip::v5_1911_pref_pgn_utf.shp",
+          "harvard-full/doi_10_7910/DVN/M7WEFY/v5_PhysiogMacroregions_pgn_utf.zip::v5_1911_pref_pgn_utf.zip::v5_1911_pref_pgn_utf.shp"
+        ]
+      }
+    ]
+  },
+  {
+    "kind": "tab",
+    "name": "V3_time_pref_pgn_PRC",
+    "identical": true,
+    "groups": [
+      {
+        "md5": "c33c7bc3c7a5",
+        "members": [
+          "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip::shapefiles/v3_time_pref_pgn_PRC.ZIP::V3_time_pref_pgn_PRC.TAB",
+          "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip::mapinfo/v3_time_pref_pgn_PRC.ZIP::V3_time_pref_pgn_PRC.TAB"
+        ]
+      }
+    ]
+  },
+  {
+    "kind": "tab",
+    "name": "v2_1820_cnty_pts_PRC",
+    "identical": true,
+    "groups": [
+      {
+        "md5": "49466474cf7c",
+        "members": [
+          "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip::mapinfo/v2_1820_cnty_pts_prc.ZIP::v2_1820_cnty_pts_PRC.TAB",
+          "harvard-full/doi_10_7910/DVN/ZZKZ6U/CHGIS_V2.zip::mapinfo/v2_1820_cnty_pts_prc.ZIP::v2_1820_cnty_pts_PRC.TAB"
+        ]
+      }
+    ]
+  },
+  {
+    "kind": "tab",
+    "name": "v2_1820_cnty_pts_USA",
+    "identical": true,
+    "groups": [
+      {
+        "md5": "c0741f8885fc",
+        "members": [
+          "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip::mapinfo/v2_1820_cnty_pts_usa.ZIP::v2_1820_cnty_pts_USA.TAB",
+          "harvard-full/doi_10_7910/DVN/ZZKZ6U/CHGIS_V2.zip::mapinfo/v2_1820_cnty_pts_usa.ZIP::v2_1820_cnty_pts_USA.TAB"
+        ]
+      }
+    ]
+  },
+  {
+    "kind": "tab",
+    "name": "CHGIS_V1_CST_LIN",
+    "identical": true,
+    "groups": [
+      {
+        "md5": "4bc339ba4f70",
+        "members": [
+          "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip::mapinfo/v2_1820_cst_lin_mi.ZIP::CHGIS_V1_CST_LIN.TAB",
+          "harvard-full/doi_10_7910/DVN/ZZKZ6U/CHGIS_V2.zip::mapinfo/v2_1820_cst_lin_mi.ZIP::CHGIS_V1_CST_LIN.TAB"
+        ]
+      }
+    ]
+  },
+  {
+    "kind": "tab",
+    "name": "v2_1820_lks_pgn_prc",
+    "identical": true,
+    "groups": [
+      {
+        "md5": "963db2f150a1",
+        "members": [
+          "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip::mapinfo/v2_1820_lks_pgn_prc.ZIP::v2_1820_lks_pgn_prc.TAB",
+          "harvard-full/doi_10_7910/DVN/ZZKZ6U/CHGIS_V2.zip::mapinfo/v2_1820_lks_pgn_prc.ZIP::v2_1820_lks_pgn_prc.TAB"
+        ]
+      }
+    ]
+  },
+  {
+    "kind": "tab",
+    "name": "v2_1820_lks_pgn_usa",
+    "identical": true,
+    "groups": [
+      {
+        "md5": "e22a934cbe52",
+        "members": [
+          "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip::mapinfo/v2_1820_lks_pgn_usa.ZIP::v2_1820_lks_pgn_usa.TAB",
+          "harvard-full/doi_10_7910/DVN/ZZKZ6U/CHGIS_V2.zip::mapinfo/v2_1820_lks_pgn_usa.ZIP::v2_1820_lks_pgn_usa.TAB"
+        ]
+      }
+    ]
+  },
+  {
+    "kind": "tab",
+    "name": "v2_1820_pref_pgn_PRC",
+    "identical": true,
+    "groups": [
+      {
+        "md5": "54501244f67c",
+        "members": [
+          "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip::mapinfo/v2_1820_pref_pgn_prc.ZIP::v2_1820_pref_pgn_PRC.TAB",
+          "harvard-full/doi_10_7910/DVN/ZZKZ6U/CHGIS_V2.zip::mapinfo/v2_1820_pref_pgn_prc.ZIP::v2_1820_pref_pgn_PRC.TAB"
+        ]
+      }
+    ]
+  },
+  {
+    "kind": "tab",
+    "name": "v2_1820_pref_pgn_USA",
+    "identical": true,
+    "groups": [
+      {
+        "md5": "08d5ada045e8",
+        "members": [
+          "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip::mapinfo/v2_1820_pref_pgn_usa.ZIP::v2_1820_pref_pgn_USA.TAB",
+          "harvard-full/doi_10_7910/DVN/ZZKZ6U/CHGIS_V2.zip::mapinfo/v2_1820_pref_pgn_usa.ZIP::v2_1820_pref_pgn_USA.TAB"
+        ]
+      }
+    ]
+  },
+  {
+    "kind": "tab",
+    "name": "v2_1820_pref_pts_PRC",
+    "identical": true,
+    "groups": [
+      {
+        "md5": "b859e8c648dd",
+        "members": [
+          "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip::mapinfo/v2_1820_pref_pts_prc.ZIP::v2_1820_pref_pts_PRC.TAB",
+          "harvard-full/doi_10_7910/DVN/ZZKZ6U/CHGIS_V2.zip::mapinfo/v2_1820_pref_pts_prc.ZIP::v2_1820_pref_pts_PRC.TAB"
+        ]
+      }
+    ]
+  },
+  {
+    "kind": "tab",
+    "name": "v2_1820_pref_pts_USA",
+    "identical": true,
+    "groups": [
+      {
+        "md5": "393af05378f7",
+        "members": [
+          "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip::mapinfo/v2_1820_pref_pts_usa.ZIP::v2_1820_pref_pts_USA.TAB",
+          "harvard-full/doi_10_7910/DVN/ZZKZ6U/CHGIS_V2.zip::mapinfo/v2_1820_pref_pts_usa.ZIP::v2_1820_pref_pts_USA.TAB"
+        ]
+      }
+    ]
+  },
+  {
+    "kind": "tab",
+    "name": "v2_1820_prov_pgn_PRC",
+    "identical": true,
+    "groups": [
+      {
+        "md5": "85d5f7a6da6b",
+        "members": [
+          "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip::mapinfo/v2_1820_prov_pgn_prc.ZIP::v2_1820_prov_pgn_PRC.TAB",
+          "harvard-full/doi_10_7910/DVN/ZZKZ6U/CHGIS_V2.zip::mapinfo/v2_1820_prov_pgn_prc.ZIP::v2_1820_prov_pgn_PRC.TAB"
+        ]
+      }
+    ]
+  },
+  {
+    "kind": "tab",
+    "name": "v2_1820_prov_pgn_USA",
+    "identical": true,
+    "groups": [
+      {
+        "md5": "09ea464c3713",
+        "members": [
+          "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip::mapinfo/v2_1820_prov_pgn_usa.ZIP::v2_1820_prov_pgn_USA.TAB",
+          "harvard-full/doi_10_7910/DVN/ZZKZ6U/CHGIS_V2.zip::mapinfo/v2_1820_prov_pgn_usa.ZIP::v2_1820_prov_pgn_USA.TAB"
+        ]
+      }
+    ]
+  },
+  {
+    "kind": "tab",
+    "name": "v2_1820_prov_pts_PRC",
+    "identical": true,
+    "groups": [
+      {
+        "md5": "2267e5a28e8f",
+        "members": [
+          "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip::mapinfo/v2_1820_prov_pts_prc.ZIP::v2_1820_prov_pts_PRC.TAB",
+          "harvard-full/doi_10_7910/DVN/ZZKZ6U/CHGIS_V2.zip::mapinfo/v2_1820_prov_pts_prc.ZIP::v2_1820_prov_pts_PRC.TAB"
+        ]
+      }
+    ]
+  },
+  {
+    "kind": "tab",
+    "name": "v2_1820_prov_pts_USA",
+    "identical": true,
+    "groups": [
+      {
+        "md5": "593708af2e50",
+        "members": [
+          "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip::mapinfo/v2_1820_prov_pts_usa.ZIP::v2_1820_prov_pts_USA.TAB",
+          "harvard-full/doi_10_7910/DVN/ZZKZ6U/CHGIS_V2.zip::mapinfo/v2_1820_prov_pts_usa.ZIP::v2_1820_prov_pts_USA.TAB"
+        ]
+      }
+    ]
+  },
+  {
+    "kind": "tab",
+    "name": "v2_1820_rvr_lin_prc",
+    "identical": true,
+    "groups": [
+      {
+        "md5": "86a0882db07a",
+        "members": [
+          "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip::mapinfo/v2_1820_rvr_lin_prc.ZIP::v2_1820_rvr_lin_prc.TAB",
+          "harvard-full/doi_10_7910/DVN/ZZKZ6U/CHGIS_V2.zip::mapinfo/v2_1820_rvr_lin_prc.ZIP::v2_1820_rvr_lin_prc.TAB"
+        ]
+      }
+    ]
+  },
+  {
+    "kind": "tab",
+    "name": "v2_1820_rvr_lin_usa",
+    "identical": true,
+    "groups": [
+      {
+        "md5": "58cdd6552623",
+        "members": [
+          "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip::mapinfo/v2_1820_rvr_lin_usa.ZIP::v2_1820_rvr_lin_usa.TAB",
+          "harvard-full/doi_10_7910/DVN/ZZKZ6U/CHGIS_V2.zip::mapinfo/v2_1820_rvr_lin_usa.ZIP::v2_1820_rvr_lin_usa.TAB"
+        ]
+      }
+    ]
+  },
+  {
+    "kind": "tab",
+    "name": "v2_1820_twn_pts_PRC",
+    "identical": true,
+    "groups": [
+      {
+        "md5": "63af5eadaae3",
+        "members": [
+          "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip::mapinfo/v2_1820_twn_pts_prc.ZIP::v2_1820_twn_pts_PRC.TAB",
+          "harvard-full/doi_10_7910/DVN/ZZKZ6U/CHGIS_V2.zip::mapinfo/v2_1820_twn_pts_prc.ZIP::v2_1820_twn_pts_PRC.TAB"
+        ]
+      }
+    ]
+  },
+  {
+    "kind": "tab",
+    "name": "v2_1820_twn_pts_USA",
+    "identical": true,
+    "groups": [
+      {
+        "md5": "692717b30973",
+        "members": [
+          "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip::mapinfo/v2_1820_twn_pts_usa.ZIP::v2_1820_twn_pts_USA.TAB",
+          "harvard-full/doi_10_7910/DVN/ZZKZ6U/CHGIS_V2.zip::mapinfo/v2_1820_twn_pts_usa.ZIP::v2_1820_twn_pts_USA.TAB"
+        ]
+      }
+    ]
+  },
+  {
+    "kind": "tab",
+    "name": "v2_time_reg_pgn_PRC",
+    "identical": true,
+    "groups": [
+      {
+        "md5": "03089031d2ac",
+        "members": [
+          "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip::mapinfo/v2_time_reg_pgn_prc.ZIP::v2_time_reg_pgn_PRC.TAB",
+          "harvard-full/doi_10_7910/DVN/ZZKZ6U/CHGIS_V2.zip::mapinfo/v2_time_reg_pgn_prc.ZIP::v2_time_reg_pgn_PRC.TAB"
+        ]
+      }
+    ]
+  },
+  {
+    "kind": "tab",
+    "name": "v2_time_reg_pgn_USA",
+    "identical": true,
+    "groups": [
+      {
+        "md5": "5951311717b0",
+        "members": [
+          "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip::mapinfo/v2_time_reg_pgn_usa.ZIP::v2_time_reg_pgn_USA.TAB",
+          "harvard-full/doi_10_7910/DVN/ZZKZ6U/CHGIS_V2.zip::mapinfo/v2_time_reg_pgn_usa.ZIP::v2_time_reg_pgn_USA.TAB"
+        ]
+      }
+    ]
+  },
+  {
+    "kind": "tab",
+    "name": "v2_time_reg_pts_PRC",
+    "identical": true,
+    "groups": [
+      {
+        "md5": "03089031d2ac",
+        "members": [
+          "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip::mapinfo/v2_time_reg_pts_prc.ZIP::v2_time_reg_pts_PRC.TAB",
+          "harvard-full/doi_10_7910/DVN/ZZKZ6U/CHGIS_V2.zip::mapinfo/v2_time_reg_pts_prc.ZIP::v2_time_reg_pts_PRC.TAB"
+        ]
+      }
+    ]
+  },
+  {
+    "kind": "tab",
+    "name": "v2_time_reg_pts_USA",
+    "identical": true,
+    "groups": [
+      {
+        "md5": "cf41b2b8ea10",
+        "members": [
+          "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip::mapinfo/v2_time_reg_pts_usa.ZIP::v2_time_reg_pts_USA.TAB",
+          "harvard-full/doi_10_7910/DVN/ZZKZ6U/CHGIS_V2.zip::mapinfo/v2_time_reg_pts_usa.ZIP::v2_time_reg_pts_USA.TAB"
+        ]
+      }
+    ]
+  },
+  {
+    "kind": "tab",
+    "name": "v2_time_prov_pgn_USA",
+    "identical": true,
+    "groups": [
+      {
+        "md5": "59103d4df9c0",
+        "members": [
+          "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip::mapinfo/v3_time_prov_pgn_usa.ZIP::v2_time_prov_pgn_USA.TAB",
+          "harvard-full/doi_10_7910/DVN/ZZKZ6U/CHGIS_V2.zip::mapinfo/v2_time_prov_pgn_usa.ZIP::v2_time_prov_pgn_USA.TAB"
+        ]
+      }
+    ]
+  },
+  {
+    "kind": "tab",
+    "name": "v2_1911_prov_pgn_PRC",
+    "identical": true,
+    "groups": [
+      {
+        "md5": "1da76dc71497",
+        "members": [
+          "harvard-full/doi_10_7910/DVN/ZZKZ6U/CHGIS_V2.zip::mapinfo/v2_1911_pref_pgn_prc.ZIP::v2_1911_prov_pgn_PRC.TAB",
+          "harvard-full/doi_10_7910/DVN/ZZKZ6U/CHGIS_V2.zip::mapinfo/v2_1911_prov_pgn_prc.ZIP::v2_1911_prov_pgn_PRC.TAB"
+        ]
+      }
+    ]
+  }
+]

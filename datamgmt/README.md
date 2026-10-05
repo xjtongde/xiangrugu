@@ -1,72 +1,42 @@
-# datamgmt —— 数据管理模块（导入 · 验证 · 测试 · 维护）
+# datamgmt —— 数据导入、验证与维护模块
 
-> **定位（2026-09-29 用户令开设，原话照录）**：「**总之我们要有一个专门的目录用于存放，数据维护，测试，导入代码。这是一个专门用处理数据的模块。它有测试，维护，导入等等关于数据管理的模块。我们目前就是要先把这一块搞好。**」
-> **本模块＝`docs/import-plan.md`（数据导入方案 v3）的执行体**：方案说"应该怎么做"，本模块装"照它做的东西"。两者一职一处，不复述（R-04）。
-> **本目录一律入 git**（`.gitignore` 只吃 `.agents/`、`.secrets/`）——旧装载脚本曾因落在 `ops/` 而不入版本库、NAS 又无副本，导致重建能力单点在本机磁盘，此为 **P-16**（`ops/` 已 2026-10-05 全删），本模块不得重犯。
+> 状态：开发中｜as_of 2026-10-06
 
----
+本目录是 `docs/import-plan.md` 的执行体。方案和阶段只在该文档定义；本文件只说明现有文件、职责和缺口。
 
-## 1. 用户令要求"现在必须有"的两件内容
+## 目录职责
 
-| # | 用户令 | 落点 | 状态 |
-|---|---|---|---|
-| **1** | 「**要导入数据源的在这个目录下：`/mnt/wd61workmetadata/usedata`**」 | **`config/roots.yaml`**——源根、只读声明、三棵子树与件数、三份校验账、双根共键换算规则、禁用路径、目标库连接事实，全部机器可读 | ✅ 已建（2026-09-29 实测填数） |
-| **2** | 「**再就是以前的防坑经验文档**」 | **`PITFALLS.md`**——旧库建设全过程所踩坑之唯一登记处，`P-01`…`P-25` 六类，每条＝实证→病根→拦截点→禁令 | ✅ 已迁入（原 `docs/pitfalls.md`，`git mv` 保历史） |
-
-**代码已按载体建立**（`truth/` 直读源件字节 28 件、`importer/load.py`、`verifier/verify.py`＋闸0、`maintenance/` 生成脚本 5 支；仅 `tests/` 空壳）。阶段二将**重建 `config/sources.yaml`／`decoding.yaml`**（旧 868 版已删）——候 R-01 开工口令。`import-plan.md` 自审四处待裁（栅格独立性、几何比对法、白名单第三类、行数口径 count(*)）直接影响代码形态。见 `import-plan.md` §10／§12。
-
----
-
-## 2. 目录结构与职责
-
-```text
-datamgmt/
-├── README.md          本文件：模块定位、纪律（模块唯一入口；阶段表见 `import-plan.md` §10）
-├── PITFALLS.md        ★防坑条目录 P-01…P-25（用户令 2）——本模块一切设计决定之依据来源
-├── config/            配置（声明式，一页读完"库该长什么样"）
-│   ├── roots.yaml     ★数据源根与换算规则（用户令 1）——唯一机器可读权威
-│   ├── sources.yaml   源清单：一源一条（阶段二建，候口令）
-│   ├── decoding.yaml  列级解码判定表：每文本列的编码与依据（阶段二建，候口令）
-│   └── g4_assertions.yaml  闸4 语义哨兵断言集＝源数据可疑处登记册之机器版（已建）
-├── truth/             源侧真值独立读取器（已建）：dbf/shp/sqlite/xls/mapinfo＋column_encoding/enumerate/probe/read_text/roots/srcopen（prj/zipmember/rasterhdr 未建，阶段二补——审计 10-05）
-│                      ——铁律：验收不经 GDAL，直读源件字节（import-plan §6.1）
-├── importer/          装载器 load.py：读 sources.yaml → staging → 过闸 → 原子换名 → 写 recon（阶段三建）
-├── verifier/          验证器 verify.py＋六道闸：与 importer **零共用代码**（阶段一建）
-├── tests/             单元／集成（含"故意注错"演练）／全库回归／重建彩排／换版差分（阶段一起渐建）
-├── maintenance/       数据维护：日常巡检、账目核对、源件完整性复验、版本差分、退役脚本归档位
-└── recon/             工作账（**绝不落 /tmp**，此为 P-12）：recon.tsv（带唯一键 upsert）、gates/、cert/
-```
-
-**职责边界（避免与既有文档双账）**：
-
-| 事实 | 唯一权威 |
+| 路径 | 当前职责 |
 |---|---|
-| 该怎么装、怎么验、怎么测 | `docs/import-plan.md` |
-| 上次踩过什么坑、为什么这么设计 | **`PITFALLS.md`（本目录）** |
-| 源在哪、怎么换算路径、目标库是谁 | **`config/roots.yaml`（本目录）**；人读摘要＝`docs/holdings.md` |
-| 每个源件的真值是多少 | `recon/`（真值基线）＋`docs/source-truth.md`（人读版，未建） |
-| 数据是什么、源数据可疑处登记册 | `docs/cbdb.md` **§三 G4-01…G4-16** |
-| 代码地图与部署位置 | `docs/codemap.md` |
+| `config/roots.yaml` | 唯一源根、目标实例/数据库和路径政策 |
+| `config/g4_assertions.yaml` | 已确认源生现象的机器哨兵 |
+| `truth/` | 已有 SQLite、DBF/Shapefile、MapInfo、文本、XLS 等部分源读取能力 |
+| `importer/load.py` | 已有部分载体的 staging 装载与发布原型 |
+| `verifier/` | 已有完整性及部分独立验证原型 |
+| `maintenance/` | 盘点、编码调查和配置生成辅助脚本 |
+| `recon/` | 当前盘点证据、草案台账与运行产物 |
+| `tests/` | 目前只有 `.gitkeep`，尚无测试代码 |
 
----
+## 尚不存在或尚未完成
 
-## 3. 阶段表
+- `config/sources.yaml`、`config/decoding.yaml` 尚未建立；
+- MDB、SQL dump、XLSX/CSV/ODS、栅格及多层容器等尚未全部形成端到端闭环；
+- 计划中的 PRJ、ZIP 成员和栅格头独立读取能力尚无对应模块；
+- 发布操作尚未证明为单事务；
+- 缺少单元、故障注入、集成、全库回归和重入测试；
+- `db.py`、`rehearse.py`、`verify.py` 和 `load.py` 仍默认连接旧 `cbdb_reh`，schema 列表也未包含新方案的 `cbdb/audit`；
+- `build_sources_yaml.py` 仍写死旧 `database=cbdb` 与 `public` schema；部分源读取器写死源路径，XLS 依赖 `/tmp/xlsdeps`；这些都不能直接用于正式运行。
 
-**五阶段之唯一执行表＝`docs/import-plan.md` §10**（内容/落点/产出/验收/粗估全在一处；本模块不复述，避免双账）。当前＝**阶段一已完成（底账落 1172 行/1153 表，见 `recon/ledger_final.tsv`）；阶段二候口令**，全程只读源件与库、不写数据。
+因此，当前状态是“阶段 0 盘点草案已生成，导入合同尚未验收”，不是“阶段一已完成”。当前阶段及出口条件以 `docs/import-plan.md` 为准。
 
-## 4. 五条纪律（本模块内一切代码与操作须守；违反即判不合格）
+## 不可违反的实现边界
 
-1. **入版本库**（P-16）：本目录内**任何**可重建资产（配置、代码、台账、证书）一律入 git；不得另在 `ops/` 或 `/tmp` 留唯一副本。
-2. **单一源根、不硬编码绝对路径**（P-17）：源件路径一律 `config/roots.yaml` 之根 ＋ `recon/inventory_members.tsv` 之 `rel` 相对链拼成；**禁止**在代码里写死 `/mnt/...`。禁用路径见 `roots.yaml` 之 `forbidden`。
-3. **工作账不落 `/tmp`**（P-12）：`recon/` 是唯一落点；写入一律带唯一键 upsert，**禁止 append**。
-4. **保真层永不 `UPDATE`／`DELETE`**（`import-plan.md` H-3、P-14）：我方装载错在装载时修对；装后发现错 → **重装该表**，不打补丁。
-5. **验收不经 GDAL、期望值绝不取自装载器**（H-1、P-01/P-02、`import-plan.md` §6.1）：`verifier/` 与 `importer/` **零共用代码**；真值由 `truth/` 直读源件字节现算。
+1. 只从 `config/roots.yaml` 取得源根，业务清单只存相对成员链；
+2. 源件只读，可重建资产全部入 Git，唯一工作账不得放在 `/tmp`；
+3. importer 与 verifier 的值解析实现相互独立；
+4. 保真层不靠装后 `UPDATE`/`DELETE` 修补，失败对象应从源重新装载；
+5. 每个源成员都必须有处置，禁止按扩展名静默遗漏；
+6. 验收证据来自源字节，不来自旧 `cbdb`、装载器输出或人工叙述；
+7. 创建数据库、写库、删除库和运行全量任务都须另获用户明确授权。
 
-**另守项目总纪律**：`rules.md` R-01（动手前须口令）、R-04（单一源、历史账不回改）、R-06（每轮四项核查）、**R-07（源数据只记不改：源数据有问题只记录、不修改，除非用户逐案指定）**。
-
----
-
-## 5. 迁移留痕（R-04/R-05）
-
-- **2026-09-29**：`docs/pitfalls.md` → **`datamgmt/PITFALLS.md`**（`git mv`，历史可溯）。迁移缘由＝用户令"防坑经验文档"须为本模块必备内容之一；`docs/index.md` 同批除名并改指本处，`docs/import-plan.md` 内引用同批改钉。
-- **2026-09-29**：`docs/import-plan.md` §4.1 原拟目录名 `load/`，**改判为 `datamgmt/`**——用户令要求的是含"维护、测试、导入"的**数据管理模块**，`load/` 之名过窄，不足以涵盖 `maintenance/` 与 `tests/`。方案正文同批改钉。
+历史失败模式和必测拦截点见 `PITFALLS.md`。

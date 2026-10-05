@@ -25,9 +25,9 @@ roots:
     role: authoritative-source          # 权威数据源目录（2026-09-28 用户令设立）
     usage_policy: "2026-10-02 用户令：usedata 只含【本项目使用】件——使用件保留并记用途，不使用件清出（不判断源数据对错，仅按项目是否使用取舍）。"
     access: read-only                   # 源件内容决不可改（R-07）；整件清出须经用户令并留痕
-    as_of: "2026-09-29"
+    as_of: "2026-10-06"
     measured_by: this-session
-    inventory:                          # 实测：顶层 3 子树 ＋ 2 文件 ＝ 189 件（2026-10-02 清出旧版 CBDB 后）
+    inventory:                          # 2026-10-06 SSH 只读复核：189 个普通文件，根可读
       total_files: 189
       subtrees:
         - name: chgis-v6
@@ -128,11 +128,22 @@ target:
   instance: pg32b
   host: 192.168.3.32
   port: 5433                            # 5432 系 pg32 生产口，不动
-  database: cbdb
+  database: xiangrugu                   # 计划新建的正式目标；创建数据库须另获用户授权
+  sample_database: xiangrugu_sample
+  rehearsal_database: xiangrugu_rehearsal
   container: pg32b
   user: postgres
   image: "pg32b-full:18-pgdg（＝36 之 pg36-full:18-pgdg 同字节拷贝；PG 18.6＋PostGIS 3.6.4＋pgvector 0.8.6）"
-  extensions_in_cbdb: "plpgsql 1.0／postgis 3.6.4／postgis_raster 3.6.4（2026-09-30 现算）。⚠ **镜像含 pgvector 0.8.6 但 cbdb 库未创建 vector 扩展** → F-04 向量检索层启用前须先 CREATE EXTENSION vector。"
-  access_pattern: 'ssh 192.168.3.32 "docker exec -i pg32b psql -U postgres -d cbdb -At -F''|''" <<SQL … SQL'
+  planned_extensions: "建库前按导入合同核实；至少需要 PostGIS，栅格载体若入库则需要 postgis_raster。不得从现有 cbdb 推断目标库已配置。"
+  verified_as_of: "2026-10-06"
+  state: "pg32b 容器运行中；xiangrugu 尚不存在。"
+  legacy_databases:
+    - name: cbdb
+      authority: none
+      policy: "仅可观察；不得作为来源、基线或验收依据。最终删除须另获用户明确同意。"
+    - name: cbdb_reh
+      authority: none
+      policy: "旧彩排库，不是本方案目标或基线；后续处置待用户明确指令。"
+  access_pattern: 'ssh 192.168.3.32 "docker exec -i pg32b psql -U postgres -d xiangrugu -At -F''|''" <<SQL … SQL'
   sql_quoting_rule: "SQL 内字符串一律单引号；-At -F'|' 之外不要再套双引号（PG 中双引号＝标识符定界符，会报 column does not exist）。"
   co_tenancy_warning: "pg32b 与生产 pg32 **同在 32 主机**（另有 n8n/chainlit/graphrag 等在跑）→ 一切装载须 nice -n 19 ionice -c3 ＋ loadavg<4.0 门禁（30s 轮询）＋ canary 计时。"

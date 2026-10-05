@@ -1,9 +1,10 @@
-# g4_assertions.yaml —— 闸4 语义哨兵断言集（§8.2）
-# 权威＝ docs/cbdb.md §三 登记册 G4-01…G4-16（数字 2026-09-30 直读权威源 20260919 现算）。
-# 表名：CBDB 原表落 public schema（数据库 cbdb）；CHGIS shapefile 落 chgis schema。
+# g4_assertions.yaml —— 已确认源生现象的语义哨兵断言集
+# 人读摘要＝ docs/cbdb.md 的 G4-01…G4-16；精确值来自 2026-09-30 源侧读取证据。
+# ⚠ 本文件仍使用旧草案的 public/chgis 目标名，不得直接对新 xiangrugu 执行。
+# 阶段 0 须按 cbdb/chgis/harv/audit 新合同重新生成并复核 SQL。
 # 规则：闸4 对每条 checks 跑 count(*)，与 expect 不符即报警——只有两种可能：我方引入，或源件换版。
-title: "闸4 语义哨兵断言集（≈cbdb.md §三 G4-01…G4-16）"
-authority: "docs/cbdb.md §三"
+title: "G4 语义哨兵断言集（对应 docs/cbdb.md G4-01…G4-16）"
+authority: "usedata 源侧读取证据；docs/cbdb.md 为人读摘要"
 rule: "count(*) 与 expect 不符即报警"
 
 entries:

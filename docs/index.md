@@ -1,76 +1,41 @@
 # index.md —— 文档索引
 
-> **状态：现行**｜as_of 2026-09-30
-> **一职一处（R-04）**：每个事实只在一处展开，他处只写指针。新增/删除文档须同批在本文件登记/除名。
-> 本索引**只列现行文档**；已删者见 §四（含 git 回收点与承重新去处）。
+> 状态：现行｜as_of 2026-10-06
 
-## 一、现行文档
+## 现行文档
 
-| 文档 | 职责一句话 |
+| 文档 | 职责 |
 |---|---|
-| `AGENTS.md` | 项目目标（§1 **待用户定义**）＋必读链 |
-| `rules.md` | 纪律总纲 R-01～R-08（R-09+ 预留） |
-| `docs/index.md` | 本文件：索引＋权威优先级＋阅读顺序 |
-| `docs/codemap.md` | 目录树、模块职责、主机与实例、存储路径、Git |
-| **`docs/import-plan.md`** | ★**数据导入方案 v3**：导入·验证·测试三卷＋四条硬规则＋六道闸＋五阶段；§14＝官方与社区建议摘要 |
-| **`datamgmt/README.md`** | ★**数据管理模块入口**：职责边界、五条纪律（阶段表→`import-plan.md` §10） |
-| **`datamgmt/PITFALLS.md`** | ★**防坑条目录 P-01…P-25**：一切设计决定之依据来源 |
-| **`datamgmt/config/roots.yaml`** | ★**数据源根、校验账、路径政策、目标库**（机器可读权威） |
-| `docs/cbdb.md` | 数据结构知识＋**源数据可疑处登记册 G4-01…G4-16**（闸4 依据） |
-| `docs/bugs.md` | 缺陷账（B-编号）：**我方之错**；源生条目只留指针 |
-| `docs/improvements.md` | 改进账（I-编号） |
-| `docs/features.md` | 需求账（F-编号） |
-| `docs/holdings.md` | 已持有资料与许可 |
-| `docs/pg32b.md` | pg32b 实例事实卡 |
-| `docs/log.md` | 文档变动日志（**每行 ≤300 字**） |
-| `memos/memos.md` | 用户交录纪要（**非实施指导**） |
-| `demo/` | 演示三页（2026-09-30 用户令**留下**；⚠ **未入 git**，登记缺口＝I-05） |
+| `AGENTS.md` | 项目目标、成功标准、入口阅读顺序 |
+| `rules.md` | 操作、记账、单一源和忠实导入纪律 |
+| `docs/import-plan.md` | 导入合同、技术方案、阶段和验收门槛 |
+| `datamgmt/README.md` | 数据管理模块现状、目录职责和实现缺口 |
+| `datamgmt/config/roots.yaml` | 唯一源根、路径政策、目标实例与数据库 |
+| `datamgmt/PITFALLS.md` | 导入设计必须拦截的历史失败模式 |
+| `datamgmt/recon/usedata_ledger_findings.md` | 当前盘点草案的人读摘要；机器证据在同目录 |
+| `docs/cbdb.md` | CBDB 结构知识和已确认的源生异常 |
+| `docs/codemap.md` | 模块与部署拓扑查询件 |
+| `docs/holdings.md` | 已持有资料及许可边界 |
+| `docs/bugs.md` | 我方缺陷账 |
+| `docs/improvements.md` | 工程改进账 |
+| `docs/features.md` | 新能力账 |
+| `docs/log.md` | 文档结构变动日志 |
 
-## 二、权威优先级
+`demo/` 是已纳入 Git 的非权威演示资产，不在导入执行链上。
 
-```text
-1. 用户当前明确指令
-2. AGENTS.md §1（项目目标与核心思想）
-3. rules.md（做事方法纪律）
-4. docs/import-plan.md ＋ datamgmt/（现行方案与模块）
-5. docs/codemap.md 与三本专职账
-6. 其他文档
-```
+## 权威顺序
 
-任何文档表述与此冲突：**停止猜测，明确指出冲突并报告用户**（R-06）。
-Gitea wiki「外围知识层」**不入本链**——非权威，冲突一律以上表为准（R-04）。
+1. 用户当前明确指令；
+2. `AGENTS.md` 的项目目标；
+3. `rules.md`；
+4. `docs/import-plan.md` 与 `datamgmt/config/roots.yaml`；
+5. 机器证据、模块文档及专职账；
+6. 其他说明和 Gitea Wiki。
 
-## 三、新会话阅读顺序
+冲突时不得自行拼接两种说法，应报告冲突并按上列顺序裁定。
 
-```text
-AGENTS.md → rules.md → docs/index.md → datamgmt/README.md → docs/import-plan.md（按需）
-按需查：datamgmt/PITFALLS.md｜datamgmt/config/roots.yaml｜docs/cbdb.md 登记册｜三本账｜docs/codemap.md
-```
+## 阅读顺序
 
-**必读链只 4 份**（AGENTS／rules／index／datamgmt-README）；`codemap.md` 系查询件，**不入必读链**。
+新会话先读 `AGENTS.md`、`rules.md`、本索引和 `docs/import-plan.md`；准备开发时再读 `datamgmt/README.md` 与 `datamgmt/PITFALLS.md`。其余按需读取。
 
-## 四、已删清单（2026-09-30 用户令「能清空的就清空。能删除的就删除。以后不在使用」）
-
-**git 回收点 `75ecd77`**，恢复式：`git show 75ecd77:<路径>`
-
-> 下表所列路径**均已删除**，仅存于回收点；他文引用它们时一律须带"已删／回收点"限定，否则即属活悬空引用（R-06）。
-
-| 已删文档 | 字 | 承重新去处 |
-|---|---|---|
-| `docs/cbdb-load.md` | 53,168 | §12 官方与社区调研 → **`import-plan.md` §14**；§13/§15 执行记录之教训 → **`PITFALLS.md` P-01…P-15**；方法部分 → 被 v3 全卷取代 |
-| `docs/data-sources.md` | 25,803 | §七 权威源换算规则／§八 下载区双根共键 → **`datamgmt/config/roots.yaml`** |
-| `docs/pg32-upgrade.md` | 7,083 | 2026-09-23 已搁置；内容曾迁入 `docs/pg36.md`（该件亦已删，见下行） |
-| `docs/pg36.md` | 2,159 | 用户令「**你就当36不存在**」→ 该主机视为不存在；`pg32b` 镜像出身之事实保留于 `docs/pg32b.md` §一 与 `roots.yaml` `target.image` |
-| `docs/log.md`（旧 223 行） | 126,318 | **改制重写**（旧制单行最长 **5,568 字符**、99／223 行超 300 字、占全项目文档 **31.2%**，已成干扰源） |
-| 其余九份 | 121,996 | **清空后重写为简明版**（原正文全部可自回收点取回） |
-
-**九份重写者**：`index.md`／`codemap.md`／`cbdb.md`／`bugs.md`／`improvements.md`／`features.md`／`holdings.md`／`pg32b.md`／`pg36.md`（其中 `pg36.md` 已于同日后续**删除**）。
-
-## 五、登记规则（防文档再度成为干扰源）
-
-1. **状态行强制**：每份文档第一屏须有 `状态：现行／历史` ＋ `as_of`；**无状态行者不得作为依据引用**。
-2. **数字单一源**：源件件数与校验账行数，**唯一权威＝`datamgmt/config/roots.yaml`**；实例资源（磁盘/RAM/负载）见 `docs/pg32b.md`；他处一律写指针，或写“账面值（as_of …，权威见 roots.yaml）”。
-3. **一职一处**：同一事实不得在第二处展开（R-04）；摘要 ≤3 行，超者移入正文文档。
-4. **禁用词**：`/mnt/nas-mirror/`（09-27 禁）、`8,580,012`／`126,566`／`2,884,485`（已废账面）、`/tmp/pg32b-load2`（已不存在）——**在现行文档中作为"当前事实"出现即违规**（`roots.yaml` 之 `path_policy` 作为禁用声明例外）。
-   **例外**：作为**过去错误之证据**被引用者不在此限——如 `PITFALLS.md` P-08 引「总行数 8,580,012→8,584,097」正是为证明"叙事账不可作合格证明"，此类引用**必须保留**。
-5. 本索引自身的结构变动记入 `docs/log.md`；各文档职责一句话**以本文件为准**。
+历史内容可从 Git 恢复。2026-09-30 大清理前的集中回收点为 `75ecd77`；本轮删除内容可从变更前提交 `5627da7` 恢复。

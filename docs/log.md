@@ -7,6 +7,8 @@
 
 ## 变动记录
 
+- **2026-10-05** | **对齐核查（R-06）**：删旧装载后全查悬空引用→修 PITFALLS 证据指针等共 8 处改指 recon；冗余✓（口径仍 §5.1/§12 单源）、矛盾✓（无「勿删 load-b2」残留）、锚点✓（inventory_members/出生纸实存）、账目✓（log 已记、无新三账/注册文档） | **对齐核查** | R-06 | 本 commit。
+- **2026-10-05** | 删旧装载 `ops/harvard/load-b2/`＋`ops/data-layout/`（旧方案退役）；留 `ops/harvard/` 出生纸溯源件；改 `roots.yaml` path_resolution→recon、codemap/index/import-plan/HANDOFF/datamgmt·README 各去 src_paths/recon_b2a 悬空引用 | **源根清理·删旧装载** | 用户令「不需要的就删了，不要污染以后的工作」 | 本 commit。
 - **2026-10-05** | **对齐核查（R-06）**：本轮改 codemap §5（HTTP→SSH）＋环境（ssh key/config/origin）；冗余✓、矛盾✓（他处无 http 远端旧述）、锚点✓（gitea 别名/密钥路径实存）、账目✓（log 已记、无新三账/注册文档） | **对齐核查** | R-06 | 本 commit。
 - **2026-10-05** | `codemap.md` §5 改记 SSH 主通道：新制 `~/.ssh/gitea/id_ed25519` 登记 Gitea、`~/.ssh/config` 加 `Host gitea`（git@192.168.3.35:17022）、`origin` 切 `git@gitea:...`；原 HTTP token 已 403 失效、HTTP 回退保留 | **环境·托管改道** | 用户令「建立一个 gitea 的 ssh 密钥登录，以后 dsh 都可以用这个登录」 | 本 commit。
 - **2026-10-05** | **对齐核查（R-06）**：冗余查✓（口径单源 §5.1、§12 十为指针）；矛盾查→修 1 处＝`HANDOFF` §1.2(b)/§2.1/§3 仍称「照 recon_b2a 定名」与 §5.1「照源件自身名」冲突，顶部补正注前向指路（历史正文不回改）；锚点查✓（§12十→§5.1、findings→recon 均实存）；账目闭环✓（无新三账/新注册文档，codemap 无需刷新） | **对齐核查** | R-06 | 本 commit。

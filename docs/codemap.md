@@ -19,8 +19,8 @@
 ├── docs/                   文档（`index.md` 为登记处）
 ├── demo/                   ⚠ **未入 git**——演示三页＋build 脚本（2026-09-30 用户令留下；缺口＝I-05）
 ├── memos/memos.md          用户交录纪要（**非实施指导**）
-└── ops/harvard/load-b2/    ⚠ **git 不跟踪**——旧装载脚本 23 支 `b2*.py`＋`src_paths.tsv`（1,770 行台账）＋recon/manifest
-                            ↑ **L3 原始证据层，勿删**：`roots.yaml` 之相对键来源、`PITFALLS.md` 全部实证之出处
+└── ops/harvard/            ⚠ **git 不跟踪**——harvard-full 下载＋溯源「出生纸」：`README_provenance.md`／`datasets.tsv`／`harvard_dl.tsv`／fetch 脚本／下载流水
+                            ↑ 旧装载 `load-b2/`（23 支 b2*.py＋src_paths.tsv＋recon 等）已 **2026-10-05 用户令删除**（旧方案退役）；路径账改 `datamgmt/recon/` 新鲜枚举
 ```
 
 ## 2 模块职责
@@ -28,7 +28,7 @@
 | 路径 | 职责 | 权威文档 |
 |---|---|---|
 | `datamgmt/config/roots.yaml` | 数据源根、只读声明、校验账、双根共键换算、路径政策、目标库事实 | 自身（**冲突时压过任何人读摘要**） |
-| `datamgmt/PITFALLS.md` | 旧库建设所踩坑之唯一登记处 | 自身（实证指向 `ops/` 与 `docs/bugs.md`） |
+| `datamgmt/PITFALLS.md` | 旧库建设所踩坑之唯一登记处 | 自身（历史实证脚本已 2026-10-05 删；教训以本文件＋`docs/bugs.md` 留存） |
 | `datamgmt/README.md` | 模块定位、纪律（阶段表→`import-plan.md` §10） | 自身 |
 | `datamgmt/{truth,importer,verifier,tests,maintenance,recon}/` | 真值读取／装载／验证／测试／维护／工作账——**现为空壳**，候开工口令（R-01） | `docs/import-plan.md` §4–§7 |
 | `demo/` | 人物／网络／漫游三页演示＋build 脚本 | I-05（候裁：是否入 git） |
@@ -59,4 +59,4 @@
 - **远程**：Gitea `git@gitea:deepseekharness/xiangrugu`（SSH **17022**，私有，默认分支 `main`）；`origin` 已切 SSH，`~/.ssh/config` 有 `Host gitea` 块（`git` 用户＋专用密钥）。
 - **凭据**：**SSH 为主**——`~/.ssh/gitea/id_ed25519`（2026-10-05 新制并登记 Gitea，无口令，供 DSH 免密走 `git@gitea`）；HTTP 回退＝`credential.helper=store --file=/root/.git-credentials`（用户 2026-09-22 裁**长期留用**）；工单令牌 `xiangrugu-issues`（id=7，scopes `write:issue`）；真账密收编 `.secrets/gitea_account`（用户令"这个 key 你以后用"）。
 - **外围知识层**＝Gitea wiki 仓（2026-09-25 用户定性"非必要材料，用学习与了解"）——**非权威**，冲突以 `docs/index.md` §二为准。
-- ⚠ `.gitignore` 吃掉 `ops/` 致旧装载脚本不入仓、NAS 又无副本 → **重建能力单点（P-16）**；故 `datamgmt/` 一律入仓。
+- ⚠ 旧装载脚本（`ops/`）原系 P-16 重建单点——已 **2026-10-05 用户令删除**（旧方案退役，单点随删消除）；故 `datamgmt/` 一律入仓。

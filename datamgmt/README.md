@@ -57,7 +57,7 @@ datamgmt/
 ## 4. 五条纪律（本模块内一切代码与操作须守；违反即判不合格）
 
 1. **入版本库**（P-16）：本目录内**任何**可重建资产（配置、代码、台账、证书）一律入 git；不得另在 `ops/` 或 `/tmp` 留唯一副本。
-2. **单一源根、不硬编码绝对路径**（P-17）：源件路径一律 `config/roots.yaml` 之根 ＋ `src_paths.tsv` 之相对键拼成；**禁止**在代码里写死 `/mnt/...`。禁用路径见 `roots.yaml` 之 `forbidden`。
+2. **单一源根、不硬编码绝对路径**（P-17）：源件路径一律 `config/roots.yaml` 之根 ＋ `recon/inventory_members.tsv` 之 `rel` 相对链拼成；**禁止**在代码里写死 `/mnt/...`。禁用路径见 `roots.yaml` 之 `forbidden`。
 3. **工作账不落 `/tmp`**（P-12）：`recon/` 是唯一落点；写入一律带唯一键 upsert，**禁止 append**。
 4. **保真层永不 `UPDATE`／`DELETE`**（`import-plan.md` H-3、P-14）：我方装载错在装载时修对；装后发现错 → **重装该表**，不打补丁。
 5. **验收不经 GDAL、期望值绝不取自装载器**（H-1、P-01/P-02、`import-plan.md` §6.1）：`verifier/` 与 `importer/` **零共用代码**；真值由 `truth/` 直读源件字节现算。

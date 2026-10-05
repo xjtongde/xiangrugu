@@ -52,7 +52,7 @@
 |---|---|---|---|
 | **P-1** | ~~现库 dump 存档~~ **已消解**（2026-09-30 用户令「就当第一次导入」） | — | 不删库、不 diff 旧库；旧库 `cbdb` 原样留存、概不触碰；正式装载用新库名（§10 阶段四） |
 | **P-2** | **验证器先于装载器存在**（先有尺，后有货） | 不存在；全库值级对账**只在 `chgis.v4_gns` 一个表上做过一次**（B-11，因用户追问才做），结果 **2,288 值不合格** | §7.3 的 `verify.py` 必须**先建、先对源件直跑**，产出《库 vs 源件》逐值差异账——只有这一份是验收基准 |
-| **P-3** | **装载资产入版本库** | `ops/` 在 `.gitignore:8` → 23 支脚本**不入 git**；NAS 侧**无副本**（`find` 实测为空）→ 单点在本机磁盘 | 新方案的 `sources.yaml`／`load.py`／`verify.py` **一律入 git**（目录见 §4.1）；旧 23 支脚本随旧方案退役，**归档不删**（它们是 P-01…P-22 的证据） |
+| **P-3** | **装载资产入版本库** | `ops/` 在 `.gitignore:8` → 23 支脚本**不入 git**；NAS 侧**无副本**（`find` 实测为空）→ 单点在本机磁盘 | 新方案的 `sources.yaml`／`load.py`／`verify.py` **一律入 git**（目录见 §4.1）；旧 23 支脚本已 **2026-10-05 用户令删除**（旧方案退役；P-01…P-22 教训以 `PITFALLS.md` 蒸馏留存） |
 
 **装载与重建本身＝用户逐案口令**（R-01），本方案只把它写成 §10 的一个阶段，**不自行执行**。
 
@@ -128,7 +128,7 @@ NAS 权威源 usedata/            源件字节
 
 | 字段 | 说明 | 硬约束 |
 |---|---|---|
-| `key` | 源件相对键＝`src_paths.tsv` 之 `nas_path`＋`inner` 成员链 | **禁止绝对路径**（双根共键：`usedata/` 或 `xiangrugudata/` ＋ 相对键，规则见 `datamgmt/config/roots.yaml` 之 `path_resolution`） |
+| `key` | 源件相对键＝`recon/inventory_members.tsv` 之 `rel` 成员链（`::` 分隔 zip 内层） | **禁止绝对路径**（双根共键：`usedata/` 或 `xiangrugudata/` ＋ 相对键，规则见 `datamgmt/config/roots.yaml` 之 `path_resolution`） |
 | `carrier` | 载体：`sqlite`／`shapefile`／`xls`／`xlsx`／`tsv`／`raster`／`zip-in-zip` | 决定用哪个 `truth/` 读取器与哪套闸 |
 | `target` | `schema.table` | 一源一表为原则；并表须显式列 `members:` 与合并键 |
 | `columns` | **逐列**：源字段名 → 库列名、源类型/宽度 → PG 类型、**解码规则 id** | **不用 GDAL 类型推断**；映射表见 §5.3 |
@@ -391,9 +391,9 @@ NAS 权威源 usedata/            源件字节
 | **删除（同日后续）** | `docs/pg36.md`（2,159） | 用户令「**你就当36不存在**」→ 该主机视为不存在；`pg32b` 镜像出身之事实保留于 `docs/pg32b.md` §一 与 `roots.yaml` `target.image` |
 | **清空重写** | `index`／`codemap`／`cbdb`／`bugs`／`improvements`／`features`／`holdings`／`pg32b`／`pg36`（合 121,996；其中 `pg36` 同日后续**又删除**，见上行） | 一律简明版；**`cbdb.md` 登记册 G4-01…G4-16 之数字全部重新直读上游 sqlite 现算**（非转录旧文） |
 | **不动** | `AGENTS.md`／`rules.md`／本文／`datamgmt/`／`memos/`／**`demo/`（用户令留下）** | — |
-| **不动（L3 原始证据层）** | `ops/harvard/load-b2/`（23 支 `b2*.py`＋`src_paths.tsv` 1,770 行） | `PITFALLS.md` 全部实证之出处；`roots.yaml` 相对键来源。**git 不跟踪 → 勿删** |
+| ~~不动（L3 原始证据层）~~ → **已删（2026-10-05 用户令）** | `ops/harvard/load-b2/`（23 支 `b2*.py`＋`src_paths.tsv` 1,770 行） | 原系 `PITFALLS.md` 实证出处、`roots.yaml` 相对键来源；用户令旧方案退役即删，教训以 `PITFALLS.md` 留存 |
 
-**回收点 `75ecd77`**：一切删除物可 `git show 75ecd77:<路径>` 取回。故 `PITFALLS.md` 之证据链**未断**——只是从"仓内文件"变为"仓内某 commit"，本文与 `PITFALLS.md` 内所有指向已删文档之处**已同批改为回收点式引用**。
+**回收点 `75ecd77`**：一切删除物可 `git show 75ecd77:<路径>` 取回。故 `PITFALLS.md` 之证据链**未断**——只是从"仓内文件"变为"仓内某 commit"，本文与 `PITFALLS.md` 内所有指向已删文档之处**已同批改为回收点式引用**。⚠ 例外：`ops/harvard/load-b2/` 的脚本**从未入 git**（`.gitignore` 挡住），2026-10-05 删除**不可**经 `git show` 取回、系真删——其教训已在 `PITFALLS.md` 蒸馏留存。
 
 ### 9.4 防再干扰五条（已落 `docs/index.md` §五，此处只列名）
 

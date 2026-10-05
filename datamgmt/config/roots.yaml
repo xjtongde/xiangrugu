@@ -90,17 +90,17 @@ checksums:
 # 三、路径换算（双根共键：一份台账，两个根都能落地）
 # ─────────────────────────────────────────────────────────────
 path_resolution:
-  ledger: /root/xiangrugu/ops/harvard/load-b2/src_paths.tsv     # 1,770 数据行／8 列（leg, src_token, target, status, nas_path, inner, n_hits, resolution）
-  ledger_as_of: "2026-09-28"
-  ledger_measured_by: books
+  ledger: /root/xiangrugu/datamgmt/recon/inventory_members.tsv  # 7,219 成员（rel/name/carrier/size；2026-10-05 新鲜枚举，取代已删旧 src_paths.tsv）
+  ledger_as_of: "2026-10-05"
+  ledger_measured_by: recon
   rules:
-    - "usedata 内绝对路径 ＝ /mnt/wd61workmetadata/usedata ＋ src_paths.tsv 之 nas_path"
-    - "下载区绝对路径 　＝ /mnt/wd61workmetadata/xiangrugudata ＋ 同一 nas_path"
-    - "nas_path 指向外层 zip 时，成员由 inner 列给出成员链（zip 套 zip 者逐层）"
+    - "usedata 内绝对路径 ＝ /mnt/wd61workmetadata/usedata ＋ inventory_members.tsv 之 rel"
+    - "下载区绝对路径 　＝ /mnt/wd61workmetadata/xiangrugudata ＋ 同一 rel"
+    - "rel 指向外层 zip 时，内层成员链逐层展开（zip 套 zip；全链见 ledger_final.tsv 之 source 列）"
   code_rule: |
-    代码内**只存相对键**（nas_path ＋ inner），根一律从本文件 roots.* 取。
+    代码内**只存相对键**（rel 成员链），根一律从本文件 roots.* 取。
     成员枚举**禁止**用锚定单后缀正则（如 \.zip$）——须用 (\.zip)+$ 并加 re.I（P-11，实测命中 30 件、过度匹配 0 件）。
-  migration_note: "阶段二须把 src_paths.tsv 之相对键收敛进 config/sources.yaml；台账现仍在 ops/（不入 git，P-16），迁移前**不得删除原件**。"
+  migration_note: "旧装载台账 src_paths.tsv 已 2026-10-05 用户令删除（旧方案退役）；路径账以 recon/inventory_members.tsv 新鲜枚举为准，阶段二据此收敛进 config/sources.yaml。"
 
 # ─────────────────────────────────────────────────────────────
 # 四、路径政策（P-17：路径腐化三层，实测 2026-09-29）

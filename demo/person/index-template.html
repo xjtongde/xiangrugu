@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>蘇軾 · 人物全景</title>
+<style>
+:root{--bg:#0e1116;--panel:#161b23;--panel2:#1c232e;--ink:#e8e6df;--dim:#8b94a3;--gold:#d4a24e;--jade:#6fb3a0;--red:#c56a5a;--blue:#5b8db8;--line:#2a3342;--violet:#9b7fb8;}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:"Songti SC","Noto Serif CJK SC","SimSun",serif;line-height:1.65;
+ background-image:radial-gradient(90% 60% at 70% -10%,rgba(212,162,78,.07),transparent),radial-gradient(70% 50% at 10% 110%,rgba(111,179,160,.05),transparent)}
+.top{position:sticky;top:0;z-index:50;backdrop-filter:blur(10px);background:rgba(14,17,22,.82);border-bottom:1px solid var(--line)}
+.topin{max-width:1200px;margin:0 auto;padding:10px 20px;display:flex;align-items:center;gap:18px;font-size:13px}
+.topin .who{color:var(--gold);font-size:15px;letter-spacing:2px;font-weight:600}
+.topin a{color:var(--dim);text-decoration:none;padding:3px 10px;border-radius:7px;border:1px solid transparent;transition:.15s}
+.topin a:hover{color:var(--ink);border-color:var(--line)}
+.topin a.on{color:#0e1116;background:var(--gold);font-weight:600}
+.topin .r{margin-left:auto}
+.wrap{max-width:1200px;margin:0 auto;padding:34px 20px 90px}
+header.hero{border-bottom:2px solid var(--gold);padding-bottom:22px;margin-bottom:8px}
+.hrow{display:flex;align-items:baseline;gap:22px;flex-wrap:wrap}
+h1{font-size:56px;letter-spacing:10px;font-weight:700;color:var(--ink)}
+.hrow .py{font-family:Georgia,serif;font-style:italic;color:var(--dim);font-size:20px}
+.pills{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.pill{background:var(--panel2);border:1px solid var(--line);border-radius:99px;padding:2px 14px;font-size:13px;color:var(--jade)}
+.pill b{color:var(--dim);font-weight:400;font-size:11.5px;margin-right:6px}
+.pill.gd{color:var(--gold)}
+.meta{color:var(--dim);font-size:13px;margin-top:10px}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(118px,1fr));gap:10px;margin:22px 0 6px}
+.stat{background:var(--panel);border:1px solid var(--line);border-radius:11px;padding:12px 14px;position:relative;overflow:hidden}
+.stat::after{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:linear-gradient(180deg,var(--gold),var(--jade))}
+.stat b{display:block;font-size:25px;color:var(--jade);font-family:Georgia,serif;font-weight:600}
+.stat span{font-size:11.5px;color:var(--dim)}
+h2{font-size:20px;color:var(--gold);margin:46px 0 4px;letter-spacing:3px;border-left:4px solid var(--gold);padding-left:12px}
+.h2n{color:var(--dim);font-size:12.5px;margin:0 0 14px 16px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:13px;padding:18px 22px;font-size:13.5px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:860px){.grid2{grid-template-columns:1fr}}
+dl.kv{display:grid;grid-template-columns:120px 1fr;gap:6px 14px;font-size:13.5px}
+dl.kv dt{color:var(--dim);text-align:right}
+dl.kv dd{color:var(--ink)}
+.note-en{color:var(--dim);font-style:italic;font-size:12.5px;background:#12161d;border-left:3px solid var(--line);padding:8px 12px;border-radius:0 8px 8px 0;margin-top:10px;font-family:Georgia,serif}
+.entrycard{display:flex;gap:18px;align-items:baseline;background:var(--panel2);border:1px solid var(--line);border-radius:11px;padding:14px 18px;margin-bottom:10px}
+.entrycard .yr{font-family:Georgia,serif;font-size:30px;color:var(--gold);min-width:88px}
+.entrycard .t b{font-size:15.5px}
+.entrycard .t span{color:var(--dim);font-size:12.5px;display:block}
+.tlwrap{overflow-x:auto;background:var(--panel);border:1px solid var(--line);border-radius:13px;padding:10px 6px}
+.tlwrap svg text{font-family:"Songti SC",serif}
+table.tb{width:100%;border-collapse:collapse;font-size:13px}
+table.tb th{color:var(--dim);font-weight:400;text-align:left;border-bottom:1px solid var(--line);padding:6px 9px;white-space:nowrap;font-size:12px}
+table.tb td{border-bottom:1px solid #1d2530;padding:6px 9px;vertical-align:top}
+table.tb tr:hover td{background:#1a212c}
+.rel{display:inline-block;background:#232c3a;border:1px solid var(--line);border-radius:6px;padding:0 8px;font-size:11.5px;color:var(--blue);white-space:nowrap}
+.rel.hot{color:var(--gold);border-color:#4a432c}
+.yrs{font-family:Georgia,serif;color:var(--dim);font-size:12px;white-space:nowrap}
+.pid{font-family:ui-monospace,Menlo,monospace;font-size:11px;color:var(--dim)}
+.kinhead{color:var(--jade);font-size:12.5px;letter-spacing:2px;margin:12px 0 6px}
+.ext{display:inline-block;border-radius:5px;padding:0 7px;font-size:11px}
+.ext.y{background:#1d3a33;color:var(--jade);border:1px solid #2c554a}
+.ext.n{background:#252b36;color:var(--dim);border:1px solid var(--line)}
+.stchip{display:inline-block;border-radius:99px;padding:2px 13px;margin:3px 4px 3px 0;font-size:13px;background:var(--panel2);border:1px solid var(--line);color:var(--jade)}
+.stchip.party{color:#ff9d8a;border-color:#5a3a33;background:#2a1d19}
+.srcrow{display:flex;gap:10px;align-items:baseline;padding:5px 0;border-bottom:1px dashed #1d2530;font-size:13px}
+.srcrow .pg{color:var(--dim);font-size:12px;font-family:ui-monospace,Menlo,monospace}
+.mainpill{color:var(--gold);border:1px solid #4a432c;border-radius:5px;padding:0 6px;font-size:10.5px}
+.addrgrp{margin-bottom:10px}
+.addrgrp .g{color:var(--gold);font-size:12.5px;letter-spacing:1px}
+.addrgrp .items{color:var(--ink);font-size:13px}
+.addrgrp .items i{color:var(--dim);font-style:normal;font-size:11.5px}
+.navcards{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px}
+@media(max-width:760px){.navcards{grid-template-columns:1fr}}
+.navcard{display:block;background:var(--panel);border:1px solid var(--line);border-radius:13px;padding:18px 20px;text-decoration:none;color:var(--ink);transition:.2s}
+.navcard:hover{border-color:var(--gold);transform:translateY(-2px);box-shadow:0 8px 26px rgba(0,0,0,.35)}
+.navcard .k{color:var(--gold);font-size:11.5px;letter-spacing:2px}
+.navcard h4{font-size:16.5px;margin:3px 0 5px}
+.navcard p{color:var(--dim);font-size:12.5px}
+.small{font-size:12px;color:var(--dim)}
+code{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.92em;color:var(--blue)}
+#tip{position:fixed;display:none;background:#0b0e13;border:1px solid var(--gold);color:var(--ink);font-size:12px;padding:6px 10px;border-radius:6px;pointer-events:none;z-index:99;max-width:340px;line-height:1.55}
+footer{margin-top:60px;border-top:1px solid var(--line);padding-top:14px;color:var(--dim);font-size:12px}
+.fade{opacity:0;transform:translateY(10px);transition:opacity .55s,transform .55s}
+.fade.in{opacity:1;transform:none}
+</style>
+</head>
+<body>
+<div class="top"><div class="topin">
+  <span class="who">蘇軾 · 人物专题</span>
+  <a class="on" href="index.html">全景</a><a href="network.html">社交网络</a><a href="journey.html">行迹与贬谪之路</a>
+  <span class="r"><a href="../catalog/index.html">数据总目</a><a href="../pg32b-roam.html">数据漫游</a></span>
+</div></div>
+<div class="wrap">
+<header class="hero">
+  <div class="hrow"><h1 id="hName"></h1><span class="py" id="hPy"></span></div>
+  <div class="pills" id="hPills"></div>
+  <div class="meta" id="hMeta"></div>
+  <div class="stats" id="stats"></div>
+</header>
+
+<h2>一 · 身份档案</h2>
+<p class="h2n">biog_main 主记录 ＋ 别名三则 ＋ 郡望户籍 —— 每个字段都是库里的真值。</p>
+<div class="grid2">
+  <div class="card"><dl class="kv" id="kvMain"></dl><div class="note-en" id="notes"></div></div>
+  <div class="card">
+    <div class="kinhead">名 · 字 · 号 · 谥（altname_data 3 则）</div>
+    <div id="alts"></div>
+    <div class="kinhead" style="margin-top:16px">身份标签（status_data 7 则）</div>
+    <div id="sts"></div>
+    <p class="small" style="margin-top:10px">「入元祐黨籍者」＝哲宗亲政后被列入党籍碑、身后追夺——与左侧 curator 原文注记互相印证。</p>
+  </div>
+</div>
+
+<h2>二 · 入仕之途</h2>
+<p class="h2n">entry_data 2 则：一次科举、一次制科，宋代文人的两条正门他都走了，且都走得极高。</p>
+<div id="entries"></div>
+<div class="card small">按：宋制科「第三等」即事实上的最高等（一、二等虚设不授）；仁宗朝得第三等者，前后仅数人。</div>
+
+<h2>三 · 人生年表</h2>
+<p class="h2n">出生 → 入仕 → 35 段除授（含起止年）→ 卒。金色＝科举节点，青色＝任职区间（悬停看官职），红＝生卒。数据有缺年处如实断开。</p>
+<div class="tlwrap fade"><svg id="tl" height="230"></svg></div>
+
+<h2>四 · 亲缘网络</h2>
+<p class="h2n">kin_data 双向各 27 条：他眼中的家人，与家人眼中的他。注意「兄弟之八世孫」——苏氏一脉在库里直录到明初。</p>
+<div class="grid2">
+  <div class="card"><div class="kinhead">他的亲人（kin_data · 27）</div><div id="kinA"></div></div>
+  <div class="card"><div class="kinhead">以他为亲者（反向查询 · 27）</div><div id="kinB"></div></div>
+</div>
+
+<h2>五 · 地址足迹</h2>
+<p class="h2n">biog_addr_data 31 条，按类型分组：生老病死葬各归其地，「遊歷或曾經到過」是他一生的路。坐标见「行迹」页地图。</p>
+<div class="card" id="addrGrp"></div>
+
+<h2>六 · 著作与存佚</h2>
+<p class="h2n">biog_text_data × text_codes：40 部关联文本（多为撰著者）。《蘇沈良方》为与沈括合著之医方书。</p>
+<div class="card fade" style="padding:6px 10px;overflow-x:auto"><table class="tb" id="worksT"></table></div>
+
+<h2>七 · 文献出处</h2>
+<p class="h2n">biog_source_data 9 条：从《宋人傳記資料索引》到 Wikidata——这条传记的现代学术链条。</p>
+<div class="grid2">
+  <div class="card" id="srcs"></div>
+  <div class="card">
+    <div class="kinhead">数据侧像</div>
+    <dl class="kv" id="kvData"></dl>
+  </div>
+</div>
+
+<h2>下一步 · 两个侧面</h2>
+<div class="navcards">
+  <a class="navcard" href="network.html"><div class="k">1,033 条记录 × 491 人</div><h4>社交网络 →</h4><p>力导向图：黄庭坚 47 条居首；序跋 278 / 书札 271；陆游等身后追慕单列一色——名望如何越过死亡继续增长。</p></a>
+  <a class="navcard" href="journey.html"><div class="k">35 除授 × 31 地址 × DEM 高程</div><h4>行迹与贬谪之路 →</h4><p>Hartwell 1080 底图上的编号足迹：眉州→凤翔→开封→杭州→密州→…→惠州→昌化；四段路的地形剖面，琼州海峡在数据里是一个低谷。</p></a>
+</div>
+
+<footer id="foot"></footer>
+</div>
+<div id="tip"></div>
+<script>
+const D=__DATA__;
+const CFG=__CFG__;
+/*__APP__*/
+</script>
+</body>
+</html>

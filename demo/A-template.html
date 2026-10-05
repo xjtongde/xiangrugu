@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>宋人分布图 v1 · CBDB 籍贯 × Hartwell 宋代府级复原 · pg32b 实算</title>
+<style>
+:root{--bg:#0e1116;--panel:#161b23;--panel2:#1c232e;--ink:#e8e6df;--dim:#8b94a3;--gold:#d4a24e;--jade:#6fb3a0;--red:#c56a5a;--blue:#5b8db8;--line:#2a3342;}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font-family:"Songti SC","Noto Serif CJK SC","SimSun",serif;line-height:1.6}
+.wrap{max-width:1180px;margin:0 auto;padding:28px 20px 80px}
+header{border-bottom:2px solid var(--gold);padding-bottom:18px;margin-bottom:26px}
+h1{font-size:30px;letter-spacing:4px;font-weight:600}
+h1 em{font-style:normal;color:var(--gold)}
+.sub{color:var(--dim);font-size:13px;margin-top:6px;letter-spacing:.5px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-top:20px}
+.kpi{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px 16px}
+.kpi b{display:block;font-size:26px;color:var(--jade);font-weight:600;font-family:Georgia,serif}
+.kpi span{font-size:12.5px;color:var(--dim)}
+h2{font-size:19px;color:var(--gold);margin:40px 0 6px;letter-spacing:3px;border-left:4px solid var(--gold);padding-left:12px}
+.h2note{color:var(--dim);font-size:12.5px;margin:0 0 14px 16px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:18px 20px}
+svg text{font-family:inherit}
+.pref{stroke:#0b0e13;stroke-width:.5;cursor:pointer;transition:opacity .12s}
+.pref:hover{stroke:var(--gold);stroke-width:1.4}
+.legend{display:flex;gap:20px;flex-wrap:wrap;font-size:12.5px;color:var(--dim);margin-top:10px;align-items:center}
+.legend i.dot{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:5px;vertical-align:-1px}
+.lg-bar{display:inline-block;width:200px;height:10px;border-radius:5px;border:1px solid var(--line);vertical-align:-1px;margin:0 6px}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th{color:var(--dim);text-align:left;font-weight:500;border-bottom:1px solid var(--line);padding:6px 8px}
+td{border-bottom:1px dashed #222a37;padding:7px 8px;vertical-align:top}
+tr:hover td{background:#1d2531}
+.ok{color:var(--jade)}.warn{color:var(--gold)}.bad{color:var(--red)}
+.prog{height:10px;background:#0b0e13;border-radius:6px;overflow:hidden}
+.prog i{display:block;height:100%;background:linear-gradient(90deg,var(--jade),var(--gold))}
+.small{font-size:12px;color:var(--dim)}
+.pill{display:inline-block;background:#232c3a;border:1px solid var(--line);border-radius:99px;padding:1px 10px;font-size:12px;color:var(--jade);margin:2px 3px 2px 0}
+#tip{position:fixed;display:none;background:#0b0e13;border:1px solid var(--gold);color:var(--ink);font-size:12px;padding:6px 9px;border-radius:6px;pointer-events:none;z-index:9;max-width:340px;line-height:1.5}
+footer{margin-top:60px;border-top:1px solid var(--line);padding-top:14px;color:var(--dim);font-size:12px}
+code{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.92em;color:var(--blue)}
+b.hl{color:var(--gold);font-weight:600}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <h1>宋人分布圖 <em>v1</em></h1>
+  <div class="sub">CBDB 籍貫點 × Hartwell 宋代府級政區復原（元豐三年 1080 快照）· PostGIS <code>ST_Within</code> 實算 · 數據源 pg32b <code>cbdb</code> 庫 · 生成於 2026-09-27 · 本頁自包含、離線可看</div>
+  <div class="kpis" id="kpis"></div>
+</header>
+
+<h2>一 · 分布图</h2>
+<p class="h2note">宋代（c_dy=15，960–1279）收录人物的<b class="hl">籍贯点</b>，经空间联结落入 1080 年（元丰三年）303 个府级政区面。颜色越亮人越多（√ 标度压头部）；悬停看数值；金字标注 = Top10 府；经纬网格每 5°。注意图上没有"洞"——开封府、成都府、眉州都在（这正是换底图的意义，见「四 · 校勘台」）。</p>
+<div class="card">
+  <svg id="map" viewBox="0 0 1000 700" width="100%" style="background:radial-gradient(120% 90% at 60% 40%,#151b25 0%,#0c0f14 100%)"></svg>
+  <div class="legend">
+    <span>人数 <i class="lg-bar" id="lgbar"></i><b class="small" id="lgmax"></b></span>
+    <span><i class="dot" style="background:#1a222e;border:1px solid var(--line)"></i>无记录 · <span id="lgzero"></span> 面</span>
+    <span class="small">Hartwell 宋 1080 府级复原（含羁縻与西南诸国）· 边界已 0.015° 简化，仅供观感</span>
+  </div>
+</div>
+
+<h2>二 · 榜单</h2>
+<p class="h2note">人物最多的 15 个府级政区。福州一府 5,357 人居首——两浙福建的刻书、科举与士族之盛，一眼可见。<b class="hl">注意</b>：榜单受底图覆盖率影响——用 CHGIS v6 面图层时开封府、四川整片缺面，本榜会面目全非；换 Hartwell 层后开封府以 2,579 人回到第 2。</p>
+<div class="card" id="rank"></div>
+
+<h2>三 · 数据完整度（诚实环节）</h2>
+<p class="h2note">不是每个宋人在库里都有可画的籍贯。把漏斗摊开——每一层的损失都看得见、可解释。</p>
+<div class="card" id="funnel"></div>
+<div class="card" style="margin-top:16px" id="honest"></div>
+
+<h2>四 · 校勘台</h2>
+<p class="h2note">本页制作过程中的跨层对质记录（CBDB × CHGIS v6 × Hartwell 三源互校）。发现即公示——数据的脏点本身就是内容。</p>
+<div class="card"><table id="finds"></table></div>
+
+<h2>五 · 结论与升级路径</h2>
+<div class="card" style="font-size:14px">
+  <p>① <b class="hl">证明了什么</b>：pg32b 全量库支撑「多层底图挑选 → 5.6 万点 × 303 面秒级空间实算 → 跨层校勘」全流程。相比范本时代（SQLite 子集 + 坐标气泡点），已是全量 PG + 真政区面染色 + 校勘自动化的量级。</p>
+  <p style="margin-top:8px">② <b class="hl">天花板</b>：籍贯是静态单点，不反映迁徙与行迹；1080 单快照不反映两宋三百余年政区变化；重叠面双计 243 人次未做唯一化（已公示口径）。</p>
+  <p style="margin-top:8px">③ <b class="hl">升级四步</b>：(a) 县级分辨率——<code>hartwell_cnty_pgn</code> 8,146 县面、<code>v6_cnty_pts</code> 1100 年 1,252 县点都已在库；(b) 时间维——Hartwell 四快照（741/1080/1200/1391）× v6 时序层做时间滑块；(c) 从府下钻到人——单个府点开看人物清单、行迹与关系网；(d) 多地址类型——<code>biog_addr_data</code> 的籍贯/葬地/寓居/迁居分层渲染。</p>
+</div>
+
+<footer id="foot"></footer>
+</div>
+<div id="tip"></div>
+<script>
+const DATA=__DATA__;
+const KPI=__KPI__;
+const $=id=>document.getElementById(id);
+const fmt=n=>(n??0).toLocaleString('en-US');
+const esc=s=>String(s??'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+const tip=$('tip');
+document.addEventListener('mousemove',e=>{const t=e.target.closest&&e.target.closest('[data-tip]');
+  if(t){tip.style.display='block';tip.innerHTML=t.getAttribute('data-tip');tip.style.left=Math.min(innerWidth-350,e.clientX+12)+'px';tip.style.top=(e.clientY+14)+'px';}
+  else tip.style.display='none';});
+
+/* ---------- 数据准备 ---------- */
+const prefs=DATA.map(d=>({n:d.n,c:d.c||0,g:d.g}));
+const faceSum=prefs.reduce((s,d)=>s+d.c,0);
+const zeros=prefs.filter(d=>!d.c);
+const maxC=Math.max(...prefs.map(d=>d.c));
+const top=[...prefs].sort((a,b)=>b.c-a.c);
+const overlap=faceSum-KPI.placed;
+
+/* ---------- KPI ---------- */
+$('kpis').innerHTML=[
+ [fmt(KPI.placed),'落入 1080 年府界（去重）'],
+ [(prefs.length-zeros.length)+'/'+prefs.length,'有人物的府级面'],
+ [fmt(top[0].c),'人物最多的府（'+top[0].n+'）'],
+ [fmt(KPI.song_total),'宋代收录人物总数'],
+ [(KPI.addr_coord/KPI.addr_total*100).toFixed(1)+'%','地名坐标覆盖率'],
+ [String(KPI.snap),'底图快照年 · '+KPI.snap_label],
+].map(([v,k])=>`<div class="kpi"><b>${v}</b><span>${k}</span></div>`).join('');
+
+/* ---------- 投影 ---------- */
+const W=1000,H=700,PAD=22;
+let minx=1e9,maxx=-1e9,miny=1e9,maxy=-1e9;
+const ec=(n,cb)=>{if(typeof n[0]==='number')cb(n);else n.forEach(x=>ec(x,cb));};
+prefs.forEach(d=>{if(d.g&&d.g.coordinates)ec(d.g.coordinates,c=>{if(c[0]<minx)minx=c[0];if(c[0]>maxx)maxx=c[0];if(c[1]<miny)miny=c[1];if(c[1]>maxy)maxy=c[1];});});
+const KX=Math.cos((miny+maxy)/2*Math.PI/180);
+const ex=(maxx-minx)*KX,ey=maxy-miny,S=Math.min((W-2*PAD)/ex,(H-2*PAD)/ey);
+const ox=PAD+((W-2*PAD)-ex*S)/2,oy=PAD+((H-2*PAD)-ey*S)/2;
+const px=lon=>ox+(lon-minx)*KX*S,py=lat=>H-oy-(lat-miny)*S;
+
+/* ---------- 色标 ---------- */
+const ZERO='#1a222e';
+const RAMP=[[43,61,80],[63,96,85],[125,122,67],[201,162,78],[239,208,138]];
+function color(t){t=Math.max(0,Math.min(1,t));const sg=t*(RAMP.length-1);const i=Math.min(RAMP.length-2,Math.floor(sg));const f=sg-i;
+  const c=RAMP[i].map((v,k)=>Math.round(v+(RAMP[i+1][k]-v)*f));return `rgb(${c[0]},${c[1]},${c[2]})`;}
+
+/* ---------- 地图 ---------- */
+(function(){
+  const ringPath=r=>{let p='';for(let i=0;i<r.length;i++){p+=(i?'L':'M')+px(r[i][0]).toFixed(1)+' '+py(r[i][1]).toFixed(1);}return p+'Z';};
+  const geomPath=g=>{if(!g)return '';if(g.type==='Polygon')return g.coordinates.map(ringPath).join('');if(g.type==='MultiPolygon')return g.coordinates.map(pl=>pl.map(ringPath).join('')).join('');return '';};
+  let s='';
+  prefs.forEach(d=>{
+    const fill=d.c>0?color(Math.sqrt(d.c/maxC)):ZERO;
+    s+=`<path class="pref" d="${geomPath(d.g)}" fill="${fill}" data-tip="<b>${esc(d.n)}</b> · ${fmt(d.c)} 人 · 占落图 ${faceSum?(d.c/faceSum*100).toFixed(1):'0'}%"/>`;
+  });
+  for(let l=Math.ceil(minx/5)*5;l<=maxx;l+=5)s+=`<line x1="${px(l).toFixed(1)}" y1="0" x2="${px(l).toFixed(1)}" y2="${H}" stroke="#2a3342" stroke-width=".5" opacity=".4"/><text x="${(px(l)+3).toFixed(1)}" y="13" font-size="9.5" fill="#5b6675">${l}°E</text>`;
+  for(let l=Math.ceil(miny/5)*5;l<=maxy;l+=5)s+=`<line x1="0" y1="${py(l).toFixed(1)}" x2="${W}" y2="${py(l).toFixed(1)}" stroke="#2a3342" stroke-width=".5" opacity=".4"/><text x="4" y="${(py(l)-3).toFixed(1)}" font-size="9.5" fill="#5b6675">${l}°N</text>`;
+  top.slice(0,10).forEach(d=>{
+    let x0=1e9,x1=-1e9,y0=1e9,y1=-1e9;
+    ec(d.g.coordinates,c=>{const X=px(c[0]),Y=py(c[1]);x0=Math.min(x0,X);x1=Math.max(x1,X);y0=Math.min(y0,Y);y1=Math.max(y1,Y);});
+    s+=`<text x="${((x0+x1)/2).toFixed(1)}" y="${((y0+y1)/2+4).toFixed(1)}" font-size="11.5" fill="#e8e6df" opacity=".92" text-anchor="middle" style="paint-order:stroke;stroke:#0b0e13;stroke-width:2.5px;pointer-events:none">${esc(d.n)}</text>`;
+  });
+  s+=`<text x="12" y="${H-10}" font-size="10.5" fill="#5b6675">Hartwell 宋 1080 府级复原 × CBDB 籍贯点 · 经纬网格每 5° · 生成于 ${KPI.gen}</text>`;
+  $('map').innerHTML=s;
+  $('lgbar').style.background='linear-gradient(90deg,'+RAMP.map((c,i)=>`rgb(${c.join(',')}) ${i/(RAMP.length-1)*100}%`).join(',')+')';
+  $('lgmax').textContent='0 → '+fmt(maxC)+'（'+top[0].n+'）';
+  $('lgzero').textContent=zeros.length;
+})();
+
+/* ---------- 榜单 ---------- */
+(function(){
+  const rows=top.slice(0,15),rh=28,Wd=980,maxV=rows[0].c;
+  let h=`<svg viewBox="0 0 ${Wd} ${rows.length*rh}" width="100%">`;
+  rows.forEach((r,i)=>{const y=i*rh,w=Math.max(2,r.c/maxV*(Wd-300));
+    h+=`<text x="170" y="${y+18}" text-anchor="end" font-size="13" fill="#e8e6df">${i+1}. ${esc(r.n)}</text>`+
+       `<rect x="180" y="${y+7}" width="${w.toFixed(1)}" height="14" rx="3" fill="#d4a24e" opacity=".88" data-tip="<b>${esc(r.n)}</b> · ${fmt(r.c)} 人 · 占落图 ${(r.c/faceSum*100).toFixed(1)}%"/>`+
+       `<text x="${(188+w).toFixed(1)}" y="${y+18}" font-size="11.5" fill="#8b94a3">${fmt(r.c)}</text>`;});
+  $('rank').innerHTML=h+'</svg>';
+})();
+
+/* ---------- 漏斗 ---------- */
+(function(){
+  const steps=[
+    ['宋代收录人物（biog_main，c_dy=15）',KPI.song_total],
+    ['其中：有索引地址（c_index_addr_id）',KPI.has_idx],
+    ['地址有坐标（addr_codes.x_coord 非空）',KPI.has_coord],
+    ['落入 1080 年府界（去重 · 即本页）',KPI.placed],
+  ];
+  $('funnel').innerHTML=steps.map(([k,v])=>{const p=v/KPI.song_total*100;
+    return `<div style="margin:10px 0"><div class="small">${k}：<b style="color:var(--ink)">${fmt(v)}</b> / ${fmt(KPI.song_total)}（${p.toFixed(1)}%）</div><div class="prog"><i style="width:${Math.max(1,p)}%"></i></div></div>`;}).join('');
+})();
+
+/* ---------- 诚实注记 ---------- */
+$('honest').innerHTML=`
+<p class="small">① 第一道收窄是坐标覆盖率：<code>addr_codes</code> ${fmt(KPI.addr_total)} 个历史地名，仅 ${fmt(KPI.addr_coord)} 个（${(KPI.addr_coord/KPI.addr_total*100).toFixed(1)}%）带经纬度——有地址不等于有坐标。</p>
+<p class="small" style="margin-top:6px">② 落图外仅 <b style="color:var(--ink)">${KPI.dropouts} 人</b>，且原因全部可解释：${KPI.dropout_top.slice(0,8).map(d=>esc(d[0])+'（'+d[1]+'）').join('、')}……「泰州海岸海水」是史料原文照录的海隅编户；范陽/薊州/盧龍/幽州/涿州/大興是<b style="color:var(--ink)">燕云十六州</b>地名——其地在辽，宋境底图自然不含。</p>
+<p class="small" style="margin-top:6px">③ 面合计 ${fmt(faceSum)} 人次，比去重口径多 ${fmt(overlap)} 人次：羁縻州与正式府面存在重叠，一人可落两面。染色与榜单按面计，总数一律用去重口径，不以人次冒充人数。</p>
+<p class="small" style="margin-top:6px">④ 零人物面 ${zeros.length} 个：${zeros.map(z=>`<span class="pill">${esc(z.n)}</span>`).join('')}——几乎全是边地军城与西南羁縻政权。编户户籍不入羁縻，零值本身就是史实。</p>
+<p class="small" style="margin-top:6px">⑤ 口径：以「索引地址」单点定位，不含行迹；「宋」为 c_dy=15 两宋通计（960–1279），南宋人物的北方籍贯亦落入 1080 底图——本图读作「全体宋人籍贯在北宋元丰底图上的分布」。</p>`;
+
+/* ---------- 校勘台 ---------- */
+$('finds').innerHTML=`<tr><th style="width:30px">#</th><th style="width:190px">发现</th><th>证据（本次实测）</th><th style="width:110px">判定</th><th style="width:230px">本页处理</th></tr>`+
+KPI.finds.map((f,i)=>`<tr><td class="small">${i+1}</td><td><b>${esc(f.t)}</b></td><td class="small">${f.ev}</td><td class="${f.cls}">${esc(f.jd)}</td><td class="small">${f.act}</td></tr>`).join('');
+
+/* ---------- footer ---------- */
+$('foot').innerHTML=`数据：pg32b @ 192.168.3.32（PostgreSQL 18.6 + PostGIS 3.6.4，cbdb 库 395 表 / 858 万行）· CBDB（Harvard）· CHGIS V6 与 Hartwell 宋代政区复原（学术使用许可，禁再分发）· 本页为只读演示，全部统计实算自数据库 · 生成于 ${KPI.gen} · xiangrugu 工作区 demo/ · <a href="catalog/index.html" style="color:var(--gold)">数据总目</a> · <a href="pg32b-roam.html" style="color:var(--gold)">数据漫游</a>`;
+</script>
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>pg32b 数据漫游 · CBDB × CHGIS × TGaz 全库导览</title>
+<style>
+:root{--bg:#0e1116;--panel:#161b23;--panel2:#1c232e;--ink:#e8e6df;--dim:#8b94a3;--gold:#d4a24e;--jade:#6fb3a0;--red:#c56a5a;--blue:#5b8db8;--line:#2a3342;}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font-family:"Songti SC","Noto Serif CJK SC","SimSun",serif;line-height:1.6}
+.wrap{max-width:1180px;margin:0 auto;padding:28px 20px 80px}
+header{border-bottom:2px solid var(--gold);padding-bottom:18px;margin-bottom:26px}
+h1{font-size:30px;letter-spacing:4px;font-weight:600}
+h1 em{font-style:normal;color:var(--gold)}
+.sub{color:var(--dim);font-size:13px;margin-top:6px;letter-spacing:.5px}
+h2{font-size:19px;color:var(--gold);margin:40px 0 6px;letter-spacing:3px;border-left:4px solid var(--gold);padding-left:12px}
+.h2note{color:var(--dim);font-size:12.5px;margin:0 0 14px 16px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-top:20px}
+.kpi{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px 16px}
+.kpi b{display:block;font-size:25px;color:var(--jade);font-weight:600;font-family:Georgia,serif}
+.kpi span{font-size:12.5px;color:var(--dim)}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:18px 20px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:860px){.grid2{grid-template-columns:1fr}}
+svg text{font-family:inherit}
+.small{font-size:12px;color:var(--dim)}
+.prog{height:10px;background:#0b0e13;border-radius:6px;overflow:hidden}
+.prog i{display:block;height:100%;background:linear-gradient(90deg,var(--jade),var(--gold))}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th{color:var(--dim);text-align:left;font-weight:500;border-bottom:1px solid var(--line);padding:6px 8px}
+td{border-bottom:1px dashed #222a37;padding:5px 8px;vertical-align:top}
+tr:hover td{background:#1d2531}
+.pill{display:inline-block;background:#232c3a;border:1px solid var(--line);border-radius:99px;padding:1px 10px;font-size:12px;color:var(--jade);margin:2px 3px 2px 0}
+.sch{display:inline-block;border-radius:4px;padding:0 7px;font-size:11px;color:#0e1116;background:var(--blue)}
+.sch.chgis{background:var(--jade)}.sch.harv{background:var(--gold)}.sch.ogr_system_tables{background:var(--dim)}
+.tabs{display:flex;gap:8px;margin:14px 0 12px;flex-wrap:wrap}
+.tabs button{background:var(--panel2);color:var(--dim);border:1px solid var(--line);border-radius:8px;padding:6px 16px;cursor:pointer;font-family:inherit;font-size:13.5px}
+.tabs button.on{color:#111;background:var(--gold);border-color:var(--gold)}
+input.filter{background:#0b0e13;border:1px solid var(--line);color:var(--ink);border-radius:8px;padding:7px 12px;font-family:inherit;width:300px}
+#tip{position:fixed;display:none;background:#0b0e13;border:1px solid var(--gold);color:var(--ink);font-size:12px;padding:6px 9px;border-radius:6px;pointer-events:none;z-index:9;max-width:340px;line-height:1.5}
+footer{margin-top:60px;border-top:1px solid var(--line);padding-top:14px;color:var(--dim);font-size:12px}
+code{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.92em;color:var(--blue)}
+b.hl{color:var(--gold);font-weight:600}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <h1>人物传记 × 历史地理 × 地名辞典 · <em>数据漫游</em></h1>
+  <div class="sub" id="meta"></div>
+  <div class="kpis" id="kpis"></div>
+</header>
+
+<h2>一 · 时代分布</h2>
+<p class="h2note">66 万余人的「索引年」（该人物生平事件最集中的年份）直方图与朝代榜——先看数据在时间轴上的形状。这一版 CBDB 明清最重：清 23.8 万＋明 22.6 万合占七成；宋 83,373 人为第三大朝代，恰是社会关系记录最密的一朝（见「五」）。</p>
+<div class="grid2">
+  <div class="card"><div id="years"></div><div class="small">横轴：公元（每 50 年一桶，-600 前与 1915 后的脏值已滤除）/ 纵轴：收录人数</div></div>
+  <div class="card"><div id="dynasties"></div><div class="small">按收录人数排序的前 14 个朝代</div></div>
+</div>
+
+<h2>二 · 数据完整度</h2>
+<p class="h2note">不是每个人每个字段都有值——真实史料的模糊性被完整保留。</p>
+<div class="card" id="coverage"></div>
+
+<h2>三 · 关系的种类</h2>
+<p class="h2note">CBDB 的精髓：亲缘、社会关系、入仕途径、地址类型，全部是受控词表。注意条目几乎都成双向对（「贈詩、文」↔「收到Y的贈詩、文」；父/子、兄/弟两两相当）——CBDB 把关系的两端各自建模，这是一张<b class="hl">有向图</b>。</p>
+<div class="grid2">
+  <div class="card"><b class="small" style="color:var(--gold)">亲属关系类型 Top12（全库 <span id="t-kin"></span> 条）</b><div id="kin"></div></div>
+  <div class="card"><b class="small" style="color:var(--gold)">社会关系类型 Top12（全库 <span id="t-assoc"></span> 条）</b><div id="assoc"></div></div>
+</div>
+<div class="grid2" style="margin-top:16px">
+  <div class="card"><b class="small" style="color:var(--gold)">入仕途径 Top10（全库 <span id="t-entry"></span> 条）</b><div id="entry"></div></div>
+  <div class="card"><b class="small" style="color:var(--gold)">地址类型分布（全库 <span id="t-addr"></span> 条）</b><div id="addr"></div></div>
+</div>
+
+<h2>四 · 籍贯地图</h2>
+<p class="h2note">全朝代口径：41 万条「籍贯(基本地址)」中坐标可定位者的 Top40 州县（圆越大人数越多，悬停看数值）。大兴、宛平（北京附郭）与洛阳居首，是明清权重所致。宋代专题的府级染色地图见 <a href="A-song-distribution.html" style="color:var(--gold)">宋人分布图 v1</a>。</p>
+<div class="card" id="map"></div>
+
+<h2>五 · 谁站在网络的中心</h2>
+<p class="h2note">按「社会关系条目数」排名——连接度最高的人，就是史料织网织得最密的人。Top5 全是宋人：朱熹 2,471 条居首，苏轼 1,033 条次之。</p>
+<div class="card"><div id="toplink"></div></div>
+
+<h2>六 · 一个人能被拆成多少行数据 —— 苏轼</h2>
+<p class="h2note">在 CBDB 里，苏轼不是一个名字，而是一组互相引用的小表：本体、别名、地址、亲缘、交游、仕履、著作出处。整理者注记保留英文原文（CBDB 工作语言）。</p>
+<div class="card" id="sushi"></div>
+
+<h2>七 · 库的另一半：历史地理与地名辞典</h2>
+<p class="h2note">范本时代只有 CBDB 子集；pg32b 里与人物库同权重的是三个地理 schema——CHGIS V2–V6 全套时序政区（点＋面）、Hartwell 朝代快照、~1km 高程栅格（DEM）、明代驿站路线、书院点位，以及 harv schema 的 TGaz 中国历史地名辞典（82,117 地名 × 245,042 历史拼写）与谭其骧图集 GBK 名表。「宋人分布图」用的 hartwell_pref_pgn、「庐山地形」用的 dem，都出自这里。</p>
+<div class="card"><table id="gis"></table></div>
+
+<h2>八 · 全部 395 张表</h2>
+<p class="h2note">四个 schema 的全部结构（行数 × 列数），输入表名、中文说明或 schema 可过滤。行数为 pg_stat 活元组估计，供量级参考。</p>
+<div class="card"><input class="filter" id="tblfilter" placeholder="过滤：如 ASSOC / 亲属 / chgis / tgaz"><div id="tables" style="max-height:520px;overflow:auto;margin-top:10px"></div></div>
+
+<footer id="foot"></footer>
+</div>
+<div id="tip"></div>
+<script>
+const DATA = __DATA__;
+/*__APP__*/
+</script>
+</body>
+</html>

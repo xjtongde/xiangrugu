@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>苏轼社会关系网 · demo C</title>
+<style>
+:root{--paper:#f5efe3;--paper2:#efe6d5;--ink:#26221d;--ink2:#6a6157;--cinnabar:#a83a2c;--indigo:#2f4a5a;--jade:#5c7a52;--gold:#b8912f;--line:#d9cdb6;}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--paper);color:var(--ink);font-family:"PingFang SC","Microsoft YaHei","Noto Sans CJK SC",sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased;
+  background-image:radial-gradient(circle at 15% 10%,rgba(168,58,44,.03),transparent 35%),radial-gradient(circle at 85% 80%,rgba(47,74,90,.03),transparent 35%);}
+.wrap{max-width:1100px;margin:0 auto;padding:30px 22px 64px}
+.top{display:flex;align-items:flex-start;gap:16px}
+.seal{flex:0 0 auto;width:52px;height:52px;border-radius:5px;background:var(--cinnabar);color:#f7f1e6;font-family:"Songti SC","SimSun",serif;font-size:22px;font-weight:700;display:flex;align-items:center;justify-content:center;box-shadow:0 1px 0 rgba(0,0,0,.15),inset 0 0 0 2px rgba(247,241,230,.25);transform:rotate(-2deg)}
+h1{font-family:"Songti SC","STSong","SimSun","Noto Serif CJK SC",serif;font-size:29px;letter-spacing:3px;font-weight:700}
+.sub{color:var(--ink2);font-size:14px;margin-top:5px}
+.badge{display:inline-block;margin-top:9px;font-size:11.5px;color:var(--indigo);border:1px solid var(--line);background:rgba(255,255,255,.4);border-radius:20px;padding:3px 12px}
+.nav{margin-left:auto;text-align:right;font-size:12.5px}
+.nav a{color:var(--cinnabar);text-decoration:none;border-bottom:1px solid rgba(168,58,44,.3)}
+.viz{background:linear-gradient(180deg,#f3ecdd,#ece2cf);border:1px solid var(--line);border-radius:8px;padding:6px;box-shadow:0 6px 22px rgba(60,45,25,.08);position:relative;margin-top:22px}
+svg{display:block;width:100%;height:auto}
+.link{stroke-linecap:round}
+.node circle{cursor:pointer;transition:filter .1s}
+.node:hover circle{filter:brightness(1.12)}
+.node text{font-size:11px;fill:var(--ink);font-family:"PingFang SC",sans-serif;pointer-events:none;paint-order:stroke;stroke:rgba(245,239,227,.85);stroke-width:2.5px}
+.node.ctr text{font-size:14px;font-weight:700;font-family:"Songti SC",serif}
+.bar{display:flex;gap:18px;align-items:center;flex-wrap:wrap;margin-top:14px;font-size:12.5px;color:var(--ink2)}
+.bar .lg{display:flex;align-items:center;gap:6px}
+.bar i{width:11px;height:11px;border-radius:50%;display:inline-block}
+.bar button{background:var(--indigo);color:#f5efe3;border:none;border-radius:5px;padding:5px 13px;font-size:12.5px;cursor:pointer;font-family:inherit;margin-left:auto}
+.bar button:hover{opacity:.88}
+#tip{position:absolute;pointer-events:none;background:rgba(38,34,29,.95);color:#f5efe3;font-size:12.5px;padding:8px 11px;border-radius:6px;opacity:0;transition:opacity .1s;max-width:260px;z-index:9;line-height:1.5}
+#tip b{color:#e9b8ae;font-size:14px}
+footer{margin-top:26px;font-size:12.5px;color:var(--ink2);border-top:1px solid var(--line);padding-top:14px}
+footer b{color:var(--ink)} .k{color:var(--cinnabar);font-weight:600}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top">
+    <div class="seal">網</div>
+    <div>
+      <h1>苏轼社会关系网</h1>
+      <div class="sub">家族内环 · 交游外环 — 谁是他的人</div>
+      <div class="badge">数据源 · pg32b <code>cbdb</code> 库 — CBDB <code>kin_data</code> ＋ <code>assoc_data</code>（personid 3767）</div>
+    </div>
+    <div class="nav"><a href="index.html">← demo 总览</a></div>
+  </div>
+
+  <div class="viz">
+    <svg id="net" viewBox="0 0 980 640" preserveAspectRatio="xMidYMid meet"></svg>
+    <div id="tip"></div>
+  </div>
+  <div class="bar">
+    <span class="lg"><i style="background:var(--cinnabar)"></i>苏轼</span>
+    <span class="lg"><i style="background:var(--jade)"></i>亲属 <b id="ck">–</b></span>
+    <span class="lg"><i style="background:var(--indigo)"></i>交游 Top <b id="ca">–</b></span>
+    <span class="lg" style="color:var(--ink2)">边粗细＝往来记录数</span>
+    <button id="re">↻ 重排</button>
+  </div>
+
+  <footer>
+    <b>这张图在做什么：</b>以 <span class="k">苏轼</span> 为中心，从 CBDB 取出他的全部亲属（<code>kin_data</code>，含父蘇洵、母程氏、弟蘇轍、三子、两妻一妾、祖父、表弟文同等）与往来最密的 20 位交游（<code>assoc_data</code>，按记录数排序——<span class="k">黃庭堅 47 条</span>居首，另有座主歐陽修、苏门秦觀·晁補之·李廌、方外釋惠洪等），用力导向布局展开。<br>
+    <b>为什么值得做：</b>CBDB 最独特的正是这层「社会关系」结构化数据——2066 条苏轼的社交记录，可还原一张真实的人际网。静态 demo 取了最有代表性的子集；真实版可扩到全量、按关系类型（师友/举荐/唱和/姻亲）分色过滤、或对比两个人的网络。
+  </footer>
+</div>
+
+<script>
+const RAW = {"center" : {"id" : 3767, "nm" : "蘇軾"}, "kin" : [{"id" : 3761, "nm" : "蘇序", "rel" : "祖父"}, {"id" : 3762, "nm" : "蘇洵", "rel" : "父"}, {"id" : 119640, "nm" : "蘇太白", "rel" : "從父;伯叔父"}, {"id" : 19172, "nm" : "王方", "rel" : "第一任妻父"}, {"id" : 5106, "nm" : "程氏(蘇洵妻)", "rel" : "母"}, {"id" : 39464, "nm" : "王宜甫", "rel" : "姻親"}, {"id" : 1493, "nm" : "蘇轍", "rel" : "弟"}, {"id" : 19226, "nm" : "王箴", "rel" : "妻兄"}, {"id" : 5108, "nm" : "王弗", "rel" : "第一任妻"}, {"id" : 27127, "nm" : "釋惟簡", "rel" : "族兄"}, {"id" : 5109, "nm" : "王閏之", "rel" : "第二任妻"}, {"id" : 123459, "nm" : "王朝雲", "rel" : "妾"}, {"id" : 1491, "nm" : "蘇遲", "rel" : "從子;姪子"}, {"id" : 19167, "nm" : "蘇邁", "rel" : "長子; 第一子"}, {"id" : 3771, "nm" : "蘇迨", "rel" : "次子"}, {"id" : 19168, "nm" : "蘇過", "rel" : "三子"}, {"id" : 24488, "nm" : "單錫", "rel" : "甥女婿;姊妹之女婿"}, {"id" : 19174, "nm" : "蘇元老", "rel" : "姪孫;從孫"}, {"id" : 19184, "nm" : "蘇昭廣", "rel" : "曾孫; 重孫"}, {"id" : 19170, "nm" : "蘇嶠", "rel" : "曾孫; 重孫"}, {"id" : 28517, "nm" : "蘇伯衡", "rel" : "兄弟之八世孫"}, {"id" : 28511, "nm" : "蘇友龍", "rel" : "兄弟之八世孫"}, {"id" : 10173, "nm" : "文同", "rel" : "表弟"}, {"id" : 437519, "nm" : "蘇在", "rel" : "六世從孫; 姪昆孫"}, {"id" : 437520, "nm" : "蘇鎬", "rel" : "從七世孫"}, {"id" : 28512, "nm" : "蘇鎮", "rel" : "從七世孫"}, {"id" : 44358, "nm" : "柳閎", "rel" : "堂姊妹之子"}], "assoc" : [{"id" : 7111, "nm" : "黃庭堅", "n" : 47, "rel" : "友"}, {"id" : 7197, "nm" : "周必大", "n" : 30, "rel" : "書跋由Y所作"}, {"id" : 3484, "nm" : "李之儀", "n" : 22, "rel" : "幕僚為Y"}, {"id" : 30727, "nm" : "釋惠洪", "n" : 15, "rel" : "建築物得到Y的題詠、記、命名"}, {"id" : 3640, "nm" : "陸游", "n" : 15, "rel" : "書序由Y所作"}, {"id" : 1384, "nm" : "歐陽修", "n" : 10, "rel" : "以文章、學問受知於"}, {"id" : 4001, "nm" : "魏了翁", "n" : 10, "rel" : "書序由Y所作"}, {"id" : 3595, "nm" : "劉克莊", "n" : 9, "rel" : "書跋由Y所作"}, {"id" : 3624, "nm" : "樓鑰", "n" : 9, "rel" : "書跋由Y所作"}, {"id" : 27957, "nm" : "吳師道", "n" : 9, "rel" : "傳記作者為Y"}, {"id" : 3029, "nm" : "晁說之", "n" : 9, "rel" : "建築物得到Y的題詠、記、命名"}, {"id" : 13, "nm" : "晁補之", "n" : 9, "rel" : "書跋由Y所作"}, {"id" : 14299, "nm" : "李廌", "n" : 9, "rel" : "學生為Y"}, {"id" : 7084, "nm" : "王鞏", "n" : 8, "rel" : "從遊者為Y"}, {"id" : 13565, "nm" : "李昭玘", "n" : 8, "rel" : "建築物得到Y的題詠、記、命名"}, {"id" : 3043, "nm" : "秦觀", "n" : 8, "rel" : "建築物得到Y的題詠、記、命名"}, {"id" : 1493, "nm" : "蘇轍", "n" : 7, "rel" : "墓誌銘由Y所作"}, {"id" : 1488, "nm" : "司馬光", "n" : 7, "rel" : "上司為Y"}, {"id" : 217, "nm" : "張方平", "n" : 7, "rel" : "為Y作墓誌銘"}, {"id" : 10173, "nm" : "文同", "n" : 7, "rel" : "為Y之建築物題詠、記、命名"}]};
+const W=980,H=640,CX=W/2,CY=H/2;
+const COLOR={center:'#a83a2c',kin:'#5c7a52',assoc:'#2f4a5a'};
+
+// 构建去重节点（星型：全部连到中心）
+const nodes=[],byId={};
+function addNode(o){ if(byId[o.id])return byId[o.id]; byId[o.id]=o;nodes.push(o);return o; }
+const center=addNode({id:RAW.center.id,nm:RAW.center.nm,type:'center',rel:'—',n:0});
+(RAW.kin||[]).forEach(k=>{ const n=addNode({id:k.id,nm:k.nm,type:'kin',rel:k.rel,n:0}); });
+(RAW.assoc||[]).forEach(a=>{ const ex=byId[a.id];
+  if(ex){ ex.assocRel=a.rel;ex.n=a.n; if(ex.type==='kin')ex.both=true; }
+  else addNode({id:a.id,nm:a.nm,type:'assoc',rel:a.rel,n:a.n});
+});
+document.getElementById('ck').textContent=(RAW.kin||[]).length;
+document.getElementById('ca').textContent=(RAW.assoc||[]).length;
+
+// 链接（中心→节点）
+const links=nodes.filter(n=>n!==center).map(n=>({s:center,t:n,
+  w:n.type==='assoc'?n.n:(n.both?n.n:1), type:n.both?'both':n.type}));
+
+// 初始化位置：kin 内环，assoc 外环
+function seed(){
+  let ki=0,ai=0;const kn=nodes.filter(n=>n.type==='kin').length,an=nodes.filter(n=>n.type==='assoc').length;
+  nodes.forEach(n=>{ if(n===center){n.x=CX;n.y=CY;n.fx=true;return;}
+    let a,r;
+    if(n.type==='kin'){a=ki++/kn*Math.PI*2;r=120;} else {a=ai++/an*Math.PI*2;r=250;}
+    n.x=CX+Math.cos(a)*r+(Math.random()-.5)*20;n.y=CY+Math.sin(a)*r*0.72+(Math.random()-.5)*20;
+  });
+  nodes.forEach(n=>{n.vx=0;n.vy=0;});
+}
+seed();
+
+function rest(n){ return n.type==='kin'?118:(n.both?175:210); }
+let alpha=1;
+function tick(){
+  // 斥力
+  for(let i=0;i<nodes.length;i++)for(let j=i+1;j<nodes.length;j++){
+    const a=nodes[i],b=nodes[j];let dx=b.x-a.x,dy=b.y-a.y;let d2=dx*dx+dy*dy;if(d2<1)d2=1;
+    const d=Math.sqrt(d2),f=(2600/d2)*alpha;const ux=dx/d*f,uy=dy/d*f;
+    if(!a.fx){a.vx-=ux;a.vy-=uy;} if(!b.fx){b.vx+=ux;b.vy+=uy;}
+  }
+  // 弹簧
+  links.forEach(l=>{ const dx=l.t.x-l.s.x,dy=l.t.y-l.s.y,d=Math.sqrt(dx*dx+dy*dy)||1;
+    const f=(d-rest(l.t))*0.02*alpha,ux=dx/d*f,uy=dy/d*f;
+    if(!l.t.fx){l.t.vx-=ux;l.t.vy-=uy;} if(!l.s.fx){l.s.vx+=ux;l.s.vy+=uy;} });
+  // 向心 + 积分
+  nodes.forEach(n=>{ if(n.fx){return;}
+    n.vx+=(CX-n.x)*0.0016*alpha;n.vy+=(CY-n.y)*0.0022*alpha;
+    n.vx*=0.86;n.vy*=0.86;n.x+=n.vx;n.y+=n.vy;
+    n.x=Math.max(28,Math.min(W-28,n.x));n.y=Math.max(24,Math.min(H-24,n.y)); });
+}
+
+const svg=document.getElementById('net'),NS='http://www.w3.org/2000/svg';
+const gL=document.createElementNS(NS,'g'),gN=document.createElementNS(NS,'g');svg.appendChild(gL);svg.appendChild(gN);
+const lEls=[],nEls=[];
+links.forEach(l=>{ const e=document.createElementNS(NS,'line');e.setAttribute('class','link');
+  e.setAttribute('stroke',l.type==='kin'?'rgba(92,122,82,.5)':(l.type==='both'?'rgba(120,90,60,.55)':'rgba(47,74,90,.42)'));
+  e.setAttribute('stroke-width',Math.max(1,Math.min(6,0.7+Math.sqrt(l.w)*0.7)));gL.appendChild(e);lEls.push(e);l.e=e; });
+const tip=document.getElementById('tip');
+nodes.forEach(n=>{
+  const g=document.createElementNS(NS,'g');g.setAttribute('class','node'+(n===center?' ctr':''));
+  const c=document.createElementNS(NS,'circle');
+  const r=n===center?17:(n.type==='kin'?8:5+Math.min(7,Math.sqrt(n.n)*1.1));
+  c.setAttribute('r',r);c.setAttribute('fill',COLOR[n.type]);c.setAttribute('stroke','#f5efe3');c.setAttribute('stroke-width',n===center?2.5:1.4);
+  g.appendChild(c);
+  const t=document.createElementNS(NS,'text');t.setAttribute('text-anchor','middle');t.setAttribute('dy',r+13);t.textContent=n.nm;g.appendChild(t);
+  g.addEventListener('mousemove',ev=>{ const b=svg.getBoundingClientRect();
+    tip.style.opacity=1;tip.style.left=(ev.clientX-b.left+14)+'px';tip.style.top=(ev.clientY-b.top+8)+'px';
+    let rel=n===center?'中心人物':(n.rel||'');
+    if(n.both)rel+=' ／ 交游：'+(n.assocRel||'');
+    tip.innerHTML='<b>'+n.nm+'</b><br>'+(n===center?'苏轼 · 1037–1101':rel+(n.n?'　·　'+n.n+' 条往来记录':''));
+  });
+  g.addEventListener('mouseleave',()=>tip.style.opacity=0);
+  gN.appendChild(g);nEls.push(g);n.g=g;
+});
+function draw(){
+  links.forEach(l=>{ l.e.setAttribute('x1',l.s.x);l.e.setAttribute('y1',l.s.y);l.e.setAttribute('x2',l.t.x);l.e.setAttribute('y2',l.t.y); });
+  nodes.forEach(n=>{ n.g.setAttribute('transform','translate('+n.x.toFixed(1)+','+n.y.toFixed(1)+')'); });
+}
+let raf;
+function run(){ tick();draw(); alpha*=0.985; if(alpha>0.02) raf=requestAnimationFrame(run); }
+run();
+document.getElementById('re').onclick=()=>{ cancelAnimationFrame(raf);seed();alpha=1;run(); };
+</script>
+</body>
+</html>

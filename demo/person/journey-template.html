@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>蘇軾 · 行迹与贬谪之路</title>
+<style>
+:root{--bg:#0e1116;--panel:#161b23;--panel2:#1c232e;--ink:#e8e6df;--dim:#8b94a3;--gold:#d4a24e;--jade:#6fb3a0;--red:#c56a5a;--blue:#5b8db8;--line:#2a3342;--violet:#9b7fb8;}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:"Songti SC","Noto Serif CJK SC","SimSun",serif;line-height:1.65;
+ background-image:radial-gradient(90% 60% at 70% -10%,rgba(111,179,160,.06),transparent),radial-gradient(70% 50% at 10% 110%,rgba(212,162,78,.05),transparent)}
+.top{position:sticky;top:0;z-index:50;backdrop-filter:blur(10px);background:rgba(14,17,22,.82);border-bottom:1px solid var(--line)}
+.topin{max-width:1240px;margin:0 auto;padding:10px 20px;display:flex;align-items:center;gap:18px;font-size:13px}
+.topin .who{color:var(--gold);font-size:15px;letter-spacing:2px;font-weight:600}
+.topin a{color:var(--dim);text-decoration:none;padding:3px 10px;border-radius:7px;border:1px solid transparent;transition:.15s}
+.topin a:hover{color:var(--ink);border-color:var(--line)}
+.topin a.on{color:#0e1116;background:var(--gold);font-weight:600}
+.topin .r{margin-left:auto}
+.wrap{max-width:1240px;margin:0 auto;padding:30px 20px 90px}
+header.hero{border-bottom:2px solid var(--gold);padding-bottom:18px}
+h1{font-size:32px;letter-spacing:5px}
+h1 em{font-style:normal;color:var(--gold)}
+.sub{color:var(--dim);font-size:13px;margin-top:6px}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-top:18px}
+.stat{background:var(--panel);border:1px solid var(--line);border-radius:11px;padding:11px 14px;position:relative;overflow:hidden}
+.stat::after{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:linear-gradient(180deg,var(--jade),var(--gold))}
+.stat b{display:block;font-size:24px;color:var(--jade);font-family:Georgia,serif;font-weight:600}
+.stat span{font-size:11.5px;color:var(--dim)}
+h2{font-size:19px;color:var(--gold);margin:40px 0 4px;letter-spacing:3px;border-left:4px solid var(--gold);padding-left:12px}
+.h2n{color:var(--dim);font-size:12.5px;margin:0 0 12px 16px}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0 12px}
+.chip{background:var(--panel2);border:1px solid var(--line);border-radius:99px;padding:2px 12px;font-size:12.5px;color:var(--dim);cursor:pointer;user-select:none;transition:.15s;display:flex;align-items:center;gap:6px}
+.chip i{width:9px;height:9px;border-radius:2px;display:inline-block}
+.chip:hover{color:var(--ink)}
+.chip.on{color:#0e1116;background:var(--gold);border-color:var(--gold);font-weight:600}
+#mapwrap{background:var(--panel);border:1px solid var(--line);border-radius:14px;overflow:hidden;position:relative}
+#mapwrap svg{display:block;width:100%;height:auto}
+.mland{fill:#151b24;stroke:#28313f;stroke-width:.7}
+.mland:hover{fill:#1b2430}
+.grat{stroke:#1c232e;stroke-width:.6}
+.route{fill:none;stroke:var(--gold);stroke-width:1.8;stroke-dasharray:5 4;opacity:.85}
+.stop circle{stroke:#0e1116;stroke-width:1.4;cursor:pointer}
+.stop text{font-family:Georgia,serif;font-size:9px;fill:#0e1116;font-weight:700;pointer-events:none;text-anchor:middle}
+.stop.sel circle{stroke:#fff;stroke-width:2.4}
+.addrpt{cursor:pointer}
+.stoplbl{font-size:10px;fill:var(--gold);font-family:"Songti SC",serif;pointer-events:none}
+#maphint{position:absolute;left:14px;bottom:10px;color:var(--dim);font-size:11.5px;pointer-events:none}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:900px){.grid2{grid-template-columns:1fr}}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:13px;padding:16px 18px;font-size:13px}
+table.tb{width:100%;border-collapse:collapse;font-size:12.5px}
+table.tb th{color:var(--dim);font-weight:400;text-align:left;border-bottom:1px solid var(--line);padding:5px 8px;white-space:nowrap;font-size:11.5px}
+table.tb td{border-bottom:1px solid #1d2530;padding:5px 8px;vertical-align:top}
+table.tb tr{cursor:pointer}
+table.tb tr:hover td{background:#1a212c}
+table.tb tr.sel td{background:#242c1e}
+.yr{font-family:Georgia,serif;color:var(--jade)}
+.dim{color:var(--dim)}
+.postbar{fill:var(--jade);opacity:.8;rx:2}
+.postbar.open{fill:none;stroke:var(--jade);stroke-dasharray:3 2;opacity:1}
+.postbar:hover{fill:var(--gold)}
+.postbar.open:hover{fill:rgba(111,179,160,.25)}
+.postbar.sel{fill:var(--gold)}
+#dempick{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0}
+.dtab{background:var(--panel2);border:1px solid var(--line);border-radius:8px;padding:4px 13px;font-size:12.5px;color:var(--dim);cursor:pointer;transition:.15s}
+.dtab:hover{color:var(--ink)}
+.dtab.on{color:#0e1116;background:var(--jade);border-color:var(--jade);font-weight:600}
+#demwrap{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:14px 10px 6px;overflow:hidden}
+#demwrap svg{display:block;width:100%;height:auto}
+.darea{fill:url(#demgrad)}
+.dline{fill:none;stroke:var(--jade);stroke-width:1.6}
+.daxis{stroke:var(--line);stroke-width:.7}
+.dtxt{fill:var(--dim);font-size:10px;font-family:Georgia,serif}
+.dcross{stroke:var(--gold);stroke-width:.8;stroke-dasharray:3 3}
+.demmeta{display:flex;gap:16px;flex-wrap:wrap;color:var(--dim);font-size:12px;padding:6px 10px 10px}
+.demmeta b{color:var(--jade);font-family:Georgia,serif}
+.small{font-size:12px;color:var(--dim)}
+.honest li{margin:7px 0;font-size:13px}
+.honest b{color:var(--gold)}
+#tip{position:fixed;display:none;background:#0b0e13;border:1px solid var(--gold);color:var(--ink);font-size:12px;padding:6px 10px;border-radius:6px;pointer-events:none;z-index:99;max-width:340px;line-height:1.55}
+footer{margin-top:56px;border-top:1px solid var(--line);padding-top:14px;color:var(--dim);font-size:12px}
+code{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.92em;color:var(--blue)}
+</style>
+</head>
+<body>
+<div class="top"><div class="topin">
+  <span class="who">蘇軾 · 人物专题</span>
+  <a href="index.html">全景</a><a href="network.html">社交网络</a><a class="on" href="journey.html">行迹与贬谪之路</a>
+  <span class="r"><a href="../catalog/index.html">数据总目</a><a href="../pg32b-roam.html">数据漫游</a></span>
+</div></div>
+<div class="wrap">
+<header class="hero">
+  <h1>蘇軾 <em>行迹与贬谪之路</em></h1>
+  <div class="sub">35 段除授（posted_to_office_data）×31 条地址（biog_addr_data）落在 Hartwell 1080 宋境底图上；再用 <code>chgis.dem</code>（~1km 高程栅格）把四段关键的路切成剖面——数据里的琼州海峡，是一次肉眼可见的低谷。</div>
+  <div class="stats" id="stats"></div>
+</header>
+
+<h2>足迹图</h2>
+<p class="h2n">金色编号＝除授地点按首任年排序（点击看详情，联动下方年表与总表）；菱形＝地址记录（生/死/葬/籍贯/游历）。底图为 1080 年政区快照，仅作地理参照。</p>
+<div class="chips" id="layers"></div>
+<div id="mapwrap"><div id="maphint">悬停看点位详情 · 点击选中</div></div>
+
+<h2>仕宦年表</h2>
+<p class="h2n">1036–1105 时间轴上的任职区间（青条）。悬停看官职，点击联动地图。</p>
+<div class="card" style="padding:8px 4px;overflow-x:auto"><svg id="tlbars" height="210"></svg></div>
+
+<h2>除授总表（35 段）</h2>
+<p class="h2n">fy/ly＝首任年/离任年；「正授/摄/判…」＝任命方式（appointment_codes）。[未詳] 与空年为库内原貌，如实展示。</p>
+<div class="card fade" style="padding:6px 10px;overflow-x:auto"><table class="tb" id="postT"></table></div>
+
+<h2>贬谪之路 · 地形剖面</h2>
+<p class="h2n">起终点取 addr_codes 官方坐标，直线等距采样 101 点，<code>ST_Value(dem.rast)</code> 取高程——<b>示意路线，非史实走法</b>（史实多为水路沿江）。横轴为沿线里程（km）。</p>
+<div id="dempick"></div>
+<div id="demwrap"><svg id="dem" height="300"></svg><div class="demmeta" id="demmeta"></div></div>
+
+<h2>诚实账</h2>
+<div class="card"><ul class="honest" id="honest"></ul></div>
+
+<footer id="foot"></footer>
+</div>
+<div id="tip"></div>
+<script>
+const D=__DATA__;
+const CFG=__CFG__;
+/*__APP__*/
+</script>
+</body>
+</html>

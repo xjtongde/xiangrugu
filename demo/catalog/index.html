@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>pg32b 数据总目 · CBDB × CHGIS × TGaz</title>
+<style>
+:root{--bg:#0e1116;--panel:#161b23;--panel2:#1c232e;--ink:#e8e6df;--dim:#8b94a3;--gold:#d4a24e;--jade:#6fb3a0;--red:#c56a5a;--blue:#5b8db8;--line:#2a3342;--violet:#9b7fb8;}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:"Songti SC","Noto Serif CJK SC","SimSun",serif;line-height:1.6;
+ background-image:radial-gradient(90% 60% at 70% -10%,rgba(212,162,78,.06),transparent),radial-gradient(70% 50% at 10% 110%,rgba(111,179,160,.05),transparent)}
+.wrap{max-width:1180px;margin:0 auto;padding:40px 20px 80px}
+header{border-bottom:2px solid var(--gold);padding-bottom:20px}
+h1{font-size:34px;letter-spacing:5px;font-weight:600}
+h1 em{font-style:normal;color:var(--gold)}
+.sub{color:var(--dim);font-size:13.5px;margin-top:8px;letter-spacing:.5px}
+h2{font-size:19px;color:var(--gold);margin:44px 0 6px;letter-spacing:3px;border-left:4px solid var(--gold);padding-left:12px}
+.h2note{color:var(--dim);font-size:12.5px;margin:0 0 16px 16px}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;margin-top:24px}
+.stat{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px 18px;position:relative;overflow:hidden;opacity:0;transform:translateY(8px);transition:opacity .5s,transform .5s}
+.stat.in{opacity:1;transform:none}
+.stat::after{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:linear-gradient(180deg,var(--gold),var(--jade))}
+.stat b{display:block;font-size:31px;color:var(--jade);font-family:Georgia,serif;font-weight:600}
+.stat span{font-size:12.5px;color:var(--dim)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:16px}
+.scard{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:20px 22px;transition:transform .2s,border-color .2s,box-shadow .2s;display:flex;flex-direction:column;opacity:0;transform:translateY(10px)}
+.scard.in{opacity:1;transform:none;transition:opacity .5s,transform .5s,border-color .2s,box-shadow .2s}
+.scard:hover{border-color:var(--gold);box-shadow:0 8px 30px rgba(0,0,0,.35);transform:translateY(-2px)}
+.scard .tag{display:inline-block;font-family:ui-monospace,Menlo,monospace;font-size:11px;border-radius:5px;padding:1px 8px;color:#0e1116;margin-bottom:8px;width:max-content}
+.scard h3{font-size:19px;letter-spacing:2px;color:var(--ink);font-weight:600}
+.scard .d{font-size:12.5px;color:var(--dim);margin:6px 0 12px;min-height:38px}
+.scard .nums{display:flex;gap:16px;margin-bottom:12px}
+.scard .nums div b{font-family:Georgia,serif;font-size:19px;color:var(--jade);display:block}
+.scard .nums div span{font-size:11px;color:var(--dim)}
+.fam{margin:4px 0 10px}
+.frow{display:flex;align-items:center;gap:8px;font-size:11.5px;color:var(--dim);margin:3px 0}
+.frow .fn{width:118px;text-align:right;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.frow .fb{flex:1;height:8px;background:#0b0e13;border-radius:4px;overflow:hidden}
+.frow .fb i{display:block;height:100%;border-radius:4px}
+.frow b{font-family:Georgia,serif;color:var(--ink);font-weight:600;min-width:66px;text-align:right}
+.reps{margin-top:2px}
+.rep{display:inline-block;background:#232c3a;border:1px solid var(--line);border-radius:99px;padding:1px 10px;font-size:11.5px;color:var(--jade);margin:2px 3px 2px 0;font-family:ui-monospace,Menlo,monospace;cursor:default}
+.go{margin-top:14px;display:block;text-align:center;background:var(--gold);color:#111;border-radius:9px;padding:8px 0;text-decoration:none;font-size:14px;letter-spacing:2px;transition:filter .15s}
+.go:hover{filter:brightness(1.12)}
+.dcard{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px 20px;text-decoration:none;color:var(--ink);transition:transform .2s,border-color .2s,box-shadow .2s;display:block;opacity:0;transform:translateY(10px)}
+.dcard.in{opacity:1;transform:none;transition:opacity .5s,transform .5s,border-color .2s,box-shadow .2s,transform .2s}
+.dcard:hover{border-color:var(--jade);box-shadow:0 8px 30px rgba(0,0,0,.35);transform:translateY(-2px)}
+.dcard .k{font-size:11px;color:var(--gold);letter-spacing:2px}
+.dcard h4{font-size:16.5px;margin:4px 0 6px;font-weight:600}
+.dcard p{font-size:12.5px;color:var(--dim)}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:18px 22px;font-size:13.5px}
+.card p{margin:6px 0}
+.small{font-size:12px;color:var(--dim)}
+.lv{font-size:10.5px;border-radius:4px;padding:0 5px}
+.lv.ok{background:#1d3a33;color:var(--jade);border:1px solid #2c554a}
+.lv.doc{background:#33301f;color:var(--gold);border:1px solid #55502f}
+.lv.guess{background:#3a2622;color:var(--red);border:1px solid #5a3a33}
+#tip{position:fixed;display:none;background:#0b0e13;border:1px solid var(--gold);color:var(--ink);font-size:12px;padding:6px 9px;border-radius:6px;pointer-events:none;z-index:99;max-width:340px;line-height:1.5}
+footer{margin-top:56px;border-top:1px solid var(--line);padding-top:14px;color:var(--dim);font-size:12px}
+code{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.92em;color:var(--blue)}
+b.hl{color:var(--gold);font-weight:600}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <h1>pg32b <em>数据总目</em></h1>
+  <div class="sub">一句话说清我们有什么：一个 PostgreSQL 库，装着三座数据库——<b style="color:var(--ink)">CBDB 中国历代人物传记</b>（ Harvard ）、<b style="color:var(--ink)">CHGIS 中国历史地理信息系统</b>（V2–V6＋Hartwell 复原）、<b style="color:var(--ink)">TGaz 中国历史地名辞典</b>。399 张表逐表逐列 count 精确实测，生成于 <span id="gen"></span>，全站离线自包含。</div>
+  <div class="stats" id="stats"></div>
+</header>
+
+<h2>三卷全目</h2>
+<p class="h2note">按 schema 分卷。进入后：搜索支持<b class="hl">列名</b>（试试 x_coord 或 c_personid）、treemap 点击直达、家族筛选、逐列非空率/distinct/高频值画像、真实样例行。</p>
+<div class="grid" id="schemas"></div>
+<p class="small" style="margin-top:12px">另有 <code>ogr_system_tables.metadata</code>（GDAL/OGR 系统元数据，1 表 · 184 行），随 public 卷附列。</p>
+
+<h2>配套演示</h2>
+<p class="h2note">用这些真数据做出来的页面。</p>
+<div class="grid" id="demos"></div>
+
+<h2>怎么读这份总目</h2>
+<div class="card">
+  <p>① <b class="hl">说明三档信度</b>：<span class="lv ok">✓实证</span> 本次整理在库上亲验过的；<span class="lv doc">◈通说</span> 公开文档或表名自明的；<span class="lv guess">?推断</span> 仅凭名称猜测——宁可标注存疑，不冒充确定。</p>
+  <p>② <b class="hl">数字口径</b>：行数 = 逐表 <code>count(*)</code> 精确实测（合计 8,580,233，比 pg_stat 估计多 221）；非空率、distinct、高频值 Top3 同为实测；样例行取表前 3 行、每格截断。</p>
+  <p>③ <b class="hl">关系为推断</b>：库内 0 条外键约束，卡片中「c_personid → biog_main」等按 CBDB 命名规约推断并明确标注，不作为数据库事实。</p>
+  <p>④ <b class="hl">来源与许可</b>：CBDB（Harvard，20260919 版）、CHGIS V6 与 Hartwell 复原、TGaz——均学术使用许可、禁再分发；本总目仅在内网演示。</p>
+</div>
+
+<footer id="foot"></footer>
+</div>
+<div id="tip"></div>
+<script>
+const DATA={"gen":"2026-09-27","stats":[[399,"张表（含 4 张 PostGIS 视图）"],[8580233,"总行数（count(*) 实测）"],[7168,"总列数"],[4,"schema · 三座数据库"]],"schemas":[{"sc":"public + ogr","href":"cat-cbdb.html","title":"CBDB 人物库","d":"66 万历史人物传记及其地址、亲属、社交、除授、入仕、别名、文献出处（125 万条引用）。星型结构，一切围绕 biog_main。","col":"#d4a24e","tables":91,"rows":5701335,"cols":903,"fams":[["事实记录",15,4765072],["主表与主数据",8,789499],["专门数据集",15,76223],["词表与代码",44,57753],["系统表/视图",5,8722]],"reps":[["biog_source_data",1254135,"人物↔传记出处桥（全库最大表：每人每条文献引用一行，含页码）"],["biog_main",661969,"人物主表：姓名·性别·朝代·索引年·生卒·籍贯指针·模糊年代编码·整理注记"],["posted_to_office_data",591518,"除授记录主表（人×官职×起讫年×除授方式）"],["posting_data",591487,"除授事件表（与 posted_to_office_data 按 c_posting_id 成对）"],["kin_data",562711,"亲属关系有向记录（A 之父/妻/子为 B；56.3 万条）"],["posted_to_addr_data",465284,"除授→任地桥（c_posting_id→c_addr_id）"]]},{"sc":"chgis","href":"cat-chgis.html","title":"CHGIS 历史地理","d":"V2–V6 历代政区点面全套、Hartwell 四朝代快照、~1km DEM 高程、明代驿站驿路、中国年代学总表。","col":"#6fb3a0","tables":211,"rows":1583188,"cols":5073,"fams":[["V4",60,755721],["V2",41,269798],["V5",30,216559],["V3",26,207818],["V6（现行版）",21,84883]],"reps":[["v4_dcw_rvr_lin",213880,"V4 × DCW 底图 · rvr_lin"],["v5_gns",130665,"GNS 地名（V5 整合）"],["v4_gns",126566,"GNS 美国国家地理空间情报署地名（V4 整合）"],["v2_dcw_contour_lin",92626,"V2 × DCW 底图 · contour_lin"],["v4_dcw_contour_lin",92626,"V4 × DCW 底图 · contour_lin"],["v4db_v4_gis_info_table",61988,"V4 发行库内部表（v4_gis_info_table）"]]},{"sc":"harv","href":"cat-harv.html","title":"TGaz 辞典与历史地图","d":"TGaz 历史地名辞典（82,117 地名 × 245,042 拼写）、俄国探险地图、茶马古道、藏传佛教寺院、高铁与气管道、谭图 GBK 名表。","col":"#9b7fb8","tables":97,"rows":1295710,"cols":1192,"fams":[["TGaz 地名辞典",33,983236],["底图与代码",4,187419],["谭图 GBK",2,75280],["其他",7,24013],["俄国图与探险地图",33,14672]],"reps":[["tgaz_spelling",245042,"TGaz 历史拼写/异体记录（245,042 条）"],["dcw_asia_contour",186130,"DCW 亚洲海岸线/等高线（18.6 万条）"],["tgaz_part_of",83400,"TGaz 地名隶属关系（83,400 条）"],["tgaz_v6_id",82858,"TGaz↔CHGIS V6 ID 桥"],["tgaz_mv_pn_srch",82117,"TGaz 地名检索物化视图"],["tgaz_mv_pn_srch_new_test",82117,"TGaz 地名检索物化视图（新版测试）"]]}],"demos":[{"href":"../pg32b-roam.html","k":"全库导览","title":"pg32b 数据漫游","d":"八章导览：时代分布 / 完整度 / 关系类型 / 籍贯地图 / 网络中心 / 苏轼拆行 / 地理半壁 / 全表目录。范本 cbdb-demo 同构重制。"},{"href":"../A-song-distribution.html","k":"专题演示 A","title":"宋人分布图 v1","d":"Hartwell 1080 府级面 × 5.6 万籍贯点染色，附五行校勘台（v6 缺面 / 務州讹字 / 福州离群行实证）。"},{"href":"../person/index.html","k":"人物专题","title":"蘇軾 · 一个人的一生","d":"以一人为主线三页联动：全景档案（身份/亲缘/著作/出处）· 1,033 条社交力导向图（34 位身后追慕者单列紫色）· 行迹地图＋DEM 贬谪路剖面。personid 参数化，换人可重跑。"}]};
+/* pg32b 数据总目 · index 逻辑（无外部依赖） */
+const $=id=>document.getElementById(id);
+const fmt=n=>(n??0).toLocaleString('en-US');
+const esc=s=>String(s??'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+const now=()=>(typeof performance!=='undefined'&&performance.now)?performance.now():Date.now();
+const tip=$('tip');
+document.addEventListener('mousemove',e=>{const t=e.target.closest&&e.target.closest('[data-tip]');
+  if(t){tip.style.display='block';tip.innerHTML=t.getAttribute('data-tip');
+    tip.style.left=Math.min(innerWidth-360,e.clientX+12)+'px';tip.style.top=(e.clientY+14)+'px';}
+  else tip.style.display='none';});
+function countUp(el,to,dur=1000){const t0=now();
+  function f(){const p=Math.min(1,(now()-t0)/dur),e=1-Math.pow(1-p,3);
+    el.textContent=fmt(Math.round(to*e));if(p<1)requestAnimationFrame(f);}
+  requestAnimationFrame(f);}
+
+$('gen').textContent=DATA.gen;
+$('stats').innerHTML=DATA.stats.map(s=>`<div class="stat"><b>0</b><span>${s[1]}</span></div>`).join('');
+[...$('stats').children].forEach((el,i)=>countUp(el.firstChild,DATA.stats[i][0]));
+
+const PALETTE=['#d4a24e','#6fb3a0','#5b8db8','#c56a5a','#9b7fb8','#5aa8b8','#a8a05a','#c89b6a'];
+$('schemas').innerHTML=DATA.schemas.map((s,i)=>{
+  const maxr=Math.max(...s.fams.map(f=>f[2]),1);
+  return `<a class="scard" href="${s.href}" style="text-decoration:none;color:inherit">
+   <span class="tag" style="background:${s.col||PALETTE[i%8]}">${esc(s.sc)}</span>
+   <h3>${s.title}</h3>
+   <div class="d">${s.d}</div>
+   <div class="nums">
+     <div><b>${fmt(s.tables)}</b><span>表</span></div>
+     <div><b>${fmt(s.rows)}</b><span>行（实测）</span></div>
+     <div><b>${fmt(s.cols)}</b><span>列</span></div>
+   </div>
+   <div class="fam">${s.fams.map((f,j)=>`<div class="frow"><span class="fn">${esc(f[0])}</span><span class="fb"><i style="width:${Math.max(2,f[2]/maxr*100)}%;background:${PALETTE[j%8]}"></i></span><b>${fmt(f[2])}</b></div>`).join('')}</div>
+   <div class="reps">${s.reps.map(r=>`<span class="rep" data-tip="${esc(r[2]||'')} · ${fmt(r[1])} 行">${esc(r[0])}</span>`).join('')}</div>
+   <span class="go">进入全目 →</span>
+  </a>`;}).join('');
+
+$('demos').innerHTML=DATA.demos.map(d=>`<a class="dcard" href="${d.href}"><div class="k">${esc(d.k)}</div><h4>${esc(d.title)}</h4><p>${d.d}</p></a>`).join('');
+
+if(typeof IntersectionObserver!=='undefined'){
+  const io=new IntersectionObserver(es=>{es.forEach((e,k)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('in'),k*60);io.unobserve(e.target);}})},{rootMargin:'60px'});
+  document.querySelectorAll('.stat,.scard,.dcard').forEach(el=>io.observe(el));
+}else document.querySelectorAll('.stat,.scard,.dcard').forEach(el=>el.classList.add('in'));
+
+$('foot').innerHTML=`pg32b @ 192.168.3.32 · PostgreSQL 18.6 + PostGIS 3.6.4 · cbdb 库（public / chgis / harv / ogr_system_tables 四 schema）· 全部数字 count(*) 实测于 ${DATA.gen} · 源数据：CBDB（Harvard）· CHGIS V6 · Hartwell · TGaz（学术使用许可，禁再分发）· 构建管线：extract_catalog.py → catalog.json → build_catalog.py`;
+
+</script>
+</body>
+</html>

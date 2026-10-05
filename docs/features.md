@@ -6,7 +6,7 @@
 
 | 编号 | 能力 | 状态 |
 |---|---|---|
-| F-13 | 将 `usedata` 忠实导入 `pg32b/xiangrugu`，具备独立验证与可重复重建能力 | 方案见 `docs/import-plan.md`；阶段 0 未通过 |
+| F-13 | 建立长期数据接入模块，将 `usedata` 忠实发布到 `pg32b/xiangrugu`，支持换版和新增来源 | 设计见 `datamgmt/docs/DESIGN.md`；阶段 0 未通过 |
 
 ## 后续候选，不属于当前导入范围
 

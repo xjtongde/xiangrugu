@@ -7,4 +7,4 @@
 | I-04 | 为人物页反向亲缘关系补充方向语义和换码规则 | 候授权；与数据导入无关 |
 | I-05 | 固化 `demo/` 的构建输入和抽取过程，使演示可重建 | `demo/` 已入 Git；其余缺口候授权，不阻塞导入 |
 
-导入模块的实现缺口不在本账重复列出，统一见 `datamgmt/README.md`；阶段和出口统一见 `docs/import-plan.md`。
+数据接入模块的实现缺口不在本账重复列出，统一见 `datamgmt/README.md`；阶段和出口统一见 `datamgmt/docs/DESIGN.md`。

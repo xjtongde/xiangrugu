@@ -26,10 +26,10 @@ Codex 默认承担审计与实现协作：先核实事实，再按用户授权�
 AGENTS.md
 → rules.md
 → docs/index.md
-→ docs/import-plan.md
 → datamgmt/README.md
+→ datamgmt/docs/DESIGN.md
 ```
 
-按需查阅：`datamgmt/config/roots.yaml`、`datamgmt/PITFALLS.md`、`docs/cbdb.md`、`docs/codemap.md` 和三本专职账。
+按需查阅：`datamgmt/docs/OPERATIONS.md`、`datamgmt/docs/PITFALLS.md`、`datamgmt/config/roots.yaml`、`docs/cbdb.md`、`docs/codemap.md` 和三本专职账。
 
 如文档、配置、代码或实际环境互相冲突，停止推断，记录冲突并按 `docs/index.md` 的权威顺序处理。

@@ -22,10 +22,11 @@
 | 项目目标 | `AGENTS.md` |
 | 工作纪律 | `rules.md` |
 | 文档索引与权威顺序 | `docs/index.md` |
-| 导入合同、阶段、验收门槛 | `docs/import-plan.md` |
+| 数据接入设计、合同、阶段与验收门槛 | `datamgmt/docs/DESIGN.md` |
 | 源根与目标连接参数 | `datamgmt/config/roots.yaml` |
 | 模块现状与职责 | `datamgmt/README.md` |
-| 防坑规则 | `datamgmt/PITFALLS.md` |
+| 数据接入操作生命周期 | `datamgmt/docs/OPERATIONS.md` |
+| 防坑规则 | `datamgmt/docs/PITFALLS.md` |
 | 盘点明细与证据 | `datamgmt/recon/` |
 | CBDB 结构知识及已确认的源生异常 | `docs/cbdb.md` |
 | 代码与部署地图 | `docs/codemap.md` |

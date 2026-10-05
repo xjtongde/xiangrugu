@@ -8,10 +8,12 @@
 |---|---|
 | `AGENTS.md` | 项目目标、成功标准、入口阅读顺序 |
 | `rules.md` | 操作、记账、单一源和忠实导入纪律 |
-| `docs/import-plan.md` | 导入合同、技术方案、阶段和验收门槛 |
-| `datamgmt/README.md` | 数据管理模块现状、目录职责和实现缺口 |
+| `docs/import-plan.md` | 项目级兼容入口，只指向数据接入模块文档 |
+| `datamgmt/README.md` | 数据接入模块入口、现有资产和实现缺口 |
+| `datamgmt/docs/DESIGN.md` | 数据接入模块唯一权威设计、合同、阶段与验收门槛 |
+| `datamgmt/docs/OPERATIONS.md` | 首次构建、数据更新、发布和失败处理 |
 | `datamgmt/config/roots.yaml` | 唯一源根、路径政策、目标实例与数据库 |
-| `datamgmt/PITFALLS.md` | 导入设计必须拦截的历史失败模式 |
+| `datamgmt/docs/PITFALLS.md` | 数据接入必须拦截的历史失败模式 |
 | `datamgmt/recon/usedata_ledger_findings.md` | 当前盘点草案的人读摘要；机器证据在同目录 |
 | `docs/cbdb.md` | CBDB 结构知识和已确认的源生异常 |
 | `docs/codemap.md` | 模块与部署拓扑查询件 |
@@ -28,7 +30,7 @@
 1. 用户当前明确指令；
 2. `AGENTS.md` 的项目目标；
 3. `rules.md`；
-4. `docs/import-plan.md` 与 `datamgmt/config/roots.yaml`；
+4. `datamgmt/docs/DESIGN.md` 与 `datamgmt/config/roots.yaml`；
 5. 机器证据、模块文档及专职账；
 6. 其他说明和 Gitea Wiki。
 
@@ -36,6 +38,6 @@
 
 ## 阅读顺序
 
-新会话先读 `AGENTS.md`、`rules.md`、本索引和 `docs/import-plan.md`；准备开发时再读 `datamgmt/README.md` 与 `datamgmt/PITFALLS.md`。其余按需读取。
+新会话先读 `AGENTS.md`、`rules.md`、本索引和 `datamgmt/README.md`；准备数据接入开发时再读 `datamgmt/docs/DESIGN.md`、`datamgmt/docs/OPERATIONS.md` 与 `datamgmt/docs/PITFALLS.md`。其余按需读取。
 
 历史内容可从 Git 恢复。2026-09-30 大清理前的集中回收点为 `75ecd77`；本轮删除内容可从变更前提交 `5627da7` 恢复。

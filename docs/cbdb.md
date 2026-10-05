@@ -1,7 +1,7 @@
 # cbdb.md —— 数据结构知识与源数据可疑处登记册
 
 > **状态：现行**｜as_of **2026-09-30**（本册全部数字系本日**直读上游 sqlite 现算**，非转录旧文档）
-> **两职**：① CBDB/CHGIS **数据结构知识**（读数据前必知）；② **源数据可疑处登记册 G4-01…G4-16** ＝ `docs/import-plan.md` **闸4 语义哨兵**之依据（机器可执行版＝`datamgmt/config/g4_assertions.yaml`，阶段二建）。
+> **两职**：① CBDB/CHGIS **数据结构知识**（读数据前必知）；② **源数据可疑处登记册 G4-01…G4-16** ＝ `docs/import-plan.md` **闸4 语义哨兵**之依据（机器可执行版＝`datamgmt/config/g4_assertions.yaml`，已建）。
 > **依 R-07**：本册**只登记、不修改**——源数据之对错不由我方判断；我方唯一职责＝无错导入。
 > 上游件（只读）：`/mnt/wd61workmetadata/usedata/harvard/cbdb/cbdb_20260919.sqlite3`
 
@@ -65,5 +65,5 @@
 ## 五、复核义务
 
 1. 源件换版（改用 Dataverse 档案道件或后续版次）→ **本册全部数字须重跑现算**再更新，并记 `docs/log.md` 一行。
-2. 本册之机器可执行版＝`datamgmt/config/g4_assertions.yaml`（阶段二建）；两者不符时**以现算为准**并同批改两处（R-04/R-06）。
+2. 本册之机器可执行版＝`datamgmt/config/g4_assertions.yaml`（已建）；两者不符时**以现算为准**并同批改两处（R-04/R-06）。
 3. 本册所载**一律只登记不修改**（R-07）；欲改源数据须用户明确指定。

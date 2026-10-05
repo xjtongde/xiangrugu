@@ -333,7 +333,7 @@ NAS 权威源 usedata/            源件字节
 
 ### 8.2 登记册＝闸4 的断言集（一处两用，避免双账）
 
-登记册权威展开＝`docs/cbdb.md` **§三 登记册 G4-01…G4-16**＋`docs/bugs.md`（源生条目，标注"源生／上游同值"，只留一行指针指向 G4-xx）；其**机器可执行版**＝`datamgmt/config/g4_assertions.yaml`（阶段二建，**现未建**），每条形如：
+登记册权威展开＝`docs/cbdb.md` **§三 登记册 G4-01…G4-16**＋`docs/bugs.md`（源生条目，标注"源生／上游同值"，只留一行指针指向 G4-xx）；其**机器可执行版**＝`datamgmt/config/g4_assertions.yaml`（**已建**），每条形如：
 
 ```yaml
 - id: G4-001

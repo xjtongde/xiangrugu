@@ -7,6 +7,7 @@
 
 ## 变动记录
 
+- **2026-10-05** | 误导核查（用户令「不能误导任何接触者」）：g4_assertions 状态三处统一「已建」（import-plan/cbdb×2）、PITFALLS sources.yaml 改「阶段二重建·旧868已删」、README 真值账消歧；**回退上轮误改** codemap/index 之 R-08→R-09（R-09 系预留未开设） | **文档清理·对齐** | 用户令 | 本 commit。
 - **2026-10-05** | 对齐核查（R-06，用户问「其它 agent 看来是否仍乱」）：HANDOFF 订正（7572→7219、底账落 1172/1153、去 recon_b2a/src_paths、cbdb→新库名候裁、§4 改核对底账）＋codemap/README/index 去「空壳占位·代码未建·R-08」＋import-plan 阶段改「一已完成·二候口令」 | **文档清理·对齐** | R-06 | 本 commit。
 - **2026-10-05** | 删老库 cbdb＋作废 868 产物 15 件：recon/ cbdb_provenance*、prov_*_tables、retry_shapefile.json、maintenance/retry_shapefile.py、config/sources.yaml(868)＋decoding.yaml、rehearse_b*、docs/import-rehearsal-A.md；HANDOFF/codemap 改指已删 | **文档清理** | 用户令「不需要的删，数据来自 usedata」 | 本 commit。
 - **2026-10-05** | `ops/` 整体删除（含前轮所留「出生纸」溯源件）：判定导入工作用不上——溯源＋许可已由 `holdings.md` 单源承载、DOI 编在路径内、许可原文在源件包内；同步 `holdings.md` 无需改、除 `.gitignore` ops/ 行、codemap/index 去 ops 残留 | **源根清理·删净 ops** | 用户令「用不上就删，不要污染以后的工作」 | 本 commit。

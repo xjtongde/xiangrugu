@@ -9,7 +9,7 @@
 /root/xiangrugu/
 ├── .gitignore              忽略 `.agents/`（用户令"Skill不进git"）、`.secrets/`
 ├── AGENTS.md               AI 助手入口（§1 项目目标**待用户定义**）
-├── rules.md                纪律总纲 R-01～R-09
+├── rules.md                纪律总纲 R-01～R-08（R-09+ 预留）
 ├── datamgmt/               ★数据管理模块（**入 git**）
 │   ├── README.md           模块入口：职责边界、五条纪律（阶段表见 `import-plan.md` §10）
 │   ├── PITFALLS.md         防坑条目录 P-01…P-25（一切设计决定之依据）

@@ -14,7 +14,7 @@
 │   ├── README.md           模块入口：职责边界、五条纪律（阶段表见 `import-plan.md` §10）
 │   ├── PITFALLS.md         防坑条目录 P-01…P-25（一切设计决定之依据）
 │   ├── config/roots.yaml   ★数据源根与目标库（机器可读权威）
-│   ├── config/             sources.yaml／decoding.yaml／g4_assertions.yaml（阶段二，候口令）
+│   ├── config/             g4_assertions.yaml（闸4 断言，已建）；sources.yaml／decoding.yaml＝阶段二重建（旧 868 版已删）
 │   └── truth/ importer/ verifier/ tests/ maintenance/ recon/   空壳占位（候开工口令）
 ├── docs/                   文档（`index.md` 为登记处）
 ├── demo/                   ⚠ **未入 git**——演示三页＋build 脚本（2026-09-30 用户令留下；缺口＝I-05）

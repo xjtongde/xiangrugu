@@ -7,6 +7,7 @@
 
 ## 变动记录
 
+- **2026-10-05** | 删老库 cbdb 与作废 868 产物（合 15 件）：recon/ `cbdb_provenance*`＋`prov_old/reh_tables`＋`retry_shapefile.json`、`maintenance/retry_shapefile.py`、`config/sources.yaml`(868)＋`decoding.yaml`、`rehearse_b*`＋`docs/import-rehearsal-A.md`；HANDOFF/codemap 改指已删 | **文档清理·删老库与868** | 用户令「不需要的删，数据来自 usedata」 | 本 commit。
 - **2026-10-05** | `ops/` 整体删除（含前轮所留「出生纸」溯源件）：判定导入工作用不上——溯源＋许可已由 `holdings.md` 单源承载、DOI 编在路径内、许可原文在源件包内；同步 `holdings.md` 无需改、除 `.gitignore` ops/ 行、codemap/index 去 ops 残留 | **源根清理·删净 ops** | 用户令「用不上就删，不要污染以后的工作」 | 本 commit。
 - **2026-10-05** | **对齐核查（R-06）**：删旧装载后全查悬空引用→修 PITFALLS 证据指针等共 8 处改指 recon；冗余✓（口径仍 §5.1/§12 单源）、矛盾✓（无「勿删 load-b2」残留）、锚点✓（inventory_members/出生纸实存）、账目✓（log 已记、无新三账/注册文档） | **对齐核查** | R-06 | 本 commit。
 - **2026-10-05** | 删旧装载 `ops/harvard/load-b2/`＋`ops/data-layout/`（旧方案退役）；留 `ops/harvard/` 出生纸溯源件；改 `roots.yaml` path_resolution→recon、codemap/index/import-plan/HANDOFF/datamgmt·README 各去 src_paths/recon_b2a 悬空引用 | **源根清理·删旧装载** | 用户令「不需要的就删了，不要污染以后的工作」 | 本 commit。

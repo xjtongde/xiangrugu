@@ -12,8 +12,8 @@
 ## 1. 刚确立的关键结论（务必继承，勿再踩同一坑）
 
 1. **usedata 是唯一数据来源；建库清单必须由 usedata 逐件穷举得出，不得自扫自命名，不得未经用户就在清单里去重/改名/合并。**
-2. 我此前的一版 `datamgmt/config/sources.yaml`（868 源）**作废**——它是自扫目录拼出的，缺陷有三：(a) 漏装栅格/Access 编码库/西藏地名录 SQL/朝代表/码表/xlsx 字典等一整类一整类；(b) 表名与 schema 自造，与既定权威账 `ops/harvard/load-b2/recon_b2a.tsv`＋`usedata/README-b2.md` 的定名不符；(c) 矢量图层数自己也数错（自报 665/118，实际 705/142，因擅自去重 HIMIVE 镜像）。
-3. 正式库 `cbdb`（老库，395 表）**不是可照抄的金标准**：它系旧方案所装，犯过 import-plan.md H-2/H-3 明令禁止的错（几何统一转 4326、就地 UPDATE/DELETE 修 248 万行）。但它范围全（对照老库可查遗漏），出处核查结果见 `datamgmt/recon/cbdb_provenance_report.md`。
+2. 我此前的一版 `datamgmt/config/sources.yaml`（868 源）**作废，已删（2026-10-05）**——它是自扫目录拼出的，缺陷有三：(a) 漏装栅格/Access 编码库/西藏地名录 SQL/朝代表/码表/xlsx 字典等一整类一整类；(b) 表名与 schema 自造，与既定权威账 `ops/harvard/load-b2/recon_b2a.tsv`＋`usedata/README-b2.md` 的定名不符；(c) 矢量图层数自己也数错（自报 665/118，实际 705/142，因擅自去重 HIMIVE 镜像）。
+3. 正式库 `cbdb`（老库，395 表）**不是可照抄的金标准**：它系旧方案所装，犯过 import-plan.md H-2/H-3 明令禁止的错（几何统一转 4326、就地 UPDATE/DELETE 修 248 万行）。但它范围全（对照老库可查遗漏）。出处核查件（`cbdb_provenance_report.md` 等）已 **2026-10-05 删除**（老库不作对照）。
 4. **usedata 完整清点（含 zip 套 zip 逐层展开，7572 成员）**：
    - 数据件：CBDB 1 .sqlite3(78 表)；shapefile **705 层**；MapInfo **142 层**；栅格 **38 .tif + 205 .jpg + 72 .gif**；Access **5 .mdb**；SQL **2 .sql**(tgaz 西藏地名录 + china_chron 朝代表)；Excel **13 .xlsx + 12 .xls**；**7 .csv + 4 .ods**；顶层 .tab 5 个 + .db 1 个。
    - 随附账：713 .txt、691 .xml、13 .pdf、README/EULA 等（不建表）。
@@ -29,8 +29,8 @@
 
 - 权威方案：`docs/import-plan.md`（五阶段§10、六道闸§6、硬规则 H-1..H-4§2、五条腿§5.2 含 **raster 腿E**）。
 - 权威装载账：`ops/harvard/load-b2/recon_b2a.tsv`（1,757 行）、`src_paths.tsv`、`usedata/README-b2.md`（173 件源→装数去向）。
-- 老库出处核查：`datamgmt/recon/cbdb_provenance_report.md` + `cbdb_provenance.json`（395 表逐表分类）。
-- 现代码（按载体装载+验证）：`datamgmt/`（`importer/load.py`、`verifier/verify.py`、`truth/*`、`rehearse.py`、`config/sources.yaml|decoding.yaml`）。
+- 老库出处核查件（`cbdb_provenance_report.md`／`cbdb_provenance.json`／`prov_old_tables.json`／`prov_reh_tables.json`）已 **2026-10-05 删除**（老库不作对照，见 §1.3）。
+- 现代码（按载体装载+验证）：`datamgmt/`（`importer/load.py`、`verifier/verify.py`、`truth/*`、`rehearse.py`）。`config/sources.yaml`／`decoding.yaml` 已删（868／段B 旧版，阶段二重建）。
 - 数据库：pg32b `192.168.3.32:5433`，`ssh 192.168.3.32 "docker exec -i pg32b psql -U postgres -d <db> ..."`。临时排练库 `cbdb_reh`，生产库 `cbdb`（只读核查，勿动）。
 - 源数据只读：`/mnt/wd61workmetadata/usedata`（CIFS 只读，勿改勿删）。
 - Git：仓库 `/root/xiangrugu`，最近交接提交 `6caa7d9`（出处核查报告）。

@@ -1,0 +1,2372 @@
+[
+ {
+  "schema": "chgis",
+  "name": "chgis_tmpl_28apr",
+  "rows": 2407,
+  "cols": "ogc_fid,order_id,name_py,name_utf,name_utf_alt,pt_id,parent_py,parent_utf,parent_alt,parent_id,parent_pres_loc,parent_beg,parent_end,xy_type,x_coord,y_coord,index_page_,index_temp_,index_site_,index_location,index_estab,index_notes,compiler,orig_src"
+ },
+ {
+  "schema": "chgis",
+  "name": "china_chron",
+  "rows": 677,
+  "cols": "period,pd_tra,sub_period,sub_tra,begin_yr,beg_yr_sfx,end_yr,end_yr_sfx,miao_hao,mh_tra,xing_ming,xm_tra,nian_hao,nh_tra,alt_name,capital_seat,pres_loc,x,y,pd_id"
+ },
+ {
+  "schema": "chgis",
+  "name": "china_chron_fields",
+  "rows": 21,
+  "cols": "ogc_fid,column_name,description,field3"
+ },
+ {
+  "schema": "chgis",
+  "name": "chinaw_master_beta",
+  "rows": 2403,
+  "cols": "ogc_fid,w1 chinaw id,w2  hanzi name  ,w3  pinyin name  ,w4 chgis link,sys_id,w5 type of adm. unit ,w6   hanzi type  ,w7  pinyin type ,w8    adm. level ,w9 1820 ,w10 1893,w11 change events,w12 end_record year  ,w13 begin_ record year ,w14 change source  ,w21 capital ,w22 yamen ,w23 xian,w24    prefectural level unit hanzi,w25 prefectural_level unit pinyin,w26 overlapping mongol/han jurisdictions,w31 1820  caps 18p,w32 1820 caps 18p  assim,w33  1820 caps 18p regular,w34 1820 caps all types all china,w35 1820 caps all china assim,w36 1820 yamens 18p,w37 1820 yamens all china,w38 1820 counties 18p,w41 1893  caps 18p,w42 1893 caps 18p  assim,w43  1893 caps 18p regular,w44 1893 caps all types all china,w45 1893 caps all china assim,w46 1893 yamens 18p,w47 1893 yamens all china,w48  1893 counties 18p,w49 1893 counties all prov,w51  adm. status of capital cities, 1820 ,w52 adm dao in which this unit falls 1820 hanzi ,w53 adm dao in which this unit falls 1820 pinyin,w54 no. of dao yamen in this city 1820,w55 type of dao yamens in this city, 1820  ,w56  span of control, prefectural level, 1820 ,w57 span of control, county level, 1820 ,w58 span of control structural types, 1820 ,w59 categ. of county units by struc. of pref. unit 1820,w61  adm. status of capital cities, 1893 ,w62  adm dao in which this unit falls 1893 hanzi ,w63  adm dao in which this unit falls 1893 pinyin ,w64 no. of dao yamen in this city 1893,w65 type of dao yamens in this city, 1893  ,w66 span of control, prefectural level, 1893 ,w67 span of control, county level, 1893 ,w68 span of control structural types, 1893  ,w69    categ. of county units by struc. of pref. unit 1893,w71 lat.  of capital cities,w72 long. of capital cities,w73  late qing province hanzi ,w74  late qing province pinyin ,w75 republican province (1936) hanzi,w76 republican province (1936) pinyin,w77       prc   province (2000) hanzi,w78         prc   province (2000) pinyin,w79 prc county_level or sxq unit (2000)  ,w80   guobiao   code            of w79  ,w101  circuit pd: 冲 chong 1820,w102  circuit pd: 繁 fan 1820,w103  circuit pd: 疲 pi 1820,w104  circuit pd: 难 nan 1820,w105  circuit pd: complete  1820 pinyin,w106  circuit pd: complete  1820 hanzi,w107     no of  circuit pd characters 1820,w108  importance rating circuit posts 1820,w109  pref pd: 冲 chong 1820,w110  pref pd: 繁 fan 1820,w111 pref pd: 疲 pi 1820,w112  pref pd: 难 nan 1820,w113  pref pd: complete  1820 pinyin,w114  pref pd: complete  1820 hanzi,w115     no of  pref pd characters 1820,w116  importance rating pref posts 1820,w117  county pd: 冲 chong 1820,w118  county pd: 繁 fan 1820,w119  county pd:  疲 pi 1820,w120  county pd: 难 nan 1820,w121  county pd: complete 1820 pinyin,w122  county pd: complete 1820 hanzi,w123     no. of county pd characters 1820,w124  importance rating county posts 1820,w125  pd characters incl. in all yamens in capital city 1820,w131  circuit pd: 冲 chong 1893,w132  circuit pd: 繁 fan 1893,w133  circuit pd:疲 pi 1893,w134  circuit pd: 难 nan 1893,w135  circuit pd: complete  1893 pinyin,w136  circuit pd: complete  1893 hanzi,w137     no of  circuit pd characters 1893,w138  importance rating circuit posts 1893,w139 pref pd: 冲 chong 1893,w140 pref pd: 繁 fan 1893,w141  pref pd: 疲 pi 1893,w142 pref pd: 难 nan 1893,w143 pref pd complete 1893 pinyin ,w144 pref pd complete 1893 hanzi ,w145 no of pref pd charac ters 1893 ,w146 pref importance rating, 1893 ,w147 county pd: 冲 chong 1893,w148 county pd: 繁 fan 1893,w149 county pd: 疲 pi 1893,w150 county pd: 难 nan 1893,w151 county pd complete 1893 pinyin ,w152 county pd complete 1893 hanzi ,w153  no. of county pd characters 1893 ,w154 county importance rating 1893 ,w155 pd characters incl. in all yamens in capital city, 1893,w161 trade center 1916  ,w162 post office grade 1916 ,w163 po services by number ,w164 summary post office codes  ,w165 omnibus trade and po coding 1916 ,w166 est. population class ,w170 presence of wall,w171 wall circum in li ,w172 wall circum in kilos,w173 estimated intramural area in sq. kilos,w174 no. of gates ,w175 (if only 2_3 gates) direc. of missing gate ,w176         (if only 2 gates) direc.of second missing gate,w177 wall height in zhang ,w178 height of wall in meters ,w179 base thickness in zhang ,w180 base thickness in meters,w181 top thickness  in zhang ,w182  top thickness in meters,w183 thickness unspecified  in zhang  ,w184 thickness unspecified in meters,w185 base thickness reconciled single rel. in zhang,w186 base thickness reconciled single rel. in meters,w187 construction material of wall ,w188 no. of gate towers ,w189 no. of corner towers ,w190 no. of other towers ,w191 total  no. of towers ,w192 no. of moon walls ,w193 no. of battlements ,w194  no. of cannon emplacements ,w195 no. of sentry posts ,w196 presence of moat ,w197 depth of moat in zhang ,w198 depth of moat in meters ,w199 width of moat in zhang ,w200 width of moat in meters ,w201 no. of water gates ,w301 physio_graphic macro_region ,w302 frontier situation of capital cities, 1893 ,w303  core_periphery dichotomy 19thc ,w304   core_periphery dichotomy 16thc ,w305 comments"
+ },
+ {
+  "schema": "chgis",
+  "name": "dem",
+  "rows": 3358,
+  "cols": "rid,rast"
+ },
+ {
+  "schema": "chgis",
+  "name": "dem_gtopo30",
+  "rows": 6095,
+  "cols": "rid,rast"
+ },
+ {
+  "schema": "chgis",
+  "name": "gazetteers_beta",
+  "rows": 963,
+  "cols": "ogc_fid,chinaw_id,title,title_2,author1,author1_2,author2,author2_2,year,year_2,fn,field11,field12,field13,field14,field15,field16,field17,field18,field19,field20,field21,field22,field23,field24,field25,field26,field27,field28,field29,field30,field31,field32,field33,field34,field35,field36,field37,field38,field39,field40,field41,field42,field43,field44,field45,field46,field47,field48,field49,field50,field51,field52,field53,field54,field55,field56,field57,field58,field59,field60,field61,field62,field63,field64,field65"
+ },
+ {
+  "schema": "chgis",
+  "name": "hartwell_chin_pgn",
+  "rows": 9402,
+  "cols": "ogc_fid,chn0741c_i,gb_code_en,character_,pinyin_nam,administra,population,capital_co,capital_ch,capital_pi,capital_ad,notes,code,level1_h,level2_h,level3_h,level4_h,level5_h,h_pinyin_n,h_unicode_,h_admin_ty,h_sup_prov,h_sup_chpv,h_province,h_chinprov,h_prefect,h_chin_prf,h_dep_pref,h_chin_dpr,chinp090pv,p90prfchin,cocode_tag,code_90,yr,src_file,geom"
+ },
+ {
+  "schema": "chgis",
+  "name": "hartwell_chin_pts",
+  "rows": 957,
+  "cols": "ogc_fid,difang_id,period,genre,genre_pin,genre_chr,code_90,zcol6,yr,src_file,geom"
+ },
+ {
+  "schema": "chgis",
+  "name": "hartwell_circ_pgn",
+  "rows": 315,
+  "cols": "ogc_fid,gn_0741d_i,code,level1_h,level2_h,level4_h,level5_h,h_pinyin_n,h_unicode_,h_admin_ty,h_sup_prov,h_sup_chpv,h_province,h_chinprov,shape_leng,shape_area,yr,src_file,geom"
+ },
+ {
+  "schema": "chgis",
+  "name": "hartwell_cnty_pgn",
+  "rows": 8146,
+  "cols": "ogc_fid,gn_0741c_i,gb_code_en,character_,pinyin_nam,administra,population,capital_co,capital_ch,capital_pi,capital_ad,notes,code,level1_h,level2_h,level3_h,level4_h,level5_h,h_pinyin_n,h_unicode_,h_admin_ty,h_sup_prov,h_sup_chpv,h_province,h_chinprov,h_prefect,h_chin_prf,h_dep_pref,h_chin_dpr,chinp090pv,p90prfchin,cocode_tag,code_90,shape_leng,shape_area,yr,src_file,geom"
+ },
+ {
+  "schema": "chgis",
+  "name": "hartwell_indp_pgn",
+  "rows": 155,
+  "cols": "ogc_fid,jnt0741p_i,code,level1_h,level2_h,level3_h,level4_h,level5_h,h_pinyin_n,h_unicode_,h_admin_ty,h_sup_prov,h_sup_chpv,h_province,h_chinprov,h_prefect,h_chin_prf,h_dep_pref,h_chin_dpr,shape_leng,shape_area,yr,src_file,geom"
+ },
+ {
+  "schema": "chgis",
+  "name": "hartwell_jin_pgn",
+  "rows": 923,
+  "cols": "ogc_fid,bj_1200c_i,gb_code_en,character_,pinyin_nam,administra,population,capital_co,capital_ch,capital_pi,capital_ad,notes,code,level1_h,level2_h,level3_h,level4_h,level5_h,h_pinyin_n,h_unicode_,h_admin_ty,h_sup_prov,h_sup_chpv,h_province,h_chinprov,h_prefect,h_chin_prf,h_dep_pref,h_chin_dpr,chinp090pv,p90prfchin,cocode_tag,code_90,shape_leng,shape_area,yr,src_file,geom"
+ },
+ {
+  "schema": "chgis",
+  "name": "hartwell_liao_pgn",
+  "rows": 437,
+  "cols": "ogc_fid,djd1080c_i,gb_code_en,character_,pinyin_nam,administra,capital_co,capital_ch,capital_pi,capital_ad,notes,code,level1_h,level2_h,level4_h,level5_h,h_pinyin_n,h_unicode_,h_admin_ty,h_sup_prov,h_sup_chpv,h_province,h_chinprov,h_prefect,h_chin_prf,h_dep_pref,h_chin_dpr,chinp090pv,p90prfchin,code_90,shape_leng,shape_area,yr,src_file,geom"
+ },
+ {
+  "schema": "chgis",
+  "name": "hartwell_pref_pgn",
+  "rows": 1145,
+  "cols": "ogc_fid,gn_0741p_i,code,level1_h,level2_h,level3_h,level4_h,level5_h,h_pinyin_n,h_unicode_,h_admin_ty,h_sup_prov,h_sup_chpv,h_province,h_chinprov,h_prefect,h_chin_prf,h_dep_pref,h_chin_dpr,shape_leng,shape_area,yr,src_file,geom"
+ },
+ {
+  "schema": "chgis",
+  "name": "hartwell_prov_pgn",
+  "rows": 17,
+  "cols": "ogc_fid,bei1290s_i,code,level1_h,h_pinyin_n,h_unicode_,h_admin_ty,h_sup_prov,h_sup_chpv,h_province,h_chinprov,shape_leng,shape_area,yr,src_file,geom"
+ },
+ {
+  "schema": "chgis",
+  "name": "major_china_periods",
+  "rows": 52,
+  "cols": "type,name_en,name_zh,name_trad,name_py,beg,end,per_en,per_zh,per_py,first_cap,start_x,start_y"
+ },
+ {
+  "schema": "chgis",
+  "name": "manshu_200k_index",
+  "rows": 60,
+  "cols": "ogc_fid,geom,objectid,sheet_no,eng_name,chin_name,x1,x2,y1,y2,map_url"
+ },
+ {
+  "schema": "chgis",
+  "name": "ming_garrisons",
+  "rows": 375,
+  "cols": "ogc_fid,geom,wei_id,type_ch,orig_id,src,name_py,name_ch,point_id,latitude,longitude,beg_yr,end_yr"
+ },
+ {
+  "schema": "chgis",
+  "name": "ming_routes_2016",
+  "rows": 1043,
+  "cols": "ogc_fid,geom,maj_minor,source"
+ },
+ {
+  "schema": "chgis",
+  "name": "ming_stations_2016",
+  "rows": 1000,
+  "cols": "ogc_fid,geom,src,status,yz_id,yz_label,yznm_py,yznm_ch,yznm_ft,chgis_id,note,10cnty_ch,10cnty_en,10pref_ch,10pref_en,10prov_ch,10prov_en,gbcode,yz_lat,yz_long"
+ },
+ {
+  "schema": "chgis",
+  "name": "minggarrisonssheet_29jan08",
+  "rows": 375,
+  "cols": "ogc_fid,wei_id,type_ch,orig_id,src,name_py,name_ch,point_id,latitude,longitude,beg_yr,end_yr"
+ },
+ {
+  "schema": "chgis",
+  "name": "v2_1820_cnty_pgn",
+  "rows": 71,
+  "cols": "ogc_fid,geom,system_id,key_id,ch_name,fanti_name,py_name,note_id,x_coord,y_coord"
+ },
+ {
+  "schema": "chgis",
+  "name": "v2_1820_cnty_pts",
+  "rows": 1859,
+  "cols": "ogc_fid,geom,sys_id,name_py,name_ch,name_ft,x_coor,y_coor,pres_loc,type_py,type_ch,lev_rang,beg_yr,beg_rule,end_yr,end_rule,dyn_py,dyn_ch,lev1_py,lev1_ch,lev2_py,lev2_ch,note_id,obj_type,geo_id,geo_src,compiler,geocomplr,checker,ent_date"
+ },
+ {
+  "schema": "chgis",
+  "name": "v2_1820_cst_lin",
+  "rows": 160,
+  "cols": "ogc_fid,geom,sea_id,source,arc_id"
+ },
+ {
+  "schema": "chgis",
+  "name": "v2_1820_lks_pgn",
+  "rows": 370,
+  "cols": "ogc_fid,geom,lks_id,key_id,character2,fanti_na_2,pinyin_n_2,system_id,x_coord,y_coord"
+ },
+ {
+  "schema": "chgis",
+  "name": "v2_1820_pref_pgn",
+  "rows": 320,
+  "cols": "ogc_fid,geom,sys_id,name_py,name_ch,name_ft,x_coor,y_coor,pres_loc,typr_py,type_ch,lev_rang,beg_yr,beg_rule,end_yr,end_rule,dyn_py,dyn_ch,lev1_py,lev1_ch,lev2_py,lev2_ch,coun_py,coun_ch,note_id,obj_type,geo_id,geo_src,compiler,geocomper,checker,ent_date,x_coord,y_coord"
+ },
+ {
+  "schema": "chgis",
+  "name": "v2_1820_pref_pts",
+  "rows": 301,
+  "cols": "ogc_fid,geom,sys_id,name_py,name_ch,name_ft,x_coor,y_coor,pres_loc,type_py,type_ch,lev_rang,beg_yr,beg_rule,end_yr,end_rule,dyn_py,dyn_ch,lev1_py,lev1_ch,lev2_py,lev2_ch,note_id,obj_type,geo_id,geo_src,compiler,geocomple,checker,ent_date"
+ },
+ {
+  "schema": "chgis",
+  "name": "v2_1820_prov_pgn",
+  "rows": 32,
+  "cols": "ogc_fid,geom,sys_id,name_py,name_ch,name_ft,x_coor,y_coor,pres_loc,type_py,type_ch,lev_range,beg_yr,beg_rule,end_yr,end_rule,dyn_py,dyn_ch,lev1_py,lev1_ch,lev2_py,lev2_ch,count_py,coun_ch,note_id,obj_type,geo_id,geo_src,compiler,geocomplr,checker,ent_date,x_coord,y_coord"
+ },
+ {
+  "schema": "chgis",
+  "name": "v2_1820_prov_pts",
+  "rows": 24,
+  "cols": "ogc_fid,geom,id_orig,name_py,name_ch,name_ft,x_coor,y_coor,pres_loc,type_py,type_ch,lev_rang,beg_yr,beg_rule,end_yr,end_rule,dyn_py,dyn_ch,lev1_py,lev1_ch,lev2_py,lev2_ch,note_id,obj_type,geo_id,geo_src,compiler,geocomple,checker,ent_date"
+ },
+ {
+  "schema": "chgis",
+  "name": "v2_1820_rvr_lin",
+  "rows": 2778,
+  "cols": "ogc_fid,geom,rivers_id,key_id,character_,fanti_name,pinyin_n_1,system_id,midpoint_x,midpoint_y"
+ },
+ {
+  "schema": "chgis",
+  "name": "v2_1820_twn_pts",
+  "rows": 8659,
+  "cols": "ogc_fid,geom,sys_id,name_py,name_ch,name_ft,x_coor,y_coor,pres_loc,type_py,type_ch,lev_rang,beg_yr,beg_rule,end_yr,end_rule,dyn_py,dyn_ch,lev1_py,len1_ch,lev2_py,lev2_ch,cnty_py,cnty_ch,note_id,obj_typr,loc_id,geo_src,compiler,geocomplr,checker,ent_date"
+ },
+ {
+  "schema": "chgis",
+  "name": "v2_1911_cnty_pgn",
+  "rows": 810,
+  "cols": "ogc_fid,geom,sys_id,name_py,name_ch,name_ft,x_coor,y_coor,pres_loc,type_py,type_ch,lev_rang,beg_yr,beg_rule,end_yr,ey_rule,dyn_py,dyn_ch,lev1_py,lev1_ch,lev2_py,lev2_ch,note_id,obj_type,geo_src,compiler,geocomp,checker,ent_date"
+ },
+ {
+  "schema": "chgis",
+  "name": "v2_1911_cnty_pts",
+  "rows": 779,
+  "cols": "ogc_fid,geom,sys_id,name_py,name_ch,name_ft,x_coor,y_coor,pres_loc,type_py,type_ch,lev_range,beg_yr,beg_rule,end_yr,end_rule,dyn_py,dyn_ch,lev1_py,lev1_ch,lev2_py,lev2_ch,count_py,count_ch,note_id,obj_type,geo_src,compiler,gecomp,checker,ent_date"
+ },
+ {
+  "schema": "chgis",
+  "name": "v2_1911_pref_pgn",
+  "rows": 137,
+  "cols": "ogc_fid,geom,sys_id,name_py,name_ch,name_ft,x_coor,y_coor,pres_loc,type_py,type_ch,lev_rang,beg_yr,beg_rule,end_yr,ey_rule,dyn_py,dyn_ch,lev1_py,lev1_ch,lev2_py,lev2_ch,note_id,obj_type,geo_src,compiler,geocomp,checker,ent_date"
+ },
+ {
+  "schema": "chgis",
+  "name": "v2_1911_pref_pts",
+  "rows": 137,
+  "cols": "ogc_fid,geom,sys_id,name_py,name_ch,name_ft,x_coor,y_coor,pres_loc,type_py,type_ch,lev_rank,beg_yr,beg_rule,end_yr,end_rule,dyn_py,dyn_ch,lev1_py,lev1_ch,lev2_py,lev2_ch,count_py,count_ch,note_id,obj_type,geo_src,compiler,geocomp,checker,ent_date"
+ },
+ {
+  "schema": "chgis",
+  "name": "v2_1911_prov_pgn",
+  "rows": 9,
+  "cols": "ogc_fid,geom,sys_id,name_py,name_ch,name_ft,x_coor,y_coor,pres_loc,type_py,type_ch,lev_rank,beg_yr,beg_rule,end_yr,ey_rule,dyn_py,dyn_ch,lev1_py,lev1_ch,lev2_py,lev2_ch,note_id,obj_type,geo_src,compiler,geocomp,checker,ent_date"
+ },
+ {
+  "schema": "chgis",
+  "name": "v2_1911_prov_pts",
+  "rows": 10,
+  "cols": "ogc_fid,geom,sys_id,name_py,name_ch,name_ft,x_coor,y_coor,pres_loc,type_py,type_ch,lev_rank,beg_yr,beg_rule,end_yr,ey_rule,dyn_py,dyn_ch,lev1_py,lev1_ch,lev2_py,lev2_ch,note_id,obj_type,geo_src,compiler,geocomp,checker,ent_date"
+ },
+ {
+  "schema": "chgis",
+  "name": "v2_1911_twn_pts",
+  "rows": 17466,
+  "cols": "ogc_fid,geom,sys_id,name_py,name_ch,name_ft,x_coor,y_coor,pres_loc,type_py,type_ch,lev_rank,beg_yr,beg_rule,end_yr,end_rule,dyn_py,dyn_ch,lev1_py,lev1_ch,lev2_py,lev2_ch,count_py,count_ch,note_id,obj_type,geo_src,compiler,geocomp,checker,ent_date"
+ },
+ {
+  "schema": "chgis",
+  "name": "v2_beijing_sites_pgn",
+  "rows": 82,
+  "cols": "ogc_fid,geom,name1,name2,name3,hz_name,ft_id,feature_ty"
+ },
+ {
+  "schema": "chgis",
+  "name": "v2_dcw_contour_lin",
+  "rows": 92626,
+  "cols": "ogc_fid,geom,fnode_,tnode_,lpoly_,rpoly_,length,contourc_,contourc_i,val"
+ },
+ {
+  "schema": "chgis",
+  "name": "v2_dcw_rds_lin",
+  "rows": 27256,
+  "cols": "ogc_fid,geom,fnode_,tnode_,lpoly_,rpoly_,length,roads_,roads_id,rdlntype,rdlnstat"
+ },
+ {
+  "schema": "chgis",
+  "name": "v2_dem_ne_three",
+  "rows": 567,
+  "cols": "rid,rast"
+ },
+ {
+  "schema": "chgis",
+  "name": "v2_dem_north_two",
+  "rows": 567,
+  "cols": "rid,rast"
+ },
+ {
+  "schema": "chgis",
+  "name": "v2_dem_nw_one",
+  "rows": 693,
+  "cols": "rid,rast"
+ },
+ {
+  "schema": "chgis",
+  "name": "v2_dem_se_four",
+  "rows": 702,
+  "cols": "rid,rast"
+ },
+ {
+  "schema": "chgis",
+  "name": "v2_dem_south_five",
+  "rows": 702,
+  "cols": "rid,rast"
+ },
+ {
+  "schema": "chgis",
+  "name": "v2_dem_sw_six",
+  "rows": 858,
+  "cols": "rid,rast"
+ },
+ {
+  "schema": "chgis",
+  "name": "v2_nima_mtns_pts",
+  "rows": 2084,
+  "cols": "ogc_fid,geom,auto_id,sys_id,ufi,uni,dlat,dlong,dsg,adm1,sort_name,full_name"
+ },
+ {
+  "schema": "chgis",
+  "name": "v2_nima_rocks_pts",
+  "rows": 1862,
+  "cols": "ogc_fid,geom,auto_id,sys_id,ufi,uni,dlat,dlong,dsg,adm1,sort_name,full_name"
+ },
+ {
+  "schema": "chgis",
+  "name": "v2_time_cnty_pgn",
+  "rows": 27,
+  "cols": "ogc_fid,geom,py_orig,ch_orig,sys_id,name_py,name_ch,name_ft,x_coor,y_coor,pres_loc,type_py,type_ch,lev_rang,beg_yr,beg_rule,end_yr,end_rule,note_id,obj_type,geo_id,geo_src,compiler,gecomper,checher,ent_date,x_coord,y_coord"
+ },
+ {
+  "schema": "chgis",
+  "name": "v2_time_cnty_pts",
+  "rows": 741,
+  "cols": "ogc_fid,geom,py_orig,ch_orig,sys_id,name_py,name_ch,name_ft,x_coor,y_coor,pres_loc,type_py,type_ch,lev_rang,beg_yr,beg_rule,end_yr,end_rule,note_id,obj_type,geo_id,geo_src,compiler,gecomplr,checker,ent_date"
+ },
+ {
+  "schema": "chgis",
+  "name": "v2_time_pref_pgn",
+  "rows": 463,
+  "cols": "ogc_fid,geom,sys_id,name_py,name_ch,name_ft,pres_loc,temp0,type_py,type_ch,lev_rang,beg_yr,beg_rule,end_yr,end_rule,note_id,obj_type,geo_id,geo_src,compiler,gecomplr,checker,ent_date,x_coord,y_coord"
+ },
+ {
+  "schema": "chgis",
+  "name": "v2_time_pref_pts",
+  "rows": 285,
+  "cols": "ogc_fid,geom,sys_id,name_py,name_ch,name_ft,x_coor,y_coor,pres_loc,type_py,type_ch,lev_rang,beg_yr,beg_rule,end_yr,end_rule,note_id,obj_type,geo_id,geo_src,compiler,gecomplr,checher,end_date"
+ },
+ {
+  "schema": "chgis",
+  "name": "v2_time_prov_pgn",
+  "rows": 162,
+  "cols": "ogc_fid,geom,sys_id,name_py,name_ch,name_ft,x_coor,y_coor,pres_loc,type_py,type_ch,lev_rang,beg_yr,beg_rule,end_yr,end_rule,note_id,obj_type,geo_id,geo_src,compiler,gecomplr,checker,ent_date,x_coord,y_coord"
+ },
+ {
+  "schema": "chgis",
+  "name": "v2_time_prov_pts",
+  "rows": 114,
+  "cols": "ogc_fid,geom,sys_id,name_py,name_ch,name_ft,x_coor,y_coor,pres_loc,type_py,type_ch,lev_rang,beg_yr,beg_rule,end_yr,end_rule,note_id,obj_type,geo_id,geo_src,compiler,gecomplr,checker,ent_date"
+ },
+ {
+  "schema": "chgis",
+  "name": "v2_time_reg_pgn",
+  "rows": 11,
+  "cols": "ogc_fid,geom,sys_id,name_py,name_ch,name_ft,pres_loc,type_py,type_ch,lev_rang,beg_yr,beg_rule,end_yr,end_rule,note_id,obj_type,geo_id,geo_src,compiler,gecomplr,checker,ent_date,x_coord,y_coord"
+ },
+ {
+  "schema": "chgis",
+  "name": "v2_time_reg_pts",
+  "rows": 7,
+  "cols": "ogc_fid,geom,sys_id,name_py,name_ch,name_ft,x_coor,y_coor,pres_loc,type_py,type_ch,lev_rang,beg_yr,beg_rule,end_yr,end_rule,note_id,obj_type,geo_id,geo_src,compiler,gecomplr,checker,ent_date"
+ },
+ {
+  "schema": "chgis",
+  "name": "v2db_chgis_gisinfo_table",
+  "rows": 38179,
+  "cols": "name_py,sys_id,x_y_type,x_coord,y_coord,beg_yr,beg_rule,end_yr,end_rule,obj_type,geo_src,entry_date,filename,src,name_utf,name_utf_alt,pres_loc,compiler,geocompiler"
+ },
+ {
+  "schema": "chgis",
+  "name": "v2db_chgis_main_table",
+  "rows": 36529,
+  "cols": "name_rom,beg_chg_eng,end_chg_eng,type_py,type_id,type_eng,lev_rank,beg_year,end_year,bou_note,pt_note,bou_id,pt_id,line_id,data_src,name_utf,name_utf_alt,pres_loc,beg_chg_type,end_chg_type,type_utf"
+ },
+ {
+  "schema": "chgis",
+  "name": "v2db_chgis_partof_table",
+  "rows": 31834,
+  "cols": "child_id,child_nmft,beg_yr,end_yr,parent_nmpy,parent_id,child_nmpy,child_nmch,parent_nmch"
+ },
+ {
+  "schema": "chgis",
+  "name": "v2db_chgis_source_notes_table",
+  "rows": 2524,
+  "cols": "name_py,source_note,compiler,note_id,name_ch,name_ft"
+ },
+ {
+  "schema": "chgis",
+  "name": "v2db_xtra_change_type",
+  "rows": 23,
+  "cols": "change_type_english,usage_status,change_type_chinese"
+ },
+ {
+  "schema": "chgis",
+  "name": "v2db_xtra_contrib_table",
+  "rows": 5,
+  "cols": "contrib,organization,contact"
+ },
+ {
+  "schema": "chgis",
+  "name": "v2db_xtra_data_dictionary",
+  "rows": 49,
+  "cols": "field,filename,description"
+ },
+ {
+  "schema": "chgis",
+  "name": "v2db_xtra_date_rule_table",
+  "rows": 7,
+  "cols": "rule_number,rule_short_name,rule_eng"
+ },
+ {
+  "schema": "chgis",
+  "name": "v2db_xtra_feature_types",
+  "rows": 50,
+  "cols": "sequence,feat_pinyin,usage_period,english_gloss,usage_status,source,feat_chinese,feat_type_id"
+ },
+ {
+  "schema": "chgis",
+  "name": "v2db_xtra_geo_source",
+  "rows": 5,
+  "cols": "geo_src,description,contact"
+ },
+ {
+  "schema": "chgis",
+  "name": "v2db_xtra_other_feature_types",
+  "rows": 951,
+  "cols": "feat_id,feat_type_eng,feat_type_rom,feat_type_utf,adl_class"
+ },
+ {
+  "schema": "chgis",
+  "name": "v3_1820_pref_pgn",
+  "rows": 320,
+  "cols": "ogc_fid,geom,sys_id,name_py,name_ch,name_ft,pres_loc,typr_py,type_ch,lev_rang,beg_yr,beg_rule,end_yr,end_rule,dyn_py,dyn_ch,lev1_py,lev1_ch,lev2_py,lev2_ch,coun_py,coun_ch,note_id,obj_type,geo_id,geo_src,compiler,geocomper,checker,ent_date,x_coord,y_coord,area,perimeter,hectares"
+ },
+ {
+  "schema": "chgis",
+  "name": "v3_1820_prov_pgn",
+  "rows": 32,
+  "cols": "ogc_fid,geom,sys_id,name_py,name_ch,name_ft,note_id,obj_type,geo_id,geo_src,compiler,geocomplr,checker,ent_date,x_coord,y_coord,area,perimeter,hectares"
+ },
+ {
+  "schema": "chgis",
+  "name": "v3_1911_cnty_pgn",
+  "rows": 1191,
+  "cols": "ogc_fid,geom,sys_id,x_coord,y_coord,name_py,name_ch,name_ft,type_py,type_ch,lev_rang,beg_yr,beg_rule,end_yr,end_rule,dyn_py,dyn_ch,lev1_py,lev1_ch,lev2_py,lev2_ch,note_id,obj_type,geo_src,compiler,geocomp,checker,ent_date,area,perimeter,hectares"
+ },
+ {
+  "schema": "chgis",
+  "name": "v3_1911_cnty_pts",
+  "rows": 1135,
+  "cols": "ogc_fid,geom,sys_id,name_py,name_ch,name_ft,x_coor,y_coor,pres_loc,type_py,type_ch,lev_rank,beg_yr,beg_rule,end_yr,end_rule,lev2_py,lev2_ch,note_id,obj_type,geo_src,compiler,geocomp,checker,ent_date"
+ },
+ {
+  "schema": "chgis",
+  "name": "v3_1911_pref_pgn",
+  "rows": 202,
+  "cols": "ogc_fid,geom,sys_id,name_py,name_ch,name_ft,type_py,type_ch,lev_rank,beg_yr,beg_rule,end_yr,end_rule,lev1_py,lev1_ch,lev2_py,lev2_ch,note_id,obj_type,geo_src,compiler,geocomp,checker,ent_date,x_coord,y_coord,area,perimeter,hectares"
+ },
+ {
+  "schema": "chgis",
+  "name": "v3_1911_pref_pts",
+  "rows": 212,
+  "cols": "ogc_fid,geom,sys_id,name_py,name_ch,name_ft,x_coor,y_coor,pres_loc,type_py,type_ch,lev_rank,beg_yr,beg_rule,end_yr,end_rule,lev1_py,lev1_ch,lev2_py,lev2_ch,note_id,obj_type,geo_src,compiler,geocomp,checker,ent_date"
+ },
+ {
+  "schema": "chgis",
+  "name": "v3_1911_prov_pgn",
+  "rows": 13,
+  "cols": "ogc_fid,geom,sys_id,x_coord,y_coord,name_py,name_ch,name_ft,type_py,type_ch,lev_rank,beg_yr,beg_rule,end_yr,end_rule,note_id,obj_type,geo_src,compiler,geocomp,checker,ent_date,area,perimeter,hectares"
+ },
+ {
+  "schema": "chgis",
+  "name": "v3_1911_prov_pts",
+  "rows": 14,
+  "cols": "ogc_fid,geom,sys_id,name_py,name_ch,name_ft,x_coor,y_coor,pres_loc,type_py,type_ch,lev_rank,beg_yr,beg_rule,end_yr,ed_rule,dyn_py,dyn_ch,note_id,obj_type,geo_src,compiler,geocomp,checker,ent_date"
+ },
+ {
+  "schema": "chgis",
+  "name": "v3_1911_twn_pts",
+  "rows": 27424,
+  "cols": "ogc_fid,geom,sys_id,name_py,name_ch,name_ft,x_coor,y_coor,pres_loc,type_py,type_ch,lev_rank,beg_yr,beg_rule,end_yr,end_rule,dyn_py,dyn_ch,lev1_py,lev1_ch,lev2_py,lev2_ch,cnty_py,cnty_ch,note_id,obj_type,geo_src,compiler,geocomp,checker,ent_date"
+ },
+ {
+  "schema": "chgis",
+  "name": "v3_dem_topo30",
+  "rows": 3948,
+  "cols": "rid,rast"
+ },
+ {
+  "schema": "chgis",
+  "name": "v3_time_cnty_pts",
+  "rows": 2761,
+  "cols": "ogc_fid,geom,sys_id,name_py,name_ch,name_ft,x_coor,y_coor,pres_loc,type_py,type_ch,lev_rank,beg_yr,beg_rule,end_yr,end_rule,note_id,obj_type,prec_by,geo_src,compiler,geocomp,checker,ent_date,beg_chg,end_chg"
+ },
+ {
+  "schema": "chgis",
+  "name": "v3_time_pref_pgn",
+  "rows": 2016,
+  "cols": "ogc_fid,geom,sys_id,x_coord,y_coord,name_py,name_ch,name_ft,type_py,type_ch,lev_rank,beg_yr,beg_rule,end_yr,end_rule,note_id,obj_type,geo_src,compiler,geocomp,checker,ent_date,beg_chg_ty,end_chg_ty,area,perimeter,hectares"
+ },
+ {
+  "schema": "chgis",
+  "name": "v3_time_pref_pts",
+  "rows": 1220,
+  "cols": "ogc_fid,geom,sys_id,name_py,name_ch,name_ft,x_coor,y_coor,pres_loc,type_py,type_ch,lev_rank,beg_yr,beg_rule,end_yr,end_rule,note_id,obj_type,prec_by,geo_src,compiler,geocomp,checker,end_date,beg_chg,end_chg"
+ },
+ {
+  "schema": "chgis",
+  "name": "v3_time_prov_pgn",
+  "rows": 487,
+  "cols": "ogc_fid,geom,sys_id,x_coord,y_coord,name_py,name_ch,name_ft,type_py,type_ch,lev_rang,beg_yr,beg_rule,end_yr,end_rule,note_id,obj_type,geo_src,compiler,geocomp,checker,ent_date,beg_chg_ty,end_chg_ty,area,perimeter,hectares"
+ },
+ {
+  "schema": "chgis",
+  "name": "v3_time_prov_pts",
+  "rows": 312,
+  "cols": "ogc_fid,geom,name_py,sys_id,name_ch,name_ft,x_coor,y_coor,pres_loc,type_py,type_ch,lev_rank,beg_yr,beg_rule,end_yr,end_rule,note_id,obj_type,geo_src,compiler,geocomp,checker,ent_date,chg_type,chg_type0"
+ },
+ {
+  "schema": "chgis",
+  "name": "v3db_v3_data_dictionary",
+  "rows": 64,
+  "cols": "field,filename,description"
+ },
+ {
+  "schema": "chgis",
+  "name": "v3db_v3_feature_types",
+  "rows": 62,
+  "cols": "order,feat_pinyin,feat_chinese,usage_period,english_gloss,id_,usage_status,source"
+ },
+ {
+  "schema": "chgis",
+  "name": "v3db_v3_gis_info",
+  "rows": 52465,
+  "cols": "order_id,name_py,name_utf,name_utf_alt,sys_id,xy_type,x_coord,y_coord,pres_loc,beg_yr,beg_rule,end_yr,end_rule,object_type,geo_src,compiler,geocompiler,entry_date,filename,src"
+ },
+ {
+  "schema": "chgis",
+  "name": "v3db_v3_main_table",
+  "rows": 49255,
+  "cols": "name_py,name_utf,name_utf_alt,pres_loc,beg_chg_type,beg_chg_eng,end_chg_type,end_chg_eng,type_py,type_utf,type_id,type_eng,lev_rank,beg_yr,end_yr,pgn_note_id,pt_note_id,pgn_id,pt_id,line_id,data_src,v3_mysql_id"
+ },
+ {
+  "schema": "chgis",
+  "name": "v3db_v3_part_of",
+  "rows": 53122,
+  "cols": "child_id,child_py,child_utf,child_utf_alt,beg_yr,end_yr,parent_py,parent_utf,parent_id,data_src,order_id"
+ },
+ {
+  "schema": "chgis",
+  "name": "v3db_v3_preceded_by",
+  "rows": 7692,
+  "cols": "sub_id,sub_name_py,sub_name_utf,sub_name_utf_alt,sub_lev_rank,sub_beg_type,sub_eng_type,sub_beg_yr,sub_end_yr,sub_obj_type,prec_id,prec_name_py,prec_name_utf,prec_name_alt,order_id"
+ },
+ {
+  "schema": "chgis",
+  "name": "v3db_v3_source_notes",
+  "rows": 6716,
+  "cols": "compiler,note_id,name_py,name_ch,name_ft,source_note"
+ },
+ {
+  "schema": "chgis",
+  "name": "v3db_xtra_change_types",
+  "rows": 25,
+  "cols": "change_type_english,usage_status,change_type_chinese"
+ },
+ {
+  "schema": "chgis",
+  "name": "v3db_xtra_contributors",
+  "rows": 5,
+  "cols": "contrib,organization,contact"
+ },
+ {
+  "schema": "chgis",
+  "name": "v3db_xtra_date_rules",
+  "rows": 7,
+  "cols": "rule_number,rule_short_name,rule_eng"
+ },
+ {
+  "schema": "chgis",
+  "name": "v3db_xtra_geo_source",
+  "rows": 6,
+  "cols": "geo_src,description,contact"
+ },
+ {
+  "schema": "chgis",
+  "name": "v3db_xtra_other_feature_types",
+  "rows": 1060,
+  "cols": "order,hv_ft_py,hv_ft_ch,hv_ft_id,hv_ft_eng,is_current,adl_class,note"
+ },
+ {
+  "schema": "chgis",
+  "name": "v4_1820_cnty_pts",
+  "rows": 1859,
+  "cols": "ogc_fid,geom,sys_id,name_py,name_ch,name_ft,x_coord,y_coord,pres_loc,type_py,type_ch,lev_rank,beg_yr,beg_rule,end_yr,end_rule,dyn_py,dyn_ch,lev1_py,lev1_ch,lev2_py,lev2_ch,note_id,obj_type,geo_id,geo_src,compiler,geocomp,checker,ent_date"
+ },
+ {
+  "schema": "chgis",
+  "name": "v4_1820_coast_lin",
+  "rows": 160,
+  "cols": "ogc_fid,geom,sea_id,source,arc_id"
+ },
+ {
+  "schema": "chgis",
+  "name": "v4_1820_coded_rvr_lin",
+  "rows": 5983,
+  "cols": "ogc_fid,geom,fnode_,tnode_,length,coded_rive,coded_ri_1,key_id,system_id,mouth,order_,rivers_id,key_id_1,name_ch,name_ft,name_py,midpoint_x,midpoint_y"
+ },
+ {
+  "schema": "chgis",
+  "name": "v4_1820_lks_pgn",
+  "rows": 370,
+  "cols": "ogc_fid,geom,lks_id,name_ch,name_ft,name_py,sys_id,x_coord,y_coord"
+ },
+ {
+  "schema": "chgis",
+  "name": "v4_1820_pref_pgn",
+  "rows": 320,
+  "cols": "ogc_fid,geom,sys_id,name_py,name_ch,name_ft,pres_loc,type_py,type_ch,lev_rank,beg_yr,beg_rule,end_yr,end_rule,dyn_py,dyn_ch,lev1_py,lev1_ch,note_id,obj_type,geo_src,compiler,geocomp,checker,ent_date,x_coord,y_coord,area"
+ },
+ {
+  "schema": "chgis",
+  "name": "v4_1820_pref_pts",
+  "rows": 301,
+  "cols": "ogc_fid,geom,sys_id,name_py,name_ch,name_ft,x_coord,y_coord,pres_loc,type_py,type_ch,lev_rank,beg_yr,beg_rule,end_yr,end_rule,dyn_py,dyn_ch,lev1_py,lev1_ch,lev2_py,lev2_ch,note_id,obj_type,geo_id,geo_src,compiler,geocomp,checker,ent_date"
+ },
+ {
+  "schema": "chgis",
+  "name": "v4_1820_prov_pgn",
+  "rows": 32,
+  "cols": "ogc_fid,geom,sys_id,name_py,name_ch,name_ft,note_id,obj_type,geo_src,compiler,geocomp,checker,ent_date,x_coord,y_coord,area"
+ },
+ {
+  "schema": "chgis",
+  "name": "v4_1820_prov_pts",
+  "rows": 24,
+  "cols": "ogc_fid,geom,sys_id,name_py,name_ch,name_ft,x_coord,y_coord,pres_loc,type_py,type_ch,lev_rank,beg_yr,beg_rule,end_yr,end_rule,dyn_py,dyn_ch,note_id,obj_type,geo_id,geo_src,compiler,geocomp,checker,ent_date"
+ },
+ {
+  "schema": "chgis",
+  "name": "v4_1820_rvr_lin",
+  "rows": 2778,
+  "cols": "ogc_fid,geom,rivers_id,key_id,name_ch,name_ft,name_py,sys_id,midpoint_x,midpoint_y"
+ },
+ {
+  "schema": "chgis",
+  "name": "v4_1820_twn_pts",
+  "rows": 8659,
+  "cols": "ogc_fid,geom,sys_id,name_py,name_ch,name_ft,x_coord,y_coord,pres_loc,type_py,type_ch,lev_rank,beg_yr,beg_rule,end_yr,end_rule,dyn_py,dyn_ch,lev1_py,len1_ch,lev2_py,lev2_ch,cnty_py,cnty_ch,note_id,obj_type,loc_id,geo_src,compiler,geocomp,checker,ent_date"
+ },
+ {
+  "schema": "chgis",
+  "name": "v4_1911_cnty_pgn",
+  "rows": 1502,
+  "cols": "ogc_fid,geom,objectid,name_py,name_ch,name_ft,pres_loc,type_py,type_ch,lev_rank,beg_yr,beg_rule,end_yr,end_rule,dyn_py,dyn_ch,lev1_py,lev1_ch,lev2_py,lev2_ch,note_id,obj_type,sys_id,geo_src,compiler,geocomp,checker,ent_date,x_coord,y_coord,area"
+ },
+ {
+  "schema": "chgis",
+  "name": "v4_1911_cnty_pts",
+  "rows": 1426,
+  "cols": "ogc_fid,geom,name_py,name_ch,name_ft,x_coord,y_coord,pres_loc,type_py,type_ch,lev_rank,beg_yr,beg_rule,end_yr,end_rule,dyn_py,dyn_ch,lev1_py,lev1_ch,lev2_py,lev2_ch,cnty_py,cnty_ch,note_id,obj_type,sys_id,geo_src,compiler,geocomp,checker,ent_date"
+ },
+ {
+  "schema": "chgis",
+  "name": "v4_1911_pref_pgn",
+  "rows": 267,
+  "cols": "ogc_fid,geom,objectid,name_py,name_ch,name_ft,pres_loc,type_py,type_ch,lev_rank,beg_yr,beg_rule,end_yr,end_rule,dyn_py,dyn_ch,lev1_py,lev1_ch,lev2_py,lev2_ch,note_id,obj_type,sys_id,geo_src,compiler,geocomp,checker,ent_date,x_coord,y_coord,area"
+ },
+ {
+  "schema": "chgis",
+  "name": "v4_1911_pref_pts",
+  "rows": 270,
+  "cols": "ogc_fid,geom,objectid,name_py,name_ch,name_ft,x_coord,y_coord,pres_loc,type_py,type_ch,lev_rank,beg_yr,beg_rule,end_yr,end_rule,dyn_py,dyn_ch,lev1_py,lev1_ch,lev2_py,lev2_ch,cnty_py,cnty_ch,note_id,obj_type,sys_id,geo_src,compiler,geocomp,checker,ent_date"
+ },
+ {
+  "schema": "chgis",
+  "name": "v4_1911_prov_pgn",
+  "rows": 18,
+  "cols": "ogc_fid,geom,objectid,name_py,name_ch,name_ft,pres_loc,type_py,type_ch,lev_rank,beg_yr,beg_rule,end_yr,end_rule,dyn_py,dyn_ch,lev1_py,lev1_ch,lev2_py,lev2_ch,note_id,obj_type,sys_id,geo_src,compiler,geocomp,checker,ent_date,x_coord,y_coord,area"
+ },
+ {
+  "schema": "chgis",
+  "name": "v4_1911_prov_pts",
+  "rows": 17,
+  "cols": "ogc_fid,geom,objectid,name_py,name_ch,name_ft,x_coord,y_coord,pres_loc,type_py,type_ch,lev_rank,beg_yr,beg_rule,end_yr,end_rule,dyn_py,dyn_ch,lev1_py,lev1_ch,lev2_py,lev2_ch,note_id,obj_type,sys_id,geo_src,compiler,geocomp,checker,ent_date"
+ },
+ {
+  "schema": "chgis",
+  "name": "v4_1911_twn_pts",
+  "rows": 38599,
+  "cols": "ogc_fid,geom,objectid,name_py,name_ch,name_ft,x_coord,y_coord,pres_loc,type_py,type_ch,lev_rank,beg_yr,beg_rule,end_yr,end_rule,dyn_py,dyn_ch,lev1_py,lev1_ch,lev2_py,lev2_ch,cnty_py,cnty_ch,note_id,obj_type,sys_id,geo_src,compiler,geocomp,checker,ent_date"
+ },
+ {
+  "schema": "chgis",
+  "name": "v4_1997_prov_pgn",
+  "rows": 34,
+  "cols": "ogc_fid,geom,gbcode90,name_py,name_hz"
+ },
+ {
+  "schema": "chgis",
+  "name": "v4_buddhist_pts",
+  "rows": 2407,
+  "cols": "ogc_fid,geom,order_id,name_py,name_utf,name_utf_a,pt_id,parent_py,parent_utf,parent_alt,parent_id,parent_pre,parent_beg,parent_end,xy_type,x_coord,y_coord,index_page,index_temp,index_site,index_loca,index_esta,index_note,compiler,orig_src,count"
+ },
+ {
+  "schema": "chgis",
+  "name": "v4_citas90_cnty_pgn_big5_stats",
+  "rows": 2975,
+  "cols": "ogc_fid,geom,area,gbcenmq,nmcenmq,nmfull,nmlocal,mqstat,island,nmhanzi_1,a5,a6,a101,a102,a103,a104,a105,a106,a107,a108,a109,a110,a111,a112,a113,a114,a115,a116,a117,a118,a119,a120,a121,a122,a123,a124,a125,a126,a127,a128,a129,a130,a131,a132,a133,a134,a135,a136,a137,a138,a139,a140,a141,a142,a143,a144,a145,a146,a181,a182,a183,a184,a185,a186,a187,a188,a189,a190,a191,a192,a193,a194,a195,a196,a197,a198,a199,a200,a201,a202,a203,a204,a205,a206,a207,a208,a209,a210,a211,a212,a213,a214,a215,a216,a217,a218,a219,a220,a221,a222,a223,a224,a225,a226,a227,a228,a229,a230,a231,a232,a233,a234,a235,a236,a237,a238,a239,a240,a241,a242,a243,a244,a245,a246,a261,a262,a263,a264,a265,a266,a267,a268,a269,a270,a271,a272,a273,a274,a275,a276,a277,a278,a279,a280,a281,a282,a283,a284,a291,a292,a293,a294,a295,a296,a301,a302,a303,a304,a305,a306,a307,a308,a309,a310,a311,a312,a313,a314,a315,a321,a322,a323,a324,a325,a326,a327,a328,a329,a330,a331,a332,a341,a342,a343,a344,a345,a346,a347,a348,a349,a350,a351,a352,a361,a362,a363,a364,a365,a366,a367,a368,a369,a370"
+ },
+ {
+  "schema": "chgis",
+  "name": "v4_citas90_cnty_pgn_gbk_stats",
+  "rows": 2975,
+  "cols": "ogc_fid,geom,area,gbcenmq,nmfull,nmcenmq,nmlocal,mqstat,island,nmhanzi,a5,a6,a101,a102,a103,a104,a105,a106,a107,a108,a109,a110,a111,a112,a113,a114,a115,a116,a117,a118,a119,a120,a121,a122,a123,a124,a125,a126,a127,a128,a129,a130,a131,a132,a133,a134,a135,a136,a137,a138,a139,a140,a141,a142,a143,a144,a145,a146,a181,a182,a183,a184,a185,a186,a187,a188,a189,a190,a191,a192,a193,a194,a195,a196,a197,a198,a199,a200,a201,a202,a203,a204,a205,a206,a207,a208,a209,a210,a211,a212,a213,a214,a215,a216,a217,a218,a219,a220,a221,a222,a223,a224,a225,a226,a227,a228,a229,a230,a231,a232,a233,a234,a235,a236,a237,a238,a239,a240,a241,a242,a243,a244,a245,a246,a261,a262,a263,a264,a265,a266,a267,a268,a269,a270,a271,a272,a273,a274,a275,a276,a277,a278,a279,a280,a281,a282,a283,a284,a291,a292,a293,a294,a295,a296,a301,a302,a303,a304,a305,a306,a307,a308,a309,a310,a311,a312,a313,a314,a315,a321,a322,a323,a324,a325,a326,a327,a328,a329,a330,a331,a332,a341,a342,a343,a344,a345,a346,a347,a348,a349,a350,a351,a352,a361,a362,a363,a364,a365,a366,a367,a368,a369,a370"
+ },
+ {
+  "schema": "chgis",
+  "name": "v4_citas90_cnty_pgn_utf_stats",
+  "rows": 2975,
+  "cols": "ogc_fid,geom,area,gbcenmq,nmfull,nmcenmq,nmlocal,mqstat,island,nmhanzi,a5,a6,a101,a102,a103,a104,a105,a106,a107,a108,a109,a110,a111,a112,a113,a114,a115,a116,a117,a118,a119,a120,a121,a122,a123,a124,a125,a126,a127,a128,a129,a130,a131,a132,a133,a134,a135,a136,a137,a138,a139,a140,a141,a142,a143,a144,a145,a146,a181,a182,a183,a184,a185,a186,a187,a188,a189,a190,a191,a192,a193,a194,a195,a196,a197,a198,a199,a200,a201,a202,a203,a204,a205,a206,a207,a208,a209,a210,a211,a212,a213,a214,a215,a216,a217,a218,a219,a220,a221,a222,a223,a224,a225,a226,a227,a228,a229,a230,a231,a232,a233,a234,a235,a236,a237,a238,a239,a240,a241,a242,a243,a244,a245,a246,a261,a262,a263,a264,a265,a266,a267,a268,a269,a270,a271,a272,a273,a274,a275,a276,a277,a278,a279,a280,a281,a282,a283,a284,a291,a292,a293,a294,a295,a296,a301,a302,a303,a304,a305,a306,a307,a308,a309,a310,a311,a312,a313,a314,a315,a321,a322,a323,a324,a325,a326,a327,a328,a329,a330,a331,a332,a341,a342,a343,a344,a345,a346,a347,a348,a349,a350,a351,a352,a361,a362,a363,a364,a365,a366,a367,a368,a369,a370"
+ },
+ {
+  "schema": "chgis",
+  "name": "v4_citas90_pref_pgn",
+  "rows": 346,
+  "cols": "ogc_fid,geom,adm2,hz_name,py_name,adm1,adm_lvl,gb_91,x_coord,y_coord"
+ },
+ {
+  "schema": "chgis",
+  "name": "v4_citas90_prov_pgn",
+  "rows": 33,
+  "cols": "ogc_fid,geom,gbcode90,name_py,name_hz"
+ },
+ {
+  "schema": "chgis",
+  "name": "v4_data_dictionary",
+  "rows": 65,
+  "cols": "ogc_fid,field,filename,description"
+ },
+ {
+  "schema": "chgis",
+  "name": "v4_dcw_contour_lin",
+  "rows": 92626,
+  "cols": "ogc_fid,geom,fnode_,tnode_,lpoly_,rpoly_,length,contourc_,contourc_i,val"
+ },
+ {
+  "schema": "chgis",
+  "name": "v4_dcw_rail_lin",
+  "rows": 5556,
+  "cols": "ogc_fid,geom,fnode_,tnode_,lpoly_,rpoly_,length,railroads_,railroads1,rrlntype,rrlnstat"
+ },
+ {
+  "schema": "chgis",
+  "name": "v4_dcw_rds_lin",
+  "rows": 27256,
+  "cols": "ogc_fid,geom,fnode_,tnode_,lpoly_,rpoly_,length,roads_,roads_id,rdlntype,rdlnstat"
+ },
+ {
+  "schema": "chgis",
+  "name": "v4_dcw_rvr_lin",
+  "rows": 213880,
+  "cols": "ogc_fid,geom,fnode_,tnode_,lpoly_,rpoly_,length,rivers_,rivers_id,type"
+ },
+ {
+  "schema": "chgis",
+  "name": "v4_feature_types",
+  "rows": 62,
+  "cols": "ogc_fid,order,feat_pinyin,feat_chinese,usage period,english gloss,ft_id_num,usage_status,source"
+ },
+ {
+  "schema": "chgis",
+  "name": "v4_gns",
+  "rows": 126566,
+  "cols": "ogc_fid,geom,ah_int_id,ah_ext_id,rc,ufi,uni,dlat,dlong,lat_dms,long_dms,mgrs,utm,jog,fc,dsg,pc,cc1,adm1,adm2,nt,lc,short_form,generic,sort_name,name,nm_ascii,prov_py,pref_id,pref_py,cnty_py,cnty_ch,parent,cnty_id,prov"
+ },
+ {
+  "schema": "chgis",
+  "name": "v4_nima_mtns_pts",
+  "rows": 2084,
+  "cols": "ogc_fid,geom,auto_id,sys_id,ufi,uni,dlat,dlong,dsg,adm1,sort_name,full_name"
+ },
+ {
+  "schema": "chgis",
+  "name": "v4_nima_rocks_pts",
+  "rows": 1862,
+  "cols": "ogc_fid,geom,auto_id,sys_id,ufi,uni,dlat,dlong,dsg,adm1,sort_name,full_name"
+ },
+ {
+  "schema": "chgis",
+  "name": "v4_ras_1871_neimeng_pts",
+  "rows": 155,
+  "cols": "ogc_fid,geom,id,name_rus,name_rom,pos_cert,type,date_cert,map_name,map_cite,date_,long,lat,ras_id"
+ },
+ {
+  "schema": "chgis",
+  "name": "v4_ras_1876_xinjiang_pts",
+  "rows": 111,
+  "cols": "ogc_fid,geom,pos_cert,name_rus,name_rom,type,map_name,mape_cite,date_,long,lat,date_cert,id,ras_id"
+ },
+ {
+  "schema": "chgis",
+  "name": "v4_ras_1884_qinghai_pts",
+  "rows": 374,
+  "cols": "ogc_fid,geom,name_rus,name_rom,type,lat,long,pos_cert,date_cert,map_name,map_cite,date_,id,ras_id"
+ },
+ {
+  "schema": "chgis",
+  "name": "v4_ras_1884_tarim_pts",
+  "rows": 59,
+  "cols": "ogc_fid,geom,name_rus,name_rom,type,lat,long,pos_cert,date_cert,date_,map_name,map_cite,id,ras_id"
+ },
+ {
+  "schema": "chgis",
+  "name": "v4_ras_1899_meng_kham_pts",
+  "rows": 2351,
+  "cols": "ogc_fid,geom,id,name_rus,name_rom,type,long,lat,pos_cert,date_,date_cert,map_name,map_cite,ras_id"
+ },
+ {
+  "schema": "chgis",
+  "name": "v4_ras_1900_tibet_kham_pts",
+  "rows": 266,
+  "cols": "ogc_fid,geom,type,pos_cert,date_cert,map_name,map_cite,date_,name_rus,name_rom,long,lat,id,ras_id"
+ },
+ {
+  "schema": "chgis",
+  "name": "v4_ras_1904_tibet_pts",
+  "rows": 555,
+  "cols": "ogc_fid,geom,id,name_rus,name_rom,pos_cert,date_cert,map_name,map_cite,type,date_,long,lat,ras_id"
+ },
+ {
+  "schema": "chgis",
+  "name": "v4_time_cnty_pts",
+  "rows": 4891,
+  "cols": "ogc_fid,geom,objectid,name_py,name_ch,name_ft,x_coord,y_coord,pres_loc,type_py,type_ch,lev_rank,beg_yr,beg_rule,end_yr,end_rule,note_id,obj_type,sys_id,geo_src,compiler,geocomp,checker,ent_date,beg_chg_ty,end_chg_ty"
+ },
+ {
+  "schema": "chgis",
+  "name": "v4_time_pref_pgn",
+  "rows": 2016,
+  "cols": "ogc_fid,geom,objectid,name_py,name_ch,name_ft,pres_loc,type_py,type_ch,lev_rank,beg_yr,beg_rule,end_yr,end_rule,note_id,obj_type,sys_id,geo_src,compiler,geocomp,checker,ent_date,beg_chg_ty,end_chg_ty,x_coord,y_coord,area"
+ },
+ {
+  "schema": "chgis",
+  "name": "v4_time_pref_pts",
+  "rows": 1232,
+  "cols": "ogc_fid,geom,objectid,name_py,name_ch,name_ft,x_coord,y_coord,pres_loc,type_py,type_ch,lev_rank,beg_yr,beg_rule,end_yr,end_rule,note_id,obj_type,sys_id,geo_src,compiler,geocomp,checker,ent_date,beg_chg_ty,end_chg_ty"
+ },
+ {
+  "schema": "chgis",
+  "name": "v4_time_prov_pgn",
+  "rows": 489,
+  "cols": "ogc_fid,geom,objectid,name_py,name_ch,name_ft,pres_loc,type_py,type_ch,lev_rank,beg_yr,beg_rule,end_yr,end_rule,note_id,obj_type,sys_id,geo_src,compiler,geocomp,checker,ent_date,beg_chg_ty,end_chg_ty,x_coord,y_coord,area"
+ },
+ {
+  "schema": "chgis",
+  "name": "v4_time_prov_pts",
+  "rows": 312,
+  "cols": "ogc_fid,geom,objectid,name_py,name_ch,name_ft,x_coord,y_coord,pres_loc,type_py,type_ch,lev_rank,beg_yr,beg_rule,end_yr,end_rule,note_id,obj_type,sys_id,geo_src,compiler,geocomp,checker,ent_date,beg_chg_ty,end_chg_ty"
+ },
+ {
+  "schema": "chgis",
+  "name": "v4_time_reg_pgn",
+  "rows": 11,
+  "cols": "ogc_fid,geom,objectid,name_py,name_ch,name_ft,pres_loc,type_py,type_ch,lev_rank,beg_yr,beg_rule,end_yr,end_rule,note_id,obj_type,sys_id,geo_src,compiler,geocomp,checker,ent_date,x_coord,y_coord,area"
+ },
+ {
+  "schema": "chgis",
+  "name": "v4_time_reg_pts",
+  "rows": 6,
+  "cols": "ogc_fid,geom,objectid,name_py,name_ch,name_ft,x_coord,y_coord,pres_loc,type_py,type_ch,lev_rank,beg_yr,beg_rule,end_yr,end_rule,note_id,obj_type,sys_id,geo_src,compiler,geocomp,checker,ent_date"
+ },
+ {
+  "schema": "chgis",
+  "name": "v4db_v4_data_dictionary",
+  "rows": 64,
+  "cols": "field,filename,description"
+ },
+ {
+  "schema": "chgis",
+  "name": "v4db_v4_feature_types",
+  "rows": 62,
+  "cols": "order,feat_pinyin,usage_period,english_gloss,ft_id_num,usage_status,source,feat_chinese"
+ },
+ {
+  "schema": "chgis",
+  "name": "v4db_v4_gis_info_table",
+  "rows": 61988,
+  "cols": "sys_id,name_py,x_coor,y_coor,type_py,lev_rank,beg_yr,beg_rule,beg_chg_ty,end_yr,end_rule,end_chg_ty,note_id,obj_type,geo_src,ent_date,filename,x_y_type,name_ch,name_ft,pres_loc,type_ch,compiler,geocomp,checker"
+ },
+ {
+  "schema": "chgis",
+  "name": "v4db_v4_gis_layer_field_names",
+  "rows": 30,
+  "cols": "field,description"
+ },
+ {
+  "schema": "chgis",
+  "name": "v4db_v4_main_table",
+  "rows": 58399,
+  "cols": "name_py,type_py,lev_rank,beg_yr,end_yr,bou_note_id,pt_note_id,bou_id,pt_id,x_coor,y_coor,name_ch,name_ft,pres_loc,beg_chg_ty,end_chg_ty,type_ch"
+ },
+ {
+  "schema": "chgis",
+  "name": "v4db_v4_part_of_table",
+  "rows": 60349,
+  "cols": "child_id,child_nmpy,beg_yr,end_yr,prt_nmpy,prt_id,child_nmch,child_nmft,prt_nmch"
+ },
+ {
+  "schema": "chgis",
+  "name": "v4db_v4_preceded_by_table",
+  "rows": 7692,
+  "cols": "pro_id,pro_nmpy,lev_rank,beg_yr,end_yr,obj_type,proby_id,proby_nmpy,proby_nmft,pro_nmch,pro_nmft,beg_chg_ty,end_chg_ty,proby_nmch"
+ },
+ {
+  "schema": "chgis",
+  "name": "v4db_v4_source_notes",
+  "rows": 8920,
+  "cols": "compiler,note_id,name_py,name_ch,name_ft,source_note"
+ },
+ {
+  "schema": "chgis",
+  "name": "v4db_xtra_change_types",
+  "rows": 25,
+  "cols": "change_type_english,usage_status,change_type_chinese"
+ },
+ {
+  "schema": "chgis",
+  "name": "v4db_xtra_contributors",
+  "rows": 5,
+  "cols": "contrib,organization,contact"
+ },
+ {
+  "schema": "chgis",
+  "name": "v4db_xtra_date_rules",
+  "rows": 7,
+  "cols": "rule_number,rule_short_name,rule_eng"
+ },
+ {
+  "schema": "chgis",
+  "name": "v4db_xtra_geo_source",
+  "rows": 6,
+  "cols": "geo_src,description,contact"
+ },
+ {
+  "schema": "chgis",
+  "name": "v4db_xtra_other_feature_types",
+  "rows": 1059,
+  "cols": "order,hv_ft_py,hv_ft_id,hv_ft_eng,is_current,adl_class,note,hv_ft_ch"
+ },
+ {
+  "schema": "chgis",
+  "name": "v5_1820_cnty_pts",
+  "rows": 1859,
+  "cols": "ogc_fid,geom,sys_id,name_py,name_ch,name_ft,x_coord,y_coord,pres_loc,type_py,type_ch,lev_rank,beg_yr,beg_rule,end_yr,end_rule,dyn_py,dyn_ch,lev1_py,lev1_ch,lev2_py,lev2_ch,note_id,obj_type,geo_id,geo_src,compiler,geocomp,checker,ent_date"
+ },
+ {
+  "schema": "chgis",
+  "name": "v5_1820_coast_lin",
+  "rows": 160,
+  "cols": "ogc_fid,geom,sea_id,source,arc_id"
+ },
+ {
+  "schema": "chgis",
+  "name": "v5_1820_coded_rvr_lin",
+  "rows": 5983,
+  "cols": "ogc_fid,geom,fnode_,tnode_,length,coded_rive,coded_ri_1,key_id,system_id,mouth,order_,rivers_id,key_id_1,name_ch,name_ft,name_py,midpoint_x,midpoint_y"
+ },
+ {
+  "schema": "chgis",
+  "name": "v5_1820_lks_pgn",
+  "rows": 370,
+  "cols": "ogc_fid,geom,lks_id,name_ch,name_ft,name_py,sys_id,x_coord,y_coord"
+ },
+ {
+  "schema": "chgis",
+  "name": "v5_1820_pref_pgn",
+  "rows": 320,
+  "cols": "ogc_fid,geom,sys_id,name_py,name_ch,name_ft,pres_loc,type_py,type_ch,lev_rank,beg_yr,beg_rule,end_yr,end_rule,dyn_py,dyn_ch,lev1_py,lev1_ch,note_id,obj_type,geo_src,compiler,geocomp,checker,ent_date,x_coord,y_coord,area"
+ },
+ {
+  "schema": "chgis",
+  "name": "v5_1820_pref_pts",
+  "rows": 301,
+  "cols": "ogc_fid,geom,sys_id,name_py,name_ch,name_ft,x_coord,y_coord,pres_loc,type_py,type_ch,lev_rank,beg_yr,beg_rule,end_yr,end_rule,dyn_py,dyn_ch,lev1_py,lev1_ch,lev2_py,lev2_ch,note_id,obj_type,geo_id,geo_src,compiler,geocomp,checker,ent_date"
+ },
+ {
+  "schema": "chgis",
+  "name": "v5_1820_prov_pgn",
+  "rows": 32,
+  "cols": "ogc_fid,geom,sys_id,name_py,name_ch,name_ft,note_id,obj_type,geo_src,compiler,geocomp,checker,ent_date,x_coord,y_coord,area"
+ },
+ {
+  "schema": "chgis",
+  "name": "v5_1820_prov_pts",
+  "rows": 24,
+  "cols": "ogc_fid,geom,sys_id,name_py,name_ch,name_ft,x_coord,y_coord,pres_loc,type_py,type_ch,lev_rank,beg_yr,beg_rule,end_yr,end_rule,dyn_py,dyn_ch,note_id,obj_type,geo_id,geo_src,compiler,geocomp,checker,ent_date"
+ },
+ {
+  "schema": "chgis",
+  "name": "v5_1820_twn_pts",
+  "rows": 8659,
+  "cols": "ogc_fid,geom,sys_id,name_py,name_ch,name_ft,x_coord,y_coord,pres_loc,type_py,type_ch,lev_rank,beg_yr,beg_rule,end_yr,end_rule,dyn_py,dyn_ch,lev1_py,len1_ch,lev2_py,lev2_ch,cnty_py,cnty_ch,note_id,obj_type,loc_id,geo_src,compiler,geocomp,checker,ent_date"
+ },
+ {
+  "schema": "chgis",
+  "name": "v5_1911_cnty_pgn",
+  "rows": 1986,
+  "cols": "ogc_fid,geom,sys_id,oid_,name_py,name_ch,name_ft,type_py,type_ch,lev_rank,beg_yr,beg_rule,end_yr,end_rule,dyn_py,dyn_ch,lev1_py,lev1_ch,lev2_py,lev2_ch,note_id,obj_type,sys_id_1,geo_src,compiler,geocomp,checker,ent_date,x_coord,y_coord"
+ },
+ {
+  "schema": "chgis",
+  "name": "v5_1911_cnty_pts",
+  "rows": 2154,
+  "cols": "ogc_fid,geom,sys_id,oid_,name_py,name_ch,name_ft,x_coord,y_coord,pres_loc,type_py,type_ch,lev_rank,beg_yr,beg_rule,end_yr,end_rule,dyn_py,dyn_ch,lev1_py,lev1_ch,lev2_py,lev2_ch,note_id,obj_type,sys_id_1,geo_src,compiler,geocomp,checker,ent_date"
+ },
+ {
+  "schema": "chgis",
+  "name": "v5_1911_pref_pgn",
+  "rows": 381,
+  "cols": "ogc_fid,geom,sys_id,oid_,name_py,name_ch,name_ft,type_py,type_ch,lev_rank,beg_yr,beg_rule,end_yr,end_rule,dyn_py,dyn_ch,lev1_py,lev1_ch,note_id,obj_type,sys_id_1,geo_src,compiler,geocomp,checker,ent_date,shape_leng,shape_area,x_coord,y_coord"
+ },
+ {
+  "schema": "chgis",
+  "name": "v5_1911_pref_pts",
+  "rows": 355,
+  "cols": "ogc_fid,geom,sys_id,oid_,name_py,name_ch,name_ft,x_coord,y_coord,pres_loc,type_py,type_ch,lev_rank,beg_yr,beg_rule,end_yr,end_rule,dyn_py,dyn_ch,lev1_py,lev1_ch,note_id,obj_type,sys_id_1,geo_src,compiler,geocomp,checker,ent_date"
+ },
+ {
+  "schema": "chgis",
+  "name": "v5_1911_prov_pgn",
+  "rows": 27,
+  "cols": "ogc_fid,geom,sys_id,oid_,name_py,name_ch,name_ft,type_py,type_ch,lev_rank,beg_yr,beg_rule,end_yr,end_rule,dyn_py,dyn_ch,note_id,obj_type,sys_id_1,geo_src,compiler,geocomp,checker,ent_date,x_coord,y_coord"
+ },
+ {
+  "schema": "chgis",
+  "name": "v5_1911_prov_pts",
+  "rows": 24,
+  "cols": "ogc_fid,geom,sys_id,oid_,name_py,name_ch,name_ft,x_coord,y_coord,pres_loc,type_py,type_ch,lev_rank,beg_yr,beg_rule,end_yr,end_rule,dyn_py,dyn_ch,note_id,obj_type,sys_id_1,geo_src,compiler,geocomp,checker,ent_date"
+ },
+ {
+  "schema": "chgis",
+  "name": "v5_1911_twn_pts",
+  "rows": 40020,
+  "cols": "ogc_fid,geom,sys_id,oid_,name_py,name_ch,name_ft,x_coord,y_coord,pres_loc,type_py,type_ch,lev_rank,beg_yr,beg_rule,end_yr,end_rule,dyn_py,dyn_cn,lev1_py,lev1_ch,lev2_py,lev2_ch,count_py,count_ch,note_id,obj_type,sys_id_1,geo_src,compiler,geocomp,checker,ent_date"
+ },
+ {
+  "schema": "chgis",
+  "name": "v5_1926_prov_pgn",
+  "rows": 31,
+  "cols": "ogc_fid,geom,object_id,name_py,name_ch,name_ft,beg_yr,end_yr,period,obj_type,sys_id,geo_src,compiler,ent_date,centro_x,centro_y"
+ },
+ {
+  "schema": "chgis",
+  "name": "v5_1990_citas_cnty_pgn",
+  "rows": 2438,
+  "cols": "ogc_fid,geom,gbcenmq,a5,a6,a101,a102,a103,a104,a105,a106,a107,a108,a109,a110,a111,a112,a113,a114,a115,a116,a117,a118,a119,a120,a121,a122,a123,a124,a125,a126,a127,a128,a129,a130,a131,a132,a133,a134,a135,a136,a137,a138,a139,a140,a141,a142,a143,a144,a145,a146,a181,a182,a183,a184,a185,a186,a187,a188,a189,a190,a191,a192,a193,a194,a195,a196,a197,a198,a199,a200,a201,a202,a203,a204,a205,a206,a207,a208,a209,a210,a211,a212,a213,a214,a215,a216,a217,a218,a219,a220,a221,a222,a223,a224,a225,a226,a227,a228,a229,a230,a231,a232,a233,a234,a235,a236,a237,a238,a239,a240,a241,a242,a243,a244,a245,a246,a261,a262,a263,a264,a265,a266,a267,a268,a269,a270,a271,a272,a273,a274,a275,a276,a277,a278,a279,a280,a281,a282,a283,a284,a291,a292,a293,a294,a295,a296,a301,a302,a303,a304,a305,a306,a307,a308,a309,a310,a311,a312,a313,a314,a315,a321,a322,a323,a324,a325,a326,a327,a328,a329,a330,a331,a332,a341,a342,a343,a344,a345,a346,a347,a348,a349,a350,a351,a352,a361,a362,a363,a364,a365,a366,a367,a368,a369,a370,gbcenmq_12,join_id,nmfull,nmhanzi,nmfull_1"
+ },
+ {
+  "schema": "chgis",
+  "name": "v5_1990_citas_pref_pgn",
+  "rows": 346,
+  "cols": "ogc_fid,geom,adm2,hz_name,py_name,adm1,adm_lvl,gb_91,x_coord,y_coord"
+ },
+ {
+  "schema": "chgis",
+  "name": "v5_1997_prov_pgn",
+  "rows": 34,
+  "cols": "ogc_fid,geom,gbcode90,name_py,name_hz"
+ },
+ {
+  "schema": "chgis",
+  "name": "v5_2009_tibet_twns",
+  "rows": 933,
+  "cols": "ogc_fid,geom,thl_id,longitude,latitude,thl_id_1,tibetan,wylie,pinyin,twn_gb_ext,town_hz,town_unit,gbcenmq,par_nm_py,par_nm_alt,par_nm_hz,par_type,pref_py"
+ },
+ {
+  "schema": "chgis",
+  "name": "v5_chinaw_pts",
+  "rows": 2403,
+  "cols": "ogc_fid,geom,sys_id,oid_,w1_id,w2_hname,w3_pname,w4_chgis,w5_type,w6_htype,w7_ptype,w8_admlev,w9_1820,w10_1893,w11_change,w12_end_yr,w13_beg_yr,w14_chgsrc,w21_cap,w22_yamen,w23_xian,w24_phname,w25_ppname,w26_ovrlap,w31_20c18,w32_20c18a,w33_20c18r,w34_20call,w35_20ca,w36_20y18,w37_20yall,w38_20x18,w41_93c18,w42_93c18a,w43_93c18r,w44_93call,w45_93ca,w46_93y18,w47_93yall,w48_93x18,w49_93xall,w51_20adm,w52_20daoh,w53_20daop,w54_20daon,w55_20daot,w56_20psoc,w57_20xsoc,w58_20tsoc,w59_20csoc,w61_93adm,w62_93daoh,w63_93daop,w64_93daon,w65_93daot,w66_93psoc,w67_93xsoc,w68_93tsoc,w69_93csoc,w71_long,w72_lat,w73_qhprov,w74_qpprov,w75_rhprov,w76_rpprov,w77_phprov,w78_ppprov,w79_pxian,w80_gbxian,w101_20c_c,w102_20c_f,w103_20c_p,w104_20c_n,w105_20cdp,w106_20cdh,w107_20cdx,w108_20cir,w109_20p_c,w110_20p_f,w111_20p_p,w112_20p_n,w113_20pdp,w114_20pdh,w115_20pdx,w116_20pir,w117_20x_c,w118_20x_f,w119_20x_p,w120_20x_n,w121_20xdp,w122_20xdh,w123_20xdx,w124_20xir,w125_20apx,w131_93c_c,w132_93c_f,w133_93c_p,w134_93c_n,w135_93cdp,w136_93cdh,w137_93cdx,w138_93cir,w139_93p_c,w140_93p_f,w141_93p_p,w142_93p_n,w143_93pdp,w144_93pdh,w145_93pdx,w146_93pir,w147_93x_c,w148_93x_f,w149_93x_p,w150_93x_n,w151_93xdp,w152_93xdh,w153_93xdx,w154_93xir,w155_93apx,w161_16tra,w162_16pog,w163_16pos,w164_16poc,w165_16omn,w166_popcl,w170_wall,w171_w_li,w172_w_km,w173_w_km2,w174_gates,w175_gmis1,w176_gmis2,w177_wh_z,w178_wh_m,w179_wbt_z,w180_wbt_m,w181_wtt_z,w182_wtt_m,w183_wtu_z,w184_wtu_m,w185_wt_z,w186_wt_m,w187_wmat,w188_twrg,w189_twrc,w190_twro,w191_twtn,w192_moon,w193_battl,w194_cnnon,w195_sntry,w196_moat,w197_md_z,w198_md_m,w199_mw_z,w200_mw_m,w201_wgate,w301_pmr,w302_93fr,w303_cp19t,w304_cp16t,w305_notes"
+ },
+ {
+  "schema": "chgis",
+  "name": "v5_gns",
+  "rows": 130665,
+  "cols": "ogc_fid,geom,ah_int_id,ah_ext_id,rc,ufi,uni,dlat,dlong,lat_dms,long_dms,mgrs,utm,jog,fc,dsg,pc,cc1,adm1,adm2,nt,lc,short_form,generic,sort_name,name,nm_ascii,prov_py,pref_id,pref_py,cnty_py,cnty_ch,parent,cnty_id,prov"
+ },
+ {
+  "schema": "chgis",
+  "name": "v5_physiog_macroregions",
+  "rows": 18,
+  "cols": "ogc_fid,geom,mr,system,mr_name,sys_name"
+ },
+ {
+  "schema": "chgis",
+  "name": "v5_physiog_macroregions_utf",
+  "rows": 18,
+  "cols": "ogc_fid,geom,mr,system,mr_name,sys_name,mr_hz,sys_hz"
+ },
+ {
+  "schema": "chgis",
+  "name": "v5_smr_pgn",
+  "rows": 10,
+  "cols": "ogc_fid,geom,objectid,mr_id,mr_name,mr_hz"
+ },
+ {
+  "schema": "chgis",
+  "name": "v5_smr_subr_pgn",
+  "rows": 33,
+  "cols": "ogc_fid,geom,mr_id,mr_name,mr_hz,sys_id,sys_name,sys_hz"
+ },
+ {
+  "schema": "chgis",
+  "name": "v5_time_cnty_pts",
+  "rows": 10507,
+  "cols": "ogc_fid,geom,sys_id,oid_,name_py,name_ch,name_ft,x_coord,y_coord,pres_loc,type_py,type_ch,lev_rank,beg_yr,beg_rule,end_yr,end_rule,note_id,obj_type,sys_id_1,geo_src,compiler,geocomp,checker,ent_date,beg_type,end_type"
+ },
+ {
+  "schema": "chgis",
+  "name": "v5_time_pref_pgn",
+  "rows": 3059,
+  "cols": "ogc_fid,geom,sys_id,name_py,name_ch,name_ft,pres_loc,type_py,type_ch,lev_rank,beg_yr,beg_rule,end_yr,end_rule,note_id,obj_type,sys_id_2,geo_src,compiler,geocomp,checker,ent_date,beg_chg_ty,end_chg_ty,shape_leng,shape_area,x_coord,y_coord"
+ },
+ {
+  "schema": "chgis",
+  "name": "v5_time_pref_pts",
+  "rows": 3409,
+  "cols": "ogc_fid,geom"
+ },
+ {
+  "schema": "chgis",
+  "name": "v6_1820_cnty_pts",
+  "rows": 1859,
+  "cols": "ogc_fid,geom,sys_id,name_py,name_ch,name_ft,x_coord,y_coord,pres_loc,type_py,type_ch,lev_rank,beg_yr,beg_rule,end_yr,end_rule,dyn_py,dyn_ch,lev1_py,lev1_ch,lev2_py,lev2_ch,note_id,obj_type,geo_id,geo_src,compiler,geocomp,checker,ent_date"
+ },
+ {
+  "schema": "chgis",
+  "name": "v6_1820_coded_rvr_lin",
+  "rows": 5983,
+  "cols": "ogc_fid,geom,fnode_,tnode_,length,coded_rive,coded_ri_1,key_id,system_id,mouth,order_,rivers_id,key_id_1,name_ch,name_ft,name_py,midpoint_x,midpoint_y"
+ },
+ {
+  "schema": "chgis",
+  "name": "v6_1820_lks_pgn",
+  "rows": 363,
+  "cols": "ogc_fid,geom,lks_id,name_ch,name_ft,name_py,sys_id,x_coord,y_coord"
+ },
+ {
+  "schema": "chgis",
+  "name": "v6_1820_pref_pgn",
+  "rows": 320,
+  "cols": "ogc_fid,geom,sys_id,name_py,name_ch,name_ft,pres_loc,type_py,type_ch,lev_rank,beg_yr,beg_rule,end_yr,end_rule,dyn_py,dyn_ch,lev1_py,lev1_ch,note_id,obj_type,geo_src,compiler,geocomp,checker,ent_date,x_coord,y_coord,area"
+ },
+ {
+  "schema": "chgis",
+  "name": "v6_1820_pref_pts",
+  "rows": 301,
+  "cols": "ogc_fid,geom,sys_id,name_py,name_ch,name_ft,x_coord,y_coord,pres_loc,type_py,type_ch,lev_rank,beg_yr,beg_rule,end_yr,end_rule,dyn_py,dyn_ch,lev1_py,lev1_ch,lev2_py,lev2_ch,note_id,obj_type,geo_id,geo_src,compiler,geocomp,checker,ent_date"
+ },
+ {
+  "schema": "chgis",
+  "name": "v6_1820_prov_pgn",
+  "rows": 32,
+  "cols": "ogc_fid,geom,sys_id,name_py,name_ch,name_ft,note_id,obj_type,geo_src,compiler,geocomp,checker,ent_date,x_coord,y_coord,area"
+ },
+ {
+  "schema": "chgis",
+  "name": "v6_1820_prov_pts",
+  "rows": 24,
+  "cols": "ogc_fid,geom,sys_id,name_py,name_ch,name_ft,x_coord,y_coord,pres_loc,type_py,type_ch,lev_rank,beg_yr,beg_rule,end_yr,end_rule,dyn_py,dyn_ch,note_id,obj_type,geo_id,geo_src,compiler,geocomp,checker,ent_date"
+ },
+ {
+  "schema": "chgis",
+  "name": "v6_1820_twn_pts",
+  "rows": 8659,
+  "cols": "ogc_fid,geom,sys_id,name_py,name_ch,name_ft,x_coord,y_coord,pres_loc,type_py,type_ch,lev_rank,beg_yr,beg_rule,end_yr,end_rule,dyn_py,dyn_ch,lev1_py,len1_ch,lev2_py,lev2_ch,cnty_py,cnty_ch,note_id,obj_type,loc_id,geo_src,compiler,geocomp,checker,ent_date"
+ },
+ {
+  "schema": "chgis",
+  "name": "v6_1911_cnty_pgn",
+  "rows": 1986,
+  "cols": "ogc_fid,geom,sys_id,oid_,name_py,name_ch,name_ft,type_py,type_ch,lev_rank,beg_yr,beg_rule,end_yr,end_rule,dyn_py,dyn_ch,lev1_py,lev1_ch,lev2_py,lev2_ch,note_id,obj_type,sys_id_1,geo_src,compiler,geocomp,checker,ent_date,x_coord,y_coord"
+ },
+ {
+  "schema": "chgis",
+  "name": "v6_1911_cnty_pts",
+  "rows": 2154,
+  "cols": "ogc_fid,geom,sys_id,oid_,name_py,name_ch,name_ft,x_coord,y_coord,pres_loc,type_py,type_ch,lev_rank,beg_yr,beg_rule,end_yr,end_rule,dyn_py,dyn_ch,lev1_py,lev1_ch,lev2_py,lev2_ch,note_id,obj_type,sys_id_1,geo_src,compiler,geocomp,checker,ent_date"
+ },
+ {
+  "schema": "chgis",
+  "name": "v6_1911_pref_pgn",
+  "rows": 381,
+  "cols": "ogc_fid,geom,sys_id,oid_,name_py,name_ch,name_ft,type_py,type_ch,lev_rank,beg_yr,beg_rule,end_yr,end_rule,dyn_py,dyn_ch,lev1_py,lev1_ch,note_id,obj_type,sys_id_1,geo_src,compiler,geocomp,checker,ent_date,shape_leng,shape_area,x_coord,y_coord"
+ },
+ {
+  "schema": "chgis",
+  "name": "v6_1911_pref_pts",
+  "rows": 355,
+  "cols": "ogc_fid,geom,sys_id,oid_,name_py,name_ch,name_ft,x_coord,y_coord,pres_loc,type_py,type_ch,lev_rank,beg_yr,beg_rule,end_yr,end_rule,dyn_py,dyn_ch,lev1_py,lev1_ch,note_id,obj_type,sys_id_1,geo_src,compiler,geocomp,checker,ent_date"
+ },
+ {
+  "schema": "chgis",
+  "name": "v6_1911_prov_pgn",
+  "rows": 27,
+  "cols": "ogc_fid,geom,sys_id,oid_,name_py,name_ch,name_ft,type_py,type_ch,lev_rank,beg_yr,beg_rule,end_yr,end_rule,dyn_py,dyn_ch,note_id,obj_type,sys_id_1,geo_src,compiler,geocomp,checker,ent_date,x_coord,y_coord"
+ },
+ {
+  "schema": "chgis",
+  "name": "v6_1911_prov_pts",
+  "rows": 24,
+  "cols": "ogc_fid,geom,sys_id,oid_,name_py,name_ch,name_ft,x_coord,y_coord,pres_loc,type_py,type_ch,lev_rank,beg_yr,beg_rule,end_yr,end_rule,dyn_py,dyn_ch,note_id,obj_type,sys_id_1,geo_src,compiler,geocomp,checker,ent_date"
+ },
+ {
+  "schema": "chgis",
+  "name": "v6_1911_twn_pts",
+  "rows": 40020,
+  "cols": "ogc_fid,geom,sys_id,oid_,name_py,name_ch,name_ft,x_coord,y_coord,pres_loc,type_py,type_ch,lev_rank,beg_yr,beg_rule,end_yr,end_rule,dyn_py,dyn_cn,lev1_py,lev1_ch,lev2_py,lev2_ch,count_py,count_ch,note_id,obj_type,sys_id_1,geo_src,compiler,geocomp,checker,ent_date"
+ },
+ {
+  "schema": "chgis",
+  "name": "v6_citas90_cnty_pgn",
+  "rows": 2438,
+  "cols": "ogc_fid,geom,gbcenmq,join_id,nmfull,a5,a6,a101,a102,a103,a104,a105,a106,a107,a108,a109,a110,a111,a112,a113,a114,a115,a116,a117,a118,a119,a120,a121,a122,a123,a124,a125,a126,a127,a128,a129,a130,a131,a132,a133,a134,a135,a136,a137,a138,a139,a140,a141,a142,a143,a144,a145,a146,a181,a182,a183,a184,a185,a186,a187,a188,a189,a190,a191,a192,a193,a194,a195,a196,a197,a198,a199,a200,a201,a202,a203,a204,a205,a206,a207,a208,a209,a210,a211,a212,a213,a214,a215,a216,a217,a218,a219,a220,a221,a222,a223,a224,a225,a226,a227,a228,a229,a230,a231,a232,a233,a234,a235,a236,a237,a238,a239,a240,a241,a242,a243,a244,a245,a246,a261,a262,a263,a264,a265,a266,a267,a268,a269,a270,a271,a272,a273,a274,a275,a276,a277,a278,a279,a280,a281,a282,a283,a284,a291,a292,a293,a294,a295,a296,a301,a302,a303,a304,a305,a306,a307,a308,a309,a310,a311,a312,a313,a314,a315,a321,a322,a323,a324,a325,a326,a327,a328,a329,a330,a331,a332,a341,a342,a343,a344,a345,a346,a347,a348,a349,a350,a351,a352,a361,a362,a363,a364,a365,a366,a367,a368,a369,a370,gbcode_91,cnty_py,cnty_hz,pref_py,pref_alt,pref_hz,prov_py,prov_hz"
+ },
+ {
+  "schema": "chgis",
+  "name": "v6_citas90_pref_pgn",
+  "rows": 346,
+  "cols": "ogc_fid,geom,adm2,py_name,adm1,adm_lvl,gb_91,x_coord,y_coord,hz_name"
+ },
+ {
+  "schema": "chgis",
+  "name": "v6_citas90_prov_pgn",
+  "rows": 33,
+  "cols": "ogc_fid,geom,gbcode90,name_py,name_hz"
+ },
+ {
+  "schema": "chgis",
+  "name": "v6_cnty_pts",
+  "rows": 10522,
+  "cols": "ogc_fid,geom,name_py,name_ch,name_ft,x_coor,y_coor,pres_loc,type_py,type_ch,lev_rank,beg_yr,beg_rule,end_yr,end_rule,note_id,obj_type,sys_id,geo_src,compiler,gecomplr,checker,ent_date,beg_chg_ty,end_chg_ty"
+ },
+ {
+  "schema": "chgis",
+  "name": "v6_pref_pgn",
+  "rows": 3830,
+  "cols": "ogc_fid,geom,name_py,name_ch,name_ft,x_coor,y_coor,pers_loc,type_py,type_ch,lev_rank,beg_yr,beg_rule,end_yr,end_rule,note_id,obj_type,sys_id,geo_src,compiler,gecomplr,checker,ent_date,beg_chg_ty,end_chg_ty"
+ },
+ {
+  "schema": "chgis",
+  "name": "v6_pref_pts",
+  "rows": 5226,
+  "cols": "ogc_fid,name_py,name_ch,name_ft,x_coor,y_coor,pres_loc,type_py,type_ch,lev_rank,beg_yr,beg_rule,end_yr,end_rule,note_id,obj_type,sys_id,geo_src,compiler,geocomplr,checker,end_date,beg_chg_ty,end_chg_ty,geom"
+ },
+ {
+  "schema": "chgis",
+  "name": "xtra_change_types",
+  "rows": 26,
+  "cols": "ogc_fid,change_type_english,change_type_chinese,usage_status"
+ },
+ {
+  "schema": "chgis",
+  "name": "xtra_contributors",
+  "rows": 6,
+  "cols": "ogc_fid,contrib,organization,contact"
+ },
+ {
+  "schema": "chgis",
+  "name": "xtra_date_rules",
+  "rows": 7,
+  "cols": "ogc_fid,rule_number,rule_short_name,rule_eng"
+ },
+ {
+  "schema": "chgis",
+  "name": "xtra_geo_source",
+  "rows": 7,
+  "cols": "ogc_fid,geo_src,description,contact"
+ },
+ {
+  "schema": "harv",
+  "name": "arc_china_index_v3",
+  "rows": 77,
+  "cols": "ogc_fid,geom,id,tile_id"
+ },
+ {
+  "schema": "harv",
+  "name": "arc_china_index_v4",
+  "rows": 77,
+  "cols": "ogc_fid,geom,id,tile_id"
+ },
+ {
+  "schema": "harv",
+  "name": "beijing_historic_sites_v1",
+  "rows": 82,
+  "cols": "ogc_fid,geom,name1,name2,name3,hz_name,ft_id,feature_ty"
+ },
+ {
+  "schema": "harv",
+  "name": "bgis_v1_1_2013",
+  "rows": 18938,
+  "cols": "ogc_fid,geom,objectid,bgis_id,nm_eng,nm_hz,type_eng,type_hz,prov_py,prov_hz,city_eng,city_hz,cnty_eng,cnty_hz,twn_eng,twn_hz,vill_eng,vill_hz,str_eng,str_hz,nbr_eng,nbr_hz,subd_eng,subd_hz,bldg_mt_en,bldg_mt_hz,hill_eng,hill_hz,detail_eng,detail_hz,postcode,year_start,year_end,src_hz,lat,long,version,gb_prv_99,a1_py_99,a2_py_99,a3_py_99,a3_hz_99,gb_cty_99"
+ },
+ {
+  "schema": "harv",
+  "name": "chgis_tmpl_pts",
+  "rows": 2407,
+  "cols": "ogc_fid,geom,order_id,name_py,name_utf,name_utf_a,pt_id,parent_py,parent_utf,parent_alt,parent_id,parent_pre,parent_beg,parent_end,xy_type,x_coord,y_coord,index_page,index_temp,index_site,index_loca,index_esta,index_note,compiler,orig_src,count"
+ },
+ {
+  "schema": "harv",
+  "name": "china_gas_2013_chinagaslinenodes_2013",
+  "rows": 171,
+  "cols": "ogc_fid,geom,line_node"
+ },
+ {
+  "schema": "harv",
+  "name": "china_gas_2013_chinagaspipelines_2013",
+  "rows": 72,
+  "cols": "ogc_fid,geom,from,to,class,west1,west2,west3,pipeline"
+ },
+ {
+  "schema": "harv",
+  "name": "china_hsr_2016_lines",
+  "rows": 79,
+  "cols": "ogc_fid,geom,objectid,line_chin,line_py,condition,speed_txt,kph"
+ },
+ {
+  "schema": "harv",
+  "name": "china_hsr_2016_stations",
+  "rows": 748,
+  "cols": "ogc_fid,geom,objectid,name_zh,speed_kph,line_name,kml_folder"
+ },
+ {
+  "schema": "harv",
+  "name": "chinaw_pts",
+  "rows": 2403,
+  "cols": "ogc_fid,geom,w1_id,w2_hname,w3_pname,w4_chgis,sys_id,w5_type,w6_htype,w7_ptype,w8_admlev,w9_1820,w10_1893,w11_change,w12_end_yr,w13_beg_yr,w14_chgsrc,w21_cap,w22_yamen,w23_xian,w24_phname,w25_ppname,w26_ovrlap,w31_20c18,w32_20c18a,w33_20c18r,w34_20call,w35_20ca,w36_20y18,w37_20yall,w38_20x18,w41_93c18,w42_93c18a,w43_93c18r,w44_93call,w45_93ca,w46_93y18,w47_93yall,w48_93x18,w49_93xall,w51_20adm,w52_20daoh,w53_20daop,w54_20daon,w55_20daot,w56_20psoc,w57_20xsoc,w58_20tsoc,w59_20csoc,w61_93adm,w62_93daoh,w63_93daop,w64_93daon,w65_93daot,w66_93psoc,w67_93xsoc,w68_93tsoc,w69_93csoc,w71_long,w72_lat,w73_qhprov,w74_qpprov,w75_rhprov,w76_rpprov,w77_phprov,w78_ppprov,w79_pxian,w80_gbxian,w101_20c_c,w102_20c_f,w103_20c_p,w104_20c_n,w105_20cdp,w106_20cdh,w107_20cdx,w108_20cir,w109_20p_c,w110_20p_f,w111_20p_p,w112_20p_n,w113_20pdp,w114_20pdh,w115_20pdx,w116_20pir,w117_20x_c,w118_20x_f,w119_20x_p,w120_20x_n,w121_20xdp,w122_20xdh,w123_20xdx,w124_20xir,w125_20apx,w131_93c_c,w132_93c_f,w133_93c_p,w134_93c_n,w135_93cdp,w136_93cdh,w137_93cdx,w138_93cir,w139_93p_c,w140_93p_f,w141_93p_p,w142_93p_n,w143_93pdp,w144_93pdh,w145_93pdx,w146_93pir,w147_93x_c,w148_93x_f,w149_93x_p,w150_93x_n,w151_93xdp,w152_93xdh,w153_93xdx,w154_93xir,w155_93apx,w161_16tra,w162_16pog,w163_16pos,w164_16poc,w165_16omn,w166_popcl,w170_wall,w171_w_li,w172_w_km,w173_w_km2,w174_gates,w175_gmis1,w176_gmis2,w177_wh_z,w178_wh_m,w179_wbt_z,w180_wbt_m,w181_wtt_z,w182_wtt_m,w183_wtu_z,w184_wtu_m,w185_wt_z,w186_wt_m,w187_wmat,w188_twrg,w189_twrc,w190_twro,w191_twtn,w192_moon,w193_battl,w194_cnnon,w195_sntry,w196_moat,w197_md_z,w198_md_m,w199_mw_z,w200_mw_m,w201_wgate,w301_pmr,w302_93fr,w303_cp19t,w304_cp16t,w305_notes"
+ },
+ {
+  "schema": "harv",
+  "name": "citas90_cnty_pgn",
+  "rows": 2975,
+  "cols": "ogc_fid,geom,area,gbcenmq,nmfull,nmcenmq,nmlocal,mqstat,island,nmhanzi,a5,a6,a101,a102,a103,a104,a105,a106,a107,a108,a109,a110,a111,a112,a113,a114,a115,a116,a117,a118,a119,a120,a121,a122,a123,a124,a125,a126,a127,a128,a129,a130,a131,a132,a133,a134,a135,a136,a137,a138,a139,a140,a141,a142,a143,a144,a145,a146,a181,a182,a183,a184,a185,a186,a187,a188,a189,a190,a191,a192,a193,a194,a195,a196,a197,a198,a199,a200,a201,a202,a203,a204,a205,a206,a207,a208,a209,a210,a211,a212,a213,a214,a215,a216,a217,a218,a219,a220,a221,a222,a223,a224,a225,a226,a227,a228,a229,a230,a231,a232,a233,a234,a235,a236,a237,a238,a239,a240,a241,a242,a243,a244,a245,a246,a261,a262,a263,a264,a265,a266,a267,a268,a269,a270,a271,a272,a273,a274,a275,a276,a277,a278,a279,a280,a281,a282,a283,a284,a291,a292,a293,a294,a295,a296,a301,a302,a303,a304,a305,a306,a307,a308,a309,a310,a311,a312,a313,a314,a315,a321,a322,a323,a324,a325,a326,a327,a328,a329,a330,a331,a332,a341,a342,a343,a344,a345,a346,a347,a348,a349,a350,a351,a352,a361,a362,a363,a364,a365,a366,a367,a368,a369,a370"
+ },
+ {
+  "schema": "harv",
+  "name": "citas90_pref_pgn",
+  "rows": 346,
+  "cols": "ogc_fid,geom,adm2,hz_name,py_name,adm1,adm_lvl,gb_91,x_coord,y_coord"
+ },
+ {
+  "schema": "harv",
+  "name": "citas90_prov_pgn",
+  "rows": 33,
+  "cols": "ogc_fid,geom,gbcode90,name_py,name_hz"
+ },
+ {
+  "schema": "harv",
+  "name": "dcw_asia_contour",
+  "rows": 186130,
+  "cols": "ogc_fid,geom,fnode_,tnode_,lpoly_,rpoly_,length,countours_,countours_2,val"
+ },
+ {
+  "schema": "harv",
+  "name": "jp_toku_dmyo_pgn",
+  "rows": 206,
+  "cols": "ogc_fid,geom,dmyo_code,cnt_dmyo_c,acres,dmyo_kj,dmyo_kana,dmyo_rmji,dmyo_type,dmyo_salar,seat_kj,seat_kana,seat_rmji,point_id,present_ro,present_ka,xy_type,x_coord,y_coord"
+ },
+ {
+  "schema": "harv",
+  "name": "jp_toku_dmyo_pts",
+  "rows": 206,
+  "cols": "ogc_fid,geom,order_,dmyo_code,dmyo_kj,dmyo_kana,dmyo_rmji,dmyo_type,dmyo_salar,seat_kj,seat_kana,seat_rmji,seat_id,present_ro,present_ka,xy_type,x_coord,y_coord,pt_id"
+ },
+ {
+  "schema": "harv",
+  "name": "jp_toku_doo_pgn",
+  "rows": 9,
+  "cols": "ogc_fid,geom,pref,cnt_pref,order_,name_rom,name_utf,name_utf_a,type_rom,type_utf,type_id,type_eng,pt_id,x_coord,y_coord"
+ },
+ {
+  "schema": "harv",
+  "name": "jp_toku_kuni_pgn",
+  "rows": 69,
+  "cols": "ogc_fid,geom,flag,city1,pref,row_id,label,circuit,name_rom,name_utf,name_utf_a,system_id,x_coord,y_coord"
+ },
+ {
+  "schema": "harv",
+  "name": "kozlov_1899_mk",
+  "rows": 2351,
+  "cols": "ogc_fid,geom,id,name_rus,name_rom,type,long,lat,pos_cert,date,date_cert,map_name,map_cite"
+ },
+ {
+  "schema": "harv",
+  "name": "ngia_dsg_codes_2017_03_15",
+  "rows": 631,
+  "cols": "_code,name,text,collection_guidance,fea_class,c5"
+ },
+ {
+  "schema": "harv",
+  "name": "nima_feat_desig",
+  "rows": 641,
+  "cols": "feat_code,feat_class,feat_name,c3,c4,c5,c6,c7"
+ },
+ {
+  "schema": "harv",
+  "name": "physiogmacroregions_pgn",
+  "rows": 17,
+  "cols": "ogc_fid,geom,mr,system"
+ },
+ {
+  "schema": "harv",
+  "name": "poddubnyi_1900_tibet",
+  "rows": 555,
+  "cols": "ogc_fid,geom,area,perimeter,mapt9dd_,mapt9dd_id,id,name_rus,name_rus_2,name_rom,name_rom_2,pos_cert,date_cert,map_name,map_cite,type_add,type,date,long,lat,namero_ed,name_ruo"
+ },
+ {
+  "schema": "harv",
+  "name": "przh_1871_neimeng",
+  "rows": 155,
+  "cols": "ogc_fid,geom,id,name_rus,name_rom,pos_cert,type,date_cert,map_name,map_cite,date,long,lat"
+ },
+ {
+  "schema": "harv",
+  "name": "przh_1876_tianshan",
+  "rows": 111,
+  "cols": "ogc_fid,geom,pos_cert,name_rus,name_rom,type,map_name,mape_cite,date,long,lat,date_cert,id"
+ },
+ {
+  "schema": "harv",
+  "name": "przh_1884_xj_qh",
+  "rows": 374,
+  "cols": "ogc_fid,geom,name_rus,name_rom,type,lat,long,pos_cert,date_cert,map_name,map_cite,date,id"
+ },
+ {
+  "schema": "harv",
+  "name": "przh_1888_tarim",
+  "rows": 59,
+  "cols": "ogc_fid,geom,name_rus,name_rom,type,lat,long,pos_cert,date_cert,date_,map_name,map_cite,id,ras_id"
+ },
+ {
+  "schema": "harv",
+  "name": "ras_1926_atlas_1926_01",
+  "rows": 220,
+  "cols": "rid,rast"
+ },
+ {
+  "schema": "harv",
+  "name": "ras_1926_atlas_1926_11",
+  "rows": 176,
+  "cols": "rid,rast"
+ },
+ {
+  "schema": "harv",
+  "name": "ras_1926_atlas_1926_13",
+  "rows": 160,
+  "cols": "rid,rast"
+ },
+ {
+  "schema": "harv",
+  "name": "ras_peking_1875_g_1875_bretschneider",
+  "rows": 275,
+  "cols": "rid,rast"
+ },
+ {
+  "schema": "harv",
+  "name": "ras_poddubnyi_1900_pdb2",
+  "rows": 900,
+  "cols": "rid,rast"
+ },
+ {
+  "schema": "harv",
+  "name": "ras_przh_1876_map1",
+  "rows": 360,
+  "cols": "rid,rast"
+ },
+ {
+  "schema": "harv",
+  "name": "ras_przh_1876_map10",
+  "rows": 320,
+  "cols": "rid,rast"
+ },
+ {
+  "schema": "harv",
+  "name": "ras_przh_1876_map11",
+  "rows": 320,
+  "cols": "rid,rast"
+ },
+ {
+  "schema": "harv",
+  "name": "ras_przh_1876_map2",
+  "rows": 360,
+  "cols": "rid,rast"
+ },
+ {
+  "schema": "harv",
+  "name": "ras_przh_1876_map3",
+  "rows": 360,
+  "cols": "rid,rast"
+ },
+ {
+  "schema": "harv",
+  "name": "ras_przh_1876_map4",
+  "rows": 360,
+  "cols": "rid,rast"
+ },
+ {
+  "schema": "harv",
+  "name": "ras_przh_1876_map5",
+  "rows": 400,
+  "cols": "rid,rast"
+ },
+ {
+  "schema": "harv",
+  "name": "ras_przh_1876_map6",
+  "rows": 340,
+  "cols": "rid,rast"
+ },
+ {
+  "schema": "harv",
+  "name": "ras_przh_1876_map7",
+  "rows": 340,
+  "cols": "rid,rast"
+ },
+ {
+  "schema": "harv",
+  "name": "ras_przh_1876_map8",
+  "rows": 380,
+  "cols": "rid,rast"
+ },
+ {
+  "schema": "harv",
+  "name": "ras_przh_1876_map9",
+  "rows": 425,
+  "cols": "rid,rast"
+ },
+ {
+  "schema": "harv",
+  "name": "ras_przh_1884_map1",
+  "rows": 380,
+  "cols": "rid,rast"
+ },
+ {
+  "schema": "harv",
+  "name": "ras_przh_1884_map2",
+  "rows": 360,
+  "cols": "rid,rast"
+ },
+ {
+  "schema": "harv",
+  "name": "ras_przh_1884_map3",
+  "rows": 380,
+  "cols": "rid,rast"
+ },
+ {
+  "schema": "harv",
+  "name": "ras_przh_1884_partial",
+  "rows": 380,
+  "cols": "rid,rast"
+ },
+ {
+  "schema": "harv",
+  "name": "russ_1871_neimeng_pts",
+  "rows": 155,
+  "cols": "ogc_fid,geom,id,name_rus,name_rom,pos_cert,type,date_cert,map_name,map_cite,date_,long,lat,ras_id"
+ },
+ {
+  "schema": "harv",
+  "name": "russ_1876_xinjiang_pts",
+  "rows": 111,
+  "cols": "ogc_fid,geom,pos_cert,name_rus,name_rom,type,map_name,mape_cite,date_,long,lat,date_cert,id,ras_id"
+ },
+ {
+  "schema": "harv",
+  "name": "russ_1884_qinghai_pts",
+  "rows": 374,
+  "cols": "ogc_fid,geom,name_rus,name_rom,type,lat,long,pos_cert,date_cert,map_name,map_cite,date_,id,ras_id"
+ },
+ {
+  "schema": "harv",
+  "name": "russ_1884_tarim_pts",
+  "rows": 59,
+  "cols": "ogc_fid,geom,name_rus,name_rom,type,lat,long,pos_cert,date_cert,date_,map_name,map_cite,id,ras_id"
+ },
+ {
+  "schema": "harv",
+  "name": "russ_1899_mk_pts",
+  "rows": 2351,
+  "cols": "ogc_fid,geom,id,name_rus,name_rom,type,long,lat,pos_cert,date_,date_cert,map_name,map_cite,ras_id"
+ },
+ {
+  "schema": "harv",
+  "name": "russ_1900_kham_pts",
+  "rows": 266,
+  "cols": "ogc_fid,geom,type,pos_cert,date_cert,map_name,map_cite,date_,name_rus,name_rom,long,lat,id,ras_id"
+ },
+ {
+  "schema": "harv",
+  "name": "russ_1904_tibet_pts",
+  "rows": 555,
+  "cols": "ogc_fid,geom,id,name_rus,name_rom,pos_cert,date_cert,map_name,map_cite,type,date_,long,lat,ras_id"
+ },
+ {
+  "schema": "harv",
+  "name": "tan_tan_gbk_names1",
+  "rows": 36780,
+  "cols": "__,c1,c2,c3,c4"
+ },
+ {
+  "schema": "harv",
+  "name": "tan_tan_gbk_names2",
+  "rows": 38500,
+  "cols": "__,c1,c2,c3,c4"
+ },
+ {
+  "schema": "harv",
+  "name": "tbrc_tbrc_major_monasteries_2014",
+  "rows": 356,
+  "cols": "ogc_fid,geom,tbrc_gid,m_nm_bo,m_nm_wy,m_nm_ch,long,lat,link"
+ },
+ {
+  "schema": "harv",
+  "name": "tbrc_tbrc_minor_monasteries_2014",
+  "rows": 2436,
+  "cols": "ogc_fid,geom,tbrc_gid,m_nm_bo,m_nm_wy,m_nm_ch,long,lat,link"
+ },
+ {
+  "schema": "harv",
+  "name": "tbrc_tbrc_printeries_2014",
+  "rows": 204,
+  "cols": "ogc_fid,geom,tbrc_gid,m_nm_bo,m_nm_wy,m_nm_ch,long,lat,link"
+ },
+ {
+  "schema": "harv",
+  "name": "tbrc_tibet_monasteries_utf8_v1_20120702",
+  "rows": 2926,
+  "cols": "ogc_fid,geom,chgis_id,chgis_id_1,name_wylie,name_ch,name_py,gbtown,town_ch,town_py,town_syl,gbcnty,cnty_ch,cnty_py,gbdist,dist_py,prov_py,orig_file,gis_id,long,lat"
+ },
+ {
+  "schema": "harv",
+  "name": "teahorse_major_routes",
+  "rows": 5,
+  "cols": "ogc_fid,geom,uniq_id,route_name,type,orig_eng,orig_zho,from_to"
+ },
+ {
+  "schema": "harv",
+  "name": "teahorse_minor_routes",
+  "rows": 37,
+  "cols": "ogc_fid,geom,uniq_id,route_name,type,orig_eng,orig_zho,from_to"
+ },
+ {
+  "schema": "harv",
+  "name": "teahorse_nodes",
+  "rows": 212,
+  "cols": "ogc_fid,geom,uniq_id,latitude,longitude,name_py,name_zh,type"
+ },
+ {
+  "schema": "harv",
+  "name": "tgaz_admin_seat",
+  "rows": 0,
+  "cols": "id,placename_id,seat_id,begin_date,end_date,note"
+ },
+ {
+  "schema": "harv",
+  "name": "tgaz_alt_name3",
+  "rows": 18540,
+  "cols": "order_id,name_py,name_utf,name_utf_alt,type_py,type_utf,type_id,type_eng,beg_yr,end_yr,pgn_id,pt_id,line_id,data_src,parent_utf,parent_py"
+ },
+ {
+  "schema": "harv",
+  "name": "tgaz_citation_ref",
+  "rows": 11,
+  "cols": "ref_handle,name,uri,note"
+ },
+ {
+  "schema": "harv",
+  "name": "tgaz_ck1",
+  "rows": 0,
+  "cols": "id,name_id,y,x"
+ },
+ {
+  "schema": "harv",
+  "name": "tgaz_data_src",
+  "rows": 9,
+  "cols": "id,name,org,uri,note"
+ },
+ {
+  "schema": "harv",
+  "name": "tgaz_drule",
+  "rows": 10,
+  "cols": "id,name,rule,ld_vocab,ld_uri"
+ },
+ {
+  "schema": "harv",
+  "name": "tgaz_f2",
+  "rows": 5242,
+  "cols": "name,sys_id,x_coord,y_coord,auto_id"
+ },
+ {
+  "schema": "harv",
+  "name": "tgaz_ftype",
+  "rows": 1147,
+  "cols": "id,name_vn,name_alt,name_tr,name_en,period,adl_class,cit_src,citation,note,ld_uri,added_on"
+ },
+ {
+  "schema": "harv",
+  "name": "tgaz_ftype_xx",
+  "rows": 26,
+  "cols": "order_id,lang,name_py,name_ch,id,name_en,name_alt,adl_class,period,cit_src,note,status,ts_added"
+ },
+ {
+  "schema": "harv",
+  "name": "tgaz_geom",
+  "rows": 1,
+  "cols": "id,placename_id,g,src,updated_on"
+ },
+ {
+  "schema": "harv",
+  "name": "tgaz_gis_xx",
+  "rows": 2762,
+  "cols": "order_id,name_py,name_utf,name_utf_alt,sys_id,xy_type,x_coord,y_coord,pres_loc,type_py,type_utf,lev_rank,beg_yr,beg_rule,beg_chg_type,end_yr,end_rule,end_chg_type,note_id,obj_type,geo_src,compiler,geocompiler,checker,filename,src"
+ },
+ {
+  "schema": "harv",
+  "name": "tgaz_link",
+  "rows": 0,
+  "cols": "id,placename_id,type,source,uri,lang"
+ },
+ {
+  "schema": "harv",
+  "name": "tgaz_main_xx",
+  "rows": 2763,
+  "cols": "sys_id,nm_py,nm_simp,name_trad,orig_ID,beg_yr,end_yr,xy_type,x_coord,y_coord,pres_loc,type_py,type_utf,type_id,type_eng,lev_rank,note_id,nt_auto,obj_type,data_src,auto_id"
+ },
+ {
+  "schema": "harv",
+  "name": "tgaz_mv_pn_srch",
+  "rows": 82117,
+  "cols": "id,sys_id,data_src,name,transcription,beg_yr,end_yr,obj_type,x_coord,y_coord,ftype_vn,ftype_tr,parent_id,parent_sys_id,parent_vn,parent_tr"
+ },
+ {
+  "schema": "harv",
+  "name": "tgaz_mv_pn_srch_new_test",
+  "rows": 82117,
+  "cols": "id,sys_id,data_src,name,transcription,beg_yr,end_yr,x_coord,y_coord,ftype_vn,ftype_tr,parent_id,parent_sys_id,parent_vn,parent_tr"
+ },
+ {
+  "schema": "harv",
+  "name": "tgaz_mv_pn_srch_old",
+  "rows": 82117,
+  "cols": "id,sys_id,data_src,name,transcription,beg_yr,end_yr,x_coord,y_coord,ftype_vn,ftype_tr,parent_id,parent_sys_id,parent_vn,parent_tr,counter_id"
+ },
+ {
+  "schema": "harv",
+  "name": "tgaz_part_of",
+  "rows": 83400,
+  "cols": "id,child_id,parent_id,begin_year,end_year"
+ },
+ {
+  "schema": "harv",
+  "name": "tgaz_partof_xx",
+  "rows": 760,
+  "cols": "order_id,child_id,parent_id,beg_yr,end_yr"
+ },
+ {
+  "schema": "harv",
+  "name": "tgaz_placename",
+  "rows": 82117,
+  "cols": "id,sys_id,ftype_id,data_src,data_src_ref,snote_id,alt_of_id,lev_rank,beg_yr,beg_rule_id,end_yr,end_rule_id,obj_type,xy_type,x_coord,y_coord,geo_src,added_on,default_parent_id,parent_status"
+ },
+ {
+  "schema": "harv",
+  "name": "tgaz_prec_by",
+  "rows": 10231,
+  "cols": "id,placename_id,prec_id"
+ },
+ {
+  "schema": "harv",
+  "name": "tgaz_precby_xx",
+  "rows": 10878,
+  "cols": "pby_id,pby_nmpy,pby_nmch,pby_nmft,pby_obj_type,pby_prev_id,pby_prev_nmpy,pby_prev_nmch,pby_prev_nmft,pby_uniq_id"
+ },
+ {
+  "schema": "harv",
+  "name": "tgaz_present_loc",
+  "rows": 82117,
+  "cols": "id,placename_id,type,country_code,text_value,source,attestation,source_uri"
+ },
+ {
+  "schema": "harv",
+  "name": "tgaz_script",
+  "rows": 16,
+  "cols": "id,name,lang,dialect,default_per_lang,note"
+ },
+ {
+  "schema": "harv",
+  "name": "tgaz_snote",
+  "rows": 25655,
+  "cols": "id,src_note_ref,source,compiler,lang,topic,uri,full_text,added_on"
+ },
+ {
+  "schema": "harv",
+  "name": "tgaz_snote_xx",
+  "rows": 2762,
+  "cols": "nts_comp,nts_noteid,nts_nmpy,nts_nmch,nts_nmft,nts_fullnote,nts_autoid"
+ },
+ {
+  "schema": "harv",
+  "name": "tgaz_spatial_system_ref",
+  "rows": 0,
+  "cols": "id,placename_id,system_name,level,location_uri,location_id"
+ },
+ {
+  "schema": "harv",
+  "name": "tgaz_spelling",
+  "rows": 245042,
+  "cols": "id,placename_id,script_id,written_form,exonym_lang,trsys_id,default_per_type,attested_by,note"
+ },
+ {
+  "schema": "harv",
+  "name": "tgaz_tbt_rev",
+  "rows": 2763,
+  "cols": "id,name_id,y,x"
+ },
+ {
+  "schema": "harv",
+  "name": "tgaz_temporal_annotation",
+  "rows": 0,
+  "cols": "id,placename_id,temporal_type,calendar_standard,rule_id,attested_by,equivalent,lang,note"
+ },
+ {
+  "schema": "harv",
+  "name": "tgaz_trsys",
+  "rows": 6,
+  "cols": "id,name,lang,lang_subtype,note"
+ },
+ {
+  "schema": "harv",
+  "name": "tgaz_v5_id",
+  "rows": 77769,
+  "cols": "id,flag,sys_id"
+ },
+ {
+  "schema": "harv",
+  "name": "tgaz_v6_id",
+  "rows": 82858,
+  "cols": "id,flag,sys_id"
+ },
+ {
+  "schema": "harv",
+  "name": "tgaz_wkt_definition",
+  "rows": 0,
+  "cols": "id,placename_id,object_type,object_text_value"
+ },
+ {
+  "schema": "harv",
+  "name": "workshop2001_index",
+  "rows": 29,
+  "cols": "authorlast,authorfirst,format,language,type,title,filename"
+ },
+ {
+  "schema": "ogr_system_tables",
+  "name": "metadata",
+  "rows": 184,
+  "cols": "id,schema_name,table_name,metadata"
+ },
+ {
+  "schema": "public",
+  "name": "academies_2957",
+  "rows": 2957,
+  "cols": "id,书院名id(cbdb),书院id(cbdb),书院名,建院时间,建院年号,建院朝代,建書院者,繁盛朝代,书院地址,书院地址x坐标,书院地址y坐标,建築,建築時間,經費來源,經費數目,捐贈者,捐贈物資,捐贈時間,是否有藏書,是否有藏書備註,改建/擴建/重修者,改建/擴建/重修時間,重建者,重建時間,祀y,書院類型,書院類型備註,出版物類型,出版物時間,重大事件,任職/學生,任職/就學時間,別稱,並稱,學派備註,被毀時間,被毀時間備註,設定制度者,設定制度時間,出版物,改制名稱,改制時間,信息來源,前身信息,经济制度,招生制度,藏书,书院制度,销毁的建筑（时间）,书院出处,书院出处页码,备注,信息收集"
+ },
+ {
+  "schema": "public",
+  "name": "addr_belongs_data",
+  "rows": 37177,
+  "cols": "c_addr_id,c_belongs_to,c_firstyear,c_lastyear,c_source,c_pages,c_notes,c_created_by,c_created_date,c_modified_by,c_modified_date"
+ },
+ {
+  "schema": "public",
+  "name": "addr_codes",
+  "rows": 30157,
+  "cols": "c_addr_id,c_name,c_name_chn,c_firstyear,c_lastyear,c_admin_type,c_admin_cat_code,x_coord,y_coord,chgis_pt_id,c_notes,c_alt_names,c_created_by,c_created_date,c_modified_by,c_modified_date"
+ },
+ {
+  "schema": "public",
+  "name": "addr_xy",
+  "rows": 19249,
+  "cols": "c_addr_id,x_coord,y_coord,c_source_reference,c_source_id,c_notes"
+ },
+ {
+  "schema": "public",
+  "name": "admin_cat_code_type_rel",
+  "rows": 0,
+  "cols": "c_admin_cat_code,c_admin_cat_type_code"
+ },
+ {
+  "schema": "public",
+  "name": "admin_cat_codes",
+  "rows": 213,
+  "cols": "c_admin_cat_code,c_admin_cat_py,c_admin_cat_hz,c_admin_cat_trans,c_notes"
+ },
+ {
+  "schema": "public",
+  "name": "admin_cat_types",
+  "rows": 0,
+  "cols": "c_admin_cat_type_code,c_admin_cat_type_hz,c_admin_cat_type_trans,c_notes"
+ },
+ {
+  "schema": "public",
+  "name": "altname_codes",
+  "rows": 21,
+  "cols": "c_name_type_code,c_name_type_desc,c_name_type_desc_chn"
+ },
+ {
+  "schema": "public",
+  "name": "altname_data",
+  "rows": 208828,
+  "cols": "c_personid,c_alt_name,c_alt_name_chn,c_alt_name_type_code,c_sequence,c_source,c_pages,c_notes,c_created_by,c_modified_by,c_created_date,c_modified_date"
+ },
+ {
+  "schema": "public",
+  "name": "appointment_code_type_rel",
+  "rows": 109,
+  "cols": "c_appt_type_code,c_appt_code"
+ },
+ {
+  "schema": "public",
+  "name": "appointment_codes",
+  "rows": 116,
+  "cols": "c_appt_code,c_appt_desc_chn,c_appt_desc,c_appt_desc_chn_alt,c_appt_desc_alt,c_notes"
+ },
+ {
+  "schema": "public",
+  "name": "appointment_types",
+  "rows": 13,
+  "cols": "c_appt_type_code,c_appt_type_desc,c_appt_type_desc_chn"
+ },
+ {
+  "schema": "public",
+  "name": "assoc_code_type_rel",
+  "rows": 463,
+  "cols": "c_assoc_code,c_assoc_type_code"
+ },
+ {
+  "schema": "public",
+  "name": "assoc_codes",
+  "rows": 498,
+  "cols": "c_assoc_code,c_assoc_pair,c_assoc_pair2,c_assoc_desc,c_assoc_desc_chn,c_assoc_role_type,c_sortorder,c_example"
+ },
+ {
+  "schema": "public",
+  "name": "assoc_data",
+  "rows": 190048,
+  "cols": "c_assoc_code,c_personid,c_kin_code,c_kin_id,c_assoc_id,c_assoc_kin_code,c_assoc_kin_id,c_tertiary_personid,c_tertiary_type_notes,c_assoc_count,c_sequence,c_assoc_first_year,c_assoc_last_year,c_source,c_pages,c_notes,c_assoc_fy_nh_code,c_assoc_fy_nh_year,c_assoc_fy_range,c_assoc_ly_nh_code,c_assoc_ly_nh_year,c_assoc_ly_range,c_addr_id,c_litgenre_code,c_occasion_code,c_topic_code,c_inst_code,c_inst_name_code,c_text_title,c_assoc_claimer_id,c_assoc_fy_intercalary,c_assoc_fy_month,c_assoc_fy_day,c_assoc_fy_day_gz,c_assoc_ly_intercalary,c_assoc_ly_month,c_assoc_ly_day,c_assoc_ly_day_gz,c_created_by,c_modified_by,c_created_date,c_modified_date"
+ },
+ {
+  "schema": "public",
+  "name": "assoc_types",
+  "rows": 45,
+  "cols": "c_assoc_type_code,c_assoc_type_desc,c_assoc_type_desc_chn,c_assoc_type_parent_id,c_assoc_type_level,c_assoc_type_sortorder,c_assoc_type_short_desc"
+ },
+ {
+  "schema": "public",
+  "name": "assume_office_codes",
+  "rows": 6,
+  "cols": "c_assume_office_code,c_assume_office_desc_chn,c_assume_office_desc"
+ },
+ {
+  "schema": "public",
+  "name": "biog_addr_codes",
+  "rows": 22,
+  "cols": "c_addr_type,c_addr_desc,c_addr_desc_chn,c_addr_note,c_index_addr_rank,c_index_addr_default_rank"
+ },
+ {
+  "schema": "public",
+  "name": "biog_addr_data",
+  "rows": 461637,
+  "cols": "c_personid,c_addr_id,c_addr_type,c_sequence,c_firstyear,c_lastyear,c_source,c_pages,c_notes,c_fy_nh_code,c_ly_nh_code,c_fy_nh_year,c_ly_nh_year,c_fy_range,c_ly_range,c_natal,c_fy_intercalary,c_ly_intercalary,c_fy_month,c_ly_month,c_fy_day,c_ly_day,c_fy_day_gz,c_ly_day_gz,c_created_by,c_modified_by,c_delete,c_created_date,c_modified_date"
+ },
+ {
+  "schema": "public",
+  "name": "biog_inst_codes",
+  "rows": 26,
+  "cols": "c_bi_role_code,c_bi_role_desc,c_bi_role_chn,c_notes"
+ },
+ {
+  "schema": "public",
+  "name": "biog_inst_data",
+  "rows": 571,
+  "cols": "c_personid,c_inst_name_code,c_inst_code,c_bi_role_code,c_bi_begin_year,c_bi_by_nh_code,c_bi_by_nh_year,c_bi_by_range,c_bi_end_year,c_bi_ey_nh_code,c_bi_ey_nh_year,c_bi_ey_range,c_source,c_pages,c_notes,c_created_by,c_modified_by,c_created_date,c_modified_date"
+ },
+ {
+  "schema": "public",
+  "name": "biog_main",
+  "rows": 661969,
+  "cols": "c_personid,c_name,c_name_chn,c_index_year,c_index_year_type_code,c_index_year_source_id,c_female,c_index_addr_id,c_index_addr_type_code,c_ethnicity_code,c_household_status_code,c_tribe,c_birthyear,c_by_nh_code,c_by_nh_year,c_by_range,c_deathyear,c_dy_nh_code,c_dy_nh_year,c_dy_range,c_death_age,c_death_age_range,c_fl_earliest_year,c_fl_ey_nh_code,c_fl_ey_nh_year,c_fl_ey_notes,c_fl_latest_year,c_fl_ly_nh_code,c_fl_ly_nh_year,c_fl_ly_notes,c_surname,c_surname_chn,c_mingzi,c_mingzi_chn,c_dy,c_choronym_code,c_notes,c_by_intercalary,c_dy_intercalary,c_by_month,c_dy_month,c_by_day,c_dy_day,c_by_day_gz,c_dy_day_gz,c_surname_proper,c_mingzi_proper,c_name_proper,c_surname_rm,c_mingzi_rm,c_name_rm,c_created_by,c_modified_by,c_created_date,c_modified_date"
+ },
+ {
+  "schema": "public",
+  "name": "biog_source_data",
+  "rows": 1254135,
+  "cols": "c_personid,c_textid,c_pages,c_notes,c_main_source,c_self_bio,c_created_by,c_created_date,c_modified_by,c_modified_date"
+ },
+ {
+  "schema": "public",
+  "name": "biog_text_data",
+  "rows": 53354,
+  "cols": "c_textid,c_personid,c_role_id,c_year,c_nh_code,c_nh_year,c_range_code,c_source,c_pages,c_notes,c_created_by,c_modified_by,c_created_date,c_modified_date"
+ },
+ {
+  "schema": "public",
+  "name": "china_pop_1999_county",
+  "rows": 2361,
+  "cols": "ogc_fid,gb_code_99,pinyin_name,province,prefecture,pop_1999_c,pop_note_1999"
+ },
+ {
+  "schema": "public",
+  "name": "choronym_codes",
+  "rows": 173,
+  "cols": "c_choronym_code,c_choronym_desc,c_choronym_chn"
+ },
+ {
+  "schema": "public",
+  "name": "country_codes",
+  "rows": 11,
+  "cols": "c_country_code,c_country_desc,c_country_desc_chn"
+ },
+ {
+  "schema": "public",
+  "name": "dynasties",
+  "rows": 85,
+  "cols": "c_dy,c_dynasty,c_dynasty_chn,c_start,c_end,c_sort"
+ },
+ {
+  "schema": "public",
+  "name": "entry_code_type_rel",
+  "rows": 284,
+  "cols": "c_entry_code,c_entry_type"
+ },
+ {
+  "schema": "public",
+  "name": "entry_codes",
+  "rows": 273,
+  "cols": "c_entry_code,c_entry_desc,c_entry_desc_chn"
+ },
+ {
+  "schema": "public",
+  "name": "entry_data",
+  "rows": 264975,
+  "cols": "c_personid,c_entry_code,c_sequence,c_exam_rank,c_kin_code,c_kin_id,c_assoc_code,c_assoc_id,c_year,c_age,c_entry_nh_id,c_entry_nh_year,c_entry_dy,c_entry_range,c_inst_code,c_inst_name_code,c_exam_field,c_entry_addr_id,c_parental_status_code,c_attempt_count,c_source,c_pages,c_notes,c_posting_notes,c_created_by,c_modified_by,c_created_date,c_modified_date"
+ },
+ {
+  "schema": "public",
+  "name": "entry_types",
+  "rows": 29,
+  "cols": "c_entry_type,c_entry_type_desc,c_entry_type_desc_chn,c_entry_type_parent_id,c_entry_type_level,c_entry_type_sortorder"
+ },
+ {
+  "schema": "public",
+  "name": "ethnicity_tribe_codes",
+  "rows": 498,
+  "cols": "c_ethnicity_code,c_group_code,c_subgroup_code,c_altname_code,c_name_chn,c_name,c_ethno_legal_cat,c_romanized,c_surname,c_notes,c_sortorder"
+ },
+ {
+  "schema": "public",
+  "name": "event_codes",
+  "rows": 117,
+  "cols": "c_event_code,c_event_name_chn,c_event_name,c_fy_yr,c_ly_yr,c_fy_nh_code,c_ly_nh_code,c_fy_nh_yr,c_ly_nh_yr,c_fy_intercalary,c_fy_month,c_ly_intercalary,c_ly_month,c_fy_range,c_ly_range,c_addr_id,c_dy,c_source,c_pages,c_event_notes"
+ },
+ {
+  "schema": "public",
+  "name": "events_addr",
+  "rows": 4,
+  "cols": "c_event_code,c_personid,c_sequence,c_addr_id,c_year,c_nh_code,c_nh_year,c_yr_range,c_intercalary,c_month,c_day,c_day_ganzhi"
+ },
+ {
+  "schema": "public",
+  "name": "events_data",
+  "rows": 427,
+  "cols": "c_personid,c_sequence,c_event_code,c_role,c_year,c_nh_code,c_nh_year,c_yr_range,c_intercalary,c_month,c_day,c_day_ganzhi,c_addr_id,c_source,c_pages,c_event,c_notes,c_created_by,c_modified_by,c_created_date,c_modified_date"
+ },
+ {
+  "schema": "public",
+  "name": "extant_codes",
+  "rows": 4,
+  "cols": "c_extant_code,c_extant_desc,c_extant_desc_chn"
+ },
+ {
+  "schema": "public",
+  "name": "ganzhi_codes",
+  "rows": 61,
+  "cols": "c_ganzhi_code,c_ganzhi_chn,c_ganzhi_py"
+ },
+ {
+  "schema": "public",
+  "name": "gb_91_codes",
+  "rows": 3389,
+  "cols": "gb_91,hz_name,py_name,adm2,adm1,adm_lvl"
+ },
+ {
+  "schema": "public",
+  "name": "household_status_codes",
+  "rows": 34,
+  "cols": "c_household_status_code,c_household_status_desc,c_household_status_desc_chn"
+ },
+ {
+  "schema": "public",
+  "name": "indexyear_type_codes",
+  "rows": 31,
+  "cols": "c_index_year_type_code,c_index_year_type_desc,c_index_year_type_hz,c_notes"
+ },
+ {
+  "schema": "public",
+  "name": "kin_data",
+  "rows": 562711,
+  "cols": "c_personid,c_kin_id,c_kin_code,c_source,c_pages,c_notes,c_autogen_notes,c_created_by,c_modified_by,c_created_date,c_modified_date"
+ },
+ {
+  "schema": "public",
+  "name": "kin_mourning",
+  "rows": 159,
+  "cols": "c_kinrel,c_kinrel_alt,c_kinrel_chn,c_mourning,c_mourning_chn,c_kindist,c_kintype,c_kintype_desc,c_kintype_desc_chn,c_notes"
+ },
+ {
+  "schema": "public",
+  "name": "kin_mourning_steps",
+  "rows": 159,
+  "cols": "c_kinrel,c_upstep,c_dwnstep,c_marstep,c_colstep"
+ },
+ {
+  "schema": "public",
+  "name": "kinrel_reduction",
+  "rows": 8,
+  "cols": "c_kinrel_target,c_sex,c_kinrel_replacement,c_up_change,c_down_change,c_col_change,c_mar_change,c_notes,c_required,c_check_ego"
+ },
+ {
+  "schema": "public",
+  "name": "kinship_codes",
+  "rows": 488,
+  "cols": "c_kincode,c_kin_pair1,c_kin_pair2,c_kin_pair_notes,c_kinrel_chn,c_kinrel,c_kinrel_alt,c_pick_sorting,c_upstep,c_dwnstep,c_marstep,c_colstep,c_kinrel_simplified"
+ },
+ {
+  "schema": "public",
+  "name": "literarygenre_codes",
+  "rows": 12,
+  "cols": "c_lit_genre_code,c_lit_genre_desc,c_lit_genre_desc_chn,c_sortorder"
+ },
+ {
+  "schema": "public",
+  "name": "measure_codes",
+  "rows": 7,
+  "cols": "c_measure_code,c_measure_desc,c_measure_desc_chn"
+ },
+ {
+  "schema": "public",
+  "name": "merged_person_data",
+  "rows": 5994,
+  "cols": "c_personid,c_merged_from_personid,c_notes,c_source,c_pages,c_created_by,c_modified_by,c_created_date,c_modified_date"
+ },
+ {
+  "schema": "public",
+  "name": "missionary_writings",
+  "rows": 1033,
+  "cols": "textid,book_title,book_title_chn,author_id,author_name,pub_year,source,pages,number,counter,publish_location_in_chinese"
+ },
+ {
+  "schema": "public",
+  "name": "nian_hao",
+  "rows": 682,
+  "cols": "c_nianhao_id,c_dy,c_dynasty_chn,c_nianhao_chn,c_nianhao_pin,c_firstyear,c_lastyear"
+ },
+ {
+  "schema": "public",
+  "name": "occasion_codes",
+  "rows": 10,
+  "cols": "c_occasion_code,c_occasion_desc,c_occasion_desc_chn,c_sortorder"
+ },
+ {
+  "schema": "public",
+  "name": "office_categories",
+  "rows": 15,
+  "cols": "c_office_category_id,c_category_desc,c_category_desc_chn,c_notes"
+ },
+ {
+  "schema": "public",
+  "name": "office_code_type_rel",
+  "rows": 43783,
+  "cols": "c_office_id,c_office_tree_id"
+ },
+ {
+  "schema": "public",
+  "name": "office_codes",
+  "rows": 34162,
+  "cols": "c_office_id,c_dy,c_office_pinyin,c_office_chn,c_office_pinyin_alt,c_office_chn_alt,c_office_trans,c_office_trans_alt,c_source,c_pages,c_notes"
+ },
+ {
+  "schema": "public",
+  "name": "office_type_tree",
+  "rows": 2742,
+  "cols": "c_office_type_node_id,c_office_type_desc,c_office_type_desc_chn,c_parent_id"
+ },
+ {
+  "schema": "public",
+  "name": "parental_status_codes",
+  "rows": 7,
+  "cols": "c_parental_status_code,c_parental_status_desc,c_parental_status_desc_chn"
+ },
+ {
+  "schema": "public",
+  "name": "possession_act_codes",
+  "rows": 4,
+  "cols": "c_possession_act_code,c_possession_act_desc,c_possession_act_desc_chn"
+ },
+ {
+  "schema": "public",
+  "name": "possession_addr",
+  "rows": 62,
+  "cols": "c_possession_record_id,c_personid,c_addr_id"
+ },
+ {
+  "schema": "public",
+  "name": "possession_data",
+  "rows": 60,
+  "cols": "c_personid,c_possession_record_id,c_sequence,c_possession_act_code,c_possession_desc,c_possession_desc_chn,c_quantity,c_measure_code,c_possession_yr,c_possession_nh_code,c_possession_nh_yr,c_possession_yr_range,c_addr_id,c_source,c_pages,c_notes,c_created_by,c_modified_by,c_created_date,c_modified_date"
+ },
+ {
+  "schema": "public",
+  "name": "posted_to_addr_data",
+  "rows": 465284,
+  "cols": "c_posting_id,c_personid,c_office_id,c_addr_id,c_created_by,c_created_date,c_modified_by,c_modified_date"
+ },
+ {
+  "schema": "public",
+  "name": "posted_to_office_data",
+  "rows": 591518,
+  "cols": "c_personid,c_office_id,c_posting_id,c_sequence,c_firstyear,c_fy_nh_code,c_fy_nh_year,c_fy_range,c_lastyear,c_ly_nh_code,c_ly_nh_year,c_ly_range,c_appt_code,c_assume_office_code,c_inst_code,c_inst_name_code,c_source,c_pages,c_notes,c_office_id_backup,c_office_category_id,c_fy_intercalary,c_fy_month,c_ly_intercalary,c_ly_month,c_fy_day,c_ly_day,c_fy_day_gz,c_ly_day_gz,c_dy,c_created_by,c_modified_by,c_created_date,c_modified_date"
+ },
+ {
+  "schema": "public",
+  "name": "posting_data",
+  "rows": 591487,
+  "cols": "c_personid,c_posting_id,c_created_by,c_created_date,c_modified_by,c_modified_date"
+ },
+ {
+  "schema": "public",
+  "name": "quan_yuan_wen_index",
+  "rows": 40199,
+  "cols": "vol_juan,name,title,page,vol"
+ },
+ {
+  "schema": "public",
+  "name": "scholarlytopic_codes",
+  "rows": 32,
+  "cols": "c_topic_code,c_topic_desc,c_topic_desc_chn,c_topic_type_code,c_topic_type_desc,c_topic_type_desc_chn,c_sortorder"
+ },
+ {
+  "schema": "public",
+  "name": "social_institution_addr",
+  "rows": 3859,
+  "cols": "c_inst_name_code,c_inst_code,c_inst_addr_type_code,c_inst_addr_begin_year,c_inst_addr_end_year,c_inst_addr_id,inst_xcoord,inst_ycoord,c_source,c_pages,c_notes"
+ },
+ {
+  "schema": "public",
+  "name": "social_institution_addr_types",
+  "rows": 2,
+  "cols": "c_inst_addr_type_code,c_inst_addr_type_desc,c_inst_addr_type_chn,c_notes"
+ },
+ {
+  "schema": "public",
+  "name": "social_institution_altname_codes",
+  "rows": 1,
+  "cols": "c_inst_altname_type,c_inst_altname_desc,c_inst_altname_chn,c_notes"
+ },
+ {
+  "schema": "public",
+  "name": "social_institution_altname_data",
+  "rows": 0,
+  "cols": "c_inst_name_code,c_inst_code,c_inst_altname_type,c_inst_altname_hz,c_inst_altname_py,c_source,c_pages,c_notes"
+ },
+ {
+  "schema": "public",
+  "name": "social_institution_codes",
+  "rows": 4012,
+  "cols": "c_inst_name_code,c_inst_code,c_inst_type_code,c_inst_begin_year,c_by_nianhao_code,c_by_nianhao_year,c_by_year_range,c_inst_begin_dy,c_inst_floruit_dy,c_inst_first_known_year,c_inst_end_year,c_ey_nianhao_code,c_ey_nianhao_year,c_ey_year_range,c_inst_end_dy,c_inst_last_known_year,c_source,c_pages,c_notes"
+ },
+ {
+  "schema": "public",
+  "name": "social_institution_name_codes",
+  "rows": 2603,
+  "cols": "c_inst_name_code,c_inst_name_hz,c_inst_name_py"
+ },
+ {
+  "schema": "public",
+  "name": "social_institution_types",
+  "rows": 7,
+  "cols": "c_inst_type_code,c_inst_type_py,c_inst_type_hz"
+ },
+ {
+  "schema": "public",
+  "name": "spatial_ref_sys",
+  "rows": 8501,
+  "cols": "srid,auth_name,auth_srid,srtext,proj4text"
+ },
+ {
+  "schema": "public",
+  "name": "status_code_type_rel",
+  "rows": 285,
+  "cols": "c_status_code,c_status_type_code"
+ },
+ {
+  "schema": "public",
+  "name": "status_codes",
+  "rows": 285,
+  "cols": "c_status_code,c_status_desc,c_status_desc_chn"
+ },
+ {
+  "schema": "public",
+  "name": "status_data",
+  "rows": 73530,
+  "cols": "c_personid,c_sequence,c_status_code,c_firstyear,c_fy_nh_code,c_fy_nh_year,c_fy_range,c_lastyear,c_ly_nh_code,c_ly_nh_year,c_ly_range,c_supplement,c_source,c_pages,c_notes,c_created_by,c_modified_by,c_created_date,c_modified_date"
+ },
+ {
+  "schema": "public",
+  "name": "status_types",
+  "rows": 14,
+  "cols": "c_status_type_code,c_status_type_desc,c_status_type_chn,c_status_type_parent_code"
+ },
+ {
+  "schema": "public",
+  "name": "text_biblcat_code_type_rel",
+  "rows": 144,
+  "cols": "c_text_cat_code,c_text_cat_type_id"
+ },
+ {
+  "schema": "public",
+  "name": "text_biblcat_codes",
+  "rows": 144,
+  "cols": "c_text_cat_code,c_text_cat_desc,c_text_cat_desc_chn,c_text_cat_pinyin,c_text_cat_parent_id,c_text_cat_level,c_text_cat_sortorder"
+ },
+ {
+  "schema": "public",
+  "name": "text_biblcat_types",
+  "rows": 51,
+  "cols": "c_text_cat_type_id,c_text_cat_type_desc,c_text_cat_type_desc_chn,c_text_cat_type_parent_id,c_text_cat_type_level,c_text_cat_type_sortorder"
+ },
+ {
+  "schema": "public",
+  "name": "text_codes",
+  "rows": 62377,
+  "cols": "c_textid,c_title_chn,c_title,c_title_trans,c_text_type_id,c_text_year,c_text_nh_code,c_text_nh_year,c_text_range_code,c_bibl_cat_code,c_extant,c_text_country,c_text_dy,c_source,c_pages,c_url_api,c_url_api_coda,c_url_homepage,c_notes,c_title_alt_chn,c_created_by,c_modified_by,c_created_date,c_modified_date"
+ },
+ {
+  "schema": "public",
+  "name": "text_instance_data",
+  "rows": 9817,
+  "cols": "c_textid,c_text_edition_id,c_text_instance_id,c_instance_title_chn,c_instance_title,c_instance_title_trans,c_part_of_instance,c_part_of_instance_notes,c_pub_country,c_pub_dy,c_pub_year,c_pub_nh_code,c_pub_nh_year,c_pub_range_code,c_pub_loc,c_publisher,c_print,c_pub_notes,c_source,c_pages,c_extant,c_url_api,c_url_homepage,c_notes,c_number,c_counter,c_title_alt_chn,c_created_by,c_modified_by,c_created_date,c_modified_date"
+ },
+ {
+  "schema": "public",
+  "name": "text_role_codes",
+  "rows": 12,
+  "cols": "c_role_id,c_role_desc,c_role_desc_chn"
+ },
+ {
+  "schema": "public",
+  "name": "text_type",
+  "rows": 126,
+  "cols": "c_text_type_code,c_text_type_desc,c_text_type_desc_chn,c_text_type_parent_id,c_text_type_level,c_text_type_sortorder"
+ },
+ {
+  "schema": "public",
+  "name": "thdl_tibet_adm_areas",
+  "rows": 166,
+  "cols": "ogc_fid,prov_id,prov_name,prov_seat,pref_id,pref_name,pref_seat,gb_91,cnty_name_91,cnty_seat_id,cnty_seat_name,field11,field12,cg_91_95,new_name_95,gb_95,field16,cg_95_99,new_name_99,gb_99,field20,py_alt_99,field22,field23,field24,field25,field26,field27,field28"
+ },
+ {
+  "schema": "public",
+  "name": "year_range_codes",
+  "rows": 6,
+  "cols": "c_range_code,c_range,c_range_chn,c_approx,c_approx_chn"
+ }
+]

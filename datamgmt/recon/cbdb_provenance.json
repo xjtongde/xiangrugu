@@ -1,0 +1,2372 @@
+[
+ {
+  "schema": "chgis",
+  "name": "chgis_tmpl_28apr",
+  "rows": 2407,
+  "cat": "A-有源·shapefile(868内,或为版本/编码合并)"
+ },
+ {
+  "schema": "chgis",
+  "name": "china_chron",
+  "rows": 677,
+  "cat": "B-有源·China_Periods(sql/xls/csv)"
+ },
+ {
+  "schema": "chgis",
+  "name": "china_chron_fields",
+  "rows": 21,
+  "cat": "B-有源·China_Periods(sql/xls/csv)"
+ },
+ {
+  "schema": "chgis",
+  "name": "chinaw_master_beta",
+  "rows": 2403,
+  "cat": "A-有源·shapefile(868内,或为版本/编码合并)"
+ },
+ {
+  "schema": "chgis",
+  "name": "dem",
+  "rows": 3358,
+  "cat": "B-有源·栅格(DEM/历史图扫描GeoTIFF)"
+ },
+ {
+  "schema": "chgis",
+  "name": "dem_gtopo30",
+  "rows": 6095,
+  "cat": "B-有源·栅格(DEM/历史图扫描GeoTIFF)"
+ },
+ {
+  "schema": "chgis",
+  "name": "gazetteers_beta",
+  "rows": 963,
+  "cat": "A-有源·shapefile(868内,或为版本/编码合并)"
+ },
+ {
+  "schema": "chgis",
+  "name": "hartwell_chin_pgn",
+  "rows": 9402,
+  "cat": "A-有源·shapefile(868内,或为版本/编码合并)"
+ },
+ {
+  "schema": "chgis",
+  "name": "hartwell_chin_pts",
+  "rows": 957,
+  "cat": "A-有源·shapefile(868内,或为版本/编码合并)"
+ },
+ {
+  "schema": "chgis",
+  "name": "hartwell_circ_pgn",
+  "rows": 315,
+  "cat": "A-有源·shapefile(868内,或为版本/编码合并)"
+ },
+ {
+  "schema": "chgis",
+  "name": "hartwell_cnty_pgn",
+  "rows": 8146,
+  "cat": "A-有源·shapefile(868内,或为版本/编码合并)"
+ },
+ {
+  "schema": "chgis",
+  "name": "hartwell_indp_pgn",
+  "rows": 155,
+  "cat": "A-有源·shapefile(868内,或为版本/编码合并)"
+ },
+ {
+  "schema": "chgis",
+  "name": "hartwell_jin_pgn",
+  "rows": 923,
+  "cat": "A-有源·shapefile(868内,或为版本/编码合并)"
+ },
+ {
+  "schema": "chgis",
+  "name": "hartwell_liao_pgn",
+  "rows": 437,
+  "cat": "A-有源·shapefile(868内,或为版本/编码合并)"
+ },
+ {
+  "schema": "chgis",
+  "name": "hartwell_pref_pgn",
+  "rows": 1145,
+  "cat": "A-有源·shapefile(868内,或为版本/编码合并)"
+ },
+ {
+  "schema": "chgis",
+  "name": "hartwell_prov_pgn",
+  "rows": 17,
+  "cat": "A-有源·shapefile(868内,或为版本/编码合并)"
+ },
+ {
+  "schema": "chgis",
+  "name": "major_china_periods",
+  "rows": 52,
+  "cat": "B-有源·China_Periods(sql/xls/csv)"
+ },
+ {
+  "schema": "chgis",
+  "name": "manshu_200k_index",
+  "rows": 60,
+  "cat": "A-有源·shapefile(868内,或为版本/编码合并)"
+ },
+ {
+  "schema": "chgis",
+  "name": "ming_garrisons",
+  "rows": 375,
+  "cat": "A-有源·shapefile(868内,或为版本/编码合并)"
+ },
+ {
+  "schema": "chgis",
+  "name": "ming_routes_2016",
+  "rows": 1043,
+  "cat": "A-有源·shapefile(868内,或为版本/编码合并)"
+ },
+ {
+  "schema": "chgis",
+  "name": "ming_stations_2016",
+  "rows": 1000,
+  "cat": "A-有源·shapefile(868内,或为版本/编码合并)"
+ },
+ {
+  "schema": "chgis",
+  "name": "minggarrisonssheet_29jan08",
+  "rows": 375,
+  "cat": "A-有源·shapefile(868内,或为版本/编码合并)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v2_1820_cnty_pgn",
+  "rows": 71,
+  "cat": "A-有源·shapefile(868内,或为版本/编码合并)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v2_1820_cnty_pts",
+  "rows": 1859,
+  "cat": "A-有源·shapefile(868内,或为版本/编码合并)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v2_1820_cst_lin",
+  "rows": 160,
+  "cat": "A-有源·shapefile(868内,或为版本/编码合并)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v2_1820_lks_pgn",
+  "rows": 370,
+  "cat": "A-有源·shapefile(868内,或为版本/编码合并)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v2_1820_pref_pgn",
+  "rows": 320,
+  "cat": "A-有源·shapefile(868内,或为版本/编码合并)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v2_1820_pref_pts",
+  "rows": 301,
+  "cat": "A-有源·shapefile(868内,或为版本/编码合并)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v2_1820_prov_pgn",
+  "rows": 32,
+  "cat": "A-有源·shapefile(868内,或为版本/编码合并)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v2_1820_prov_pts",
+  "rows": 24,
+  "cat": "A-有源·shapefile(868内,或为版本/编码合并)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v2_1820_rvr_lin",
+  "rows": 2778,
+  "cat": "A-有源·shapefile(868内,或为版本/编码合并)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v2_1820_twn_pts",
+  "rows": 8659,
+  "cat": "A-有源·shapefile(868内,或为版本/编码合并)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v2_1911_cnty_pgn",
+  "rows": 810,
+  "cat": "A-有源·shapefile(868内,或为版本/编码合并)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v2_1911_cnty_pts",
+  "rows": 779,
+  "cat": "A-有源·shapefile(868内,或为版本/编码合并)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v2_1911_pref_pgn",
+  "rows": 137,
+  "cat": "A-有源·shapefile(868内,或为版本/编码合并)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v2_1911_pref_pts",
+  "rows": 137,
+  "cat": "A-有源·shapefile(868内,或为版本/编码合并)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v2_1911_prov_pgn",
+  "rows": 9,
+  "cat": "A-有源·shapefile(868内,或为版本/编码合并)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v2_1911_prov_pts",
+  "rows": 10,
+  "cat": "A-有源·shapefile(868内,或为版本/编码合并)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v2_1911_twn_pts",
+  "rows": 17466,
+  "cat": "A-有源·shapefile(868内,或为版本/编码合并)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v2_beijing_sites_pgn",
+  "rows": 82,
+  "cat": "A-有源·shapefile(868内,或为版本/编码合并)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v2_dcw_contour_lin",
+  "rows": 92626,
+  "cat": "A-有源·shapefile(868内,或为版本/编码合并)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v2_dcw_rds_lin",
+  "rows": 27256,
+  "cat": "A-有源·shapefile(868内,或为版本/编码合并)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v2_dem_ne_three",
+  "rows": 567,
+  "cat": "B-有源·栅格(DEM/历史图扫描GeoTIFF)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v2_dem_north_two",
+  "rows": 567,
+  "cat": "B-有源·栅格(DEM/历史图扫描GeoTIFF)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v2_dem_nw_one",
+  "rows": 693,
+  "cat": "B-有源·栅格(DEM/历史图扫描GeoTIFF)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v2_dem_se_four",
+  "rows": 702,
+  "cat": "B-有源·栅格(DEM/历史图扫描GeoTIFF)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v2_dem_south_five",
+  "rows": 702,
+  "cat": "B-有源·栅格(DEM/历史图扫描GeoTIFF)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v2_dem_sw_six",
+  "rows": 858,
+  "cat": "B-有源·栅格(DEM/历史图扫描GeoTIFF)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v2_nima_mtns_pts",
+  "rows": 2084,
+  "cat": "A-有源·shapefile(868内,或为版本/编码合并)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v2_nima_rocks_pts",
+  "rows": 1862,
+  "cat": "A-有源·shapefile(868内,或为版本/编码合并)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v2_time_cnty_pgn",
+  "rows": 27,
+  "cat": "A-有源·shapefile(868内,或为版本/编码合并)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v2_time_cnty_pts",
+  "rows": 741,
+  "cat": "A-有源·shapefile(868内,或为版本/编码合并)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v2_time_pref_pgn",
+  "rows": 463,
+  "cat": "A-有源·shapefile(868内,或为版本/编码合并)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v2_time_pref_pts",
+  "rows": 285,
+  "cat": "A-有源·shapefile(868内,或为版本/编码合并)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v2_time_prov_pgn",
+  "rows": 162,
+  "cat": "A-有源·shapefile(868内,或为版本/编码合并)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v2_time_prov_pts",
+  "rows": 114,
+  "cat": "A-有源·shapefile(868内,或为版本/编码合并)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v2_time_reg_pgn",
+  "rows": 11,
+  "cat": "A-有源·shapefile(868内,或为版本/编码合并)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v2_time_reg_pts",
+  "rows": 7,
+  "cat": "A-有源·shapefile(868内,或为版本/编码合并)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v2db_chgis_gisinfo_table",
+  "rows": 38179,
+  "cat": "B-有源·CHGIS Access编码库(.mdb)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v2db_chgis_main_table",
+  "rows": 36529,
+  "cat": "B-有源·CHGIS Access编码库(.mdb)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v2db_chgis_partof_table",
+  "rows": 31834,
+  "cat": "B-有源·CHGIS Access编码库(.mdb)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v2db_chgis_source_notes_table",
+  "rows": 2524,
+  "cat": "B-有源·CHGIS Access编码库(.mdb)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v2db_xtra_change_type",
+  "rows": 23,
+  "cat": "B-有源·CHGIS Access编码库(.mdb)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v2db_xtra_contrib_table",
+  "rows": 5,
+  "cat": "B-有源·CHGIS Access编码库(.mdb)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v2db_xtra_data_dictionary",
+  "rows": 49,
+  "cat": "B-有源·CHGIS Access编码库(.mdb)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v2db_xtra_date_rule_table",
+  "rows": 7,
+  "cat": "B-有源·CHGIS Access编码库(.mdb)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v2db_xtra_feature_types",
+  "rows": 50,
+  "cat": "B-有源·CHGIS Access编码库(.mdb)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v2db_xtra_geo_source",
+  "rows": 5,
+  "cat": "B-有源·CHGIS Access编码库(.mdb)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v2db_xtra_other_feature_types",
+  "rows": 951,
+  "cat": "B-有源·CHGIS Access编码库(.mdb)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v3_1820_pref_pgn",
+  "rows": 320,
+  "cat": "A-有源·shapefile(868内,或为版本/编码合并)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v3_1820_prov_pgn",
+  "rows": 32,
+  "cat": "A-有源·shapefile(868内,或为版本/编码合并)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v3_1911_cnty_pgn",
+  "rows": 1191,
+  "cat": "A-有源·shapefile(868内,或为版本/编码合并)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v3_1911_cnty_pts",
+  "rows": 1135,
+  "cat": "A-有源·shapefile(868内,或为版本/编码合并)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v3_1911_pref_pgn",
+  "rows": 202,
+  "cat": "A-有源·shapefile(868内,或为版本/编码合并)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v3_1911_pref_pts",
+  "rows": 212,
+  "cat": "A-有源·shapefile(868内,或为版本/编码合并)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v3_1911_prov_pgn",
+  "rows": 13,
+  "cat": "A-有源·shapefile(868内,或为版本/编码合并)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v3_1911_prov_pts",
+  "rows": 14,
+  "cat": "A-有源·shapefile(868内,或为版本/编码合并)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v3_1911_twn_pts",
+  "rows": 27424,
+  "cat": "A-有源·shapefile(868内,或为版本/编码合并)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v3_dem_topo30",
+  "rows": 3948,
+  "cat": "B-有源·栅格(DEM/历史图扫描GeoTIFF)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v3_time_cnty_pts",
+  "rows": 2761,
+  "cat": "A-有源·shapefile(868内,或为版本/编码合并)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v3_time_pref_pgn",
+  "rows": 2016,
+  "cat": "A-有源·shapefile(868内,或为版本/编码合并)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v3_time_pref_pts",
+  "rows": 1220,
+  "cat": "A-有源·shapefile(868内,或为版本/编码合并)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v3_time_prov_pgn",
+  "rows": 487,
+  "cat": "A-有源·shapefile(868内,或为版本/编码合并)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v3_time_prov_pts",
+  "rows": 312,
+  "cat": "A-有源·shapefile(868内,或为版本/编码合并)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v3db_v3_data_dictionary",
+  "rows": 64,
+  "cat": "B-有源·CHGIS Access编码库(.mdb)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v3db_v3_feature_types",
+  "rows": 62,
+  "cat": "B-有源·CHGIS Access编码库(.mdb)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v3db_v3_gis_info",
+  "rows": 52465,
+  "cat": "B-有源·CHGIS Access编码库(.mdb)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v3db_v3_main_table",
+  "rows": 49255,
+  "cat": "B-有源·CHGIS Access编码库(.mdb)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v3db_v3_part_of",
+  "rows": 53122,
+  "cat": "B-有源·CHGIS Access编码库(.mdb)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v3db_v3_preceded_by",
+  "rows": 7692,
+  "cat": "B-有源·CHGIS Access编码库(.mdb)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v3db_v3_source_notes",
+  "rows": 6716,
+  "cat": "B-有源·CHGIS Access编码库(.mdb)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v3db_xtra_change_types",
+  "rows": 25,
+  "cat": "B-有源·CHGIS Access编码库(.mdb)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v3db_xtra_contributors",
+  "rows": 5,
+  "cat": "B-有源·CHGIS Access编码库(.mdb)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v3db_xtra_date_rules",
+  "rows": 7,
+  "cat": "B-有源·CHGIS Access编码库(.mdb)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v3db_xtra_geo_source",
+  "rows": 6,
+  "cat": "B-有源·CHGIS Access编码库(.mdb)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v3db_xtra_other_feature_types",
+  "rows": 1060,
+  "cat": "B-有源·CHGIS Access编码库(.mdb)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v4_1820_cnty_pts",
+  "rows": 1859,
+  "cat": "A-有源·shapefile(868内,或为版本/编码合并)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v4_1820_coast_lin",
+  "rows": 160,
+  "cat": "A-有源·shapefile(868内,或为版本/编码合并)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v4_1820_coded_rvr_lin",
+  "rows": 5983,
+  "cat": "A-有源·shapefile(868内,或为版本/编码合并)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v4_1820_lks_pgn",
+  "rows": 370,
+  "cat": "A-有源·shapefile(868内,或为版本/编码合并)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v4_1820_pref_pgn",
+  "rows": 320,
+  "cat": "A-有源·shapefile(868内,或为版本/编码合并)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v4_1820_pref_pts",
+  "rows": 301,
+  "cat": "A-有源·shapefile(868内,或为版本/编码合并)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v4_1820_prov_pgn",
+  "rows": 32,
+  "cat": "A-有源·shapefile(868内,或为版本/编码合并)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v4_1820_prov_pts",
+  "rows": 24,
+  "cat": "A-有源·shapefile(868内,或为版本/编码合并)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v4_1820_rvr_lin",
+  "rows": 2778,
+  "cat": "A-有源·shapefile(868内,或为版本/编码合并)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v4_1820_twn_pts",
+  "rows": 8659,
+  "cat": "A-有源·shapefile(868内,或为版本/编码合并)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v4_1911_cnty_pgn",
+  "rows": 1502,
+  "cat": "A-有源·shapefile(868内,或为版本/编码合并)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v4_1911_cnty_pts",
+  "rows": 1426,
+  "cat": "A-有源·shapefile(868内,或为版本/编码合并)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v4_1911_pref_pgn",
+  "rows": 267,
+  "cat": "A-有源·shapefile(868内,或为版本/编码合并)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v4_1911_pref_pts",
+  "rows": 270,
+  "cat": "A-有源·shapefile(868内,或为版本/编码合并)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v4_1911_prov_pgn",
+  "rows": 18,
+  "cat": "A-有源·shapefile(868内,或为版本/编码合并)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v4_1911_prov_pts",
+  "rows": 17,
+  "cat": "A-有源·shapefile(868内,或为版本/编码合并)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v4_1911_twn_pts",
+  "rows": 38599,
+  "cat": "A-有源·shapefile(868内,或为版本/编码合并)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v4_1997_prov_pgn",
+  "rows": 34,
+  "cat": "A-有源·shapefile(868内,或为版本/编码合并)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v4_buddhist_pts",
+  "rows": 2407,
+  "cat": "A-有源·shapefile(868内,或为版本/编码合并)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v4_citas90_cnty_pgn_big5_stats",
+  "rows": 2975,
+  "cat": "A-有源·shapefile(868内,或为版本/编码合并)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v4_citas90_cnty_pgn_gbk_stats",
+  "rows": 2975,
+  "cat": "A-有源·shapefile(868内,或为版本/编码合并)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v4_citas90_cnty_pgn_utf_stats",
+  "rows": 2975,
+  "cat": "A-有源·shapefile(868内,或为版本/编码合并)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v4_citas90_pref_pgn",
+  "rows": 346,
+  "cat": "A-有源·shapefile(868内,或为版本/编码合并)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v4_citas90_prov_pgn",
+  "rows": 33,
+  "cat": "A-有源·shapefile(868内,或为版本/编码合并)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v4_data_dictionary",
+  "rows": 65,
+  "cat": "B-有源·CHGIS Access编码库(.mdb)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v4_dcw_contour_lin",
+  "rows": 92626,
+  "cat": "A-有源·shapefile(868内,或为版本/编码合并)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v4_dcw_rail_lin",
+  "rows": 5556,
+  "cat": "A-有源·shapefile(868内,或为版本/编码合并)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v4_dcw_rds_lin",
+  "rows": 27256,
+  "cat": "A-有源·shapefile(868内,或为版本/编码合并)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v4_dcw_rvr_lin",
+  "rows": 213880,
+  "cat": "A-有源·shapefile(868内,或为版本/编码合并)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v4_feature_types",
+  "rows": 62,
+  "cat": "B-有源·CHGIS Access编码库(.mdb)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v4_gns",
+  "rows": 126566,
+  "cat": "A-有源·shapefile(868内,或为版本/编码合并)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v4_nima_mtns_pts",
+  "rows": 2084,
+  "cat": "A-有源·shapefile(868内,或为版本/编码合并)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v4_nima_rocks_pts",
+  "rows": 1862,
+  "cat": "A-有源·shapefile(868内,或为版本/编码合并)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v4_ras_1871_neimeng_pts",
+  "rows": 155,
+  "cat": "A-有源·shapefile(868内,或为版本/编码合并)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v4_ras_1876_xinjiang_pts",
+  "rows": 111,
+  "cat": "A-有源·shapefile(868内,或为版本/编码合并)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v4_ras_1884_qinghai_pts",
+  "rows": 374,
+  "cat": "A-有源·shapefile(868内,或为版本/编码合并)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v4_ras_1884_tarim_pts",
+  "rows": 59,
+  "cat": "A-有源·shapefile(868内,或为版本/编码合并)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v4_ras_1899_meng_kham_pts",
+  "rows": 2351,
+  "cat": "A-有源·shapefile(868内,或为版本/编码合并)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v4_ras_1900_tibet_kham_pts",
+  "rows": 266,
+  "cat": "A-有源·shapefile(868内,或为版本/编码合并)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v4_ras_1904_tibet_pts",
+  "rows": 555,
+  "cat": "A-有源·shapefile(868内,或为版本/编码合并)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v4_time_cnty_pts",
+  "rows": 4891,
+  "cat": "A-有源·shapefile(868内,或为版本/编码合并)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v4_time_pref_pgn",
+  "rows": 2016,
+  "cat": "A-有源·shapefile(868内,或为版本/编码合并)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v4_time_pref_pts",
+  "rows": 1232,
+  "cat": "A-有源·shapefile(868内,或为版本/编码合并)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v4_time_prov_pgn",
+  "rows": 489,
+  "cat": "A-有源·shapefile(868内,或为版本/编码合并)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v4_time_prov_pts",
+  "rows": 312,
+  "cat": "A-有源·shapefile(868内,或为版本/编码合并)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v4_time_reg_pgn",
+  "rows": 11,
+  "cat": "A-有源·shapefile(868内,或为版本/编码合并)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v4_time_reg_pts",
+  "rows": 6,
+  "cat": "A-有源·shapefile(868内,或为版本/编码合并)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v4db_v4_data_dictionary",
+  "rows": 64,
+  "cat": "B-有源·CHGIS Access编码库(.mdb)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v4db_v4_feature_types",
+  "rows": 62,
+  "cat": "B-有源·CHGIS Access编码库(.mdb)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v4db_v4_gis_info_table",
+  "rows": 61988,
+  "cat": "B-有源·CHGIS Access编码库(.mdb)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v4db_v4_gis_layer_field_names",
+  "rows": 30,
+  "cat": "B-有源·CHGIS Access编码库(.mdb)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v4db_v4_main_table",
+  "rows": 58399,
+  "cat": "B-有源·CHGIS Access编码库(.mdb)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v4db_v4_part_of_table",
+  "rows": 60349,
+  "cat": "B-有源·CHGIS Access编码库(.mdb)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v4db_v4_preceded_by_table",
+  "rows": 7692,
+  "cat": "B-有源·CHGIS Access编码库(.mdb)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v4db_v4_source_notes",
+  "rows": 8920,
+  "cat": "B-有源·CHGIS Access编码库(.mdb)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v4db_xtra_change_types",
+  "rows": 25,
+  "cat": "B-有源·CHGIS Access编码库(.mdb)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v4db_xtra_contributors",
+  "rows": 5,
+  "cat": "B-有源·CHGIS Access编码库(.mdb)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v4db_xtra_date_rules",
+  "rows": 7,
+  "cat": "B-有源·CHGIS Access编码库(.mdb)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v4db_xtra_geo_source",
+  "rows": 6,
+  "cat": "B-有源·CHGIS Access编码库(.mdb)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v4db_xtra_other_feature_types",
+  "rows": 1059,
+  "cat": "B-有源·CHGIS Access编码库(.mdb)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v5_1820_cnty_pts",
+  "rows": 1859,
+  "cat": "A-有源·shapefile(868内,或为版本/编码合并)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v5_1820_coast_lin",
+  "rows": 160,
+  "cat": "A-有源·shapefile(868内,或为版本/编码合并)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v5_1820_coded_rvr_lin",
+  "rows": 5983,
+  "cat": "A-有源·shapefile(868内,或为版本/编码合并)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v5_1820_lks_pgn",
+  "rows": 370,
+  "cat": "A-有源·shapefile(868内,或为版本/编码合并)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v5_1820_pref_pgn",
+  "rows": 320,
+  "cat": "A-有源·shapefile(868内,或为版本/编码合并)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v5_1820_pref_pts",
+  "rows": 301,
+  "cat": "A-有源·shapefile(868内,或为版本/编码合并)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v5_1820_prov_pgn",
+  "rows": 32,
+  "cat": "A-有源·shapefile(868内,或为版本/编码合并)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v5_1820_prov_pts",
+  "rows": 24,
+  "cat": "A-有源·shapefile(868内,或为版本/编码合并)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v5_1820_twn_pts",
+  "rows": 8659,
+  "cat": "A-有源·shapefile(868内,或为版本/编码合并)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v5_1911_cnty_pgn",
+  "rows": 1986,
+  "cat": "A-有源·shapefile(868内,或为版本/编码合并)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v5_1911_cnty_pts",
+  "rows": 2154,
+  "cat": "A-有源·shapefile(868内,或为版本/编码合并)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v5_1911_pref_pgn",
+  "rows": 381,
+  "cat": "A-有源·shapefile(868内,或为版本/编码合并)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v5_1911_pref_pts",
+  "rows": 355,
+  "cat": "A-有源·shapefile(868内,或为版本/编码合并)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v5_1911_prov_pgn",
+  "rows": 27,
+  "cat": "A-有源·shapefile(868内,或为版本/编码合并)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v5_1911_prov_pts",
+  "rows": 24,
+  "cat": "A-有源·shapefile(868内,或为版本/编码合并)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v5_1911_twn_pts",
+  "rows": 40020,
+  "cat": "A-有源·shapefile(868内,或为版本/编码合并)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v5_1926_prov_pgn",
+  "rows": 31,
+  "cat": "A-有源·shapefile(868内,或为版本/编码合并)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v5_1990_citas_cnty_pgn",
+  "rows": 2438,
+  "cat": "A-有源·shapefile(868内,或为版本/编码合并)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v5_1990_citas_pref_pgn",
+  "rows": 346,
+  "cat": "A-有源·shapefile(868内,或为版本/编码合并)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v5_1997_prov_pgn",
+  "rows": 34,
+  "cat": "A-有源·shapefile(868内,或为版本/编码合并)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v5_2009_tibet_twns",
+  "rows": 933,
+  "cat": "A-有源·shapefile(868内,或为版本/编码合并)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v5_chinaw_pts",
+  "rows": 2403,
+  "cat": "A-有源·shapefile(868内,或为版本/编码合并)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v5_gns",
+  "rows": 130665,
+  "cat": "A-有源·shapefile(868内,或为版本/编码合并)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v5_physiog_macroregions",
+  "rows": 18,
+  "cat": "A-有源·shapefile(868内,或为版本/编码合并)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v5_physiog_macroregions_utf",
+  "rows": 18,
+  "cat": "A-有源·shapefile(868内,或为版本/编码合并)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v5_smr_pgn",
+  "rows": 10,
+  "cat": "A-有源·shapefile(868内,或为版本/编码合并)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v5_smr_subr_pgn",
+  "rows": 33,
+  "cat": "A-有源·shapefile(868内,或为版本/编码合并)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v5_time_cnty_pts",
+  "rows": 10507,
+  "cat": "A-有源·shapefile(868内,或为版本/编码合并)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v5_time_pref_pgn",
+  "rows": 3059,
+  "cat": "A-有源·shapefile(868内,或为版本/编码合并)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v5_time_pref_pts",
+  "rows": 3409,
+  "cat": "A-有源·shapefile(868内,或为版本/编码合并)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v6_1820_cnty_pts",
+  "rows": 1859,
+  "cat": "A-有源·shapefile(868内,或为版本/编码合并)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v6_1820_coded_rvr_lin",
+  "rows": 5983,
+  "cat": "A-有源·shapefile(868内,或为版本/编码合并)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v6_1820_lks_pgn",
+  "rows": 363,
+  "cat": "A-有源·shapefile(868内,或为版本/编码合并)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v6_1820_pref_pgn",
+  "rows": 320,
+  "cat": "A-有源·shapefile(868内,或为版本/编码合并)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v6_1820_pref_pts",
+  "rows": 301,
+  "cat": "A-有源·shapefile(868内,或为版本/编码合并)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v6_1820_prov_pgn",
+  "rows": 32,
+  "cat": "A-有源·shapefile(868内,或为版本/编码合并)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v6_1820_prov_pts",
+  "rows": 24,
+  "cat": "A-有源·shapefile(868内,或为版本/编码合并)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v6_1820_twn_pts",
+  "rows": 8659,
+  "cat": "A-有源·shapefile(868内,或为版本/编码合并)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v6_1911_cnty_pgn",
+  "rows": 1986,
+  "cat": "A-有源·shapefile(868内,或为版本/编码合并)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v6_1911_cnty_pts",
+  "rows": 2154,
+  "cat": "A-有源·shapefile(868内,或为版本/编码合并)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v6_1911_pref_pgn",
+  "rows": 381,
+  "cat": "A-有源·shapefile(868内,或为版本/编码合并)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v6_1911_pref_pts",
+  "rows": 355,
+  "cat": "A-有源·shapefile(868内,或为版本/编码合并)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v6_1911_prov_pgn",
+  "rows": 27,
+  "cat": "A-有源·shapefile(868内,或为版本/编码合并)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v6_1911_prov_pts",
+  "rows": 24,
+  "cat": "A-有源·shapefile(868内,或为版本/编码合并)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v6_1911_twn_pts",
+  "rows": 40020,
+  "cat": "A-有源·shapefile(868内,或为版本/编码合并)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v6_citas90_cnty_pgn",
+  "rows": 2438,
+  "cat": "A-有源·shapefile(868内,或为版本/编码合并)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v6_citas90_pref_pgn",
+  "rows": 346,
+  "cat": "A-有源·shapefile(868内,或为版本/编码合并)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v6_citas90_prov_pgn",
+  "rows": 33,
+  "cat": "A-有源·shapefile(868内,或为版本/编码合并)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v6_cnty_pts",
+  "rows": 10522,
+  "cat": "A-有源·shapefile(868内,或为版本/编码合并)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v6_pref_pgn",
+  "rows": 3830,
+  "cat": "A-有源·shapefile(868内,或为版本/编码合并)"
+ },
+ {
+  "schema": "chgis",
+  "name": "v6_pref_pts",
+  "rows": 5226,
+  "cat": "A-有源·shapefile(868内,或为版本/编码合并)"
+ },
+ {
+  "schema": "chgis",
+  "name": "xtra_change_types",
+  "rows": 26,
+  "cat": "B-有源·CHGIS Access编码库(.mdb)"
+ },
+ {
+  "schema": "chgis",
+  "name": "xtra_contributors",
+  "rows": 6,
+  "cat": "B-有源·CHGIS Access编码库(.mdb)"
+ },
+ {
+  "schema": "chgis",
+  "name": "xtra_date_rules",
+  "rows": 7,
+  "cat": "B-有源·CHGIS Access编码库(.mdb)"
+ },
+ {
+  "schema": "chgis",
+  "name": "xtra_geo_source",
+  "rows": 7,
+  "cat": "B-有源·CHGIS Access编码库(.mdb)"
+ },
+ {
+  "schema": "harv",
+  "name": "arc_china_index_v3",
+  "rows": 77,
+  "cat": "A-有源·shapefile/mapinfo(改名)"
+ },
+ {
+  "schema": "harv",
+  "name": "arc_china_index_v4",
+  "rows": 77,
+  "cat": "A-有源·shapefile/mapinfo(改名)"
+ },
+ {
+  "schema": "harv",
+  "name": "beijing_historic_sites_v1",
+  "rows": 82,
+  "cat": "A-有源·shapefile/mapinfo(改名)"
+ },
+ {
+  "schema": "harv",
+  "name": "bgis_v1_1_2013",
+  "rows": 18938,
+  "cat": "A-有源·shapefile/mapinfo(改名)"
+ },
+ {
+  "schema": "harv",
+  "name": "chgis_tmpl_pts",
+  "rows": 2407,
+  "cat": "A-有源·shapefile/mapinfo(改名)"
+ },
+ {
+  "schema": "harv",
+  "name": "china_gas_2013_chinagaslinenodes_2013",
+  "rows": 171,
+  "cat": "A-有源·shapefile/mapinfo(改名)"
+ },
+ {
+  "schema": "harv",
+  "name": "china_gas_2013_chinagaspipelines_2013",
+  "rows": 72,
+  "cat": "A-有源·shapefile/mapinfo(改名)"
+ },
+ {
+  "schema": "harv",
+  "name": "china_hsr_2016_lines",
+  "rows": 79,
+  "cat": "A-有源·shapefile/mapinfo(改名)"
+ },
+ {
+  "schema": "harv",
+  "name": "china_hsr_2016_stations",
+  "rows": 748,
+  "cat": "A-有源·shapefile/mapinfo(改名)"
+ },
+ {
+  "schema": "harv",
+  "name": "chinaw_pts",
+  "rows": 2403,
+  "cat": "A-有源·shapefile/mapinfo(改名)"
+ },
+ {
+  "schema": "harv",
+  "name": "citas90_cnty_pgn",
+  "rows": 2975,
+  "cat": "A-有源·shapefile/mapinfo(改名)"
+ },
+ {
+  "schema": "harv",
+  "name": "citas90_pref_pgn",
+  "rows": 346,
+  "cat": "A-有源·shapefile/mapinfo(改名)"
+ },
+ {
+  "schema": "harv",
+  "name": "citas90_prov_pgn",
+  "rows": 33,
+  "cat": "A-有源·shapefile/mapinfo(改名)"
+ },
+ {
+  "schema": "harv",
+  "name": "dcw_asia_contour",
+  "rows": 186130,
+  "cat": "A-有源·shapefile/mapinfo(改名)"
+ },
+ {
+  "schema": "harv",
+  "name": "jp_toku_dmyo_pgn",
+  "rows": 206,
+  "cat": "A-有源·shapefile/mapinfo(改名)"
+ },
+ {
+  "schema": "harv",
+  "name": "jp_toku_dmyo_pts",
+  "rows": 206,
+  "cat": "A-有源·shapefile/mapinfo(改名)"
+ },
+ {
+  "schema": "harv",
+  "name": "jp_toku_doo_pgn",
+  "rows": 9,
+  "cat": "A-有源·shapefile/mapinfo(改名)"
+ },
+ {
+  "schema": "harv",
+  "name": "jp_toku_kuni_pgn",
+  "rows": 69,
+  "cat": "A-有源·shapefile/mapinfo(改名)"
+ },
+ {
+  "schema": "harv",
+  "name": "kozlov_1899_mk",
+  "rows": 2351,
+  "cat": "A-有源·shapefile/mapinfo(改名)"
+ },
+ {
+  "schema": "harv",
+  "name": "ngia_dsg_codes_2017_03_15",
+  "rows": 631,
+  "cat": "B-有源·码表(csv/txt)"
+ },
+ {
+  "schema": "harv",
+  "name": "nima_feat_desig",
+  "rows": 641,
+  "cat": "B-有源·码表(csv/txt)"
+ },
+ {
+  "schema": "harv",
+  "name": "physiogmacroregions_pgn",
+  "rows": 17,
+  "cat": "A-有源·shapefile/mapinfo(改名)"
+ },
+ {
+  "schema": "harv",
+  "name": "poddubnyi_1900_tibet",
+  "rows": 555,
+  "cat": "A-有源·shapefile/mapinfo(改名)"
+ },
+ {
+  "schema": "harv",
+  "name": "przh_1871_neimeng",
+  "rows": 155,
+  "cat": "A-有源·shapefile/mapinfo(改名)"
+ },
+ {
+  "schema": "harv",
+  "name": "przh_1876_tianshan",
+  "rows": 111,
+  "cat": "A-有源·shapefile/mapinfo(改名)"
+ },
+ {
+  "schema": "harv",
+  "name": "przh_1884_xj_qh",
+  "rows": 374,
+  "cat": "A-有源·shapefile/mapinfo(改名)"
+ },
+ {
+  "schema": "harv",
+  "name": "przh_1888_tarim",
+  "rows": 59,
+  "cat": "A-有源·shapefile/mapinfo(改名)"
+ },
+ {
+  "schema": "harv",
+  "name": "ras_1926_atlas_1926_01",
+  "rows": 220,
+  "cat": "B-有源·栅格(DEM/历史图扫描GeoTIFF)"
+ },
+ {
+  "schema": "harv",
+  "name": "ras_1926_atlas_1926_11",
+  "rows": 176,
+  "cat": "B-有源·栅格(DEM/历史图扫描GeoTIFF)"
+ },
+ {
+  "schema": "harv",
+  "name": "ras_1926_atlas_1926_13",
+  "rows": 160,
+  "cat": "B-有源·栅格(DEM/历史图扫描GeoTIFF)"
+ },
+ {
+  "schema": "harv",
+  "name": "ras_peking_1875_g_1875_bretschneider",
+  "rows": 275,
+  "cat": "B-有源·栅格(DEM/历史图扫描GeoTIFF)"
+ },
+ {
+  "schema": "harv",
+  "name": "ras_poddubnyi_1900_pdb2",
+  "rows": 900,
+  "cat": "B-有源·栅格(DEM/历史图扫描GeoTIFF)"
+ },
+ {
+  "schema": "harv",
+  "name": "ras_przh_1876_map1",
+  "rows": 360,
+  "cat": "B-有源·栅格(DEM/历史图扫描GeoTIFF)"
+ },
+ {
+  "schema": "harv",
+  "name": "ras_przh_1876_map10",
+  "rows": 320,
+  "cat": "B-有源·栅格(DEM/历史图扫描GeoTIFF)"
+ },
+ {
+  "schema": "harv",
+  "name": "ras_przh_1876_map11",
+  "rows": 320,
+  "cat": "B-有源·栅格(DEM/历史图扫描GeoTIFF)"
+ },
+ {
+  "schema": "harv",
+  "name": "ras_przh_1876_map2",
+  "rows": 360,
+  "cat": "B-有源·栅格(DEM/历史图扫描GeoTIFF)"
+ },
+ {
+  "schema": "harv",
+  "name": "ras_przh_1876_map3",
+  "rows": 360,
+  "cat": "B-有源·栅格(DEM/历史图扫描GeoTIFF)"
+ },
+ {
+  "schema": "harv",
+  "name": "ras_przh_1876_map4",
+  "rows": 360,
+  "cat": "B-有源·栅格(DEM/历史图扫描GeoTIFF)"
+ },
+ {
+  "schema": "harv",
+  "name": "ras_przh_1876_map5",
+  "rows": 400,
+  "cat": "B-有源·栅格(DEM/历史图扫描GeoTIFF)"
+ },
+ {
+  "schema": "harv",
+  "name": "ras_przh_1876_map6",
+  "rows": 340,
+  "cat": "B-有源·栅格(DEM/历史图扫描GeoTIFF)"
+ },
+ {
+  "schema": "harv",
+  "name": "ras_przh_1876_map7",
+  "rows": 340,
+  "cat": "B-有源·栅格(DEM/历史图扫描GeoTIFF)"
+ },
+ {
+  "schema": "harv",
+  "name": "ras_przh_1876_map8",
+  "rows": 380,
+  "cat": "B-有源·栅格(DEM/历史图扫描GeoTIFF)"
+ },
+ {
+  "schema": "harv",
+  "name": "ras_przh_1876_map9",
+  "rows": 425,
+  "cat": "B-有源·栅格(DEM/历史图扫描GeoTIFF)"
+ },
+ {
+  "schema": "harv",
+  "name": "ras_przh_1884_map1",
+  "rows": 380,
+  "cat": "B-有源·栅格(DEM/历史图扫描GeoTIFF)"
+ },
+ {
+  "schema": "harv",
+  "name": "ras_przh_1884_map2",
+  "rows": 360,
+  "cat": "B-有源·栅格(DEM/历史图扫描GeoTIFF)"
+ },
+ {
+  "schema": "harv",
+  "name": "ras_przh_1884_map3",
+  "rows": 380,
+  "cat": "B-有源·栅格(DEM/历史图扫描GeoTIFF)"
+ },
+ {
+  "schema": "harv",
+  "name": "ras_przh_1884_partial",
+  "rows": 380,
+  "cat": "B-有源·栅格(DEM/历史图扫描GeoTIFF)"
+ },
+ {
+  "schema": "harv",
+  "name": "russ_1871_neimeng_pts",
+  "rows": 155,
+  "cat": "A-有源·shapefile/mapinfo(改名)"
+ },
+ {
+  "schema": "harv",
+  "name": "russ_1876_xinjiang_pts",
+  "rows": 111,
+  "cat": "A-有源·shapefile/mapinfo(改名)"
+ },
+ {
+  "schema": "harv",
+  "name": "russ_1884_qinghai_pts",
+  "rows": 374,
+  "cat": "A-有源·shapefile/mapinfo(改名)"
+ },
+ {
+  "schema": "harv",
+  "name": "russ_1884_tarim_pts",
+  "rows": 59,
+  "cat": "A-有源·shapefile/mapinfo(改名)"
+ },
+ {
+  "schema": "harv",
+  "name": "russ_1899_mk_pts",
+  "rows": 2351,
+  "cat": "A-有源·shapefile/mapinfo(改名)"
+ },
+ {
+  "schema": "harv",
+  "name": "russ_1900_kham_pts",
+  "rows": 266,
+  "cat": "A-有源·shapefile/mapinfo(改名)"
+ },
+ {
+  "schema": "harv",
+  "name": "russ_1904_tibet_pts",
+  "rows": 555,
+  "cat": "A-有源·shapefile/mapinfo(改名)"
+ },
+ {
+  "schema": "harv",
+  "name": "tan_tan_gbk_names1",
+  "rows": 36780,
+  "cat": "A-有源·shapefile/mapinfo(改名)"
+ },
+ {
+  "schema": "harv",
+  "name": "tan_tan_gbk_names2",
+  "rows": 38500,
+  "cat": "A-有源·shapefile/mapinfo(改名)"
+ },
+ {
+  "schema": "harv",
+  "name": "tbrc_tbrc_major_monasteries_2014",
+  "rows": 356,
+  "cat": "A-有源·shapefile/mapinfo(改名)"
+ },
+ {
+  "schema": "harv",
+  "name": "tbrc_tbrc_minor_monasteries_2014",
+  "rows": 2436,
+  "cat": "A-有源·shapefile/mapinfo(改名)"
+ },
+ {
+  "schema": "harv",
+  "name": "tbrc_tbrc_printeries_2014",
+  "rows": 204,
+  "cat": "A-有源·shapefile/mapinfo(改名)"
+ },
+ {
+  "schema": "harv",
+  "name": "tbrc_tibet_monasteries_utf8_v1_20120702",
+  "rows": 2926,
+  "cat": "A-有源·shapefile/mapinfo(改名)"
+ },
+ {
+  "schema": "harv",
+  "name": "teahorse_major_routes",
+  "rows": 5,
+  "cat": "A-有源·shapefile/mapinfo(改名)"
+ },
+ {
+  "schema": "harv",
+  "name": "teahorse_minor_routes",
+  "rows": 37,
+  "cat": "A-有源·shapefile/mapinfo(改名)"
+ },
+ {
+  "schema": "harv",
+  "name": "teahorse_nodes",
+  "rows": 212,
+  "cat": "A-有源·shapefile/mapinfo(改名)"
+ },
+ {
+  "schema": "harv",
+  "name": "tgaz_admin_seat",
+  "rows": 0,
+  "cat": "B-有源·tgaz.sql(西藏地名录)"
+ },
+ {
+  "schema": "harv",
+  "name": "tgaz_alt_name3",
+  "rows": 18540,
+  "cat": "B-有源·tgaz.sql(西藏地名录)"
+ },
+ {
+  "schema": "harv",
+  "name": "tgaz_citation_ref",
+  "rows": 11,
+  "cat": "B-有源·tgaz.sql(西藏地名录)"
+ },
+ {
+  "schema": "harv",
+  "name": "tgaz_ck1",
+  "rows": 0,
+  "cat": "B-有源·tgaz.sql(西藏地名录)"
+ },
+ {
+  "schema": "harv",
+  "name": "tgaz_data_src",
+  "rows": 9,
+  "cat": "B-有源·tgaz.sql(西藏地名录)"
+ },
+ {
+  "schema": "harv",
+  "name": "tgaz_drule",
+  "rows": 10,
+  "cat": "B-有源·tgaz.sql(西藏地名录)"
+ },
+ {
+  "schema": "harv",
+  "name": "tgaz_f2",
+  "rows": 5242,
+  "cat": "B-有源·tgaz.sql(西藏地名录)"
+ },
+ {
+  "schema": "harv",
+  "name": "tgaz_ftype",
+  "rows": 1147,
+  "cat": "B-有源·tgaz.sql(西藏地名录)"
+ },
+ {
+  "schema": "harv",
+  "name": "tgaz_ftype_xx",
+  "rows": 26,
+  "cat": "B-有源·tgaz.sql(西藏地名录)"
+ },
+ {
+  "schema": "harv",
+  "name": "tgaz_geom",
+  "rows": 1,
+  "cat": "B-有源·tgaz.sql(西藏地名录)"
+ },
+ {
+  "schema": "harv",
+  "name": "tgaz_gis_xx",
+  "rows": 2762,
+  "cat": "B-有源·tgaz.sql(西藏地名录)"
+ },
+ {
+  "schema": "harv",
+  "name": "tgaz_link",
+  "rows": 0,
+  "cat": "B-有源·tgaz.sql(西藏地名录)"
+ },
+ {
+  "schema": "harv",
+  "name": "tgaz_main_xx",
+  "rows": 2763,
+  "cat": "B-有源·tgaz.sql(西藏地名录)"
+ },
+ {
+  "schema": "harv",
+  "name": "tgaz_mv_pn_srch",
+  "rows": 82117,
+  "cat": "B-有源·tgaz.sql(西藏地名录)"
+ },
+ {
+  "schema": "harv",
+  "name": "tgaz_mv_pn_srch_new_test",
+  "rows": 82117,
+  "cat": "C-无源·tgaz测试/旧废表"
+ },
+ {
+  "schema": "harv",
+  "name": "tgaz_mv_pn_srch_old",
+  "rows": 82117,
+  "cat": "C-无源·tgaz测试/旧废表"
+ },
+ {
+  "schema": "harv",
+  "name": "tgaz_part_of",
+  "rows": 83400,
+  "cat": "B-有源·tgaz.sql(西藏地名录)"
+ },
+ {
+  "schema": "harv",
+  "name": "tgaz_partof_xx",
+  "rows": 760,
+  "cat": "B-有源·tgaz.sql(西藏地名录)"
+ },
+ {
+  "schema": "harv",
+  "name": "tgaz_placename",
+  "rows": 82117,
+  "cat": "B-有源·tgaz.sql(西藏地名录)"
+ },
+ {
+  "schema": "harv",
+  "name": "tgaz_prec_by",
+  "rows": 10231,
+  "cat": "B-有源·tgaz.sql(西藏地名录)"
+ },
+ {
+  "schema": "harv",
+  "name": "tgaz_precby_xx",
+  "rows": 10878,
+  "cat": "B-有源·tgaz.sql(西藏地名录)"
+ },
+ {
+  "schema": "harv",
+  "name": "tgaz_present_loc",
+  "rows": 82117,
+  "cat": "B-有源·tgaz.sql(西藏地名录)"
+ },
+ {
+  "schema": "harv",
+  "name": "tgaz_script",
+  "rows": 16,
+  "cat": "B-有源·tgaz.sql(西藏地名录)"
+ },
+ {
+  "schema": "harv",
+  "name": "tgaz_snote",
+  "rows": 25655,
+  "cat": "B-有源·tgaz.sql(西藏地名录)"
+ },
+ {
+  "schema": "harv",
+  "name": "tgaz_snote_xx",
+  "rows": 2762,
+  "cat": "B-有源·tgaz.sql(西藏地名录)"
+ },
+ {
+  "schema": "harv",
+  "name": "tgaz_spatial_system_ref",
+  "rows": 0,
+  "cat": "B-有源·tgaz.sql(西藏地名录)"
+ },
+ {
+  "schema": "harv",
+  "name": "tgaz_spelling",
+  "rows": 245042,
+  "cat": "B-有源·tgaz.sql(西藏地名录)"
+ },
+ {
+  "schema": "harv",
+  "name": "tgaz_tbt_rev",
+  "rows": 2763,
+  "cat": "B-有源·tgaz.sql(西藏地名录)"
+ },
+ {
+  "schema": "harv",
+  "name": "tgaz_temporal_annotation",
+  "rows": 0,
+  "cat": "B-有源·tgaz.sql(西藏地名录)"
+ },
+ {
+  "schema": "harv",
+  "name": "tgaz_trsys",
+  "rows": 6,
+  "cat": "B-有源·tgaz.sql(西藏地名录)"
+ },
+ {
+  "schema": "harv",
+  "name": "tgaz_v5_id",
+  "rows": 77769,
+  "cat": "B-有源·tgaz.sql(西藏地名录)"
+ },
+ {
+  "schema": "harv",
+  "name": "tgaz_v6_id",
+  "rows": 82858,
+  "cat": "B-有源·tgaz.sql(西藏地名录)"
+ },
+ {
+  "schema": "harv",
+  "name": "tgaz_wkt_definition",
+  "rows": 0,
+  "cat": "B-有源·tgaz.sql(西藏地名录)"
+ },
+ {
+  "schema": "harv",
+  "name": "workshop2001_index",
+  "rows": 29,
+  "cat": "A-有源·shapefile/mapinfo(改名)"
+ },
+ {
+  "schema": "ogr_system_tables",
+  "name": "metadata",
+  "rows": 184,
+  "cat": "C-无源·QGIS自建(metadata)"
+ },
+ {
+  "schema": "public",
+  "name": "academies_2957",
+  "rows": 2957,
+  "cat": "A-源=ACADEMY_Data.tab(tsv)"
+ },
+ {
+  "schema": "public",
+  "name": "addr_belongs_data",
+  "rows": 37177,
+  "cat": "A-源=CBDB sqlite"
+ },
+ {
+  "schema": "public",
+  "name": "addr_codes",
+  "rows": 30157,
+  "cat": "A-源=CBDB sqlite"
+ },
+ {
+  "schema": "public",
+  "name": "addr_xy",
+  "rows": 19249,
+  "cat": "C-无源·派生自CBDB"
+ },
+ {
+  "schema": "public",
+  "name": "admin_cat_code_type_rel",
+  "rows": 0,
+  "cat": "A-源=CBDB sqlite"
+ },
+ {
+  "schema": "public",
+  "name": "admin_cat_codes",
+  "rows": 213,
+  "cat": "A-源=CBDB sqlite"
+ },
+ {
+  "schema": "public",
+  "name": "admin_cat_types",
+  "rows": 0,
+  "cat": "A-源=CBDB sqlite"
+ },
+ {
+  "schema": "public",
+  "name": "altname_codes",
+  "rows": 21,
+  "cat": "A-源=CBDB sqlite"
+ },
+ {
+  "schema": "public",
+  "name": "altname_data",
+  "rows": 208828,
+  "cat": "A-源=CBDB sqlite"
+ },
+ {
+  "schema": "public",
+  "name": "appointment_code_type_rel",
+  "rows": 109,
+  "cat": "A-源=CBDB sqlite"
+ },
+ {
+  "schema": "public",
+  "name": "appointment_codes",
+  "rows": 116,
+  "cat": "A-源=CBDB sqlite"
+ },
+ {
+  "schema": "public",
+  "name": "appointment_types",
+  "rows": 13,
+  "cat": "A-源=CBDB sqlite"
+ },
+ {
+  "schema": "public",
+  "name": "assoc_code_type_rel",
+  "rows": 463,
+  "cat": "A-源=CBDB sqlite"
+ },
+ {
+  "schema": "public",
+  "name": "assoc_codes",
+  "rows": 498,
+  "cat": "A-源=CBDB sqlite"
+ },
+ {
+  "schema": "public",
+  "name": "assoc_data",
+  "rows": 190048,
+  "cat": "A-源=CBDB sqlite"
+ },
+ {
+  "schema": "public",
+  "name": "assoc_types",
+  "rows": 45,
+  "cat": "A-源=CBDB sqlite"
+ },
+ {
+  "schema": "public",
+  "name": "assume_office_codes",
+  "rows": 6,
+  "cat": "A-源=CBDB sqlite"
+ },
+ {
+  "schema": "public",
+  "name": "biog_addr_codes",
+  "rows": 22,
+  "cat": "A-源=CBDB sqlite"
+ },
+ {
+  "schema": "public",
+  "name": "biog_addr_data",
+  "rows": 461637,
+  "cat": "A-源=CBDB sqlite"
+ },
+ {
+  "schema": "public",
+  "name": "biog_inst_codes",
+  "rows": 26,
+  "cat": "A-源=CBDB sqlite"
+ },
+ {
+  "schema": "public",
+  "name": "biog_inst_data",
+  "rows": 571,
+  "cat": "A-源=CBDB sqlite"
+ },
+ {
+  "schema": "public",
+  "name": "biog_main",
+  "rows": 661969,
+  "cat": "A-源=CBDB sqlite"
+ },
+ {
+  "schema": "public",
+  "name": "biog_source_data",
+  "rows": 1254135,
+  "cat": "A-源=CBDB sqlite"
+ },
+ {
+  "schema": "public",
+  "name": "biog_text_data",
+  "rows": 53354,
+  "cat": "A-源=CBDB sqlite"
+ },
+ {
+  "schema": "public",
+  "name": "china_pop_1999_county",
+  "rows": 2361,
+  "cat": "A-源=1999_gb_pop_uce.xls"
+ },
+ {
+  "schema": "public",
+  "name": "choronym_codes",
+  "rows": 173,
+  "cat": "A-源=CBDB sqlite"
+ },
+ {
+  "schema": "public",
+  "name": "country_codes",
+  "rows": 11,
+  "cat": "A-源=CBDB sqlite"
+ },
+ {
+  "schema": "public",
+  "name": "dynasties",
+  "rows": 85,
+  "cat": "A-源=CBDB sqlite"
+ },
+ {
+  "schema": "public",
+  "name": "entry_code_type_rel",
+  "rows": 284,
+  "cat": "A-源=CBDB sqlite"
+ },
+ {
+  "schema": "public",
+  "name": "entry_codes",
+  "rows": 273,
+  "cat": "A-源=CBDB sqlite"
+ },
+ {
+  "schema": "public",
+  "name": "entry_data",
+  "rows": 264975,
+  "cat": "A-源=CBDB sqlite"
+ },
+ {
+  "schema": "public",
+  "name": "entry_types",
+  "rows": 29,
+  "cat": "A-源=CBDB sqlite"
+ },
+ {
+  "schema": "public",
+  "name": "ethnicity_tribe_codes",
+  "rows": 498,
+  "cat": "A-源=CBDB sqlite"
+ },
+ {
+  "schema": "public",
+  "name": "event_codes",
+  "rows": 117,
+  "cat": "A-源=CBDB sqlite"
+ },
+ {
+  "schema": "public",
+  "name": "events_addr",
+  "rows": 4,
+  "cat": "A-源=CBDB sqlite"
+ },
+ {
+  "schema": "public",
+  "name": "events_data",
+  "rows": 427,
+  "cat": "A-源=CBDB sqlite"
+ },
+ {
+  "schema": "public",
+  "name": "extant_codes",
+  "rows": 4,
+  "cat": "A-源=CBDB sqlite"
+ },
+ {
+  "schema": "public",
+  "name": "ganzhi_codes",
+  "rows": 61,
+  "cat": "A-源=CBDB sqlite"
+ },
+ {
+  "schema": "public",
+  "name": "gb_91_codes",
+  "rows": 3389,
+  "cat": "A-源=GB_91_HZ_040201_UTF8.tab(tsv)"
+ },
+ {
+  "schema": "public",
+  "name": "household_status_codes",
+  "rows": 34,
+  "cat": "A-源=CBDB sqlite"
+ },
+ {
+  "schema": "public",
+  "name": "indexyear_type_codes",
+  "rows": 31,
+  "cat": "A-源=CBDB sqlite"
+ },
+ {
+  "schema": "public",
+  "name": "kin_data",
+  "rows": 562711,
+  "cat": "A-源=CBDB sqlite"
+ },
+ {
+  "schema": "public",
+  "name": "kin_mourning",
+  "rows": 159,
+  "cat": "A-源=CBDB sqlite"
+ },
+ {
+  "schema": "public",
+  "name": "kin_mourning_steps",
+  "rows": 159,
+  "cat": "A-源=CBDB sqlite"
+ },
+ {
+  "schema": "public",
+  "name": "kinrel_reduction",
+  "rows": 8,
+  "cat": "A-源=CBDB sqlite"
+ },
+ {
+  "schema": "public",
+  "name": "kinship_codes",
+  "rows": 488,
+  "cat": "A-源=CBDB sqlite"
+ },
+ {
+  "schema": "public",
+  "name": "literarygenre_codes",
+  "rows": 12,
+  "cat": "A-源=CBDB sqlite"
+ },
+ {
+  "schema": "public",
+  "name": "measure_codes",
+  "rows": 7,
+  "cat": "A-源=CBDB sqlite"
+ },
+ {
+  "schema": "public",
+  "name": "merged_person_data",
+  "rows": 5994,
+  "cat": "A-源=CBDB sqlite"
+ },
+ {
+  "schema": "public",
+  "name": "missionary_writings",
+  "rows": 1033,
+  "cat": "A-源=writings of the 19c missionaries in China.tab(tsv)"
+ },
+ {
+  "schema": "public",
+  "name": "nian_hao",
+  "rows": 682,
+  "cat": "A-源=CBDB sqlite"
+ },
+ {
+  "schema": "public",
+  "name": "occasion_codes",
+  "rows": 10,
+  "cat": "A-源=CBDB sqlite"
+ },
+ {
+  "schema": "public",
+  "name": "office_categories",
+  "rows": 15,
+  "cat": "A-源=CBDB sqlite"
+ },
+ {
+  "schema": "public",
+  "name": "office_code_type_rel",
+  "rows": 43783,
+  "cat": "A-源=CBDB sqlite"
+ },
+ {
+  "schema": "public",
+  "name": "office_codes",
+  "rows": 34162,
+  "cat": "A-源=CBDB sqlite"
+ },
+ {
+  "schema": "public",
+  "name": "office_type_tree",
+  "rows": 2742,
+  "cat": "A-源=CBDB sqlite"
+ },
+ {
+  "schema": "public",
+  "name": "parental_status_codes",
+  "rows": 7,
+  "cat": "A-源=CBDB sqlite"
+ },
+ {
+  "schema": "public",
+  "name": "possession_act_codes",
+  "rows": 4,
+  "cat": "A-源=CBDB sqlite"
+ },
+ {
+  "schema": "public",
+  "name": "possession_addr",
+  "rows": 62,
+  "cat": "A-源=CBDB sqlite"
+ },
+ {
+  "schema": "public",
+  "name": "possession_data",
+  "rows": 60,
+  "cat": "A-源=CBDB sqlite"
+ },
+ {
+  "schema": "public",
+  "name": "posted_to_addr_data",
+  "rows": 465284,
+  "cat": "A-源=CBDB sqlite"
+ },
+ {
+  "schema": "public",
+  "name": "posted_to_office_data",
+  "rows": 591518,
+  "cat": "A-源=CBDB sqlite"
+ },
+ {
+  "schema": "public",
+  "name": "posting_data",
+  "rows": 591487,
+  "cat": "A-源=CBDB sqlite"
+ },
+ {
+  "schema": "public",
+  "name": "quan_yuan_wen_index",
+  "rows": 40199,
+  "cat": "A-源=Index_of_the_Complete_Prose_of_the_Yuan_Dynasty_vol_1-60.tab(tsv)"
+ },
+ {
+  "schema": "public",
+  "name": "scholarlytopic_codes",
+  "rows": 32,
+  "cat": "A-源=CBDB sqlite"
+ },
+ {
+  "schema": "public",
+  "name": "social_institution_addr",
+  "rows": 3859,
+  "cat": "A-源=CBDB sqlite"
+ },
+ {
+  "schema": "public",
+  "name": "social_institution_addr_types",
+  "rows": 2,
+  "cat": "A-源=CBDB sqlite"
+ },
+ {
+  "schema": "public",
+  "name": "social_institution_altname_codes",
+  "rows": 1,
+  "cat": "A-源=CBDB sqlite"
+ },
+ {
+  "schema": "public",
+  "name": "social_institution_altname_data",
+  "rows": 0,
+  "cat": "A-源=CBDB sqlite"
+ },
+ {
+  "schema": "public",
+  "name": "social_institution_codes",
+  "rows": 4012,
+  "cat": "A-源=CBDB sqlite"
+ },
+ {
+  "schema": "public",
+  "name": "social_institution_name_codes",
+  "rows": 2603,
+  "cat": "A-源=CBDB sqlite"
+ },
+ {
+  "schema": "public",
+  "name": "social_institution_types",
+  "rows": 7,
+  "cat": "A-源=CBDB sqlite"
+ },
+ {
+  "schema": "public",
+  "name": "spatial_ref_sys",
+  "rows": 8501,
+  "cat": "POSTGIS系统"
+ },
+ {
+  "schema": "public",
+  "name": "status_code_type_rel",
+  "rows": 285,
+  "cat": "A-源=CBDB sqlite"
+ },
+ {
+  "schema": "public",
+  "name": "status_codes",
+  "rows": 285,
+  "cat": "A-源=CBDB sqlite"
+ },
+ {
+  "schema": "public",
+  "name": "status_data",
+  "rows": 73530,
+  "cat": "A-源=CBDB sqlite"
+ },
+ {
+  "schema": "public",
+  "name": "status_types",
+  "rows": 14,
+  "cat": "A-源=CBDB sqlite"
+ },
+ {
+  "schema": "public",
+  "name": "text_biblcat_code_type_rel",
+  "rows": 144,
+  "cat": "A-源=CBDB sqlite"
+ },
+ {
+  "schema": "public",
+  "name": "text_biblcat_codes",
+  "rows": 144,
+  "cat": "A-源=CBDB sqlite"
+ },
+ {
+  "schema": "public",
+  "name": "text_biblcat_types",
+  "rows": 51,
+  "cat": "A-源=CBDB sqlite"
+ },
+ {
+  "schema": "public",
+  "name": "text_codes",
+  "rows": 62377,
+  "cat": "A-源=CBDB sqlite"
+ },
+ {
+  "schema": "public",
+  "name": "text_instance_data",
+  "rows": 9817,
+  "cat": "A-源=CBDB sqlite"
+ },
+ {
+  "schema": "public",
+  "name": "text_role_codes",
+  "rows": 12,
+  "cat": "A-源=CBDB sqlite"
+ },
+ {
+  "schema": "public",
+  "name": "text_type",
+  "rows": 126,
+  "cat": "A-源=CBDB sqlite"
+ },
+ {
+  "schema": "public",
+  "name": "thdl_tibet_adm_areas",
+  "rows": 166,
+  "cat": "A-源=THDL_ADMareas_rev022401.xls"
+ },
+ {
+  "schema": "public",
+  "name": "year_range_codes",
+  "rows": 6,
+  "cat": "A-源=CBDB sqlite"
+ }
+]

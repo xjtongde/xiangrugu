@@ -28,7 +28,7 @@ datamgmt/
 │   ├── sources.yaml   源清单：一源一条（阶段二建，候口令）
 │   ├── decoding.yaml  列级解码判定表：每文本列的编码与依据（阶段二建，候口令）
 │   └── g4_assertions.yaml  闸4 语义哨兵断言集＝源数据可疑处登记册之机器版（已建）
-├── truth/             源侧真值独立读取器（阶段一建）：dbf/shp/prj/sqlite/xls/zipmember/rasterhdr
+├── truth/             源侧真值独立读取器（已建）：dbf/shp/sqlite/xls/mapinfo＋column_encoding/enumerate/probe/read_text/roots/srcopen（prj/zipmember/rasterhdr 未建，阶段二补——审计 10-05）
 │                      ——铁律：验收不经 GDAL，直读源件字节（import-plan §6.1）
 ├── importer/          装载器 load.py：读 sources.yaml → staging → 过闸 → 原子换名 → 写 recon（阶段三建）
 ├── verifier/          验证器 verify.py＋六道闸：与 importer **零共用代码**（阶段一建）

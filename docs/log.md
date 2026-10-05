@@ -7,6 +7,7 @@
 
 ## 变动记录
 
+- **2026-10-05** | 接审计逐条核实：7 项阻塞全成立（缺 sources/decoding 配置、载具仅 5/11、缺 prj/zipmember/rasterhdr、tests 空、promote 非原子、硬编码路径、栅格口径待裁）；对齐 README truth/ 实存清单 | **审计对齐** | 审计结论「阶段一完成、未获导入证明」 | 本 commit。
 - **2026-10-05** | 误导核查（用户令「不能误导任何接触者」）：g4_assertions 状态三处统一「已建」（import-plan/cbdb×2）、PITFALLS sources.yaml 改「阶段二重建·旧868已删」、README 真值账消歧；**回退上轮误改** codemap/index 之 R-08→R-09（R-09 系预留未开设） | **文档清理·对齐** | 用户令 | 本 commit。
 - **2026-10-05** | 对齐核查（R-06，用户问「其它 agent 看来是否仍乱」）：HANDOFF 订正（7572→7219、底账落 1172/1153、去 recon_b2a/src_paths、cbdb→新库名候裁、§4 改核对底账）＋codemap/README/index 去「空壳占位·代码未建·R-08」＋import-plan 阶段改「一已完成·二候口令」 | **文档清理·对齐** | R-06 | 本 commit。
 - **2026-10-05** | 删老库 cbdb＋作废 868 产物 15 件：recon/ cbdb_provenance*、prov_*_tables、retry_shapefile.json、maintenance/retry_shapefile.py、config/sources.yaml(868)＋decoding.yaml、rehearse_b*、docs/import-rehearsal-A.md；HANDOFF/codemap 改指已删 | **文档清理** | 用户令「不需要的删，数据来自 usedata」 | 本 commit。

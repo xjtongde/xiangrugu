@@ -38,7 +38,7 @@
 | 主机 | 硬件（as_of） | 实例 |
 |---|---|---|
 | **192.168.3.32** | i7-6567U（2C/4T）；RAM 总 7G／可用 5G；`/` 233G 总、**余 189G**（**09-30 现算**）；时区两文件正常 | `pg32` 生产 **5432**；**`pg32b` 5433**（`cbdb` 库宿主）；另有 nginx32（unhealthy 观察项）／n8n／chainlit／graphrag |
-| 192.168.3.35 | — | Gitea **17080**（含 wiki 仓） |
+| 192.168.3.35 | — | Gitea web **17080**／SSH **17022**（含 wiki 仓） |
 
 ⚠ **共实例告警**：`pg32b` 与生产 `pg32` **同在 32 主机** → 任何装载/验证须 `nice`／`ionice` 且 **loadavg<4.0 门禁**（`roots.yaml` 已载）。
 ⚠ **DB 严禁跑 NAS**（部署标准 §2.1–2.2）；NAS 仅作备份目的地。
@@ -56,7 +56,7 @@
 
 ## 5 Git 与代码托管
 
-- **远程**：Gitea `http://192.168.3.35:17080/deepseekharness/xiangrugu`（私有，默认分支 `main`）；`origin` 已设。
-- **凭据**：`credential.helper=store --file=/root/.git-credentials`（用户 2026-09-22 裁**长期留用**）；工单令牌 `xiangrugu-issues`（id=7，scopes `write:issue`）；真账密收编 `.secrets/gitea_account`（用户令"这个 key 你以后用"）。
+- **远程**：Gitea `git@gitea:deepseekharness/xiangrugu`（SSH **17022**，私有，默认分支 `main`）；`origin` 已切 SSH，`~/.ssh/config` 有 `Host gitea` 块（`git` 用户＋专用密钥）。
+- **凭据**：**SSH 为主**——`~/.ssh/gitea/id_ed25519`（2026-10-05 新制并登记 Gitea，无口令，供 DSH 免密走 `git@gitea`）；HTTP 回退＝`credential.helper=store --file=/root/.git-credentials`（用户 2026-09-22 裁**长期留用**）；工单令牌 `xiangrugu-issues`（id=7，scopes `write:issue`）；真账密收编 `.secrets/gitea_account`（用户令"这个 key 你以后用"）。
 - **外围知识层**＝Gitea wiki 仓（2026-09-25 用户定性"非必要材料，用学习与了解"）——**非权威**，冲突以 `docs/index.md` §二为准。
 - ⚠ `.gitignore` 吃掉 `ops/` 致旧装载脚本不入仓、NAS 又无副本 → **重建能力单点（P-16）**；故 `datamgmt/` 一律入仓。

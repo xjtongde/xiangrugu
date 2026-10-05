@@ -7,6 +7,8 @@
 
 ## 变动记录
 
+- **2026-10-05** | **对齐核查（R-06）**：本轮改 codemap §5（HTTP→SSH）＋环境（ssh key/config/origin）；冗余✓、矛盾✓（他处无 http 远端旧述）、锚点✓（gitea 别名/密钥路径实存）、账目✓（log 已记、无新三账/注册文档） | **对齐核查** | R-06 | 本 commit。
+- **2026-10-05** | `codemap.md` §5 改记 SSH 主通道：新制 `~/.ssh/gitea/id_ed25519` 登记 Gitea、`~/.ssh/config` 加 `Host gitea`（git@192.168.3.35:17022）、`origin` 切 `git@gitea:...`；原 HTTP token 已 403 失效、HTTP 回退保留 | **环境·托管改道** | 用户令「建立一个 gitea 的 ssh 密钥登录，以后 dsh 都可以用这个登录」 | 本 commit。
 - **2026-10-05** | **对齐核查（R-06）**：冗余查✓（口径单源 §5.1、§12 十为指针）；矛盾查→修 1 处＝`HANDOFF` §1.2(b)/§2.1/§3 仍称「照 recon_b2a 定名」与 §5.1「照源件自身名」冲突，顶部补正注前向指路（历史正文不回改）；锚点查✓（§12十→§5.1、findings→recon 均实存）；账目闭环✓（无新三账/新注册文档，codemap 无需刷新） | **对齐核查** | R-06 | 本 commit。
 - **2026-10-05** | `import-plan.md` §5.1 立「源件→表 命名与去重口径」、§12 增口径十（已裁）；`datamgmt/recon/` 落底账 ledger_final（7219 成员→1172 行/1153 表，含 mdb/sql/xls 内部结构现读） | **方案修订·底账** | 用户令「不管旧库，把 usedata 忠实导入 pg32b」＋「这点很重要，要记录到导入说明文档」 | 本 commit。
 - **2026-10-02** | 补 xls 读数器：按"工具类隔离装"指令 xlrd@/tmp/xlsdeps（pip --target，不碰系统/项目）；读全两 .xls 入 sources.yaml：1999_gb_pop_uce(2357行6列)、THDL_ADMareas(165行17列,剔4空分隔列)；表头/跳行/列型逐列登记于 truth/read_xls.py 之 XLS_SPEC | **装载·判定表** | leg C 结构齐 | 待裁：tab 列型、131 SRID review、key_cols | 本 commit。

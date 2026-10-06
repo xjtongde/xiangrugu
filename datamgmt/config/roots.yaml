@@ -21,10 +21,18 @@ roots:
 
   usedata:                              # ★导入唯一取材处（用户令 1）
     path: /mnt/wd61workmetadata/usedata
+    container_path: /data/imports/usedata # 运行时临时只读入口；须验证其挂载源对应本 path
     host: 192.168.3.32
     role: authoritative-source          # 权威数据源目录（2026-09-28 用户令设立）
     usage_policy: "2026-10-02 用户令：usedata 只含【本项目使用】件——使用件保留并记用途，不使用件清出（不判断源数据对错，仅按项目是否使用取舍）。"
-    access: read-only                   # 源件内容决不可改（R-07）；整件清出须经用户令并留痕
+    access: read-only                   # 政策：源件内容决不可改（R-07）；不代表上游挂载当前就是 ro
+    observed_mount:                     # 2026-10-06 SSH 只读实测；不得把 rw 上游直接交给导入容器
+      target: /mnt/wd61workmetadata
+      source: //192.168.3.61/workmetadata
+      fstype: cifs
+      options: rw
+      as_of: "2026-10-06"
+      required_import_view: "另行 bind 到 /opt/mydocker/xiangrugu/data/imports/usedata，并 remount 为 ro；容器内再次验证独立挂载与 ro"
     as_of: "2026-10-06"
     measured_by: this-session
     inventory:                          # 2026-10-06 SSH 只读复核：189 个普通文件，根可读
@@ -66,10 +74,12 @@ checksums:
     measured_by: this-session
     path_base: usedata                  # ★行内路径相对于 usedata/（实测首行：chgis-v6/…）
     covers: 二批（chgis-v6 ＋ harvard-full，清出旧版 CBDB 后 172 件）
+    raw_sha256: 900d98c69cf9b72f20313aa562b8da5e18e9c3e3def423fa6f618b4b1bafb3cb
+    format_anomaly: "172 条有效记录后有 1,101 个 NUL 字节；GNU sha256sum 会警告 1 行格式错误。源件不修，解析器必须检测并把该异常写入证据；仅当前固定摘要可由冻结合同批准兼容解析。"
     removal_note: "2026-10-02 用户令清出 harvard-full/DOI/PAGGQS/CBDB_20240208_sqlite.db（旧版），本账重写为 172 行。"
     last_verification:
-      result: "172/172 相符（2026-10-02 清出旧版后闸0 复验；harvard 账 13/13；发布方账 5/6，唯一 missing 系其列错路径）"
-      as_of: "2026-10-02"
+      result: "172/172 相符（2026-10-06 SSH 复验）；账尾 1,101 NUL 已单列为格式异常，不得静默忽略"
+      as_of: "2026-10-06"
       measured_by: this-session
       source: datamgmt/recon/gate0_integrity.json
   - file: /mnt/wd61workmetadata/usedata/harvard/SHA256SUMS
@@ -78,12 +88,14 @@ checksums:
     measured_by: this-session
     path_base: harvard                  # 待阶段一闸0 核实
     covers: 首批
+    raw_sha256: 5ad06d6dcf6dfa5e6ecfad707f0e59c53b3a4a21e657b334297aba6c26b453a3
   - file: /mnt/wd61workmetadata/usedata/harvard/chgis/SHA256SUMS.txt
     lines: 6
     as_of: "2026-09-29"
     measured_by: this-session
     path_base: chgis                    # 发布方自带；覆盖范围待阶段一闸0 核实
     covers: CHGIS v6 发布件
+    raw_sha256: 694c101f04e636012e752c87958c8065c8e6926633c8b542e89978d8f8451a60
     note: "发布方自带校验账（非我方生成）——闸0 须同时对我方账与发布方账，两者皆过才算完整。"
 
 # ─────────────────────────────────────────────────────────────
@@ -144,6 +156,28 @@ target:
     - name: cbdb_reh
       authority: none
       policy: "旧彩排库，不是本方案目标或基线；后续处置待用户明确指令。"
-  access_pattern: 'ssh 192.168.3.32 "docker exec -i pg32b psql -U postgres -d xiangrugu -At -F''|''" <<SQL … SQL'
+  access_pattern: "香如故容器内通过 PostgreSQL 标准协议连接；PGHOST、PGPORT、PGDATABASE、PGUSER 和凭据由部署配置注入。SSH 与 docker exec 仅供获授权的运维诊断，不是应用传输层。"
   sql_quoting_rule: "SQL 内字符串一律单引号；-At -F'|' 之外不要再套双引号（PG 中双引号＝标识符定界符，会报 column does not exist）。"
   co_tenancy_warning: "pg32b 与生产 pg32 **同在 32 主机**（另有 n8n/chainlit/graphrag 等在跑）→ 一切装载须 nice -n 19 ionice -c3 ＋ loadavg<4.0 门禁（30s 轮询）＋ canary 计时。"
+
+# ─────────────────────────────────────────────────────────────
+# 六、香如故容器部署与临时源入口
+# ─────────────────────────────────────────────────────────────
+deployment:
+  host_root: /opt/mydocker/xiangrugu
+  host_data_root: /opt/mydocker/xiangrugu/data
+  container_data_root: /data
+  code_policy: "自有代码进入自有镜像；生产环境不得以宿主机源码挂载覆盖镜像。"
+  persistent_data:
+    host_path: /opt/mydocker/xiangrugu/data/persistent
+    container_path: /data/persistent
+  runtime_state:
+    host_path: /opt/mydocker/xiangrugu/data/var
+    container_path: /data/var
+  transient_source:
+    host_mountpoint: /opt/mydocker/xiangrugu/data/imports/usedata
+    container_path: /data/imports/usedata
+    propagation: rslave
+    access: read-only
+    lifecycle: "仅 inventory/import/verify/rehearse 期间挂载；完成 G0 后置检查并确认无进程占用后卸载。"
+  third_party_policy: "第三方源码与镜像保持原版；我方扩展通过公开标准接口并置于自有镜像。"

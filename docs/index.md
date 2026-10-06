@@ -11,6 +11,7 @@
 | `docs/import-plan.md` | 项目级兼容入口，只指向数据接入模块文档 |
 | `datamgmt/README.md` | 数据接入模块入口、现有资产和实现缺口 |
 | `datamgmt/docs/DESIGN.md` | 数据接入模块唯一权威设计、合同、阶段与验收门槛 |
+| `datamgmt/docs/IMPLEMENTATION-PLAN.md` | 已批准容器架构对应的执行计划；开发、构建、部署和提交按授权门推进 |
 | `datamgmt/docs/OPERATIONS.md` | 首次构建、数据更新、发布和失败处理 |
 | `datamgmt/config/roots.yaml` | 唯一源根、路径政策、目标实例与数据库 |
 | `datamgmt/docs/PITFALLS.md` | 数据接入必须拦截的历史失败模式 |

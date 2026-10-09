@@ -1,0 +1,49 @@
+version: 1
+resolved_at: "2026-10-06"
+platform:
+  os: linux
+  architecture: amd64
+base_image:
+  name: python
+  tag: 3.11.16-slim-bookworm
+  index_digest: sha256:a36c24f9cbdf4fd0f52d67f0823eeac19c2028c637cecc392d97f980d4fec56b
+  platform_digest: sha256:4b4c524dc3dce996864e030c7bd9c6b0e517597189fee48f48e05b499442444b
+  source: https://github.com/docker-library/python.git
+  source_revision: 688a0b86bb44289df16a363e9f41d90514c1a5f9
+system_packages:
+  ca-certificates: 20250419~deb12u1
+  tzdata: 2026b-0+deb12u1
+python_toolchain:
+  python: 3.11.16
+  pip: "24.0"
+  setuptools: 79.0.1
+  wheel: 0.46.3
+  lock_generator: pip-tools==7.6.1
+python_requirements:
+  input: datamgmt/requirements.in
+  lock: datamgmt/requirements.lock
+  lock_sha256: c7dffdf283a8e30c07a3ee423c59afdabd31c0256adf0b8fd35d59b4587a6004
+python_dev_requirements:
+  input: datamgmt/requirements-dev.in
+  lock: datamgmt/requirements-dev.lock
+  lock_sha256: a29959846bf78cd2f4a88e1ffb4dab3fd58acc2280acd4d7e77d55733a82d606
+crs_dependency_increment:
+  verified_at: '2026-10-08'
+  method: official_pypi_json_wheel_hashes_existing_pins_retained
+  pyproj:
+    version: 3.7.2
+    metadata: https://pypi.org/pypi/pyproj/3.7.2/json
+    wheel: pyproj-3.7.2-cp311-cp311-manylinux_2_28_x86_64.whl
+    sha256: 281cb92847814e8018010c48b4069ff858a30236638631c1a91dd7bfa68f8a8a
+  certifi:
+    version: 2026.7.22
+    metadata: https://pypi.org/pypi/certifi/2026.7.22/json
+    wheel: certifi-2026.7.22-py3-none-any.whl
+    sha256: 62f22742b58a1a33014a2b6b706588a8d7e2a88ae7bd1a6ebe8c992928483775
+  proj_network: 'OFF'
+  bundled_catalog:
+    proj_version: 9.5.1
+    epsg_version: v11.022
+    epsg_date: '2024-11-05'
+    proj_db_sha256: a25d85a2ebfc4584eba65186b7c41743b084ce5d391941cbb41c805947b77109
+    proj_db_size: 9261056

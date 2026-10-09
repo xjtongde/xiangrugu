@@ -1,0 +1,99 @@
+..............................................FF                         [100%]
+=================================== FAILURES ===================================
+_________ test_file_bom_signature_does_not_change_utf8_column_encoding _________
+
+    def test_file_bom_signature_does_not_change_utf8_column_encoding():
+        obj, decision = projection()
+        decision.update(codec="utf-8-sig", bom_as_signature=True)
+>       value_schema, header = api().schema_from_approved(obj, decision)
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+datamgmt/tests/unit/test_text_values.py:191: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+obj = {'rule_id': 'test', 'source_object_id': '83b927fa7b15e0010951f8bf64a1f4423430627027ab2d0b0b8f9705649cf08e', 'object_name': 'fixture.tab', 'carrier': 'tsv', ...}
+decision = {'rule_id': 'test', 'relative_path': 'fixture.tab', 'archive_chain': [], 'archive_ordinals': [], ...}
+
+    def schema_from_approved(obj: dict, decision: dict):
+        """Bind explicit approved text columns to an exact outer-file reading decision.
+    
+        This is a non-executable sidecar projection, not ReleaseContract validation.
+        Schema/table approval is intentionally not promoted to import readiness.
+        """
+        try:
+            if any(obj[key] is not True for key in (
+                "source_column_types_approved", "source_column_nullable_approved",
+                "source_column_mapping_approved", "derived_rownum_mapping_approved",
+            )):
+                raise ValueError()
+            selector = obj["selector"]
+            if (obj["rule_id"] != decision["rule_id"]
+                    or obj["reading_decision_rule_id"] != decision["rule_id"]
+                    or any(selector[key] != decision[key] for key in (
+                        "relative_path", "archive_chain", "archive_ordinals"))
+                    or selector["archive_chain"] != [] or selector["archive_ordinals"] != []
+                    or obj["carrier"] != "tsv" or obj["raw_expected"]["kind"] != "file"
+                    or not valid_digest(decision["raw_sha256"])
+                    or type(decision["raw_size"]) is not int or decision["raw_size"] < 0
+                    or obj["raw_expected"]["sha256"] != decision["raw_sha256"]
+                    or obj["raw_expected"]["size"] != decision["raw_size"]
+                    or type(decision["bom_as_signature"]) is not bool
+                    or type(decision["backslash_escape"]) is not bool
+                    or decision["codec"] != ("utf-8-sig" if decision["bom_as_signature"] else "utf-8")):
+                raise ValueError()
+            identity = source_object_id(relative_path=selector["relative_path"], archive_chain=[],
+                                        object_name=obj["object_name"], carrier="tsv")
+            if identity != obj["source_object_id"]:
+                raise ValueError()
+            count = obj["source_record_count"]
+            if type(count) is not int or not 0 <= count <= ValueLimits().max_rows:
+                raise ValueError()
+            derived = obj["derived_columns"]
+            if (len(derived) != 1 or derived[0]["mapping_approved"] is not True
+                    or derived[0]["target_name"] != "__src_rownum"
+                    or derived[0]["target_type"] != "bigint"
+                    or derived[0]["origin"] != "one-based data record order excluding header"
+                    or derived[0]["range"] != [1, count]):
+                raise ValueError()
+            columns = obj["source_columns"]
+            if not 1 <= len(columns) < ValueLimits().max_columns:
+                raise ValueError()
+            header = tuple(column["original_name"] for column in columns)
+            if any(type(name) is not str for name in header):
+                raise ValueError()
+            maps = allocate_columns(list(header), object_id=identity)
+            encoded_columns = []
+            for ordinal, (column, mapping) in enumerate(zip(columns, maps, strict=True), 1):
+                if (type(column["source_column_ordinal"]) is not int
+                        or column["source_column_ordinal"] != ordinal
+                        or column["column_id"] != mapping.identity
+                        or column["target_name"] != mapping.target
+                        or column["target_type"] != "text" or column["nullable"] is not False
+                        or any(column[key] is not True for key in (
+                            "type_approved", "nullable_approved", "column_mapping_approved"))
+                        or column["encoding"] != dict(codec=decision["codec"], errors="strict",
+                                                      column=header[ordinal-1],
+                                                      object_name=obj["object_name"])):
+                    raise ValueError()
+                encoded_columns.append(ValueColumn(mapping.identity, mapping.target, "text", False))
+            encoded_columns.append(ValueColumn("derived:__src_rownum", "__src_rownum", "bigint", False))
+            return ValueSchema(identity, tuple(encoded_columns)), header
+        except (KeyError, TypeError, ValueError, AttributeError):
+>           raise ValueContractError("structure") from None
+E           xiangrugu_datamgmt.canonical.ValueContractError: structure
+
+datamgmt/src/xiangrugu_datamgmt/text_values.py:76: ValueContractError
+__________ test_file_signature_codec_cannot_be_applied_to_each_column __________
+
+    def test_file_signature_codec_cannot_be_applied_to_each_column():
+        obj, decision = projection()
+        decision.update(codec="utf-8-sig", bom_as_signature=True)
+        obj["source_columns"][0]["encoding"]["codec"] = "utf-8-sig"
+>       with pytest.raises(ValueContractError, match="structure"):
+E       Failed: DID NOT RAISE ValueContractError
+
+datamgmt/tests/unit/test_text_values.py:200: Failed
+=========================== short test summary info ============================
+FAILED datamgmt/tests/unit/test_text_values.py::test_file_bom_signature_does_not_change_utf8_column_encoding
+FAILED datamgmt/tests/unit/test_text_values.py::test_file_signature_codec_cannot_be_applied_to_each_column
+2 failed, 46 passed in 0.13s

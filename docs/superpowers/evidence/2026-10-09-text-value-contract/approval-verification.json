@@ -1,0 +1,96 @@
+{
+  "version": 1,
+  "scope": "five-object-value-approval-repository-metadata-only",
+  "artifact_sha256": {
+    "docs/superpowers/evidence/2026-10-08-text-source-values/text-source-value-expectations.draft.json": "47c2401197e557be356941842d099a27db867e707682a3ef536cee2430d7ac38",
+    "datamgmt/contracts/releases/2026-10-06-bootstrap/text-schema-approved.draft.yaml": "0f379eee0eb120eb037cd63b73299cd79a9be6aee412b24ca5e04dac9bb03189",
+    "datamgmt/contracts/releases/2026-10-06-bootstrap/text-reading-decisions.draft.yaml": "49555b018fe87df0756620ac64eaaf4c73a3d3789cbb4408730b796acea16ec2",
+    "datamgmt/contracts/releases/2026-10-06-bootstrap/additional-text-reading-decisions.draft.yaml": "cb94b467d57018f9257dc4767570328eabe106b309fce42e68d6298dfac5528a",
+    "datamgmt/contracts/releases/2026-10-06-bootstrap/sources.yaml": "8d504b66a03eee2e9f235722a25aa6ece3e46cbcd3322941c9225c37cf747377",
+    "datamgmt/contracts/releases/2026-10-06-bootstrap/sources-metadata-review.draft.yaml": "9d05e365e0baaa405614efb64a0e7413bc465ed31d63e655ded7cac58e985f7d",
+    "datamgmt/contracts/releases/2026-10-06-bootstrap/decoding.yaml": "6f3d2fc6b189ac3208c8cd7e80a347750129916226668bfda3f20db7f88f2124",
+    "datamgmt/contracts/releases/2026-10-06-bootstrap/assertions.yaml": "54f813f763dbe0700f27a9173e53e5b0aad07efeef28fec8ef196130d1326a87",
+    "datamgmt/contracts/releases/2026-10-06-bootstrap/text-value-contract-proposal.draft.json": "c86be708b7469c095ae7bd35f4751dc17d9045f353da799cda651d6af38a2189",
+    "datamgmt/contracts/releases/2026-10-06-bootstrap/text-value-contract-decisions.draft.json": "e4c666c0f1d17b7d4c60f986379fa8084120c9a98db9583da183ef790048df93",
+    "datamgmt/contracts/releases/2026-10-06-bootstrap/text-value-contract-approved.draft.json": "ecb0282805d19930266ec8f82605ed94477b24fd73e1d881ec42b77cb7810f47",
+    "datamgmt/tests/unit/test_text_value_contract_proposal.py": "928aede06a0dd7b5dc2aa6ffd0d66e53f691d45a2d36588ff65f311afe124313"
+  },
+  "runs": {
+    "proposal": {
+      "junit_file": "/data/var/text-value-contract-20261009-approval/proposal-junit.xml",
+      "junit_sha256": "141c602485a0422313dfa9d9f0923dae0393e00349f5d77896a110ea1e3a9a43",
+      "suite": {
+        "name": "pytest",
+        "errors": "0",
+        "failures": "0",
+        "skipped": "0",
+        "tests": "12",
+        "time": "0.315",
+        "timestamp": "2026-10-08T19:44:30.466721+00:00",
+        "hostname": "29795c60ae15"
+      },
+      "failed_cases": []
+    },
+    "unit": {
+      "junit_file": "/data/var/text-value-contract-20261009-approval/unit-junit.xml",
+      "junit_sha256": "f59eb3845134bade0c58bd7246dc66bea43946b285d17a4df2e4ebc50fa725bf",
+      "suite": {
+        "name": "pytest",
+        "errors": "0",
+        "failures": "0",
+        "skipped": "0",
+        "tests": "488",
+        "time": "5.394",
+        "timestamp": "2026-10-08T19:44:31.460207+00:00",
+        "hostname": "29795c60ae15"
+      },
+      "failed_cases": []
+    },
+    "image-context": {
+      "junit_file": "/data/var/text-value-contract-20261009-approval/image-context-junit.xml",
+      "junit_sha256": "15fb1df3cf4853f0e44a2d2124edaad31e9524f05853427da783190ae34308b5",
+      "suite": {
+        "name": "pytest",
+        "errors": "0",
+        "failures": "0",
+        "skipped": "12",
+        "tests": "12",
+        "time": "0.186",
+        "timestamp": "2026-10-08T19:45:07.955768+00:00",
+        "hostname": "29795c60ae15"
+      },
+      "failed_cases": []
+    },
+    "full-dev": {
+      "junit_file": "/data/var/text-value-contract-20261009-approval/full-dev-junit.xml",
+      "junit_sha256": "eece2b317830b67a68f3b804ae3a989f621386b39b7834628f454cd95c06c7d9",
+      "suite": {
+        "name": "pytest",
+        "errors": "0",
+        "failures": "5",
+        "skipped": "0",
+        "tests": "496",
+        "time": "5.451",
+        "timestamp": "2026-10-08T19:45:00.319456+00:00",
+        "hostname": "29795c60ae15"
+      },
+      "failed_cases": [
+        "tests.container.test_dev_environment::test_compose_declares_a_real_isolated_dev_process",
+        "tests.container.test_dev_environment::test_dev_mounts_only_controlled_source_and_non_source_data",
+        "tests.container.test_dev_environment::test_sync_script_excludes_repository_and_sensitive_runtime_state",
+        "tests.container.test_image_contract::test_compose_keeps_source_mount_confined_to_development",
+        "tests.container.test_image_contract::test_project_snapshot_volume_is_readonly_without_dynamic_source_propagation"
+      ]
+    }
+  },
+  "source_read_this_run": false,
+  "database_connected": false,
+  "contract_frozen": false,
+  "ready_for_import": false,
+  "value_contract_approved": true,
+  "table_names_approved": false,
+  "global_name_allocation_complete": false,
+  "image_context_is_synthetic": true,
+  "candidate_image_built_this_run": false,
+  "current_exists": false
+}

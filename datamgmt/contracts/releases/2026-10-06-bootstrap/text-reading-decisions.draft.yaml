@@ -1,0 +1,52 @@
+# 用户只批准读取解释；不是 frozen sources/decoding 合同或导入授权。
+version: 1
+status: draft
+release_id: 2026-10-06-bootstrap
+source_version: 2026-10-07-bootstrap
+inventory_sha256: fb5e6b334b898d62dc0e5c77094fdb50e0946300e6e3009f447b2ecd1bc216db
+base_contract_sha256: 0b98f0078dd3d2756984881610df67a5a937fa1b93005ecf99fba66f6626422c
+reading_semantics_approved: true
+authorization_reference: "2026-10-07 用户答复：同意，继续；对应三件文件的 BOM/引号解释及仅 ACADEMY 反斜杠转义提案"
+ready_for_import: false
+interpretation:
+  header_record: 1
+  delimiter: TAB
+  quotechar: DOUBLE_QUOTE
+  doublequote: true
+  record_separator: LF
+  unquoted_interior_quote: literal
+  values: strings
+  empty_string: preserve_not_null
+  whitespace: preserve
+  duplicate_records: preserve
+  source_order: preserve
+  type_inference: false
+  automatic_fallback: false
+rules:
+  - rule_id: m008002
+    relative_path: harvard/tab/ACADEMY_Data.tab
+    archive_chain: []
+    archive_ordinals: []
+    raw_size: 714962
+    raw_sha256: d21bd9f625acd85e66298fd8635b64c54f380d36b8f44f5d1d9734a0bf55c256
+    codec: utf-8-sig
+    bom_as_signature: true
+    backslash_escape: true
+  - rule_id: m008003
+    relative_path: harvard/tab/Index_of_the_Complete_Prose_of_the_Yuan_Dynasty_vol_1-60.tab
+    archive_chain: []
+    archive_ordinals: []
+    raw_size: 2619410
+    raw_sha256: b720bff1d328e93726822910cbe361778667e414c24de4ab5f61082a0316623d
+    codec: utf-8-sig
+    bom_as_signature: true
+    backslash_escape: false
+  - rule_id: m008004
+    relative_path: harvard/tab/writings of the 19c missionaries in China.tab
+    archive_chain: []
+    archive_ordinals: []
+    raw_size: 193811
+    raw_sha256: 23b23f6fdd8c8c3d070fe0d215bc643beef8742c06801ee861fb9255d77e5fe7
+    codec: utf-8
+    bom_as_signature: false
+    backslash_escape: false

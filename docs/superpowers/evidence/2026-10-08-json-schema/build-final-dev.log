@@ -1,0 +1,71 @@
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 2.85kB done
+#1 DONE 0.0s
+
+#2 resolve image config for docker-image://docker.io/docker/dockerfile:1.7
+#2 DONE 0.5s
+
+#3 docker-image://docker.io/docker/dockerfile:1.7@sha256:a57df69d0ea827fb7266491f2813635de6f17269be881f696fbfdf2d83dda33e
+#3 resolve docker.io/docker/dockerfile:1.7@sha256:a57df69d0ea827fb7266491f2813635de6f17269be881f696fbfdf2d83dda33e 0.1s done
+#3 CACHED
+
+#4 [internal] load metadata for docker.io/library/python:3.11.16-slim-bookworm@sha256:4b4c524dc3dce996864e030c7bd9c6b0e517597189fee48f48e05b499442444b
+#4 DONE 0.0s
+
+#5 [internal] load .dockerignore
+#5 transferring context: 197B done
+#5 DONE 0.0s
+
+#6 [internal] load build context
+#6 DONE 0.0s
+
+#7 [base 1/9] FROM docker.io/library/python:3.11.16-slim-bookworm@sha256:4b4c524dc3dce996864e030c7bd9c6b0e517597189fee48f48e05b499442444b
+#7 resolve docker.io/library/python:3.11.16-slim-bookworm@sha256:4b4c524dc3dce996864e030c7bd9c6b0e517597189fee48f48e05b499442444b 0.1s done
+#7 DONE 0.1s
+
+#6 [internal] load build context
+#6 transferring context: 27.22kB 0.0s done
+#6 DONE 0.0s
+
+#8 [base 2/9] WORKDIR /app
+#8 CACHED
+
+#9 [base 3/9] RUN test "2026-10-08T14:47:09Z" != "unknown"     && printf '%s\n' "2026-10-08T14:47:09Z" | grep -Eq '^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}Z$'     && test "1a34956fbcbe7877fbad04ee5a7ec9e3dd52bf05" != "unknown"     && printf '%s\n' "1a34956fbcbe7877fbad04ee5a7ec9e3dd52bf05" | grep -Eq '^[0-9a-f]{40}$'     && test "0.1.0" != "unknown"     && printf '%s\n' "dirty" | grep -Eq '^(clean|dirty)$'     && test "$(dpkg-query -W -f='${Version}' ca-certificates)" = "20250419~deb12u1"     && test "$(dpkg-query -W -f='${Version}' tzdata)" = "2026b-0+deb12u1"     && groupadd --gid 10001 xiangrugu     && useradd --uid 10001 --gid 10001 --create-home         --home-dir /home/xiangrugu --shell /usr/sbin/nologin xiangrugu
+#9 CACHED
+
+#10 [base 9/9] RUN python -m pip install --disable-pip-version-check --no-cache-dir         --no-deps --no-build-isolation /app/datamgmt
+#10 CACHED
+
+#11 [development 1/2] COPY datamgmt/requirements-dev.lock /tmp/requirements-dev.lock
+#11 CACHED
+
+#12 [base 7/9] COPY datamgmt/config/contract.schema.json /app/datamgmt/config/contract.schema.json
+#12 CACHED
+
+#13 [base 5/9] RUN python -m pip install --disable-pip-version-check --no-cache-dir         --only-binary=:all: --require-hashes --requirement /tmp/requirements.lock     && rm /tmp/requirements.lock
+#13 CACHED
+
+#14 [base 6/9] COPY datamgmt/pyproject.toml /app/datamgmt/pyproject.toml
+#14 CACHED
+
+#15 [base 4/9] COPY datamgmt/requirements.lock /tmp/requirements.lock
+#15 CACHED
+
+#16 [base 8/9] COPY datamgmt/src /app/datamgmt/src
+#16 CACHED
+
+#17 [development 2/2] RUN python -m pip install --disable-pip-version-check --no-cache-dir         --only-binary=:all: --require-hashes --requirement /tmp/requirements-dev.lock     && rm /tmp/requirements-dev.lock
+#17 CACHED
+
+#18 exporting to image
+#18 exporting layers 0.0s done
+#18 exporting manifest sha256:eeabda53d6b09808fdc4ed2fad41849c99c0288613490d26721b7c42b5514bec 0.0s done
+#18 exporting config sha256:32522192ddcec7f71d0f0d39136d9fb9612269272cc72eb99b56037c678d4be1 0.0s done
+#18 exporting attestation manifest sha256:f1ac6f8533036d19d8b8729b4256d5f067d5a0971dc3ab148ba427eb287ed6a2
+#18 exporting attestation manifest sha256:f1ac6f8533036d19d8b8729b4256d5f067d5a0971dc3ab148ba427eb287ed6a2 0.0s done
+#18 exporting manifest list sha256:89f1a0978cb817871d50d6468f3dec19e3ea1e67d5bc73457a62fd10b5b8732d 0.0s done
+#18 naming to docker.io/library/xiangrugu:dev-schema-final-20261008T144709Z 0.0s done
+#18 unpacking to docker.io/library/xiangrugu:dev-schema-final-20261008T144709Z 0.1s done
+#18 DONE 0.4s

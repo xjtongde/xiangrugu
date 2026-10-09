@@ -1,0 +1,51 @@
+# 只批准两件精确 DBF 的字符列编码；不批准去填充、其他类型、几何、绑定或导入。
+version: 1
+status: draft
+release_id: 2026-10-06-bootstrap
+source_version: 2026-10-07-bootstrap
+base_contract_sha256: 0b98f0078dd3d2756984881610df67a5a937fa1b93005ecf99fba66f6626422c
+candidate_evidence_sha256: fd0927bcf6fdbeb658760102d26adc70403ae80d6f30a3215f55820d4d45dc42
+authorization_reference: "2026-10-07 用户答复：同意，继续；对应 1884route 两个精确 DBF 的各7字符列严格 cp1251/UTF-8 提案"
+character_codecs_approved: true
+component_binding_approved: false
+ready_for_import: false
+interpretation:
+  errors: strict
+  raw_fixed_width_spaces: preserve
+  nul_bytes: preserve_if_present
+  trimming: false
+  type_conversion: false
+  automatic_fallback: false
+  deleted_records: include_in_this_source_byte_review
+  logical_padding_semantics_approved: false
+  numeric_semantics_approved: false
+  crs_srid_approved: false
+rules:
+  - rule_id: m002706
+    relative_path: harvard-full/doi_10_7910/DVN/E7HDYD/1884route.zip
+    archive_chain: [5_1884route/Ca1884route_przh_1251.dbf]
+    archive_ordinals: [3]
+    raw_size: 16937
+    raw_sha256: 0b4b86cb8b6dc892d70c9a4ede9adf6ed0a72bf8884376ae207a1075be9a692c
+    columns:
+      - {source_column_ordinal: 1, original_name: NAME_RUS, codec: cp1251}
+      - {source_column_ordinal: 2, original_name: NAME_ROM, codec: cp1251}
+      - {source_column_ordinal: 3, original_name: TYPE, codec: cp1251}
+      - {source_column_ordinal: 9, original_name: MAP_NAME, codec: cp1251}
+      - {source_column_ordinal: 10, original_name: MAP_CITE, codec: cp1251}
+      - {source_column_ordinal: 11, original_name: ID, codec: cp1251}
+      - {source_column_ordinal: 12, original_name: RAS_ID, codec: cp1251}
+  - rule_id: m002714
+    relative_path: harvard-full/doi_10_7910/DVN/E7HDYD/1884route.zip
+    archive_chain: [5_1884route/Ca1884route_przh_utf8.dbf]
+    archive_ordinals: [11]
+    raw_size: 16937
+    raw_sha256: eb9dfed2745641ac0ce91bf6f0f732fafe907192897eed0de42d16997044c724
+    columns:
+      - {source_column_ordinal: 1, original_name: NAME_RUS, codec: utf-8}
+      - {source_column_ordinal: 2, original_name: NAME_ROM, codec: utf-8}
+      - {source_column_ordinal: 3, original_name: TYPE, codec: utf-8}
+      - {source_column_ordinal: 9, original_name: MAP_NAME, codec: utf-8}
+      - {source_column_ordinal: 10, original_name: MAP_CITE, codec: utf-8}
+      - {source_column_ordinal: 11, original_name: ID, codec: utf-8}
+      - {source_column_ordinal: 12, original_name: RAS_ID, codec: utf-8}

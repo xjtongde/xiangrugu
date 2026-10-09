@@ -1,0 +1,373 @@
+..........................FFFFFFFFFFFFFFFFFFFF                           [100%]
+=================================== FAILURES ===================================
+_______ test_approved_projection_binds_source_order_identity_and_mapping _______
+
+    def test_approved_projection_binds_source_order_identity_and_mapping():
+        obj, decision = projection()
+>       value_schema, header = api().schema_from_approved(obj, decision)
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       AttributeError: module 'xiangrugu_datamgmt.text_values' has no attribute 'schema_from_approved'
+
+datamgmt/tests/unit/test_text_values.py:148: AttributeError
+_ test_projection_top_level_drift_rejected[source_object_id-0000000000000000000000000000000000000000000000000000000000000000] _
+
+field = 'source_object_id'
+value = '0000000000000000000000000000000000000000000000000000000000000000'
+
+    @pytest.mark.parametrize("field,value", [
+        ("source_object_id", "0"*64), ("reading_decision_rule_id", "other"),
+        ("source_column_types_approved", False), ("source_column_mapping_approved", 1),
+        ("derived_rownum_mapping_approved", False), ("source_record_count", True),
+    ])
+    def test_projection_top_level_drift_rejected(field, value):
+        obj, decision = projection()
+        obj[field] = value
+        with pytest.raises(ValueContractError, match="structure"):
+>           api().schema_from_approved(obj, decision)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^
+E           AttributeError: module 'xiangrugu_datamgmt.text_values' has no attribute 'schema_from_approved'
+
+datamgmt/tests/unit/test_text_values.py:164: AttributeError
+___ test_projection_top_level_drift_rejected[reading_decision_rule_id-other] ___
+
+field = 'reading_decision_rule_id', value = 'other'
+
+    @pytest.mark.parametrize("field,value", [
+        ("source_object_id", "0"*64), ("reading_decision_rule_id", "other"),
+        ("source_column_types_approved", False), ("source_column_mapping_approved", 1),
+        ("derived_rownum_mapping_approved", False), ("source_record_count", True),
+    ])
+    def test_projection_top_level_drift_rejected(field, value):
+        obj, decision = projection()
+        obj[field] = value
+        with pytest.raises(ValueContractError, match="structure"):
+>           api().schema_from_approved(obj, decision)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^
+E           AttributeError: module 'xiangrugu_datamgmt.text_values' has no attribute 'schema_from_approved'
+
+datamgmt/tests/unit/test_text_values.py:164: AttributeError
+_ test_projection_top_level_drift_rejected[source_column_types_approved-False] _
+
+field = 'source_column_types_approved', value = False
+
+    @pytest.mark.parametrize("field,value", [
+        ("source_object_id", "0"*64), ("reading_decision_rule_id", "other"),
+        ("source_column_types_approved", False), ("source_column_mapping_approved", 1),
+        ("derived_rownum_mapping_approved", False), ("source_record_count", True),
+    ])
+    def test_projection_top_level_drift_rejected(field, value):
+        obj, decision = projection()
+        obj[field] = value
+        with pytest.raises(ValueContractError, match="structure"):
+>           api().schema_from_approved(obj, decision)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^
+E           AttributeError: module 'xiangrugu_datamgmt.text_values' has no attribute 'schema_from_approved'
+
+datamgmt/tests/unit/test_text_values.py:164: AttributeError
+__ test_projection_top_level_drift_rejected[source_column_mapping_approved-1] __
+
+field = 'source_column_mapping_approved', value = 1
+
+    @pytest.mark.parametrize("field,value", [
+        ("source_object_id", "0"*64), ("reading_decision_rule_id", "other"),
+        ("source_column_types_approved", False), ("source_column_mapping_approved", 1),
+        ("derived_rownum_mapping_approved", False), ("source_record_count", True),
+    ])
+    def test_projection_top_level_drift_rejected(field, value):
+        obj, decision = projection()
+        obj[field] = value
+        with pytest.raises(ValueContractError, match="structure"):
+>           api().schema_from_approved(obj, decision)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^
+E           AttributeError: module 'xiangrugu_datamgmt.text_values' has no attribute 'schema_from_approved'
+
+datamgmt/tests/unit/test_text_values.py:164: AttributeError
+_ test_projection_top_level_drift_rejected[derived_rownum_mapping_approved-False] _
+
+field = 'derived_rownum_mapping_approved', value = False
+
+    @pytest.mark.parametrize("field,value", [
+        ("source_object_id", "0"*64), ("reading_decision_rule_id", "other"),
+        ("source_column_types_approved", False), ("source_column_mapping_approved", 1),
+        ("derived_rownum_mapping_approved", False), ("source_record_count", True),
+    ])
+    def test_projection_top_level_drift_rejected(field, value):
+        obj, decision = projection()
+        obj[field] = value
+        with pytest.raises(ValueContractError, match="structure"):
+>           api().schema_from_approved(obj, decision)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^
+E           AttributeError: module 'xiangrugu_datamgmt.text_values' has no attribute 'schema_from_approved'
+
+datamgmt/tests/unit/test_text_values.py:164: AttributeError
+______ test_projection_top_level_drift_rejected[source_record_count-True] ______
+
+field = 'source_record_count', value = True
+
+    @pytest.mark.parametrize("field,value", [
+        ("source_object_id", "0"*64), ("reading_decision_rule_id", "other"),
+        ("source_column_types_approved", False), ("source_column_mapping_approved", 1),
+        ("derived_rownum_mapping_approved", False), ("source_record_count", True),
+    ])
+    def test_projection_top_level_drift_rejected(field, value):
+        obj, decision = projection()
+        obj[field] = value
+        with pytest.raises(ValueContractError, match="structure"):
+>           api().schema_from_approved(obj, decision)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^
+E           AttributeError: module 'xiangrugu_datamgmt.text_values' has no attribute 'schema_from_approved'
+
+datamgmt/tests/unit/test_text_values.py:164: AttributeError
+_ test_projection_column_drift_rejected[column_id-0000000000000000000000000000000000000000000000000000000000000000] _
+
+field = 'column_id'
+value = '0000000000000000000000000000000000000000000000000000000000000000'
+
+    @pytest.mark.parametrize("field,value", [
+        ("column_id", "0"*64), ("source_column_ordinal", 2), ("source_column_ordinal", True),
+        ("target_name", "other"), ("target_type", "bigint"), ("nullable", True),
+        ("type_approved", False), ("original_name", "other"),
+    ])
+    def test_projection_column_drift_rejected(field, value):
+        obj, decision = projection()
+        obj["source_columns"][0][field] = value
+        with pytest.raises(ValueContractError, match="structure"):
+>           api().schema_from_approved(obj, decision)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^
+E           AttributeError: module 'xiangrugu_datamgmt.text_values' has no attribute 'schema_from_approved'
+
+datamgmt/tests/unit/test_text_values.py:176: AttributeError
+________ test_projection_column_drift_rejected[source_column_ordinal-2] ________
+
+field = 'source_column_ordinal', value = 2
+
+    @pytest.mark.parametrize("field,value", [
+        ("column_id", "0"*64), ("source_column_ordinal", 2), ("source_column_ordinal", True),
+        ("target_name", "other"), ("target_type", "bigint"), ("nullable", True),
+        ("type_approved", False), ("original_name", "other"),
+    ])
+    def test_projection_column_drift_rejected(field, value):
+        obj, decision = projection()
+        obj["source_columns"][0][field] = value
+        with pytest.raises(ValueContractError, match="structure"):
+>           api().schema_from_approved(obj, decision)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^
+E           AttributeError: module 'xiangrugu_datamgmt.text_values' has no attribute 'schema_from_approved'
+
+datamgmt/tests/unit/test_text_values.py:176: AttributeError
+______ test_projection_column_drift_rejected[source_column_ordinal-True] _______
+
+field = 'source_column_ordinal', value = True
+
+    @pytest.mark.parametrize("field,value", [
+        ("column_id", "0"*64), ("source_column_ordinal", 2), ("source_column_ordinal", True),
+        ("target_name", "other"), ("target_type", "bigint"), ("nullable", True),
+        ("type_approved", False), ("original_name", "other"),
+    ])
+    def test_projection_column_drift_rejected(field, value):
+        obj, decision = projection()
+        obj["source_columns"][0][field] = value
+        with pytest.raises(ValueContractError, match="structure"):
+>           api().schema_from_approved(obj, decision)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^
+E           AttributeError: module 'xiangrugu_datamgmt.text_values' has no attribute 'schema_from_approved'
+
+datamgmt/tests/unit/test_text_values.py:176: AttributeError
+___________ test_projection_column_drift_rejected[target_name-other] ___________
+
+field = 'target_name', value = 'other'
+
+    @pytest.mark.parametrize("field,value", [
+        ("column_id", "0"*64), ("source_column_ordinal", 2), ("source_column_ordinal", True),
+        ("target_name", "other"), ("target_type", "bigint"), ("nullable", True),
+        ("type_approved", False), ("original_name", "other"),
+    ])
+    def test_projection_column_drift_rejected(field, value):
+        obj, decision = projection()
+        obj["source_columns"][0][field] = value
+        with pytest.raises(ValueContractError, match="structure"):
+>           api().schema_from_approved(obj, decision)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^
+E           AttributeError: module 'xiangrugu_datamgmt.text_values' has no attribute 'schema_from_approved'
+
+datamgmt/tests/unit/test_text_values.py:176: AttributeError
+__________ test_projection_column_drift_rejected[target_type-bigint] ___________
+
+field = 'target_type', value = 'bigint'
+
+    @pytest.mark.parametrize("field,value", [
+        ("column_id", "0"*64), ("source_column_ordinal", 2), ("source_column_ordinal", True),
+        ("target_name", "other"), ("target_type", "bigint"), ("nullable", True),
+        ("type_approved", False), ("original_name", "other"),
+    ])
+    def test_projection_column_drift_rejected(field, value):
+        obj, decision = projection()
+        obj["source_columns"][0][field] = value
+        with pytest.raises(ValueContractError, match="structure"):
+>           api().schema_from_approved(obj, decision)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^
+E           AttributeError: module 'xiangrugu_datamgmt.text_values' has no attribute 'schema_from_approved'
+
+datamgmt/tests/unit/test_text_values.py:176: AttributeError
+_____________ test_projection_column_drift_rejected[nullable-True] _____________
+
+field = 'nullable', value = True
+
+    @pytest.mark.parametrize("field,value", [
+        ("column_id", "0"*64), ("source_column_ordinal", 2), ("source_column_ordinal", True),
+        ("target_name", "other"), ("target_type", "bigint"), ("nullable", True),
+        ("type_approved", False), ("original_name", "other"),
+    ])
+    def test_projection_column_drift_rejected(field, value):
+        obj, decision = projection()
+        obj["source_columns"][0][field] = value
+        with pytest.raises(ValueContractError, match="structure"):
+>           api().schema_from_approved(obj, decision)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^
+E           AttributeError: module 'xiangrugu_datamgmt.text_values' has no attribute 'schema_from_approved'
+
+datamgmt/tests/unit/test_text_values.py:176: AttributeError
+__________ test_projection_column_drift_rejected[type_approved-False] __________
+
+field = 'type_approved', value = False
+
+    @pytest.mark.parametrize("field,value", [
+        ("column_id", "0"*64), ("source_column_ordinal", 2), ("source_column_ordinal", True),
+        ("target_name", "other"), ("target_type", "bigint"), ("nullable", True),
+        ("type_approved", False), ("original_name", "other"),
+    ])
+    def test_projection_column_drift_rejected(field, value):
+        obj, decision = projection()
+        obj["source_columns"][0][field] = value
+        with pytest.raises(ValueContractError, match="structure"):
+>           api().schema_from_approved(obj, decision)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^
+E           AttributeError: module 'xiangrugu_datamgmt.text_values' has no attribute 'schema_from_approved'
+
+datamgmt/tests/unit/test_text_values.py:176: AttributeError
+__________ test_projection_column_drift_rejected[original_name-other] __________
+
+field = 'original_name', value = 'other'
+
+    @pytest.mark.parametrize("field,value", [
+        ("column_id", "0"*64), ("source_column_ordinal", 2), ("source_column_ordinal", True),
+        ("target_name", "other"), ("target_type", "bigint"), ("nullable", True),
+        ("type_approved", False), ("original_name", "other"),
+    ])
+    def test_projection_column_drift_rejected(field, value):
+        obj, decision = projection()
+        obj["source_columns"][0][field] = value
+        with pytest.raises(ValueContractError, match="structure"):
+>           api().schema_from_approved(obj, decision)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^
+E           AttributeError: module 'xiangrugu_datamgmt.text_values' has no attribute 'schema_from_approved'
+
+datamgmt/tests/unit/test_text_values.py:176: AttributeError
+_ test_reading_decision_drift_rejected[raw_sha256-0000000000000000000000000000000000000000000000000000000000000000] _
+
+field = 'raw_sha256'
+value = '0000000000000000000000000000000000000000000000000000000000000000'
+
+    @pytest.mark.parametrize("field,value", [
+        ("raw_sha256", "0"*64), ("relative_path", "../fixture.tab"),
+        ("bom_as_signature", True), ("backslash_escape", "yes"), ("raw_size", True),
+    ])
+    def test_reading_decision_drift_rejected(field, value):
+        obj, decision = projection()
+        decision[field] = value
+        with pytest.raises(ValueContractError, match="structure"):
+>           api().schema_from_approved(obj, decision)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^
+E           AttributeError: module 'xiangrugu_datamgmt.text_values' has no attribute 'schema_from_approved'
+
+datamgmt/tests/unit/test_text_values.py:187: AttributeError
+______ test_reading_decision_drift_rejected[relative_path-../fixture.tab] ______
+
+field = 'relative_path', value = '../fixture.tab'
+
+    @pytest.mark.parametrize("field,value", [
+        ("raw_sha256", "0"*64), ("relative_path", "../fixture.tab"),
+        ("bom_as_signature", True), ("backslash_escape", "yes"), ("raw_size", True),
+    ])
+    def test_reading_decision_drift_rejected(field, value):
+        obj, decision = projection()
+        decision[field] = value
+        with pytest.raises(ValueContractError, match="structure"):
+>           api().schema_from_approved(obj, decision)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^
+E           AttributeError: module 'xiangrugu_datamgmt.text_values' has no attribute 'schema_from_approved'
+
+datamgmt/tests/unit/test_text_values.py:187: AttributeError
+_________ test_reading_decision_drift_rejected[bom_as_signature-True] __________
+
+field = 'bom_as_signature', value = True
+
+    @pytest.mark.parametrize("field,value", [
+        ("raw_sha256", "0"*64), ("relative_path", "../fixture.tab"),
+        ("bom_as_signature", True), ("backslash_escape", "yes"), ("raw_size", True),
+    ])
+    def test_reading_decision_drift_rejected(field, value):
+        obj, decision = projection()
+        decision[field] = value
+        with pytest.raises(ValueContractError, match="structure"):
+>           api().schema_from_approved(obj, decision)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^
+E           AttributeError: module 'xiangrugu_datamgmt.text_values' has no attribute 'schema_from_approved'
+
+datamgmt/tests/unit/test_text_values.py:187: AttributeError
+__________ test_reading_decision_drift_rejected[backslash_escape-yes] __________
+
+field = 'backslash_escape', value = 'yes'
+
+    @pytest.mark.parametrize("field,value", [
+        ("raw_sha256", "0"*64), ("relative_path", "../fixture.tab"),
+        ("bom_as_signature", True), ("backslash_escape", "yes"), ("raw_size", True),
+    ])
+    def test_reading_decision_drift_rejected(field, value):
+        obj, decision = projection()
+        decision[field] = value
+        with pytest.raises(ValueContractError, match="structure"):
+>           api().schema_from_approved(obj, decision)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^
+E           AttributeError: module 'xiangrugu_datamgmt.text_values' has no attribute 'schema_from_approved'
+
+datamgmt/tests/unit/test_text_values.py:187: AttributeError
+_____________ test_reading_decision_drift_rejected[raw_size-True] ______________
+
+field = 'raw_size', value = True
+
+    @pytest.mark.parametrize("field,value", [
+        ("raw_sha256", "0"*64), ("relative_path", "../fixture.tab"),
+        ("bom_as_signature", True), ("backslash_escape", "yes"), ("raw_size", True),
+    ])
+    def test_reading_decision_drift_rejected(field, value):
+        obj, decision = projection()
+        decision[field] = value
+        with pytest.raises(ValueContractError, match="structure"):
+>           api().schema_from_approved(obj, decision)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^
+E           AttributeError: module 'xiangrugu_datamgmt.text_values' has no attribute 'schema_from_approved'
+
+datamgmt/tests/unit/test_text_values.py:187: AttributeError
+=========================== short test summary info ============================
+FAILED datamgmt/tests/unit/test_text_values.py::test_approved_projection_binds_source_order_identity_and_mapping
+FAILED datamgmt/tests/unit/test_text_values.py::test_projection_top_level_drift_rejected[source_object_id-0000000000000000000000000000000000000000000000000000000000000000]
+FAILED datamgmt/tests/unit/test_text_values.py::test_projection_top_level_drift_rejected[reading_decision_rule_id-other]
+FAILED datamgmt/tests/unit/test_text_values.py::test_projection_top_level_drift_rejected[source_column_types_approved-False]
+FAILED datamgmt/tests/unit/test_text_values.py::test_projection_top_level_drift_rejected[source_column_mapping_approved-1]
+FAILED datamgmt/tests/unit/test_text_values.py::test_projection_top_level_drift_rejected[derived_rownum_mapping_approved-False]
+FAILED datamgmt/tests/unit/test_text_values.py::test_projection_top_level_drift_rejected[source_record_count-True]
+FAILED datamgmt/tests/unit/test_text_values.py::test_projection_column_drift_rejected[column_id-0000000000000000000000000000000000000000000000000000000000000000]
+FAILED datamgmt/tests/unit/test_text_values.py::test_projection_column_drift_rejected[source_column_ordinal-2]
+FAILED datamgmt/tests/unit/test_text_values.py::test_projection_column_drift_rejected[source_column_ordinal-True]
+FAILED datamgmt/tests/unit/test_text_values.py::test_projection_column_drift_rejected[target_name-other]
+FAILED datamgmt/tests/unit/test_text_values.py::test_projection_column_drift_rejected[target_type-bigint]
+FAILED datamgmt/tests/unit/test_text_values.py::test_projection_column_drift_rejected[nullable-True]
+FAILED datamgmt/tests/unit/test_text_values.py::test_projection_column_drift_rejected[type_approved-False]
+FAILED datamgmt/tests/unit/test_text_values.py::test_projection_column_drift_rejected[original_name-other]
+FAILED datamgmt/tests/unit/test_text_values.py::test_reading_decision_drift_rejected[raw_sha256-0000000000000000000000000000000000000000000000000000000000000000]
+FAILED datamgmt/tests/unit/test_text_values.py::test_reading_decision_drift_rejected[relative_path-../fixture.tab]
+FAILED datamgmt/tests/unit/test_text_values.py::test_reading_decision_drift_rejected[bom_as_signature-True]
+FAILED datamgmt/tests/unit/test_text_values.py::test_reading_decision_drift_rejected[backslash_escape-yes]
+FAILED datamgmt/tests/unit/test_text_values.py::test_reading_decision_drift_rejected[raw_size-True]
+20 failed, 26 passed in 0.30s

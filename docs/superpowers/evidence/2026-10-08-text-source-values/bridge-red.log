@@ -1,0 +1,923 @@
+FFFFFFFFFFFFFFFFFFFFFFFFFF                                               [100%]
+=================================== FAILURES ===================================
+________ test_header_excluded_empty_preserved_and_rownum_starts_at_one _________
+
+    def test_header_excluded_empty_preserved_and_rownum_starts_at_one():
+        raw = 'h\n""\n␀\n'.encode()
+>       result = summarize(raw, expected_count=2)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+datamgmt/tests/unit/test_text_values.py:38: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+datamgmt/tests/unit/test_text_values.py:33: in summarize
+    return api().summarize_text_values(raw, **args)
+           ^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+>       assert importlib.util.find_spec("xiangrugu_datamgmt.text_values"), "missing text-value bridge"
+E       AssertionError: missing text-value bridge
+E       assert None
+E        +  where None = <function find_spec at 0x7f0c0d33eac0>('xiangrugu_datamgmt.text_values')
+E        +    where <function find_spec at 0x7f0c0d33eac0> = <module 'importlib.util' (frozen)>.find_spec
+E        +      where <module 'importlib.util' (frozen)> = importlib.util
+
+datamgmt/tests/unit/test_text_values.py:15: AssertionError
+____________________ test_header_only_is_valid_empty_object ____________________
+
+    def test_header_only_is_valid_empty_object():
+>       result = summarize(b"h\n", expected_count=0)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+datamgmt/tests/unit/test_text_values.py:52: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+datamgmt/tests/unit/test_text_values.py:33: in summarize
+    return api().summarize_text_values(raw, **args)
+           ^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+>       assert importlib.util.find_spec("xiangrugu_datamgmt.text_values"), "missing text-value bridge"
+E       AssertionError: missing text-value bridge
+E       assert None
+E        +  where None = <function find_spec at 0x7f0c0d33eac0>('xiangrugu_datamgmt.text_values')
+E        +    where <function find_spec at 0x7f0c0d33eac0> = <module 'importlib.util' (frozen)>.find_spec
+E        +      where <module 'importlib.util' (frozen)> = importlib.util
+
+datamgmt/tests/unit/test_text_values.py:15: AssertionError
+__________________ test_duplicate_business_rows_are_retained ___________________
+
+    def test_duplicate_business_rows_are_retained():
+>       result = summarize(b"h\nx\nx\n", expected_count=2)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+datamgmt/tests/unit/test_text_values.py:58: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+datamgmt/tests/unit/test_text_values.py:33: in summarize
+    return api().summarize_text_values(raw, **args)
+           ^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+>       assert importlib.util.find_spec("xiangrugu_datamgmt.text_values"), "missing text-value bridge"
+E       AssertionError: missing text-value bridge
+E       assert None
+E        +  where None = <function find_spec at 0x7f0c0d33eac0>('xiangrugu_datamgmt.text_values')
+E        +    where <function find_spec at 0x7f0c0d33eac0> = <module 'importlib.util' (frozen)>.find_spec
+E        +      where <module 'importlib.util' (frozen)> = importlib.util
+
+datamgmt/tests/unit/test_text_values.py:15: AssertionError
+_____________________ test_explicit_bom_and_escape_policy ______________________
+
+    def test_explicit_bom_and_escape_policy():
+        raw = b'\xef\xbb\xbfh\n"a\\"b"\n'
+>       result = summarize(raw, bom_as_signature=True, backslash_escape=True)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+datamgmt/tests/unit/test_text_values.py:64: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+datamgmt/tests/unit/test_text_values.py:33: in summarize
+    return api().summarize_text_values(raw, **args)
+           ^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+>       assert importlib.util.find_spec("xiangrugu_datamgmt.text_values"), "missing text-value bridge"
+E       AssertionError: missing text-value bridge
+E       assert None
+E        +  where None = <function find_spec at 0x7f0c0d33eac0>('xiangrugu_datamgmt.text_values')
+E        +    where <function find_spec at 0x7f0c0d33eac0> = <module 'importlib.util' (frozen)>.find_spec
+E        +      where <module 'importlib.util' (frozen)> = importlib.util
+
+datamgmt/tests/unit/test_text_values.py:15: AssertionError
+______ test_rejects_drift_without_successful_summary[changes0-structure] _______
+
+changes = {'expected_header': ('wrong',)}, code = 'structure'
+
+    @pytest.mark.parametrize("changes,code", [
+        ({"expected_header": ("wrong",)}, "structure"),
+        ({"expected_header": ["h"]}, "structure"),
+        ({"expected_header": ("h", "extra")}, "structure"),
+        ({"expected_raw_sha256": "0"*64}, "source_bytes"),
+        ({"expected_raw_sha256": "bad"}, "structure"),
+        ({"expected_raw_size": 999}, "source_bytes"),
+        ({"expected_raw_size": True}, "structure"),
+        ({"expected_count": True}, "count"),
+        ({"expected_count": 0}, "count"),
+        ({"expected_count": -1}, "count"),
+        ({"expected_count": 100001}, "count"),
+        ({"bom_as_signature": "yes"}, "structure"),
+        ({"backslash_escape": 1}, "structure"),
+        ({"limits": ValueLimits(max_stream_bytes=84)}, "budget"),
+        ({"read_limits": TextReadLimits(max_bytes=2)}, "budget"),
+    ])
+    def test_rejects_drift_without_successful_summary(changes, code):
+        with pytest.raises(ValueContractError) as error:
+>           summarize(**changes)
+
+datamgmt/tests/unit/test_text_values.py:91: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+datamgmt/tests/unit/test_text_values.py:33: in summarize
+    return api().summarize_text_values(raw, **args)
+           ^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+>       assert importlib.util.find_spec("xiangrugu_datamgmt.text_values"), "missing text-value bridge"
+E       AssertionError: missing text-value bridge
+E       assert None
+E        +  where None = <function find_spec at 0x7f0c0d33eac0>('xiangrugu_datamgmt.text_values')
+E        +    where <function find_spec at 0x7f0c0d33eac0> = <module 'importlib.util' (frozen)>.find_spec
+E        +      where <module 'importlib.util' (frozen)> = importlib.util
+
+datamgmt/tests/unit/test_text_values.py:15: AssertionError
+______ test_rejects_drift_without_successful_summary[changes1-structure] _______
+
+changes = {'expected_header': ['h']}, code = 'structure'
+
+    @pytest.mark.parametrize("changes,code", [
+        ({"expected_header": ("wrong",)}, "structure"),
+        ({"expected_header": ["h"]}, "structure"),
+        ({"expected_header": ("h", "extra")}, "structure"),
+        ({"expected_raw_sha256": "0"*64}, "source_bytes"),
+        ({"expected_raw_sha256": "bad"}, "structure"),
+        ({"expected_raw_size": 999}, "source_bytes"),
+        ({"expected_raw_size": True}, "structure"),
+        ({"expected_count": True}, "count"),
+        ({"expected_count": 0}, "count"),
+        ({"expected_count": -1}, "count"),
+        ({"expected_count": 100001}, "count"),
+        ({"bom_as_signature": "yes"}, "structure"),
+        ({"backslash_escape": 1}, "structure"),
+        ({"limits": ValueLimits(max_stream_bytes=84)}, "budget"),
+        ({"read_limits": TextReadLimits(max_bytes=2)}, "budget"),
+    ])
+    def test_rejects_drift_without_successful_summary(changes, code):
+        with pytest.raises(ValueContractError) as error:
+>           summarize(**changes)
+
+datamgmt/tests/unit/test_text_values.py:91: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+datamgmt/tests/unit/test_text_values.py:33: in summarize
+    return api().summarize_text_values(raw, **args)
+           ^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+>       assert importlib.util.find_spec("xiangrugu_datamgmt.text_values"), "missing text-value bridge"
+E       AssertionError: missing text-value bridge
+E       assert None
+E        +  where None = <function find_spec at 0x7f0c0d33eac0>('xiangrugu_datamgmt.text_values')
+E        +    where <function find_spec at 0x7f0c0d33eac0> = <module 'importlib.util' (frozen)>.find_spec
+E        +      where <module 'importlib.util' (frozen)> = importlib.util
+
+datamgmt/tests/unit/test_text_values.py:15: AssertionError
+______ test_rejects_drift_without_successful_summary[changes2-structure] _______
+
+changes = {'expected_header': ('h', 'extra')}, code = 'structure'
+
+    @pytest.mark.parametrize("changes,code", [
+        ({"expected_header": ("wrong",)}, "structure"),
+        ({"expected_header": ["h"]}, "structure"),
+        ({"expected_header": ("h", "extra")}, "structure"),
+        ({"expected_raw_sha256": "0"*64}, "source_bytes"),
+        ({"expected_raw_sha256": "bad"}, "structure"),
+        ({"expected_raw_size": 999}, "source_bytes"),
+        ({"expected_raw_size": True}, "structure"),
+        ({"expected_count": True}, "count"),
+        ({"expected_count": 0}, "count"),
+        ({"expected_count": -1}, "count"),
+        ({"expected_count": 100001}, "count"),
+        ({"bom_as_signature": "yes"}, "structure"),
+        ({"backslash_escape": 1}, "structure"),
+        ({"limits": ValueLimits(max_stream_bytes=84)}, "budget"),
+        ({"read_limits": TextReadLimits(max_bytes=2)}, "budget"),
+    ])
+    def test_rejects_drift_without_successful_summary(changes, code):
+        with pytest.raises(ValueContractError) as error:
+>           summarize(**changes)
+
+datamgmt/tests/unit/test_text_values.py:91: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+datamgmt/tests/unit/test_text_values.py:33: in summarize
+    return api().summarize_text_values(raw, **args)
+           ^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+>       assert importlib.util.find_spec("xiangrugu_datamgmt.text_values"), "missing text-value bridge"
+E       AssertionError: missing text-value bridge
+E       assert None
+E        +  where None = <function find_spec at 0x7f0c0d33eac0>('xiangrugu_datamgmt.text_values')
+E        +    where <function find_spec at 0x7f0c0d33eac0> = <module 'importlib.util' (frozen)>.find_spec
+E        +      where <module 'importlib.util' (frozen)> = importlib.util
+
+datamgmt/tests/unit/test_text_values.py:15: AssertionError
+_____ test_rejects_drift_without_successful_summary[changes3-source_bytes] _____
+
+changes = {'expected_raw_sha256': '0000000000000000000000000000000000000000000000000000000000000000'}
+code = 'source_bytes'
+
+    @pytest.mark.parametrize("changes,code", [
+        ({"expected_header": ("wrong",)}, "structure"),
+        ({"expected_header": ["h"]}, "structure"),
+        ({"expected_header": ("h", "extra")}, "structure"),
+        ({"expected_raw_sha256": "0"*64}, "source_bytes"),
+        ({"expected_raw_sha256": "bad"}, "structure"),
+        ({"expected_raw_size": 999}, "source_bytes"),
+        ({"expected_raw_size": True}, "structure"),
+        ({"expected_count": True}, "count"),
+        ({"expected_count": 0}, "count"),
+        ({"expected_count": -1}, "count"),
+        ({"expected_count": 100001}, "count"),
+        ({"bom_as_signature": "yes"}, "structure"),
+        ({"backslash_escape": 1}, "structure"),
+        ({"limits": ValueLimits(max_stream_bytes=84)}, "budget"),
+        ({"read_limits": TextReadLimits(max_bytes=2)}, "budget"),
+    ])
+    def test_rejects_drift_without_successful_summary(changes, code):
+        with pytest.raises(ValueContractError) as error:
+>           summarize(**changes)
+
+datamgmt/tests/unit/test_text_values.py:91: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+datamgmt/tests/unit/test_text_values.py:33: in summarize
+    return api().summarize_text_values(raw, **args)
+           ^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+>       assert importlib.util.find_spec("xiangrugu_datamgmt.text_values"), "missing text-value bridge"
+E       AssertionError: missing text-value bridge
+E       assert None
+E        +  where None = <function find_spec at 0x7f0c0d33eac0>('xiangrugu_datamgmt.text_values')
+E        +    where <function find_spec at 0x7f0c0d33eac0> = <module 'importlib.util' (frozen)>.find_spec
+E        +      where <module 'importlib.util' (frozen)> = importlib.util
+
+datamgmt/tests/unit/test_text_values.py:15: AssertionError
+______ test_rejects_drift_without_successful_summary[changes4-structure] _______
+
+changes = {'expected_raw_sha256': 'bad'}, code = 'structure'
+
+    @pytest.mark.parametrize("changes,code", [
+        ({"expected_header": ("wrong",)}, "structure"),
+        ({"expected_header": ["h"]}, "structure"),
+        ({"expected_header": ("h", "extra")}, "structure"),
+        ({"expected_raw_sha256": "0"*64}, "source_bytes"),
+        ({"expected_raw_sha256": "bad"}, "structure"),
+        ({"expected_raw_size": 999}, "source_bytes"),
+        ({"expected_raw_size": True}, "structure"),
+        ({"expected_count": True}, "count"),
+        ({"expected_count": 0}, "count"),
+        ({"expected_count": -1}, "count"),
+        ({"expected_count": 100001}, "count"),
+        ({"bom_as_signature": "yes"}, "structure"),
+        ({"backslash_escape": 1}, "structure"),
+        ({"limits": ValueLimits(max_stream_bytes=84)}, "budget"),
+        ({"read_limits": TextReadLimits(max_bytes=2)}, "budget"),
+    ])
+    def test_rejects_drift_without_successful_summary(changes, code):
+        with pytest.raises(ValueContractError) as error:
+>           summarize(**changes)
+
+datamgmt/tests/unit/test_text_values.py:91: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+datamgmt/tests/unit/test_text_values.py:33: in summarize
+    return api().summarize_text_values(raw, **args)
+           ^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+>       assert importlib.util.find_spec("xiangrugu_datamgmt.text_values"), "missing text-value bridge"
+E       AssertionError: missing text-value bridge
+E       assert None
+E        +  where None = <function find_spec at 0x7f0c0d33eac0>('xiangrugu_datamgmt.text_values')
+E        +    where <function find_spec at 0x7f0c0d33eac0> = <module 'importlib.util' (frozen)>.find_spec
+E        +      where <module 'importlib.util' (frozen)> = importlib.util
+
+datamgmt/tests/unit/test_text_values.py:15: AssertionError
+_____ test_rejects_drift_without_successful_summary[changes5-source_bytes] _____
+
+changes = {'expected_raw_size': 999}, code = 'source_bytes'
+
+    @pytest.mark.parametrize("changes,code", [
+        ({"expected_header": ("wrong",)}, "structure"),
+        ({"expected_header": ["h"]}, "structure"),
+        ({"expected_header": ("h", "extra")}, "structure"),
+        ({"expected_raw_sha256": "0"*64}, "source_bytes"),
+        ({"expected_raw_sha256": "bad"}, "structure"),
+        ({"expected_raw_size": 999}, "source_bytes"),
+        ({"expected_raw_size": True}, "structure"),
+        ({"expected_count": True}, "count"),
+        ({"expected_count": 0}, "count"),
+        ({"expected_count": -1}, "count"),
+        ({"expected_count": 100001}, "count"),
+        ({"bom_as_signature": "yes"}, "structure"),
+        ({"backslash_escape": 1}, "structure"),
+        ({"limits": ValueLimits(max_stream_bytes=84)}, "budget"),
+        ({"read_limits": TextReadLimits(max_bytes=2)}, "budget"),
+    ])
+    def test_rejects_drift_without_successful_summary(changes, code):
+        with pytest.raises(ValueContractError) as error:
+>           summarize(**changes)
+
+datamgmt/tests/unit/test_text_values.py:91: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+datamgmt/tests/unit/test_text_values.py:33: in summarize
+    return api().summarize_text_values(raw, **args)
+           ^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+>       assert importlib.util.find_spec("xiangrugu_datamgmt.text_values"), "missing text-value bridge"
+E       AssertionError: missing text-value bridge
+E       assert None
+E        +  where None = <function find_spec at 0x7f0c0d33eac0>('xiangrugu_datamgmt.text_values')
+E        +    where <function find_spec at 0x7f0c0d33eac0> = <module 'importlib.util' (frozen)>.find_spec
+E        +      where <module 'importlib.util' (frozen)> = importlib.util
+
+datamgmt/tests/unit/test_text_values.py:15: AssertionError
+______ test_rejects_drift_without_successful_summary[changes6-structure] _______
+
+changes = {'expected_raw_size': True}, code = 'structure'
+
+    @pytest.mark.parametrize("changes,code", [
+        ({"expected_header": ("wrong",)}, "structure"),
+        ({"expected_header": ["h"]}, "structure"),
+        ({"expected_header": ("h", "extra")}, "structure"),
+        ({"expected_raw_sha256": "0"*64}, "source_bytes"),
+        ({"expected_raw_sha256": "bad"}, "structure"),
+        ({"expected_raw_size": 999}, "source_bytes"),
+        ({"expected_raw_size": True}, "structure"),
+        ({"expected_count": True}, "count"),
+        ({"expected_count": 0}, "count"),
+        ({"expected_count": -1}, "count"),
+        ({"expected_count": 100001}, "count"),
+        ({"bom_as_signature": "yes"}, "structure"),
+        ({"backslash_escape": 1}, "structure"),
+        ({"limits": ValueLimits(max_stream_bytes=84)}, "budget"),
+        ({"read_limits": TextReadLimits(max_bytes=2)}, "budget"),
+    ])
+    def test_rejects_drift_without_successful_summary(changes, code):
+        with pytest.raises(ValueContractError) as error:
+>           summarize(**changes)
+
+datamgmt/tests/unit/test_text_values.py:91: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+datamgmt/tests/unit/test_text_values.py:33: in summarize
+    return api().summarize_text_values(raw, **args)
+           ^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+>       assert importlib.util.find_spec("xiangrugu_datamgmt.text_values"), "missing text-value bridge"
+E       AssertionError: missing text-value bridge
+E       assert None
+E        +  where None = <function find_spec at 0x7f0c0d33eac0>('xiangrugu_datamgmt.text_values')
+E        +    where <function find_spec at 0x7f0c0d33eac0> = <module 'importlib.util' (frozen)>.find_spec
+E        +      where <module 'importlib.util' (frozen)> = importlib.util
+
+datamgmt/tests/unit/test_text_values.py:15: AssertionError
+________ test_rejects_drift_without_successful_summary[changes7-count] _________
+
+changes = {'expected_count': True}, code = 'count'
+
+    @pytest.mark.parametrize("changes,code", [
+        ({"expected_header": ("wrong",)}, "structure"),
+        ({"expected_header": ["h"]}, "structure"),
+        ({"expected_header": ("h", "extra")}, "structure"),
+        ({"expected_raw_sha256": "0"*64}, "source_bytes"),
+        ({"expected_raw_sha256": "bad"}, "structure"),
+        ({"expected_raw_size": 999}, "source_bytes"),
+        ({"expected_raw_size": True}, "structure"),
+        ({"expected_count": True}, "count"),
+        ({"expected_count": 0}, "count"),
+        ({"expected_count": -1}, "count"),
+        ({"expected_count": 100001}, "count"),
+        ({"bom_as_signature": "yes"}, "structure"),
+        ({"backslash_escape": 1}, "structure"),
+        ({"limits": ValueLimits(max_stream_bytes=84)}, "budget"),
+        ({"read_limits": TextReadLimits(max_bytes=2)}, "budget"),
+    ])
+    def test_rejects_drift_without_successful_summary(changes, code):
+        with pytest.raises(ValueContractError) as error:
+>           summarize(**changes)
+
+datamgmt/tests/unit/test_text_values.py:91: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+datamgmt/tests/unit/test_text_values.py:33: in summarize
+    return api().summarize_text_values(raw, **args)
+           ^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+>       assert importlib.util.find_spec("xiangrugu_datamgmt.text_values"), "missing text-value bridge"
+E       AssertionError: missing text-value bridge
+E       assert None
+E        +  where None = <function find_spec at 0x7f0c0d33eac0>('xiangrugu_datamgmt.text_values')
+E        +    where <function find_spec at 0x7f0c0d33eac0> = <module 'importlib.util' (frozen)>.find_spec
+E        +      where <module 'importlib.util' (frozen)> = importlib.util
+
+datamgmt/tests/unit/test_text_values.py:15: AssertionError
+________ test_rejects_drift_without_successful_summary[changes8-count] _________
+
+changes = {'expected_count': 0}, code = 'count'
+
+    @pytest.mark.parametrize("changes,code", [
+        ({"expected_header": ("wrong",)}, "structure"),
+        ({"expected_header": ["h"]}, "structure"),
+        ({"expected_header": ("h", "extra")}, "structure"),
+        ({"expected_raw_sha256": "0"*64}, "source_bytes"),
+        ({"expected_raw_sha256": "bad"}, "structure"),
+        ({"expected_raw_size": 999}, "source_bytes"),
+        ({"expected_raw_size": True}, "structure"),
+        ({"expected_count": True}, "count"),
+        ({"expected_count": 0}, "count"),
+        ({"expected_count": -1}, "count"),
+        ({"expected_count": 100001}, "count"),
+        ({"bom_as_signature": "yes"}, "structure"),
+        ({"backslash_escape": 1}, "structure"),
+        ({"limits": ValueLimits(max_stream_bytes=84)}, "budget"),
+        ({"read_limits": TextReadLimits(max_bytes=2)}, "budget"),
+    ])
+    def test_rejects_drift_without_successful_summary(changes, code):
+        with pytest.raises(ValueContractError) as error:
+>           summarize(**changes)
+
+datamgmt/tests/unit/test_text_values.py:91: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+datamgmt/tests/unit/test_text_values.py:33: in summarize
+    return api().summarize_text_values(raw, **args)
+           ^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+>       assert importlib.util.find_spec("xiangrugu_datamgmt.text_values"), "missing text-value bridge"
+E       AssertionError: missing text-value bridge
+E       assert None
+E        +  where None = <function find_spec at 0x7f0c0d33eac0>('xiangrugu_datamgmt.text_values')
+E        +    where <function find_spec at 0x7f0c0d33eac0> = <module 'importlib.util' (frozen)>.find_spec
+E        +      where <module 'importlib.util' (frozen)> = importlib.util
+
+datamgmt/tests/unit/test_text_values.py:15: AssertionError
+________ test_rejects_drift_without_successful_summary[changes9-count] _________
+
+changes = {'expected_count': -1}, code = 'count'
+
+    @pytest.mark.parametrize("changes,code", [
+        ({"expected_header": ("wrong",)}, "structure"),
+        ({"expected_header": ["h"]}, "structure"),
+        ({"expected_header": ("h", "extra")}, "structure"),
+        ({"expected_raw_sha256": "0"*64}, "source_bytes"),
+        ({"expected_raw_sha256": "bad"}, "structure"),
+        ({"expected_raw_size": 999}, "source_bytes"),
+        ({"expected_raw_size": True}, "structure"),
+        ({"expected_count": True}, "count"),
+        ({"expected_count": 0}, "count"),
+        ({"expected_count": -1}, "count"),
+        ({"expected_count": 100001}, "count"),
+        ({"bom_as_signature": "yes"}, "structure"),
+        ({"backslash_escape": 1}, "structure"),
+        ({"limits": ValueLimits(max_stream_bytes=84)}, "budget"),
+        ({"read_limits": TextReadLimits(max_bytes=2)}, "budget"),
+    ])
+    def test_rejects_drift_without_successful_summary(changes, code):
+        with pytest.raises(ValueContractError) as error:
+>           summarize(**changes)
+
+datamgmt/tests/unit/test_text_values.py:91: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+datamgmt/tests/unit/test_text_values.py:33: in summarize
+    return api().summarize_text_values(raw, **args)
+           ^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+>       assert importlib.util.find_spec("xiangrugu_datamgmt.text_values"), "missing text-value bridge"
+E       AssertionError: missing text-value bridge
+E       assert None
+E        +  where None = <function find_spec at 0x7f0c0d33eac0>('xiangrugu_datamgmt.text_values')
+E        +    where <function find_spec at 0x7f0c0d33eac0> = <module 'importlib.util' (frozen)>.find_spec
+E        +      where <module 'importlib.util' (frozen)> = importlib.util
+
+datamgmt/tests/unit/test_text_values.py:15: AssertionError
+________ test_rejects_drift_without_successful_summary[changes10-count] ________
+
+changes = {'expected_count': 100001}, code = 'count'
+
+    @pytest.mark.parametrize("changes,code", [
+        ({"expected_header": ("wrong",)}, "structure"),
+        ({"expected_header": ["h"]}, "structure"),
+        ({"expected_header": ("h", "extra")}, "structure"),
+        ({"expected_raw_sha256": "0"*64}, "source_bytes"),
+        ({"expected_raw_sha256": "bad"}, "structure"),
+        ({"expected_raw_size": 999}, "source_bytes"),
+        ({"expected_raw_size": True}, "structure"),
+        ({"expected_count": True}, "count"),
+        ({"expected_count": 0}, "count"),
+        ({"expected_count": -1}, "count"),
+        ({"expected_count": 100001}, "count"),
+        ({"bom_as_signature": "yes"}, "structure"),
+        ({"backslash_escape": 1}, "structure"),
+        ({"limits": ValueLimits(max_stream_bytes=84)}, "budget"),
+        ({"read_limits": TextReadLimits(max_bytes=2)}, "budget"),
+    ])
+    def test_rejects_drift_without_successful_summary(changes, code):
+        with pytest.raises(ValueContractError) as error:
+>           summarize(**changes)
+
+datamgmt/tests/unit/test_text_values.py:91: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+datamgmt/tests/unit/test_text_values.py:33: in summarize
+    return api().summarize_text_values(raw, **args)
+           ^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+>       assert importlib.util.find_spec("xiangrugu_datamgmt.text_values"), "missing text-value bridge"
+E       AssertionError: missing text-value bridge
+E       assert None
+E        +  where None = <function find_spec at 0x7f0c0d33eac0>('xiangrugu_datamgmt.text_values')
+E        +    where <function find_spec at 0x7f0c0d33eac0> = <module 'importlib.util' (frozen)>.find_spec
+E        +      where <module 'importlib.util' (frozen)> = importlib.util
+
+datamgmt/tests/unit/test_text_values.py:15: AssertionError
+______ test_rejects_drift_without_successful_summary[changes11-structure] ______
+
+changes = {'bom_as_signature': 'yes'}, code = 'structure'
+
+    @pytest.mark.parametrize("changes,code", [
+        ({"expected_header": ("wrong",)}, "structure"),
+        ({"expected_header": ["h"]}, "structure"),
+        ({"expected_header": ("h", "extra")}, "structure"),
+        ({"expected_raw_sha256": "0"*64}, "source_bytes"),
+        ({"expected_raw_sha256": "bad"}, "structure"),
+        ({"expected_raw_size": 999}, "source_bytes"),
+        ({"expected_raw_size": True}, "structure"),
+        ({"expected_count": True}, "count"),
+        ({"expected_count": 0}, "count"),
+        ({"expected_count": -1}, "count"),
+        ({"expected_count": 100001}, "count"),
+        ({"bom_as_signature": "yes"}, "structure"),
+        ({"backslash_escape": 1}, "structure"),
+        ({"limits": ValueLimits(max_stream_bytes=84)}, "budget"),
+        ({"read_limits": TextReadLimits(max_bytes=2)}, "budget"),
+    ])
+    def test_rejects_drift_without_successful_summary(changes, code):
+        with pytest.raises(ValueContractError) as error:
+>           summarize(**changes)
+
+datamgmt/tests/unit/test_text_values.py:91: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+datamgmt/tests/unit/test_text_values.py:33: in summarize
+    return api().summarize_text_values(raw, **args)
+           ^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+>       assert importlib.util.find_spec("xiangrugu_datamgmt.text_values"), "missing text-value bridge"
+E       AssertionError: missing text-value bridge
+E       assert None
+E        +  where None = <function find_spec at 0x7f0c0d33eac0>('xiangrugu_datamgmt.text_values')
+E        +    where <function find_spec at 0x7f0c0d33eac0> = <module 'importlib.util' (frozen)>.find_spec
+E        +      where <module 'importlib.util' (frozen)> = importlib.util
+
+datamgmt/tests/unit/test_text_values.py:15: AssertionError
+______ test_rejects_drift_without_successful_summary[changes12-structure] ______
+
+changes = {'backslash_escape': 1}, code = 'structure'
+
+    @pytest.mark.parametrize("changes,code", [
+        ({"expected_header": ("wrong",)}, "structure"),
+        ({"expected_header": ["h"]}, "structure"),
+        ({"expected_header": ("h", "extra")}, "structure"),
+        ({"expected_raw_sha256": "0"*64}, "source_bytes"),
+        ({"expected_raw_sha256": "bad"}, "structure"),
+        ({"expected_raw_size": 999}, "source_bytes"),
+        ({"expected_raw_size": True}, "structure"),
+        ({"expected_count": True}, "count"),
+        ({"expected_count": 0}, "count"),
+        ({"expected_count": -1}, "count"),
+        ({"expected_count": 100001}, "count"),
+        ({"bom_as_signature": "yes"}, "structure"),
+        ({"backslash_escape": 1}, "structure"),
+        ({"limits": ValueLimits(max_stream_bytes=84)}, "budget"),
+        ({"read_limits": TextReadLimits(max_bytes=2)}, "budget"),
+    ])
+    def test_rejects_drift_without_successful_summary(changes, code):
+        with pytest.raises(ValueContractError) as error:
+>           summarize(**changes)
+
+datamgmt/tests/unit/test_text_values.py:91: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+datamgmt/tests/unit/test_text_values.py:33: in summarize
+    return api().summarize_text_values(raw, **args)
+           ^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+>       assert importlib.util.find_spec("xiangrugu_datamgmt.text_values"), "missing text-value bridge"
+E       AssertionError: missing text-value bridge
+E       assert None
+E        +  where None = <function find_spec at 0x7f0c0d33eac0>('xiangrugu_datamgmt.text_values')
+E        +    where <function find_spec at 0x7f0c0d33eac0> = <module 'importlib.util' (frozen)>.find_spec
+E        +      where <module 'importlib.util' (frozen)> = importlib.util
+
+datamgmt/tests/unit/test_text_values.py:15: AssertionError
+_______ test_rejects_drift_without_successful_summary[changes13-budget] ________
+
+changes = {'limits': ValueLimits(max_rows=100000, max_columns=512, max_field_bytes=1048576, max_row_bytes=8388608, max_stream_bytes=84, max_differences=100)}
+code = 'budget'
+
+    @pytest.mark.parametrize("changes,code", [
+        ({"expected_header": ("wrong",)}, "structure"),
+        ({"expected_header": ["h"]}, "structure"),
+        ({"expected_header": ("h", "extra")}, "structure"),
+        ({"expected_raw_sha256": "0"*64}, "source_bytes"),
+        ({"expected_raw_sha256": "bad"}, "structure"),
+        ({"expected_raw_size": 999}, "source_bytes"),
+        ({"expected_raw_size": True}, "structure"),
+        ({"expected_count": True}, "count"),
+        ({"expected_count": 0}, "count"),
+        ({"expected_count": -1}, "count"),
+        ({"expected_count": 100001}, "count"),
+        ({"bom_as_signature": "yes"}, "structure"),
+        ({"backslash_escape": 1}, "structure"),
+        ({"limits": ValueLimits(max_stream_bytes=84)}, "budget"),
+        ({"read_limits": TextReadLimits(max_bytes=2)}, "budget"),
+    ])
+    def test_rejects_drift_without_successful_summary(changes, code):
+        with pytest.raises(ValueContractError) as error:
+>           summarize(**changes)
+
+datamgmt/tests/unit/test_text_values.py:91: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+datamgmt/tests/unit/test_text_values.py:33: in summarize
+    return api().summarize_text_values(raw, **args)
+           ^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+>       assert importlib.util.find_spec("xiangrugu_datamgmt.text_values"), "missing text-value bridge"
+E       AssertionError: missing text-value bridge
+E       assert None
+E        +  where None = <function find_spec at 0x7f0c0d33eac0>('xiangrugu_datamgmt.text_values')
+E        +    where <function find_spec at 0x7f0c0d33eac0> = <module 'importlib.util' (frozen)>.find_spec
+E        +      where <module 'importlib.util' (frozen)> = importlib.util
+
+datamgmt/tests/unit/test_text_values.py:15: AssertionError
+_______ test_rejects_drift_without_successful_summary[changes14-budget] ________
+
+changes = {'read_limits': TextReadLimits(max_bytes=2, max_records=100000, max_columns=512, max_field_bytes=1048576)}
+code = 'budget'
+
+    @pytest.mark.parametrize("changes,code", [
+        ({"expected_header": ("wrong",)}, "structure"),
+        ({"expected_header": ["h"]}, "structure"),
+        ({"expected_header": ("h", "extra")}, "structure"),
+        ({"expected_raw_sha256": "0"*64}, "source_bytes"),
+        ({"expected_raw_sha256": "bad"}, "structure"),
+        ({"expected_raw_size": 999}, "source_bytes"),
+        ({"expected_raw_size": True}, "structure"),
+        ({"expected_count": True}, "count"),
+        ({"expected_count": 0}, "count"),
+        ({"expected_count": -1}, "count"),
+        ({"expected_count": 100001}, "count"),
+        ({"bom_as_signature": "yes"}, "structure"),
+        ({"backslash_escape": 1}, "structure"),
+        ({"limits": ValueLimits(max_stream_bytes=84)}, "budget"),
+        ({"read_limits": TextReadLimits(max_bytes=2)}, "budget"),
+    ])
+    def test_rejects_drift_without_successful_summary(changes, code):
+        with pytest.raises(ValueContractError) as error:
+>           summarize(**changes)
+
+datamgmt/tests/unit/test_text_values.py:91: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+datamgmt/tests/unit/test_text_values.py:33: in summarize
+    return api().summarize_text_values(raw, **args)
+           ^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+>       assert importlib.util.find_spec("xiangrugu_datamgmt.text_values"), "missing text-value bridge"
+E       AssertionError: missing text-value bridge
+E       assert None
+E        +  where None = <function find_spec at 0x7f0c0d33eac0>('xiangrugu_datamgmt.text_values')
+E        +    where <function find_spec at 0x7f0c0d33eac0> = <module 'importlib.util' (frozen)>.find_spec
+E        +      where <module 'importlib.util' (frozen)> = importlib.util
+
+datamgmt/tests/unit/test_text_values.py:15: AssertionError
+______ test_malformed_source_error_is_sanitized[h\nprivate-secret\x00\n] _______
+
+raw = b'h\nprivate-secret\x00\n'
+
+    @pytest.mark.parametrize("raw", [
+        b"h\nprivate-secret\x00\n", b"h\n\xff\n", b'h\n"private-secret\n',
+        b"h\nprivate-secret\textra\n", b"",
+    ])
+    def test_malformed_source_error_is_sanitized(raw):
+        with pytest.raises(ValueContractError) as error:
+>           summarize(raw)
+
+datamgmt/tests/unit/test_text_values.py:101: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+datamgmt/tests/unit/test_text_values.py:33: in summarize
+    return api().summarize_text_values(raw, **args)
+           ^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+>       assert importlib.util.find_spec("xiangrugu_datamgmt.text_values"), "missing text-value bridge"
+E       AssertionError: missing text-value bridge
+E       assert None
+E        +  where None = <function find_spec at 0x7f0c0d33eac0>('xiangrugu_datamgmt.text_values')
+E        +    where <function find_spec at 0x7f0c0d33eac0> = <module 'importlib.util' (frozen)>.find_spec
+E        +      where <module 'importlib.util' (frozen)> = importlib.util
+
+datamgmt/tests/unit/test_text_values.py:15: AssertionError
+_____________ test_malformed_source_error_is_sanitized[h\n\xff\n] ______________
+
+raw = b'h\n\xff\n'
+
+    @pytest.mark.parametrize("raw", [
+        b"h\nprivate-secret\x00\n", b"h\n\xff\n", b'h\n"private-secret\n',
+        b"h\nprivate-secret\textra\n", b"",
+    ])
+    def test_malformed_source_error_is_sanitized(raw):
+        with pytest.raises(ValueContractError) as error:
+>           summarize(raw)
+
+datamgmt/tests/unit/test_text_values.py:101: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+datamgmt/tests/unit/test_text_values.py:33: in summarize
+    return api().summarize_text_values(raw, **args)
+           ^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+>       assert importlib.util.find_spec("xiangrugu_datamgmt.text_values"), "missing text-value bridge"
+E       AssertionError: missing text-value bridge
+E       assert None
+E        +  where None = <function find_spec at 0x7f0c0d33eac0>('xiangrugu_datamgmt.text_values')
+E        +    where <function find_spec at 0x7f0c0d33eac0> = <module 'importlib.util' (frozen)>.find_spec
+E        +      where <module 'importlib.util' (frozen)> = importlib.util
+
+datamgmt/tests/unit/test_text_values.py:15: AssertionError
+________ test_malformed_source_error_is_sanitized[h\n"private-secret\n] ________
+
+raw = b'h\n"private-secret\n'
+
+    @pytest.mark.parametrize("raw", [
+        b"h\nprivate-secret\x00\n", b"h\n\xff\n", b'h\n"private-secret\n',
+        b"h\nprivate-secret\textra\n", b"",
+    ])
+    def test_malformed_source_error_is_sanitized(raw):
+        with pytest.raises(ValueContractError) as error:
+>           summarize(raw)
+
+datamgmt/tests/unit/test_text_values.py:101: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+datamgmt/tests/unit/test_text_values.py:33: in summarize
+    return api().summarize_text_values(raw, **args)
+           ^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+>       assert importlib.util.find_spec("xiangrugu_datamgmt.text_values"), "missing text-value bridge"
+E       AssertionError: missing text-value bridge
+E       assert None
+E        +  where None = <function find_spec at 0x7f0c0d33eac0>('xiangrugu_datamgmt.text_values')
+E        +    where <function find_spec at 0x7f0c0d33eac0> = <module 'importlib.util' (frozen)>.find_spec
+E        +      where <module 'importlib.util' (frozen)> = importlib.util
+
+datamgmt/tests/unit/test_text_values.py:15: AssertionError
+_____ test_malformed_source_error_is_sanitized[h\nprivate-secret\textra\n] _____
+
+raw = b'h\nprivate-secret\textra\n'
+
+    @pytest.mark.parametrize("raw", [
+        b"h\nprivate-secret\x00\n", b"h\n\xff\n", b'h\n"private-secret\n',
+        b"h\nprivate-secret\textra\n", b"",
+    ])
+    def test_malformed_source_error_is_sanitized(raw):
+        with pytest.raises(ValueContractError) as error:
+>           summarize(raw)
+
+datamgmt/tests/unit/test_text_values.py:101: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+datamgmt/tests/unit/test_text_values.py:33: in summarize
+    return api().summarize_text_values(raw, **args)
+           ^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+>       assert importlib.util.find_spec("xiangrugu_datamgmt.text_values"), "missing text-value bridge"
+E       AssertionError: missing text-value bridge
+E       assert None
+E        +  where None = <function find_spec at 0x7f0c0d33eac0>('xiangrugu_datamgmt.text_values')
+E        +    where <function find_spec at 0x7f0c0d33eac0> = <module 'importlib.util' (frozen)>.find_spec
+E        +      where <module 'importlib.util' (frozen)> = importlib.util
+
+datamgmt/tests/unit/test_text_values.py:15: AssertionError
+__________________ test_malformed_source_error_is_sanitized[] __________________
+
+raw = b''
+
+    @pytest.mark.parametrize("raw", [
+        b"h\nprivate-secret\x00\n", b"h\n\xff\n", b'h\n"private-secret\n',
+        b"h\nprivate-secret\textra\n", b"",
+    ])
+    def test_malformed_source_error_is_sanitized(raw):
+        with pytest.raises(ValueContractError) as error:
+>           summarize(raw)
+
+datamgmt/tests/unit/test_text_values.py:101: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+datamgmt/tests/unit/test_text_values.py:33: in summarize
+    return api().summarize_text_values(raw, **args)
+           ^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+>       assert importlib.util.find_spec("xiangrugu_datamgmt.text_values"), "missing text-value bridge"
+E       AssertionError: missing text-value bridge
+E       assert None
+E        +  where None = <function find_spec at 0x7f0c0d33eac0>('xiangrugu_datamgmt.text_values')
+E        +    where <function find_spec at 0x7f0c0d33eac0> = <module 'importlib.util' (frozen)>.find_spec
+E        +      where <module 'importlib.util' (frozen)> = importlib.util
+
+datamgmt/tests/unit/test_text_values.py:15: AssertionError
+____________ test_text_projection_rejects_nontext_business_columns _____________
+
+    def test_text_projection_rejects_nontext_business_columns():
+        changed = replace(schema(), columns=(
+            ValueColumn("2"*64, "mapped", "bigint", False), schema().columns[-1]))
+        with pytest.raises(ValueContractError, match="structure"):
+>           summarize(schema=changed)
+
+datamgmt/tests/unit/test_text_values.py:110: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+datamgmt/tests/unit/test_text_values.py:33: in summarize
+    return api().summarize_text_values(raw, **args)
+           ^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+>       assert importlib.util.find_spec("xiangrugu_datamgmt.text_values"), "missing text-value bridge"
+E       AssertionError: missing text-value bridge
+E       assert None
+E        +  where None = <function find_spec at 0x7f0c0d33eac0>('xiangrugu_datamgmt.text_values')
+E        +    where <function find_spec at 0x7f0c0d33eac0> = <module 'importlib.util' (frozen)>.find_spec
+E        +      where <module 'importlib.util' (frozen)> = importlib.util
+
+datamgmt/tests/unit/test_text_values.py:15: AssertionError
+________________________ test_nonbytes_source_rejected _________________________
+
+    def test_nonbytes_source_rejected():
+        with pytest.raises(ValueContractError, match="structure"):
+>           api().summarize_text_values("private-secret", schema=schema(), expected_header=("h",),
+            ^^^^^
+                expected_raw_sha256="1"*64, expected_raw_size=14, expected_count=1,
+                bom_as_signature=False, backslash_escape=False)
+
+datamgmt/tests/unit/test_text_values.py:115: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+>       assert importlib.util.find_spec("xiangrugu_datamgmt.text_values"), "missing text-value bridge"
+E       AssertionError: missing text-value bridge
+E       assert None
+E        +  where None = <function find_spec at 0x7f0c0d33eac0>('xiangrugu_datamgmt.text_values')
+E        +    where <function find_spec at 0x7f0c0d33eac0> = <module 'importlib.util' (frozen)>.find_spec
+E        +      where <module 'importlib.util' (frozen)> = importlib.util
+
+datamgmt/tests/unit/test_text_values.py:15: AssertionError
+=========================== short test summary info ============================
+FAILED datamgmt/tests/unit/test_text_values.py::test_header_excluded_empty_preserved_and_rownum_starts_at_one
+FAILED datamgmt/tests/unit/test_text_values.py::test_header_only_is_valid_empty_object
+FAILED datamgmt/tests/unit/test_text_values.py::test_duplicate_business_rows_are_retained
+FAILED datamgmt/tests/unit/test_text_values.py::test_explicit_bom_and_escape_policy
+FAILED datamgmt/tests/unit/test_text_values.py::test_rejects_drift_without_successful_summary[changes0-structure]
+FAILED datamgmt/tests/unit/test_text_values.py::test_rejects_drift_without_successful_summary[changes1-structure]
+FAILED datamgmt/tests/unit/test_text_values.py::test_rejects_drift_without_successful_summary[changes2-structure]
+FAILED datamgmt/tests/unit/test_text_values.py::test_rejects_drift_without_successful_summary[changes3-source_bytes]
+FAILED datamgmt/tests/unit/test_text_values.py::test_rejects_drift_without_successful_summary[changes4-structure]
+FAILED datamgmt/tests/unit/test_text_values.py::test_rejects_drift_without_successful_summary[changes5-source_bytes]
+FAILED datamgmt/tests/unit/test_text_values.py::test_rejects_drift_without_successful_summary[changes6-structure]
+FAILED datamgmt/tests/unit/test_text_values.py::test_rejects_drift_without_successful_summary[changes7-count]
+FAILED datamgmt/tests/unit/test_text_values.py::test_rejects_drift_without_successful_summary[changes8-count]
+FAILED datamgmt/tests/unit/test_text_values.py::test_rejects_drift_without_successful_summary[changes9-count]
+FAILED datamgmt/tests/unit/test_text_values.py::test_rejects_drift_without_successful_summary[changes10-count]
+FAILED datamgmt/tests/unit/test_text_values.py::test_rejects_drift_without_successful_summary[changes11-structure]
+FAILED datamgmt/tests/unit/test_text_values.py::test_rejects_drift_without_successful_summary[changes12-structure]
+FAILED datamgmt/tests/unit/test_text_values.py::test_rejects_drift_without_successful_summary[changes13-budget]
+FAILED datamgmt/tests/unit/test_text_values.py::test_rejects_drift_without_successful_summary[changes14-budget]
+FAILED datamgmt/tests/unit/test_text_values.py::test_malformed_source_error_is_sanitized[h\nprivate-secret\x00\n]
+FAILED datamgmt/tests/unit/test_text_values.py::test_malformed_source_error_is_sanitized[h\n\xff\n]
+FAILED datamgmt/tests/unit/test_text_values.py::test_malformed_source_error_is_sanitized[h\n"private-secret\n]
+FAILED datamgmt/tests/unit/test_text_values.py::test_malformed_source_error_is_sanitized[h\nprivate-secret\textra\n]
+FAILED datamgmt/tests/unit/test_text_values.py::test_malformed_source_error_is_sanitized[]
+FAILED datamgmt/tests/unit/test_text_values.py::test_text_projection_rejects_nontext_business_columns
+FAILED datamgmt/tests/unit/test_text_values.py::test_nonbytes_source_rejected
+26 failed in 0.23s

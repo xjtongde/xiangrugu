@@ -1,0 +1,203 @@
+{
+  "version": 1,
+  "status": "DRAFT_FOR_REVIEW",
+  "scope": "five-approved-text-source-values-only",
+  "release_id": "2026-10-06-bootstrap",
+  "prepared_on": "2026-10-09",
+  "git_revision": "1a34956fbcbe7877fbad04ee5a7ec9e3dd52bf05",
+  "source_status": "dirty",
+  "canonical_format": "XRGVALUE-v1",
+  "header_excluded": true,
+  "rownum_start": 1,
+  "value_contract_approved": false,
+  "table_names_approved": false,
+  "target_mapping_approved": false,
+  "global_name_allocation_complete": false,
+  "full_release_value_contract_complete": false,
+  "contract_frozen": false,
+  "ready_for_import": false,
+  "formal_contract_modified": false,
+  "source_read_this_run": false,
+  "full_snapshot_verified_this_run": false,
+  "database_connected": false,
+  "database_values_verified": false,
+  "runtime_applied": false,
+  "proposal_notes": [
+    "Non-executable review sidecar, not a ReleaseContract or DDL/IMPORT input.",
+    "Expected hashes cover ordered XRGVALUE-v1 streams including derived __src_rownum, excluding headers; they are not raw file hashes or the historical including-header string hashes.",
+    "Columns are bound by exact input file SHA-256 plus JSON Pointer, in source order with the derived bigint last. Existing approved schema belongs to the object; table names remain absent and unapproved.",
+    "Empty strings remain text, not NULL; text is strict UTF-8, no trimming, normalization, numeric/date inference or deduplication.",
+    "Historical source evidence retains its original generation image and time. This batch reads only repository metadata, not the source or snapshot, and establishes no G0/G4 certificate.",
+    "Full release remains BLOCKED; approving this partial value proposal would not approve global names, frozen release, database access or import."
+  ],
+  "input_sha256": {
+    "docs/superpowers/evidence/2026-10-08-text-source-values/text-source-value-expectations.draft.json": "47c2401197e557be356941842d099a27db867e707682a3ef536cee2430d7ac38",
+    "datamgmt/contracts/releases/2026-10-06-bootstrap/text-schema-approved.draft.yaml": "0f379eee0eb120eb037cd63b73299cd79a9be6aee412b24ca5e04dac9bb03189",
+    "datamgmt/contracts/releases/2026-10-06-bootstrap/text-reading-decisions.draft.yaml": "49555b018fe87df0756620ac64eaaf4c73a3d3789cbb4408730b796acea16ec2",
+    "datamgmt/contracts/releases/2026-10-06-bootstrap/additional-text-reading-decisions.draft.yaml": "cb94b467d57018f9257dc4767570328eabe106b309fce42e68d6298dfac5528a",
+    "datamgmt/contracts/releases/2026-10-06-bootstrap/sources.yaml": "8d504b66a03eee2e9f235722a25aa6ece3e46cbcd3322941c9225c37cf747377",
+    "datamgmt/contracts/releases/2026-10-06-bootstrap/sources-metadata-review.draft.yaml": "9d05e365e0baaa405614efb64a0e7413bc465ed31d63e655ded7cac58e985f7d",
+    "datamgmt/contracts/releases/2026-10-06-bootstrap/decoding.yaml": "6f3d2fc6b189ac3208c8cd7e80a347750129916226668bfda3f20db7f88f2124",
+    "datamgmt/contracts/releases/2026-10-06-bootstrap/assertions.yaml": "54f813f763dbe0700f27a9173e53e5b0aad07efeef28fec8ef196130d1326a87"
+  },
+  "source_evidence_provenance": {
+    "generated_at": "2026-10-08T13:00:25.704678+00:00",
+    "image_id": "sha256:c0378c4c1477bfb2ca20f79ad7bdce8dab87447c73f058662cd1c75b391c81c8",
+    "git_revision": "1a34956fbcbe7877fbad04ee5a7ec9e3dd52bf05",
+    "source_status": "dirty",
+    "source_version": "2026-10-07-bootstrap",
+    "certificate_sha256": "58cb2e50f2124829130d4a9d6b8e55b8f6b2418bca18458685cb5d16ff193f9a",
+    "snapshot_manifest_sha256": "03174f42f62dbea16402cdcbd05aa132a0a478453d7f31a09127374835f14699",
+    "full_snapshot_verified_this_run": false
+  },
+  "totals": {
+    "object_count": 5,
+    "source_column_count": 83,
+    "data_record_count": 47607,
+    "source_field_count": 392573,
+    "derived_rownum_field_count": 47607,
+    "value_field_count": 440180
+  },
+  "objects": [
+    {
+      "rule_id": "m008002",
+      "source_object_id": "257375d1235ceb968ae65d6e6dbe03238b4c482d8953714c43de08ec5eb23d41",
+      "source": {
+        "kind": "file",
+        "path": "harvard/tab/ACADEMY_Data.tab",
+        "sha256": "d21bd9f625acd85e66298fd8635b64c54f380d36b8f44f5d1d9734a0bf55c256",
+        "size": 714962
+      },
+      "approved_schema": "harv",
+      "source_column_count": 54,
+      "schema_sha256": "73d2597154d2df87085e0a790576207b333ead408dc589715d06159d2d7ad551",
+      "expected": {
+        "field_count": 162635,
+        "row_count": 2957,
+        "sha256": "475ea1d8b400939cb79b46b47d641d83685bc8d1a3e4478bec1cdfdd562c429a",
+        "stream_bytes": 1778794
+      },
+      "disposition_retained": "BLOCKED",
+      "value_columns_ref": {
+        "file": "docs/superpowers/evidence/2026-10-08-text-source-values/text-source-value-expectations.draft.json",
+        "pointer": "/objects/0/value_columns"
+      },
+      "approved_object_ref": {
+        "file": "datamgmt/contracts/releases/2026-10-06-bootstrap/text-schema-approved.draft.yaml",
+        "pointer": "/objects/0"
+      }
+    },
+    {
+      "rule_id": "m008003",
+      "source_object_id": "300c70270efd1fe3df8e33fd06ac2de0b361ee9185c519589eaa0664fc73def0",
+      "source": {
+        "kind": "file",
+        "path": "harvard/tab/Index_of_the_Complete_Prose_of_the_Yuan_Dynasty_vol_1-60.tab",
+        "sha256": "b720bff1d328e93726822910cbe361778667e414c24de4ab5f61082a0316623d",
+        "size": 2619410
+      },
+      "approved_schema": "harv",
+      "source_column_count": 5,
+      "schema_sha256": "70bdb375e51e4aae687fa22fa5db1f7840225b56b51234351dadb2f4ef16acf1",
+      "expected": {
+        "field_count": 241194,
+        "row_count": 40199,
+        "sha256": "dcbedb5a5073a6b980d82156ffb3fa7dbaf3ca9906c2928534793b3e0a43a039",
+        "stream_bytes": 4709809
+      },
+      "disposition_retained": "BLOCKED",
+      "value_columns_ref": {
+        "file": "docs/superpowers/evidence/2026-10-08-text-source-values/text-source-value-expectations.draft.json",
+        "pointer": "/objects/1/value_columns"
+      },
+      "approved_object_ref": {
+        "file": "datamgmt/contracts/releases/2026-10-06-bootstrap/text-schema-approved.draft.yaml",
+        "pointer": "/objects/1"
+      }
+    },
+    {
+      "rule_id": "m008004",
+      "source_object_id": "7866bf2d2a1df79444ab2da4e91686b81d960b95b31d8103fdbd8974c5637d72",
+      "source": {
+        "kind": "file",
+        "path": "harvard/tab/writings of the 19c missionaries in China.tab",
+        "sha256": "23b23f6fdd8c8c3d070fe0d215bc643beef8742c06801ee861fb9255d77e5fe7",
+        "size": 193811
+      },
+      "approved_schema": "harv",
+      "source_column_count": 11,
+      "schema_sha256": "492a32cd54147a5a1eae1cf6b11a22f585af706f757f6ed81e9322c12f956ea1",
+      "expected": {
+        "field_count": 12396,
+        "row_count": 1033,
+        "sha256": "d233ed9c81ad6f8ff22c1f8c89786dcae90b0fffaf5657666d98e6212edec5fd",
+        "stream_bytes": 292942
+      },
+      "disposition_retained": "BLOCKED",
+      "value_columns_ref": {
+        "file": "docs/superpowers/evidence/2026-10-08-text-source-values/text-source-value-expectations.draft.json",
+        "pointer": "/objects/2/value_columns"
+      },
+      "approved_object_ref": {
+        "file": "datamgmt/contracts/releases/2026-10-06-bootstrap/text-schema-approved.draft.yaml",
+        "pointer": "/objects/2"
+      }
+    },
+    {
+      "rule_id": "m004812",
+      "source_object_id": "1334a175777350ed2cb0c7ea037bd89fa74f660b1ab351400b09d06d0142ee76",
+      "source": {
+        "kind": "file",
+        "path": "harvard-full/doi_10_7910/DVN/MI56KU/2001_Shanghai_0_INDEX_OF_PRESENTATIONS.tab",
+        "sha256": "cdc6d3e5d6d85e139305efe9c617c756f0eb668c19ce34efc4eca4f6cc8c2728",
+        "size": 3727
+      },
+      "approved_schema": "harv",
+      "source_column_count": 7,
+      "schema_sha256": "19287ad30494c81767065da3c37a314be7a5b00061523d8befae91fb00c6f14f",
+      "expected": {
+        "field_count": 232,
+        "row_count": 29,
+        "sha256": "b3f6ceb609a853cbb06eb7f8004a39f676d1ff5e95fbb46fc0381abbf722f667",
+        "stream_bytes": 5605
+      },
+      "disposition_retained": "BLOCKED",
+      "value_columns_ref": {
+        "file": "docs/superpowers/evidence/2026-10-08-text-source-values/text-source-value-expectations.draft.json",
+        "pointer": "/objects/3/value_columns"
+      },
+      "approved_object_ref": {
+        "file": "datamgmt/contracts/releases/2026-10-06-bootstrap/text-schema-approved.draft.yaml",
+        "pointer": "/objects/3"
+      }
+    },
+    {
+      "rule_id": "m006642",
+      "source_object_id": "9784b04445aa2c8b39232f8f5f06d7e13f8249e36fc67f47cbd38e35a9a2efa4",
+      "source": {
+        "kind": "file",
+        "path": "harvard-full/doi_10_7910/DVN/SK7KGK/GB_91_HZ_040201_UTF8.tab",
+        "sha256": "58ef3cb445ef4b0e70a8716aad3463915320c64ee7fa257ea88eb0c93fe1cec0",
+        "size": 137961
+      },
+      "approved_schema": "chgis",
+      "source_column_count": 6,
+      "schema_sha256": "15a333edbdce8d59db76fc056fef6ca7120344c58efac531d1588bab9ae65c1c",
+      "expected": {
+        "field_count": 23723,
+        "row_count": 3389,
+        "sha256": "3bad44a0482c1bc2479a541d2d9c9d405187eb1caeb177479fb69f7954b313fc",
+        "stream_bytes": 361678
+      },
+      "disposition_retained": "BLOCKED",
+      "value_columns_ref": {
+        "file": "docs/superpowers/evidence/2026-10-08-text-source-values/text-source-value-expectations.draft.json",
+        "pointer": "/objects/4/value_columns"
+      },
+      "approved_object_ref": {
+        "file": "datamgmt/contracts/releases/2026-10-06-bootstrap/text-schema-approved.draft.yaml",
+        "pointer": "/objects/4"
+      }
+    }
+  ]
+}

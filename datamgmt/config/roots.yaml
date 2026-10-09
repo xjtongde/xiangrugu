@@ -21,7 +21,7 @@ roots:
 
   usedata:                              # ★导入唯一取材处（用户令 1）
     path: /mnt/wd61workmetadata/usedata
-    container_path: /data/imports/usedata # 运行时临时只读入口；须验证其挂载源对应本 path
+    container_path: /data/imports/usedata # 项目快照根；具体版本由 snapshot_id 指定
     host: 192.168.3.32
     role: authoritative-source          # 权威数据源目录（2026-09-28 用户令设立）
     usage_policy: "2026-10-02 用户令：usedata 只含【本项目使用】件——使用件保留并记用途，不使用件清出（不判断源数据对错，仅按项目是否使用取舍）。"
@@ -32,7 +32,7 @@ roots:
       fstype: cifs
       options: rw
       as_of: "2026-10-06"
-      required_import_view: "另行 bind 到 /opt/mydocker/xiangrugu/data/imports/usedata，并 remount 为 ro；容器内再次验证独立挂载与 ro"
+      required_import_view: "2026-10-07 改定：核实来源后复制到项目版本化快照，独立校验清单及摘要；不建立源临时挂载。"
     as_of: "2026-10-06"
     measured_by: this-session
     inventory:                          # 2026-10-06 SSH 只读复核：189 个普通文件，根可读
@@ -75,13 +75,13 @@ checksums:
     path_base: usedata                  # ★行内路径相对于 usedata/（实测首行：chgis-v6/…）
     covers: 二批（chgis-v6 ＋ harvard-full，清出旧版 CBDB 后 172 件）
     raw_sha256: 900d98c69cf9b72f20313aa562b8da5e18e9c3e3def423fa6f618b4b1bafb3cb
-    format_anomaly: "172 条有效记录后有 1,101 个 NUL 字节；GNU sha256sum 会警告 1 行格式错误。源件不修，解析器必须检测并把该异常写入证据；仅当前固定摘要可由冻结合同批准兼容解析。"
+    format_anomaly: "172 条有效记录后有 126 个 NUL 字节（2026-10-07 同摘要项目快照逐字节核验，更正原 1,101 计数）；严格解析报告 1 行格式错误。源件不修，解析器必须检测并把该异常写入证据；仅当前固定摘要可由冻结合同批准兼容解析。"
     removal_note: "2026-10-02 用户令清出 harvard-full/DOI/PAGGQS/CBDB_20240208_sqlite.db（旧版），本账重写为 172 行。"
     last_verification:
-      result: "172/172 相符（2026-10-06 SSH 复验）；账尾 1,101 NUL 已单列为格式异常，不得静默忽略"
-      as_of: "2026-10-06"
-      measured_by: this-session
-      source: datamgmt/recon/gate0_integrity.json
+      result: "已验收项目快照复核 172/172 相符；账尾 126 NUL 已单列为格式异常，不得静默忽略；不代表本轮重新核验原 NAS"
+      as_of: "2026-10-07"
+      measured_by: snapshot-inventory
+      source: datamgmt/contracts/releases/2026-10-06-bootstrap/inventory.json
   - file: /mnt/wd61workmetadata/usedata/harvard/SHA256SUMS
     lines: 13
     as_of: "2026-09-29"
@@ -161,7 +161,7 @@ target:
   co_tenancy_warning: "pg32b 与生产 pg32 **同在 32 主机**（另有 n8n/chainlit/graphrag 等在跑）→ 一切装载须 nice -n 19 ionice -c3 ＋ loadavg<4.0 门禁（30s 轮询）＋ canary 计时。"
 
 # ─────────────────────────────────────────────────────────────
-# 六、香如故容器部署与临时源入口
+# 六、香如故容器部署与项目源快照
 # ─────────────────────────────────────────────────────────────
 deployment:
   host_root: /opt/mydocker/xiangrugu
@@ -174,10 +174,13 @@ deployment:
   runtime_state:
     host_path: /opt/mydocker/xiangrugu/data/var
     container_path: /data/var
-  transient_source:
-    host_mountpoint: /opt/mydocker/xiangrugu/data/imports/usedata
-    container_path: /data/imports/usedata
-    propagation: rslave
+  source_snapshots:
+    host_root: /opt/mydocker/xiangrugu/data/imports/usedata
+    container_root: /data/imports/usedata
+    layout: "<snapshot_id>"
     access: read-only
-    lifecycle: "仅 inventory/import/verify/rehearse 期间挂载；完成 G0 后置检查并确认无进程占用后卸载。"
+    evidence_root: /opt/mydocker/xiangrugu/data/var/snapshots
+    container_evidence_root: /data/var/snapshots
+    lifecycle: "来源核实、复制和独立校验通过后才供项目使用；不覆盖已验收版本，保留与清理另授权。"
+    as_of: "2026-10-07"
   third_party_policy: "第三方源码与镜像保持原版；我方扩展通过公开标准接口并置于自有镜像。"

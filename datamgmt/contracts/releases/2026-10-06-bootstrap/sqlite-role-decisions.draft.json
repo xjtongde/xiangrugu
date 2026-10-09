@@ -1,0 +1,66 @@
+{
+  "version": 1,
+  "status": "DRAFT_ROLES_APPROVED",
+  "release_id": "2026-10-06-bootstrap",
+  "source_version": "2026-10-07-bootstrap",
+  "rule_id": "m007906",
+  "source_identity": {
+    "kind": "file",
+    "path": "harvard/cbdb/cbdb_20260919.sqlite3",
+    "sha256": "bde1bb8eece3820d9e236c1d6b0f07d847d339669d4a85d79cd7252d58d83400",
+    "size": 586485760
+  },
+  "proposal_file": "sqlite-object-contract-proposal.draft.json",
+  "proposal_sha256": "5a1d1308080a4d16459be74f2de71f89ad0c54e75dd61e6f7bdf6e36218487d8",
+  "approval_basis": "用户同意上一轮明确的78表/76索引角色认领及三表28列只读类型调查范围",
+  "roles_approved": true,
+  "table_role": "tabular-source",
+  "index_role": "source-schema-metadata",
+  "table_count": 78,
+  "index_count": 76,
+  "profile_read_authorized": true,
+  "raw_text_or_blob_output_authorized": false,
+  "profile_scope": {
+    "ADDR_CODES": [
+      "c_addr_id",
+      "c_name",
+      "c_name_chn",
+      "c_firstyear",
+      "c_lastyear",
+      "c_admin_type",
+      "c_admin_cat_code",
+      "x_coord",
+      "y_coord",
+      "CHGIS_PT_ID",
+      "c_notes",
+      "c_alt_names",
+      "c_created_by",
+      "c_created_date",
+      "c_modified_by",
+      "c_modified_date"
+    ],
+    "SOCIAL_INSTITUTION_ALTNAME_CODES": [
+      "c_inst_altname_type",
+      "c_inst_altname_desc",
+      "c_inst_altname_chn",
+      "c_notes"
+    ],
+    "SOCIAL_INSTITUTION_ALTNAME_DATA": [
+      "c_inst_name_code",
+      "c_inst_code",
+      "c_inst_altname_type",
+      "c_inst_altname_hz",
+      "c_inst_altname_py",
+      "c_source",
+      "c_pages",
+      "c_notes"
+    ]
+  },
+  "type_mapping_approved": false,
+  "target_mapping_approved": false,
+  "value_contract_approved": false,
+  "ready_for_import": false,
+  "contract_frozen": false,
+  "disposition_retained": "BLOCKED",
+  "source_ddl_execution_approved": false
+}

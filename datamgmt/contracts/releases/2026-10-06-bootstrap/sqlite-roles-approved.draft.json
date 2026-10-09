@@ -1,0 +1,870 @@
+{
+  "version": 1,
+  "status": "DRAFT_ROLES_APPROVED",
+  "release_id": "2026-10-06-bootstrap",
+  "source_version": "2026-10-07-bootstrap",
+  "source": {
+    "kind": "file",
+    "path": "harvard/cbdb/cbdb_20260919.sqlite3",
+    "sha256": "bde1bb8eece3820d9e236c1d6b0f07d847d339669d4a85d79cd7252d58d83400",
+    "size": 586485760
+  },
+  "rule_id": "m007906",
+  "proposal_sha256": "5a1d1308080a4d16459be74f2de71f89ad0c54e75dd61e6f7bdf6e36218487d8",
+  "decision_file": "sqlite-role-decisions.draft.json",
+  "decision_sha256": "c7801b01bd64497e09fce687a53f6fe751f1f51381d27d2d24e4ef5d200af638",
+  "roles_approved": true,
+  "ready_for_import": false,
+  "contract_frozen": false,
+  "disposition_retained": "BLOCKED",
+  "tables": [
+    {
+      "source_object_id": "46858f9f14636ed7a1ba2dc2e250b6142db8a307802e4b226d0428112fab15e6",
+      "name": "ADDR_BELONGS_DATA",
+      "role": "tabular-source"
+    },
+    {
+      "source_object_id": "0992f307045129342f689403a33e68a26340a30fae5bd859a35f5d726289e312",
+      "name": "ADDR_CODES",
+      "role": "tabular-source"
+    },
+    {
+      "source_object_id": "a5482923d76ba2550ec9ab783276f71bf766c9432c7dff0822cc939a82e294c3",
+      "name": "ADMIN_CAT_CODES",
+      "role": "tabular-source"
+    },
+    {
+      "source_object_id": "d67bb15cd96b5f39ff417e62d17111e19ff29318aae160524c2b0366e9b6a9bf",
+      "name": "ADMIN_CAT_CODE_TYPE_REL",
+      "role": "tabular-source"
+    },
+    {
+      "source_object_id": "c5c282c5fb700f078899db99a4065514c1d213ab20117a12f84489a839454284",
+      "name": "ADMIN_CAT_TYPES",
+      "role": "tabular-source"
+    },
+    {
+      "source_object_id": "6797d3dc10f3a23e8419426848bfd1a38e7925020b3b74c08e60b8e64b54ab01",
+      "name": "ALTNAME_CODES",
+      "role": "tabular-source"
+    },
+    {
+      "source_object_id": "9f2ca682f6d5e905282dafdfba4d7d0ee6efb62fafa832e7d2caabcb98f3aa0e",
+      "name": "ALTNAME_DATA",
+      "role": "tabular-source"
+    },
+    {
+      "source_object_id": "ebe710d90262905b8e6f4c8bc2860063c13ca7e2b9e10afe89a97996053cee72",
+      "name": "APPOINTMENT_CODES",
+      "role": "tabular-source"
+    },
+    {
+      "source_object_id": "a0d7c6fe5024584ece5f93271cc6e125c92ec4872a4e344bc73b37eb02f025d7",
+      "name": "APPOINTMENT_CODE_TYPE_REL",
+      "role": "tabular-source"
+    },
+    {
+      "source_object_id": "8b4ef3b89fd49b53ca165285817016bb0a6be3bda180ce2257e4647dd3c005c8",
+      "name": "APPOINTMENT_TYPES",
+      "role": "tabular-source"
+    },
+    {
+      "source_object_id": "292f833669d8496939fbd967398ba50f5e9253a76ac4ab19d869a4e77e92a9f1",
+      "name": "ASSOC_CODES",
+      "role": "tabular-source"
+    },
+    {
+      "source_object_id": "90b6c171a9aad4ae5b4401468f3c67600070a04594ffaac73b386c7626e21249",
+      "name": "ASSOC_CODE_TYPE_REL",
+      "role": "tabular-source"
+    },
+    {
+      "source_object_id": "9fb170990129259de5c0dd7c38de5e236cc4322166b816ee81fc6441df9f1dff",
+      "name": "ASSOC_DATA",
+      "role": "tabular-source"
+    },
+    {
+      "source_object_id": "df2200548760e7dfb56cd640a8ce1489ce6b7403f0c66d03217df5fcd6709f43",
+      "name": "ASSOC_TYPES",
+      "role": "tabular-source"
+    },
+    {
+      "source_object_id": "da75a8365c766c7e80d99b6e868e5ba2ebef9dec112857ceb9d6fe89f01446a0",
+      "name": "ASSUME_OFFICE_CODES",
+      "role": "tabular-source"
+    },
+    {
+      "source_object_id": "890c54ae6d73a428f41fd4aa4ae45e245d8f8a28057ddb02a40d78074f197732",
+      "name": "BIOG_ADDR_CODES",
+      "role": "tabular-source"
+    },
+    {
+      "source_object_id": "305c6a3f69bb04cf41086a1fa48876ec9d74eae5646d75ba25dfbc67a0106d7d",
+      "name": "BIOG_ADDR_DATA",
+      "role": "tabular-source"
+    },
+    {
+      "source_object_id": "b5368f0e5560a00c5546ca285e9d92daf40b16ba35774f7c1ed2c9afee63fcaa",
+      "name": "BIOG_INST_CODES",
+      "role": "tabular-source"
+    },
+    {
+      "source_object_id": "1041721043a6d66715ea596ab1f1597588944042011f49aa9e8c639874870c3b",
+      "name": "BIOG_INST_DATA",
+      "role": "tabular-source"
+    },
+    {
+      "source_object_id": "dbe7676ac99cf1af42d35fce9e2282076a44001546b81f7b4b4e17bf2efd9359",
+      "name": "BIOG_MAIN",
+      "role": "tabular-source"
+    },
+    {
+      "source_object_id": "54f87dfb5be4a6ff98d34202244893a95e5d26f51f5e21c6e64ffd4be53f1fc6",
+      "name": "BIOG_SOURCE_DATA",
+      "role": "tabular-source"
+    },
+    {
+      "source_object_id": "c0927fbdffc762d7dbd6c006ceb4dfc3ed742eef8a17e7a8bdbfaebcb82d193a",
+      "name": "BIOG_TEXT_DATA",
+      "role": "tabular-source"
+    },
+    {
+      "source_object_id": "948d357a9cd3e4735590f8f1ab1220fa6a1fdbcb070332e66178f41f11a9fffc",
+      "name": "CHORONYM_CODES",
+      "role": "tabular-source"
+    },
+    {
+      "source_object_id": "d185909a9eededdd7da52ea072fa58022a67f9a25c30e26ffb65531c4df1e64a",
+      "name": "COUNTRY_CODES",
+      "role": "tabular-source"
+    },
+    {
+      "source_object_id": "8495d5637f698983373a081730cb241e4138193c3b136aaf99ec1029bc4f8159",
+      "name": "DYNASTIES",
+      "role": "tabular-source"
+    },
+    {
+      "source_object_id": "bcba6a6b8512f381e4ffdb775c888684ed83bab654aacc6603ebc2a319d8b3a9",
+      "name": "ENTRY_CODES",
+      "role": "tabular-source"
+    },
+    {
+      "source_object_id": "e8cb47acbd26088cf410e6323991980e62a18821edcd2b2544193c792692c8a7",
+      "name": "ENTRY_CODE_TYPE_REL",
+      "role": "tabular-source"
+    },
+    {
+      "source_object_id": "ca523586383aaebd35e8f1ad92eef5c2bac3c733d063da1e0b75074ce3a8169b",
+      "name": "ENTRY_DATA",
+      "role": "tabular-source"
+    },
+    {
+      "source_object_id": "d0b882218e2d6d0d0a1b3edc92eca15dc24a25a41435bbb2c12a4f733af19ac2",
+      "name": "ENTRY_TYPES",
+      "role": "tabular-source"
+    },
+    {
+      "source_object_id": "6e59bb7ce49f96016643d70424d6131cd1962cf02c20c97864a9c103aece6d6d",
+      "name": "ETHNICITY_TRIBE_CODES",
+      "role": "tabular-source"
+    },
+    {
+      "source_object_id": "64711ebe6b141b5ad2e41cf66b0f5e4f2186534c7cd94d4af6da1a60937d48d7",
+      "name": "EVENTS_ADDR",
+      "role": "tabular-source"
+    },
+    {
+      "source_object_id": "388437f273c081f003c46de7273049507da319d3cca70cb9f2e4227961f8adc7",
+      "name": "EVENTS_DATA",
+      "role": "tabular-source"
+    },
+    {
+      "source_object_id": "deb45ec83a7457d1fb73ecb5360c3d074dd8b67bb6f0ccf3e65aebc27c9e3422",
+      "name": "EVENT_CODES",
+      "role": "tabular-source"
+    },
+    {
+      "source_object_id": "ebce79fe8145e934d20293c6630b28fd70a80309e3ced5c6ffd27a272f82a2a8",
+      "name": "EXTANT_CODES",
+      "role": "tabular-source"
+    },
+    {
+      "source_object_id": "3c653cd8f875d54ccd18cb919f44813069928af9edf275adb0124da981da422c",
+      "name": "GANZHI_CODES",
+      "role": "tabular-source"
+    },
+    {
+      "source_object_id": "8307b9b76e08df4a8297bc4bcf12ca005aa49d938d2d1a9cfc56b10a434ebaf8",
+      "name": "HOUSEHOLD_STATUS_CODES",
+      "role": "tabular-source"
+    },
+    {
+      "source_object_id": "6dd1f9500359bd800bb64ff159be5d2d6574b2afc48fbcb3898d308ec7d4efe5",
+      "name": "INDEXYEAR_TYPE_CODES",
+      "role": "tabular-source"
+    },
+    {
+      "source_object_id": "524dbf4e7d56e4a48aebbaea14e06064300e622cbc10bb18622a16558cd0f224",
+      "name": "KINREL_REDUCTION",
+      "role": "tabular-source"
+    },
+    {
+      "source_object_id": "4e94c4869640cc48f886a7910ff2d009d9b78b3a83109ee314a86d298a3e0135",
+      "name": "KINSHIP_CODES",
+      "role": "tabular-source"
+    },
+    {
+      "source_object_id": "56cd86e4ef958052889ac741c698a33bf0c4dde78807a1152ad4c1a278a0b04f",
+      "name": "KIN_DATA",
+      "role": "tabular-source"
+    },
+    {
+      "source_object_id": "8d73c3fe57dad47ceb8193efb1b96bcace81e78b073a82f568e1b557bbf47ade",
+      "name": "KIN_MOURNING",
+      "role": "tabular-source"
+    },
+    {
+      "source_object_id": "165d50c9190d1961aacb099d2fd14aaec27d756db11383f26138939106778656",
+      "name": "KIN_MOURNING_STEPS",
+      "role": "tabular-source"
+    },
+    {
+      "source_object_id": "ec4b13bec95588941bf655bd939790aca5076a7f80f8cb3fcf9d2a78b3dc1944",
+      "name": "LITERARYGENRE_CODES",
+      "role": "tabular-source"
+    },
+    {
+      "source_object_id": "5e75780c8b40bc4e4d97335d98b4a1a30b8894ae0997a811153f7371f2341f6d",
+      "name": "MEASURE_CODES",
+      "role": "tabular-source"
+    },
+    {
+      "source_object_id": "6cd1e1ed453fc7e99dcea7208b5b0b2e9a6c694602bf628160c7593de47c5fbe",
+      "name": "MERGED_PERSON_DATA",
+      "role": "tabular-source"
+    },
+    {
+      "source_object_id": "aed74d8d91b3062d97b8eb96334671851c67217f15c1b083edd15524d7ea5f84",
+      "name": "NIAN_HAO",
+      "role": "tabular-source"
+    },
+    {
+      "source_object_id": "5116056028433dab739df26d91d1f327c2186409fb3f418ae5f32e0cbd4a6095",
+      "name": "OCCASION_CODES",
+      "role": "tabular-source"
+    },
+    {
+      "source_object_id": "2ee64cd64a319a58bac9ac32d21e411c093ccb4de65c3c9c72992f278d296fc0",
+      "name": "OFFICE_CATEGORIES",
+      "role": "tabular-source"
+    },
+    {
+      "source_object_id": "d01c8719c90d340e418b405b057f160eabfa2989f21fb23e32447433c0ba814e",
+      "name": "OFFICE_CODES",
+      "role": "tabular-source"
+    },
+    {
+      "source_object_id": "d600c60c4c5c25b870e0728fdb7286985c4e56e183be7c019e04b9de3e67b7f6",
+      "name": "OFFICE_CODE_TYPE_REL",
+      "role": "tabular-source"
+    },
+    {
+      "source_object_id": "69663cb0e800f7ff177b961509f7cda984aee8ee2b9c0465d22d9efcf2c5d535",
+      "name": "OFFICE_TYPE_TREE",
+      "role": "tabular-source"
+    },
+    {
+      "source_object_id": "1793896ce9b84d74e986856108e04ca0afb0c185b310638972a864cbb3100a65",
+      "name": "PARENTAL_STATUS_CODES",
+      "role": "tabular-source"
+    },
+    {
+      "source_object_id": "1f42c468762af250033a2abfe8fee9c76f7bfa0885d442e91bc0a52a3f4e46cb",
+      "name": "POSSESSION_ACT_CODES",
+      "role": "tabular-source"
+    },
+    {
+      "source_object_id": "86b87e42c731fc41f46c759bc17caa358cd9c4abff3c8c6f1d6b2a17611bba0c",
+      "name": "POSSESSION_ADDR",
+      "role": "tabular-source"
+    },
+    {
+      "source_object_id": "b22b6881828d34c8b2bee96bf57b58b9aefa474221780c4d0bd357ae9fe77f6d",
+      "name": "POSSESSION_DATA",
+      "role": "tabular-source"
+    },
+    {
+      "source_object_id": "1650019ee3e5efb5dceeac27e7871317eb61551cfb3e7754be6be36c63bc52ac",
+      "name": "POSTED_TO_ADDR_DATA",
+      "role": "tabular-source"
+    },
+    {
+      "source_object_id": "27f8d929c040b31de5c63f1da525a72014790f0929c8715849797771cbe0dace",
+      "name": "POSTED_TO_OFFICE_DATA",
+      "role": "tabular-source"
+    },
+    {
+      "source_object_id": "290a487ced2fc4fad017eb59c911a10337e12fd81c625f8d69db769c12095b0a",
+      "name": "POSTING_DATA",
+      "role": "tabular-source"
+    },
+    {
+      "source_object_id": "7999b3fb3ed23c1cedf8c19c057844595c209f48ac35ff6665ebb368b9820005",
+      "name": "SCHOLARLYTOPIC_CODES",
+      "role": "tabular-source"
+    },
+    {
+      "source_object_id": "3cf1a3286982ab392f3f0bed1a0dcc723f3a04205be610a6ec992ae66047c6cf",
+      "name": "SOCIAL_INSTITUTION_ADDR",
+      "role": "tabular-source"
+    },
+    {
+      "source_object_id": "5fc052143f65eb17c8dca33d5609cef5d17237a582637c70764dc13522c18f8f",
+      "name": "SOCIAL_INSTITUTION_ADDR_TYPES",
+      "role": "tabular-source"
+    },
+    {
+      "source_object_id": "7d279c532467a3e32cacf0d4a2c7fc513ba73ebc2f35d1d9e192de6b52f10d9d",
+      "name": "SOCIAL_INSTITUTION_ALTNAME_CODES",
+      "role": "tabular-source"
+    },
+    {
+      "source_object_id": "808f117f10d010a51b3fce070fd3fc247224c6648a5f5040ade05e045cbf0999",
+      "name": "SOCIAL_INSTITUTION_ALTNAME_DATA",
+      "role": "tabular-source"
+    },
+    {
+      "source_object_id": "a31eb9ac3968ef82b989c5463d2c6097668d1ceee491d0bcf48f4d0ae7ee8046",
+      "name": "SOCIAL_INSTITUTION_CODES",
+      "role": "tabular-source"
+    },
+    {
+      "source_object_id": "082757346f4f0c1cadfda0b81547424057f9f2f8f0aa83058ca120d6cb738c55",
+      "name": "SOCIAL_INSTITUTION_NAME_CODES",
+      "role": "tabular-source"
+    },
+    {
+      "source_object_id": "838cf3c56fca22fea680630937ada8a2f6b797a446f479cc9ae8949ee2e3016d",
+      "name": "SOCIAL_INSTITUTION_TYPES",
+      "role": "tabular-source"
+    },
+    {
+      "source_object_id": "8aff60887889c1a9f095dfba5d7e0db7b7c90905a8742ea6d65ca9a6793457a9",
+      "name": "STATUS_CODES",
+      "role": "tabular-source"
+    },
+    {
+      "source_object_id": "59be367ff156869f66c1dabfd8f28da344e80ffd94cd826851a734020ec04180",
+      "name": "STATUS_CODE_TYPE_REL",
+      "role": "tabular-source"
+    },
+    {
+      "source_object_id": "db5b864f03abece9d71c6ba8ee659d36f04da30e0ee3fc75906e1b797ca8d7e4",
+      "name": "STATUS_DATA",
+      "role": "tabular-source"
+    },
+    {
+      "source_object_id": "ee4f0144b3f7693974abb614e93ca3aca6027c2ee1e1999b1e30fc3b2ad1d54c",
+      "name": "STATUS_TYPES",
+      "role": "tabular-source"
+    },
+    {
+      "source_object_id": "f1b939bebbca9b7c071321e71413b7c6dfbdad73c9346d0589b6dbcfbd8f8027",
+      "name": "TEXT_BIBLCAT_CODES",
+      "role": "tabular-source"
+    },
+    {
+      "source_object_id": "c1f569a9fa677ac5755c89cb1d80221d49ad6a5440c6256935666cd0caee4ebd",
+      "name": "TEXT_BIBLCAT_CODE_TYPE_REL",
+      "role": "tabular-source"
+    },
+    {
+      "source_object_id": "cab9177630d5c35d66ae3722e180c53df208e8543ca59592cdbf7fad9ee69cfa",
+      "name": "TEXT_BIBLCAT_TYPES",
+      "role": "tabular-source"
+    },
+    {
+      "source_object_id": "ef319a3ae9f6044175a38fbf0e10f8f3554cf8ff8f1c5bc1b0c859a35167e6bf",
+      "name": "TEXT_CODES",
+      "role": "tabular-source"
+    },
+    {
+      "source_object_id": "2397e261469baf0ec4ad0d8c66a115db836b5ac87237f1d318ad84da3f4d508d",
+      "name": "TEXT_INSTANCE_DATA",
+      "role": "tabular-source"
+    },
+    {
+      "source_object_id": "81842a8665c4f159a950a1d784739bab96d64e8421c4f46657990ad436f60711",
+      "name": "TEXT_ROLE_CODES",
+      "role": "tabular-source"
+    },
+    {
+      "source_object_id": "fb859307d791b069cd252a27cf821f0a03d2f46e557690c91e25d0ede86eeaf6",
+      "name": "TEXT_TYPE",
+      "role": "tabular-source"
+    },
+    {
+      "source_object_id": "645c4df5a7e49279fb44102e66db29ddc8bff26df235c27cb3a023838508f2e5",
+      "name": "YEAR_RANGE_CODES",
+      "role": "tabular-source"
+    }
+  ],
+  "indexes": [
+    {
+      "name": "sqlite_autoindex_ADDR_BELONGS_DATA_1",
+      "table": "ADDR_BELONGS_DATA",
+      "role": "source-schema-metadata",
+      "source_ddl_execution_approved": false
+    },
+    {
+      "name": "sqlite_autoindex_ADDR_CODES_1",
+      "table": "ADDR_CODES",
+      "role": "source-schema-metadata",
+      "source_ddl_execution_approved": false
+    },
+    {
+      "name": "sqlite_autoindex_ADMIN_CAT_CODES_1",
+      "table": "ADMIN_CAT_CODES",
+      "role": "source-schema-metadata",
+      "source_ddl_execution_approved": false
+    },
+    {
+      "name": "sqlite_autoindex_ADMIN_CAT_CODE_TYPE_REL_1",
+      "table": "ADMIN_CAT_CODE_TYPE_REL",
+      "role": "source-schema-metadata",
+      "source_ddl_execution_approved": false
+    },
+    {
+      "name": "sqlite_autoindex_ADMIN_CAT_TYPES_1",
+      "table": "ADMIN_CAT_TYPES",
+      "role": "source-schema-metadata",
+      "source_ddl_execution_approved": false
+    },
+    {
+      "name": "sqlite_autoindex_ALTNAME_CODES_1",
+      "table": "ALTNAME_CODES",
+      "role": "source-schema-metadata",
+      "source_ddl_execution_approved": false
+    },
+    {
+      "name": "sqlite_autoindex_ALTNAME_DATA_1",
+      "table": "ALTNAME_DATA",
+      "role": "source-schema-metadata",
+      "source_ddl_execution_approved": false
+    },
+    {
+      "name": "sqlite_autoindex_APPOINTMENT_CODES_1",
+      "table": "APPOINTMENT_CODES",
+      "role": "source-schema-metadata",
+      "source_ddl_execution_approved": false
+    },
+    {
+      "name": "sqlite_autoindex_APPOINTMENT_CODE_TYPE_REL_1",
+      "table": "APPOINTMENT_CODE_TYPE_REL",
+      "role": "source-schema-metadata",
+      "source_ddl_execution_approved": false
+    },
+    {
+      "name": "sqlite_autoindex_APPOINTMENT_TYPES_1",
+      "table": "APPOINTMENT_TYPES",
+      "role": "source-schema-metadata",
+      "source_ddl_execution_approved": false
+    },
+    {
+      "name": "sqlite_autoindex_ASSOC_CODES_1",
+      "table": "ASSOC_CODES",
+      "role": "source-schema-metadata",
+      "source_ddl_execution_approved": false
+    },
+    {
+      "name": "sqlite_autoindex_ASSOC_CODE_TYPE_REL_1",
+      "table": "ASSOC_CODE_TYPE_REL",
+      "role": "source-schema-metadata",
+      "source_ddl_execution_approved": false
+    },
+    {
+      "name": "sqlite_autoindex_ASSOC_DATA_1",
+      "table": "ASSOC_DATA",
+      "role": "source-schema-metadata",
+      "source_ddl_execution_approved": false
+    },
+    {
+      "name": "sqlite_autoindex_ASSOC_TYPES_1",
+      "table": "ASSOC_TYPES",
+      "role": "source-schema-metadata",
+      "source_ddl_execution_approved": false
+    },
+    {
+      "name": "sqlite_autoindex_ASSUME_OFFICE_CODES_1",
+      "table": "ASSUME_OFFICE_CODES",
+      "role": "source-schema-metadata",
+      "source_ddl_execution_approved": false
+    },
+    {
+      "name": "sqlite_autoindex_BIOG_ADDR_CODES_1",
+      "table": "BIOG_ADDR_CODES",
+      "role": "source-schema-metadata",
+      "source_ddl_execution_approved": false
+    },
+    {
+      "name": "sqlite_autoindex_BIOG_ADDR_DATA_1",
+      "table": "BIOG_ADDR_DATA",
+      "role": "source-schema-metadata",
+      "source_ddl_execution_approved": false
+    },
+    {
+      "name": "sqlite_autoindex_BIOG_INST_CODES_1",
+      "table": "BIOG_INST_CODES",
+      "role": "source-schema-metadata",
+      "source_ddl_execution_approved": false
+    },
+    {
+      "name": "sqlite_autoindex_BIOG_INST_DATA_1",
+      "table": "BIOG_INST_DATA",
+      "role": "source-schema-metadata",
+      "source_ddl_execution_approved": false
+    },
+    {
+      "name": "sqlite_autoindex_BIOG_MAIN_1",
+      "table": "BIOG_MAIN",
+      "role": "source-schema-metadata",
+      "source_ddl_execution_approved": false
+    },
+    {
+      "name": "sqlite_autoindex_BIOG_SOURCE_DATA_1",
+      "table": "BIOG_SOURCE_DATA",
+      "role": "source-schema-metadata",
+      "source_ddl_execution_approved": false
+    },
+    {
+      "name": "sqlite_autoindex_BIOG_TEXT_DATA_1",
+      "table": "BIOG_TEXT_DATA",
+      "role": "source-schema-metadata",
+      "source_ddl_execution_approved": false
+    },
+    {
+      "name": "sqlite_autoindex_CHORONYM_CODES_1",
+      "table": "CHORONYM_CODES",
+      "role": "source-schema-metadata",
+      "source_ddl_execution_approved": false
+    },
+    {
+      "name": "sqlite_autoindex_COUNTRY_CODES_1",
+      "table": "COUNTRY_CODES",
+      "role": "source-schema-metadata",
+      "source_ddl_execution_approved": false
+    },
+    {
+      "name": "sqlite_autoindex_DYNASTIES_1",
+      "table": "DYNASTIES",
+      "role": "source-schema-metadata",
+      "source_ddl_execution_approved": false
+    },
+    {
+      "name": "sqlite_autoindex_ENTRY_CODES_1",
+      "table": "ENTRY_CODES",
+      "role": "source-schema-metadata",
+      "source_ddl_execution_approved": false
+    },
+    {
+      "name": "sqlite_autoindex_ENTRY_CODE_TYPE_REL_1",
+      "table": "ENTRY_CODE_TYPE_REL",
+      "role": "source-schema-metadata",
+      "source_ddl_execution_approved": false
+    },
+    {
+      "name": "sqlite_autoindex_ENTRY_DATA_1",
+      "table": "ENTRY_DATA",
+      "role": "source-schema-metadata",
+      "source_ddl_execution_approved": false
+    },
+    {
+      "name": "sqlite_autoindex_ENTRY_TYPES_1",
+      "table": "ENTRY_TYPES",
+      "role": "source-schema-metadata",
+      "source_ddl_execution_approved": false
+    },
+    {
+      "name": "sqlite_autoindex_ETHNICITY_TRIBE_CODES_1",
+      "table": "ETHNICITY_TRIBE_CODES",
+      "role": "source-schema-metadata",
+      "source_ddl_execution_approved": false
+    },
+    {
+      "name": "sqlite_autoindex_EVENTS_ADDR_1",
+      "table": "EVENTS_ADDR",
+      "role": "source-schema-metadata",
+      "source_ddl_execution_approved": false
+    },
+    {
+      "name": "sqlite_autoindex_EVENTS_DATA_1",
+      "table": "EVENTS_DATA",
+      "role": "source-schema-metadata",
+      "source_ddl_execution_approved": false
+    },
+    {
+      "name": "sqlite_autoindex_EVENT_CODES_1",
+      "table": "EVENT_CODES",
+      "role": "source-schema-metadata",
+      "source_ddl_execution_approved": false
+    },
+    {
+      "name": "sqlite_autoindex_EXTANT_CODES_1",
+      "table": "EXTANT_CODES",
+      "role": "source-schema-metadata",
+      "source_ddl_execution_approved": false
+    },
+    {
+      "name": "sqlite_autoindex_GANZHI_CODES_1",
+      "table": "GANZHI_CODES",
+      "role": "source-schema-metadata",
+      "source_ddl_execution_approved": false
+    },
+    {
+      "name": "sqlite_autoindex_HOUSEHOLD_STATUS_CODES_1",
+      "table": "HOUSEHOLD_STATUS_CODES",
+      "role": "source-schema-metadata",
+      "source_ddl_execution_approved": false
+    },
+    {
+      "name": "sqlite_autoindex_INDEXYEAR_TYPE_CODES_1",
+      "table": "INDEXYEAR_TYPE_CODES",
+      "role": "source-schema-metadata",
+      "source_ddl_execution_approved": false
+    },
+    {
+      "name": "sqlite_autoindex_KINREL_REDUCTION_1",
+      "table": "KINREL_REDUCTION",
+      "role": "source-schema-metadata",
+      "source_ddl_execution_approved": false
+    },
+    {
+      "name": "sqlite_autoindex_KINSHIP_CODES_1",
+      "table": "KINSHIP_CODES",
+      "role": "source-schema-metadata",
+      "source_ddl_execution_approved": false
+    },
+    {
+      "name": "sqlite_autoindex_KIN_DATA_1",
+      "table": "KIN_DATA",
+      "role": "source-schema-metadata",
+      "source_ddl_execution_approved": false
+    },
+    {
+      "name": "sqlite_autoindex_KIN_MOURNING_1",
+      "table": "KIN_MOURNING",
+      "role": "source-schema-metadata",
+      "source_ddl_execution_approved": false
+    },
+    {
+      "name": "sqlite_autoindex_KIN_MOURNING_STEPS_1",
+      "table": "KIN_MOURNING_STEPS",
+      "role": "source-schema-metadata",
+      "source_ddl_execution_approved": false
+    },
+    {
+      "name": "sqlite_autoindex_LITERARYGENRE_CODES_1",
+      "table": "LITERARYGENRE_CODES",
+      "role": "source-schema-metadata",
+      "source_ddl_execution_approved": false
+    },
+    {
+      "name": "sqlite_autoindex_MEASURE_CODES_1",
+      "table": "MEASURE_CODES",
+      "role": "source-schema-metadata",
+      "source_ddl_execution_approved": false
+    },
+    {
+      "name": "sqlite_autoindex_MERGED_PERSON_DATA_1",
+      "table": "MERGED_PERSON_DATA",
+      "role": "source-schema-metadata",
+      "source_ddl_execution_approved": false
+    },
+    {
+      "name": "sqlite_autoindex_NIAN_HAO_1",
+      "table": "NIAN_HAO",
+      "role": "source-schema-metadata",
+      "source_ddl_execution_approved": false
+    },
+    {
+      "name": "sqlite_autoindex_OCCASION_CODES_1",
+      "table": "OCCASION_CODES",
+      "role": "source-schema-metadata",
+      "source_ddl_execution_approved": false
+    },
+    {
+      "name": "sqlite_autoindex_OFFICE_CATEGORIES_1",
+      "table": "OFFICE_CATEGORIES",
+      "role": "source-schema-metadata",
+      "source_ddl_execution_approved": false
+    },
+    {
+      "name": "sqlite_autoindex_OFFICE_CODES_1",
+      "table": "OFFICE_CODES",
+      "role": "source-schema-metadata",
+      "source_ddl_execution_approved": false
+    },
+    {
+      "name": "sqlite_autoindex_OFFICE_CODE_TYPE_REL_1",
+      "table": "OFFICE_CODE_TYPE_REL",
+      "role": "source-schema-metadata",
+      "source_ddl_execution_approved": false
+    },
+    {
+      "name": "sqlite_autoindex_OFFICE_TYPE_TREE_1",
+      "table": "OFFICE_TYPE_TREE",
+      "role": "source-schema-metadata",
+      "source_ddl_execution_approved": false
+    },
+    {
+      "name": "sqlite_autoindex_PARENTAL_STATUS_CODES_1",
+      "table": "PARENTAL_STATUS_CODES",
+      "role": "source-schema-metadata",
+      "source_ddl_execution_approved": false
+    },
+    {
+      "name": "sqlite_autoindex_POSSESSION_ACT_CODES_1",
+      "table": "POSSESSION_ACT_CODES",
+      "role": "source-schema-metadata",
+      "source_ddl_execution_approved": false
+    },
+    {
+      "name": "sqlite_autoindex_POSSESSION_ADDR_1",
+      "table": "POSSESSION_ADDR",
+      "role": "source-schema-metadata",
+      "source_ddl_execution_approved": false
+    },
+    {
+      "name": "sqlite_autoindex_POSSESSION_DATA_1",
+      "table": "POSSESSION_DATA",
+      "role": "source-schema-metadata",
+      "source_ddl_execution_approved": false
+    },
+    {
+      "name": "sqlite_autoindex_POSTED_TO_ADDR_DATA_1",
+      "table": "POSTED_TO_ADDR_DATA",
+      "role": "source-schema-metadata",
+      "source_ddl_execution_approved": false
+    },
+    {
+      "name": "sqlite_autoindex_POSTED_TO_OFFICE_DATA_1",
+      "table": "POSTED_TO_OFFICE_DATA",
+      "role": "source-schema-metadata",
+      "source_ddl_execution_approved": false
+    },
+    {
+      "name": "sqlite_autoindex_POSTING_DATA_1",
+      "table": "POSTING_DATA",
+      "role": "source-schema-metadata",
+      "source_ddl_execution_approved": false
+    },
+    {
+      "name": "sqlite_autoindex_SCHOLARLYTOPIC_CODES_1",
+      "table": "SCHOLARLYTOPIC_CODES",
+      "role": "source-schema-metadata",
+      "source_ddl_execution_approved": false
+    },
+    {
+      "name": "sqlite_autoindex_SOCIAL_INSTITUTION_ADDR_1",
+      "table": "SOCIAL_INSTITUTION_ADDR",
+      "role": "source-schema-metadata",
+      "source_ddl_execution_approved": false
+    },
+    {
+      "name": "sqlite_autoindex_SOCIAL_INSTITUTION_ADDR_TYPES_1",
+      "table": "SOCIAL_INSTITUTION_ADDR_TYPES",
+      "role": "source-schema-metadata",
+      "source_ddl_execution_approved": false
+    },
+    {
+      "name": "sqlite_autoindex_SOCIAL_INSTITUTION_CODES_1",
+      "table": "SOCIAL_INSTITUTION_CODES",
+      "role": "source-schema-metadata",
+      "source_ddl_execution_approved": false
+    },
+    {
+      "name": "sqlite_autoindex_SOCIAL_INSTITUTION_NAME_CODES_1",
+      "table": "SOCIAL_INSTITUTION_NAME_CODES",
+      "role": "source-schema-metadata",
+      "source_ddl_execution_approved": false
+    },
+    {
+      "name": "sqlite_autoindex_SOCIAL_INSTITUTION_TYPES_1",
+      "table": "SOCIAL_INSTITUTION_TYPES",
+      "role": "source-schema-metadata",
+      "source_ddl_execution_approved": false
+    },
+    {
+      "name": "sqlite_autoindex_STATUS_CODES_1",
+      "table": "STATUS_CODES",
+      "role": "source-schema-metadata",
+      "source_ddl_execution_approved": false
+    },
+    {
+      "name": "sqlite_autoindex_STATUS_CODE_TYPE_REL_1",
+      "table": "STATUS_CODE_TYPE_REL",
+      "role": "source-schema-metadata",
+      "source_ddl_execution_approved": false
+    },
+    {
+      "name": "sqlite_autoindex_STATUS_DATA_1",
+      "table": "STATUS_DATA",
+      "role": "source-schema-metadata",
+      "source_ddl_execution_approved": false
+    },
+    {
+      "name": "sqlite_autoindex_STATUS_TYPES_1",
+      "table": "STATUS_TYPES",
+      "role": "source-schema-metadata",
+      "source_ddl_execution_approved": false
+    },
+    {
+      "name": "sqlite_autoindex_TEXT_BIBLCAT_CODES_1",
+      "table": "TEXT_BIBLCAT_CODES",
+      "role": "source-schema-metadata",
+      "source_ddl_execution_approved": false
+    },
+    {
+      "name": "sqlite_autoindex_TEXT_BIBLCAT_CODE_TYPE_REL_1",
+      "table": "TEXT_BIBLCAT_CODE_TYPE_REL",
+      "role": "source-schema-metadata",
+      "source_ddl_execution_approved": false
+    },
+    {
+      "name": "sqlite_autoindex_TEXT_BIBLCAT_TYPES_1",
+      "table": "TEXT_BIBLCAT_TYPES",
+      "role": "source-schema-metadata",
+      "source_ddl_execution_approved": false
+    },
+    {
+      "name": "sqlite_autoindex_TEXT_CODES_1",
+      "table": "TEXT_CODES",
+      "role": "source-schema-metadata",
+      "source_ddl_execution_approved": false
+    },
+    {
+      "name": "sqlite_autoindex_TEXT_INSTANCE_DATA_1",
+      "table": "TEXT_INSTANCE_DATA",
+      "role": "source-schema-metadata",
+      "source_ddl_execution_approved": false
+    },
+    {
+      "name": "sqlite_autoindex_TEXT_ROLE_CODES_1",
+      "table": "TEXT_ROLE_CODES",
+      "role": "source-schema-metadata",
+      "source_ddl_execution_approved": false
+    },
+    {
+      "name": "sqlite_autoindex_TEXT_TYPE_1",
+      "table": "TEXT_TYPE",
+      "role": "source-schema-metadata",
+      "source_ddl_execution_approved": false
+    },
+    {
+      "name": "sqlite_autoindex_YEAR_RANGE_CODES_1",
+      "table": "YEAR_RANGE_CODES",
+      "role": "source-schema-metadata",
+      "source_ddl_execution_approved": false
+    }
+  ]
+}

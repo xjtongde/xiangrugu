@@ -1,0 +1,179 @@
+{
+  "format": "xiangrugu.selected-sqlite-type-verification.v1",
+  "image_code_hashes_match_repository": true,
+  "final_unit_rerun_passed": 554,
+  "protected_contract_hashes_unchanged": true,
+  "current_yaml_absent": true,
+  "git_diff_check_passed": true,
+  "status": "PASS_SELECTED_SCOPE_ONLY",
+  "git_revision": "1a34956fbcbe7877fbad04ee5a7ec9e3dd52bf05",
+  "source_status": "dirty",
+  "as_of": "2026-10-09",
+  "started_at": "2026-10-09T10:02:59Z",
+  "finished_at": "2026-10-09T10:03:04Z",
+  "observation_sha256": "8298fbbc97c2272c6e79f0dd4aac3cd4930bc6c9fbe3991148d84c4311059635",
+  "roles_decision_sha256": "c7801b01bd64497e09fce687a53f6fe751f1f51381d27d2d24e4ef5d200af638",
+  "roles_projection_sha256": "2dd1e6163c72806a6caf379f786d79ce83ec1414b9d1a82d688f35b0851894ce",
+  "candidate_test": {
+    "tag": "xiangrugu:test-sqlite-types-final-20261009-b1",
+    "image_id": "sha256:6ef1b6df7cec36b919f3326ddaa85c6762020e18526e5d4fbc6a8d6a0d5b9e57",
+    "passed": 547,
+    "skipped": 15,
+    "junit_remote_sha256": "c94474c558048798b7026170ab49f310cf3851b7b580c9a6254d9e7c15c51b9d",
+    "junit_repository_sha256": "9586a7f9711badf9ae10a66ee57f71a0dbaa68321422f325f66e228b4b82295b",
+    "junit_difference": "repository copy adds terminal LF"
+  },
+  "candidate_runtime": {
+    "tag": "xiangrugu:runtime-sqlite-types-final-20261009-b1",
+    "image_id": "sha256:bdbb8421352288e33dfcc9d2cb4a1cba19a13a39b44d4209922bd87199dfaea3",
+    "smoke": "PASS"
+  },
+  "dev_units": {
+    "passed": 554,
+    "watcher_exit": 0
+  },
+  "probe": {
+    "id": "35e7ded89cb5031b16954a641dec88e2a7740f3114cd2490b729c3800526ac1d",
+    "image": "sha256:6ef1b6df7cec36b919f3326ddaa85c6762020e18526e5d4fbc6a8d6a0d5b9e57",
+    "user": "10001:10001",
+    "readonly_rootfs": true,
+    "network": "none",
+    "nano_cpus": 1000000000,
+    "memory": 805306368,
+    "memory_swap": 805306368,
+    "pids": 64,
+    "mounts": [
+      {
+        "Destination": "/data/imports/usedata/2026-10-07-bootstrap/harvard/cbdb/cbdb_20260919.sqlite3",
+        "Mode": "",
+        "Propagation": "rprivate",
+        "RW": false,
+        "Source": "/opt/mydocker/xiangrugu/data/imports/usedata/2026-10-07-bootstrap/harvard/cbdb/cbdb_20260919.sqlite3",
+        "Type": "bind"
+      },
+      {
+        "Destination": "/data/var/snapshots/2026-10-07-bootstrap.json",
+        "Mode": "",
+        "Propagation": "rprivate",
+        "RW": false,
+        "Source": "/opt/mydocker/xiangrugu/data/var/snapshots/2026-10-07-bootstrap.json",
+        "Type": "bind"
+      },
+      {
+        "Destination": "/inputs/sqlite-role-decisions.draft.json",
+        "Mode": "",
+        "Propagation": "rprivate",
+        "RW": false,
+        "Source": "/opt/mydocker/xiangrugu/deploy/datamgmt/contracts/releases/2026-10-06-bootstrap/sqlite-role-decisions.draft.json",
+        "Type": "bind"
+      },
+      {
+        "Destination": "/data/var/run",
+        "Mode": "",
+        "Propagation": "rprivate",
+        "RW": true,
+        "Source": "/opt/mydocker/xiangrugu/data/var/sqlite-types-final-20261009-b1",
+        "Type": "bind"
+      }
+    ]
+  },
+  "services_before": [
+    [
+      "29795c60ae15d85c4ba877dad78dcbd288d792a2d0df6e2d4d72f677201788e6",
+      "sha256:89f1a0978cb817871d50d6468f3dec19e3ea1e67d5bc73457a62fd10b5b8732d",
+      "2026-10-09T06:33:09.862700668Z",
+      "running"
+    ],
+    [
+      "98418cb6f08a3c550fb5d36261bc618c006f0a07912437399778fdd4370b1a72",
+      "sha256:882236b897e39051d2368c5ccc6cda944904723506b2dfc97f2a8f5bc9afa382",
+      "2026-10-09T06:33:09.87957847Z",
+      "running"
+    ],
+    [
+      "3d93fc7741f66f1f01aa250b25c4959addfe4c84df22ecbd0d0f82c13920c1fc",
+      "sha256:d562e43664f996da0e4208b375c00c111a543d996475188d852e9189b2a8cd05",
+      "2026-10-09T06:33:09.871946263Z",
+      "running"
+    ]
+  ],
+  "services_after": [
+    [
+      "29795c60ae15d85c4ba877dad78dcbd288d792a2d0df6e2d4d72f677201788e6",
+      "sha256:89f1a0978cb817871d50d6468f3dec19e3ea1e67d5bc73457a62fd10b5b8732d",
+      "2026-10-09T06:33:09.862700668Z",
+      "running"
+    ],
+    [
+      "98418cb6f08a3c550fb5d36261bc618c006f0a07912437399778fdd4370b1a72",
+      "sha256:882236b897e39051d2368c5ccc6cda944904723506b2dfc97f2a8f5bc9afa382",
+      "2026-10-09T06:33:09.87957847Z",
+      "running"
+    ],
+    [
+      "3d93fc7741f66f1f01aa250b25c4959addfe4c84df22ecbd0d0f82c13920c1fc",
+      "sha256:d562e43664f996da0e4208b375c00c111a543d996475188d852e9189b2a8cd05",
+      "2026-10-09T06:33:09.871946263Z",
+      "running"
+    ]
+  ],
+  "service_records_identical": true,
+  "probe_removed": true,
+  "source_stat_before": "2049:1337005:586485760:1791315242:1791315242",
+  "source_stat_after": "2049:1337005:586485760:1791315242:1791315242",
+  "sidecars_absent_before_after": true,
+  "source_sha256_before": "bde1bb8eece3820d9e236c1d6b0f07d847d339669d4a85d79cd7252d58d83400",
+  "source_sha256_after": "bde1bb8eece3820d9e236c1d6b0f07d847d339669d4a85d79cd7252d58d83400",
+  "source_size": 586485760,
+  "rows_read": 30158,
+  "cells_read": 482516,
+  "scanned_value_bytes": 2266901,
+  "scope": [
+    {
+      "table": "ADDR_CODES",
+      "rows": 30157,
+      "columns": 16
+    },
+    {
+      "table": "SOCIAL_INSTITUTION_ALTNAME_CODES",
+      "rows": 1,
+      "columns": 4
+    },
+    {
+      "table": "SOCIAL_INSTITUTION_ALTNAME_DATA",
+      "rows": 0,
+      "columns": 8
+    }
+  ],
+  "disk_free_before_bytes": 191937884160,
+  "mem_available_before_kib": 5616560,
+  "swap_free_before_kib": 999420,
+  "retained_aliases": {
+    "test": "sha256:474da53d4fb0d7033ebe61eb74ac2b623cc7907b55b719fbc5f829270810a240",
+    "runtime": "sha256:c15019fed0fba9a8319ab129d0b1be1814ac22e775c7dccf8083e01220b4cb78"
+  },
+  "source_code_hashes": {
+    "datamgmt/src/xiangrugu_datamgmt/sqlite_profile.py": "9357c20d42e2eee750bdb1e23b19cd1f19a7b8bfc9ea983523b2157abc81981e",
+    "scripts/inspect-sqlite-types.py": "ad652c9692531a5c212334d6917a4d1963d866eca64ef66e07facbe210082879",
+    "scripts/inspect-sqlite-structure.py": "163151df9a2e0df0616250e119ab416a695d3a305fc8d328c601ff7354e71d9c"
+  },
+  "independent_static_review": {
+    "rounds": 1,
+    "critical": 0,
+    "important_reported": 1,
+    "minor_reported": 1,
+    "minor_regraded_important": 1,
+    "fix_passes": 1,
+    "issues_fixed": 2,
+    "deferred_minor": 0
+  },
+  "postgresql_connected": false,
+  "nas_accessed": false,
+  "raw_text_or_blob_emitted": false,
+  "type_mapping_approved": false,
+  "value_contract_approved": false,
+  "ready_for_import": false,
+  "contract_frozen": false,
+  "disposition_retained": "BLOCKED",
+  "remote_run_dir": "/opt/mydocker/xiangrugu/data/var/sqlite-types-final-20261009-b1"
+}

@@ -1,0 +1,4 @@
+# Hash-bound contract/evidence/fixture bytes must survive Windows checkout.
+datamgmt/contracts/** -text
+docs/superpowers/evidence/** -text
+datamgmt/tests/fixtures/*.json -text

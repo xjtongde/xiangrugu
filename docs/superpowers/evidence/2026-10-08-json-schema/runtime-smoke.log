@@ -1,0 +1,6 @@
+usage: xiangrugu-datamgmt [-h]
+
+Auditable data-management tooling for Xiangrugu.
+
+options:
+  -h, --help  show this help message and exit

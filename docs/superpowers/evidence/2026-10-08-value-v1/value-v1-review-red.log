@@ -1,0 +1,137 @@
+................................................................FFF..... [ 71%]
+............................F                                            [100%]
+=================================== FAILURES ===================================
+____________ test_column_budget_is_checked_before_header_allocation ____________
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7fbaa2f906d0>
+
+    def test_column_budget_is_checked_before_header_allocation(monkeypatch):
+        m = api()
+        def forbidden(schema):
+            pytest.fail("header allocated before column budget check")
+        monkeypatch.setattr(m, "header_bytes", forbidden)
+        with pytest.raises(m.ValueContractError, match="budget"):
+>           m.ValueStreamState(schema(), m.ValueLimits(max_columns=1))
+
+datamgmt/tests/unit/test_canonical.py:256: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+datamgmt/src/xiangrugu_datamgmt/canonical.py:181: in __init__
+    header = header_bytes(schema)
+             ^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+schema = ValueSchema(source_object_id='bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb', columns=(ValueColumn(...mn(column_key='derived:__src_rownum', target_name='__src_rownum', pg_type='bigint', nullable=False)), format_version=1)
+
+    def forbidden(schema):
+>       pytest.fail("header allocated before column budget check")
+E       Failed: header allocated before column budget check
+
+datamgmt/tests/unit/test_canonical.py:253: Failed
+______ test_remaining_budget_rejects_large_cell_before_encoding[limits0] _______
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7fbaa3753850>
+limits = {'max_row_bytes': 10}
+
+    @pytest.mark.parametrize("limits", [
+        {"max_row_bytes": 10}, {"max_stream_bytes": 84},
+    ])
+    def test_remaining_budget_rejects_large_cell_before_encoding(monkeypatch, limits):
+        m = api()
+        original = m.encode_cell
+        def guarded(column, value, **kwargs):
+            assert kwargs.get("max_encoded_bytes", 1048576) < 1048576
+            return original(column, value, **kwargs)
+        monkeypatch.setattr(m, "encode_cell", guarded)
+        with pytest.raises(m.ValueContractError, match="budget"):
+>           m.summarize_rows(schema(), iter((("x" * 1048576, 1),)),
+                             limits=m.ValueLimits(**limits))
+
+datamgmt/tests/unit/test_canonical.py:270: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+datamgmt/src/xiangrugu_datamgmt/canonical.py:249: in summarize_rows
+    state.accept(values)
+datamgmt/src/xiangrugu_datamgmt/canonical.py:194: in accept
+    row = encode_row(self.schema, values, expected_rownum=self.row_count + 1,
+datamgmt/src/xiangrugu_datamgmt/canonical.py:153: in encode_row
+    encoded = encode_cell(column, value, limits=limits)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+column = ValueColumn(column_key='aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', target_name='value', pg_type='text', nullable=True)
+value = 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx...xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
+kwargs = {'limits': ValueLimits(max_rows=100000, max_columns=512, max_field_bytes=1048576, max_row_bytes=10, max_stream_bytes=268435456, max_differences=100)}
+
+    def guarded(column, value, **kwargs):
+>       assert kwargs.get("max_encoded_bytes", 1048576) < 1048576
+E       AssertionError: assert 1048576 < 1048576
+E        +  where 1048576 = <built-in method get of dict object at 0x7fbaa300ad40>('max_encoded_bytes', 1048576)
+E        +    where <built-in method get of dict object at 0x7fbaa300ad40> = {'limits': ValueLimits(max_rows=100000, max_columns=512, max_field_bytes=1048576, max_row_bytes=10, max_stream_bytes=268435456, max_differences=100)}.get
+
+datamgmt/tests/unit/test_canonical.py:266: AssertionError
+______ test_remaining_budget_rejects_large_cell_before_encoding[limits1] _______
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7fbaa307d1d0>
+limits = {'max_stream_bytes': 84}
+
+    @pytest.mark.parametrize("limits", [
+        {"max_row_bytes": 10}, {"max_stream_bytes": 84},
+    ])
+    def test_remaining_budget_rejects_large_cell_before_encoding(monkeypatch, limits):
+        m = api()
+        original = m.encode_cell
+        def guarded(column, value, **kwargs):
+            assert kwargs.get("max_encoded_bytes", 1048576) < 1048576
+            return original(column, value, **kwargs)
+        monkeypatch.setattr(m, "encode_cell", guarded)
+        with pytest.raises(m.ValueContractError, match="budget"):
+>           m.summarize_rows(schema(), iter((("x" * 1048576, 1),)),
+                             limits=m.ValueLimits(**limits))
+
+datamgmt/tests/unit/test_canonical.py:270: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+datamgmt/src/xiangrugu_datamgmt/canonical.py:249: in summarize_rows
+    state.accept(values)
+datamgmt/src/xiangrugu_datamgmt/canonical.py:194: in accept
+    row = encode_row(self.schema, values, expected_rownum=self.row_count + 1,
+datamgmt/src/xiangrugu_datamgmt/canonical.py:153: in encode_row
+    encoded = encode_cell(column, value, limits=limits)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+column = ValueColumn(column_key='aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', target_name='value', pg_type='text', nullable=True)
+value = 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx...xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
+kwargs = {'limits': ValueLimits(max_rows=100000, max_columns=512, max_field_bytes=1048576, max_row_bytes=8388608, max_stream_bytes=84, max_differences=100)}
+
+    def guarded(column, value, **kwargs):
+>       assert kwargs.get("max_encoded_bytes", 1048576) < 1048576
+E       AssertionError: assert 1048576 < 1048576
+E        +  where 1048576 = <built-in method get of dict object at 0x7fbaa2f39880>('max_encoded_bytes', 1048576)
+E        +    where <built-in method get of dict object at 0x7fbaa2f39880> = {'limits': ValueLimits(max_rows=100000, max_columns=512, max_field_bytes=1048576, max_row_bytes=8388608, max_stream_bytes=84, max_differences=100)}.get
+
+datamgmt/tests/unit/test_canonical.py:266: AssertionError
+_____________ test_cancel_during_source_read_prevents_target_read ______________
+
+    def test_cancel_during_source_read_prevents_target_read():
+        flag = False
+        consumed = []
+        def source():
+            nonlocal flag
+            flag = True
+            yield ("x", 1)
+        def target():
+            consumed.append(True)
+            yield ("x", 1)
+        report = compare(source(), target(), count=1, cancelled=lambda: flag)
+>       assert consumed == []
+E       assert [True] == []
+E         
+E         Left contains one more item: True
+E         Use -v to get more diff
+
+datamgmt/tests/unit/test_value_validation.py:199: AssertionError
+=========================== short test summary info ============================
+FAILED datamgmt/tests/unit/test_canonical.py::test_column_budget_is_checked_before_header_allocation
+FAILED datamgmt/tests/unit/test_canonical.py::test_remaining_budget_rejects_large_cell_before_encoding[limits0]
+FAILED datamgmt/tests/unit/test_canonical.py::test_remaining_budget_rejects_large_cell_before_encoding[limits1]
+FAILED datamgmt/tests/unit/test_value_validation.py::test_cancel_during_source_read_prevents_target_read
+4 failed, 97 passed in 0.30s

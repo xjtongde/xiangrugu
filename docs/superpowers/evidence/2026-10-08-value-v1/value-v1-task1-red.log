@@ -1,0 +1,961 @@
+FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF                               [100%]
+=================================== FAILURES ===================================
+_______ test_null_empty_text_and_literal_null_symbol_have_distinct_bytes _______
+
+    def test_null_empty_text_and_literal_null_symbol_have_distinct_bytes():
+        fixture = json.loads((Path(__file__).parents[1] / "fixtures/value_v1_golden.json").read_text())
+>       results = [cell(None).hex(), cell("").hex(), cell("␀").hex()]
+                   ^^^^^^^^^^
+
+datamgmt/tests/unit/test_canonical.py:35: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+datamgmt/tests/unit/test_canonical.py:29: in cell
+    m = api()
+        ^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+        spec = importlib.util.find_spec("xiangrugu_datamgmt.canonical")
+>       assert spec is not None, "Strict value canonicalizer is not implemented"
+E       AssertionError: Strict value canonicalizer is not implemented
+E       assert None is not None
+
+datamgmt/tests/unit/test_canonical.py:13: AssertionError
+_____________ test_bigint_golden_and_bounds[1-020000000000000001] ______________
+
+value = 1, want = '020000000000000001'
+
+    @pytest.mark.parametrize("value,want", [
+        (1, "020000000000000001"), (-1, "02ffffffffffffffff"),
+        (-(2**63), "028000000000000000"), (2**63 - 1, "027fffffffffffffff"),
+    ])
+    def test_bigint_golden_and_bounds(value, want):
+>       assert cell(value, "bigint").hex() == want
+               ^^^^^^^^^^^^^^^^^^^^^
+
+datamgmt/tests/unit/test_canonical.py:45: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+datamgmt/tests/unit/test_canonical.py:29: in cell
+    m = api()
+        ^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+        spec = importlib.util.find_spec("xiangrugu_datamgmt.canonical")
+>       assert spec is not None, "Strict value canonicalizer is not implemented"
+E       AssertionError: Strict value canonicalizer is not implemented
+E       assert None is not None
+
+datamgmt/tests/unit/test_canonical.py:13: AssertionError
+_____________ test_bigint_golden_and_bounds[-1-02ffffffffffffffff] _____________
+
+value = -1, want = '02ffffffffffffffff'
+
+    @pytest.mark.parametrize("value,want", [
+        (1, "020000000000000001"), (-1, "02ffffffffffffffff"),
+        (-(2**63), "028000000000000000"), (2**63 - 1, "027fffffffffffffff"),
+    ])
+    def test_bigint_golden_and_bounds(value, want):
+>       assert cell(value, "bigint").hex() == want
+               ^^^^^^^^^^^^^^^^^^^^^
+
+datamgmt/tests/unit/test_canonical.py:45: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+datamgmt/tests/unit/test_canonical.py:29: in cell
+    m = api()
+        ^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+        spec = importlib.util.find_spec("xiangrugu_datamgmt.canonical")
+>       assert spec is not None, "Strict value canonicalizer is not implemented"
+E       AssertionError: Strict value canonicalizer is not implemented
+E       assert None is not None
+
+datamgmt/tests/unit/test_canonical.py:13: AssertionError
+____ test_bigint_golden_and_bounds[-9223372036854775808-028000000000000000] ____
+
+value = -9223372036854775808, want = '028000000000000000'
+
+    @pytest.mark.parametrize("value,want", [
+        (1, "020000000000000001"), (-1, "02ffffffffffffffff"),
+        (-(2**63), "028000000000000000"), (2**63 - 1, "027fffffffffffffff"),
+    ])
+    def test_bigint_golden_and_bounds(value, want):
+>       assert cell(value, "bigint").hex() == want
+               ^^^^^^^^^^^^^^^^^^^^^
+
+datamgmt/tests/unit/test_canonical.py:45: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+datamgmt/tests/unit/test_canonical.py:29: in cell
+    m = api()
+        ^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+        spec = importlib.util.find_spec("xiangrugu_datamgmt.canonical")
+>       assert spec is not None, "Strict value canonicalizer is not implemented"
+E       AssertionError: Strict value canonicalizer is not implemented
+E       assert None is not None
+
+datamgmt/tests/unit/test_canonical.py:13: AssertionError
+____ test_bigint_golden_and_bounds[9223372036854775807-027fffffffffffffff] _____
+
+value = 9223372036854775807, want = '027fffffffffffffff'
+
+    @pytest.mark.parametrize("value,want", [
+        (1, "020000000000000001"), (-1, "02ffffffffffffffff"),
+        (-(2**63), "028000000000000000"), (2**63 - 1, "027fffffffffffffff"),
+    ])
+    def test_bigint_golden_and_bounds(value, want):
+>       assert cell(value, "bigint").hex() == want
+               ^^^^^^^^^^^^^^^^^^^^^
+
+datamgmt/tests/unit/test_canonical.py:45: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+datamgmt/tests/unit/test_canonical.py:29: in cell
+    m = api()
+        ^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+        spec = importlib.util.find_spec("xiangrugu_datamgmt.canonical")
+>       assert spec is not None, "Strict value canonicalizer is not implemented"
+E       AssertionError: Strict value canonicalizer is not implemented
+E       assert None is not None
+
+datamgmt/tests/unit/test_canonical.py:13: AssertionError
+_______________ test_bigint_rejects_coercion_and_overflow[True] ________________
+
+value = True
+
+    @pytest.mark.parametrize("value", [True, 1.0, Decimal("1"), "1", -(2**63)-1, 2**63])
+    def test_bigint_rejects_coercion_and_overflow(value):
+>       with pytest.raises(api().ValueContractError):
+                           ^^^^^
+
+datamgmt/tests/unit/test_canonical.py:50: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+        spec = importlib.util.find_spec("xiangrugu_datamgmt.canonical")
+>       assert spec is not None, "Strict value canonicalizer is not implemented"
+E       AssertionError: Strict value canonicalizer is not implemented
+E       assert None is not None
+
+datamgmt/tests/unit/test_canonical.py:13: AssertionError
+________________ test_bigint_rejects_coercion_and_overflow[1.0] ________________
+
+value = 1.0
+
+    @pytest.mark.parametrize("value", [True, 1.0, Decimal("1"), "1", -(2**63)-1, 2**63])
+    def test_bigint_rejects_coercion_and_overflow(value):
+>       with pytest.raises(api().ValueContractError):
+                           ^^^^^
+
+datamgmt/tests/unit/test_canonical.py:50: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+        spec = importlib.util.find_spec("xiangrugu_datamgmt.canonical")
+>       assert spec is not None, "Strict value canonicalizer is not implemented"
+E       AssertionError: Strict value canonicalizer is not implemented
+E       assert None is not None
+
+datamgmt/tests/unit/test_canonical.py:13: AssertionError
+______________ test_bigint_rejects_coercion_and_overflow[value2] _______________
+
+value = Decimal('1')
+
+    @pytest.mark.parametrize("value", [True, 1.0, Decimal("1"), "1", -(2**63)-1, 2**63])
+    def test_bigint_rejects_coercion_and_overflow(value):
+>       with pytest.raises(api().ValueContractError):
+                           ^^^^^
+
+datamgmt/tests/unit/test_canonical.py:50: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+        spec = importlib.util.find_spec("xiangrugu_datamgmt.canonical")
+>       assert spec is not None, "Strict value canonicalizer is not implemented"
+E       AssertionError: Strict value canonicalizer is not implemented
+E       assert None is not None
+
+datamgmt/tests/unit/test_canonical.py:13: AssertionError
+_________________ test_bigint_rejects_coercion_and_overflow[1] _________________
+
+value = '1'
+
+    @pytest.mark.parametrize("value", [True, 1.0, Decimal("1"), "1", -(2**63)-1, 2**63])
+    def test_bigint_rejects_coercion_and_overflow(value):
+>       with pytest.raises(api().ValueContractError):
+                           ^^^^^
+
+datamgmt/tests/unit/test_canonical.py:50: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+        spec = importlib.util.find_spec("xiangrugu_datamgmt.canonical")
+>       assert spec is not None, "Strict value canonicalizer is not implemented"
+E       AssertionError: Strict value canonicalizer is not implemented
+E       assert None is not None
+
+datamgmt/tests/unit/test_canonical.py:13: AssertionError
+_______ test_bigint_rejects_coercion_and_overflow[-9223372036854775809] ________
+
+value = -9223372036854775809
+
+    @pytest.mark.parametrize("value", [True, 1.0, Decimal("1"), "1", -(2**63)-1, 2**63])
+    def test_bigint_rejects_coercion_and_overflow(value):
+>       with pytest.raises(api().ValueContractError):
+                           ^^^^^
+
+datamgmt/tests/unit/test_canonical.py:50: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+        spec = importlib.util.find_spec("xiangrugu_datamgmt.canonical")
+>       assert spec is not None, "Strict value canonicalizer is not implemented"
+E       AssertionError: Strict value canonicalizer is not implemented
+E       assert None is not None
+
+datamgmt/tests/unit/test_canonical.py:13: AssertionError
+________ test_bigint_rejects_coercion_and_overflow[9223372036854775808] ________
+
+value = 9223372036854775808
+
+    @pytest.mark.parametrize("value", [True, 1.0, Decimal("1"), "1", -(2**63)-1, 2**63])
+    def test_bigint_rejects_coercion_and_overflow(value):
+>       with pytest.raises(api().ValueContractError):
+                           ^^^^^
+
+datamgmt/tests/unit/test_canonical.py:50: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+        spec = importlib.util.find_spec("xiangrugu_datamgmt.canonical")
+>       assert spec is not None, "Strict value canonicalizer is not implemented"
+E       AssertionError: Strict value canonicalizer is not implemented
+E       assert None is not None
+
+datamgmt/tests/unit/test_canonical.py:13: AssertionError
+_______________________ test_text_rejects_non_strings[3] _______________________
+
+value = 3
+
+    @pytest.mark.parametrize("value", [3, b"abc", False])
+    def test_text_rejects_non_strings(value):
+>       with pytest.raises(api().ValueContractError):
+                           ^^^^^
+
+datamgmt/tests/unit/test_canonical.py:56: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+        spec = importlib.util.find_spec("xiangrugu_datamgmt.canonical")
+>       assert spec is not None, "Strict value canonicalizer is not implemented"
+E       AssertionError: Strict value canonicalizer is not implemented
+E       assert None is not None
+
+datamgmt/tests/unit/test_canonical.py:13: AssertionError
+______________________ test_text_rejects_non_strings[abc] ______________________
+
+value = b'abc'
+
+    @pytest.mark.parametrize("value", [3, b"abc", False])
+    def test_text_rejects_non_strings(value):
+>       with pytest.raises(api().ValueContractError):
+                           ^^^^^
+
+datamgmt/tests/unit/test_canonical.py:56: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+        spec = importlib.util.find_spec("xiangrugu_datamgmt.canonical")
+>       assert spec is not None, "Strict value canonicalizer is not implemented"
+E       AssertionError: Strict value canonicalizer is not implemented
+E       assert None is not None
+
+datamgmt/tests/unit/test_canonical.py:13: AssertionError
+_____________________ test_text_rejects_non_strings[False] _____________________
+
+value = False
+
+    @pytest.mark.parametrize("value", [3, b"abc", False])
+    def test_text_rejects_non_strings(value):
+>       with pytest.raises(api().ValueContractError):
+                           ^^^^^
+
+datamgmt/tests/unit/test_canonical.py:56: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+        spec = importlib.util.find_spec("xiangrugu_datamgmt.canonical")
+>       assert spec is not None, "Strict value canonicalizer is not implemented"
+E       AssertionError: Strict value canonicalizer is not implemented
+E       assert None is not None
+
+datamgmt/tests/unit/test_canonical.py:13: AssertionError
+________________________ test_nonnullable_rejects_null _________________________
+
+    def test_nonnullable_rejects_null():
+>       with pytest.raises(api().ValueContractError):
+                           ^^^^^
+
+datamgmt/tests/unit/test_canonical.py:61: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+        spec = importlib.util.find_spec("xiangrugu_datamgmt.canonical")
+>       assert spec is not None, "Strict value canonicalizer is not implemented"
+E       AssertionError: Strict value canonicalizer is not implemented
+E       assert None is not None
+
+datamgmt/tests/unit/test_canonical.py:13: AssertionError
+____ test_text_preserves_codepoints_and_controls[ \t\n\r"\x00-20090a0d2200] ____
+
+value = ' \t\n\r"\x00', hex_payload = '20090a0d2200'
+
+    @pytest.mark.parametrize("value,hex_payload", [
+        (" \t\n\r\"\x00", "20090a0d2200"), ("é", "c3a9"), ("e\u0301", "65cc81"),
+        ("\ufeff", "efbbbf"), ("001", "303031"),
+    ])
+    def test_text_preserves_codepoints_and_controls(value, hex_payload):
+        payload = bytes.fromhex(hex_payload)
+>       assert cell(value) == b"\x01" + len(payload).to_bytes(8, "big") + payload
+               ^^^^^^^^^^^
+
+datamgmt/tests/unit/test_canonical.py:71: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+datamgmt/tests/unit/test_canonical.py:29: in cell
+    m = api()
+        ^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+        spec = importlib.util.find_spec("xiangrugu_datamgmt.canonical")
+>       assert spec is not None, "Strict value canonicalizer is not implemented"
+E       AssertionError: Strict value canonicalizer is not implemented
+E       assert None is not None
+
+datamgmt/tests/unit/test_canonical.py:13: AssertionError
+____________ test_text_preserves_codepoints_and_controls[\xe9-c3a9] ____________
+
+value = 'é', hex_payload = 'c3a9'
+
+    @pytest.mark.parametrize("value,hex_payload", [
+        (" \t\n\r\"\x00", "20090a0d2200"), ("é", "c3a9"), ("e\u0301", "65cc81"),
+        ("\ufeff", "efbbbf"), ("001", "303031"),
+    ])
+    def test_text_preserves_codepoints_and_controls(value, hex_payload):
+        payload = bytes.fromhex(hex_payload)
+>       assert cell(value) == b"\x01" + len(payload).to_bytes(8, "big") + payload
+               ^^^^^^^^^^^
+
+datamgmt/tests/unit/test_canonical.py:71: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+datamgmt/tests/unit/test_canonical.py:29: in cell
+    m = api()
+        ^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+        spec = importlib.util.find_spec("xiangrugu_datamgmt.canonical")
+>       assert spec is not None, "Strict value canonicalizer is not implemented"
+E       AssertionError: Strict value canonicalizer is not implemented
+E       assert None is not None
+
+datamgmt/tests/unit/test_canonical.py:13: AssertionError
+_________ test_text_preserves_codepoints_and_controls[e\u0301-65cc81] __________
+
+value = 'é', hex_payload = '65cc81'
+
+    @pytest.mark.parametrize("value,hex_payload", [
+        (" \t\n\r\"\x00", "20090a0d2200"), ("é", "c3a9"), ("e\u0301", "65cc81"),
+        ("\ufeff", "efbbbf"), ("001", "303031"),
+    ])
+    def test_text_preserves_codepoints_and_controls(value, hex_payload):
+        payload = bytes.fromhex(hex_payload)
+>       assert cell(value) == b"\x01" + len(payload).to_bytes(8, "big") + payload
+               ^^^^^^^^^^^
+
+datamgmt/tests/unit/test_canonical.py:71: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+datamgmt/tests/unit/test_canonical.py:29: in cell
+    m = api()
+        ^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+        spec = importlib.util.find_spec("xiangrugu_datamgmt.canonical")
+>       assert spec is not None, "Strict value canonicalizer is not implemented"
+E       AssertionError: Strict value canonicalizer is not implemented
+E       assert None is not None
+
+datamgmt/tests/unit/test_canonical.py:13: AssertionError
+__________ test_text_preserves_codepoints_and_controls[\ufeff-efbbbf] __________
+
+value = '\ufeff', hex_payload = 'efbbbf'
+
+    @pytest.mark.parametrize("value,hex_payload", [
+        (" \t\n\r\"\x00", "20090a0d2200"), ("é", "c3a9"), ("e\u0301", "65cc81"),
+        ("\ufeff", "efbbbf"), ("001", "303031"),
+    ])
+    def test_text_preserves_codepoints_and_controls(value, hex_payload):
+        payload = bytes.fromhex(hex_payload)
+>       assert cell(value) == b"\x01" + len(payload).to_bytes(8, "big") + payload
+               ^^^^^^^^^^^
+
+datamgmt/tests/unit/test_canonical.py:71: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+datamgmt/tests/unit/test_canonical.py:29: in cell
+    m = api()
+        ^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+        spec = importlib.util.find_spec("xiangrugu_datamgmt.canonical")
+>       assert spec is not None, "Strict value canonicalizer is not implemented"
+E       AssertionError: Strict value canonicalizer is not implemented
+E       assert None is not None
+
+datamgmt/tests/unit/test_canonical.py:13: AssertionError
+___________ test_text_preserves_codepoints_and_controls[001-303031] ____________
+
+value = '001', hex_payload = '303031'
+
+    @pytest.mark.parametrize("value,hex_payload", [
+        (" \t\n\r\"\x00", "20090a0d2200"), ("é", "c3a9"), ("e\u0301", "65cc81"),
+        ("\ufeff", "efbbbf"), ("001", "303031"),
+    ])
+    def test_text_preserves_codepoints_and_controls(value, hex_payload):
+        payload = bytes.fromhex(hex_payload)
+>       assert cell(value) == b"\x01" + len(payload).to_bytes(8, "big") + payload
+               ^^^^^^^^^^^
+
+datamgmt/tests/unit/test_canonical.py:71: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+datamgmt/tests/unit/test_canonical.py:29: in cell
+    m = api()
+        ^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+        spec = importlib.util.find_spec("xiangrugu_datamgmt.canonical")
+>       assert spec is not None, "Strict value canonicalizer is not implemented"
+E       AssertionError: Strict value canonicalizer is not implemented
+E       assert None is not None
+
+datamgmt/tests/unit/test_canonical.py:13: AssertionError
+_________ test_field_budget_measures_utf8_bytes_and_errors_hide_values _________
+
+    def test_field_budget_measures_utf8_bytes_and_errors_hide_values():
+>       assert cell("字", max_field_bytes=3) == b"\x01" + bytes.fromhex("0000000000000003e5ad97")
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+datamgmt/tests/unit/test_canonical.py:75: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+datamgmt/tests/unit/test_canonical.py:29: in cell
+    m = api()
+        ^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+        spec = importlib.util.find_spec("xiangrugu_datamgmt.canonical")
+>       assert spec is not None, "Strict value canonicalizer is not implemented"
+E       AssertionError: Strict value canonicalizer is not implemented
+E       assert None is not None
+
+datamgmt/tests/unit/test_canonical.py:13: AssertionError
+__________________ test_invalid_unicode_does_not_get_replaced __________________
+
+    def test_invalid_unicode_does_not_get_replaced():
+>       with pytest.raises(api().ValueContractError) as error:
+                           ^^^^^
+
+datamgmt/tests/unit/test_canonical.py:84: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+        spec = importlib.util.find_spec("xiangrugu_datamgmt.canonical")
+>       assert spec is not None, "Strict value canonicalizer is not implemented"
+E       AssertionError: Strict value canonicalizer is not implemented
+E       assert None is not None
+
+datamgmt/tests/unit/test_canonical.py:13: AssertionError
+___________ test_column_contract_rejects_invalid_metadata[changes0] ____________
+
+changes = {'column_key': 'bad'}
+
+    @pytest.mark.parametrize("changes", [
+        {"column_key": "bad"}, {"target_name": ""}, {"target_name": "a"*64},
+        {"target_name": "bad\x00name"}, {"pg_type": "numeric"}, {"nullable": 0},
+    ])
+    def test_column_contract_rejects_invalid_metadata(changes):
+>       with pytest.raises(api().ValueContractError):
+                           ^^^^^
+
+datamgmt/tests/unit/test_canonical.py:94: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+        spec = importlib.util.find_spec("xiangrugu_datamgmt.canonical")
+>       assert spec is not None, "Strict value canonicalizer is not implemented"
+E       AssertionError: Strict value canonicalizer is not implemented
+E       assert None is not None
+
+datamgmt/tests/unit/test_canonical.py:13: AssertionError
+___________ test_column_contract_rejects_invalid_metadata[changes1] ____________
+
+changes = {'target_name': ''}
+
+    @pytest.mark.parametrize("changes", [
+        {"column_key": "bad"}, {"target_name": ""}, {"target_name": "a"*64},
+        {"target_name": "bad\x00name"}, {"pg_type": "numeric"}, {"nullable": 0},
+    ])
+    def test_column_contract_rejects_invalid_metadata(changes):
+>       with pytest.raises(api().ValueContractError):
+                           ^^^^^
+
+datamgmt/tests/unit/test_canonical.py:94: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+        spec = importlib.util.find_spec("xiangrugu_datamgmt.canonical")
+>       assert spec is not None, "Strict value canonicalizer is not implemented"
+E       AssertionError: Strict value canonicalizer is not implemented
+E       assert None is not None
+
+datamgmt/tests/unit/test_canonical.py:13: AssertionError
+___________ test_column_contract_rejects_invalid_metadata[changes2] ____________
+
+changes = {'target_name': 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'}
+
+    @pytest.mark.parametrize("changes", [
+        {"column_key": "bad"}, {"target_name": ""}, {"target_name": "a"*64},
+        {"target_name": "bad\x00name"}, {"pg_type": "numeric"}, {"nullable": 0},
+    ])
+    def test_column_contract_rejects_invalid_metadata(changes):
+>       with pytest.raises(api().ValueContractError):
+                           ^^^^^
+
+datamgmt/tests/unit/test_canonical.py:94: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+        spec = importlib.util.find_spec("xiangrugu_datamgmt.canonical")
+>       assert spec is not None, "Strict value canonicalizer is not implemented"
+E       AssertionError: Strict value canonicalizer is not implemented
+E       assert None is not None
+
+datamgmt/tests/unit/test_canonical.py:13: AssertionError
+___________ test_column_contract_rejects_invalid_metadata[changes3] ____________
+
+changes = {'target_name': 'bad\x00name'}
+
+    @pytest.mark.parametrize("changes", [
+        {"column_key": "bad"}, {"target_name": ""}, {"target_name": "a"*64},
+        {"target_name": "bad\x00name"}, {"pg_type": "numeric"}, {"nullable": 0},
+    ])
+    def test_column_contract_rejects_invalid_metadata(changes):
+>       with pytest.raises(api().ValueContractError):
+                           ^^^^^
+
+datamgmt/tests/unit/test_canonical.py:94: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+        spec = importlib.util.find_spec("xiangrugu_datamgmt.canonical")
+>       assert spec is not None, "Strict value canonicalizer is not implemented"
+E       AssertionError: Strict value canonicalizer is not implemented
+E       assert None is not None
+
+datamgmt/tests/unit/test_canonical.py:13: AssertionError
+___________ test_column_contract_rejects_invalid_metadata[changes4] ____________
+
+changes = {'pg_type': 'numeric'}
+
+    @pytest.mark.parametrize("changes", [
+        {"column_key": "bad"}, {"target_name": ""}, {"target_name": "a"*64},
+        {"target_name": "bad\x00name"}, {"pg_type": "numeric"}, {"nullable": 0},
+    ])
+    def test_column_contract_rejects_invalid_metadata(changes):
+>       with pytest.raises(api().ValueContractError):
+                           ^^^^^
+
+datamgmt/tests/unit/test_canonical.py:94: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+        spec = importlib.util.find_spec("xiangrugu_datamgmt.canonical")
+>       assert spec is not None, "Strict value canonicalizer is not implemented"
+E       AssertionError: Strict value canonicalizer is not implemented
+E       assert None is not None
+
+datamgmt/tests/unit/test_canonical.py:13: AssertionError
+___________ test_column_contract_rejects_invalid_metadata[changes5] ____________
+
+changes = {'nullable': 0}
+
+    @pytest.mark.parametrize("changes", [
+        {"column_key": "bad"}, {"target_name": ""}, {"target_name": "a"*64},
+        {"target_name": "bad\x00name"}, {"pg_type": "numeric"}, {"nullable": 0},
+    ])
+    def test_column_contract_rejects_invalid_metadata(changes):
+>       with pytest.raises(api().ValueContractError):
+                           ^^^^^
+
+datamgmt/tests/unit/test_canonical.py:94: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+        spec = importlib.util.find_spec("xiangrugu_datamgmt.canonical")
+>       assert spec is not None, "Strict value canonicalizer is not implemented"
+E       AssertionError: Strict value canonicalizer is not implemented
+E       assert None is not None
+
+datamgmt/tests/unit/test_canonical.py:13: AssertionError
+______ test_schema_rejects_invalid_identity_version_and_columns[changes0] ______
+
+changes = {'source_object_id': 'BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB'}
+
+    @pytest.mark.parametrize("changes", [
+        {"source_object_id": "B"*64}, {"format_version": True}, {"format_version": 2},
+        {"columns": ()}, {"columns": []},
+    ])
+    def test_schema_rejects_invalid_identity_version_and_columns(changes):
+>       with pytest.raises(api().ValueContractError):
+                           ^^^^^
+
+datamgmt/tests/unit/test_canonical.py:103: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+        spec = importlib.util.find_spec("xiangrugu_datamgmt.canonical")
+>       assert spec is not None, "Strict value canonicalizer is not implemented"
+E       AssertionError: Strict value canonicalizer is not implemented
+E       assert None is not None
+
+datamgmt/tests/unit/test_canonical.py:13: AssertionError
+______ test_schema_rejects_invalid_identity_version_and_columns[changes1] ______
+
+changes = {'format_version': True}
+
+    @pytest.mark.parametrize("changes", [
+        {"source_object_id": "B"*64}, {"format_version": True}, {"format_version": 2},
+        {"columns": ()}, {"columns": []},
+    ])
+    def test_schema_rejects_invalid_identity_version_and_columns(changes):
+>       with pytest.raises(api().ValueContractError):
+                           ^^^^^
+
+datamgmt/tests/unit/test_canonical.py:103: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+        spec = importlib.util.find_spec("xiangrugu_datamgmt.canonical")
+>       assert spec is not None, "Strict value canonicalizer is not implemented"
+E       AssertionError: Strict value canonicalizer is not implemented
+E       assert None is not None
+
+datamgmt/tests/unit/test_canonical.py:13: AssertionError
+______ test_schema_rejects_invalid_identity_version_and_columns[changes2] ______
+
+changes = {'format_version': 2}
+
+    @pytest.mark.parametrize("changes", [
+        {"source_object_id": "B"*64}, {"format_version": True}, {"format_version": 2},
+        {"columns": ()}, {"columns": []},
+    ])
+    def test_schema_rejects_invalid_identity_version_and_columns(changes):
+>       with pytest.raises(api().ValueContractError):
+                           ^^^^^
+
+datamgmt/tests/unit/test_canonical.py:103: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+        spec = importlib.util.find_spec("xiangrugu_datamgmt.canonical")
+>       assert spec is not None, "Strict value canonicalizer is not implemented"
+E       AssertionError: Strict value canonicalizer is not implemented
+E       assert None is not None
+
+datamgmt/tests/unit/test_canonical.py:13: AssertionError
+______ test_schema_rejects_invalid_identity_version_and_columns[changes3] ______
+
+changes = {'columns': ()}
+
+    @pytest.mark.parametrize("changes", [
+        {"source_object_id": "B"*64}, {"format_version": True}, {"format_version": 2},
+        {"columns": ()}, {"columns": []},
+    ])
+    def test_schema_rejects_invalid_identity_version_and_columns(changes):
+>       with pytest.raises(api().ValueContractError):
+                           ^^^^^
+
+datamgmt/tests/unit/test_canonical.py:103: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+        spec = importlib.util.find_spec("xiangrugu_datamgmt.canonical")
+>       assert spec is not None, "Strict value canonicalizer is not implemented"
+E       AssertionError: Strict value canonicalizer is not implemented
+E       assert None is not None
+
+datamgmt/tests/unit/test_canonical.py:13: AssertionError
+______ test_schema_rejects_invalid_identity_version_and_columns[changes4] ______
+
+changes = {'columns': []}
+
+    @pytest.mark.parametrize("changes", [
+        {"source_object_id": "B"*64}, {"format_version": True}, {"format_version": 2},
+        {"columns": ()}, {"columns": []},
+    ])
+    def test_schema_rejects_invalid_identity_version_and_columns(changes):
+>       with pytest.raises(api().ValueContractError):
+                           ^^^^^
+
+datamgmt/tests/unit/test_canonical.py:103: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+        spec = importlib.util.find_spec("xiangrugu_datamgmt.canonical")
+>       assert spec is not None, "Strict value canonicalizer is not implemented"
+E       AssertionError: Strict value canonicalizer is not implemented
+E       assert None is not None
+
+datamgmt/tests/unit/test_canonical.py:13: AssertionError
+___________ test_schema_rejects_duplicate_names_and_misplaced_rownum ___________
+
+    def test_schema_rejects_duplicate_names_and_misplaced_rownum():
+>       s = schema()
+            ^^^^^^^^
+
+datamgmt/tests/unit/test_canonical.py:108: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+datamgmt/tests/unit/test_canonical.py:22: in schema
+    m = api()
+        ^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+        spec = importlib.util.find_spec("xiangrugu_datamgmt.canonical")
+>       assert spec is not None, "Strict value canonicalizer is not implemented"
+E       AssertionError: Strict value canonicalizer is not implemented
+E       assert None is not None
+
+datamgmt/tests/unit/test_canonical.py:13: AssertionError
+_________________ test_limits_reject_invalid_values[changes0] __________________
+
+changes = {'max_rows': True}
+
+    @pytest.mark.parametrize("changes", [
+        {"max_rows": True}, {"max_rows": 0}, {"max_columns": -1}, {"max_field_bytes": 1.0},
+        {"max_row_bytes": 0}, {"max_stream_bytes": "100"}, {"max_differences": -1},
+    ])
+    def test_limits_reject_invalid_values(changes):
+>       with pytest.raises(api().ValueContractError):
+                           ^^^^^
+
+datamgmt/tests/unit/test_canonical.py:121: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+        spec = importlib.util.find_spec("xiangrugu_datamgmt.canonical")
+>       assert spec is not None, "Strict value canonicalizer is not implemented"
+E       AssertionError: Strict value canonicalizer is not implemented
+E       assert None is not None
+
+datamgmt/tests/unit/test_canonical.py:13: AssertionError
+_________________ test_limits_reject_invalid_values[changes1] __________________
+
+changes = {'max_rows': 0}
+
+    @pytest.mark.parametrize("changes", [
+        {"max_rows": True}, {"max_rows": 0}, {"max_columns": -1}, {"max_field_bytes": 1.0},
+        {"max_row_bytes": 0}, {"max_stream_bytes": "100"}, {"max_differences": -1},
+    ])
+    def test_limits_reject_invalid_values(changes):
+>       with pytest.raises(api().ValueContractError):
+                           ^^^^^
+
+datamgmt/tests/unit/test_canonical.py:121: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+        spec = importlib.util.find_spec("xiangrugu_datamgmt.canonical")
+>       assert spec is not None, "Strict value canonicalizer is not implemented"
+E       AssertionError: Strict value canonicalizer is not implemented
+E       assert None is not None
+
+datamgmt/tests/unit/test_canonical.py:13: AssertionError
+_________________ test_limits_reject_invalid_values[changes2] __________________
+
+changes = {'max_columns': -1}
+
+    @pytest.mark.parametrize("changes", [
+        {"max_rows": True}, {"max_rows": 0}, {"max_columns": -1}, {"max_field_bytes": 1.0},
+        {"max_row_bytes": 0}, {"max_stream_bytes": "100"}, {"max_differences": -1},
+    ])
+    def test_limits_reject_invalid_values(changes):
+>       with pytest.raises(api().ValueContractError):
+                           ^^^^^
+
+datamgmt/tests/unit/test_canonical.py:121: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+        spec = importlib.util.find_spec("xiangrugu_datamgmt.canonical")
+>       assert spec is not None, "Strict value canonicalizer is not implemented"
+E       AssertionError: Strict value canonicalizer is not implemented
+E       assert None is not None
+
+datamgmt/tests/unit/test_canonical.py:13: AssertionError
+_________________ test_limits_reject_invalid_values[changes3] __________________
+
+changes = {'max_field_bytes': 1.0}
+
+    @pytest.mark.parametrize("changes", [
+        {"max_rows": True}, {"max_rows": 0}, {"max_columns": -1}, {"max_field_bytes": 1.0},
+        {"max_row_bytes": 0}, {"max_stream_bytes": "100"}, {"max_differences": -1},
+    ])
+    def test_limits_reject_invalid_values(changes):
+>       with pytest.raises(api().ValueContractError):
+                           ^^^^^
+
+datamgmt/tests/unit/test_canonical.py:121: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+        spec = importlib.util.find_spec("xiangrugu_datamgmt.canonical")
+>       assert spec is not None, "Strict value canonicalizer is not implemented"
+E       AssertionError: Strict value canonicalizer is not implemented
+E       assert None is not None
+
+datamgmt/tests/unit/test_canonical.py:13: AssertionError
+_________________ test_limits_reject_invalid_values[changes4] __________________
+
+changes = {'max_row_bytes': 0}
+
+    @pytest.mark.parametrize("changes", [
+        {"max_rows": True}, {"max_rows": 0}, {"max_columns": -1}, {"max_field_bytes": 1.0},
+        {"max_row_bytes": 0}, {"max_stream_bytes": "100"}, {"max_differences": -1},
+    ])
+    def test_limits_reject_invalid_values(changes):
+>       with pytest.raises(api().ValueContractError):
+                           ^^^^^
+
+datamgmt/tests/unit/test_canonical.py:121: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+        spec = importlib.util.find_spec("xiangrugu_datamgmt.canonical")
+>       assert spec is not None, "Strict value canonicalizer is not implemented"
+E       AssertionError: Strict value canonicalizer is not implemented
+E       assert None is not None
+
+datamgmt/tests/unit/test_canonical.py:13: AssertionError
+_________________ test_limits_reject_invalid_values[changes5] __________________
+
+changes = {'max_stream_bytes': '100'}
+
+    @pytest.mark.parametrize("changes", [
+        {"max_rows": True}, {"max_rows": 0}, {"max_columns": -1}, {"max_field_bytes": 1.0},
+        {"max_row_bytes": 0}, {"max_stream_bytes": "100"}, {"max_differences": -1},
+    ])
+    def test_limits_reject_invalid_values(changes):
+>       with pytest.raises(api().ValueContractError):
+                           ^^^^^
+
+datamgmt/tests/unit/test_canonical.py:121: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+        spec = importlib.util.find_spec("xiangrugu_datamgmt.canonical")
+>       assert spec is not None, "Strict value canonicalizer is not implemented"
+E       AssertionError: Strict value canonicalizer is not implemented
+E       assert None is not None
+
+datamgmt/tests/unit/test_canonical.py:13: AssertionError
+_________________ test_limits_reject_invalid_values[changes6] __________________
+
+changes = {'max_differences': -1}
+
+    @pytest.mark.parametrize("changes", [
+        {"max_rows": True}, {"max_rows": 0}, {"max_columns": -1}, {"max_field_bytes": 1.0},
+        {"max_row_bytes": 0}, {"max_stream_bytes": "100"}, {"max_differences": -1},
+    ])
+    def test_limits_reject_invalid_values(changes):
+>       with pytest.raises(api().ValueContractError):
+                           ^^^^^
+
+datamgmt/tests/unit/test_canonical.py:121: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+        spec = importlib.util.find_spec("xiangrugu_datamgmt.canonical")
+>       assert spec is not None, "Strict value canonicalizer is not implemented"
+E       AssertionError: Strict value canonicalizer is not implemented
+E       assert None is not None
+
+datamgmt/tests/unit/test_canonical.py:13: AssertionError
+___________ test_limits_allow_zero_detail_cap_and_models_are_frozen ____________
+
+    def test_limits_allow_zero_detail_cap_and_models_are_frozen():
+>       assert api().ValueLimits(max_differences=0).max_differences == 0
+               ^^^^^
+
+datamgmt/tests/unit/test_canonical.py:126: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+        spec = importlib.util.find_spec("xiangrugu_datamgmt.canonical")
+>       assert spec is not None, "Strict value canonicalizer is not implemented"
+E       AssertionError: Strict value canonicalizer is not implemented
+E       assert None is not None
+
+datamgmt/tests/unit/test_canonical.py:13: AssertionError
+=========================== short test summary info ============================
+FAILED datamgmt/tests/unit/test_canonical.py::test_null_empty_text_and_literal_null_symbol_have_distinct_bytes
+FAILED datamgmt/tests/unit/test_canonical.py::test_bigint_golden_and_bounds[1-020000000000000001]
+FAILED datamgmt/tests/unit/test_canonical.py::test_bigint_golden_and_bounds[-1-02ffffffffffffffff]
+FAILED datamgmt/tests/unit/test_canonical.py::test_bigint_golden_and_bounds[-9223372036854775808-028000000000000000]
+FAILED datamgmt/tests/unit/test_canonical.py::test_bigint_golden_and_bounds[9223372036854775807-027fffffffffffffff]
+FAILED datamgmt/tests/unit/test_canonical.py::test_bigint_rejects_coercion_and_overflow[True]
+FAILED datamgmt/tests/unit/test_canonical.py::test_bigint_rejects_coercion_and_overflow[1.0]
+FAILED datamgmt/tests/unit/test_canonical.py::test_bigint_rejects_coercion_and_overflow[value2]
+FAILED datamgmt/tests/unit/test_canonical.py::test_bigint_rejects_coercion_and_overflow[1]
+FAILED datamgmt/tests/unit/test_canonical.py::test_bigint_rejects_coercion_and_overflow[-9223372036854775809]
+FAILED datamgmt/tests/unit/test_canonical.py::test_bigint_rejects_coercion_and_overflow[9223372036854775808]
+FAILED datamgmt/tests/unit/test_canonical.py::test_text_rejects_non_strings[3]
+FAILED datamgmt/tests/unit/test_canonical.py::test_text_rejects_non_strings[abc]
+FAILED datamgmt/tests/unit/test_canonical.py::test_text_rejects_non_strings[False]
+FAILED datamgmt/tests/unit/test_canonical.py::test_nonnullable_rejects_null
+FAILED datamgmt/tests/unit/test_canonical.py::test_text_preserves_codepoints_and_controls[ \t\n\r"\x00-20090a0d2200]
+FAILED datamgmt/tests/unit/test_canonical.py::test_text_preserves_codepoints_and_controls[\xe9-c3a9]
+FAILED datamgmt/tests/unit/test_canonical.py::test_text_preserves_codepoints_and_controls[e\u0301-65cc81]
+FAILED datamgmt/tests/unit/test_canonical.py::test_text_preserves_codepoints_and_controls[\ufeff-efbbbf]
+FAILED datamgmt/tests/unit/test_canonical.py::test_text_preserves_codepoints_and_controls[001-303031]
+FAILED datamgmt/tests/unit/test_canonical.py::test_field_budget_measures_utf8_bytes_and_errors_hide_values
+FAILED datamgmt/tests/unit/test_canonical.py::test_invalid_unicode_does_not_get_replaced
+FAILED datamgmt/tests/unit/test_canonical.py::test_column_contract_rejects_invalid_metadata[changes0]
+FAILED datamgmt/tests/unit/test_canonical.py::test_column_contract_rejects_invalid_metadata[changes1]
+FAILED datamgmt/tests/unit/test_canonical.py::test_column_contract_rejects_invalid_metadata[changes2]
+FAILED datamgmt/tests/unit/test_canonical.py::test_column_contract_rejects_invalid_metadata[changes3]
+FAILED datamgmt/tests/unit/test_canonical.py::test_column_contract_rejects_invalid_metadata[changes4]
+FAILED datamgmt/tests/unit/test_canonical.py::test_column_contract_rejects_invalid_metadata[changes5]
+FAILED datamgmt/tests/unit/test_canonical.py::test_schema_rejects_invalid_identity_version_and_columns[changes0]
+FAILED datamgmt/tests/unit/test_canonical.py::test_schema_rejects_invalid_identity_version_and_columns[changes1]
+FAILED datamgmt/tests/unit/test_canonical.py::test_schema_rejects_invalid_identity_version_and_columns[changes2]
+FAILED datamgmt/tests/unit/test_canonical.py::test_schema_rejects_invalid_identity_version_and_columns[changes3]
+FAILED datamgmt/tests/unit/test_canonical.py::test_schema_rejects_invalid_identity_version_and_columns[changes4]
+FAILED datamgmt/tests/unit/test_canonical.py::test_schema_rejects_duplicate_names_and_misplaced_rownum
+FAILED datamgmt/tests/unit/test_canonical.py::test_limits_reject_invalid_values[changes0]
+FAILED datamgmt/tests/unit/test_canonical.py::test_limits_reject_invalid_values[changes1]
+FAILED datamgmt/tests/unit/test_canonical.py::test_limits_reject_invalid_values[changes2]
+FAILED datamgmt/tests/unit/test_canonical.py::test_limits_reject_invalid_values[changes3]
+FAILED datamgmt/tests/unit/test_canonical.py::test_limits_reject_invalid_values[changes4]
+FAILED datamgmt/tests/unit/test_canonical.py::test_limits_reject_invalid_values[changes5]
+FAILED datamgmt/tests/unit/test_canonical.py::test_limits_reject_invalid_values[changes6]
+FAILED datamgmt/tests/unit/test_canonical.py::test_limits_allow_zero_detail_cap_and_models_are_frozen
+42 failed in 0.30s

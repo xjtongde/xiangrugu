@@ -1,0 +1,6 @@
+E   ModuleNotFoundError: No module named 'jsonschema'
+=========================== short test summary info ============================
+ERROR datamgmt/tests/unit/test_contract_schema_validation.py
+!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!
+1 error in 0.61s
+devwatch: test run 36 exited 2

@@ -1,0 +1,281 @@
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 2.85kB done
+#1 DONE 0.0s
+
+#2 resolve image config for docker-image://docker.io/docker/dockerfile:1.7
+#2 DONE 2.0s
+
+#3 docker-image://docker.io/docker/dockerfile:1.7@sha256:a57df69d0ea827fb7266491f2813635de6f17269be881f696fbfdf2d83dda33e
+#3 resolve docker.io/docker/dockerfile:1.7@sha256:a57df69d0ea827fb7266491f2813635de6f17269be881f696fbfdf2d83dda33e 0.1s done
+#3 CACHED
+
+#4 [internal] load metadata for docker.io/library/python:3.11.16-slim-bookworm@sha256:4b4c524dc3dce996864e030c7bd9c6b0e517597189fee48f48e05b499442444b
+#4 DONE 0.0s
+
+#5 [internal] load .dockerignore
+#5 transferring context: 197B done
+#5 DONE 0.0s
+
+#6 [base 1/9] FROM docker.io/library/python:3.11.16-slim-bookworm@sha256:4b4c524dc3dce996864e030c7bd9c6b0e517597189fee48f48e05b499442444b
+#6 resolve docker.io/library/python:3.11.16-slim-bookworm@sha256:4b4c524dc3dce996864e030c7bd9c6b0e517597189fee48f48e05b499442444b 0.0s done
+#6 DONE 0.1s
+
+#7 [base 2/9] WORKDIR /app
+#7 CACHED
+
+#8 [base 3/9] RUN test "2026-10-08T12:58:03Z" != "unknown"     && printf '%s\n' "2026-10-08T12:58:03Z" | grep -Eq '^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}Z$'     && test "1a34956fbcbe7877fbad04ee5a7ec9e3dd52bf05" != "unknown"     && printf '%s\n' "1a34956fbcbe7877fbad04ee5a7ec9e3dd52bf05" | grep -Eq '^[0-9a-f]{40}$'     && test "0.1.0" != "unknown"     && printf '%s\n' "dirty" | grep -Eq '^(clean|dirty)$'     && test "$(dpkg-query -W -f='${Version}' ca-certificates)" = "20250419~deb12u1"     && test "$(dpkg-query -W -f='${Version}' tzdata)" = "2026b-0+deb12u1"     && groupadd --gid 10001 xiangrugu     && useradd --uid 10001 --gid 10001 --create-home         --home-dir /home/xiangrugu --shell /usr/sbin/nologin xiangrugu
+#8 ...
+
+#9 [internal] load build context
+#9 transferring context: 8.87kB done
+#9 DONE 0.0s
+
+#8 [base 3/9] RUN test "2026-10-08T12:58:03Z" != "unknown"     && printf '%s\n' "2026-10-08T12:58:03Z" | grep -Eq '^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}Z$'     && test "1a34956fbcbe7877fbad04ee5a7ec9e3dd52bf05" != "unknown"     && printf '%s\n' "1a34956fbcbe7877fbad04ee5a7ec9e3dd52bf05" | grep -Eq '^[0-9a-f]{40}$'     && test "0.1.0" != "unknown"     && printf '%s\n' "dirty" | grep -Eq '^(clean|dirty)$'     && test "$(dpkg-query -W -f='${Version}' ca-certificates)" = "20250419~deb12u1"     && test "$(dpkg-query -W -f='${Version}' tzdata)" = "2026b-0+deb12u1"     && groupadd --gid 10001 xiangrugu     && useradd --uid 10001 --gid 10001 --create-home         --home-dir /home/xiangrugu --shell /usr/sbin/nologin xiangrugu
+#8 DONE 0.7s
+
+#10 [base 4/9] COPY datamgmt/requirements.lock /tmp/requirements.lock
+#10 DONE 0.1s
+
+#11 [base 5/9] RUN python -m pip install --disable-pip-version-check --no-cache-dir         --only-binary=:all: --require-hashes --requirement /tmp/requirements.lock     && rm /tmp/requirements.lock
+#11 2.937 Collecting certifi==2026.7.22 (from -r /tmp/requirements.lock (line 9))
+#11 3.765   Downloading certifi-2026.7.22-py3-none-any.whl (136 kB)
+#11 4.313      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 137.0/137.0 kB 264.0 kB/s eta 0:00:00
+#11 5.108 Collecting pyproj==3.7.2 (from -r /tmp/requirements.lock (line 12))
+#11 5.311   Downloading pyproj-3.7.2-cp311-cp311-manylinux_2_28_x86_64.whl (9.5 MB)
+#11 6.689      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 9.5/9.5 MB 7.0 MB/s eta 0:00:00
+#11 6.971 Collecting annotated-types==0.8.0 (from -r /tmp/requirements.lock (line 15))
+#11 7.173   Downloading annotated_types-0.8.0-py3-none-any.whl (13 kB)
+#11 7.435 Collecting psycopg==3.3.6 (from psycopg[binary]==3.3.6->-r /tmp/requirements.lock (line 19))
+#11 7.639   Downloading psycopg-3.3.6-py3-none-any.whl (215 kB)
+#11 7.658      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 215.5/215.5 kB 31.9 MB/s eta 0:00:00
+#11 8.391 Collecting psycopg-binary==3.3.6 (from -r /tmp/requirements.lock (line 23))
+#11 8.592   Downloading psycopg_binary-3.3.6-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (5.3 MB)
+#11 8.898      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5.3/5.3 MB 17.8 MB/s eta 0:00:00
+#11 9.389 Collecting pydantic==2.13.5 (from -r /tmp/requirements.lock (line 91))
+#11 9.590   Downloading pydantic-2.13.5-py3-none-any.whl (472 kB)
+#11 9.616      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 472.6/472.6 kB 34.6 MB/s eta 0:00:00
+#11 11.11 Collecting pydantic-core==2.46.5 (from -r /tmp/requirements.lock (line 95))
+#11 11.31   Downloading pydantic_core-2.46.5-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (2.1 MB)
+#11 11.39      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.1/2.1 MB 26.0 MB/s eta 0:00:00
+#11 11.68 Collecting pyyaml==6.0.3 (from -r /tmp/requirements.lock (line 217))
+#11 11.88   Downloading pyyaml-6.0.3-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (806 kB)
+#11 11.91      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 806.6/806.6 kB 24.6 MB/s eta 0:00:00
+#11 12.17 Collecting typing-extensions==4.16.0 (from -r /tmp/requirements.lock (line 292))
+#11 12.37   Downloading typing_extensions-4.16.0-py3-none-any.whl (45 kB)
+#11 12.37      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 45.6/45.6 kB 180.3 MB/s eta 0:00:00
+#11 12.61 Collecting typing-inspection==0.4.4 (from -r /tmp/requirements.lock (line 300))
+#11 12.81   Downloading typing_inspection-0.4.4-py3-none-any.whl (14 kB)
+#11 13.04 Installing collected packages: typing-extensions, pyyaml, psycopg-binary, certifi, annotated-types, typing-inspection, pyproj, pydantic-core, psycopg, pydantic
+#11 14.07 Successfully installed annotated-types-0.8.0 certifi-2026.7.22 psycopg-3.3.6 psycopg-binary-3.3.6 pydantic-2.13.5 pydantic-core-2.46.5 pyproj-3.7.2 pyyaml-6.0.3 typing-extensions-4.16.0 typing-inspection-0.4.4
+#11 DONE 14.9s
+
+#12 [base 6/9] COPY datamgmt/pyproject.toml /app/datamgmt/pyproject.toml
+#12 DONE 0.1s
+
+#13 [base 7/9] COPY datamgmt/config/contract.schema.json /app/datamgmt/config/contract.schema.json
+#13 DONE 0.1s
+
+#14 [base 8/9] COPY datamgmt/src /app/datamgmt/src
+#14 DONE 0.2s
+
+#15 [base 9/9] RUN python -m pip install --disable-pip-version-check --no-cache-dir         --no-deps --no-build-isolation /app/datamgmt
+#15 1.810 Processing ./datamgmt
+#15 1.812   Preparing metadata (pyproject.toml): started
+#15 2.710   Preparing metadata (pyproject.toml): finished with status 'done'
+#15 2.713 Building wheels for collected packages: xiangrugu-datamgmt
+#15 2.715   Building wheel for xiangrugu-datamgmt (pyproject.toml): started
+#15 3.643   Building wheel for xiangrugu-datamgmt (pyproject.toml): finished with status 'done'
+#15 3.644   Created wheel for xiangrugu-datamgmt: filename=xiangrugu_datamgmt-0.1.0-py3-none-any.whl size=38782 sha256=d733c9ad2ceb2dca6474f8d6780341b754ebefd1e7b7c038c93ea2f7c2146eba
+#15 3.644   Stored in directory: /tmp/pip-ephem-wheel-cache-b53dag1h/wheels/2b/5b/20/542e7f0cd3a870d95f0302065b28f11ca654a47b438dc9673f
+#15 3.650 Successfully built xiangrugu-datamgmt
+#15 3.650 Installing collected packages: xiangrugu-datamgmt
+#15 3.712 Successfully installed xiangrugu-datamgmt-0.1.0
+#15 DONE 3.8s
+
+#16 [development 1/2] COPY datamgmt/requirements-dev.lock /tmp/requirements-dev.lock
+#16 DONE 0.2s
+
+#17 [development 2/2] RUN python -m pip install --disable-pip-version-check --no-cache-dir         --only-binary=:all: --require-hashes --requirement /tmp/requirements-dev.lock     && rm /tmp/requirements-dev.lock
+#17 1.857 Requirement already satisfied: certifi==2026.7.22 in /usr/local/lib/python3.11/site-packages (from -r /tmp/requirements-dev.lock (line 9)) (2026.7.22)
+#17 1.859 Requirement already satisfied: pyproj==3.7.2 in /usr/local/lib/python3.11/site-packages (from -r /tmp/requirements-dev.lock (line 12)) (3.7.2)
+#17 1.862 Requirement already satisfied: annotated-types==0.8.0 in /usr/local/lib/python3.11/site-packages (from -r /tmp/requirements-dev.lock (line 15)) (0.8.0)
+#17 17.80 Collecting iniconfig==2.3.0 (from -r /tmp/requirements-dev.lock (line 19))
+#17 18.60   Downloading iniconfig-2.3.0-py3-none-any.whl (7.5 kB)
+#17 18.64 Requirement already satisfied: packaging==26.3 in /usr/local/lib/python3.11/site-packages (from -r /tmp/requirements-dev.lock (line 23)) (26.3)
+#17 18.89 Collecting pluggy==1.6.0 (from -r /tmp/requirements-dev.lock (line 27))
+#17 19.11   Downloading pluggy-1.6.0-py3-none-any.whl (20 kB)
+#17 19.19 Requirement already satisfied: psycopg==3.3.6 in /usr/local/lib/python3.11/site-packages (from psycopg[binary]==3.3.6->-r /tmp/requirements-dev.lock (line 31)) (3.3.6)
+#17 19.20 Requirement already satisfied: psycopg-binary==3.3.6 in /usr/local/lib/python3.11/site-packages (from -r /tmp/requirements-dev.lock (line 35)) (3.3.6)
+#17 19.21 Requirement already satisfied: pydantic==2.13.5 in /usr/local/lib/python3.11/site-packages (from -r /tmp/requirements-dev.lock (line 103)) (2.13.5)
+#17 19.21 Requirement already satisfied: pydantic-core==2.46.5 in /usr/local/lib/python3.11/site-packages (from -r /tmp/requirements-dev.lock (line 107)) (2.46.5)
+#17 19.56 Collecting pygments==2.21.0 (from -r /tmp/requirements-dev.lock (line 229))
+#17 19.76   Downloading pygments-2.21.0-py3-none-any.whl (1.3 MB)
+#17 20.95      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.3/1.3 MB 1.1 MB/s eta 0:00:00
+#17 21.40 Collecting pytest==9.1.1 (from -r /tmp/requirements-dev.lock (line 233))
+#17 21.60   Downloading pytest-9.1.1-py3-none-any.whl (386 kB)
+#17 21.64      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 386.5/386.5 kB 12.4 MB/s eta 0:00:00
+#17 21.64 Requirement already satisfied: pyyaml==6.0.3 in /usr/local/lib/python3.11/site-packages (from -r /tmp/requirements-dev.lock (line 237)) (6.0.3)
+#17 21.65 Requirement already satisfied: typing-extensions==4.16.0 in /usr/local/lib/python3.11/site-packages (from -r /tmp/requirements-dev.lock (line 312)) (4.16.0)
+#17 21.65 Requirement already satisfied: typing-inspection==0.4.4 in /usr/local/lib/python3.11/site-packages (from -r /tmp/requirements-dev.lock (line 320)) (0.4.4)
+#17 21.84 Installing collected packages: pygments, pluggy, iniconfig, pytest
+#17 22.79 Successfully installed iniconfig-2.3.0 pluggy-1.6.0 pygments-2.21.0 pytest-9.1.1
+#17 DONE 23.0s
+
+#18 exporting to image
+#18 exporting layers
+#18 exporting layers 3.5s done
+#18 exporting manifest sha256:28db2cfd9f9ba6fbb14ab169c9ad42fcc769854220762500cbc7bd54615b0ba8 0.0s done
+#18 exporting config sha256:db48b4767c66e7f1d692821811c23936bd5a6c42afeefc8c2684126e9f46763e 0.0s done
+#18 exporting attestation manifest sha256:6f8fb5ef8b726ad5ee6d25b56e4c5a4b2f7b34c64d7b7b6d129944ac8925d5d6
+#18 exporting attestation manifest sha256:6f8fb5ef8b726ad5ee6d25b56e4c5a4b2f7b34c64d7b7b6d129944ac8925d5d6 0.0s done
+#18 exporting manifest list sha256:89a9ca2e355e431aee81006152fabaa1399b9eaadf561652f7c9ae0bd6c77c08 0.0s done
+#18 naming to docker.io/library/xiangrugu:dev-text-source-final-20261008T125803Z done
+#18 unpacking to docker.io/library/xiangrugu:dev-text-source-final-20261008T125803Z
+#18 unpacking to docker.io/library/xiangrugu:dev-text-source-final-20261008T125803Z 1.5s done
+#18 DONE 5.2s
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 2.85kB done
+#1 DONE 0.0s
+
+#2 resolve image config for docker-image://docker.io/docker/dockerfile:1.7
+#2 DONE 1.1s
+
+#3 docker-image://docker.io/docker/dockerfile:1.7@sha256:a57df69d0ea827fb7266491f2813635de6f17269be881f696fbfdf2d83dda33e
+#3 resolve docker.io/docker/dockerfile:1.7@sha256:a57df69d0ea827fb7266491f2813635de6f17269be881f696fbfdf2d83dda33e 0.0s done
+#3 CACHED
+
+#4 [internal] load metadata for docker.io/library/python:3.11.16-slim-bookworm@sha256:4b4c524dc3dce996864e030c7bd9c6b0e517597189fee48f48e05b499442444b
+#4 DONE 0.0s
+
+#5 [internal] load .dockerignore
+#5 transferring context: 197B done
+#5 DONE 0.0s
+
+#6 [internal] load build context
+#6 transferring context: 149.06kB 0.0s done
+#6 DONE 0.0s
+
+#7 [base 1/9] FROM docker.io/library/python:3.11.16-slim-bookworm@sha256:4b4c524dc3dce996864e030c7bd9c6b0e517597189fee48f48e05b499442444b
+#7 resolve docker.io/library/python:3.11.16-slim-bookworm@sha256:4b4c524dc3dce996864e030c7bd9c6b0e517597189fee48f48e05b499442444b 0.0s done
+#7 DONE 0.0s
+
+#8 [base 5/9] RUN python -m pip install --disable-pip-version-check --no-cache-dir         --only-binary=:all: --require-hashes --requirement /tmp/requirements.lock     && rm /tmp/requirements.lock
+#8 CACHED
+
+#9 [base 8/9] COPY datamgmt/src /app/datamgmt/src
+#9 CACHED
+
+#10 [base 7/9] COPY datamgmt/config/contract.schema.json /app/datamgmt/config/contract.schema.json
+#10 CACHED
+
+#11 [base 2/9] WORKDIR /app
+#11 CACHED
+
+#12 [base 3/9] RUN test "2026-10-08T12:58:03Z" != "unknown"     && printf '%s\n' "2026-10-08T12:58:03Z" | grep -Eq '^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}Z$'     && test "1a34956fbcbe7877fbad04ee5a7ec9e3dd52bf05" != "unknown"     && printf '%s\n' "1a34956fbcbe7877fbad04ee5a7ec9e3dd52bf05" | grep -Eq '^[0-9a-f]{40}$'     && test "0.1.0" != "unknown"     && printf '%s\n' "dirty" | grep -Eq '^(clean|dirty)$'     && test "$(dpkg-query -W -f='${Version}' ca-certificates)" = "20250419~deb12u1"     && test "$(dpkg-query -W -f='${Version}' tzdata)" = "2026b-0+deb12u1"     && groupadd --gid 10001 xiangrugu     && useradd --uid 10001 --gid 10001 --create-home         --home-dir /home/xiangrugu --shell /usr/sbin/nologin xiangrugu
+#12 CACHED
+
+#13 [base 9/9] RUN python -m pip install --disable-pip-version-check --no-cache-dir         --no-deps --no-build-isolation /app/datamgmt
+#13 CACHED
+
+#14 [development 1/2] COPY datamgmt/requirements-dev.lock /tmp/requirements-dev.lock
+#14 CACHED
+
+#15 [base 4/9] COPY datamgmt/requirements.lock /tmp/requirements.lock
+#15 CACHED
+
+#16 [base 6/9] COPY datamgmt/pyproject.toml /app/datamgmt/pyproject.toml
+#16 CACHED
+
+#17 [development 2/2] RUN python -m pip install --disable-pip-version-check --no-cache-dir         --only-binary=:all: --require-hashes --requirement /tmp/requirements-dev.lock     && rm /tmp/requirements-dev.lock
+#17 CACHED
+
+#18 [test 1/4] COPY datamgmt/config/roots.yaml /app/datamgmt/config/roots.yaml
+#18 DONE 0.1s
+
+#19 [test 2/4] COPY docker-compose.yml /app/docker-compose.yml
+#19 DONE 0.1s
+
+#20 [test 3/4] COPY scripts /app/scripts
+#20 DONE 0.1s
+
+#21 [test 4/4] COPY datamgmt/tests /app/datamgmt/tests
+#21 DONE 0.1s
+
+#22 exporting to image
+#22 exporting layers
+#22 exporting layers 0.6s done
+#22 exporting manifest sha256:4bc457bd4df74db2c1be9c7e169c2782be69bb6582ff7304e96a6688dae72f20 0.0s done
+#22 exporting config sha256:e5bd872fbb6c143f32bc79f27d309a5c30056d9b61d7161128b387da646e63fc 0.1s done
+#22 exporting attestation manifest sha256:f9791c41cfb9effb668f343ad93208ec59ebb93bbc5fa9a3c024b6788c781e95 0.0s done
+#22 exporting manifest list sha256:c0378c4c1477bfb2ca20f79ad7bdce8dab87447c73f058662cd1c75b391c81c8 0.0s done
+#22 naming to docker.io/library/xiangrugu:test-text-source-final-20261008T125803Z
+#22 naming to docker.io/library/xiangrugu:test-text-source-final-20261008T125803Z done
+#22 unpacking to docker.io/library/xiangrugu:test-text-source-final-20261008T125803Z
+#22 unpacking to docker.io/library/xiangrugu:test-text-source-final-20261008T125803Z 0.4s done
+#22 DONE 1.4s
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 2.85kB done
+#1 DONE 0.0s
+
+#2 resolve image config for docker-image://docker.io/docker/dockerfile:1.7
+#2 DONE 0.4s
+
+#3 docker-image://docker.io/docker/dockerfile:1.7@sha256:a57df69d0ea827fb7266491f2813635de6f17269be881f696fbfdf2d83dda33e
+#3 resolve docker.io/docker/dockerfile:1.7@sha256:a57df69d0ea827fb7266491f2813635de6f17269be881f696fbfdf2d83dda33e 0.1s done
+#3 CACHED
+
+#4 [internal] load metadata for docker.io/library/python:3.11.16-slim-bookworm@sha256:4b4c524dc3dce996864e030c7bd9c6b0e517597189fee48f48e05b499442444b
+#4 DONE 0.0s
+
+#5 [internal] load .dockerignore
+#5 transferring context: 197B done
+#5 DONE 0.0s
+
+#6 [base 1/9] FROM docker.io/library/python:3.11.16-slim-bookworm@sha256:4b4c524dc3dce996864e030c7bd9c6b0e517597189fee48f48e05b499442444b
+#6 resolve docker.io/library/python:3.11.16-slim-bookworm@sha256:4b4c524dc3dce996864e030c7bd9c6b0e517597189fee48f48e05b499442444b 0.0s done
+#6 DONE 0.0s
+
+#7 [internal] load build context
+#7 transferring context: 1.59kB done
+#7 DONE 0.0s
+
+#8 [base 3/9] RUN test "2026-10-08T12:58:03Z" != "unknown"     && printf '%s\n' "2026-10-08T12:58:03Z" | grep -Eq '^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}Z$'     && test "1a34956fbcbe7877fbad04ee5a7ec9e3dd52bf05" != "unknown"     && printf '%s\n' "1a34956fbcbe7877fbad04ee5a7ec9e3dd52bf05" | grep -Eq '^[0-9a-f]{40}$'     && test "0.1.0" != "unknown"     && printf '%s\n' "dirty" | grep -Eq '^(clean|dirty)$'     && test "$(dpkg-query -W -f='${Version}' ca-certificates)" = "20250419~deb12u1"     && test "$(dpkg-query -W -f='${Version}' tzdata)" = "2026b-0+deb12u1"     && groupadd --gid 10001 xiangrugu     && useradd --uid 10001 --gid 10001 --create-home         --home-dir /home/xiangrugu --shell /usr/sbin/nologin xiangrugu
+#8 CACHED
+
+#9 [base 4/9] COPY datamgmt/requirements.lock /tmp/requirements.lock
+#9 CACHED
+
+#10 [base 6/9] COPY datamgmt/pyproject.toml /app/datamgmt/pyproject.toml
+#10 CACHED
+
+#11 [base 7/9] COPY datamgmt/config/contract.schema.json /app/datamgmt/config/contract.schema.json
+#11 CACHED
+
+#12 [base 8/9] COPY datamgmt/src /app/datamgmt/src
+#12 CACHED
+
+#13 [base 2/9] WORKDIR /app
+#13 CACHED
+
+#14 [base 5/9] RUN python -m pip install --disable-pip-version-check --no-cache-dir         --only-binary=:all: --require-hashes --requirement /tmp/requirements.lock     && rm /tmp/requirements.lock
+#14 CACHED
+
+#15 [base 9/9] RUN python -m pip install --disable-pip-version-check --no-cache-dir         --no-deps --no-build-isolation /app/datamgmt
+#15 CACHED
+
+#16 exporting to image
+#16 exporting layers 0.0s done
+#16 exporting manifest sha256:31e4fe5db1bec5d8c52c1c0d9040b26d0fa14b3513e5661399bcf1ba5b4a41be 0.0s done
+#16 exporting config sha256:4d57b0c3c8b45bed1b988b896373a65e2ae63fce0f6c6838897080197a94b276 0.0s done
+#16 exporting attestation manifest sha256:fccd6f94a78731d355f8f5233920ebfddb8fe57fc175be2317e0a265d4e3ce8f 0.0s done
+#16 exporting manifest list sha256:8d63006a4eb2f5f9c8d98780297634fc1bb418f9dd07b63e9f48032d009205ad 0.1s done
+#16 naming to docker.io/library/xiangrugu:runtime-text-source-final-20261008T125803Z
+#16 naming to docker.io/library/xiangrugu:runtime-text-source-final-20261008T125803Z done
+#16 unpacking to docker.io/library/xiangrugu:runtime-text-source-final-20261008T125803Z 0.0s done
+#16 DONE 0.4s

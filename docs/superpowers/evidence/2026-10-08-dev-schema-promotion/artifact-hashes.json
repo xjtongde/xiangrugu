@@ -1,0 +1,102 @@
+{
+  "version": 1,
+  "scope": "authorized-dev-only-promotion",
+  "transfer_verified": true,
+  "files": [
+    {
+      "file": "aliases-after.txt",
+      "sha256": "5a9e01de0360a371e536f48d9ff9e7e479ffc48e04bce4ccbeb54dcf92497706",
+      "remote": "/opt/mydocker/xiangrugu/data/var/dev-schema-promotion-20261008T153027Z/aliases-after.txt"
+    },
+    {
+      "file": "aliases-before.txt",
+      "sha256": "2c07eaf7f3fea9ee8a621393eb108360c0e3d5f06687e713b5c70a5299256e0f",
+      "remote": "/opt/mydocker/xiangrugu/data/var/dev-schema-promotion-20261008T153027Z/aliases-before.txt"
+    },
+    {
+      "file": "compose-guard.json",
+      "sha256": "8dfb09da812d529b8c29f57c7e127730f107adf0322f84377c06832d38887e5a",
+      "remote": "/opt/mydocker/xiangrugu/data/var/dev-schema-promotion-20261008T153027Z/compose-guard.json"
+    },
+    {
+      "file": "containers-after.txt",
+      "sha256": "dcbec36c29ecf60fdb51be19d398ba7354563f9a8f7baa1c26237faed61c96f7",
+      "remote": "/opt/mydocker/xiangrugu/data/var/dev-schema-promotion-20261008T153027Z/containers-after.txt"
+    },
+    {
+      "file": "containers-before.txt",
+      "sha256": "8f64d4f4cb38d778779bcf14b55ebf7fff0248581c614f2fa2bad6a39065bd4e",
+      "remote": "/opt/mydocker/xiangrugu/data/var/dev-schema-promotion-20261008T153027Z/containers-before.txt"
+    },
+    {
+      "file": "containers-final.txt",
+      "sha256": "dcbec36c29ecf60fdb51be19d398ba7354563f9a8f7baa1c26237faed61c96f7",
+      "remote": "/opt/mydocker/xiangrugu/data/var/dev-schema-promotion-20261008T153027Z/containers-final.txt"
+    },
+    {
+      "file": "deployment-verification.json",
+      "sha256": "242fa5809dbeb01b51cb4e7e464ee8a9b7eef7299e9c9de22b70d377735931db",
+      "remote": "/opt/mydocker/xiangrugu/data/var/dev-schema-promotion-20261008T153027Z/deployment-verification.json"
+    },
+    {
+      "file": "dev-after.txt",
+      "sha256": "c0dd528699731e02d006dfd86b9399659e55cd8c108a763aeeb157ed1a29b3cb",
+      "remote": "/opt/mydocker/xiangrugu/data/var/dev-schema-promotion-20261008T153027Z/dev-after.txt"
+    },
+    {
+      "file": "dev-isolation.txt",
+      "sha256": "8251534b1a1ab951f5e37e274b0193a9984eb5ff2e4dce942b95bb68e21fae5c",
+      "remote": "/opt/mydocker/xiangrugu/data/var/dev-schema-promotion-20261008T153027Z/dev-isolation.txt"
+    },
+    {
+      "file": "dev-pip-check.log",
+      "sha256": "9261363b733079a641c2e4cc9bc46ffa1d8336945a87f807b6cf68847dbc9b09",
+      "remote": "/opt/mydocker/xiangrugu/data/var/dev-schema-promotion-20261008T153027Z/dev-pip-check.log"
+    },
+    {
+      "file": "promotion.log",
+      "sha256": "62f6ba9c60466cfa3cdffd81dd6ea7497b31d7860d3a82fa750818f686d20ebc",
+      "remote": "/opt/mydocker/xiangrugu/data/var/dev-schema-promotion-20261008T153027Z/promotion.log"
+    },
+    {
+      "file": "rollback-save.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "remote": "/opt/mydocker/xiangrugu/data/var/dev-schema-promotion-20261008T153027Z/rollback-save.log"
+    },
+    {
+      "file": "rollback-SHA256SUMS.txt",
+      "sha256": "85718143a8b549ad18b44ca98914a2ce12f145a468fcb68564dbc38ffe7d448f",
+      "remote": "/opt/mydocker/xiangrugu/data/var/dev-schema-promotion-20261008T153027Z/rollback-SHA256SUMS.txt"
+    },
+    {
+      "file": "rollback-smoke.log",
+      "sha256": "6061d7aa9b833751ca26efba1723d509030b61a3fafcc5e98e2df974963d877a",
+      "remote": "/opt/mydocker/xiangrugu/data/var/dev-schema-promotion-20261008T153027Z/rollback-smoke.log"
+    },
+    {
+      "file": "rollback-tag.txt",
+      "sha256": "e27516cd49a6432240969afad50d5c7f8c2257f52e066811f1f4e01496120493",
+      "remote": "/opt/mydocker/xiangrugu/data/var/dev-schema-promotion-20261008T153027Z/rollback-tag.txt"
+    },
+    {
+      "file": "watcher-initial-status.json",
+      "sha256": "74f8576b39d4b1920b4b5ccee2489ff02ceefb9e83d9ece422165a1582055294",
+      "remote": "/opt/mydocker/xiangrugu/data/var/dev-schema-promotion-20261008T153027Z/watcher-initial-status.json"
+    },
+    {
+      "file": "watcher-initial.log",
+      "sha256": "c9c0f6dd1c361baf33d2cbca9e939f9f0bddb096bbfe8d47440ad4d0cc9eb655",
+      "remote": "/opt/mydocker/xiangrugu/data/var/dev-schema-promotion-20261008T153027Z/watcher-initial.log"
+    },
+    {
+      "file": "watcher-sync-status.json",
+      "sha256": "379298464d4245643eeb39fb50074ec1671ee41c4ebdb7f7451b43053e5a5bf5",
+      "remote": "/opt/mydocker/xiangrugu/data/var/dev-schema-promotion-20261008T153027Z/watcher-sync-status.json"
+    },
+    {
+      "file": "watcher-sync.log",
+      "sha256": "8756d637f10d36f7927678036c9015747358985255ceea73118cce97b1a4fa51",
+      "remote": "/opt/mydocker/xiangrugu/data/var/dev-schema-promotion-20261008T153027Z/watcher-sync.log"
+    }
+  ]
+}

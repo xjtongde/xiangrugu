@@ -1,0 +1,45 @@
+{
+  "as_of": "2026-10-08T14:49:17.726550+00:00",
+  "python": "3.11.16",
+  "schema_sha256": "bf3a9e01fd7e4a4e38f67710e45cf7d20c8d2ade91579bd742fc66482edd1e51",
+  "schema_self_valid": true,
+  "schema_matches_model_export": true,
+  "validation_input": "raw-parsed-document-before-Pydantic",
+  "network": "none",
+  "source_read": false,
+  "database_connected": false,
+  "ready_for_import": false,
+  "conforms": false,
+  "dependencies": {
+    "jsonschema": "4.26.0",
+    "attrs": "26.1.0",
+    "jsonschema-specifications": "2025.9.1",
+    "referencing": "0.37.0",
+    "rpds-py": "2026.9.1",
+    "typing-extensions": "4.16.0"
+  },
+  "documents": [
+    {
+      "filename": "sources.yaml",
+      "sha256": "8d504b66a03eee2e9f235722a25aa6ece3e46cbcd3322941c9225c37cf747377",
+      "size_bytes": 5074661,
+      "schema_valid": true,
+      "model_valid": true,
+      "rules": 8004,
+      "blocked": 7918,
+      "status": "draft",
+      "unchanged": true
+    },
+    {
+      "filename": "sources-metadata-review.draft.yaml",
+      "sha256": "9d05e365e0baaa405614efb64a0e7413bc465ed31d63e655ded7cac58e985f7d",
+      "size_bytes": 5451143,
+      "schema_valid": true,
+      "model_valid": true,
+      "rules": 8004,
+      "blocked": 7914,
+      "status": "draft",
+      "unchanged": true
+    }
+  ]
+}

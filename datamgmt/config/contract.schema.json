@@ -1,0 +1,424 @@
+{
+  "$defs": {
+    "ColumnEncoding": {
+      "additionalProperties": false,
+      "properties": {
+        "codec": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "title": "Codec",
+          "type": "string"
+        },
+        "column": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "title": "Column",
+          "type": "string"
+        },
+        "errors": {
+          "const": "strict",
+          "default": "strict",
+          "title": "Errors",
+          "type": "string"
+        },
+        "object_name": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "title": "Object Name",
+          "type": "string"
+        }
+      },
+      "required": [
+        "object_name",
+        "column",
+        "codec"
+      ],
+      "title": "ColumnEncoding",
+      "type": "object"
+    },
+    "ContractException": {
+      "additionalProperties": false,
+      "properties": {
+        "code": {
+          "const": "checksum_nul",
+          "title": "Code",
+          "type": "string"
+        },
+        "raw_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Raw Sha256",
+          "type": "string"
+        },
+        "reason": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "title": "Reason",
+          "type": "string"
+        },
+        "rule_id": {
+          "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._-]*$",
+          "title": "Rule Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "rule_id",
+        "code",
+        "raw_sha256",
+        "reason"
+      ],
+      "title": "ContractException",
+      "type": "object"
+    },
+    "ContractReview": {
+      "additionalProperties": false,
+      "properties": {
+        "approval_ref": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "title": "Approval Ref",
+          "type": "string"
+        },
+        "approved_at": {
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}Z$",
+          "title": "Approved At",
+          "type": "string"
+        },
+        "approved_by": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "title": "Approved By",
+          "type": "string"
+        }
+      },
+      "required": [
+        "approved_by",
+        "approved_at",
+        "approval_ref"
+      ],
+      "title": "ContractReview",
+      "type": "object"
+    },
+    "Disposition": {
+      "enum": [
+        "IMPORT",
+        "MIRROR",
+        "NON_TABULAR",
+        "BLOCKED"
+      ],
+      "title": "Disposition",
+      "type": "string"
+    },
+    "DispositionRule": {
+      "additionalProperties": false,
+      "properties": {
+        "disposition": {
+          "$ref": "#/$defs/Disposition"
+        },
+        "encodings": {
+          "items": {
+            "$ref": "#/$defs/ColumnEncoding"
+          },
+          "title": "Encodings",
+          "type": "array"
+        },
+        "expected": {
+          "$ref": "#/$defs/MemberExpectation"
+        },
+        "format_family": {
+          "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._-]*$",
+          "title": "Format Family",
+          "type": "string"
+        },
+        "mirror_evidence_sha256": {
+          "anyOf": [
+            {
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Mirror Evidence Sha256"
+        },
+        "mirror_of": {
+          "anyOf": [
+            {
+              "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._-]*$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Mirror Of"
+        },
+        "reason": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "title": "Reason",
+          "type": "string"
+        },
+        "rule_id": {
+          "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._-]*$",
+          "title": "Rule Id",
+          "type": "string"
+        },
+        "selector": {
+          "$ref": "#/$defs/MemberSelector"
+        },
+        "targets": {
+          "items": {
+            "$ref": "#/$defs/ObjectTarget"
+          },
+          "title": "Targets",
+          "type": "array"
+        },
+        "validator": {
+          "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._-]*$",
+          "title": "Validator",
+          "type": "string"
+        }
+      },
+      "required": [
+        "rule_id",
+        "selector",
+        "expected",
+        "disposition",
+        "reason",
+        "format_family",
+        "encodings",
+        "targets",
+        "validator"
+      ],
+      "title": "DispositionRule",
+      "type": "object"
+    },
+    "MemberExpectation": {
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "enum": [
+            "file",
+            "directory",
+            "symlink",
+            "special"
+          ],
+          "title": "Kind",
+          "type": "string"
+        },
+        "sha256": {
+          "anyOf": [
+            {
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Sha256"
+        },
+        "signature": {
+          "enum": [
+            "unknown",
+            "zip",
+            "sqlite",
+            "ole",
+            "tiff",
+            "pdf"
+          ],
+          "title": "Signature",
+          "type": "string"
+        },
+        "size": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Size"
+        }
+      },
+      "required": [
+        "kind",
+        "sha256",
+        "size",
+        "signature"
+      ],
+      "title": "MemberExpectation",
+      "type": "object"
+    },
+    "MemberSelector": {
+      "additionalProperties": false,
+      "properties": {
+        "archive_chain": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "pattern": "\\S",
+            "type": "string"
+          },
+          "title": "Archive Chain",
+          "type": "array"
+        },
+        "archive_ordinals": {
+          "default": [],
+          "items": {
+            "minimum": 0,
+            "type": "integer"
+          },
+          "title": "Archive Ordinals",
+          "type": "array"
+        },
+        "relative_path": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "title": "Relative Path",
+          "type": "string"
+        }
+      },
+      "required": [
+        "relative_path"
+      ],
+      "title": "MemberSelector",
+      "type": "object"
+    },
+    "ObjectTarget": {
+      "additionalProperties": false,
+      "properties": {
+        "expected_count": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Expected Count"
+        },
+        "expected_sha256": {
+          "anyOf": [
+            {
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Expected Sha256"
+        },
+        "object_name": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "title": "Object Name",
+          "type": "string"
+        },
+        "schema": {
+          "enum": [
+            "cbdb",
+            "chgis",
+            "harv"
+          ],
+          "title": "Schema",
+          "type": "string"
+        },
+        "table": {
+          "pattern": "^[a-z][a-z0-9_]{0,62}$",
+          "title": "Table",
+          "type": "string"
+        }
+      },
+      "required": [
+        "object_name",
+        "schema",
+        "table",
+        "expected_count",
+        "expected_sha256"
+      ],
+      "title": "ObjectTarget",
+      "type": "object"
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "exceptions": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/ContractException"
+      },
+      "title": "Exceptions",
+      "type": "array"
+    },
+    "inventory_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Inventory Sha256",
+      "type": "string"
+    },
+    "release_id": {
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}-[a-z0-9][a-z0-9-]*$",
+      "title": "Release Id",
+      "type": "string"
+    },
+    "review": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/ContractReview"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "rules": {
+      "items": {
+        "$ref": "#/$defs/DispositionRule"
+      },
+      "minItems": 1,
+      "title": "Rules",
+      "type": "array"
+    },
+    "source_version": {
+      "minLength": 1,
+      "pattern": "\\S",
+      "title": "Source Version",
+      "type": "string"
+    },
+    "status": {
+      "enum": [
+        "draft",
+        "frozen"
+      ],
+      "title": "Status",
+      "type": "string"
+    },
+    "version": {
+      "maximum": 1,
+      "minimum": 1,
+      "title": "Version",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "version",
+    "release_id",
+    "source_version",
+    "inventory_sha256",
+    "status",
+    "review",
+    "rules"
+  ],
+  "title": "ReleaseContract",
+  "type": "object"
+}

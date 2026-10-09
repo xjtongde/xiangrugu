@@ -1,0 +1,37 @@
+# 批准仅针对前批精确对象提案的组件绑定，不批准目标schema/映射、SRID或导入。
+version: 1
+status: draft
+release_id: 2026-10-06-bootstrap
+source_version: 2026-10-07-bootstrap
+proposal_file: spatial-objects-canary.draft.yaml
+proposal_sha256: 55bc07c2d59d8b4ea1ac31107de8f4e3f86e3f7e439765437adfc59ebd99758d
+authorization_reference: "2026-10-08 用户答复：同意。继续；对应每组SHP主成员与SHX/DBF/CPG/PRJ/QPJ绑定为两个独立对象的提案"
+component_binding_approved: true
+target_mapping_approved: false
+crs_srid_approved: false
+ready_for_import: false
+objects:
+  - object_name: Ca1884route_przh_1251
+    source_object_id: 9b4496c93de442c447b58adf9be56303ab5fd4897d68bbf0bad99069d12d44dc
+    primary_rule_id: m002709
+    primary_selector:
+      relative_path: harvard-full/doi_10_7910/DVN/E7HDYD/1884route.zip
+      archive_chain: [5_1884route/Ca1884route_przh_1251.shp]
+      archive_ordinals: [6]
+    approved_component_rule_ids: [m002705, m002706, m002707, m002708, m002709, m002710]
+  - object_name: Ca1884route_przh_utf8
+    source_object_id: e601ce1a7667c8286abce0d09c5b81d3dc809265ed219dd6e4e1dd3c5cfc9ace
+    primary_rule_id: m002717
+    primary_selector:
+      relative_path: harvard-full/doi_10_7910/DVN/E7HDYD/1884route.zip
+      archive_chain: [5_1884route/Ca1884route_przh_utf8.shp]
+      archive_ordinals: [14]
+    approved_component_rule_ids: [m002713, m002714, m002715, m002716, m002717, m002718]
+interpretation:
+  identity_anchor: primary_shp_member_chain_including_leaf
+  component_match: exact_physical_container_directory_stem
+  cross_container_matching: false
+  casefold_matching: false
+  two_objects: independent_not_mirror
+  prj_qpj: retain_both_raw_declarations_no_override
+  other_archive_members: remain_separately_registered

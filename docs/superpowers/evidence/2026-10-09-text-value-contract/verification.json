@@ -1,0 +1,78 @@
+{
+  "version": 1,
+  "git_revision": "1a34956fbcbe7877fbad04ee5a7ec9e3dd52bf05",
+  "source_status": "dirty",
+  "runtime_image_id": "sha256:89f1a0978cb817871d50d6468f3dec19e3ea1e67d5bc73457a62fd10b5b8732d",
+  "scope": "repository-metadata-only",
+  "uid": 10001,
+  "workspace": "/workspace",
+  "artifact_sha256": {
+    "docs/superpowers/evidence/2026-10-08-text-source-values/text-source-value-expectations.draft.json": "47c2401197e557be356941842d099a27db867e707682a3ef536cee2430d7ac38",
+    "datamgmt/contracts/releases/2026-10-06-bootstrap/text-schema-approved.draft.yaml": "0f379eee0eb120eb037cd63b73299cd79a9be6aee412b24ca5e04dac9bb03189",
+    "datamgmt/contracts/releases/2026-10-06-bootstrap/text-reading-decisions.draft.yaml": "49555b018fe87df0756620ac64eaaf4c73a3d3789cbb4408730b796acea16ec2",
+    "datamgmt/contracts/releases/2026-10-06-bootstrap/additional-text-reading-decisions.draft.yaml": "cb94b467d57018f9257dc4767570328eabe106b309fce42e68d6298dfac5528a",
+    "datamgmt/contracts/releases/2026-10-06-bootstrap/sources.yaml": "8d504b66a03eee2e9f235722a25aa6ece3e46cbcd3322941c9225c37cf747377",
+    "datamgmt/contracts/releases/2026-10-06-bootstrap/sources-metadata-review.draft.yaml": "9d05e365e0baaa405614efb64a0e7413bc465ed31d63e655ded7cac58e985f7d",
+    "datamgmt/contracts/releases/2026-10-06-bootstrap/decoding.yaml": "6f3d2fc6b189ac3208c8cd7e80a347750129916226668bfda3f20db7f88f2124",
+    "datamgmt/contracts/releases/2026-10-06-bootstrap/assertions.yaml": "54f813f763dbe0700f27a9173e53e5b0aad07efeef28fec8ef196130d1326a87",
+    "datamgmt/contracts/releases/2026-10-06-bootstrap/text-value-contract-proposal.draft.json": "c86be708b7469c095ae7bd35f4751dc17d9045f353da799cda651d6af38a2189",
+    "datamgmt/tests/unit/test_text_value_contract_proposal.py": "d8832473b0187b88bf16d6e67f64c12c73e07164d6441c789038597767b204bf"
+  },
+  "runs": {
+    "proposal": {
+      "junit_file": "/data/var/text-value-contract-20261009/proposal-junit.xml",
+      "junit_sha256": "642421ff628c0540c84a4379396afcf1fddfd4cf648fd0fb03a5b0ffaf8cc007",
+      "suite": {
+        "name": "pytest",
+        "errors": "0",
+        "failures": "0",
+        "skipped": "0",
+        "tests": "9",
+        "time": "0.295",
+        "timestamp": "2026-10-08T16:15:27.747653+00:00",
+        "hostname": "29795c60ae15"
+      }
+    },
+    "unit": {
+      "junit_file": "/data/var/text-value-contract-20261009/unit-junit.xml",
+      "junit_sha256": "a5949e905468b1c217e7d3b9b56027ee200f46d63b3ad82e74034bb5d1bd3522",
+      "suite": {
+        "name": "pytest",
+        "errors": "0",
+        "failures": "0",
+        "skipped": "0",
+        "tests": "485",
+        "time": "5.768",
+        "timestamp": "2026-10-08T16:15:28.801076+00:00",
+        "hostname": "29795c60ae15"
+      }
+    },
+    "image-context": {
+      "junit_file": "/data/var/text-value-contract-20261009/image-context-junit.xml",
+      "junit_sha256": "95fc1b9d2a4be2b17eae597f3eac95d8ecbb62e1ff09c5275a1584418638f8e6",
+      "suite": {
+        "name": "pytest",
+        "errors": "0",
+        "failures": "0",
+        "skipped": "9",
+        "tests": "9",
+        "time": "0.175",
+        "timestamp": "2026-10-08T16:15:44.318163+00:00",
+        "hostname": "29795c60ae15"
+      }
+    }
+  },
+  "proposal_status": "DRAFT_FOR_REVIEW",
+  "source_read_this_run": false,
+  "database_connected": false,
+  "contract_frozen": false,
+  "ready_for_import": false,
+  "image_context_is_synthetic": true,
+  "candidate_image_built_this_run": false,
+  "full_dev_suite": {
+    "passed": 488,
+    "failed": 5,
+    "reason": "test-target-only /app/docker-compose.yml is absent from dev target; failures documented in progress ledger"
+  },
+  "current_exists": false
+}

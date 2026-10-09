@@ -1,0 +1,5 @@
+{"rule_id": "m008002", "rows": 2957, "fields": 159678, "status": "source_expectation_prepared"}
+{"rule_id": "m008003", "rows": 40199, "fields": 200995, "status": "source_expectation_prepared"}
+{"rule_id": "m008004", "rows": 1033, "fields": 11363, "status": "source_expectation_prepared"}
+{"rule_id": "m004812", "rows": 29, "fields": 203, "status": "source_expectation_prepared"}
+{"rule_id": "m006642", "rows": 3389, "fields": 20334, "status": "source_expectation_prepared"}

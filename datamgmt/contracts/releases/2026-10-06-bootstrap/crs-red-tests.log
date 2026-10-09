@@ -1,0 +1,614 @@
+FFFFFFFFFFFFFFFFFFFFFFFFFFF                                              [100%]
+=================================== FAILURES ===================================
+_______ test_diagnostic_retains_original_bytes_and_does_not_assign_srid ________
+
+    def test_diagnostic_retains_original_bytes_and_does_not_assign_srid():
+        raw = b'  ' + LAT_LON + b'\r\n'
+>       result = api().diagnose_wkt(raw)
+                 ^^^^^
+
+datamgmt/tests/unit/test_crs_diagnostic.py:22: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+        spec = importlib.util.find_spec("xiangrugu_datamgmt.crs_diagnostic")
+>       assert spec is not None, "Offline CRS diagnostic API is not implemented"
+E       AssertionError: Offline CRS diagnostic API is not implemented
+E       assert None is not None
+
+datamgmt/tests/unit/test_crs_diagnostic.py:16: AssertionError
+______ test_axis_difference_is_not_silently_treated_as_strict_equivalence ______
+
+    def test_axis_difference_is_not_silently_treated_as_strict_equivalence():
+>       result = api().compare_wkt(LAT_LON, LON_LAT)
+                 ^^^^^
+
+datamgmt/tests/unit/test_crs_diagnostic.py:35: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+        spec = importlib.util.find_spec("xiangrugu_datamgmt.crs_diagnostic")
+>       assert spec is not None, "Offline CRS diagnostic API is not implemented"
+E       AssertionError: Offline CRS diagnostic API is not implemented
+E       assert None is not None
+
+datamgmt/tests/unit/test_crs_diagnostic.py:16: AssertionError
+________________ test_conflicting_declarations_remain_separate _________________
+
+    def test_conflicting_declarations_remain_separate():
+>       result = api().compare_wkt(LAT_LON, SPHERE)
+                 ^^^^^
+
+datamgmt/tests/unit/test_crs_diagnostic.py:43: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+        spec = importlib.util.find_spec("xiangrugu_datamgmt.crs_diagnostic")
+>       assert spec is not None, "Offline CRS diagnostic API is not implemented"
+E       AssertionError: Offline CRS diagnostic API is not implemented
+E       assert None is not None
+
+datamgmt/tests/unit/test_crs_diagnostic.py:16: AssertionError
+___________ test_no_authority_match_does_not_invent_an_epsg_or_zero ____________
+
+    def test_no_authority_match_does_not_invent_an_epsg_or_zero():
+>       result = api().diagnose_wkt(SPHERE)
+                 ^^^^^
+
+datamgmt/tests/unit/test_crs_diagnostic.py:51: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+        spec = importlib.util.find_spec("xiangrugu_datamgmt.crs_diagnostic")
+>       assert spec is not None, "Offline CRS diagnostic API is not implemented"
+E       AssertionError: Offline CRS diagnostic API is not implemented
+E       assert None is not None
+
+datamgmt/tests/unit/test_crs_diagnostic.py:16: AssertionError
+____________ test_identical_crs_is_reported_without_assigning_srid _____________
+
+    def test_identical_crs_is_reported_without_assigning_srid():
+>       result = api().compare_wkt(LAT_LON, LAT_LON)
+                 ^^^^^
+
+datamgmt/tests/unit/test_crs_diagnostic.py:57: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+        spec = importlib.util.find_spec("xiangrugu_datamgmt.crs_diagnostic")
+>       assert spec is not None, "Offline CRS diagnostic API is not implemented"
+E       AssertionError: Offline CRS diagnostic API is not implemented
+E       assert None is not None
+
+datamgmt/tests/unit/test_crs_diagnostic.py:16: AssertionError
+______ test_invalid_input_is_rejected_without_echoing_source[-empty_wkt] _______
+
+raw = b'', code = 'empty_wkt'
+
+    @pytest.mark.parametrize("raw,code", [
+        (b'', 'empty_wkt'), (b' \n', 'empty_wkt'), (b'\xff', 'invalid_utf8'),
+        (b'GEOGCS["x"\x00]', 'nul_byte'), (b'https://example.invalid/crs', 'invalid_wkt'),
+        (b'EPSG:4326', 'invalid_wkt'), (b'GEOGCS["x"', 'unbalanced_wkt'),
+        (LAT_LON + b' garbage', 'trailing_wkt'),
+        (LAT_LON + LAT_LON, 'trailing_wkt'),
+        (b'GEOGCS["x")', 'unbalanced_wkt'),
+        (b'GEOGCS["unterminated]', 'unbalanced_wkt'),
+        (b'GEOGCS["x"]', 'invalid_wkt'),
+    ])
+    def test_invalid_input_is_rejected_without_echoing_source(raw, code):
+>       with pytest.raises(api().CRSDiagnosticError) as caught:
+                           ^^^^^
+
+datamgmt/tests/unit/test_crs_diagnostic.py:74: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+        spec = importlib.util.find_spec("xiangrugu_datamgmt.crs_diagnostic")
+>       assert spec is not None, "Offline CRS diagnostic API is not implemented"
+E       AssertionError: Offline CRS diagnostic API is not implemented
+E       assert None is not None
+
+datamgmt/tests/unit/test_crs_diagnostic.py:16: AssertionError
+_____ test_invalid_input_is_rejected_without_echoing_source[ \n-empty_wkt] _____
+
+raw = b' \n', code = 'empty_wkt'
+
+    @pytest.mark.parametrize("raw,code", [
+        (b'', 'empty_wkt'), (b' \n', 'empty_wkt'), (b'\xff', 'invalid_utf8'),
+        (b'GEOGCS["x"\x00]', 'nul_byte'), (b'https://example.invalid/crs', 'invalid_wkt'),
+        (b'EPSG:4326', 'invalid_wkt'), (b'GEOGCS["x"', 'unbalanced_wkt'),
+        (LAT_LON + b' garbage', 'trailing_wkt'),
+        (LAT_LON + LAT_LON, 'trailing_wkt'),
+        (b'GEOGCS["x")', 'unbalanced_wkt'),
+        (b'GEOGCS["unterminated]', 'unbalanced_wkt'),
+        (b'GEOGCS["x"]', 'invalid_wkt'),
+    ])
+    def test_invalid_input_is_rejected_without_echoing_source(raw, code):
+>       with pytest.raises(api().CRSDiagnosticError) as caught:
+                           ^^^^^
+
+datamgmt/tests/unit/test_crs_diagnostic.py:74: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+        spec = importlib.util.find_spec("xiangrugu_datamgmt.crs_diagnostic")
+>       assert spec is not None, "Offline CRS diagnostic API is not implemented"
+E       AssertionError: Offline CRS diagnostic API is not implemented
+E       assert None is not None
+
+datamgmt/tests/unit/test_crs_diagnostic.py:16: AssertionError
+___ test_invalid_input_is_rejected_without_echoing_source[\xff-invalid_utf8] ___
+
+raw = b'\xff', code = 'invalid_utf8'
+
+    @pytest.mark.parametrize("raw,code", [
+        (b'', 'empty_wkt'), (b' \n', 'empty_wkt'), (b'\xff', 'invalid_utf8'),
+        (b'GEOGCS["x"\x00]', 'nul_byte'), (b'https://example.invalid/crs', 'invalid_wkt'),
+        (b'EPSG:4326', 'invalid_wkt'), (b'GEOGCS["x"', 'unbalanced_wkt'),
+        (LAT_LON + b' garbage', 'trailing_wkt'),
+        (LAT_LON + LAT_LON, 'trailing_wkt'),
+        (b'GEOGCS["x")', 'unbalanced_wkt'),
+        (b'GEOGCS["unterminated]', 'unbalanced_wkt'),
+        (b'GEOGCS["x"]', 'invalid_wkt'),
+    ])
+    def test_invalid_input_is_rejected_without_echoing_source(raw, code):
+>       with pytest.raises(api().CRSDiagnosticError) as caught:
+                           ^^^^^
+
+datamgmt/tests/unit/test_crs_diagnostic.py:74: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+        spec = importlib.util.find_spec("xiangrugu_datamgmt.crs_diagnostic")
+>       assert spec is not None, "Offline CRS diagnostic API is not implemented"
+E       AssertionError: Offline CRS diagnostic API is not implemented
+E       assert None is not None
+
+datamgmt/tests/unit/test_crs_diagnostic.py:16: AssertionError
+_ test_invalid_input_is_rejected_without_echoing_source[GEOGCS["x"\x00]-nul_byte] _
+
+raw = b'GEOGCS["x"\x00]', code = 'nul_byte'
+
+    @pytest.mark.parametrize("raw,code", [
+        (b'', 'empty_wkt'), (b' \n', 'empty_wkt'), (b'\xff', 'invalid_utf8'),
+        (b'GEOGCS["x"\x00]', 'nul_byte'), (b'https://example.invalid/crs', 'invalid_wkt'),
+        (b'EPSG:4326', 'invalid_wkt'), (b'GEOGCS["x"', 'unbalanced_wkt'),
+        (LAT_LON + b' garbage', 'trailing_wkt'),
+        (LAT_LON + LAT_LON, 'trailing_wkt'),
+        (b'GEOGCS["x")', 'unbalanced_wkt'),
+        (b'GEOGCS["unterminated]', 'unbalanced_wkt'),
+        (b'GEOGCS["x"]', 'invalid_wkt'),
+    ])
+    def test_invalid_input_is_rejected_without_echoing_source(raw, code):
+>       with pytest.raises(api().CRSDiagnosticError) as caught:
+                           ^^^^^
+
+datamgmt/tests/unit/test_crs_diagnostic.py:74: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+        spec = importlib.util.find_spec("xiangrugu_datamgmt.crs_diagnostic")
+>       assert spec is not None, "Offline CRS diagnostic API is not implemented"
+E       AssertionError: Offline CRS diagnostic API is not implemented
+E       assert None is not None
+
+datamgmt/tests/unit/test_crs_diagnostic.py:16: AssertionError
+_ test_invalid_input_is_rejected_without_echoing_source[https://example.invalid/crs-invalid_wkt] _
+
+raw = b'https://example.invalid/crs', code = 'invalid_wkt'
+
+    @pytest.mark.parametrize("raw,code", [
+        (b'', 'empty_wkt'), (b' \n', 'empty_wkt'), (b'\xff', 'invalid_utf8'),
+        (b'GEOGCS["x"\x00]', 'nul_byte'), (b'https://example.invalid/crs', 'invalid_wkt'),
+        (b'EPSG:4326', 'invalid_wkt'), (b'GEOGCS["x"', 'unbalanced_wkt'),
+        (LAT_LON + b' garbage', 'trailing_wkt'),
+        (LAT_LON + LAT_LON, 'trailing_wkt'),
+        (b'GEOGCS["x")', 'unbalanced_wkt'),
+        (b'GEOGCS["unterminated]', 'unbalanced_wkt'),
+        (b'GEOGCS["x"]', 'invalid_wkt'),
+    ])
+    def test_invalid_input_is_rejected_without_echoing_source(raw, code):
+>       with pytest.raises(api().CRSDiagnosticError) as caught:
+                           ^^^^^
+
+datamgmt/tests/unit/test_crs_diagnostic.py:74: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+        spec = importlib.util.find_spec("xiangrugu_datamgmt.crs_diagnostic")
+>       assert spec is not None, "Offline CRS diagnostic API is not implemented"
+E       AssertionError: Offline CRS diagnostic API is not implemented
+E       assert None is not None
+
+datamgmt/tests/unit/test_crs_diagnostic.py:16: AssertionError
+_ test_invalid_input_is_rejected_without_echoing_source[EPSG:4326-invalid_wkt] _
+
+raw = b'EPSG:4326', code = 'invalid_wkt'
+
+    @pytest.mark.parametrize("raw,code", [
+        (b'', 'empty_wkt'), (b' \n', 'empty_wkt'), (b'\xff', 'invalid_utf8'),
+        (b'GEOGCS["x"\x00]', 'nul_byte'), (b'https://example.invalid/crs', 'invalid_wkt'),
+        (b'EPSG:4326', 'invalid_wkt'), (b'GEOGCS["x"', 'unbalanced_wkt'),
+        (LAT_LON + b' garbage', 'trailing_wkt'),
+        (LAT_LON + LAT_LON, 'trailing_wkt'),
+        (b'GEOGCS["x")', 'unbalanced_wkt'),
+        (b'GEOGCS["unterminated]', 'unbalanced_wkt'),
+        (b'GEOGCS["x"]', 'invalid_wkt'),
+    ])
+    def test_invalid_input_is_rejected_without_echoing_source(raw, code):
+>       with pytest.raises(api().CRSDiagnosticError) as caught:
+                           ^^^^^
+
+datamgmt/tests/unit/test_crs_diagnostic.py:74: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+        spec = importlib.util.find_spec("xiangrugu_datamgmt.crs_diagnostic")
+>       assert spec is not None, "Offline CRS diagnostic API is not implemented"
+E       AssertionError: Offline CRS diagnostic API is not implemented
+E       assert None is not None
+
+datamgmt/tests/unit/test_crs_diagnostic.py:16: AssertionError
+_ test_invalid_input_is_rejected_without_echoing_source[GEOGCS["x"-unbalanced_wkt] _
+
+raw = b'GEOGCS["x"', code = 'unbalanced_wkt'
+
+    @pytest.mark.parametrize("raw,code", [
+        (b'', 'empty_wkt'), (b' \n', 'empty_wkt'), (b'\xff', 'invalid_utf8'),
+        (b'GEOGCS["x"\x00]', 'nul_byte'), (b'https://example.invalid/crs', 'invalid_wkt'),
+        (b'EPSG:4326', 'invalid_wkt'), (b'GEOGCS["x"', 'unbalanced_wkt'),
+        (LAT_LON + b' garbage', 'trailing_wkt'),
+        (LAT_LON + LAT_LON, 'trailing_wkt'),
+        (b'GEOGCS["x")', 'unbalanced_wkt'),
+        (b'GEOGCS["unterminated]', 'unbalanced_wkt'),
+        (b'GEOGCS["x"]', 'invalid_wkt'),
+    ])
+    def test_invalid_input_is_rejected_without_echoing_source(raw, code):
+>       with pytest.raises(api().CRSDiagnosticError) as caught:
+                           ^^^^^
+
+datamgmt/tests/unit/test_crs_diagnostic.py:74: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+        spec = importlib.util.find_spec("xiangrugu_datamgmt.crs_diagnostic")
+>       assert spec is not None, "Offline CRS diagnostic API is not implemented"
+E       AssertionError: Offline CRS diagnostic API is not implemented
+E       assert None is not None
+
+datamgmt/tests/unit/test_crs_diagnostic.py:16: AssertionError
+_ test_invalid_input_is_rejected_without_echoing_source[GEOGCS["WGS 84",DATUM["WGS_1984",SPHEROID["WGS 84",6378137,298.257223563]],PRIMEM["Greenwich",0],UNIT["degree",0.0174532925199433],AXIS["Latitude",NORTH],AXIS["Longitude",EAST],AUTHORITY["EPSG","4326"]] garbage-trailing_wkt] _
+
+raw = b'GEOGCS["WGS 84",DATUM["WGS_1984",SPHEROID["WGS 84",6378137,298.257223563]],PRIMEM["Greenwich",0],UNIT["degree",0.0174532925199433],AXIS["Latitude",NORTH],AXIS["Longitude",EAST],AUTHORITY["EPSG","4326"]] garbage'
+code = 'trailing_wkt'
+
+    @pytest.mark.parametrize("raw,code", [
+        (b'', 'empty_wkt'), (b' \n', 'empty_wkt'), (b'\xff', 'invalid_utf8'),
+        (b'GEOGCS["x"\x00]', 'nul_byte'), (b'https://example.invalid/crs', 'invalid_wkt'),
+        (b'EPSG:4326', 'invalid_wkt'), (b'GEOGCS["x"', 'unbalanced_wkt'),
+        (LAT_LON + b' garbage', 'trailing_wkt'),
+        (LAT_LON + LAT_LON, 'trailing_wkt'),
+        (b'GEOGCS["x")', 'unbalanced_wkt'),
+        (b'GEOGCS["unterminated]', 'unbalanced_wkt'),
+        (b'GEOGCS["x"]', 'invalid_wkt'),
+    ])
+    def test_invalid_input_is_rejected_without_echoing_source(raw, code):
+>       with pytest.raises(api().CRSDiagnosticError) as caught:
+                           ^^^^^
+
+datamgmt/tests/unit/test_crs_diagnostic.py:74: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+        spec = importlib.util.find_spec("xiangrugu_datamgmt.crs_diagnostic")
+>       assert spec is not None, "Offline CRS diagnostic API is not implemented"
+E       AssertionError: Offline CRS diagnostic API is not implemented
+E       assert None is not None
+
+datamgmt/tests/unit/test_crs_diagnostic.py:16: AssertionError
+_ test_invalid_input_is_rejected_without_echoing_source[GEOGCS["WGS 84",DATUM["WGS_1984",SPHEROID["WGS 84",6378137,298.257223563]],PRIMEM["Greenwich",0],UNIT["degree",0.0174532925199433],AXIS["Latitude",NORTH],AXIS["Longitude",EAST],AUTHORITY["EPSG","4326"]]GEOGCS["WGS 84",DATUM["WGS_1984",SPHEROID["WGS 84",6378137,298.257223563]],PRIMEM["Greenwich",0],UNIT["degree",0.0174532925199433],AXIS["Latitude",NORTH],AXIS["Longitude",EAST],AUTHORITY["EPSG","4326"]]-trailing_wkt] _
+
+raw = b'GEOGCS["WGS 84",DATUM["WGS_1984",SPHEROID["WGS 84",6378137,298.257223563]],PRIMEM["Greenwich",0],UNIT["degree",0.017...reenwich",0],UNIT["degree",0.0174532925199433],AXIS["Latitude",NORTH],AXIS["Longitude",EAST],AUTHORITY["EPSG","4326"]]'
+code = 'trailing_wkt'
+
+    @pytest.mark.parametrize("raw,code", [
+        (b'', 'empty_wkt'), (b' \n', 'empty_wkt'), (b'\xff', 'invalid_utf8'),
+        (b'GEOGCS["x"\x00]', 'nul_byte'), (b'https://example.invalid/crs', 'invalid_wkt'),
+        (b'EPSG:4326', 'invalid_wkt'), (b'GEOGCS["x"', 'unbalanced_wkt'),
+        (LAT_LON + b' garbage', 'trailing_wkt'),
+        (LAT_LON + LAT_LON, 'trailing_wkt'),
+        (b'GEOGCS["x")', 'unbalanced_wkt'),
+        (b'GEOGCS["unterminated]', 'unbalanced_wkt'),
+        (b'GEOGCS["x"]', 'invalid_wkt'),
+    ])
+    def test_invalid_input_is_rejected_without_echoing_source(raw, code):
+>       with pytest.raises(api().CRSDiagnosticError) as caught:
+                           ^^^^^
+
+datamgmt/tests/unit/test_crs_diagnostic.py:74: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+        spec = importlib.util.find_spec("xiangrugu_datamgmt.crs_diagnostic")
+>       assert spec is not None, "Offline CRS diagnostic API is not implemented"
+E       AssertionError: Offline CRS diagnostic API is not implemented
+E       assert None is not None
+
+datamgmt/tests/unit/test_crs_diagnostic.py:16: AssertionError
+_ test_invalid_input_is_rejected_without_echoing_source[GEOGCS["x")-unbalanced_wkt] _
+
+raw = b'GEOGCS["x")', code = 'unbalanced_wkt'
+
+    @pytest.mark.parametrize("raw,code", [
+        (b'', 'empty_wkt'), (b' \n', 'empty_wkt'), (b'\xff', 'invalid_utf8'),
+        (b'GEOGCS["x"\x00]', 'nul_byte'), (b'https://example.invalid/crs', 'invalid_wkt'),
+        (b'EPSG:4326', 'invalid_wkt'), (b'GEOGCS["x"', 'unbalanced_wkt'),
+        (LAT_LON + b' garbage', 'trailing_wkt'),
+        (LAT_LON + LAT_LON, 'trailing_wkt'),
+        (b'GEOGCS["x")', 'unbalanced_wkt'),
+        (b'GEOGCS["unterminated]', 'unbalanced_wkt'),
+        (b'GEOGCS["x"]', 'invalid_wkt'),
+    ])
+    def test_invalid_input_is_rejected_without_echoing_source(raw, code):
+>       with pytest.raises(api().CRSDiagnosticError) as caught:
+                           ^^^^^
+
+datamgmt/tests/unit/test_crs_diagnostic.py:74: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+        spec = importlib.util.find_spec("xiangrugu_datamgmt.crs_diagnostic")
+>       assert spec is not None, "Offline CRS diagnostic API is not implemented"
+E       AssertionError: Offline CRS diagnostic API is not implemented
+E       assert None is not None
+
+datamgmt/tests/unit/test_crs_diagnostic.py:16: AssertionError
+_ test_invalid_input_is_rejected_without_echoing_source[GEOGCS["unterminated]-unbalanced_wkt] _
+
+raw = b'GEOGCS["unterminated]', code = 'unbalanced_wkt'
+
+    @pytest.mark.parametrize("raw,code", [
+        (b'', 'empty_wkt'), (b' \n', 'empty_wkt'), (b'\xff', 'invalid_utf8'),
+        (b'GEOGCS["x"\x00]', 'nul_byte'), (b'https://example.invalid/crs', 'invalid_wkt'),
+        (b'EPSG:4326', 'invalid_wkt'), (b'GEOGCS["x"', 'unbalanced_wkt'),
+        (LAT_LON + b' garbage', 'trailing_wkt'),
+        (LAT_LON + LAT_LON, 'trailing_wkt'),
+        (b'GEOGCS["x")', 'unbalanced_wkt'),
+        (b'GEOGCS["unterminated]', 'unbalanced_wkt'),
+        (b'GEOGCS["x"]', 'invalid_wkt'),
+    ])
+    def test_invalid_input_is_rejected_without_echoing_source(raw, code):
+>       with pytest.raises(api().CRSDiagnosticError) as caught:
+                           ^^^^^
+
+datamgmt/tests/unit/test_crs_diagnostic.py:74: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+        spec = importlib.util.find_spec("xiangrugu_datamgmt.crs_diagnostic")
+>       assert spec is not None, "Offline CRS diagnostic API is not implemented"
+E       AssertionError: Offline CRS diagnostic API is not implemented
+E       assert None is not None
+
+datamgmt/tests/unit/test_crs_diagnostic.py:16: AssertionError
+_ test_invalid_input_is_rejected_without_echoing_source[GEOGCS["x"]-invalid_wkt] _
+
+raw = b'GEOGCS["x"]', code = 'invalid_wkt'
+
+    @pytest.mark.parametrize("raw,code", [
+        (b'', 'empty_wkt'), (b' \n', 'empty_wkt'), (b'\xff', 'invalid_utf8'),
+        (b'GEOGCS["x"\x00]', 'nul_byte'), (b'https://example.invalid/crs', 'invalid_wkt'),
+        (b'EPSG:4326', 'invalid_wkt'), (b'GEOGCS["x"', 'unbalanced_wkt'),
+        (LAT_LON + b' garbage', 'trailing_wkt'),
+        (LAT_LON + LAT_LON, 'trailing_wkt'),
+        (b'GEOGCS["x")', 'unbalanced_wkt'),
+        (b'GEOGCS["unterminated]', 'unbalanced_wkt'),
+        (b'GEOGCS["x"]', 'invalid_wkt'),
+    ])
+    def test_invalid_input_is_rejected_without_echoing_source(raw, code):
+>       with pytest.raises(api().CRSDiagnosticError) as caught:
+                           ^^^^^
+
+datamgmt/tests/unit/test_crs_diagnostic.py:74: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+        spec = importlib.util.find_spec("xiangrugu_datamgmt.crs_diagnostic")
+>       assert spec is not None, "Offline CRS diagnostic API is not implemented"
+E       AssertionError: Offline CRS diagnostic API is not implemented
+E       assert None is not None
+
+datamgmt/tests/unit/test_crs_diagnostic.py:16: AssertionError
+_________________ test_byte_budget_is_enforced_before_parsing __________________
+
+    def test_byte_budget_is_enforced_before_parsing():
+>       with pytest.raises(api().CRSDiagnosticError) as caught:
+                           ^^^^^
+
+datamgmt/tests/unit/test_crs_diagnostic.py:81: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+        spec = importlib.util.find_spec("xiangrugu_datamgmt.crs_diagnostic")
+>       assert spec is not None, "Offline CRS diagnostic API is not implemented"
+E       AssertionError: Offline CRS diagnostic API is not implemented
+E       assert None is not None
+
+datamgmt/tests/unit/test_crs_diagnostic.py:16: AssertionError
+________________ test_nesting_budget_is_enforced_before_parsing ________________
+
+    def test_nesting_budget_is_enforced_before_parsing():
+>       with pytest.raises(api().CRSDiagnosticError) as caught:
+                           ^^^^^
+
+datamgmt/tests/unit/test_crs_diagnostic.py:87: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+        spec = importlib.util.find_spec("xiangrugu_datamgmt.crs_diagnostic")
+>       assert spec is not None, "Offline CRS diagnostic API is not implemented"
+E       AssertionError: Offline CRS diagnostic API is not implemented
+E       assert None is not None
+
+datamgmt/tests/unit/test_crs_diagnostic.py:16: AssertionError
+________________ test_invalid_budgets_are_rejected[max_bytes-0] ________________
+
+name = 'max_bytes', value = 0
+
+    @pytest.mark.parametrize("name,value", [('max_bytes', 0), ('max_depth', True),
+                                           ('max_candidates', -1), ('max_bytes', 1.5)])
+    def test_invalid_budgets_are_rejected(name, value):
+        with pytest.raises(ValueError):
+>           api().CRSLimits(**{name: value})
+            ^^^^^
+
+datamgmt/tests/unit/test_crs_diagnostic.py:96: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+        spec = importlib.util.find_spec("xiangrugu_datamgmt.crs_diagnostic")
+>       assert spec is not None, "Offline CRS diagnostic API is not implemented"
+E       AssertionError: Offline CRS diagnostic API is not implemented
+E       assert None is not None
+
+datamgmt/tests/unit/test_crs_diagnostic.py:16: AssertionError
+______________ test_invalid_budgets_are_rejected[max_depth-True] _______________
+
+name = 'max_depth', value = True
+
+    @pytest.mark.parametrize("name,value", [('max_bytes', 0), ('max_depth', True),
+                                           ('max_candidates', -1), ('max_bytes', 1.5)])
+    def test_invalid_budgets_are_rejected(name, value):
+        with pytest.raises(ValueError):
+>           api().CRSLimits(**{name: value})
+            ^^^^^
+
+datamgmt/tests/unit/test_crs_diagnostic.py:96: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+        spec = importlib.util.find_spec("xiangrugu_datamgmt.crs_diagnostic")
+>       assert spec is not None, "Offline CRS diagnostic API is not implemented"
+E       AssertionError: Offline CRS diagnostic API is not implemented
+E       assert None is not None
+
+datamgmt/tests/unit/test_crs_diagnostic.py:16: AssertionError
+_____________ test_invalid_budgets_are_rejected[max_candidates--1] _____________
+
+name = 'max_candidates', value = -1
+
+    @pytest.mark.parametrize("name,value", [('max_bytes', 0), ('max_depth', True),
+                                           ('max_candidates', -1), ('max_bytes', 1.5)])
+    def test_invalid_budgets_are_rejected(name, value):
+        with pytest.raises(ValueError):
+>           api().CRSLimits(**{name: value})
+            ^^^^^
+
+datamgmt/tests/unit/test_crs_diagnostic.py:96: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+        spec = importlib.util.find_spec("xiangrugu_datamgmt.crs_diagnostic")
+>       assert spec is not None, "Offline CRS diagnostic API is not implemented"
+E       AssertionError: Offline CRS diagnostic API is not implemented
+E       assert None is not None
+
+datamgmt/tests/unit/test_crs_diagnostic.py:16: AssertionError
+_______________ test_invalid_budgets_are_rejected[max_bytes-1.5] _______________
+
+name = 'max_bytes', value = 1.5
+
+    @pytest.mark.parametrize("name,value", [('max_bytes', 0), ('max_depth', True),
+                                           ('max_candidates', -1), ('max_bytes', 1.5)])
+    def test_invalid_budgets_are_rejected(name, value):
+        with pytest.raises(ValueError):
+>           api().CRSLimits(**{name: value})
+            ^^^^^
+
+datamgmt/tests/unit/test_crs_diagnostic.py:96: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+        spec = importlib.util.find_spec("xiangrugu_datamgmt.crs_diagnostic")
+>       assert spec is not None, "Offline CRS diagnostic API is not implemented"
+E       AssertionError: Offline CRS diagnostic API is not implemented
+E       assert None is not None
+
+datamgmt/tests/unit/test_crs_diagnostic.py:16: AssertionError
+__________________ test_exact_budget_boundaries_are_accepted ___________________
+
+    def test_exact_budget_boundaries_are_accepted():
+>       assert api().diagnose_wkt(LAT_LON, limits=api().CRSLimits(
+               ^^^^^
+            max_bytes=len(LAT_LON), max_depth=3))["srid_assigned"] is None
+
+datamgmt/tests/unit/test_crs_diagnostic.py:100: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+        spec = importlib.util.find_spec("xiangrugu_datamgmt.crs_diagnostic")
+>       assert spec is not None, "Offline CRS diagnostic API is not implemented"
+E       AssertionError: Offline CRS diagnostic API is not implemented
+E       assert None is not None
+
+datamgmt/tests/unit/test_crs_diagnostic.py:16: AssertionError
+________ test_network_enabled_context_is_rejected_not_silently_mutated _________
+
+    def test_network_enabled_context_is_rejected_not_silently_mutated():
+>       from pyproj import network
+E       ModuleNotFoundError: No module named 'pyproj'
+
+datamgmt/tests/unit/test_crs_diagnostic.py:105: ModuleNotFoundError
+____________ test_runtime_provenance_includes_bundled_database_hash ____________
+
+    def test_runtime_provenance_includes_bundled_database_hash():
+>       info = api().runtime_provenance()
+               ^^^^^
+
+datamgmt/tests/unit/test_crs_diagnostic.py:118: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+        spec = importlib.util.find_spec("xiangrugu_datamgmt.crs_diagnostic")
+>       assert spec is not None, "Offline CRS diagnostic API is not implemented"
+E       AssertionError: Offline CRS diagnostic API is not implemented
+E       assert None is not None
+
+datamgmt/tests/unit/test_crs_diagnostic.py:16: AssertionError
+________ test_image_contains_offline_crs_dependency_and_bundled_catalog ________
+
+    def test_image_contains_offline_crs_dependency_and_bundled_catalog():
+        """Dropping the locked parser/catalog or enabling PROJ network fails."""
+>       from pyproj import CRS, network
+E       ModuleNotFoundError: No module named 'pyproj'
+
+datamgmt/tests/container/test_image_contract.py:16: ModuleNotFoundError
+=========================== short test summary info ============================
+FAILED datamgmt/tests/unit/test_crs_diagnostic.py::test_diagnostic_retains_original_bytes_and_does_not_assign_srid
+FAILED datamgmt/tests/unit/test_crs_diagnostic.py::test_axis_difference_is_not_silently_treated_as_strict_equivalence
+FAILED datamgmt/tests/unit/test_crs_diagnostic.py::test_conflicting_declarations_remain_separate
+FAILED datamgmt/tests/unit/test_crs_diagnostic.py::test_no_authority_match_does_not_invent_an_epsg_or_zero
+FAILED datamgmt/tests/unit/test_crs_diagnostic.py::test_identical_crs_is_reported_without_assigning_srid
+FAILED datamgmt/tests/unit/test_crs_diagnostic.py::test_invalid_input_is_rejected_without_echoing_source[-empty_wkt]
+FAILED datamgmt/tests/unit/test_crs_diagnostic.py::test_invalid_input_is_rejected_without_echoing_source[ \n-empty_wkt]
+FAILED datamgmt/tests/unit/test_crs_diagnostic.py::test_invalid_input_is_rejected_without_echoing_source[\xff-invalid_utf8]
+FAILED datamgmt/tests/unit/test_crs_diagnostic.py::test_invalid_input_is_rejected_without_echoing_source[GEOGCS["x"\x00]-nul_byte]
+FAILED datamgmt/tests/unit/test_crs_diagnostic.py::test_invalid_input_is_rejected_without_echoing_source[https://example.invalid/crs-invalid_wkt]
+FAILED datamgmt/tests/unit/test_crs_diagnostic.py::test_invalid_input_is_rejected_without_echoing_source[EPSG:4326-invalid_wkt]
+FAILED datamgmt/tests/unit/test_crs_diagnostic.py::test_invalid_input_is_rejected_without_echoing_source[GEOGCS["x"-unbalanced_wkt]
+FAILED datamgmt/tests/unit/test_crs_diagnostic.py::test_invalid_input_is_rejected_without_echoing_source[GEOGCS["WGS 84",DATUM["WGS_1984",SPHEROID["WGS 84",6378137,298.257223563]],PRIMEM["Greenwich",0],UNIT["degree",0.0174532925199433],AXIS["Latitude",NORTH],AXIS["Longitude",EAST],AUTHORITY["EPSG","4326"]] garbage-trailing_wkt]
+FAILED datamgmt/tests/unit/test_crs_diagnostic.py::test_invalid_input_is_rejected_without_echoing_source[GEOGCS["WGS 84",DATUM["WGS_1984",SPHEROID["WGS 84",6378137,298.257223563]],PRIMEM["Greenwich",0],UNIT["degree",0.0174532925199433],AXIS["Latitude",NORTH],AXIS["Longitude",EAST],AUTHORITY["EPSG","4326"]]GEOGCS["WGS 84",DATUM["WGS_1984",SPHEROID["WGS 84",6378137,298.257223563]],PRIMEM["Greenwich",0],UNIT["degree",0.0174532925199433],AXIS["Latitude",NORTH],AXIS["Longitude",EAST],AUTHORITY["EPSG","4326"]]-trailing_wkt]
+FAILED datamgmt/tests/unit/test_crs_diagnostic.py::test_invalid_input_is_rejected_without_echoing_source[GEOGCS["x")-unbalanced_wkt]
+FAILED datamgmt/tests/unit/test_crs_diagnostic.py::test_invalid_input_is_rejected_without_echoing_source[GEOGCS["unterminated]-unbalanced_wkt]
+FAILED datamgmt/tests/unit/test_crs_diagnostic.py::test_invalid_input_is_rejected_without_echoing_source[GEOGCS["x"]-invalid_wkt]
+FAILED datamgmt/tests/unit/test_crs_diagnostic.py::test_byte_budget_is_enforced_before_parsing
+FAILED datamgmt/tests/unit/test_crs_diagnostic.py::test_nesting_budget_is_enforced_before_parsing
+FAILED datamgmt/tests/unit/test_crs_diagnostic.py::test_invalid_budgets_are_rejected[max_bytes-0]
+FAILED datamgmt/tests/unit/test_crs_diagnostic.py::test_invalid_budgets_are_rejected[max_depth-True]
+FAILED datamgmt/tests/unit/test_crs_diagnostic.py::test_invalid_budgets_are_rejected[max_candidates--1]
+FAILED datamgmt/tests/unit/test_crs_diagnostic.py::test_invalid_budgets_are_rejected[max_bytes-1.5]
+FAILED datamgmt/tests/unit/test_crs_diagnostic.py::test_exact_budget_boundaries_are_accepted
+FAILED datamgmt/tests/unit/test_crs_diagnostic.py::test_network_enabled_context_is_rejected_not_silently_mutated
+FAILED datamgmt/tests/unit/test_crs_diagnostic.py::test_runtime_provenance_includes_bundled_database_hash
+FAILED datamgmt/tests/container/test_image_contract.py::test_image_contains_offline_crs_dependency_and_bundled_catalog
+27 failed in 0.21s

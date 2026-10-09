@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools==79.0.1"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "xiangrugu-datamgmt"
+version = "0.1.0"
+description = "Auditable data-management tooling for Xiangrugu"
+requires-python = ">=3.11,<3.12"
+dependencies = [
+  "psycopg[binary]==3.3.6",
+  "pydantic==2.13.5",
+  "PyYAML==6.0.3",
+  "pyproj==3.7.2",
+  "jsonschema==4.26.0",
+]
+
+[project.scripts]
+xiangrugu-datamgmt = "xiangrugu_datamgmt.__main__:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+addopts = ["-p", "no:cacheprovider"]
+testpaths = ["tests"]

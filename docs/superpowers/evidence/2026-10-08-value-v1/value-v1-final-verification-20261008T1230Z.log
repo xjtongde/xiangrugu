@@ -1,0 +1,39 @@
+2026年 10月 08日 星期四 12:28:33 UTC
+........................................................................ [ 18%]
+........................................................................ [ 36%]
+........................................................................ [ 54%]
+........................................................................ [ 73%]
+........................................................................ [ 91%]
+.................................                                        [100%]
+393 passed in 4.10s
+WARNING: The directory '/home/xiangrugu/.cache/pip' or its parent directory is not owned or is not writable by the current user. The cache has been disabled. Check the permissions and owner of that directory. If executing pip with sudo, you should use sudo's -H flag.
+No broken requirements found.
+{"module": "/usr/local/lib/python3.11/site-packages/xiangrugu_datamgmt/canonical.py", "report": {"compared_fields": 2, "details_truncated": false, "difference_count": 0, "differences": [], "error_code": null, "format_version": 1, "limits": {"max_columns": 512, "max_differences": 100, "max_field_bytes": 1048576, "max_row_bytes": 8388608, "max_rows": 100000, "max_stream_bytes": 268435456}, "result": "comparison_equal", "schema_hash": "14c83c33c3a0434d4aefa49a00e43e0d6f69e55c0b8a7b90b956841b13070388", "source_count": 1, "source_evidence": {"kind": "synthetic", "reference": "runtime-smoke", "sha256": "3333333333333333333333333333333333333333333333333333333333333333"}, "source_object_id": "1111111111111111111111111111111111111111111111111111111111111111", "source_partial": false, "source_sha256": "c3cfa16acbd73c41e105f743faf3f6f4ef980be960c215a00c3a2f21132eed5c", "target_count": 1, "target_evidence": {"kind": "synthetic", "reference": "runtime-smoke", "sha256": "3333333333333333333333333333333333333333333333333333333333333333"}, "target_partial": false, "target_sha256": "c3cfa16acbd73c41e105f743faf3f6f4ef980be960c215a00c3a2f21132eed5c"}, "runtime_smoke": "passed", "uid": 10001}
+usage: devwatch.py [-h] [--root ROOT] [--tests TESTS [TESTS ...]]
+                   [--interval INTERVAL] [--status STATUS]
+
+Run development tests whenever the controlled source mirror changes.
+
+options:
+  -h, --help            show this help message and exit
+  --root ROOT
+  --tests TESTS [TESTS ...]
+  --interval INTERVAL
+  --status STATUS
+[xiangrugu:dev xiangrugu:dev-crs-verified-20261008 xiangrugu:dev-pre-value-v1-20261008T122211Z] sha256:121f86c85e784cd78d145c8bf7db36722c17472c055926f53ef096421bcd5f10
+[xiangrugu:test xiangrugu:test-crs-verified-20261008 xiangrugu:test-pre-value-v1-20261008T122211Z] sha256:474da53d4fb0d7033ebe61eb74ac2b623cc7907b55b719fbc5f829270810a240
+[xiangrugu:runtime xiangrugu:runtime-crs-verified-20261008 xiangrugu:runtime-pre-value-v1-20261008T122211Z] sha256:c15019fed0fba9a8319ab129d0b1be1814ac22e775c7dccf8083e01220b4cb78
+sha256:2e0ebd5cdc13630d423449e8ee78f80ab82a5df73764e3e16f9cb48a1a603835 {"io.xiangrugu.source.status":"dirty","org.opencontainers.image.created":"2026-10-08T12:30:00Z","org.opencontainers.image.description":"Xiangrugu reproducible data-management runtime","org.opencontainers.image.revision":"1a34956fbcbe7877fbad04ee5a7ec9e3dd52bf05","org.opencontainers.image.title":"xiangrugu","org.opencontainers.image.version":"0.1.0"}
+sha256:570feb4ae317e9087a57ac40309d031e88a21585c752afa57f4a3482ae4c92a7 {"io.xiangrugu.source.status":"dirty","org.opencontainers.image.created":"2026-10-08T12:30:00Z","org.opencontainers.image.description":"Xiangrugu reproducible data-management runtime","org.opencontainers.image.revision":"1a34956fbcbe7877fbad04ee5a7ec9e3dd52bf05","org.opencontainers.image.title":"xiangrugu","org.opencontainers.image.version":"0.1.0"}
+sha256:fdee8599f754466d37994dee75e483d422d9f4fff2c048ebf9d48e0182980f13 {"io.xiangrugu.source.status":"dirty","org.opencontainers.image.created":"2026-10-08T12:30:00Z","org.opencontainers.image.description":"Xiangrugu reproducible data-management runtime","org.opencontainers.image.revision":"1a34956fbcbe7877fbad04ee5a7ec9e3dd52bf05","org.opencontainers.image.title":"xiangrugu","org.opencontainers.image.version":"0.1.0"}
+/xiangrugu-dev 14b0d8dc5801e6e680ece510abec9c9d8405fa5a172311cbf4a2494bce82a5a4 2026-10-08T07:41:42.507592242Z true
+/pg32 98418cb6f08a3c550fb5d36261bc618c006f0a07912437399778fdd4370b1a72 2026-10-08T04:52:10.350567648Z true
+/pg32b 3d93fc7741f66f1f01aa250b25c4959addfe4c84df22ecbd0d0f82c13920c1fc 2026-10-08T04:52:10.358850436Z true
+5ec2dd81e7b89a9c061a8ca02c9f45b2fd21ed324ad35af72893c836d0fbbaa4  datamgmt/src/xiangrugu_datamgmt/canonical.py
+044f08b72df7004ecc9d44bf15f0402ef4839b9510806b97820a80083a0e15e1  datamgmt/src/xiangrugu_datamgmt/validate.py
+6bc77ccdbd90df7b8c3124a8d6884eee5aa6d459eeb647ea9d24bf8bf61ae223  datamgmt/tests/unit/test_canonical.py
+cacd6f5bdba1b43f5e2f8d0d0fecf02117df1744c0486aa52eb19b80493485ea  datamgmt/tests/unit/test_value_validation.py
+7ffd41a23502fac71853b6c9700a4f677d065526efda43b46db9ea8f204a7abd  datamgmt/tests/fixtures/value_v1_golden.json
+c67a8586f086ef78c77a8af6f5a4562ba9ad856217ce96348c3d0fc5211575e0  datamgmt/tests/fixtures/value_v1_runtime_smoke.py
+VERIFICATION_COMPLETE
+

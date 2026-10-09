@@ -1,0 +1,70 @@
+name: xiangrugu
+
+services:
+  dev:
+    image: xiangrugu:dev
+    container_name: xiangrugu-dev
+    profiles: ["dev"]
+    working_dir: /workspace
+    read_only: true
+    user: "10001:10001"
+    restart: unless-stopped
+    network_mode: none
+    environment:
+      PYTHONPATH: /workspace/datamgmt/src
+      PYTHONDONTWRITEBYTECODE: "1"
+      XIANGRUGU_DEV_STATUS: /data/var/devwatch/status.json
+    command:
+      - python
+      - -m
+      - xiangrugu_datamgmt.devwatch
+      - --root
+      - /workspace
+      - --tests
+      - datamgmt/tests/unit
+    tmpfs:
+      - /tmp:uid=10001,gid=10001,mode=1777
+    volumes:
+      - type: bind
+        source: /opt/mydocker/xiangrugu/deploy
+        target: /workspace
+        read_only: true
+      - type: bind
+        source: /opt/mydocker/xiangrugu/data/persistent
+        target: /data/persistent
+      - type: bind
+        source: /opt/mydocker/xiangrugu/data/var
+        target: /data/var
+
+  app:
+    image: xiangrugu:runtime
+    profiles: ["runtime"]
+    read_only: true
+    user: "10001:10001"
+    restart: "no"
+    volumes:
+      - type: bind
+        source: /opt/mydocker/xiangrugu/data/persistent
+        target: /data/persistent
+      - type: bind
+        source: /opt/mydocker/xiangrugu/data/var
+        target: /data/var
+      - type: bind
+        source: /opt/mydocker/xiangrugu/data/imports
+        target: /data/imports
+        read_only: true
+
+  datamgmt-test:
+    image: xiangrugu:test
+    profiles: ["test"]
+    read_only: true
+    user: "10001:10001"
+    restart: "no"
+
+  test-db:
+    image: postgres:18-bookworm@sha256:882236b897e39051d2368c5ccc6cda944904723506b2dfc97f2a8f5bc9afa382
+    profiles: ["test-db"]
+    environment:
+      POSTGRES_HOST_AUTH_METHOD: trust
+    network_mode: none
+    restart: "no"

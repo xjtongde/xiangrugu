@@ -1,0 +1,27 @@
+# 未冻结候选；只供 preview_checksum_candidates 核验，不修改严格清单或导入门。
+version: 1
+status: draft
+release_id: 2026-10-06-bootstrap
+source_version: 2026-10-07-bootstrap
+inventory_sha256: fb5e6b334b898d62dc0e5c77094fdb50e0946300e6e3009f447b2ecd1bc216db
+rules:
+  - rule_id: b2-exact-trailing-nul
+    kind: trailing_nul
+    ledger: SHA256SUMS-b2
+    raw_sha256: 900d98c69cf9b72f20313aa562b8da5e18e9c3e3def423fa6f618b4b1bafb3cb
+    raw_size: 22071
+    valid_lines: 172
+    trailing_nul_bytes: 126
+    reason: 保留完整原件；仅核验此精确摘要的 172 条有效记录和原位 126 个尾部 NUL，不改源件、不豁免严格清点。
+  - rule_id: publisher-line4-exact-binding
+    kind: exact_path_binding
+    ledger: harvard/chgis/SHA256SUMS.txt
+    raw_sha256: 694c101f04e636012e752c87958c8065c8e6926633c8b542e89978d8f8451a60
+    raw_size: 551
+    line: 4
+    raw_name: China_Periods_ReignDates.zip
+    declared_target: harvard/chgis/China_Periods_ReignDates.zip
+    resolved_target: chgis-v6/China_Periods_ReignDates.zip
+    expected_sha256: 7452ae6cf8d7dedbd0b06ea4e0e8343be9bac4075069ca8eb89e8ff0451c355e
+    expected_size: 155774
+    reason: 保留发布方原声明与缺失路径；仅核验用户逐案同意的明确位置绑定，不按文件名搜索，不改源件、不放行导入。

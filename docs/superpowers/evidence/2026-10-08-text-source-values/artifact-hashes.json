@@ -1,0 +1,87 @@
+{
+  "version": 1,
+  "scope": "new-source-value-development-evidence",
+  "transfer_verified": true,
+  "files": [
+    {
+      "file": "text-source-value-expectations.draft.json",
+      "sha256": "47c2401197e557be356941842d099a27db867e707682a3ef536cee2430d7ac38",
+      "remote": "/opt/mydocker/xiangrugu/data/var/text-source-values-20261008T130021Z/text-source-value-expectations.draft.json"
+    },
+    {
+      "file": "source-probe.log",
+      "sha256": "279e918ba1ec9dbb705db941ff520b49714415f99d201a9cff2fa474e8dcbefb",
+      "remote": "/opt/mydocker/xiangrugu/data/var/text-source-values-20261008T130021Z/source-probe.log"
+    },
+    {
+      "file": "source-SHA256SUMS.txt",
+      "sha256": "f94e008f8aa511f1de293e333e81c7836a8d4f45ea3037a5ae1afc6843edfdfb",
+      "remote": "/opt/mydocker/xiangrugu/data/var/text-source-values-20261008T130021Z/SHA256SUMS.txt"
+    },
+    {
+      "file": "source-probe-failed-path.log",
+      "sha256": "276092123d71677ad6f0a1b77fb197a81d3fee88d801abd6614eddd97238f3e5",
+      "remote": "/opt/mydocker/xiangrugu/data/var/text-source-values-20261008T125527Z/source-probe.log"
+    },
+    {
+      "file": "source-probe-failed-bom.log",
+      "sha256": "e396feca06fb2a0fe7b1882949e3c0ab5eaf6e6e1cd6c1326e986d847f1767cf",
+      "remote": "/opt/mydocker/xiangrugu/data/var/text-source-values-20261008T125622Z/source-probe.log"
+    },
+    {
+      "file": "bridge-red.log",
+      "sha256": "b8ba506b175bd511d0186dbb98dad367686c182c27f033765c43359a65db087d",
+      "remote": "/opt/mydocker/xiangrugu/data/var/text-source-values-red-20261008.log"
+    },
+    {
+      "file": "bridge-green.log",
+      "sha256": "6942b7e94b49a56dd0b80eb079957127b8fa729ff1da60554d9df922c5e66df9",
+      "remote": "/opt/mydocker/xiangrugu/data/var/text-source-values-green-20261008.log"
+    },
+    {
+      "file": "mapping-red.log",
+      "sha256": "aac4ca4b0cb060f0a7620b83ecfef45a2acbe4afb1342365ca656fe1860af331",
+      "remote": "/opt/mydocker/xiangrugu/data/var/text-source-mapping-red-20261008.log"
+    },
+    {
+      "file": "mapping-green.log",
+      "sha256": "3261648a90f95283f4ad14f55db44402d217553f9e8bf96f9f1e72e9c745bb12",
+      "remote": "/opt/mydocker/xiangrugu/data/var/text-source-mapping-green-20261008.log"
+    },
+    {
+      "file": "probe-unit-green.log",
+      "sha256": "ad094e532439a4449944816639a17805ab66c1cff2f0f1addd34d6d0331c9074",
+      "remote": "/opt/mydocker/xiangrugu/data/var/text-source-probe-green-20261008.log"
+    },
+    {
+      "file": "bom-red.log",
+      "sha256": "eed0c32c009fd31b186d72920a52e401df1e8b265ad561357aefe3ea8c6c577f",
+      "remote": "/opt/mydocker/xiangrugu/data/var/text-source-bom-red-v2-20261008.log"
+    },
+    {
+      "file": "bom-green.log",
+      "sha256": "f3be7962bd85cd78379b5e7247e8166201c25d98b01e82bb5f06df665cd92678",
+      "remote": "/opt/mydocker/xiangrugu/data/var/text-source-bom-green-20261008.log"
+    },
+    {
+      "file": "candidate-smoke-command-failed.log",
+      "sha256": "ddaebc63e402ba3dac2c422252a199f661950d82dd3d9e1c7f177fa958c84f87",
+      "remote": "/opt/mydocker/xiangrugu/data/var/text-source-candidates-verified-20261008.log"
+    },
+    {
+      "file": "final-build.log",
+      "sha256": "ee8e1fcae0993461a304b19f6bab3041005ca9bbe6fc400b3b268cf3ea47ce7f",
+      "remote": "/opt/mydocker/xiangrugu/data/var/text-source-final-build-20261008T125803Z.log"
+    },
+    {
+      "file": "final-validation.log",
+      "sha256": "be8acd2ad6818ae961faae321130370256bf73487bcfb5372c455480b998082c",
+      "remote": "/opt/mydocker/xiangrugu/data/var/text-source-final-validation-20261008.log"
+    },
+    {
+      "file": "final-boundaries.log",
+      "sha256": "5efb474a6e2296211d2d727655fc907baba7f69862393a2991018416660c3935",
+      "remote": "/opt/mydocker/xiangrugu/data/var/text-source-final-boundaries-20261008.log"
+    }
+  ]
+}

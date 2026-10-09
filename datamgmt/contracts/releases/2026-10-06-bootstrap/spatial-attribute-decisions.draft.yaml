@@ -1,0 +1,43 @@
+# 仅落实两件精确对象的属性映射批准；不批准几何/SRID、表名、IMPORT或冻结。
+version: 1
+status: draft
+release_id: 2026-10-06-bootstrap
+source_version: 2026-10-07-bootstrap
+review_date: '2026-10-08'
+proposal_file: spatial-attributes-proposal.draft.yaml
+proposal_sha256: a2bc03c78ac2090d19e81d8d97fa0f0f20b4dfa707178db9eb86a53bf558f32c
+authorization_reference: '用户“同意，继续”，对应14个C列text、24属性列名称/非空约束、每组一个__src_rownum bigint物理记录关联整体提案'
+attribute_mapping_approved: true
+source_attribute_columns: 24
+character_text_types_approved: 14
+numeric_types_retain_prior_approval: 10
+source_attribute_nullable: false
+derived_rownum_mapping_approved: true
+geometry_mapping_approved: false
+crs_srid_approved: false
+table_name_approved: false
+ready_for_import: false
+objects:
+  - object_name: Ca1884route_przh_1251
+    source_object_id: 9b4496c93de442c447b58adf9be56303ab5fd4897d68bbf0bad99069d12d44dc
+    primary_rule_id: m002709
+  - object_name: Ca1884route_przh_utf8
+    source_object_id: e601ce1a7667c8286abce0d09c5b81d3dc809265ed219dd6e4e1dd3c5cfc9ace
+    primary_rule_id: m002717
+interpretation:
+  column_names_and_types: exact_proposal_source_columns
+  character_padding: preserve_trailing_spaces
+  numeric_reading: retain_prior_exact_decisions_no_rounding
+  date_underscore: bigint_not_date
+  unknown_numeric_tokens: reject_not_infer_null_or_zero
+  derived_column:
+    target_name: __src_rownum
+    target_type: bigint
+    origin: one_based_physical_shp_dbf_record_association
+    range: [1, 59]
+    extra_constraints_approved: false
+  sort_deduplicate_filter: false
+  approval_applies_to_other_sources_or_versions: false
+  schema_decision: spatial-schema-decisions.draft.yaml
+  binding_decision: spatial-binding-decisions.draft.yaml
+  formal_sources_and_current: unchanged

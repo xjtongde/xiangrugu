@@ -1,0 +1,229 @@
+{
+  "version": 1,
+  "status": "VERIFIED_LIMITED_STRUCTURE_BATCH",
+  "git_revision": "1a34956fbcbe7877fbad04ee5a7ec9e3dd52bf05",
+  "source_status": "dirty",
+  "scope": "Task6 single CBDB SQLite stationary project snapshot; not Task10 adapter/value verification",
+  "remote_run_directory": "/opt/mydocker/xiangrugu/data/var/sqlite-structure-final-20261009T071000Z",
+  "code_and_artifact_sha256": [
+    {
+      "path": "datamgmt/src/xiangrugu_datamgmt/sqlite_diagnostic.py",
+      "sha256": "51237fde7ef01b1d3664976072da33ba1a3880eb56913ea4be2918bfe726c3e8"
+    },
+    {
+      "path": "scripts/inspect-sqlite-structure.py",
+      "sha256": "0d9b12933e586b5efa512fc30272497d926affee341bf9cae33705097813301f"
+    },
+    {
+      "path": "datamgmt/tests/unit/test_sqlite_diagnostic.py",
+      "sha256": "ad2e6d0ddcb09624018949434a8255c2549ffddc0797e2c9d8e69d6ceb68b318"
+    },
+    {
+      "path": "datamgmt/tests/unit/test_sqlite_structure_probe.py",
+      "sha256": "2fb64143db10f0821144e975c4a61a88f8294f2fe3806dd1eda0d971a75ff84f"
+    },
+    {
+      "path": "docs/superpowers/evidence/2026-10-09-sqlite-structure/sqlite-structure-observation.draft.json",
+      "sha256": "f29f8e138192ccf05ccc53e6175ae246fb6da19f1a90184e72000d61e2291b40"
+    },
+    {
+      "path": "docs/superpowers/evidence/2026-10-09-sqlite-structure/candidate-tests.xml",
+      "sha256": "b22fb03d8f70802cbdf7985c2625e53e80c6542ee9064a3028475334297aab76"
+    },
+    {
+      "path": "docs/superpowers/evidence/2026-10-09-sqlite-structure/probe-container.json",
+      "sha256": "54190204bb6b30d86ca8f3b7a5cad0cf5662c897cdc6bb8deb9b35dd3d57a61e"
+    },
+    {
+      "path": "datamgmt/contracts/releases/2026-10-06-bootstrap/sqlite-object-contract-proposal.draft.json",
+      "sha256": "5a1d1308080a4d16459be74f2de71f89ad0c54e75dd61e6f7bdf6e36218487d8"
+    },
+    {
+      "path": "datamgmt/contracts/releases/2026-10-06-bootstrap/sources.yaml",
+      "sha256": "8d504b66a03eee2e9f235722a25aa6ece3e46cbcd3322941c9225c37cf747377"
+    },
+    {
+      "path": "datamgmt/contracts/releases/2026-10-06-bootstrap/sources-metadata-review.draft.yaml",
+      "sha256": "9d05e365e0baaa405614efb64a0e7413bc465ed31d63e655ded7cac58e985f7d"
+    },
+    {
+      "path": "datamgmt/contracts/releases/2026-10-06-bootstrap/decoding.yaml",
+      "sha256": "6f3d2fc6b189ac3208c8cd7e80a347750129916226668bfda3f20db7f88f2124"
+    },
+    {
+      "path": "datamgmt/contracts/releases/2026-10-06-bootstrap/assertions.yaml",
+      "sha256": "54f813f763dbe0700f27a9173e53e5b0aad07efeef28fec8ef196130d1326a87"
+    },
+    {
+      "path": "datamgmt/config/roots.yaml",
+      "sha256": "6235c356fca754a687a2f02998770c9609b20748ade674d0050d86a0a428e07c"
+    }
+  ],
+  "images": {
+    "test": {
+      "tag": "xiangrugu:test-sqlite-structure-final-20261009T071000Z",
+      "id": "sha256:0a01e49dd0d576e0f4a03f62757f2cc4f9d27c9cb022542dbdf71afc48a0aafd",
+      "created_at": "2026-10-09T09:04:14Z"
+    },
+    "runtime": {
+      "tag": "xiangrugu:runtime-sqlite-structure-final-20261009T071000Z",
+      "id": "sha256:40b1347027616fdc4f2a0e2ff9acc8703edfb1aea87c7b8fc6adfacc423f7524",
+      "created_at": "2026-10-09T09:04:55Z"
+    }
+  },
+  "verification": {
+    "new_synthetic_tests": 31,
+    "final_dev_unit": {
+      "passed": 519,
+      "failed": 0,
+      "seconds": 5.82
+    },
+    "final_candidate_suite": {
+      "collected": 527,
+      "passed": 515,
+      "skipped": 12,
+      "failed": 0,
+      "errors": 0,
+      "seconds": 5.7,
+      "command": "python -m pytest datamgmt/tests -q --junitxml=/data/var/run/candidate-tests.xml",
+      "skip_reason": "12 existing repository-only text value metadata tests explicitly skipped at /app"
+    },
+    "runtime_help": true,
+    "runtime_package_smoke": true,
+    "image_code_sha256_equals_local_first_four_files": true,
+    "proposal_reference_validation": {
+      "passed": true,
+      "stable_object_id_count": 78,
+      "column_count": 736,
+      "ancillary_index_count": 76,
+      "reader": "installed runtime identity API, no source reread"
+    },
+    "real_devwatch": {
+      "run": 9,
+      "returncode": 0,
+      "passed": 519,
+      "seconds": 6.17
+    },
+    "source_hashes_equal": true,
+    "source_digest_equals_recorded_member_identity": true,
+    "selected_certificate_member_equal": true,
+    "source_host_stat_before": "2049:1337005:586485760:1791315242:1791315242",
+    "source_host_stat_after": "2049:1337005:586485760:1791315242:1791315242",
+    "sidecars_absent_before_and_after": true,
+    "full_snapshot_verified_this_run": false,
+    "containers_before_after_equal": true,
+    "ephemeral_containers_reclaimed": true,
+    "formal_contract_sha256_unchanged": true,
+    "current_yaml_exists": false
+  },
+  "counts": {
+    "table": 78,
+    "column": 736,
+    "index": 76,
+    "index_origin_pk": 76,
+    "table_with_pk": 76,
+    "composite_pk_table": 27,
+    "view": 0,
+    "trigger": 0,
+    "foreign_key_metadata_rows": 0,
+    "business_rows_read": 0
+  },
+  "probe_container": {
+    "id": "5795777d71a17589a5d715b0a893dc20e2c69acf39d5ebc7142166a29fdc8751",
+    "image": "sha256:0a01e49dd0d576e0f4a03f62757f2cc4f9d27c9cb022542dbdf71afc48a0aafd",
+    "user": "10001:10001",
+    "working_dir": "/app",
+    "readonly_rootfs": true,
+    "network": "none",
+    "nano_cpus": 1000000000,
+    "memory": 805306368,
+    "pids_limit": 64,
+    "mounts": [
+      {
+        "Destination": "/data/imports/usedata/2026-10-07-bootstrap/harvard/cbdb/cbdb_20260919.sqlite3",
+        "Mode": "",
+        "Propagation": "rprivate",
+        "RW": false,
+        "Source": "/opt/mydocker/xiangrugu/data/imports/usedata/2026-10-07-bootstrap/harvard/cbdb/cbdb_20260919.sqlite3",
+        "Type": "bind"
+      },
+      {
+        "Destination": "/data/var/snapshots/2026-10-07-bootstrap.json",
+        "Mode": "",
+        "Propagation": "rprivate",
+        "RW": false,
+        "Source": "/opt/mydocker/xiangrugu/data/var/snapshots/2026-10-07-bootstrap.json",
+        "Type": "bind"
+      },
+      {
+        "Destination": "/data/var/run",
+        "Mode": "",
+        "Propagation": "rprivate",
+        "RW": true,
+        "Source": "/opt/mydocker/xiangrugu/data/var/sqlite-structure-final-20261009T071000Z",
+        "Type": "bind"
+      }
+    ]
+  },
+  "service_baseline_and_after": [
+    {
+      "name": "/xiangrugu-dev",
+      "id": "29795c60ae15d85c4ba877dad78dcbd288d792a2d0df6e2d4d72f677201788e6",
+      "image": "sha256:89f1a0978cb817871d50d6468f3dec19e3ea1e67d5bc73457a62fd10b5b8732d",
+      "started_at": "2026-10-09T06:33:09.862700668Z",
+      "status": "running"
+    },
+    {
+      "name": "/pg32",
+      "id": "98418cb6f08a3c550fb5d36261bc618c006f0a07912437399778fdd4370b1a72",
+      "image": "sha256:882236b897e39051d2368c5ccc6cda944904723506b2dfc97f2a8f5bc9afa382",
+      "started_at": "2026-10-09T06:33:09.87957847Z",
+      "status": "running"
+    },
+    {
+      "name": "/pg32b",
+      "id": "3d93fc7741f66f1f01aa250b25c4959addfe4c84df22ecbd0d0f82c13920c1fc",
+      "image": "sha256:d562e43664f996da0e4208b375c00c111a543d996475188d852e9189b2a8cd05",
+      "started_at": "2026-10-09T06:33:09.871946263Z",
+      "status": "running"
+    }
+  ],
+  "retained_alias_images": {
+    "test": "sha256:474da53d4fb0d7033ebe61eb74ac2b623cc7907b55b719fbc5f829270810a240",
+    "runtime": "sha256:c15019fed0fba9a8319ab129d0b1be1814ac22e775c7dccf8083e01220b4cb78"
+  },
+  "remote_artifacts": {
+    "build-test.log": "378ae193c978486c0c58c545e7be7b7756649b729779f12532039529098494bf",
+    "build-runtime.log": "931e4d6abe701876faf7cafc457ca6811bb0ca5ff65438fa69019a7f255083e0",
+    "candidate-tests.xml": "36437c423ffd86cb5dc41d2012edd9bc7ece98e5107b59d50685ccb58059b514",
+    "proposal-validation.log": "1ebfbeab20c4b1bd12c84bdbf6e4a332b65318b076d0d0bb2a5f92604932f870",
+    "final-dev-unit.log": "41aa93b22c55fa2f819836a8ed7fba42a91a210ccc47c7eeb725aa5df6b09ef8"
+  },
+  "junit_transport_note": "Remote JUnit has no trailing LF; local apply_patch copy adds one LF. Separate hashes are intentional; payload/527-case counts unchanged.",
+  "review": {
+    "agent": "sqlite_structure_review",
+    "fresh_readonly": true,
+    "critical": 0,
+    "important_initial": 0,
+    "minor_initial": 1,
+    "executor_regraded_important_and_fixed": 1,
+    "fix_test": "test_probe_writes_bound_nonexecuting_evidence",
+    "red": {
+      "failed": 1,
+      "passed": 6,
+      "reason": "missing precise source_sqlite_connected field"
+    },
+    "no_second_review": true,
+    "deferred_minors": []
+  },
+  "postgresql_connected": false,
+  "source_sqlite_connected": true,
+  "NAS_accessed": false,
+  "source_business_values_read": false,
+  "dev_replaced": false,
+  "formal_contract_modified": false,
+  "contract_frozen": false,
+  "import_started": false,
+  "git_committed": false,
+  "git_pushed": false
+}

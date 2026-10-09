@@ -1,0 +1,814 @@
+FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF                                        [100%]
+=================================== FAILURES ===================================
+___ test_equal_rows_have_complete_counts_and_only_synthetic_equality[rows0] ____
+
+rows = ()
+
+    @pytest.mark.parametrize("rows", [(), (("x", 1),), (("x", 1), ("x", 2))])
+    def test_equal_rows_have_complete_counts_and_only_synthetic_equality(rows):
+>       report = compare(rows, rows, count=len(rows))
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+datamgmt/tests/unit/test_value_validation.py:37: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+datamgmt/tests/unit/test_value_validation.py:26: in compare
+    m = api()
+        ^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+        spec = importlib.util.find_spec("xiangrugu_datamgmt.validate")
+>       assert spec is not None, "Independent ordered value comparison is not implemented"
+E       AssertionError: Independent ordered value comparison is not implemented
+E       assert None is not None
+
+datamgmt/tests/unit/test_value_validation.py:13: AssertionError
+___ test_equal_rows_have_complete_counts_and_only_synthetic_equality[rows1] ____
+
+rows = (('x', 1),)
+
+    @pytest.mark.parametrize("rows", [(), (("x", 1),), (("x", 1), ("x", 2))])
+    def test_equal_rows_have_complete_counts_and_only_synthetic_equality(rows):
+>       report = compare(rows, rows, count=len(rows))
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+datamgmt/tests/unit/test_value_validation.py:37: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+datamgmt/tests/unit/test_value_validation.py:26: in compare
+    m = api()
+        ^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+        spec = importlib.util.find_spec("xiangrugu_datamgmt.validate")
+>       assert spec is not None, "Independent ordered value comparison is not implemented"
+E       AssertionError: Independent ordered value comparison is not implemented
+E       assert None is not None
+
+datamgmt/tests/unit/test_value_validation.py:13: AssertionError
+___ test_equal_rows_have_complete_counts_and_only_synthetic_equality[rows2] ____
+
+rows = (('x', 1), ('x', 2))
+
+    @pytest.mark.parametrize("rows", [(), (("x", 1),), (("x", 1), ("x", 2))])
+    def test_equal_rows_have_complete_counts_and_only_synthetic_equality(rows):
+>       report = compare(rows, rows, count=len(rows))
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+datamgmt/tests/unit/test_value_validation.py:37: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+datamgmt/tests/unit/test_value_validation.py:26: in compare
+    m = api()
+        ^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+        spec = importlib.util.find_spec("xiangrugu_datamgmt.validate")
+>       assert spec is not None, "Independent ordered value comparison is not implemented"
+E       AssertionError: Independent ordered value comparison is not implemented
+E       assert None is not None
+
+datamgmt/tests/unit/test_value_validation.py:13: AssertionError
+____ test_changed_text_and_null_are_detected_without_value_disclosure[None] ____
+
+target = None
+
+    @pytest.mark.parametrize("target", [None, "␀", " ", "e\u0301", "private-secret"])
+    def test_changed_text_and_null_are_detected_without_value_disclosure(target):
+>       report = compare((("", 1),), ((target, 1),), count=1)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+datamgmt/tests/unit/test_value_validation.py:50: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+datamgmt/tests/unit/test_value_validation.py:26: in compare
+    m = api()
+        ^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+        spec = importlib.util.find_spec("xiangrugu_datamgmt.validate")
+>       assert spec is not None, "Independent ordered value comparison is not implemented"
+E       AssertionError: Independent ordered value comparison is not implemented
+E       assert None is not None
+
+datamgmt/tests/unit/test_value_validation.py:13: AssertionError
+___ test_changed_text_and_null_are_detected_without_value_disclosure[\u2400] ___
+
+target = '␀'
+
+    @pytest.mark.parametrize("target", [None, "␀", " ", "e\u0301", "private-secret"])
+    def test_changed_text_and_null_are_detected_without_value_disclosure(target):
+>       report = compare((("", 1),), ((target, 1),), count=1)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+datamgmt/tests/unit/test_value_validation.py:50: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+datamgmt/tests/unit/test_value_validation.py:26: in compare
+    m = api()
+        ^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+        spec = importlib.util.find_spec("xiangrugu_datamgmt.validate")
+>       assert spec is not None, "Independent ordered value comparison is not implemented"
+E       AssertionError: Independent ordered value comparison is not implemented
+E       assert None is not None
+
+datamgmt/tests/unit/test_value_validation.py:13: AssertionError
+_____ test_changed_text_and_null_are_detected_without_value_disclosure[ ] ______
+
+target = ' '
+
+    @pytest.mark.parametrize("target", [None, "␀", " ", "e\u0301", "private-secret"])
+    def test_changed_text_and_null_are_detected_without_value_disclosure(target):
+>       report = compare((("", 1),), ((target, 1),), count=1)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+datamgmt/tests/unit/test_value_validation.py:50: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+datamgmt/tests/unit/test_value_validation.py:26: in compare
+    m = api()
+        ^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+        spec = importlib.util.find_spec("xiangrugu_datamgmt.validate")
+>       assert spec is not None, "Independent ordered value comparison is not implemented"
+E       AssertionError: Independent ordered value comparison is not implemented
+E       assert None is not None
+
+datamgmt/tests/unit/test_value_validation.py:13: AssertionError
+__ test_changed_text_and_null_are_detected_without_value_disclosure[e\u0301] ___
+
+target = 'é'
+
+    @pytest.mark.parametrize("target", [None, "␀", " ", "e\u0301", "private-secret"])
+    def test_changed_text_and_null_are_detected_without_value_disclosure(target):
+>       report = compare((("", 1),), ((target, 1),), count=1)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+datamgmt/tests/unit/test_value_validation.py:50: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+datamgmt/tests/unit/test_value_validation.py:26: in compare
+    m = api()
+        ^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+        spec = importlib.util.find_spec("xiangrugu_datamgmt.validate")
+>       assert spec is not None, "Independent ordered value comparison is not implemented"
+E       AssertionError: Independent ordered value comparison is not implemented
+E       assert None is not None
+
+datamgmt/tests/unit/test_value_validation.py:13: AssertionError
+_ test_changed_text_and_null_are_detected_without_value_disclosure[private-secret] _
+
+target = 'private-secret'
+
+    @pytest.mark.parametrize("target", [None, "␀", " ", "e\u0301", "private-secret"])
+    def test_changed_text_and_null_are_detected_without_value_disclosure(target):
+>       report = compare((("", 1),), ((target, 1),), count=1)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+datamgmt/tests/unit/test_value_validation.py:50: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+datamgmt/tests/unit/test_value_validation.py:26: in compare
+    m = api()
+        ^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+        spec = importlib.util.find_spec("xiangrugu_datamgmt.validate")
+>       assert spec is not None, "Independent ordered value comparison is not implemented"
+E       AssertionError: Independent ordered value comparison is not implemented
+E       assert None is not None
+
+datamgmt/tests/unit/test_value_validation.py:13: AssertionError
+__________________ test_unicode_normalization_is_not_equality __________________
+
+    def test_unicode_normalization_is_not_equality():
+>       assert compare((("é", 1),), (("e\u0301", 1),), count=1).result == "comparison_failed"
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+datamgmt/tests/unit/test_value_validation.py:60: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+datamgmt/tests/unit/test_value_validation.py:26: in compare
+    m = api()
+        ^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+        spec = importlib.util.find_spec("xiangrugu_datamgmt.validate")
+>       assert spec is not None, "Independent ordered value comparison is not implemented"
+E       AssertionError: Independent ordered value comparison is not implemented
+E       assert None is not None
+
+datamgmt/tests/unit/test_value_validation.py:13: AssertionError
+_________ test_bad_type_rownum_width_and_duplicates_fail_closed[rows0] _________
+
+rows = ((4, 1),)
+
+    @pytest.mark.parametrize("rows", [((4, 1),), (("x", 2),), (("x", 1), ("x", 1)),
+                                      (("x",),), (("x", True),)])
+    def test_bad_type_rownum_width_and_duplicates_fail_closed(rows):
+>       report = compare((("x", 1),), rows, count=1)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+datamgmt/tests/unit/test_value_validation.py:66: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+datamgmt/tests/unit/test_value_validation.py:26: in compare
+    m = api()
+        ^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+        spec = importlib.util.find_spec("xiangrugu_datamgmt.validate")
+>       assert spec is not None, "Independent ordered value comparison is not implemented"
+E       AssertionError: Independent ordered value comparison is not implemented
+E       assert None is not None
+
+datamgmt/tests/unit/test_value_validation.py:13: AssertionError
+_________ test_bad_type_rownum_width_and_duplicates_fail_closed[rows1] _________
+
+rows = (('x', 2),)
+
+    @pytest.mark.parametrize("rows", [((4, 1),), (("x", 2),), (("x", 1), ("x", 1)),
+                                      (("x",),), (("x", True),)])
+    def test_bad_type_rownum_width_and_duplicates_fail_closed(rows):
+>       report = compare((("x", 1),), rows, count=1)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+datamgmt/tests/unit/test_value_validation.py:66: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+datamgmt/tests/unit/test_value_validation.py:26: in compare
+    m = api()
+        ^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+        spec = importlib.util.find_spec("xiangrugu_datamgmt.validate")
+>       assert spec is not None, "Independent ordered value comparison is not implemented"
+E       AssertionError: Independent ordered value comparison is not implemented
+E       assert None is not None
+
+datamgmt/tests/unit/test_value_validation.py:13: AssertionError
+_________ test_bad_type_rownum_width_and_duplicates_fail_closed[rows2] _________
+
+rows = (('x', 1), ('x', 1))
+
+    @pytest.mark.parametrize("rows", [((4, 1),), (("x", 2),), (("x", 1), ("x", 1)),
+                                      (("x",),), (("x", True),)])
+    def test_bad_type_rownum_width_and_duplicates_fail_closed(rows):
+>       report = compare((("x", 1),), rows, count=1)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+datamgmt/tests/unit/test_value_validation.py:66: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+datamgmt/tests/unit/test_value_validation.py:26: in compare
+    m = api()
+        ^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+        spec = importlib.util.find_spec("xiangrugu_datamgmt.validate")
+>       assert spec is not None, "Independent ordered value comparison is not implemented"
+E       AssertionError: Independent ordered value comparison is not implemented
+E       assert None is not None
+
+datamgmt/tests/unit/test_value_validation.py:13: AssertionError
+_________ test_bad_type_rownum_width_and_duplicates_fail_closed[rows3] _________
+
+rows = (('x',),)
+
+    @pytest.mark.parametrize("rows", [((4, 1),), (("x", 2),), (("x", 1), ("x", 1)),
+                                      (("x",),), (("x", True),)])
+    def test_bad_type_rownum_width_and_duplicates_fail_closed(rows):
+>       report = compare((("x", 1),), rows, count=1)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+datamgmt/tests/unit/test_value_validation.py:66: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+datamgmt/tests/unit/test_value_validation.py:26: in compare
+    m = api()
+        ^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+        spec = importlib.util.find_spec("xiangrugu_datamgmt.validate")
+>       assert spec is not None, "Independent ordered value comparison is not implemented"
+E       AssertionError: Independent ordered value comparison is not implemented
+E       assert None is not None
+
+datamgmt/tests/unit/test_value_validation.py:13: AssertionError
+_________ test_bad_type_rownum_width_and_duplicates_fail_closed[rows4] _________
+
+rows = (('x', True),)
+
+    @pytest.mark.parametrize("rows", [((4, 1),), (("x", 2),), (("x", 1), ("x", 1)),
+                                      (("x",),), (("x", True),)])
+    def test_bad_type_rownum_width_and_duplicates_fail_closed(rows):
+>       report = compare((("x", 1),), rows, count=1)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+datamgmt/tests/unit/test_value_validation.py:66: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+datamgmt/tests/unit/test_value_validation.py:26: in compare
+    m = api()
+        ^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+        spec = importlib.util.find_spec("xiangrugu_datamgmt.validate")
+>       assert spec is not None, "Independent ordered value comparison is not implemented"
+E       AssertionError: Independent ordered value comparison is not implemented
+E       assert None is not None
+
+datamgmt/tests/unit/test_value_validation.py:13: AssertionError
+_________________ test_structure_mismatch_never_consumes_rows __________________
+
+    def test_structure_mismatch_never_consumes_rows():
+        def forbidden():
+            raise AssertionError("must not consume")
+            yield
+        s = schema()
+        wrong = replace(s, columns=(replace(s.columns[0], nullable=False), s.columns[-1]))
+>       report = compare(forbidden(), forbidden(), count=1, target_schema=wrong)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+datamgmt/tests/unit/test_value_validation.py:77: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+datamgmt/tests/unit/test_value_validation.py:26: in compare
+    m = api()
+        ^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+        spec = importlib.util.find_spec("xiangrugu_datamgmt.validate")
+>       assert spec is not None, "Independent ordered value comparison is not implemented"
+E       AssertionError: Independent ordered value comparison is not implemented
+E       assert None is not None
+
+datamgmt/tests/unit/test_value_validation.py:13: AssertionError
+________ test_actual_identity_and_column_metadata_must_match[changes0] _________
+
+changes = {'source_object_id': 'cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc'}
+
+    @pytest.mark.parametrize("changes", [
+        {"source_object_id": "c"*64},
+        {"columns": (c.ValueColumn("c"*64, "renamed", "text", True),
+                     c.ValueColumn(c.ROW_KEY, "__src_rownum", "bigint", False))},
+    ])
+    def test_actual_identity_and_column_metadata_must_match(changes):
+>       assert compare((), (), count=0, target_schema=replace(schema(), **changes)).error_code == "structure"
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+datamgmt/tests/unit/test_value_validation.py:89: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+datamgmt/tests/unit/test_value_validation.py:26: in compare
+    m = api()
+        ^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+        spec = importlib.util.find_spec("xiangrugu_datamgmt.validate")
+>       assert spec is not None, "Independent ordered value comparison is not implemented"
+E       AssertionError: Independent ordered value comparison is not implemented
+E       assert None is not None
+
+datamgmt/tests/unit/test_value_validation.py:13: AssertionError
+________ test_actual_identity_and_column_metadata_must_match[changes1] _________
+
+changes = {'columns': (ValueColumn(column_key='cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc', target_name='r...e=True), ValueColumn(column_key='derived:__src_rownum', target_name='__src_rownum', pg_type='bigint', nullable=False))}
+
+    @pytest.mark.parametrize("changes", [
+        {"source_object_id": "c"*64},
+        {"columns": (c.ValueColumn("c"*64, "renamed", "text", True),
+                     c.ValueColumn(c.ROW_KEY, "__src_rownum", "bigint", False))},
+    ])
+    def test_actual_identity_and_column_metadata_must_match(changes):
+>       assert compare((), (), count=0, target_schema=replace(schema(), **changes)).error_code == "structure"
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+datamgmt/tests/unit/test_value_validation.py:89: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+datamgmt/tests/unit/test_value_validation.py:26: in compare
+    m = api()
+        ^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+        spec = importlib.util.find_spec("xiangrugu_datamgmt.validate")
+>       assert spec is not None, "Independent ordered value comparison is not implemented"
+E       AssertionError: Independent ordered value comparison is not implemented
+E       assert None is not None
+
+datamgmt/tests/unit/test_value_validation.py:13: AssertionError
+_ test_unmatched_rows_are_all_counted_and_longer_side_reaches_eof[left0-right0-3] _
+
+left = (), right = (('x', 1), ('x', 2), ('x', 3)), want = 3
+
+    @pytest.mark.parametrize("left,right,want", [
+        ((), (("x", 1), ("x", 2), ("x", 3)), 3),
+        ((("x", 1), ("x", 2)), (), 2),
+        ((("x", 1),), (("x", 1), ("x", 2)), 1),
+    ])
+    def test_unmatched_rows_are_all_counted_and_longer_side_reaches_eof(left, right, want):
+>       report = compare(left, right, count=len(left))
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+datamgmt/tests/unit/test_value_validation.py:98: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+datamgmt/tests/unit/test_value_validation.py:26: in compare
+    m = api()
+        ^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+        spec = importlib.util.find_spec("xiangrugu_datamgmt.validate")
+>       assert spec is not None, "Independent ordered value comparison is not implemented"
+E       AssertionError: Independent ordered value comparison is not implemented
+E       assert None is not None
+
+datamgmt/tests/unit/test_value_validation.py:13: AssertionError
+_ test_unmatched_rows_are_all_counted_and_longer_side_reaches_eof[left1-right1-2] _
+
+left = (('x', 1), ('x', 2)), right = (), want = 2
+
+    @pytest.mark.parametrize("left,right,want", [
+        ((), (("x", 1), ("x", 2), ("x", 3)), 3),
+        ((("x", 1), ("x", 2)), (), 2),
+        ((("x", 1),), (("x", 1), ("x", 2)), 1),
+    ])
+    def test_unmatched_rows_are_all_counted_and_longer_side_reaches_eof(left, right, want):
+>       report = compare(left, right, count=len(left))
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+datamgmt/tests/unit/test_value_validation.py:98: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+datamgmt/tests/unit/test_value_validation.py:26: in compare
+    m = api()
+        ^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+        spec = importlib.util.find_spec("xiangrugu_datamgmt.validate")
+>       assert spec is not None, "Independent ordered value comparison is not implemented"
+E       AssertionError: Independent ordered value comparison is not implemented
+E       assert None is not None
+
+datamgmt/tests/unit/test_value_validation.py:13: AssertionError
+_ test_unmatched_rows_are_all_counted_and_longer_side_reaches_eof[left2-right2-1] _
+
+left = (('x', 1),), right = (('x', 1), ('x', 2)), want = 1
+
+    @pytest.mark.parametrize("left,right,want", [
+        ((), (("x", 1), ("x", 2), ("x", 3)), 3),
+        ((("x", 1), ("x", 2)), (), 2),
+        ((("x", 1),), (("x", 1), ("x", 2)), 1),
+    ])
+    def test_unmatched_rows_are_all_counted_and_longer_side_reaches_eof(left, right, want):
+>       report = compare(left, right, count=len(left))
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+datamgmt/tests/unit/test_value_validation.py:98: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+datamgmt/tests/unit/test_value_validation.py:26: in compare
+    m = api()
+        ^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+        spec = importlib.util.find_spec("xiangrugu_datamgmt.validate")
+>       assert spec is not None, "Independent ordered value comparison is not implemented"
+E       AssertionError: Independent ordered value comparison is not implemented
+E       assert None is not None
+
+datamgmt/tests/unit/test_value_validation.py:13: AssertionError
+___________________ test_equal_wrong_counts_are_not_accepted ___________________
+
+    def test_equal_wrong_counts_are_not_accepted():
+>       report = compare((("x", 1),), (("x", 1),), count=2)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+datamgmt/tests/unit/test_value_validation.py:106: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+datamgmt/tests/unit/test_value_validation.py:26: in compare
+    m = api()
+        ^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+        spec = importlib.util.find_spec("xiangrugu_datamgmt.validate")
+>       assert spec is not None, "Independent ordered value comparison is not implemented"
+E       AssertionError: Independent ordered value comparison is not implemented
+E       assert None is not None
+
+datamgmt/tests/unit/test_value_validation.py:13: AssertionError
+____________ test_detail_cap_preserves_total_count_and_full_scan[0] ____________
+
+cap = 0
+
+    @pytest.mark.parametrize("cap", [0, 1])
+    def test_detail_cap_preserves_total_count_and_full_scan(cap):
+>       report = compare((("x", 1), ("x", 2), ("x", 3)),
+                         (("y", 1), ("y", 2), ("y", 3)), count=3, cap=cap)
+
+datamgmt/tests/unit/test_value_validation.py:112: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+datamgmt/tests/unit/test_value_validation.py:26: in compare
+    m = api()
+        ^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+        spec = importlib.util.find_spec("xiangrugu_datamgmt.validate")
+>       assert spec is not None, "Independent ordered value comparison is not implemented"
+E       AssertionError: Independent ordered value comparison is not implemented
+E       assert None is not None
+
+datamgmt/tests/unit/test_value_validation.py:13: AssertionError
+____________ test_detail_cap_preserves_total_count_and_full_scan[1] ____________
+
+cap = 1
+
+    @pytest.mark.parametrize("cap", [0, 1])
+    def test_detail_cap_preserves_total_count_and_full_scan(cap):
+>       report = compare((("x", 1), ("x", 2), ("x", 3)),
+                         (("y", 1), ("y", 2), ("y", 3)), count=3, cap=cap)
+
+datamgmt/tests/unit/test_value_validation.py:112: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+datamgmt/tests/unit/test_value_validation.py:26: in compare
+    m = api()
+        ^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+        spec = importlib.util.find_spec("xiangrugu_datamgmt.validate")
+>       assert spec is not None, "Independent ordered value comparison is not implemented"
+E       AssertionError: Independent ordered value comparison is not implemented
+E       assert None is not None
+
+datamgmt/tests/unit/test_value_validation.py:13: AssertionError
+_____________ test_digest_collision_does_not_bypass_cell_equality ______________
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7f33c48bd7d0>
+
+    def test_digest_collision_does_not_bypass_cell_equality(monkeypatch):
+        class Collision:
+            def __init__(self, *args):
+                pass
+            def update(self, data):
+                pass
+            def digest(self):
+                return b"\x00"*32
+            def hexdigest(self):
+                return "0"*64
+        monkeypatch.setattr(c.hashlib, "sha256", Collision)
+>       report = compare((("x", 1),), (("y", 1),), count=1)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+datamgmt/tests/unit/test_value_validation.py:131: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+datamgmt/tests/unit/test_value_validation.py:26: in compare
+    m = api()
+        ^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+        spec = importlib.util.find_spec("xiangrugu_datamgmt.validate")
+>       assert spec is not None, "Independent ordered value comparison is not implemented"
+E       AssertionError: Independent ordered value comparison is not implemented
+E       assert None is not None
+
+datamgmt/tests/unit/test_value_validation.py:13: AssertionError
+__________ test_iterator_failure_is_partial_and_other_side_can_finish __________
+
+    def test_iterator_failure_is_partial_and_other_side_can_finish():
+        def broken():
+            yield ("x", 1)
+            raise RuntimeError("private-secret")
+>       report = compare(broken(), (("x", 1), ("y", 2)), count=2)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+datamgmt/tests/unit/test_value_validation.py:140: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+datamgmt/tests/unit/test_value_validation.py:26: in compare
+    m = api()
+        ^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+        spec = importlib.util.find_spec("xiangrugu_datamgmt.validate")
+>       assert spec is not None, "Independent ordered value comparison is not implemented"
+E       AssertionError: Independent ordered value comparison is not implemented
+E       assert None is not None
+
+datamgmt/tests/unit/test_value_validation.py:13: AssertionError
+________ test_cancel_and_bad_callback_cannot_report_complete[<lambda>0] ________
+
+callback = <function <lambda> at 0x7f33c4f4e840>
+
+    @pytest.mark.parametrize("callback", [lambda: True, lambda: "private-secret"])
+    def test_cancel_and_bad_callback_cannot_report_complete(callback):
+>       report = compare((), (), count=0, cancelled=callback)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+datamgmt/tests/unit/test_value_validation.py:150: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+datamgmt/tests/unit/test_value_validation.py:26: in compare
+    m = api()
+        ^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+        spec = importlib.util.find_spec("xiangrugu_datamgmt.validate")
+>       assert spec is not None, "Independent ordered value comparison is not implemented"
+E       AssertionError: Independent ordered value comparison is not implemented
+E       assert None is not None
+
+datamgmt/tests/unit/test_value_validation.py:13: AssertionError
+________ test_cancel_and_bad_callback_cannot_report_complete[<lambda>1] ________
+
+callback = <function <lambda> at 0x7f33c4f4e8e0>
+
+    @pytest.mark.parametrize("callback", [lambda: True, lambda: "private-secret"])
+    def test_cancel_and_bad_callback_cannot_report_complete(callback):
+>       report = compare((), (), count=0, cancelled=callback)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+datamgmt/tests/unit/test_value_validation.py:150: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+datamgmt/tests/unit/test_value_validation.py:26: in compare
+    m = api()
+        ^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+        spec = importlib.util.find_spec("xiangrugu_datamgmt.validate")
+>       assert spec is not None, "Independent ordered value comparison is not implemented"
+E       AssertionError: Independent ordered value comparison is not implemented
+E       assert None is not None
+
+datamgmt/tests/unit/test_value_validation.py:13: AssertionError
+__________________ test_budget_failure_never_gets_full_digest __________________
+
+    def test_budget_failure_never_gets_full_digest():
+>       report = compare((("字", 1),), (("x", 1),), count=1,
+                         limits=c.ValueLimits(max_field_bytes=2))
+
+datamgmt/tests/unit/test_value_validation.py:157: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+datamgmt/tests/unit/test_value_validation.py:26: in compare
+    m = api()
+        ^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+        spec = importlib.util.find_spec("xiangrugu_datamgmt.validate")
+>       assert spec is not None, "Independent ordered value comparison is not implemented"
+E       AssertionError: Independent ordered value comparison is not implemented
+E       assert None is not None
+
+datamgmt/tests/unit/test_value_validation.py:13: AssertionError
+___________ test_common_corruption_is_rejected_by_independent_golden ___________
+
+    def test_common_corruption_is_rejected_by_independent_golden():
+        # Both hypothetical adapters wrongly change empty text to NULL.
+        # Comparing their identical mistakes alone is not proof of source truth.
+>       report = compare(((None, 1),), ((None, 1),), count=1)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+datamgmt/tests/unit/test_value_validation.py:166: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+datamgmt/tests/unit/test_value_validation.py:26: in compare
+    m = api()
+        ^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+        spec = importlib.util.find_spec("xiangrugu_datamgmt.validate")
+>       assert spec is not None, "Independent ordered value comparison is not implemented"
+E       AssertionError: Independent ordered value comparison is not implemented
+E       assert None is not None
+
+datamgmt/tests/unit/test_value_validation.py:13: AssertionError
+_________________ test_evidence_metadata_validation[changes0] __________________
+
+changes = {'kind': 'anything'}
+
+    @pytest.mark.parametrize("changes", [
+        {"kind": "anything"}, {"reference": ""}, {"sha256": "secret"},
+    ])
+    def test_evidence_metadata_validation(changes):
+>       m = api()
+            ^^^^^
+
+datamgmt/tests/unit/test_value_validation.py:177: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+        spec = importlib.util.find_spec("xiangrugu_datamgmt.validate")
+>       assert spec is not None, "Independent ordered value comparison is not implemented"
+E       AssertionError: Independent ordered value comparison is not implemented
+E       assert None is not None
+
+datamgmt/tests/unit/test_value_validation.py:13: AssertionError
+_________________ test_evidence_metadata_validation[changes1] __________________
+
+changes = {'reference': ''}
+
+    @pytest.mark.parametrize("changes", [
+        {"kind": "anything"}, {"reference": ""}, {"sha256": "secret"},
+    ])
+    def test_evidence_metadata_validation(changes):
+>       m = api()
+            ^^^^^
+
+datamgmt/tests/unit/test_value_validation.py:177: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+        spec = importlib.util.find_spec("xiangrugu_datamgmt.validate")
+>       assert spec is not None, "Independent ordered value comparison is not implemented"
+E       AssertionError: Independent ordered value comparison is not implemented
+E       assert None is not None
+
+datamgmt/tests/unit/test_value_validation.py:13: AssertionError
+_________________ test_evidence_metadata_validation[changes2] __________________
+
+changes = {'sha256': 'secret'}
+
+    @pytest.mark.parametrize("changes", [
+        {"kind": "anything"}, {"reference": ""}, {"sha256": "secret"},
+    ])
+    def test_evidence_metadata_validation(changes):
+>       m = api()
+            ^^^^^
+
+datamgmt/tests/unit/test_value_validation.py:177: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+        spec = importlib.util.find_spec("xiangrugu_datamgmt.validate")
+>       assert spec is not None, "Independent ordered value comparison is not implemented"
+E       AssertionError: Independent ordered value comparison is not implemented
+E       assert None is not None
+
+datamgmt/tests/unit/test_value_validation.py:13: AssertionError
+____________________ test_bad_expected_counts_are_rejected _____________________
+
+    def test_bad_expected_counts_are_rejected():
+        for count in (True, -1, 100001):
+            with pytest.raises(c.ValueContractError):
+>               compare((), (), count=count)
+
+datamgmt/tests/unit/test_value_validation.py:185: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+datamgmt/tests/unit/test_value_validation.py:26: in compare
+    m = api()
+        ^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+        spec = importlib.util.find_spec("xiangrugu_datamgmt.validate")
+>       assert spec is not None, "Independent ordered value comparison is not implemented"
+E       AssertionError: Independent ordered value comparison is not implemented
+E       assert None is not None
+
+datamgmt/tests/unit/test_value_validation.py:13: AssertionError
+=========================== short test summary info ============================
+FAILED datamgmt/tests/unit/test_value_validation.py::test_equal_rows_have_complete_counts_and_only_synthetic_equality[rows0]
+FAILED datamgmt/tests/unit/test_value_validation.py::test_equal_rows_have_complete_counts_and_only_synthetic_equality[rows1]
+FAILED datamgmt/tests/unit/test_value_validation.py::test_equal_rows_have_complete_counts_and_only_synthetic_equality[rows2]
+FAILED datamgmt/tests/unit/test_value_validation.py::test_changed_text_and_null_are_detected_without_value_disclosure[None]
+FAILED datamgmt/tests/unit/test_value_validation.py::test_changed_text_and_null_are_detected_without_value_disclosure[\u2400]
+FAILED datamgmt/tests/unit/test_value_validation.py::test_changed_text_and_null_are_detected_without_value_disclosure[ ]
+FAILED datamgmt/tests/unit/test_value_validation.py::test_changed_text_and_null_are_detected_without_value_disclosure[e\u0301]
+FAILED datamgmt/tests/unit/test_value_validation.py::test_changed_text_and_null_are_detected_without_value_disclosure[private-secret]
+FAILED datamgmt/tests/unit/test_value_validation.py::test_unicode_normalization_is_not_equality
+FAILED datamgmt/tests/unit/test_value_validation.py::test_bad_type_rownum_width_and_duplicates_fail_closed[rows0]
+FAILED datamgmt/tests/unit/test_value_validation.py::test_bad_type_rownum_width_and_duplicates_fail_closed[rows1]
+FAILED datamgmt/tests/unit/test_value_validation.py::test_bad_type_rownum_width_and_duplicates_fail_closed[rows2]
+FAILED datamgmt/tests/unit/test_value_validation.py::test_bad_type_rownum_width_and_duplicates_fail_closed[rows3]
+FAILED datamgmt/tests/unit/test_value_validation.py::test_bad_type_rownum_width_and_duplicates_fail_closed[rows4]
+FAILED datamgmt/tests/unit/test_value_validation.py::test_structure_mismatch_never_consumes_rows
+FAILED datamgmt/tests/unit/test_value_validation.py::test_actual_identity_and_column_metadata_must_match[changes0]
+FAILED datamgmt/tests/unit/test_value_validation.py::test_actual_identity_and_column_metadata_must_match[changes1]
+FAILED datamgmt/tests/unit/test_value_validation.py::test_unmatched_rows_are_all_counted_and_longer_side_reaches_eof[left0-right0-3]
+FAILED datamgmt/tests/unit/test_value_validation.py::test_unmatched_rows_are_all_counted_and_longer_side_reaches_eof[left1-right1-2]
+FAILED datamgmt/tests/unit/test_value_validation.py::test_unmatched_rows_are_all_counted_and_longer_side_reaches_eof[left2-right2-1]
+FAILED datamgmt/tests/unit/test_value_validation.py::test_equal_wrong_counts_are_not_accepted
+FAILED datamgmt/tests/unit/test_value_validation.py::test_detail_cap_preserves_total_count_and_full_scan[0]
+FAILED datamgmt/tests/unit/test_value_validation.py::test_detail_cap_preserves_total_count_and_full_scan[1]
+FAILED datamgmt/tests/unit/test_value_validation.py::test_digest_collision_does_not_bypass_cell_equality
+FAILED datamgmt/tests/unit/test_value_validation.py::test_iterator_failure_is_partial_and_other_side_can_finish
+FAILED datamgmt/tests/unit/test_value_validation.py::test_cancel_and_bad_callback_cannot_report_complete[<lambda>0]
+FAILED datamgmt/tests/unit/test_value_validation.py::test_cancel_and_bad_callback_cannot_report_complete[<lambda>1]
+FAILED datamgmt/tests/unit/test_value_validation.py::test_budget_failure_never_gets_full_digest
+FAILED datamgmt/tests/unit/test_value_validation.py::test_common_corruption_is_rejected_by_independent_golden
+FAILED datamgmt/tests/unit/test_value_validation.py::test_evidence_metadata_validation[changes0]
+FAILED datamgmt/tests/unit/test_value_validation.py::test_evidence_metadata_validation[changes1]
+FAILED datamgmt/tests/unit/test_value_validation.py::test_evidence_metadata_validation[changes2]
+FAILED datamgmt/tests/unit/test_value_validation.py::test_bad_expected_counts_are_rejected
+33 failed in 0.42s

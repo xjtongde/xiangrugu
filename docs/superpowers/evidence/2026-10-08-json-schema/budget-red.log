@@ -1,0 +1,23 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+_________________ test_schema_validation_expansion_is_bounded __________________
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7f5e1d8f5450>
+
+    def test_schema_validation_expansion_is_bounded(monkeypatch):
+        # Small synthetic DAG; lowering the private ceiling avoids expensive work.
+        monkeypatch.setattr(contracts, "_SCHEMA_STEP_LIMIT", 100, raising=False)
+        definitions = {"level0": {"type": "integer"}}
+        for level in range(1, 7):
+            definitions[f"level{level}"] = {
+                "allOf": [{"$ref": f"#/$defs/level{level - 1}"}] * 2,
+            }
+        schema = {"$schema": "https://json-schema.org/draft/2020-12/schema",
+                  "$defs": definitions, "$ref": "#/$defs/level6"}
+>       with pytest.raises(contracts.ContractError):
+E       Failed: DID NOT RAISE ContractError
+
+/workspace/datamgmt/tests/unit/test_contract_schema_validation.py:163: Failed
+=========================== short test summary info ============================
+FAILED ../workspace/datamgmt/tests/unit/test_contract_schema_validation.py::test_schema_validation_expansion_is_bounded
+1 failed, 34 deselected in 0.21s

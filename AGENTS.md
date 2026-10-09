@@ -20,7 +20,14 @@
 
 Codex 默认承担审计与实现协作：先核实事实，再按用户授权修改。操作边界见 `rules.md`。
 
-## 3. 阅读顺序
+## 3. 开发与执行位置
+
+- Windows 工作区 `C:\Users\zkyxy\Documents\codex-xiangrugu` 是当前 Git 修改入口；不得在 Windows 安装或运行项目 Python、Docker 测试或服务。
+- 32 主机 `/opt/mydocker/xiangrugu/deploy` 是该工作区的受控运行镜像；只由同步流程更新，不在远端直接形成未回传 Git 的独立修改。
+- 所有构建、测试、CLI 和常驻开发进程都通过 SSH 在 `root@192.168.3.32` 执行。
+- 常驻开发容器固定为 `xiangrugu-dev`，工作目录 `/workspace`；数据接入只是同一项目中的首个低频模块，不是独立项目。
+
+## 4. 阅读顺序
 
 ```text
 AGENTS.md

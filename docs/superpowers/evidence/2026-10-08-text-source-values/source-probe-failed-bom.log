@@ -1,0 +1,9 @@
+Traceback (most recent call last):
+  File "/app/scripts/prepare-text-source-values.py", line 175, in <module>
+    main()
+  File "/app/scripts/prepare-text-source-values.py", line 129, in main
+    schema, header = schema_from_approved(obj, decision)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/xiangrugu_datamgmt/text_values.py", line 76, in schema_from_approved
+    raise ValueContractError("structure") from None
+xiangrugu_datamgmt.canonical.ValueContractError: structure

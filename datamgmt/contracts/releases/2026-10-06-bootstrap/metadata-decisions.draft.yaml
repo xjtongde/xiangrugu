@@ -1,0 +1,74 @@
+# Task 6 已知非业务成员的逐件审阅提案；不是冻结、校验豁免或实际保存证书。
+version: 1
+status: draft
+release_id: 2026-10-06-bootstrap
+source_version: 2026-10-07-bootstrap
+inventory_sha256: fb5e6b334b898d62dc0e5c77094fdb50e0946300e6e3009f447b2ecd1bc216db
+base_contract_sha256: 2a3efbfc736d8ced5053c1f023b4d8f8f70c5dc202084d64ac38bb8163fa2a9c
+rules:
+  - rule_id: m000002
+    selector:
+      relative_path: SHA256SUMS-b2
+      archive_chain: []
+      archive_ordinals: []
+    expected:
+      kind: file
+      size: 22071
+      sha256: 900d98c69cf9b72f20313aa562b8da5e18e9c3e3def423fa6f618b4b1bafb3cb
+      signature: unknown
+    disposition: NON_TABULAR
+    reason: DESIGN §5 的校验文件；完整原件及 126 个尾部 NUL 保留，严格 checksum_nul/checksum_line 仍阻断。不是业务表，不是兼容豁免；实际参考件保存验证待实现。
+    format_family: checksum-ledger
+    validator: pending-reference-byte-verifier
+    encodings: []
+    targets: []
+  - rule_id: m004860
+    selector:
+      relative_path: harvard-full/doi_10_7910/DVN/PDGOZ0/V4_Data_Archive.zip
+      archive_chain:
+        - KML/CHGIS_v4_1911_KML.zip
+        - V4_1911_KML_metadata/Thumbs.db
+      archive_ordinals: [5, 11]
+    expected:
+      kind: file
+      size: 24576
+      sha256: c68ef43f7fcccea503189bb4bd15ab9764008d7872fec4606745f61aad2bb001
+      signature: ole
+    disposition: NON_TABULAR
+    reason: DESIGN §5 已明确将 Thumbs.db 登记为非业务缩略图成员；保留此精确成员链、物理序号、完整字节摘要和大小，不删除，不因 OLE 签名当作 XLS。实际参考件保存验证待实现。
+    format_family: thumbnail-reference
+    validator: pending-reference-byte-verifier
+    encodings: []
+    targets: []
+  - rule_id: m007903
+    selector:
+      relative_path: harvard/SHA256SUMS
+      archive_chain: []
+      archive_ordinals: []
+    expected:
+      kind: file
+      size: 1307
+      sha256: 5ad06d6dcf6dfa5e6ecfad707f0e59c53b3a4a21e657b334297aba6c26b453a3
+      signature: unknown
+    disposition: NON_TABULAR
+    reason: DESIGN §5 的校验文件；既有严格清点记录 13 条匹配断言，保留完整原账作为溯源材料，不建业务表；实际参考件保存验证待实现。
+    format_family: checksum-ledger
+    validator: pending-reference-byte-verifier
+    encodings: []
+    targets: []
+  - rule_id: m007977
+    selector:
+      relative_path: harvard/chgis/SHA256SUMS.txt
+      archive_chain: []
+      archive_ordinals: []
+    expected:
+      kind: file
+      size: 551
+      sha256: 694c101f04e636012e752c87958c8065c8e6926633c8b542e89978d8f8451a60
+      signature: unknown
+    disposition: NON_TABULAR
+    reason: DESIGN §5 的发布方校验文件；完整原账、行号、原名与声明位置保留，第 4 行缺失仍是严格阻断。显式位置候选仅预览通过，未启用运行例外；实际参考件保存验证待实现。
+    format_family: checksum-ledger
+    validator: pending-reference-byte-verifier
+    encodings: []
+    targets: []

@@ -1,0 +1,17 @@
+.git
+.agents
+.secrets
+.env
+**/.env
+**/.env.*
+**/.secrets
+**/*.pem
+**/*.key
+**/*.p12
+**/*.pfx
+**/__pycache__
+**/*.pyc
+demo
+zxlogin.html
+datamgmt/recon
+data

@@ -1,0 +1,89 @@
+FF                                                                       [100%]
+=================================== FAILURES ===================================
+________________ test_local_reference_to_nonschema_is_sanitized ________________
+
+    def test_local_reference_to_nonschema_is_sanitized():
+        schema = {"$schema": "https://json-schema.org/draft/2020-12/schema",
+                  "title": "not-a-schema", "$ref": "#/title"}
+        with pytest.raises(contracts.ContractError) as error:
+>           check({"synthetic": "must-not-echo"}, schema)
+
+/workspace/datamgmt/tests/unit/test_contract_schema_validation.py:141: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/workspace/datamgmt/tests/unit/test_contract_schema_validation.py:14: in check
+    validator(document, schema if schema is not None else contracts.contract_schema())
+/workspace/datamgmt/src/xiangrugu_datamgmt/contracts.py:245: in validate_contract_document
+    Draft202012Validator(schema, registry=Registry(retrieve=_deny_schema_retrieval)).validate(document)
+/usr/local/lib/python3.11/site-packages/jsonschema/validators.py:449: in validate
+    for error in self.iter_errors(*args, **kwargs):
+/usr/local/lib/python3.11/site-packages/jsonschema/validators.py:383: in iter_errors
+    for error in errors:
+/usr/local/lib/python3.11/site-packages/jsonschema/_keywords.py:275: in ref
+    yield from validator._validate_reference(ref=ref, instance=instance)
+/usr/local/lib/python3.11/site-packages/jsonschema/validators.py:423: in descend
+    evolved = self.evolve(schema=schema, _resolver=resolver)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/usr/local/lib/python3.11/site-packages/jsonschema/validators.py:347: in evolve
+    return NewValidator(**changes)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+<attrs generated methods jsonschema.validators.create.<locals>.Validator>:32: in __init__
+    self.__attrs_post_init__()
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = Draft202012Validator(schema='not-a-schema', format_checker=None)
+
+    def __attrs_post_init__(self):
+        if self._resolver is None:
+            registry = self._registry
+            if registry is not _REMOTE_WARNING_REGISTRY:
+                registry = SPECIFICATIONS.combine(registry)
+            resource = specification.create_resource(self.schema)
+            self._resolver = registry.resolver_with_root(resource)
+    
+        if self.schema is True or self.schema is False:
+            self._validators = []
+        else:
+            self._validators = [
+                (self.VALIDATORS[k], k, v)
+>               for k, v in applicable_validators(self.schema)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                if k in self.VALIDATORS
+            ]
+E           AttributeError: 'str' object has no attribute 'items'
+
+/usr/local/lib/python3.11/site-packages/jsonschema/validators.py:295: AttributeError
+____ test_literal_document_reference_key_in_const_is_not_a_schema_reference ____
+
+    def test_literal_document_reference_key_in_const_is_not_a_schema_reference():
+        schema = {"$schema": "https://json-schema.org/draft/2020-12/schema",
+                  "const": {"$ref": "literal"}}
+>       check({"$ref": "literal"}, schema)
+
+/workspace/datamgmt/tests/unit/test_contract_schema_validation.py:148: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/workspace/datamgmt/tests/unit/test_contract_schema_validation.py:14: in check
+    validator(document, schema if schema is not None else contracts.contract_schema())
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+document = {'$ref': 'literal'}
+schema = {'$schema': 'https://json-schema.org/draft/2020-12/schema', 'const': {'$ref': 'literal'}}
+
+    def validate_contract_document(document, schema):
+        """Independent raw JSON Schema gate. Never invokes the contract model."""
+        try:
+            _check_json_domain(document)
+            _check_json_domain(schema, schema=True)
+            if type(schema) is not dict or schema.get("$schema") != Draft202012Validator.META_SCHEMA["$id"]:
+                raise ContractError("Only explicit Draft 2020-12 schemas are supported")
+            Draft202012Validator.check_schema(schema)
+            Draft202012Validator(schema, registry=Registry(retrieve=_deny_schema_retrieval)).validate(document)
+        except (SchemaError, ValidationError, Unresolvable, ValueError, TypeError, RecursionError):
+            # jsonschema exception messages/chains contain the rejected instance.
+>           raise ContractError("Invalid JSON Schema or raw contract document") from None
+E           xiangrugu_datamgmt.contracts.ContractError: Invalid JSON Schema or raw contract document
+
+/workspace/datamgmt/src/xiangrugu_datamgmt/contracts.py:248: ContractError
+=========================== short test summary info ============================
+FAILED ../workspace/datamgmt/tests/unit/test_contract_schema_validation.py::test_local_reference_to_nonschema_is_sanitized
+FAILED ../workspace/datamgmt/tests/unit/test_contract_schema_validation.py::test_literal_document_reference_key_in_const_is_not_a_schema_reference
+2 failed, 32 deselected in 0.26s

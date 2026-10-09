@@ -1,0 +1,127 @@
+{
+  "version": 1,
+  "scope": "independent-json-schema-development-evidence",
+  "transfer_verified": true,
+  "files": [
+    {
+      "file": "budget-red.log",
+      "sha256": "5fed0e317ae7a488ce06037b3777836154a93b7443e6f947aa7ae9693a1e7d99",
+      "remote": "/opt/mydocker/xiangrugu/data/var/json-schema-20261008T143630Z/budget-red.log"
+    },
+    {
+      "file": "build-final-dev.log",
+      "sha256": "7460380b5d5159dd6006f11f9d35f626c90c1bcc9b5409bad6242eed5dbab4bf",
+      "remote": "/opt/mydocker/xiangrugu/data/var/json-schema-20261008T143630Z/build-final-dev.log"
+    },
+    {
+      "file": "build-final-runtime.log",
+      "sha256": "a29ce8a78505db635243dd3927441e84b5d67e67065d5b29d25f289cc979fa2b",
+      "remote": "/opt/mydocker/xiangrugu/data/var/json-schema-20261008T143630Z/build-final-runtime.log"
+    },
+    {
+      "file": "build-final-test.log",
+      "sha256": "7024188edbb0c3297bfde0b0fa3620efd991b84406d4f2051788b9d232ff4477",
+      "remote": "/opt/mydocker/xiangrugu/data/var/json-schema-20261008T143630Z/build-final-test.log"
+    },
+    {
+      "file": "build-red.log",
+      "sha256": "fba2b9506be35b7bf1cc83cb55cef28838846e600cb02e855b4e39b0670972c5",
+      "remote": "/opt/mydocker/xiangrugu/data/var/json-schema-20261008T143630Z/build-red.log"
+    },
+    {
+      "file": "containers-after.txt",
+      "sha256": "d02a340c567d7c7289192cb591731d1c0e2083e69921c48f26db829f003e3cbb",
+      "remote": "/opt/mydocker/xiangrugu/data/var/json-schema-20261008T143630Z/containers-after.txt"
+    },
+    {
+      "file": "contract-schema-validation.json",
+      "sha256": "de50f5d4e574ec919169c51d90e94759af6437ca7bbaa2bf9f394132575b2d75",
+      "remote": "/opt/mydocker/xiangrugu/data/var/json-schema-20261008T143630Z/contract-schema-validation.json"
+    },
+    {
+      "file": "dialect-red.log",
+      "sha256": "01004cf1ba270fe318fdde88531e1b210f0f8044d37ba15d311731de927511df",
+      "remote": "/opt/mydocker/xiangrugu/data/var/json-schema-20261008T143630Z/dialect-red.log"
+    },
+    {
+      "file": "final-suite.log",
+      "sha256": "fa9252de0e8563266d3121418bb79ccbe4e5b4c172854a0cab05a8da6d7c3940",
+      "remote": "/opt/mydocker/xiangrugu/data/var/json-schema-20261008T143630Z/final-suite.log"
+    },
+    {
+      "file": "green.log",
+      "sha256": "81e5fd018086f62b52c04a5e9f5a7778ef7bdb6556854651ceb7e0f53707f8f4",
+      "remote": "/opt/mydocker/xiangrugu/data/var/json-schema-20261008T143630Z/green.log"
+    },
+    {
+      "file": "images.jsonl",
+      "sha256": "9397cd31693e7a2624d418d7812bf3b6be84bd4f00188e36b648b749b6fef5cb",
+      "remote": "/opt/mydocker/xiangrugu/data/var/json-schema-20261008T143630Z/images.jsonl"
+    },
+    {
+      "file": "old-dev-feedback.log",
+      "sha256": "ee5600c2da9dd9f4ead88b2abd910bbe5503b60ea7b79946b9367c0e929aa310",
+      "remote": "/opt/mydocker/xiangrugu/data/var/json-schema-20261008T143630Z/old-dev-feedback.log"
+    },
+    {
+      "file": "pip-check-dev.log",
+      "sha256": "54df3e4d7b73538b46e426f66df615aebb1d93f18d8bb1475664123fdec2704d",
+      "remote": "/opt/mydocker/xiangrugu/data/var/json-schema-20261008T143630Z/pip-check-dev.log"
+    },
+    {
+      "file": "pip-check-runtime.log",
+      "sha256": "54df3e4d7b73538b46e426f66df615aebb1d93f18d8bb1475664123fdec2704d",
+      "remote": "/opt/mydocker/xiangrugu/data/var/json-schema-20261008T143630Z/pip-check-runtime.log"
+    },
+    {
+      "file": "pip-check-test.log",
+      "sha256": "54df3e4d7b73538b46e426f66df615aebb1d93f18d8bb1475664123fdec2704d",
+      "remote": "/opt/mydocker/xiangrugu/data/var/json-schema-20261008T143630Z/pip-check-test.log"
+    },
+    {
+      "file": "pip-final-dev.log",
+      "sha256": "9261363b733079a641c2e4cc9bc46ffa1d8336945a87f807b6cf68847dbc9b09",
+      "remote": "/opt/mydocker/xiangrugu/data/var/json-schema-20261008T143630Z/pip-final-dev.log"
+    },
+    {
+      "file": "pip-final-runtime.log",
+      "sha256": "9261363b733079a641c2e4cc9bc46ffa1d8336945a87f807b6cf68847dbc9b09",
+      "remote": "/opt/mydocker/xiangrugu/data/var/json-schema-20261008T143630Z/pip-final-runtime.log"
+    },
+    {
+      "file": "pip-final-test.log",
+      "sha256": "9261363b733079a641c2e4cc9bc46ffa1d8336945a87f807b6cf68847dbc9b09",
+      "remote": "/opt/mydocker/xiangrugu/data/var/json-schema-20261008T143630Z/pip-final-test.log"
+    },
+    {
+      "file": "red.log",
+      "sha256": "7a96bdaedc964e9ae854723f38f59071d2f585595e16042c500517106748f063",
+      "remote": "/opt/mydocker/xiangrugu/data/var/json-schema-20261008T143630Z/red.log"
+    },
+    {
+      "file": "review-full-green.log",
+      "sha256": "de611238fcd328b42124bdc6e9beccc8a3615ef703023fa1752151afa66444c9",
+      "remote": "/opt/mydocker/xiangrugu/data/var/json-schema-20261008T143630Z/review-full-green.log"
+    },
+    {
+      "file": "review-green.log",
+      "sha256": "78fe994eed6d76288352f418a725877f2a8f426b9cf9baa6aea99d36feb4e335",
+      "remote": "/opt/mydocker/xiangrugu/data/var/json-schema-20261008T143630Z/review-green.log"
+    },
+    {
+      "file": "review-red.log",
+      "sha256": "51f7991f3f6318ab3abf50df1e528b28c0934459ce140fc9d1203891a90c9375",
+      "remote": "/opt/mydocker/xiangrugu/data/var/json-schema-20261008T143630Z/review-red.log"
+    },
+    {
+      "file": "review-suite-green.log",
+      "sha256": "b0e0a43665ae309b7f75afc8a9534e9e3a4507b14fc547cf1a47ef6d4cd377b0",
+      "remote": "/opt/mydocker/xiangrugu/data/var/json-schema-20261008T143630Z/review-suite-green.log"
+    },
+    {
+      "file": "runtime-smoke.log",
+      "sha256": "e8ad2ccae669b97b126c914b19b6867631feff31a07daf55debeef29cf04196b",
+      "remote": "/opt/mydocker/xiangrugu/data/var/json-schema-20261008T143630Z/runtime-smoke.log"
+    }
+  ]
+}

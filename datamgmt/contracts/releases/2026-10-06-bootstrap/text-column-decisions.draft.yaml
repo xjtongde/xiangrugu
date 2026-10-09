@@ -1,0 +1,57 @@
+# 非执行逐案批准；绑定完整旧提案，不批准 schema、表名、冻结或导入。
+version: 1
+status: draft
+release_id: 2026-10-06-bootstrap
+source_version: 2026-10-07-bootstrap
+review_date: '2026-10-08'
+authorization_reference: '用户“同意”，回应五件83列现有列名映射、text、nullable=false、空字符串保留及每表__src_rownum bigint的明确提问；不含schema、表名、冻结或导入'
+proposal_file: text-objects-five.draft.yaml
+proposal_sha256: 5574f4d2682b790de3068c78d5cd45e29657a5100a390322c2675b09c7da1486
+source_column_count: 83
+source_column_mapping_approved: true
+source_column_types_approved: true
+source_column_nullable_approved: true
+derived_rownum_mapping_approved: true
+objects:
+  - object_name: ACADEMY_Data.tab
+    source_object_id: 257375d1235ceb968ae65d6e6dbe03238b4c482d8953714c43de08ec5eb23d41
+    rule_id: m008002
+    source_column_count: 54
+    source_record_count: 2957
+  - object_name: Index_of_the_Complete_Prose_of_the_Yuan_Dynasty_vol_1-60.tab
+    source_object_id: 300c70270efd1fe3df8e33fd06ac2de0b361ee9185c519589eaa0664fc73def0
+    rule_id: m008003
+    source_column_count: 5
+    source_record_count: 40199
+  - object_name: writings of the 19c missionaries in China.tab
+    source_object_id: 7866bf2d2a1df79444ab2da4e91686b81d960b95b31d8103fdbd8974c5637d72
+    rule_id: m008004
+    source_column_count: 11
+    source_record_count: 1033
+  - object_name: 2001_Shanghai_0_INDEX_OF_PRESENTATIONS.tab
+    source_object_id: 1334a175777350ed2cb0c7ea037bd89fa74f660b1ab351400b09d06d0142ee76
+    rule_id: m004812
+    source_column_count: 7
+    source_record_count: 29
+  - object_name: GB_91_HZ_040201_UTF8.tab
+    source_object_id: 9784b04445aa2c8b39232f8f5f06d7e13f8249e36fc67f47cbd38e35a9a2efa4
+    rule_id: m006642
+    source_column_count: 6
+    source_record_count: 3389
+interpretation:
+  source_column_target_type: text
+  source_column_nullable: false
+  empty_strings: preserve_as_empty_strings_not_null
+  infer_numbers_dates_or_null: false
+  source_values_or_headers_changed: false
+  derived_column_name: __src_rownum
+  derived_column_type: bigint
+  derived_column_origin: one-based data record order excluding header
+  primary_key_or_unique_constraint_approved: false
+  approval_applies_to_other_sources_or_versions: false
+schema_approved: false
+table_names_approved: false
+target_mapping_approved: false
+ready_for_import: false
+contract_frozen: false
+formal_sources_and_current: unchanged

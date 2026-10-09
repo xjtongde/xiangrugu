@@ -1,0 +1,324 @@
+..........................................FFFFFFFFFFFFFFFFFFFFFF         [100%]
+=================================== FAILURES ===================================
+______ test_schema_header_row_and_empty_stream_match_hand_derived_fixture ______
+
+    def test_schema_header_row_and_empty_stream_match_hand_derived_fixture():
+        m = api()
+        raw, head = reference_header()
+>       assert m.schema_bytes(schema()) == raw
+               ^^^^^^^^^^^^^^
+E       AttributeError: module 'xiangrugu_datamgmt.canonical' has no attribute 'schema_bytes'
+
+datamgmt/tests/unit/test_canonical.py:141: AttributeError
+_____________ test_delimiter_ambiguity_and_metadata_are_not_equal ______________
+
+    def test_delimiter_ambiguity_and_metadata_are_not_equal():
+        m = api()
+        s = schema()
+        s = replace(s, columns=(s.columns[0], m.ValueColumn("c"*64, "other", "text", True), s.columns[-1]))
+>       first = m.encode_row(s, ("ab", "c", 1), expected_rownum=1, limits=m.ValueLimits())
+                ^^^^^^^^^^^^
+E       AttributeError: module 'xiangrugu_datamgmt.canonical' has no attribute 'encode_row'
+
+datamgmt/tests/unit/test_canonical.py:161: AttributeError
+______________ test_stream_rejects_wrong_width_and_rownum[rows0] _______________
+
+rows = (('x', 2),)
+
+    @pytest.mark.parametrize("rows", [
+        (("x", 2),), (("x", True),), (("x", 1), ("x", 1)),
+        (("x", 1), ("x", 10)), (("x",),), (("x", 1, 2),), (["x", 1],),
+    ])
+    def test_stream_rejects_wrong_width_and_rownum(rows):
+        with pytest.raises(api().ValueContractError):
+>           api().summarize_rows(schema(), iter(rows), limits=api().ValueLimits())
+            ^^^^^^^^^^^^^^^^^^^^
+E           AttributeError: module 'xiangrugu_datamgmt.canonical' has no attribute 'summarize_rows'
+
+datamgmt/tests/unit/test_canonical.py:178: AttributeError
+______________ test_stream_rejects_wrong_width_and_rownum[rows1] _______________
+
+rows = (('x', True),)
+
+    @pytest.mark.parametrize("rows", [
+        (("x", 2),), (("x", True),), (("x", 1), ("x", 1)),
+        (("x", 1), ("x", 10)), (("x",),), (("x", 1, 2),), (["x", 1],),
+    ])
+    def test_stream_rejects_wrong_width_and_rownum(rows):
+        with pytest.raises(api().ValueContractError):
+>           api().summarize_rows(schema(), iter(rows), limits=api().ValueLimits())
+            ^^^^^^^^^^^^^^^^^^^^
+E           AttributeError: module 'xiangrugu_datamgmt.canonical' has no attribute 'summarize_rows'
+
+datamgmt/tests/unit/test_canonical.py:178: AttributeError
+______________ test_stream_rejects_wrong_width_and_rownum[rows2] _______________
+
+rows = (('x', 1), ('x', 1))
+
+    @pytest.mark.parametrize("rows", [
+        (("x", 2),), (("x", True),), (("x", 1), ("x", 1)),
+        (("x", 1), ("x", 10)), (("x",),), (("x", 1, 2),), (["x", 1],),
+    ])
+    def test_stream_rejects_wrong_width_and_rownum(rows):
+        with pytest.raises(api().ValueContractError):
+>           api().summarize_rows(schema(), iter(rows), limits=api().ValueLimits())
+            ^^^^^^^^^^^^^^^^^^^^
+E           AttributeError: module 'xiangrugu_datamgmt.canonical' has no attribute 'summarize_rows'
+
+datamgmt/tests/unit/test_canonical.py:178: AttributeError
+______________ test_stream_rejects_wrong_width_and_rownum[rows3] _______________
+
+rows = (('x', 1), ('x', 10))
+
+    @pytest.mark.parametrize("rows", [
+        (("x", 2),), (("x", True),), (("x", 1), ("x", 1)),
+        (("x", 1), ("x", 10)), (("x",),), (("x", 1, 2),), (["x", 1],),
+    ])
+    def test_stream_rejects_wrong_width_and_rownum(rows):
+        with pytest.raises(api().ValueContractError):
+>           api().summarize_rows(schema(), iter(rows), limits=api().ValueLimits())
+            ^^^^^^^^^^^^^^^^^^^^
+E           AttributeError: module 'xiangrugu_datamgmt.canonical' has no attribute 'summarize_rows'
+
+datamgmt/tests/unit/test_canonical.py:178: AttributeError
+______________ test_stream_rejects_wrong_width_and_rownum[rows4] _______________
+
+rows = (('x',),)
+
+    @pytest.mark.parametrize("rows", [
+        (("x", 2),), (("x", True),), (("x", 1), ("x", 1)),
+        (("x", 1), ("x", 10)), (("x",),), (("x", 1, 2),), (["x", 1],),
+    ])
+    def test_stream_rejects_wrong_width_and_rownum(rows):
+        with pytest.raises(api().ValueContractError):
+>           api().summarize_rows(schema(), iter(rows), limits=api().ValueLimits())
+            ^^^^^^^^^^^^^^^^^^^^
+E           AttributeError: module 'xiangrugu_datamgmt.canonical' has no attribute 'summarize_rows'
+
+datamgmt/tests/unit/test_canonical.py:178: AttributeError
+______________ test_stream_rejects_wrong_width_and_rownum[rows5] _______________
+
+rows = (('x', 1, 2),)
+
+    @pytest.mark.parametrize("rows", [
+        (("x", 2),), (("x", True),), (("x", 1), ("x", 1)),
+        (("x", 1), ("x", 10)), (("x",),), (("x", 1, 2),), (["x", 1],),
+    ])
+    def test_stream_rejects_wrong_width_and_rownum(rows):
+        with pytest.raises(api().ValueContractError):
+>           api().summarize_rows(schema(), iter(rows), limits=api().ValueLimits())
+            ^^^^^^^^^^^^^^^^^^^^
+E           AttributeError: module 'xiangrugu_datamgmt.canonical' has no attribute 'summarize_rows'
+
+datamgmt/tests/unit/test_canonical.py:178: AttributeError
+______________ test_stream_rejects_wrong_width_and_rownum[rows6] _______________
+
+rows = (['x', 1],)
+
+    @pytest.mark.parametrize("rows", [
+        (("x", 2),), (("x", True),), (("x", 1), ("x", 1)),
+        (("x", 1), ("x", 10)), (("x",),), (("x", 1, 2),), (["x", 1],),
+    ])
+    def test_stream_rejects_wrong_width_and_rownum(rows):
+        with pytest.raises(api().ValueContractError):
+>           api().summarize_rows(schema(), iter(rows), limits=api().ValueLimits())
+            ^^^^^^^^^^^^^^^^^^^^
+E           AttributeError: module 'xiangrugu_datamgmt.canonical' has no attribute 'summarize_rows'
+
+datamgmt/tests/unit/test_canonical.py:178: AttributeError
+__ test_duplicate_business_rows_keep_distinct_ordinals_and_single_consumption __
+
+    def test_duplicate_business_rows_keep_distinct_ordinals_and_single_consumption():
+        def rows():
+            yield ("x", 1)
+            yield ("x", 2)
+>       summary = api().summarize_rows(schema(), rows(), limits=api().ValueLimits())
+                  ^^^^^^^^^^^^^^^^^^^^
+E       AttributeError: module 'xiangrugu_datamgmt.canonical' has no attribute 'summarize_rows'
+
+datamgmt/tests/unit/test_canonical.py:185: AttributeError
+_____ test_broken_iterator_cannot_get_a_prefix_digest_and_hides_exception ______
+
+    def test_broken_iterator_cannot_get_a_prefix_digest_and_hides_exception():
+        def rows():
+            yield ("x", 1)
+            raise RuntimeError("private-secret")
+        with pytest.raises(api().ValueContractError) as error:
+>           api().summarize_rows(schema(), rows(), limits=api().ValueLimits())
+            ^^^^^^^^^^^^^^^^^^^^
+E           AttributeError: module 'xiangrugu_datamgmt.canonical' has no attribute 'summarize_rows'
+
+datamgmt/tests/unit/test_canonical.py:195: AttributeError
+________ test_stream_budgets_include_framing_and_trailer[limits0-rows0] ________
+
+limits = {'max_columns': 1}, rows = ()
+
+    @pytest.mark.parametrize("limits,rows", [
+        ({"max_columns": 1}, ()), ({"max_rows": 1}, (("x", 1), ("x", 2))),
+        ({"max_field_bytes": 2}, (("字", 1),)), ({"max_row_bytes": 9}, ((None, 1),)),
+        ({"max_stream_bytes": 82}, ()), ({"max_stream_bytes": 105}, ((None, 1),)),
+    ])
+    def test_stream_budgets_include_framing_and_trailer(limits, rows):
+        with pytest.raises(api().ValueContractError) as error:
+>           api().summarize_rows(schema(), iter(rows), limits=api().ValueLimits(**limits))
+            ^^^^^^^^^^^^^^^^^^^^
+E           AttributeError: module 'xiangrugu_datamgmt.canonical' has no attribute 'summarize_rows'
+
+datamgmt/tests/unit/test_canonical.py:208: AttributeError
+________ test_stream_budgets_include_framing_and_trailer[limits1-rows1] ________
+
+limits = {'max_rows': 1}, rows = (('x', 1), ('x', 2))
+
+    @pytest.mark.parametrize("limits,rows", [
+        ({"max_columns": 1}, ()), ({"max_rows": 1}, (("x", 1), ("x", 2))),
+        ({"max_field_bytes": 2}, (("字", 1),)), ({"max_row_bytes": 9}, ((None, 1),)),
+        ({"max_stream_bytes": 82}, ()), ({"max_stream_bytes": 105}, ((None, 1),)),
+    ])
+    def test_stream_budgets_include_framing_and_trailer(limits, rows):
+        with pytest.raises(api().ValueContractError) as error:
+>           api().summarize_rows(schema(), iter(rows), limits=api().ValueLimits(**limits))
+            ^^^^^^^^^^^^^^^^^^^^
+E           AttributeError: module 'xiangrugu_datamgmt.canonical' has no attribute 'summarize_rows'
+
+datamgmt/tests/unit/test_canonical.py:208: AttributeError
+________ test_stream_budgets_include_framing_and_trailer[limits2-rows2] ________
+
+limits = {'max_field_bytes': 2}, rows = (('字', 1),)
+
+    @pytest.mark.parametrize("limits,rows", [
+        ({"max_columns": 1}, ()), ({"max_rows": 1}, (("x", 1), ("x", 2))),
+        ({"max_field_bytes": 2}, (("字", 1),)), ({"max_row_bytes": 9}, ((None, 1),)),
+        ({"max_stream_bytes": 82}, ()), ({"max_stream_bytes": 105}, ((None, 1),)),
+    ])
+    def test_stream_budgets_include_framing_and_trailer(limits, rows):
+        with pytest.raises(api().ValueContractError) as error:
+>           api().summarize_rows(schema(), iter(rows), limits=api().ValueLimits(**limits))
+            ^^^^^^^^^^^^^^^^^^^^
+E           AttributeError: module 'xiangrugu_datamgmt.canonical' has no attribute 'summarize_rows'
+
+datamgmt/tests/unit/test_canonical.py:208: AttributeError
+________ test_stream_budgets_include_framing_and_trailer[limits3-rows3] ________
+
+limits = {'max_row_bytes': 9}, rows = ((None, 1),)
+
+    @pytest.mark.parametrize("limits,rows", [
+        ({"max_columns": 1}, ()), ({"max_rows": 1}, (("x", 1), ("x", 2))),
+        ({"max_field_bytes": 2}, (("字", 1),)), ({"max_row_bytes": 9}, ((None, 1),)),
+        ({"max_stream_bytes": 82}, ()), ({"max_stream_bytes": 105}, ((None, 1),)),
+    ])
+    def test_stream_budgets_include_framing_and_trailer(limits, rows):
+        with pytest.raises(api().ValueContractError) as error:
+>           api().summarize_rows(schema(), iter(rows), limits=api().ValueLimits(**limits))
+            ^^^^^^^^^^^^^^^^^^^^
+E           AttributeError: module 'xiangrugu_datamgmt.canonical' has no attribute 'summarize_rows'
+
+datamgmt/tests/unit/test_canonical.py:208: AttributeError
+________ test_stream_budgets_include_framing_and_trailer[limits4-rows4] ________
+
+limits = {'max_stream_bytes': 82}, rows = ()
+
+    @pytest.mark.parametrize("limits,rows", [
+        ({"max_columns": 1}, ()), ({"max_rows": 1}, (("x", 1), ("x", 2))),
+        ({"max_field_bytes": 2}, (("字", 1),)), ({"max_row_bytes": 9}, ((None, 1),)),
+        ({"max_stream_bytes": 82}, ()), ({"max_stream_bytes": 105}, ((None, 1),)),
+    ])
+    def test_stream_budgets_include_framing_and_trailer(limits, rows):
+        with pytest.raises(api().ValueContractError) as error:
+>           api().summarize_rows(schema(), iter(rows), limits=api().ValueLimits(**limits))
+            ^^^^^^^^^^^^^^^^^^^^
+E           AttributeError: module 'xiangrugu_datamgmt.canonical' has no attribute 'summarize_rows'
+
+datamgmt/tests/unit/test_canonical.py:208: AttributeError
+________ test_stream_budgets_include_framing_and_trailer[limits5-rows5] ________
+
+limits = {'max_stream_bytes': 105}, rows = ((None, 1),)
+
+    @pytest.mark.parametrize("limits,rows", [
+        ({"max_columns": 1}, ()), ({"max_rows": 1}, (("x", 1), ("x", 2))),
+        ({"max_field_bytes": 2}, (("字", 1),)), ({"max_row_bytes": 9}, ((None, 1),)),
+        ({"max_stream_bytes": 82}, ()), ({"max_stream_bytes": 105}, ((None, 1),)),
+    ])
+    def test_stream_budgets_include_framing_and_trailer(limits, rows):
+        with pytest.raises(api().ValueContractError) as error:
+>           api().summarize_rows(schema(), iter(rows), limits=api().ValueLimits(**limits))
+            ^^^^^^^^^^^^^^^^^^^^
+E           AttributeError: module 'xiangrugu_datamgmt.canonical' has no attribute 'summarize_rows'
+
+datamgmt/tests/unit/test_canonical.py:208: AttributeError
+_______________ test_exact_stream_and_row_budget_boundary_passes _______________
+
+    def test_exact_stream_and_row_budget_boundary_passes():
+>       assert api().summarize_rows(schema(), iter(((None, 1),)), limits=api().ValueLimits(
+               ^^^^^^^^^^^^^^^^^^^^
+            max_row_bytes=10, max_stream_bytes=106)).stream_bytes == 106
+E       AttributeError: module 'xiangrugu_datamgmt.canonical' has no attribute 'summarize_rows'
+
+datamgmt/tests/unit/test_canonical.py:213: AttributeError
+_ test_cancelled_or_invalid_callback_never_returns_complete_digest[<lambda>0] __
+
+callback = <function <lambda> at 0x7f8f092d7e20>
+
+    @pytest.mark.parametrize("callback", [lambda: True, lambda: "yes"])
+    def test_cancelled_or_invalid_callback_never_returns_complete_digest(callback):
+        with pytest.raises(api().ValueContractError):
+>           api().summarize_rows(schema(), iter(()), limits=api().ValueLimits(), cancelled=callback)
+            ^^^^^^^^^^^^^^^^^^^^
+E           AttributeError: module 'xiangrugu_datamgmt.canonical' has no attribute 'summarize_rows'
+
+datamgmt/tests/unit/test_canonical.py:220: AttributeError
+_ test_cancelled_or_invalid_callback_never_returns_complete_digest[<lambda>1] __
+
+callback = <function <lambda> at 0x7f8f092d7ec0>
+
+    @pytest.mark.parametrize("callback", [lambda: True, lambda: "yes"])
+    def test_cancelled_or_invalid_callback_never_returns_complete_digest(callback):
+        with pytest.raises(api().ValueContractError):
+>           api().summarize_rows(schema(), iter(()), limits=api().ValueLimits(), cancelled=callback)
+            ^^^^^^^^^^^^^^^^^^^^
+E           AttributeError: module 'xiangrugu_datamgmt.canonical' has no attribute 'summarize_rows'
+
+datamgmt/tests/unit/test_canonical.py:220: AttributeError
+_________ test_callback_error_is_sanitized_and_final_cancel_is_checked _________
+
+    def test_callback_error_is_sanitized_and_final_cancel_is_checked():
+        def bad():
+            raise RuntimeError("private-secret")
+        with pytest.raises(api().ValueContractError) as error:
+>           api().summarize_rows(schema(), iter(()), limits=api().ValueLimits(), cancelled=bad)
+            ^^^^^^^^^^^^^^^^^^^^
+E           AttributeError: module 'xiangrugu_datamgmt.canonical' has no attribute 'summarize_rows'
+
+datamgmt/tests/unit/test_canonical.py:227: AttributeError
+___________ test_stream_state_never_succeeds_after_finish_or_failure ___________
+
+    def test_stream_state_never_succeeds_after_finish_or_failure():
+        m = api()
+>       state = m.ValueStreamState(schema(), m.ValueLimits())
+                ^^^^^^^^^^^^^^^^^^
+E       AttributeError: module 'xiangrugu_datamgmt.canonical' has no attribute 'ValueStreamState'
+
+datamgmt/tests/unit/test_canonical.py:237: AttributeError
+=========================== short test summary info ============================
+FAILED datamgmt/tests/unit/test_canonical.py::test_schema_header_row_and_empty_stream_match_hand_derived_fixture
+FAILED datamgmt/tests/unit/test_canonical.py::test_delimiter_ambiguity_and_metadata_are_not_equal
+FAILED datamgmt/tests/unit/test_canonical.py::test_stream_rejects_wrong_width_and_rownum[rows0]
+FAILED datamgmt/tests/unit/test_canonical.py::test_stream_rejects_wrong_width_and_rownum[rows1]
+FAILED datamgmt/tests/unit/test_canonical.py::test_stream_rejects_wrong_width_and_rownum[rows2]
+FAILED datamgmt/tests/unit/test_canonical.py::test_stream_rejects_wrong_width_and_rownum[rows3]
+FAILED datamgmt/tests/unit/test_canonical.py::test_stream_rejects_wrong_width_and_rownum[rows4]
+FAILED datamgmt/tests/unit/test_canonical.py::test_stream_rejects_wrong_width_and_rownum[rows5]
+FAILED datamgmt/tests/unit/test_canonical.py::test_stream_rejects_wrong_width_and_rownum[rows6]
+FAILED datamgmt/tests/unit/test_canonical.py::test_duplicate_business_rows_keep_distinct_ordinals_and_single_consumption
+FAILED datamgmt/tests/unit/test_canonical.py::test_broken_iterator_cannot_get_a_prefix_digest_and_hides_exception
+FAILED datamgmt/tests/unit/test_canonical.py::test_stream_budgets_include_framing_and_trailer[limits0-rows0]
+FAILED datamgmt/tests/unit/test_canonical.py::test_stream_budgets_include_framing_and_trailer[limits1-rows1]
+FAILED datamgmt/tests/unit/test_canonical.py::test_stream_budgets_include_framing_and_trailer[limits2-rows2]
+FAILED datamgmt/tests/unit/test_canonical.py::test_stream_budgets_include_framing_and_trailer[limits3-rows3]
+FAILED datamgmt/tests/unit/test_canonical.py::test_stream_budgets_include_framing_and_trailer[limits4-rows4]
+FAILED datamgmt/tests/unit/test_canonical.py::test_stream_budgets_include_framing_and_trailer[limits5-rows5]
+FAILED datamgmt/tests/unit/test_canonical.py::test_exact_stream_and_row_budget_boundary_passes
+FAILED datamgmt/tests/unit/test_canonical.py::test_cancelled_or_invalid_callback_never_returns_complete_digest[<lambda>0]
+FAILED datamgmt/tests/unit/test_canonical.py::test_cancelled_or_invalid_callback_never_returns_complete_digest[<lambda>1]
+FAILED datamgmt/tests/unit/test_canonical.py::test_callback_error_is_sanitized_and_final_cancel_is_checked
+FAILED datamgmt/tests/unit/test_canonical.py::test_stream_state_never_succeeds_after_finish_or_failure
+22 failed, 42 passed in 0.28s

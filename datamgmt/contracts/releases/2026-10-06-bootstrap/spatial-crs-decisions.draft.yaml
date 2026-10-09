@@ -1,0 +1,38 @@
+# 非执行逐案批准记录；不改变正式处置、冻结或数据库。
+version: 1
+status: draft
+release_id: 2026-10-06-bootstrap
+source_version: 2026-10-07-bootstrap
+review_date: '2026-10-08'
+authorization_reference: '用户“继续”，回应仅两组空间对象批准SRID4326、原始X/Y不交换不转换；不含导入或冻结的明确提问'
+diagnostic_file: offline-crs-diagnostics-final.json
+diagnostic_sha256: 8505b5112076b094f1ee7472333b2916739fce45251b957c4e54aecf162ef8ce
+geometry_projection_file: spatial-geometry-approved.draft.yaml
+geometry_projection_sha256: 21d15e4308b7cf9ea4a945942708ffcdeb4e76438917705bd4300ca206e760c5
+crs_srid_approved: true
+srid: 4326
+objects:
+  - object_name: Ca1884route_przh_1251
+    source_object_id: 9b4496c93de442c447b58adf9be56303ab5fd4897d68bbf0bad99069d12d44dc
+    primary_rule_id: m002709
+  - object_name: Ca1884route_przh_utf8
+    source_object_id: e601ce1a7667c8286abce0d09c5b81d3dc809265ed219dd6e4e1dd3c5cfc9ace
+    primary_rule_id: m002717
+interpretation:
+  srid_is_reference_system_label_only: true
+  coordinates: preserve_original_ieee754_xy
+  geom_x: original_shp_x
+  geom_y: original_shp_y
+  swap_xy: false
+  projection_or_transform: false
+  rounding: false
+  replace_with_dbf_lat_long: false
+  prj_qpj: preserve_both_raw_declarations_no_override
+  declaration_axis_difference: retained_not_strictly_equivalent
+  epsg_axis_order_is_not_coordinate_swap_authorization: true
+  approval_applies_to_other_sources_or_versions: false
+table_names_approved: false
+production_geometry_reader_implemented: false
+ready_for_import: false
+contract_frozen: false
+formal_sources_and_current: unchanged

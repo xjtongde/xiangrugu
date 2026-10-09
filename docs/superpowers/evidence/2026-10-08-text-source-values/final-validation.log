@@ -1,0 +1,26 @@
+2026年 10月 08日 星期四 12:59:41 UTC
+........................................................................ [ 16%]
+........................................................................ [ 32%]
+........................................................................ [ 48%]
+........................................................................ [ 64%]
+........................................................................ [ 80%]
+........................................................................ [ 96%]
+................                                                         [100%]
+448 passed in 4.21s
+No broken requirements found.
+runtime text bridge smoke: passed /usr/local/lib/python3.11/site-packages/xiangrugu_datamgmt/text_values.py
+usage: devwatch.py [-h] [--root ROOT] [--tests TESTS [TESTS ...]]
+                   [--interval INTERVAL] [--status STATUS]
+
+Run development tests whenever the controlled source mirror changes.
+
+options:
+  -h, --help            show this help message and exit
+  --root ROOT
+  --tests TESTS [TESTS ...]
+  --interval INTERVAL
+  --status STATUS
+sha256:89a9ca2e355e431aee81006152fabaa1399b9eaadf561652f7c9ae0bd6c77c08 {"io.xiangrugu.source.status":"dirty","org.opencontainers.image.created":"2026-10-08T12:58:03Z","org.opencontainers.image.description":"Xiangrugu reproducible data-management runtime","org.opencontainers.image.revision":"1a34956fbcbe7877fbad04ee5a7ec9e3dd52bf05","org.opencontainers.image.title":"xiangrugu","org.opencontainers.image.version":"0.1.0"}
+sha256:c0378c4c1477bfb2ca20f79ad7bdce8dab87447c73f058662cd1c75b391c81c8 {"io.xiangrugu.source.status":"dirty","org.opencontainers.image.created":"2026-10-08T12:58:03Z","org.opencontainers.image.description":"Xiangrugu reproducible data-management runtime","org.opencontainers.image.revision":"1a34956fbcbe7877fbad04ee5a7ec9e3dd52bf05","org.opencontainers.image.title":"xiangrugu","org.opencontainers.image.version":"0.1.0"}
+sha256:8d63006a4eb2f5f9c8d98780297634fc1bb418f9dd07b63e9f48032d009205ad {"io.xiangrugu.source.status":"dirty","org.opencontainers.image.created":"2026-10-08T12:58:03Z","org.opencontainers.image.description":"Xiangrugu reproducible data-management runtime","org.opencontainers.image.revision":"1a34956fbcbe7877fbad04ee5a7ec9e3dd52bf05","org.opencontainers.image.title":"xiangrugu","org.opencontainers.image.version":"0.1.0"}
+VERIFIED

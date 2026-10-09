@@ -1,0 +1,100 @@
+# 公开发布元数据支持的 schema 提案；用户尚未批准，不是执行合同。
+version: 1
+status: draft
+release_id: 2026-10-06-bootstrap
+source_version: 2026-10-07-bootstrap
+review_date: '2026-10-08'
+preparation_authorization: '用户“继续。导入之前通知我”，仅继续导入前审阅；pg32b原有数据处置另行确认'
+column_projection_file: text-columns-approved.draft.yaml
+column_projection_sha256: 1cf9674acd2cfe22fe59d23494a446381244212cf6ad0abca1b641310cbff3a0
+metadata_method: public_Harvard_Dataverse_dataset_API_selected_fields
+metadata_api_pattern: 'https://dataverse.harvard.edu/api/datasets/:persistentId/?persistentId=doi:10.7910/DVN/{doi}'
+metadata_is_usedata_byte_authority: false
+remote_data_files_downloaded: false
+source_snapshot_reverified: false
+online_to_snapshot_byte_equivalence_verified: false
+schema_approved: false
+table_names_approved: false
+ready_for_import: false
+contract_frozen: false
+objects:
+  - rule_id: m008002
+    source_object_id: 257375d1235ceb968ae65d6e6dbe03238b4c482d8953714c43de08ec5eb23d41
+    object_name: ACADEMY_Data.tab
+    proposed_schema: harv
+    rationale: '独立的混合来源书院文本；部分材料来自CBDB不使本件成为CBDB SQLite来源'
+    publisher_metadata:
+      doi: doi:10.7910/DVN/J6XRIV
+      title: 2957 Entries of Chinese Academies
+      version: '1.1'
+      state: RELEASED
+      last_update: '2022-12-01T03:08:49Z'
+      file_id: 6768685
+      filename: ACADEMY_Data.tab
+      filesize: 714962
+      checksum_type: MD5
+      checksum: c60772d89e7bd52d8140417ec0051ceb
+  - rule_id: m008003
+    source_object_id: 300c70270efd1fe3df8e33fd06ac2de0b361ee9185c519589eaa0664fc73def0
+    object_name: Index_of_the_Complete_Prose_of_the_Yuan_Dynasty_vol_1-60.tab
+    proposed_schema: harv
+    rationale: '发布说明为CBDB准备，但当前源载体为独立索引文本；DESIGN的cbdb限定CBDB SQLite来源'
+    publisher_metadata:
+      doi: doi:10.7910/DVN/HTGBQ3
+      title: Index of the Complete Prose of the Yuan Dynasty(全元文)
+      version: '1.0'
+      state: RELEASED
+      last_update: '2023-06-13T12:07:14Z'
+      file_id: 7170500
+      filename: Index_of_the_Complete_Prose_of_the_Yuan_Dynasty_vol_1-60.tab
+      filesize: 2619410
+      checksum_type: MD5
+      checksum: ef3f59c088dc2f6bea45f4d180e79a08
+  - rule_id: m008004
+    source_object_id: 7866bf2d2a1df79444ab2da4e91686b81d960b95b31d8103fdbd8974c5637d72
+    object_name: writings of the 19c missionaries in China.tab
+    proposed_schema: harv
+    rationale: '独立传教士著述书目文本，不是CBDB SQLite或CHGIS空间数据对象'
+    publisher_metadata:
+      doi: doi:10.7910/DVN/CE4ZNG
+      title: Writings of the 19c missionaries in China
+      version: '1.1'
+      state: RELEASED
+      last_update: '2022-09-23T23:37:00Z'
+      file_id: 6544636
+      filename: writings of the 19c missionaries in China.tab
+      filesize: 193811
+      checksum_type: MD5
+      checksum: bc3bea4c06937d933b782a98d3606209
+  - rule_id: m004812
+    source_object_id: 1334a175777350ed2cb0c7ea037bd89fa74f660b1ab351400b09d06d0142ee76
+    object_name: 2001_Shanghai_0_INDEX_OF_PRESENTATIONS.tab
+    proposed_schema: harv
+    rationale: '历史GIS工作坊演讲目录，保留为Harvard其他文本；会议主题不等于空间数据载体或CHGIS数据对象'
+    publisher_metadata:
+      doi: doi:10.7910/DVN/MI56KU
+      title: First International Workshop on Historical GIS
+      version: '1.0'
+      state: RELEASED
+      last_update: '2018-04-13T19:14:45Z'
+      file_id: 3142250
+      filename: 2001_Shanghai_0_INDEX_OF_PRESENTATIONS.tab
+      filesize: 3727
+      checksum_type: MD5
+      checksum: 4a6294e5f58b1a0fac0a53b4f0cf2f72
+  - rule_id: m006642
+    source_object_id: 9784b04445aa2c8b39232f8f5f06d7e13f8249e36fc67f47cbd38e35a9a2efa4
+    object_name: GB_91_HZ_040201_UTF8.tab
+    proposed_schema: chgis
+    rationale: '发布说明明确CHGIS编制1991国标代码表；归属依据不是Harvard目录名或猜测字段名'
+    publisher_metadata:
+      doi: doi:10.7910/DVN/SK7KGK
+      title: China Guobiao Codes (1991)  GBT-2260-91
+      version: '1.0'
+      state: RELEASED
+      last_update: '2017-03-17T17:20:02Z'
+      file_id: 3007291
+      filename: GB_91_HZ_040201_UTF8.tab
+      filesize: 137961
+      checksum_type: MD5
+      checksum: c4e12013ad07bcbe974283cef7a8857b

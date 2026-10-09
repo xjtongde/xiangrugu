@@ -1,0 +1,10 @@
+[
+  {
+    "input": {"release_id": "v1", "relative_path": "a.zip", "archive_chain": ["nested.zip", "数据.csv"], "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"},
+    "expected": "d7903352aa21096941d85c5d21a04e79f1876d35e982bc2293d17f57ce0afc92"
+  },
+  {
+    "input": {"release_id": "v2", "relative_path": "empty.bin", "archive_chain": [], "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"},
+    "expected": "63973b4839ff802cdaad907c3f28d14473e179ec594c9cdcb549e2cb2affc66f"
+  }
+]

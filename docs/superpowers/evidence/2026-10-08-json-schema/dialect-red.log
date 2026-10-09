@@ -1,0 +1,23 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+________ test_nested_dialect_declaration_cannot_bypass_execution_budget ________
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7ff58dcd2610>
+
+    def test_nested_dialect_declaration_cannot_bypass_execution_budget(monkeypatch):
+        monkeypatch.setattr(contracts, "_SCHEMA_STEP_LIMIT", 100, raising=False)
+        definitions = {"level0": {"type": "integer"}}
+        for level in range(1, 7):
+            definitions[f"level{level}"] = {
+                "allOf": [{"$ref": f"#/$defs/level{level - 1}"}] * 2,
+            }
+        definitions["level5"]["$schema"] = "https://json-schema.org/draft/2020-12/schema"
+        schema = {"$schema": "https://json-schema.org/draft/2020-12/schema",
+                  "$defs": definitions, "$ref": "#/$defs/level6"}
+>       with pytest.raises(contracts.ContractError):
+E       Failed: DID NOT RAISE ContractError
+
+/workspace/datamgmt/tests/unit/test_contract_schema_validation.py:177: Failed
+=========================== short test summary info ============================
+FAILED ../workspace/datamgmt/tests/unit/test_contract_schema_validation.py::test_nested_dialect_declaration_cannot_bypass_execution_budget
+1 failed, 35 deselected in 0.23s

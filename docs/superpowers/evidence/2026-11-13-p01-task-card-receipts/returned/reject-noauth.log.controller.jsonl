@@ -1,0 +1,2 @@
+{"version":1,"run_suffix":"p01-card-reject-noauth","layer":"windows_ssh_transport","reason":"remote_exit","utc":"2026-11-13T10:12:44.4001447Z","remote_exit_code":2,"ready_for_import":false}
+{"version":1,"run_suffix":"p01-card-reject-noauth","layer":"windows_ssh_transport","reason":"stdin_close","utc":"2026-11-13T10:12:44.4052598Z","remote_exit_code":null,"ready_for_import":false}

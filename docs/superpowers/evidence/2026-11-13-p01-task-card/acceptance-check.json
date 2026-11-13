@@ -1,0 +1,696 @@
+{
+ "as_of": "2026-11-13",
+ "receipt_commit": "5cd428af8d615b30e399c40c980edc5870c94709",
+ "attempt_id": "real-p01-20261113-a",
+ "task_card_sha256": "41bd0ecfb8b9cf6081909f60e27780c40fd5d7bf3019847a77905a4f61fc0b69",
+ "closed_review_sha256": "a7c2c5bdb69a17e8c6038065f16eff378b81f443bdc486a8af1a2b014630c93d",
+ "total_checks": 137,
+ "failed": 0,
+ "checks": [
+  {
+   "check": "card_sha_recomputed",
+   "ok": true,
+   "detail": "41bd0ecfb8b9cf6081909f60e27780c40fd5d7bf3019847a77905a4f61fc0b69"
+  },
+  {
+   "check": "card_toplevel_copy_identical",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "review_sha_recomputed",
+   "ok": true,
+   "detail": "a7c2c5bdb69a17e8c6038065f16eff378b81f443bdc486a8af1a2b014630c93d"
+  },
+  {
+   "check": "card_receipt_binds_card_sha",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "verification_binds_card_sha",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "verification_binds_review_sha",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "card_binds_review_sha",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "rejection_binds_card_sha",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "verification_status",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "verification_attempt",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "card_receipt_closed_flags",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "card_receipt_image",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "card_status_closed",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "card_source_read_unauthorized",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "card_postgresql_unauthorized",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "card_auth_null",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "card_historical_consumed",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "card_expected_nulls",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "card_no_auto",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "card_not_ready",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "card_partition",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "card_object_identity",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "card_8_columns",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "card_schema_hash_matches_parent",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "card_column_keys_match_parent",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "card_source_columns_match_parent",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "parent_expected_nulls",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "card_parent_binding_sha",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "card_roots_binding_sha",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "card_certificate_binding_sha",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "card_runtime_verification_binding_sha",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "card_snapshot_id",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "card_manifest_sha",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "card_member_counts",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "card_member_identity",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "digest_budget_derivation",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "card_runtime_image",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "card_runtime_revision",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "card_runtime_user_status",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "card_artificial_batch_binding",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "card_resources",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "card_stream_limits",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "card_no_hard_isolation_claims",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "card_deadlines",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "card_stop_conditions_count",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "card_read_scope",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "card_coverage",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "review_status",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "review_missing_empty",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "review_flag_source_read_authorized",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "review_flag_postgresql_authorized",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "review_flag_contract_frozen",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "review_flag_ready_for_import",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "selection_attempt",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "descriptor_attempt",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "review_generated_descriptor_sha",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "review_generated_request_sha",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "selection_manifest_pin",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "selection_file_pins_all_match",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "request_template_approval_null",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "request_template_source_mode",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "image_identity_p01-card-metadata",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "image_identity_p01-card-product-gate",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "image_identity_p01-card-reject-noauth",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "verification_image_identity",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "hostconfig_p01-card-metadata",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "hostconfig_no_nas_p01-card-metadata",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "limits_p01-card-metadata",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "hostconfig_p01-card-product-gate",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "hostconfig_no_nas_p01-card-product-gate",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "limits_p01-card-product-gate",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "reject_exit_code_file",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "reject_exit_code_receipt",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "reject_refused_before_materialize",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "reject_authorization_absent",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "reject_executable_files_zero",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "reject_no_materialize_dir",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "reject_no_real_candidate",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "reject_boundaries",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "reject_no_container_created",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "verification_rejection_ok",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "rejection_receipt_sha",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "product_gate_refused",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "product_gate_no_batch",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "product_gate_no_materialize",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "product_gate_default_artificial",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "product_gate_template_closed",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "product_gate_no_source_read",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "product_gate_exit",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "product_gate_template_sha",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "verification_product_gate_ok",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "product_gate_receipt_sha",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "state_p01-card-metadata",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "removal_p01-card-metadata",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "monitor_p01-card-metadata",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "state_p01-card-product-gate",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "removal_p01-card-product-gate",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "monitor_p01-card-product-gate",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "removed_candidates_2",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "no_batch_json",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "no_approval_json",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "no_executable_request",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "no_authorization_json",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "verification_no_batch",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "services_stable_p01-card-metadata",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "services_healthy_p01-card-metadata",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "services_stable_p01-card-product-gate",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "services_healthy_p01-card-product-gate",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "services_stable_p01-card-reject-noauth",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "services_healthy_p01-card-reject-noauth",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "boot_id_consistent",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "host_pswpout_zero",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "dev_idle",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "fs_not_nas",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "boundaries_held",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "coverage_unchanged",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "installed_7_modules_p01-card-metadata",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "installed_modules_match_p01-card-metadata",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "installed_7_modules_p01-card-product-gate",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "installed_modules_match_p01-card-product-gate",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "verification_modules",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "packet_check_25_ok",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "packet_check_paths_match_manifest",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "transport_remote_exit_metadata",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "transport_remote_exit_product-gate",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "transport_remote_exit_reject-noauth",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "transport_exits_0_0_2",
+   "ok": true,
+   "detail": "[0, 0, 2]"
+  },
+  {
+   "check": "ssh_logs_empty_as_noted",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "worker_log_card_prepared",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "worker_log_gate_refused",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "metadata_only_receipt_sha",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "selection_sha",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "preparation_sha",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "card_receipt_sha",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "metadata_only_flags",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "incomplete_retained_review",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "incomplete_retained_preparation",
+   "ok": true,
+   "detail": ""
+  }
+ ]
+}

@@ -1,0 +1,2 @@
+{"version":1,"run_suffix":"p01-card-product-gate","layer":"windows_ssh_transport","reason":"remote_exit","utc":"2026-11-13T10:12:40.7675761Z","remote_exit_code":0,"ready_for_import":false}
+{"version":1,"run_suffix":"p01-card-product-gate","layer":"windows_ssh_transport","reason":"stdin_close","utc":"2026-11-13T10:12:40.7729033Z","remote_exit_code":null,"ready_for_import":false}

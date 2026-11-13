@@ -1,0 +1,5 @@
+Windows proxy receipt notes
+- Exported the Gitea handoff inputs in isolation. Six byte-different metadata files were copied from the DSH workspace on host 38 and checked against the existing 25-file manifest.
+- The supplied invoke-review.ps1 defaulted to source-green-v1 but rejected it. The Windows-only proxy copy accepts v1. The uploaded packet and Linux runner were unchanged.
+- The SSH .log files are empty because the remote runner writes output into its run directories. Container stdout is in the archived worker.log files. The accompanying controller JSONL files record transport exits 0, 0, 2.
+- The task card is closed. Native verification and both refusal checks were successful.

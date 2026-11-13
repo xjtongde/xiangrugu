@@ -1,0 +1,16 @@
+b885491dc1e5b710e9320f41ebe37d056139000367610258ae6db62c5c9f4e4c  docs/superpowers/evidence/2026-11-13-p01-task-card/acceptance-check.json
+e5260430614991bdf0acbcd08fef1fedca7a5ea974e01e68a8186b7a7f0b5ab7  docs/superpowers/evidence/2026-11-13-p01-task-card/acceptance-check.py
+9e535300484dc24bfbd18d2eb9c786b94a68f0a1f8923703a32b56fed073dd33  docs/superpowers/evidence/2026-11-13-p01-task-card/controller-evidence.sh
+b49354973c45a669744d628a74cb9b02a523578cc8b8d47295de1402bf88ee21  docs/superpowers/evidence/2026-11-13-p01-task-card/controller-heartbeat.sh
+ddb9a9688ccb54c798e98a1de0ede20eaa2c22d68590f21a3bef9fb6539f4bc4  docs/superpowers/evidence/2026-11-13-p01-task-card/input-byte-diff-analysis.md
+ce71bd58b7c0c9d7f2cfe38d3d9eb1e58790f87a0c031d8b663670d4d724c486  docs/superpowers/evidence/2026-11-13-p01-task-card/invoke-review.ps1
+e0f2309fc889870db700be565ce8a4537494078275badae7f0a5d698c732dd3d  docs/superpowers/evidence/2026-11-13-p01-task-card/packet-files.txt
+7edb871ea39707db76a88f9efd258e489aebfb686e6f794f0467f13cf0c81c31  docs/superpowers/evidence/2026-11-13-p01-task-card/packet-inputs.sha256
+36e6b9595a3c52ee28121c247fd72116976af84aa8e108466f6f6fd0c64482bf  docs/superpowers/evidence/2026-11-13-p01-task-card/prepare-closed-review.py
+8f9a7eaca788270b55e7ed34c02977c659868ee341ba7ff172da6a357e479b9c  docs/superpowers/evidence/2026-11-13-p01-task-card/product-gate-probe.py
+d722b9d86c102752cfe2b33254215a7d5d29a6c0cc5fc4a9685caab478173b49  docs/superpowers/evidence/2026-11-13-p01-task-card/progress.md
+80258022bb4aa95cc28b8b6f53297a9bd846bba369a6e7d782672a07f849e7f5  docs/superpowers/evidence/2026-11-13-p01-task-card/README.md
+80f71ac0f05fe5402734f46726e57460182f72d4f256978c3f113cac00e311a1  docs/superpowers/evidence/2026-11-13-p01-task-card/RUNBOOK.md
+dada7a006093b76f5216943a613cbf3c7af1e0c88aada3fdcb6ce66dd20409e6  docs/superpowers/evidence/2026-11-13-p01-task-card/run-review.sh
+7d9b73d3f59cecc0ee322f8c809e1d8e0abc4d6688df7dced6ec6580913889f3  docs/superpowers/evidence/2026-11-13-p01-task-card/stage-review.ps1
+4bd5b4463bf93af6aca8640bea661be44149a9342f5231254e37e7ec7ed49f16  docs/superpowers/evidence/2026-11-13-p01-task-card/verify.sh

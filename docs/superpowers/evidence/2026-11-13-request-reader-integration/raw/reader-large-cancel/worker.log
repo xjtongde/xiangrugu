@@ -1,0 +1,2 @@
+{"status": "CONTROLLED_SOURCE_ONLY_TASK_FAILED", "reason": "cancelled", "failure": {"version": 1, "status": "CONTROLLED_TASK_FAILURE", "request_sha256": "583f0e89e4bfee601d429162364637fef331bb4c82d9f46f91c7db3e285481f9", "source_mode": "project_snapshot", "domain": "sqlite", "code": "cancelled", "stage": "object_read_sort", "object_index": 1, "completed_objects": 0, "ready_for_import": false, "raw_values_emitted": false}, "diagnostic_saved": true}
+{"status": "SOURCE_ONLY_WORKER_STOPPED", "reason": "cancelled", "process_group_gone": true}

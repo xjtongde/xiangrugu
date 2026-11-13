@@ -1,0 +1,50 @@
+{
+  "version": 1,
+  "status": "DRAFT_TYPE_POLICY_APPROVED",
+  "release_id": "2026-10-06-bootstrap",
+  "source_version": "2026-10-07-bootstrap",
+  "rule_id": "m007906",
+  "source_identity": {
+    "path": "harvard/cbdb/cbdb_20260919.sqlite3",
+    "kind": "file",
+    "size": 586485760,
+    "sha256": "bde1bb8eece3820d9e236c1d6b0f07d847d339669d4a85d79cd7252d58d83400"
+  },
+  "approval_reference": "2026-10-09 user 同意, following the descriptive integer/real/text, NULL/empty-text and 36 source-declaration-only proposal",
+  "bound_files": {
+    "sqlite-object-contract-proposal.draft.json": "5a1d1308080a4d16459be74f2de71f89ad0c54e75dd61e6f7bdf6e36218487d8",
+    "sqlite-type-observations.draft.json": "cf4cbf6c0b60701091430d66c7d48b0f2445927fa68f9ae9ade299a0f1750ec3",
+    "sqlite-unobserved-type-proposal.draft.json": "6e02cfdd8267accb5939f3f24f4b39de699006d5e5096ac5bedeeedf06142752"
+  },
+  "table_count": 78,
+  "column_count": 736,
+  "type_counts": {
+    "bigint": 394,
+    "double precision": 4,
+    "text": 338
+  },
+  "observed_basis_columns": 700,
+  "source_declaration_only_columns": 36,
+  "type_mapping_approved": true,
+  "scalar_preservation_policy_approved": true,
+  "preservation_policy": {
+    "integer_encoding": "signed-int64-exact",
+    "real_encoding": "binary64-exact",
+    "text_length_cap": null,
+    "null_and_empty_text_distinct": true,
+    "trim_text": false,
+    "replace_invalid_text": false,
+    "convert_dates": false,
+    "fill_nulls": false,
+    "execute_source_defaults": false,
+    "transform_coordinates": false
+  },
+  "nullability_constraints_approved": false,
+  "target_mapping_approved": false,
+  "value_contract_approved": false,
+  "source_ddl_execution_approved": false,
+  "ready_for_import": false,
+  "contract_frozen": false,
+  "disposition_retained": "BLOCKED",
+  "scope_limit": "Non-executable type and scalar preservation approval only. Not independent production source-value verification, target naming, constraints, source execution, or import authorization."
+}

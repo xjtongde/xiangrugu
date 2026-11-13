@@ -1,0 +1,17 @@
+
+name                 elapsed_seconds request_read_seconds mount_check_seconds sqlite_next_calls
+----                 --------------- -------------------- ------------------- -----------------
+controller_preflight            0.04                 0.00                0.00                 0
+request_preflight               0.17                 0.06                0.00                 0
+snapshot_verify                 0.11                 0.01                0.00                 0
+batch_preflight                 0.01                 0.00                0.00                 0
+batch_digest_before             0.19                 0.00                0.00                 0
+object_read_sort                0.01                 0.00                0.00                 0
+read_encode_bucket            296.21               191.69               22.38            465285
+chunk_sort                    265.89               185.75               21.80                 0
+merge                         537.68               367.86               43.90                 0
+final_stream_digest           233.59               182.34               21.51                 0
+batch_digest_after              0.10                 0.00                0.00                 0
+metadata_recheck                0.01                 0.00                0.00                 0
+stage_save                      0.02                 0.01                0.00                 0
+

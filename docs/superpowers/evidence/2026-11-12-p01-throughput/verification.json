@@ -1,0 +1,133 @@
+{
+  "as_of": "2026-11-12",
+  "status": "ARTIFICIAL_P01_THROUGHPUT_MEASURED",
+  "fixture_rows": 465284,
+  "fixture_fields": 3722272,
+  "fixture_stream_bytes": 27255925,
+  "instrumented": true,
+  "measurement_overhead_calibrated": false,
+  "sqlite_next_contains_request_checks": true,
+  "complete": false,
+  "stop_reason": "timeout",
+  "worker_failure": {
+    "code": "cancelled",
+    "completed_objects": 0,
+    "domain": "sqlite",
+    "object_index": 1,
+    "raw_values_emitted": false,
+    "ready_for_import": false,
+    "request_sha256": "31a69bd6713144d5ada5b81f9e802ac4683807b1837ccfe601114319cbf91322",
+    "source_mode": "project_snapshot",
+    "stage": "object_read_sort",
+    "status": "CONTROLLED_TASK_FAILURE",
+    "version": 1
+  },
+  "supervisor_elapsed_seconds": 1800.194085256,
+  "worker_elapsed_seconds": 1797.020662789,
+  "peak_memory_bytes": 113623040,
+  "phase_metrics": [
+    {
+      "name": "controller_preflight",
+      "elapsed_seconds": 0.076906519,
+      "request_read_seconds": 0.000380245,
+      "mount_check_seconds": 2.7112E-05,
+      "request_read_calls": 3,
+      "mount_check_calls": 2,
+      "sqlite_next_calls": 0,
+      "sqlite_next_inclusive_seconds": 0.0
+    },
+    {
+      "name": "request_preflight",
+      "elapsed_seconds": 0.037858936,
+      "request_read_seconds": 0.007099083,
+      "mount_check_seconds": 0.00064723,
+      "request_read_calls": 72,
+      "mount_check_calls": 72,
+      "sqlite_next_calls": 0,
+      "sqlite_next_inclusive_seconds": 0.0
+    },
+    {
+      "name": "snapshot_verify",
+      "elapsed_seconds": 0.161496738,
+      "request_read_seconds": 0.006446102,
+      "mount_check_seconds": 0.000590281,
+      "request_read_calls": 72,
+      "mount_check_calls": 72,
+      "sqlite_next_calls": 0,
+      "sqlite_next_inclusive_seconds": 0.0
+    },
+    {
+      "name": "batch_preflight",
+      "elapsed_seconds": 0.016072151,
+      "request_read_seconds": 0.006923322,
+      "mount_check_seconds": 0.000684635,
+      "request_read_calls": 78,
+      "mount_check_calls": 78,
+      "sqlite_next_calls": 0,
+      "sqlite_next_inclusive_seconds": 0.0
+    },
+    {
+      "name": "batch_digest_before",
+      "elapsed_seconds": 0.110015075,
+      "request_read_seconds": 0.006572111,
+      "mount_check_seconds": 0.000643601,
+      "request_read_calls": 73,
+      "mount_check_calls": 73,
+      "sqlite_next_calls": 0,
+      "sqlite_next_inclusive_seconds": 0.0
+    },
+    {
+      "name": "object_read_sort",
+      "elapsed_seconds": 0.006273954,
+      "request_read_seconds": 0.002704046,
+      "mount_check_seconds": 0.000272442,
+      "request_read_calls": 42,
+      "mount_check_calls": 42,
+      "sqlite_next_calls": 0,
+      "sqlite_next_inclusive_seconds": 0.0
+    },
+    {
+      "name": "read_encode_bucket",
+      "elapsed_seconds": 508.701401764,
+      "request_read_seconds": 339.293042064,
+      "mount_check_seconds": 32.072762696,
+      "request_read_calls": 1885353,
+      "mount_check_calls": 1885353,
+      "sqlite_next_calls": 465285,
+      "sqlite_next_inclusive_seconds": 234.63921214
+    },
+    {
+      "name": "chunk_sort",
+      "elapsed_seconds": 467.378169959,
+      "request_read_seconds": 319.016311223,
+      "mount_check_seconds": 32.172477982,
+      "request_read_calls": 1861264,
+      "mount_check_calls": 1861264,
+      "sqlite_next_calls": 0,
+      "sqlite_next_inclusive_seconds": 0.0
+    },
+    {
+      "name": "merge",
+      "elapsed_seconds": 820.532460125,
+      "request_read_seconds": 565.349785179,
+      "mount_check_seconds": 55.393825294,
+      "request_read_calls": 3238042,
+      "mount_check_calls": 3238042,
+      "sqlite_next_calls": 0,
+      "sqlite_next_inclusive_seconds": 0.0
+    }
+  ],
+  "raw_members": 75,
+  "removed_candidates": 2,
+  "real_source_read": false,
+  "new_real_expectations": 0,
+  "coverage_complete_tables": 68,
+  "coverage_total_tables": 78,
+  "task8_complete": false,
+  "ready_for_import": false,
+  "request_checks_seconds": 1343.331194648,
+  "request_checks_percent": 74.75324143257942,
+  "last_observed_phase": "merge",
+  "invalid_heartbeat_observed": false,
+  "scratch_empty": true
+}

@@ -1,0 +1,1 @@
+{"manifest_sha256":"400cf58312c197868c03202ab0e911ae49f13eab8bd6c55bc9c3661c59882190","members":[{"kind":"file","path":"artificial.sqlite","sha256":"ec410b0d0d9c3e14c9c4e229880be0c5cc996835bb530326b293eb20f0f4f9d6","size":12288}],"snapshot_id":"artificial-v1","source_path":"/data/var/run/project/fixture/authority-never-read","status":"VERIFIED","version":1}

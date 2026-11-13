@@ -1,0 +1,36 @@
+{
+  "evidence": "docs/superpowers/evidence/2026-10-12-read-cache-policy/README.md",
+  "snapshot_manifest_sha256": "03174f42f62dbea16402cdcbd05aa132a0a478453d7f31a09127374835f14699",
+  "expectations_sha256": "51351b58001a44413232fc80f92131d982caca0603ef24d9cad7db76b2acc416",
+  "version": 1,
+  "git_revision": "8fbc8c97fcf1d818caddf6ab556fa82d986643ed",
+  "ready_for_import": false,
+  "cells": 76392,
+  "status": "DRAFT_SOURCE_ONLY_SMALL_EXPECTATIONS_INDEX",
+  "file_digest_passes": 2,
+  "contract_frozen": false,
+  "scope_sha256": "bda95bb958bb462aa2ead517bfbaf5fcc9e3057e033ccd5b546ae3bdbdf9320c",
+  "rows": 12260,
+  "bindings": {
+    "mapping": "297b7c766baa40cc660f262e1ac433973d5d8bdde8c28eb2aca90733bfaec7d9",
+    "original_scope_review": "e7a2d9c86c55853c3ac4af69b54353c5b7b8629b76daccc9c5862ed6a4239608",
+    "preparation": "fab79f8864d3e7d93d383840d01529603d1a44840b758d76908ba765d73f8948",
+    "remaining_budget": "9677badc6c0685f2f25fe22186527a902e18dcbeab2d2c12fbdd05ec0accfaf9"
+  },
+  "columns": 326,
+  "roots_sha256": "6235c356fca754a687a2f02998770c9609b20748ade674d0050d86a0a428e07c",
+  "image_id": "sha256:f289971b872f0e85915c1d89ed694ae541689348ced8926a7318184e4026a389",
+  "approval_sha256": "33808508a63282b7f4690bd990cbc66e9dc113ecaa54c835b19ec8ebe1363013",
+  "snapshot_certificate_sha256": "58cb2e50f2124829130d4a9d6b8e55b8f6b2418bca18458685cb5d16ff193f9a",
+  "request_sha256": "569109039e88fe9ae19c34349e21d28a86f108930afc7a87e69aeaa22feb4fbc",
+  "full_snapshot_verified_this_run": true,
+  "objects": 55,
+  "source": {
+    "relative_path": "harvard/cbdb/cbdb_20260919.sqlite3",
+    "sha256": "bde1bb8eece3820d9e236c1d6b0f07d847d339669d4a85d79cd7252d58d83400",
+    "snapshot_id": "2026-10-07-bootstrap",
+    "size": 586485760
+  },
+  "expectations_file": "sqlite-value-small.expected.draft.json",
+  "postgresql_connected": false
+}

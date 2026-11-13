@@ -1,0 +1,39 @@
+{
+  "ready_for_import": false,
+  "status": "IMPLEMENTATION_AND_MEDIUM_SCOPE_AMENDMENT_NOT_EXECUTABLE",
+  "authority_note": "This document records limits only; human authorization and externally pinned actual task are separate",
+  "contract_frozen": false,
+  "postgresql_authorized": false,
+  "as_of": "2026-10-12",
+  "implementation": {
+    "medium_objects_max": 10,
+    "native_value_bytes_max": 33554432,
+    "read_cells_max": 2000000,
+    "batch_and_lifecycle_seconds_max": 1800,
+    "workers": 1,
+    "temp_bytes_max": 67108864,
+    "stream_bytes_max": 33554432,
+    "preparation_medium_columns_exact": 156,
+    "read_rows_max": 100000,
+    "groups": [
+      "small",
+      "medium"
+    ],
+    "small_caps_unchanged": true,
+    "preparation_medium_objects_exact": 10,
+    "vm_steps_max": 100000000,
+    "object_seconds_max": 600,
+    "chunk_bytes_max": 2097152,
+    "large_rejected": true
+  },
+  "runtime": {
+    "transport_deadline": 1880,
+    "cpu": 0.5,
+    "swap_bytes": 0,
+    "original_stop_gates": true,
+    "memory_bytes": 805306368,
+    "host_deadline": 1830
+  },
+  "source_read_authorized": false,
+  "version": 1
+}

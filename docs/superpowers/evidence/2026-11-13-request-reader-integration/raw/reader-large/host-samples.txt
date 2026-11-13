@@ -1,0 +1,1215 @@
+1794503484
+1
+MemAvailable:    5481516 kB
+0.87 0.88 0.78 1/552 159250
+some avg10=0.19 avg60=0.86 avg300=0.86 total=24444529
+some avg10=0.00 avg60=0.00 avg300=0.00 total=0
+pswpout 0
+184607154176
+true
+1794503495
+2
+MemAvailable:    5398224 kB
+1.04 0.92 0.79 1/564 159535
+some avg10=0.15 avg60=0.76 avg300=0.84 total=24480498
+some avg10=0.00 avg60=0.00 avg300=0.00 total=0
+pswpout 0
+184606511104
+true
+1794503505
+3
+MemAvailable:    5399672 kB
+0.88 0.89 0.79 2/564 159741
+some avg10=0.05 avg60=0.64 avg300=0.81 total=24483313
+some avg10=0.00 avg60=0.00 avg300=0.00 total=0
+pswpout 0
+184605609984
+true
+1794503515
+4
+MemAvailable:    5395404 kB
+0.82 0.88 0.78 2/564 159888
+some avg10=0.01 avg60=0.54 avg300=0.78 total=24485053
+some avg10=0.00 avg60=0.00 avg300=0.00 total=0
+pswpout 0
+184604663808
+true
+1794503525
+5
+MemAvailable:    5396028 kB
+0.69 0.85 0.77 2/564 160083
+some avg10=0.00 avg60=0.45 avg300=0.75 total=24489095
+some avg10=0.00 avg60=0.00 avg300=0.00 total=0
+pswpout 0
+184603746304
+true
+1794503535
+6
+MemAvailable:    5398756 kB
+0.67 0.84 0.77 3/564 160286
+some avg10=0.00 avg60=0.38 avg300=0.72 total=24491780
+some avg10=0.00 avg60=0.00 avg300=0.00 total=0
+pswpout 0
+184602796032
+true
+1794503545
+7
+MemAvailable:    5396376 kB
+0.64 0.82 0.77 1/564 160442
+some avg10=0.00 avg60=0.32 avg300=0.70 total=24493966
+some avg10=0.00 avg60=0.00 avg300=0.00 total=0
+pswpout 0
+184601870336
+true
+1794503555
+8
+MemAvailable:    5399772 kB
+0.54 0.80 0.76 2/564 160628
+some avg10=0.00 avg60=0.27 avg300=0.67 total=24495700
+some avg10=0.00 avg60=0.00 avg300=0.00 total=0
+pswpout 0
+184600969216
+true
+1794503565
+9
+MemAvailable:    5396904 kB
+0.61 0.80 0.76 1/564 160830
+some avg10=0.00 avg60=0.23 avg300=0.65 total=24499105
+some avg10=0.00 avg60=0.00 avg300=0.00 total=0
+pswpout 0
+184599982080
+true
+1794503575
+10
+MemAvailable:    5396768 kB
+0.74 0.83 0.77 2/564 160977
+some avg10=0.00 avg60=0.18 avg300=0.62 total=24502938
+some avg10=0.00 avg60=0.00 avg300=0.00 total=0
+pswpout 0
+184599019520
+true
+1794503585
+11
+MemAvailable:    5398016 kB
+0.78 0.83 0.77 1/564 161163
+some avg10=0.00 avg60=0.15 avg300=0.60 total=24505610
+some avg10=0.00 avg60=0.00 avg300=0.00 total=0
+pswpout 0
+184598097920
+true
+1794503595
+12
+MemAvailable:    5399128 kB
+0.89 0.85 0.78 2/564 161371
+some avg10=0.00 avg60=0.13 avg300=0.58 total=24508086
+some avg10=0.00 avg60=0.00 avg300=0.00 total=0
+pswpout 0
+184597118976
+true
+1794503605
+13
+MemAvailable:    5395684 kB
+0.91 0.86 0.78 2/564 161518
+some avg10=0.00 avg60=0.11 avg300=0.56 total=24510514
+some avg10=0.00 avg60=0.00 avg300=0.00 total=0
+pswpout 0
+184596176896
+true
+1794503615
+14
+MemAvailable:    5396564 kB
+1.00 0.88 0.79 1/564 161697
+some avg10=0.00 avg60=0.09 avg300=0.54 total=24514257
+some avg10=0.00 avg60=0.00 avg300=0.00 total=0
+pswpout 0
+184595255296
+true
+1794503625
+15
+MemAvailable:    5395116 kB
+1.00 0.89 0.80 2/564 161902
+some avg10=0.00 avg60=0.07 avg300=0.52 total=24517489
+some avg10=0.00 avg60=0.00 avg300=0.00 total=0
+pswpout 0
+184594313216
+true
+1794503635
+16
+MemAvailable:    5394604 kB
+0.85 0.86 0.79 1/564 162049
+some avg10=0.00 avg60=0.06 avg300=0.50 total=24520352
+some avg10=0.00 avg60=0.00 avg300=0.00 total=0
+pswpout 0
+184593395712
+true
+1794503645
+17
+MemAvailable:    5396452 kB
+0.80 0.84 0.78 2/564 162242
+some avg10=0.00 avg60=0.05 avg300=0.48 total=24525169
+some avg10=0.00 avg60=0.00 avg300=0.00 total=0
+pswpout 0
+184592445440
+true
+1794503655
+18
+MemAvailable:    5396172 kB
+0.67 0.82 0.78 1/564 162446
+some avg10=0.00 avg60=0.04 avg300=0.46 total=24529836
+some avg10=0.00 avg60=0.00 avg300=0.00 total=0
+pswpout 0
+184591572992
+true
+1794503666
+19
+MemAvailable:    5393560 kB
+0.57 0.79 0.77 2/563 162590
+some avg10=0.00 avg60=0.03 avg300=0.45 total=24532861
+some avg10=0.00 avg60=0.00 avg300=0.00 total=0
+pswpout 0
+184590589952
+true
+1794503676
+20
+MemAvailable:    5401544 kB
+0.56 0.78 0.76 1/562 162772
+some avg10=0.00 avg60=0.02 avg300=0.43 total=24537238
+some avg10=0.00 avg60=0.00 avg300=0.00 total=0
+pswpout 0
+184589651968
+true
+1794503686
+21
+MemAvailable:    5391500 kB
+0.72 0.80 0.77 1/562 162979
+some avg10=0.00 avg60=0.02 avg300=0.41 total=24539335
+some avg10=0.00 avg60=0.00 avg300=0.00 total=0
+pswpout 0
+184588673024
+true
+1794503696
+22
+MemAvailable:    5395500 kB
+0.76 0.81 0.77 2/562 163133
+some avg10=0.00 avg60=0.01 avg300=0.40 total=24543953
+some avg10=0.00 avg60=0.00 avg300=0.00 total=0
+pswpout 0
+184587735040
+true
+1794503706
+23
+MemAvailable:    5384924 kB
+0.95 0.85 0.79 1/562 163343
+some avg10=0.00 avg60=0.01 avg300=0.38 total=24552119
+some avg10=0.00 avg60=0.00 avg300=0.00 total=0
+pswpout 0
+184586936320
+true
+1794503716
+24
+MemAvailable:    5385064 kB
+0.96 0.86 0.79 2/561 163547
+some avg10=0.00 avg60=0.01 avg300=0.37 total=24559418
+some avg10=0.00 avg60=0.00 avg300=0.00 total=0
+pswpout 0
+184585998336
+true
+1794503726
+25
+MemAvailable:    5387484 kB
+0.97 0.86 0.79 1/560 163695
+some avg10=0.00 avg60=0.00 avg300=0.35 total=24561333
+some avg10=0.00 avg60=0.00 avg300=0.00 total=0
+pswpout 0
+184585064448
+true
+1794503736
+26
+MemAvailable:    5390648 kB
+1.13 0.90 0.81 2/560 163878
+some avg10=0.00 avg60=0.00 avg300=0.34 total=24562605
+some avg10=0.00 avg60=0.00 avg300=0.00 total=0
+pswpout 0
+184584101888
+true
+1794503746
+27
+MemAvailable:    5389268 kB
+1.11 0.90 0.81 1/558 164089
+some avg10=0.00 avg60=0.00 avg300=0.33 total=24574737
+some avg10=0.00 avg60=0.00 avg300=0.00 total=0
+pswpout 0
+184583196672
+true
+1794503756
+28
+MemAvailable:    5386656 kB
+1.02 0.89 0.81 3/556 164238
+some avg10=0.00 avg60=0.00 avg300=0.32 total=24577488
+some avg10=0.00 avg60=0.00 avg300=0.00 total=0
+pswpout 0
+184582279168
+true
+1794503766
+29
+MemAvailable:    5383404 kB
+0.93 0.88 0.80 1/556 164421
+some avg10=0.00 avg60=0.00 avg300=0.31 total=24580299
+some avg10=0.00 avg60=0.00 avg300=0.00 total=0
+pswpout 0
+184581373952
+true
+1794503776
+30
+MemAvailable:    5383056 kB
+0.95 0.88 0.81 2/553 164621
+some avg10=0.00 avg60=0.00 avg300=0.29 total=24583250
+some avg10=0.00 avg60=0.00 avg300=0.00 total=0
+pswpout 0
+184580452352
+true
+1794503786
+31
+MemAvailable:    5387040 kB
+0.88 0.87 0.80 1/551 164770
+some avg10=0.00 avg60=0.00 avg300=0.28 total=24585729
+some avg10=0.00 avg60=0.00 avg300=0.00 total=0
+pswpout 0
+184579624960
+true
+1794503796
+32
+MemAvailable:    5382896 kB
+0.74 0.84 0.80 1/550 164965
+some avg10=0.00 avg60=0.00 avg300=0.27 total=24587312
+some avg10=0.00 avg60=0.00 avg300=0.00 total=0
+pswpout 0
+184578658304
+true
+1794503806
+33
+MemAvailable:    5386920 kB
+0.63 0.81 0.79 1/549 165171
+some avg10=0.00 avg60=0.00 avg300=0.26 total=24590711
+some avg10=0.00 avg60=0.00 avg300=0.00 total=0
+pswpout 0
+184579375104
+true
+1794503816
+34
+MemAvailable:    5383324 kB
+0.69 0.82 0.79 1/549 165316
+some avg10=0.00 avg60=0.00 avg300=0.25 total=24592923
+some avg10=0.00 avg60=0.00 avg300=0.00 total=0
+pswpout 0
+184578408448
+true
+1794503826
+35
+MemAvailable:    5377884 kB
+0.73 0.82 0.79 3/549 165502
+some avg10=0.00 avg60=0.00 avg300=0.24 total=24595316
+some avg10=0.00 avg60=0.00 avg300=0.00 total=0
+pswpout 0
+184579059712
+true
+1794503836
+36
+MemAvailable:    5390680 kB
+0.78 0.83 0.80 2/549 165705
+some avg10=0.00 avg60=0.00 avg300=0.23 total=24597088
+some avg10=0.00 avg60=0.00 avg300=0.00 total=0
+pswpout 0
+184577900544
+true
+1794503846
+37
+MemAvailable:    5382004 kB
+0.88 0.85 0.80 2/549 165849
+some avg10=0.00 avg60=0.00 avg300=0.22 total=24599915
+some avg10=0.00 avg60=0.00 avg300=0.00 total=0
+pswpout 0
+184578621440
+true
+1794503856
+38
+MemAvailable:    5392148 kB
+0.98 0.87 0.81 3/549 166034
+some avg10=0.00 avg60=0.00 avg300=0.21 total=24603640
+some avg10=0.00 avg60=0.00 avg300=0.00 total=0
+pswpout 0
+184579338240
+true
+1794503866
+39
+MemAvailable:    5386116 kB
+1.21 0.93 0.83 1/549 166243
+some avg10=0.00 avg60=0.00 avg300=0.20 total=24606898
+some avg10=0.00 avg60=0.00 avg300=0.00 total=0
+pswpout 0
+184578371584
+true
+1794503876
+40
+MemAvailable:    5393048 kB
+1.07 0.91 0.83 3/549 166394
+some avg10=0.00 avg60=0.00 avg300=0.20 total=24608599
+some avg10=0.00 avg60=0.00 avg300=0.00 total=0
+pswpout 0
+184579088384
+true
+1794503886
+41
+MemAvailable:    5396308 kB
+0.98 0.90 0.82 1/550 166589
+some avg10=0.00 avg60=0.00 avg300=0.19 total=24608840
+some avg10=0.00 avg60=0.00 avg300=0.00 total=0
+pswpout 0
+184578015232
+true
+1794503897
+42
+MemAvailable:    5390280 kB
+0.83 0.87 0.81 2/550 166787
+some avg10=0.00 avg60=0.00 avg300=0.18 total=24609071
+some avg10=0.00 avg60=0.00 avg300=0.00 total=0
+pswpout 0
+184578596864
+true
+1794503909
+43
+MemAvailable:    5398628 kB
+0.78 0.86 0.81 1/550 166946
+some avg10=0.00 avg60=0.00 avg300=0.17 total=24613134
+some avg10=0.00 avg60=0.00 avg300=0.00 total=0
+pswpout 0
+184579067904
+true
+1794503919
+44
+MemAvailable:    5395928 kB
+0.66 0.83 0.80 2/550 167136
+some avg10=0.00 avg60=0.00 avg300=0.17 total=24615162
+some avg10=0.00 avg60=0.00 avg300=0.00 total=0
+pswpout 0
+184578101248
+true
+1794503929
+45
+MemAvailable:    5395756 kB
+0.56 0.80 0.79 2/550 167336
+some avg10=0.00 avg60=0.00 avg300=0.16 total=24617145
+some avg10=0.00 avg60=0.00 avg300=0.00 total=0
+pswpout 0
+184578609152
+true
+1794503939
+46
+MemAvailable:    5398256 kB
+0.63 0.81 0.80 2/550 167482
+some avg10=0.00 avg60=0.00 avg300=0.15 total=24617382
+some avg10=0.00 avg60=0.00 avg300=0.00 total=0
+pswpout 0
+184579293184
+true
+1794503949
+47
+MemAvailable:    5396608 kB
+0.69 0.81 0.80 2/550 167672
+some avg10=0.00 avg60=0.00 avg300=0.14 total=24619560
+some avg10=0.00 avg60=0.00 avg300=0.00 total=0
+pswpout 0
+184578314240
+true
+1794503959
+48
+MemAvailable:    5395728 kB
+0.81 0.84 0.81 2/550 167878
+some avg10=0.00 avg60=0.00 avg300=0.14 total=24621292
+some avg10=0.00 avg60=0.00 avg300=0.00 total=0
+pswpout 0
+184578801664
+true
+1794503969
+49
+MemAvailable:    5391188 kB
+0.84 0.84 0.81 1/550 168032
+some avg10=0.00 avg60=0.00 avg300=0.13 total=24622849
+some avg10=0.00 avg60=0.00 avg300=0.00 total=0
+pswpout 0
+184579518464
+true
+1794503979
+50
+MemAvailable:    5395076 kB
+0.87 0.85 0.81 2/550 168217
+some avg10=0.00 avg60=0.00 avg300=0.13 total=24625806
+some avg10=0.00 avg60=0.00 avg300=0.00 total=0
+pswpout 0
+184578551808
+true
+1794503989
+51
+MemAvailable:    5393952 kB
+0.96 0.87 0.82 1/550 168422
+some avg10=0.00 avg60=0.00 avg300=0.12 total=24627734
+some avg10=0.00 avg60=0.00 avg300=0.00 total=0
+pswpout 0
+184579166208
+true
+1794503999
+52
+MemAvailable:    5393704 kB
+0.97 0.88 0.82 6/550 168576
+some avg10=0.00 avg60=0.00 avg300=0.12 total=24629455
+some avg10=0.00 avg60=0.00 avg300=0.00 total=0
+pswpout 0
+184578060288
+true
+1794504009
+53
+MemAvailable:    5386068 kB
+0.82 0.85 0.81 2/550 168766
+some avg10=0.00 avg60=0.00 avg300=0.11 total=24639005
+some avg10=0.00 avg60=0.00 avg300=0.00 total=0
+pswpout 0
+184578781184
+true
+1794504019
+54
+MemAvailable:    5380812 kB
+0.77 0.84 0.81 2/550 168980
+some avg10=0.00 avg60=0.00 avg300=0.11 total=24640941
+some avg10=0.00 avg60=0.00 avg300=0.00 total=0
+pswpout 0
+184579497984
+true
+1794504029
+55
+MemAvailable:    5382232 kB
+0.65 0.81 0.80 2/550 169126
+some avg10=0.00 avg60=0.00 avg300=0.10 total=24642647
+some avg10=0.00 avg60=0.00 avg300=0.00 total=0
+pswpout 0
+184578531328
+true
+1794504039
+56
+MemAvailable:    5380520 kB
+0.55 0.78 0.79 2/551 169314
+some avg10=0.00 avg60=0.00 avg300=0.10 total=24644805
+some avg10=0.00 avg60=0.00 avg300=0.00 total=0
+pswpout 0
+184579063808
+true
+1794504049
+57
+MemAvailable:    5382752 kB
+0.47 0.75 0.78 2/550 169518
+some avg10=0.00 avg60=0.00 avg300=0.09 total=24645931
+some avg10=0.00 avg60=0.00 avg300=0.00 total=0
+pswpout 0
+184578039808
+true
+1794504059
+58
+MemAvailable:    5384548 kB
+0.55 0.76 0.79 1/550 169668
+some avg10=0.00 avg60=0.00 avg300=0.09 total=24647577
+some avg10=0.00 avg60=0.00 avg300=0.00 total=0
+pswpout 0
+184578768896
+true
+1794504069
+59
+MemAvailable:    5379760 kB
+0.62 0.77 0.79 1/550 169868
+some avg10=0.00 avg60=0.00 avg300=0.08 total=24649467
+some avg10=0.00 avg60=0.00 avg300=0.00 total=0
+pswpout 0
+184577871872
+true
+1794504079
+60
+MemAvailable:    5382876 kB
+0.68 0.78 0.79 2/550 170073
+some avg10=0.00 avg60=0.00 avg300=0.08 total=24652486
+some avg10=0.00 avg60=0.00 avg300=0.00 total=0
+pswpout 0
+184576733184
+true
+1794504089
+61
+MemAvailable:    5382932 kB
+0.73 0.79 0.80 2/550 170219
+some avg10=0.00 avg60=0.00 avg300=0.07 total=24655457
+some avg10=0.00 avg60=0.00 avg300=0.00 total=0
+pswpout 0
+184579219456
+true
+1794504099
+62
+MemAvailable:    5383832 kB
+0.77 0.79 0.80 1/549 170406
+some avg10=0.00 avg60=0.00 avg300=0.07 total=24658461
+some avg10=0.00 avg60=0.00 avg300=0.00 total=0
+pswpout 0
+184578265088
+true
+1794504109
+63
+MemAvailable:    5387512 kB
+0.81 0.80 0.80 2/549 170607
+some avg10=0.00 avg60=0.00 avg300=0.06 total=24663378
+some avg10=0.00 avg60=0.00 avg300=0.00 total=0
+pswpout 0
+184577232896
+true
+1794504119
+64
+MemAvailable:    5385864 kB
+0.84 0.81 0.80 1/549 170754
+some avg10=0.00 avg60=0.00 avg300=0.06 total=24665637
+some avg10=0.00 avg60=0.00 avg300=0.00 total=0
+pswpout 0
+184576110592
+true
+1794504129
+65
+MemAvailable:    5381796 kB
+0.86 0.82 0.81 1/549 170938
+some avg10=0.00 avg60=0.00 avg300=0.06 total=24668789
+some avg10=0.00 avg60=0.00 avg300=0.00 total=0
+pswpout 0
+184578658304
+true
+1794504139
+66
+MemAvailable:    5386228 kB
+0.73 0.79 0.80 1/549 171142
+some avg10=0.00 avg60=0.00 avg300=0.06 total=24671433
+some avg10=0.00 avg60=0.00 avg300=0.00 total=0
+pswpout 0
+184577699840
+true
+1794504149
+67
+MemAvailable:    5388596 kB
+0.62 0.76 0.79 2/549 171290
+some avg10=0.00 avg60=0.00 avg300=0.06 total=24674024
+some avg10=0.00 avg60=0.00 avg300=0.00 total=0
+pswpout 0
+184576602112
+true
+1794504160
+68
+MemAvailable:    5368072 kB
+0.52 0.74 0.78 2/567 171495
+some avg10=0.00 avg60=0.00 avg300=0.05 total=24677276
+some avg10=0.00 avg60=0.00 avg300=0.00 total=0
+pswpout 0
+184579067904
+true
+1794504170
+69
+MemAvailable:    5386644 kB
+0.52 0.73 0.78 1/549 171681
+some avg10=0.00 avg60=0.00 avg300=0.05 total=24680305
+some avg10=0.00 avg60=0.00 avg300=0.00 total=0
+pswpout 0
+184578162688
+true
+1794504180
+70
+MemAvailable:    5388956 kB
+0.52 0.72 0.78 3/549 171824
+some avg10=0.00 avg60=0.00 avg300=0.05 total=24683050
+some avg10=0.00 avg60=0.00 avg300=0.00 total=0
+pswpout 0
+184577069056
+true
+1794504190
+71
+MemAvailable:    5388380 kB
+0.52 0.71 0.77 1/550 172039
+some avg10=0.00 avg60=0.00 avg300=0.05 total=24685900
+some avg10=0.00 avg60=0.00 avg300=0.00 total=0
+pswpout 0
+184579436544
+true
+1794504200
+72
+MemAvailable:    5389148 kB
+0.67 0.74 0.78 3/549 172226
+some avg10=0.00 avg60=0.00 avg300=0.04 total=24688327
+some avg10=0.00 avg60=0.00 avg300=0.00 total=0
+pswpout 0
+184578535424
+true
+1794504210
+73
+MemAvailable:    5392948 kB
+0.72 0.75 0.78 1/549 172373
+some avg10=0.00 avg60=0.00 avg300=0.04 total=24694440
+some avg10=0.00 avg60=0.00 avg300=0.00 total=0
+pswpout 0
+184577544192
+true
+1794504220
+74
+MemAvailable:    5387860 kB
+0.76 0.76 0.79 1/549 172580
+some avg10=0.00 avg60=0.00 avg300=0.04 total=24697410
+some avg10=0.00 avg60=0.00 avg300=0.00 total=0
+pswpout 0
+184576434176
+true
+1794504230
+75
+MemAvailable:    5387484 kB
+0.80 0.77 0.79 1/549 172761
+some avg10=0.00 avg60=0.00 avg300=0.04 total=24699144
+some avg10=0.00 avg60=0.00 avg300=0.00 total=0
+pswpout 0
+184578932736
+true
+1794504240
+76
+MemAvailable:    5383044 kB
+0.91 0.79 0.80 3/550 172926
+some avg10=0.00 avg60=0.00 avg300=0.03 total=24702238
+some avg10=0.00 avg60=0.00 avg300=0.00 total=0
+pswpout 0
+184577982464
+true
+1794504250
+77
+MemAvailable:    5393584 kB
+0.92 0.80 0.80 2/550 173132
+some avg10=0.00 avg60=0.00 avg300=0.03 total=24705407
+some avg10=0.00 avg60=0.00 avg300=0.00 total=0
+pswpout 0
+184576851968
+true
+1794504260
+78
+MemAvailable:    5387016 kB
+0.78 0.77 0.79 2/551 173315
+some avg10=0.00 avg60=0.00 avg300=0.03 total=24712978
+some avg10=0.00 avg60=0.00 avg300=0.00 total=0
+pswpout 0
+184579239936
+true
+1794504270
+79
+MemAvailable:    5397064 kB
+0.74 0.76 0.79 4/552 173465
+some avg10=0.00 avg60=0.00 avg300=0.03 total=24716361
+some avg10=0.00 avg60=0.00 avg300=0.00 total=0
+pswpout 0
+184578285568
+true
+1794504280
+80
+MemAvailable:    5391216 kB
+0.62 0.74 0.78 1/551 173669
+some avg10=0.00 avg60=0.00 avg300=0.02 total=24719490
+some avg10=0.00 avg60=0.00 avg300=0.00 total=0
+pswpout 0
+184577187840
+true
+1794504290
+81
+MemAvailable:    5391928 kB
+0.53 0.71 0.77 2/551 173852
+some avg10=0.00 avg60=0.00 avg300=0.02 total=24722784
+some avg10=0.00 avg60=0.00 avg300=0.00 total=0
+pswpout 0
+184579502080
+true
+1794504300
+82
+MemAvailable:    5383336 kB
+0.52 0.70 0.77 2/552 174024
+some avg10=0.00 avg60=0.00 avg300=0.02 total=24727906
+some avg10=0.00 avg60=0.00 avg300=0.00 total=0
+pswpout 0
+184578625536
+true
+1794504310
+83
+MemAvailable:    5379120 kB
+0.44 0.68 0.76 2/552 174224
+some avg10=0.00 avg60=0.00 avg300=0.02 total=24739237
+some avg10=0.00 avg60=0.00 avg300=0.00 total=0
+pswpout 0
+184577622016
+true
+1794504320
+84
+MemAvailable:    5383268 kB
+0.61 0.71 0.77 2/552 174408
+some avg10=0.00 avg60=0.00 avg300=0.01 total=24742958
+some avg10=0.00 avg60=0.00 avg300=0.00 total=0
+pswpout 0
+184576434176
+true
+1794504330
+85
+MemAvailable:    5380216 kB
+0.67 0.72 0.77 1/552 174553
+some avg10=0.00 avg60=0.00 avg300=0.01 total=24745197
+some avg10=0.00 avg60=0.00 avg300=0.00 total=0
+pswpout 0
+184578985984
+true
+1794504340
+86
+MemAvailable:    5383188 kB
+1.03 0.79 0.79 2/552 174753
+some avg10=0.00 avg60=0.00 avg300=0.01 total=24748219
+some avg10=0.00 avg60=0.00 avg300=0.00 total=0
+pswpout 0
+184578052096
+true
+1794504350
+87
+MemAvailable:    5381036 kB
+1.11 0.82 0.80 2/552 174945
+some avg10=0.00 avg60=0.00 avg300=0.01 total=24757196
+some avg10=0.00 avg60=0.00 avg300=0.00 total=0
+pswpout 0
+184577122304
+true
+1794504360
+88
+MemAvailable:    5385148 kB
+1.09 0.82 0.81 2/552 175092
+some avg10=0.00 avg60=0.00 avg300=0.00 total=24762751
+some avg10=0.00 avg60=0.00 avg300=0.00 total=0
+pswpout 0
+184576188416
+true
+1794504370
+89
+MemAvailable:    5385604 kB
+1.22 0.86 0.82 2/552 175301
+some avg10=0.00 avg60=0.00 avg300=0.00 total=24765389
+some avg10=0.00 avg60=0.00 avg300=0.00 total=0
+pswpout 0
+184575246336
+true
+1794504380
+90
+MemAvailable:    5378240 kB
+1.11 0.85 0.82 2/552 175482
+some avg10=0.00 avg60=0.00 avg300=0.00 total=24766834
+some avg10=0.00 avg60=0.00 avg300=0.00 total=0
+pswpout 0
+184574361600
+true
+1794504390
+91
+MemAvailable:    5375728 kB
+1.02 0.84 0.81 1/552 175630
+some avg10=0.00 avg60=0.00 avg300=0.00 total=24768520
+some avg10=0.00 avg60=0.00 avg300=0.00 total=0
+pswpout 0
+184573419520
+true
+1794504401
+92
+MemAvailable:    5374836 kB
+0.86 0.81 0.80 2/553 175840
+some avg10=0.00 avg60=0.00 avg300=0.00 total=24770730
+some avg10=0.00 avg60=0.00 avg300=0.00 total=0
+pswpout 0
+184572473344
+true
+1794504411
+93
+MemAvailable:    5376216 kB
+0.73 0.78 0.79 1/553 176024
+some avg10=0.00 avg60=0.00 avg300=0.00 total=24773610
+some avg10=0.00 avg60=0.00 avg300=0.00 total=0
+pswpout 0
+184571555840
+true
+1794504421
+94
+MemAvailable:    5378700 kB
+0.70 0.77 0.79 2/553 176179
+some avg10=0.00 avg60=0.00 avg300=0.00 total=24775595
+some avg10=0.00 avg60=0.00 avg300=0.00 total=0
+pswpout 0
+184570646528
+true
+1794504431
+95
+MemAvailable:    5385772 kB
+0.59 0.75 0.78 1/553 176385
+some avg10=0.00 avg60=0.00 avg300=0.00 total=24778532
+some avg10=0.00 avg60=0.00 avg300=0.00 total=0
+pswpout 0
+184569716736
+true
+1794504441
+96
+MemAvailable:    5389896 kB
+0.65 0.76 0.79 1/553 176571
+some avg10=0.00 avg60=0.00 avg300=0.00 total=24782255
+some avg10=0.00 avg60=0.00 avg300=0.00 total=0
+pswpout 0
+184568815616
+true
+1794504451
+97
+MemAvailable:    5388216 kB
+0.71 0.77 0.79 2/553 176726
+some avg10=0.00 avg60=0.00 avg300=0.00 total=24784057
+some avg10=0.00 avg60=0.00 avg300=0.00 total=0
+pswpout 0
+184567861248
+true
+1794504461
+98
+MemAvailable:    5386420 kB
+0.75 0.77 0.79 1/553 176929
+some avg10=0.00 avg60=0.00 avg300=0.00 total=24787136
+some avg10=0.00 avg60=0.00 avg300=0.00 total=0
+pswpout 0
+184566910976
+true
+1794504471
+99
+MemAvailable:    5382212 kB
+0.79 0.78 0.79 2/553 177113
+some avg10=0.00 avg60=0.00 avg300=0.00 total=24789190
+some avg10=0.00 avg60=0.00 avg300=0.00 total=0
+pswpout 0
+184565829632
+true
+1794504481
+100
+MemAvailable:    5384592 kB
+0.90 0.81 0.80 2/553 177257
+some avg10=0.00 avg60=0.00 avg300=0.00 total=24791740
+some avg10=0.00 avg60=0.00 avg300=0.00 total=0
+pswpout 0
+184564711424
+true
+1794504491
+101
+MemAvailable:    5390028 kB
+0.92 0.81 0.81 2/553 177463
+some avg10=0.00 avg60=0.00 avg300=0.00 total=24793848
+some avg10=0.00 avg60=0.00 avg300=0.00 total=0
+pswpout 0
+184563585024
+true
+1794504501
+102
+MemAvailable:    5390580 kB
+0.85 0.80 0.80 1/553 177653
+some avg10=0.00 avg60=0.00 avg300=0.00 total=24796355
+some avg10=0.00 avg60=0.00 avg300=0.00 total=0
+pswpout 0
+184562499584
+true
+1794504511
+103
+MemAvailable:    5388164 kB
+0.72 0.78 0.79 1/552 177800
+some avg10=0.00 avg60=0.00 avg300=0.00 total=24798852
+some avg10=0.00 avg60=0.00 avg300=0.00 total=0
+pswpout 0
+184561324032
+true
+1794504521
+104
+MemAvailable:    5394720 kB
+0.61 0.75 0.79 2/552 178004
+some avg10=0.00 avg60=0.00 avg300=0.00 total=24801699
+some avg10=0.00 avg60=0.00 avg300=0.00 total=0
+pswpout 0
+184560144384
+true
+1794504531
+105
+MemAvailable:    5384404 kB
+0.52 0.72 0.78 1/552 178189
+some avg10=0.00 avg60=0.00 avg300=0.00 total=24804600
+some avg10=0.00 avg60=0.00 avg300=0.00 total=0
+pswpout 0
+184558989312
+true
+1794504541
+106
+MemAvailable:    5388008 kB
+0.51 0.72 0.77 1/552 178339
+some avg10=0.00 avg60=0.00 avg300=0.00 total=24806440
+some avg10=0.00 avg60=0.00 avg300=0.00 total=0
+pswpout 0
+184557846528
+true
+1794504551
+107
+MemAvailable:    5385460 kB
+0.43 0.69 0.77 3/552 178546
+some avg10=0.00 avg60=0.00 avg300=0.00 total=24808400
+some avg10=0.00 avg60=0.00 avg300=0.00 total=0
+pswpout 0
+184556716032
+true
+1794504561
+108
+MemAvailable:    5384436 kB
+0.44 0.69 0.76 1/551 178728
+some avg10=0.00 avg60=0.00 avg300=0.00 total=24811524
+some avg10=0.00 avg60=0.00 avg300=0.00 total=0
+pswpout 0
+184555589632
+true
+1794504571
+109
+MemAvailable:    5411624 kB
+0.53 0.70 0.77 2/550 178872
+some avg10=0.00 avg60=0.00 avg300=0.00 total=24812898
+some avg10=0.00 avg60=0.00 avg300=0.00 total=0
+pswpout 0
+184554446848
+true
+1794504581
+110
+MemAvailable:    5404680 kB
+0.60 0.71 0.77 1/550 179082
+some avg10=0.00 avg60=0.00 avg300=0.00 total=24814804
+some avg10=0.00 avg60=0.00 avg300=0.00 total=0
+pswpout 0
+184553267200
+true
+1794504591
+111
+MemAvailable:    5380164 kB
+0.74 0.73 0.78 1/550 179267
+some avg10=0.74 avg60=0.15 avg300=0.03 total=24930267
+some avg10=0.00 avg60=0.00 avg300=0.00 total=0
+pswpout 0
+184579678208
+true
+1794504601
+112
+MemAvailable:    5380040 kB
+0.78 0.74 0.78 1/551 179447
+some avg10=0.27 avg60=0.13 avg300=0.03 total=24933448
+some avg10=0.00 avg60=0.00 avg300=0.00 total=0
+pswpout 0
+184579678208
+true
+1794504611
+113
+MemAvailable:    5380824 kB
+0.81 0.75 0.78 3/551 179650
+some avg10=0.09 avg60=0.11 avg300=0.02 total=24951668
+some avg10=0.00 avg60=0.00 avg300=0.00 total=0
+pswpout 0
+184579678208
+true
+1794504621
+114
+MemAvailable:    5376204 kB
+0.92 0.78 0.79 1/550 179833
+some avg10=0.03 avg60=0.09 avg300=0.02 total=24953671
+some avg10=0.00 avg60=0.00 avg300=0.00 total=0
+pswpout 0
+184579678208
+true
+1794504631
+115
+MemAvailable:    5382516 kB
+0.78 0.75 0.78 2/550 179979
+some avg10=0.01 avg60=0.07 avg300=0.02 total=24955126
+some avg10=0.00 avg60=0.00 avg300=0.00 total=0
+pswpout 0
+184579678208
+true
+1794504641
+116
+MemAvailable:    5376392 kB
+0.66 0.73 0.77 2/550 180184
+some avg10=0.00 avg60=0.06 avg300=0.02 total=24955612
+some avg10=0.00 avg60=0.00 avg300=0.00 total=0
+pswpout 0
+184579678208
+true
+1794504651
+117
+MemAvailable:    5376048 kB
+0.56 0.70 0.76 1/550 180367
+some avg10=0.00 avg60=0.05 avg300=0.01 total=24955636
+some avg10=0.00 avg60=0.00 avg300=0.00 total=0
+pswpout 0
+184579678208
+true
+1794504661
+118
+MemAvailable:    5379748 kB
+0.55 0.70 0.76 1/550 180512
+some avg10=0.00 avg60=0.04 avg300=0.01 total=24956276
+some avg10=0.00 avg60=0.00 avg300=0.00 total=0
+pswpout 0
+184579678208
+true
+1794504671
+119
+MemAvailable:    5378916 kB
+0.46 0.67 0.75 2/550 180711
+some avg10=0.00 avg60=0.03 avg300=0.01 total=24956317
+some avg10=0.00 avg60=0.00 avg300=0.00 total=0
+pswpout 0
+184579678208
+true
+1794504681
+120
+MemAvailable:    5379920 kB
+0.39 0.65 0.74 1/550 180896
+some avg10=0.00 avg60=0.02 avg300=0.01 total=24956677
+some avg10=0.00 avg60=0.00 avg300=0.00 total=0
+pswpout 0
+184579678208
+true
+1794504691
+121
+MemAvailable:    5383896 kB
+0.63 0.69 0.76 3/550 181046
+some avg10=0.00 avg60=0.02 avg300=0.00 total=24956720
+some avg10=0.00 avg60=0.00 avg300=0.00 total=0
+pswpout 0
+184579678208
+true
+1794504702
+122
+MemAvailable:    5379260 kB
+0.69 0.70 0.76 2/549 181248
+some avg10=0.00 avg60=0.01 avg300=0.00 total=24956751
+some avg10=0.00 avg60=0.00 avg300=0.00 total=0
+pswpout 0
+184579678208
+true
+1794504712
+123
+MemAvailable:    5381600 kB
+0.82 0.73 0.77 1/549 181430
+some avg10=0.00 avg60=0.01 avg300=0.00 total=24956781
+some avg10=0.00 avg60=0.00 avg300=0.00 total=0
+pswpout 0
+184579678208
+true
+1794504722
+124
+MemAvailable:    5379256 kB
+0.85 0.74 0.77 2/549 181574
+some avg10=0.00 avg60=0.01 avg300=0.00 total=24957023
+some avg10=0.00 avg60=0.00 avg300=0.00 total=0
+pswpout 0
+184579678208
+true
+1794504732
+125
+MemAvailable:    5382808 kB
+0.87 0.75 0.77 1/549 181775
+some avg10=0.00 avg60=0.00 avg300=0.00 total=24957921
+some avg10=0.00 avg60=0.00 avg300=0.00 total=0
+pswpout 0
+184579670016
+true
+1794504742
+126
+MemAvailable:    5388276 kB
+0.97 0.77 0.78 2/549 181957
+some avg10=0.00 avg60=0.00 avg300=0.00 total=24958474
+some avg10=0.00 avg60=0.00 avg300=0.00 total=0
+pswpout 0
+184579670016
+true
+1794504752
+127
+MemAvailable:    5389664 kB
+0.97 0.78 0.79 3/549 182106
+some avg10=0.00 avg60=0.00 avg300=0.00 total=24958969
+some avg10=0.00 avg60=0.00 avg300=0.00 total=0
+pswpout 0
+184579670016
+true
+1794504762
+128
+MemAvailable:    5384432 kB
+0.82 0.76 0.78 1/549 182306
+some avg10=0.00 avg60=0.00 avg300=0.00 total=24959377
+some avg10=0.00 avg60=0.00 avg300=0.00 total=0
+pswpout 0
+184579670016
+true
+1794504772
+129
+MemAvailable:    5384936 kB
+0.77 0.75 0.77 3/549 182491
+some avg10=0.00 avg60=0.00 avg300=0.00 total=24959899
+some avg10=0.00 avg60=0.00 avg300=0.00 total=0
+pswpout 0
+184579670016
+true
+1794504782
+130
+MemAvailable:    5384272 kB
+0.65 0.72 0.76 1/550 182648
+some avg10=0.00 avg60=0.00 avg300=0.00 total=24960890
+some avg10=0.00 avg60=0.00 avg300=0.00 total=0
+pswpout 0
+184579670016
+true
+1794504792
+131
+MemAvailable:    5379752 kB
+0.55 0.70 0.76 1/550 182847
+some avg10=0.00 avg60=0.00 avg300=0.00 total=24961286
+some avg10=0.00 avg60=0.00 avg300=0.00 total=0
+pswpout 0
+184579670016
+true
+1794504802
+132
+MemAvailable:    5382440 kB
+0.54 0.69 0.75 2/550 183032
+some avg10=0.00 avg60=0.00 avg300=0.00 total=24961872
+some avg10=0.00 avg60=0.00 avg300=0.00 total=0
+pswpout 0
+184579670016
+true
+1794504812
+133
+MemAvailable:    5387712 kB
+0.46 0.67 0.74 1/550 183177
+some avg10=0.00 avg60=0.00 avg300=0.00 total=24962646
+some avg10=0.00 avg60=0.00 avg300=0.00 total=0
+pswpout 0
+184579670016
+true
+1794504822
+134
+MemAvailable:    5389360 kB
+0.54 0.68 0.75 2/550 183378
+some avg10=0.00 avg60=0.00 avg300=0.00 total=24964893
+some avg10=0.00 avg60=0.00 avg300=0.00 total=0
+pswpout 0
+184579670016
+true
+1794504824
+135
+MemAvailable:    5430812 kB
+0.66 0.70 0.75 1/549 183436
+some avg10=0.00 avg60=0.00 avg300=0.00 total=24967883
+some avg10=0.00 avg60=0.00 avg300=0.00 total=0
+pswpout 0
+184606920704
+true

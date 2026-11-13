@@ -1,0 +1,2 @@
+{"version":1,"run_suffix":"dev-fixtures","layer":"windows_ssh_transport","reason":"remote_exit","utc":"2026-11-12T17:04:35.2376937Z","remote_exit_code":0,"ready_for_import":false}
+{"version":1,"run_suffix":"dev-fixtures","layer":"windows_ssh_transport","reason":"stdin_close","utc":"2026-11-12T17:04:35.2432256Z","remote_exit_code":null,"ready_for_import":false}

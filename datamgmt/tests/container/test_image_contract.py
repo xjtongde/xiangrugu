@@ -9,6 +9,7 @@ import yaml
 
 
 PROJECT_ROOT = Path("/app")
+CONFIG_ROOT = Path(__file__).resolve().parents[3]
 
 
 def test_image_contains_offline_crs_dependency_and_bundled_catalog():
@@ -30,7 +31,7 @@ def test_image_process_is_not_root() -> None:
 
 def test_compose_keeps_source_mount_confined_to_development() -> None:
     """Only the development service may read the controlled source mirror."""
-    compose = yaml.safe_load((PROJECT_ROOT / "docker-compose.yml").read_text(encoding="utf-8"))
+    compose = yaml.safe_load((CONFIG_ROOT / "docker-compose.yml").read_text(encoding="utf-8"))
     services = compose["services"]
     allowed_bind_sources = {
         "/opt/mydocker/xiangrugu/data/persistent",
@@ -53,7 +54,7 @@ def test_compose_keeps_source_mount_confined_to_development() -> None:
 
 
 def test_project_snapshot_volume_is_readonly_without_dynamic_source_propagation():
-    compose = yaml.safe_load((PROJECT_ROOT / "docker-compose.yml").read_text(encoding="utf-8"))
+    compose = yaml.safe_load((CONFIG_ROOT / "docker-compose.yml").read_text(encoding="utf-8"))
     imports = next(volume for volume in compose["services"]["app"]["volumes"] if volume["target"] == "/data/imports")
     assert imports["read_only"] is True
     assert "bind" not in imports

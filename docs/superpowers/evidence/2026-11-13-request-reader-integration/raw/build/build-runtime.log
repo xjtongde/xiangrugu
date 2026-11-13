@@ -1,0 +1,69 @@
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 3.22kB done
+#1 DONE 0.0s
+
+#2 resolve image config for docker-image://docker.io/docker/dockerfile:1.7
+#2 DONE 3.0s
+
+#3 docker-image://docker.io/docker/dockerfile:1.7@sha256:a57df69d0ea827fb7266491f2813635de6f17269be881f696fbfdf2d83dda33e
+#3 resolve docker.io/docker/dockerfile:1.7@sha256:a57df69d0ea827fb7266491f2813635de6f17269be881f696fbfdf2d83dda33e 0.0s done
+#3 CACHED
+
+#4 [internal] load metadata for docker.io/library/python:3.11.16-slim-bookworm@sha256:4b4c524dc3dce996864e030c7bd9c6b0e517597189fee48f48e05b499442444b
+#4 DONE 0.0s
+
+#5 [internal] load .dockerignore
+#5 transferring context: 197B done
+#5 DONE 0.0s
+
+#6 [internal] load build context
+#6 transferring context: 3.24kB 0.0s done
+#6 DONE 0.0s
+
+#7 [base  1/10] FROM docker.io/library/python:3.11.16-slim-bookworm@sha256:4b4c524dc3dce996864e030c7bd9c6b0e517597189fee48f48e05b499442444b
+#7 resolve docker.io/library/python:3.11.16-slim-bookworm@sha256:4b4c524dc3dce996864e030c7bd9c6b0e517597189fee48f48e05b499442444b 0.0s done
+#7 DONE 0.0s
+
+#8 [base  3/10] RUN test "$(dpkg-query -W -f='${Version}' ca-certificates)" = "20250419~deb12u1"     && test "$(dpkg-query -W -f='${Version}' tzdata)" = "2026b-0+deb12u1"     && groupadd --gid 10001 xiangrugu     && useradd --uid 10001 --gid 10001 --create-home         --home-dir /home/xiangrugu --shell /usr/sbin/nologin xiangrugu
+#8 CACHED
+
+#9 [base  2/10] WORKDIR /app
+#9 CACHED
+
+#10 [base  5/10] RUN python -m pip install --disable-pip-version-check --no-cache-dir         --only-binary=:all: --require-hashes --requirement /tmp/requirements.lock     && rm /tmp/requirements.lock
+#10 CACHED
+
+#11 [base  7/10] COPY datamgmt/config/contract.schema.json /app/datamgmt/config/contract.schema.json
+#11 CACHED
+
+#12 [base  9/10] RUN python -m pip install --disable-pip-version-check --no-cache-dir         --no-deps --no-build-isolation /app/datamgmt
+#12 CACHED
+
+#13 [base  4/10] COPY datamgmt/requirements.lock /tmp/requirements.lock
+#13 CACHED
+
+#14 [base  6/10] COPY datamgmt/pyproject.toml /app/datamgmt/pyproject.toml
+#14 CACHED
+
+#15 [base  8/10] COPY datamgmt/src /app/datamgmt/src
+#15 CACHED
+
+#16 [base 10/10] RUN test "2026-11-12T16:57:44Z" != "unknown"     && printf '%s\n' "2026-11-12T16:57:44Z" | grep -Eq '^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}Z$'     && test "8fbc8c97fcf1d818caddf6ab556fa82d986643ed" != "unknown"     && printf '%s\n' "8fbc8c97fcf1d818caddf6ab556fa82d986643ed" | grep -Eq '^[0-9a-f]{40}$'     && test "0.1.0" != "unknown"     && printf '%s\n' "dirty" | grep -Eq '^(clean|dirty)$'
+#16 CACHED
+
+#17 [runtime 1/1] COPY scripts/smoke-unordered-values.py /app/scripts/smoke-unordered-values.py
+#17 DONE 0.1s
+
+#18 exporting to image
+#18 exporting layers
+#18 exporting layers 0.2s done
+#18 exporting manifest sha256:3e0b8df9c4a57536669bf3240c987a89c32da6372d7b87a3d55ed78baeec86f9 0.0s done
+#18 exporting config sha256:f19b3474e6b85d7921ffca4907a882fe62a1911a7759972103729dfeb0f3881d 0.0s done
+#18 exporting attestation manifest sha256:680d091e1c64beb77aa8ed36339dd84a71c128b22da5648452c8afd3859c2afb
+#18 exporting attestation manifest sha256:680d091e1c64beb77aa8ed36339dd84a71c128b22da5648452c8afd3859c2afb 0.0s done
+#18 exporting manifest list sha256:8f899568909671131b14cc1c06afeef93d6ef1eef7d5d0a1b18c3bf287bd0a0a 0.0s done
+#18 naming to docker.io/library/xiangrugu:runtime-request-reader-20261113-a done
+#18 unpacking to docker.io/library/xiangrugu:runtime-request-reader-20261113-a 0.1s done
+#18 DONE 0.6s

@@ -1,0 +1,16 @@
+deployment:
+  source_snapshots:
+    container_evidence_root: /data/var/run/project
+    container_root: /data/var/run/project/fixture/snapshots
+roots:
+  usedata:
+    host: owned-project-protocol-fixture
+    path: /data/var/run/project/authority-never-read
+    role: authoritative-source
+target:
+  database: xiangrugu
+  host: unused
+  instance: pg32b
+  port: 5433
+  user: unused
+version: 1

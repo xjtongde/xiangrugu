@@ -1,0 +1,38 @@
+{
+  "evidence": "docs/superpowers/evidence/2026-10-13-medium-foreground/README.md",
+  "snapshot_manifest_sha256": "03174f42f62dbea16402cdcbd05aa132a0a478453d7f31a09127374835f14699",
+  "expectations_sha256": "49be4ef11ce3a2c0f177bed48b8942728f039da53873783d61a4bc0d3c80efb2",
+  "version": 1,
+  "git_revision": "8fbc8c97fcf1d818caddf6ab556fa82d986643ed",
+  "ready_for_import": false,
+  "cells": 5430382.0,
+  "status": "DRAFT_SOURCE_ONLY_MEDIUM_EXPECTATIONS_INDEX",
+  "file_digest_passes": 2,
+  "contract_frozen": false,
+  "scope_sha256": "79654a01396cb46632468f4aeaf271abe195b34b4af66e4e58901f0648d870a1",
+  "rows": 354363.0,
+  "bindings": {
+    "mapping": "297b7c766baa40cc660f262e1ac433973d5d8bdde8c28eb2aca90733bfaec7d9",
+    "original_scope_review": "c3814a6433e5182c928d05738cff7253d03b6feea045cf0ac2bc75b1e10188f6",
+    "preparation": "fab79f8864d3e7d93d383840d01529603d1a44840b758d76908ba765d73f8948",
+    "remaining_budget": "9677badc6c0685f2f25fe22186527a902e18dcbeab2d2c12fbdd05ec0accfaf9"
+  },
+  "columns": 156,
+  "roots_sha256": "6235c356fca754a687a2f02998770c9609b20748ade674d0050d86a0a428e07c",
+  "image_id": "sha256:d79871969b093e957c246a80ace0be0c6b97badec91ea1936f188414ce2f6b54",
+  "approval_sha256": "d21e080bcf10fc8005929c22ea1006aaa896f8b45d2153f8370f73794e567ea4",
+  "snapshot_certificate_sha256": "58cb2e50f2124829130d4a9d6b8e55b8f6b2418bca18458685cb5d16ff193f9a",
+  "request_sha256": "3bfaad145d5a84ab805b6e91ca3f4218df2da2c39451676ecb7f2bb7765654b7",
+  "full_snapshot_verified_this_run": true,
+  "objects": 10,
+  "source": {
+    "relative_path": "harvard/cbdb/cbdb_20260919.sqlite3",
+    "sha256": "bde1bb8eece3820d9e236c1d6b0f07d847d339669d4a85d79cd7252d58d83400",
+    "snapshot_id": "2026-10-07-bootstrap",
+    "size": 586485760
+  },
+  "expectations_file": "sqlite-value-medium.expected.draft.json",
+  "postgresql_connected": false,
+  "code_inputs_manifest": "docs/superpowers/evidence/2026-10-13-controller-evidence/build-inputs.sha256",
+  "code_inputs_sha256": "5229b837fc772714463b07efc06dafea7248970dbcdd43455ded4bff9732a010"
+}

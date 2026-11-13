@@ -1,5 +1,106 @@
 # 香如故容器化数据接入模块 Implementation Plan
 
+2026-11-13 正式请求读取器通过回归、人工请求变化与取消验证，安装候选 1338.41 秒完成同源人工整批。下一步准备新 runtime 下的 p01 关闭权限任务卡，真实覆盖 68/78。见[交接入口](../../HANDOFF.md)。
+
+2026-11-13 逐次请求重读人工原型。465,284行同源人工批在1655.93秒完成，黄金及双摘要核验通过。先验证正式接入的兼容性和保护条件，再以受限候选复核结果。真实覆盖68/78，Task8未完。见[人工对照](../../docs/superpowers/evidence/2026-11-13-p01-openat-probe/README.md)。
+
+2026-11-12 p01规模人工诊断。读取、编码与分桶508.70秒，块排序467.38秒，归并至截止820.53秒。两项逐次请求检查合计1343.33秒，占人工观测工作时间74.75%。后续人工对照聚焦这两项检查，保留原有新鲜性和安全门。真实覆盖68/78，Task8未完。见[人工证据](../../docs/superpowers/evidence/2026-11-12-p01-throughput/README.md)。
+
+2026-11-09真实停点：p01新attempt c在新runtime上1800.26秒timeout，无完整批/新增期望；59原件核验、3候选回收、scratch空、PG健康/交换0，仍68/78、Task8未完。人工80k改善不能证明真实原预算可行；本次授权已用，不重试或下一表，后续先足量人工吞吐定位。见[最终证据](../../docs/superpowers/evidence/2026-11-09-real-p01-attempt/README.md)。
+
+2026-11-09下一步已具体化：新runtime的新attempt real-p01-20261109-c关闭任务卡及纯元数据安装核验完成；原表/快照/预算不变，实际拒绝未授权执行且无request/候选。等待具名批准一次真实只读及全快照摘要复核，不自动重试，不接PG。真实仍68/78、Task8未完；见[任务卡](../../docs/superpowers/evidence/2026-11-09-p01-read-review/README.md)。
+
+2026-11-08读取器正式集成人工验证完成：开发1339通过、安装1316通过/23跳过，80k人工完整黄金/多chunk归并及实际取消/变化拒绝均通过；保持逐次检查，单次80k493.14→404.63秒，小样本未改善，真实吞吐未证明。937原件核验及24候选/44人工临时路径收尾完成。真实仍68/78，Task8未完；下一步新真实任务卡另获具名授权，不自动重试，不接PG。见[本轮证据](../../docs/superpowers/evidence/2026-11-08-metadata-reader-integration/README.md)。
+
+2026-11-08人工性能阶段：严格分支1000行/8列剖析及保持逐次检查的元数据读取实验原型完成，六人工批黄金一致、诊断19项通过，两组普通整程均值观察下降19.7%。原型未产品集成，真实吞吐/完整兼容性及较大多轮归并待验证，无新项目完整回归。真实仍68/78，Task8未完；见[下一阶段边界](../../docs/superpowers/evidence/2026-11-08-project-path-profile/README.md)。
+
+2026-11-08最终：p01本次真实尝试1800.18秒timeout，worker停于object_read_sort，无完整批/新覆盖；68/78及Task8未完保持。本次未发生invalid_heartbeat，资源/PG健康，候选及临时值流回收。暂停真实推进，先在人工夹具测量严格真实模式等价路径的耗时，真实校验调度改变仍须方案审定；不重试、不放宽预算。见[证据](../../docs/superpowers/evidence/2026-11-08-real-p01-attempt/README.md)。
+
+2026-11-08：新的p01一次只读尝试已形成关闭任务卡和执行包装，安装API元数据校验、控制摘要及缺授权拒绝验证通过；准备阶段未读真实源，68/78与Task8未完保持。真实读取等待针对新attempt的明确确认，任何PG操作/冻结/导入仍关闭。见[本次准备](../../docs/superpowers/evidence/2026-11-08-p01-retry-review/README.md)。
+
+2026-11-07：B-21人工心跳故障路径已复现并修复，开发1325通过、安装1302通过/23跳过及自然边界100/100完成。此为控制链修复验证，非真实容量/1800秒可行性或Task8验收；25日历史根因未确认，真实仍68/78，未重试或接PG。见[证据](../../docs/superpowers/evidence/2026-11-07-heartbeat-diagnosis/README.md)。
+
+2026-10-25后续真实p01一次尝试已因外层invalid_heartbeat取消，约1637.6秒、无完整批/新增期望，仍68/78；B-21根因待人工复现，不能归为SQLite数据或1800秒超时。容器/值流清理、PG健康、swap0；本次不重试。见[真实停点](../../docs/superpowers/evidence/2026-10-25-real-p01-attempt/README.md)。
+
+2026-10-25：真实单表协议接线的四任务实施及人工候选验证已推进至收尾，唯一复核两项Important修复后开发1314通过、安装版1291通过/23跳过，runtime离线四场景通过。全部为人工数据，真实仍68/78；真实容量/读取、数据库状态机、全载体执行和Task8整体未完成。最新证据见[本轮记录](../../docs/superpowers/evidence/2026-10-24-real-partition-control/README.md)，以下保留各批历史发生时点。
+
+2026-10-17真实单表设计经继续确认后形成实施计划，待计划审阅；四任务覆盖关闭审阅包、双层控制门、独立真实覆盖和人工协议候选。沿用主代理串行及末尾一次复核，未实施/读源/接PG，68/78与Task8保持。见docs/superpowers/plans/2026-10-17-real-partition-control.md。
+
+
+2026-10-16真实large单表接线设计草案已形成，待审阅：完整父范围/严格单表身份、独立真实离线覆盖、逐次guard及原资源门保持。仅设计，未改产品代码、未实施/读源/接PG；确认后先写实施计划，68/78与Task8不变。见docs/superpowers/specs/2026-10-16-real-partition-control-design.draft.md。
+
+
+2026-10-16人工阶段后就绪核对：10表235列及2713份历史证据摘要复验一致；历史规范流均低于256MiB，但真实时间/临时峰值未证明，十次逻辑摘要量约36.82GB。真实large执行与真实覆盖汇总仍关闭，下一阶段需审定实现范围和执行身份；未读源/主动跑项目测试/构建，68/78、Task8未变。见docs/superpowers/evidence/2026-10-16-large-readiness-review/README.md。
+
+
+2026-10-16宽文本人工SQLite受控路径验证通过：4094行完整发布且独立摘要/完整快照/双哈希/发布pin吻合，4095行sort/budget拒绝且无完整批；4定向检查通过。产品输入未变，无新完整回归。仅人工单对象，真实仍68/78、large关闭、Task8未完。见docs/superpowers/evidence/2026-10-16-wide-sqlite-artificial/README.md。
+
+
+2026-10-16宽流人工边界通过：64KiB文本含重复，4094行完整匹配独立摘要，4095行budget拒绝且输出0行；临时峰值511.9MiB、容器内存峰值567.5MiB，清理完成。4定向检查通过，123产品输入未变、复用候选，无新完整回归。仅排序组件，真实仍68/78、large关闭、Task8未完。见docs/superpowers/evidence/2026-10-16-wide-stream-artificial/README.md。
+
+
+2026-10-16人工夹具测试目录适配完成：默认目录1通过2跳过，受限目录3通过；完整开发1181通过，新test安装版1158通过23跳过。仅改一项测试输入，生成器/输出根门/服务不变；devwatch剩余87失败未修。真实仍68/78、large关闭、Task8未完。见docs/superpowers/evidence/2026-10-16-fixture-test-scope/README.md。
+
+
+2026-10-15人工单表闭环已验证：10表235列/1万行23.5万字段十个手工摘要吻合，取消/新attempt重试及离线九项缺覆盖、十项完成、重复/冲突拒绝通过。47核验/2夹具、1180开发、新test1157通过23跳过；3重要复核修复、123输入/919原件/28容器清理。真实仍68/78，large关闭、Task8未完。见docs/superpowers/evidence/2026-10-15-partition-coverage/README.md。
+
+
+2026-10-15单表草案准备已实现：完整large父范围10/235先校验，再投影一表；六文档摘要链及发布前输入/生成/stage复核，权限关闭。64定向、1131开发、新test1108通过23跳过，新runtime纯人工CLI核对通过；119输入/两独立镜像/138原件、7容器清理。真实large关闭、人工执行与覆盖汇总未实现，68/78、Task8未完。证据：docs/superpowers/evidence/2026-10-15-partition-preparation/README.md。
+
+
+2026-10-14 I-07人工调度已验证：100毫秒重型校验调度/每次轻量取消截止/阶段强制复核/父监督独立人工发布摘要，26定向、1098开发、新test1075通过23跳过。相同人工2万行47万字段84.4→14.45秒；真实模式仍逐次校验、68/78与large关闭保持。初次取消137缺监督报告保留，后续运行中取消/截止无最终批。证据：docs/superpowers/evidence/2026-10-14-guard-opt/README.md。
+
+
+2026-10-14高唯一行大组人工批：10表235列/20万行470万字段完整匹配独立摘要，约811秒/峰值72.8MiB、临时23.1MiB，换出0。新增夹具RED10失败1通过转11通过，新开发1072/安装候选1049通过23跳过；产品代码和116构建输入未变，复用固定镜像。覆盖仍68/78，真实large关闭，Task8未完。证据：docs/superpowers/evidence/2026-10-14-large-unique/README.md。
+
+
+2026-10-13大组代表性人工批：10表235列（156整数/79文本）两档均完整匹配独立摘要；大档100000行/2350000字段约419.3秒、峰值61.7MiB，交换换出0。B-20心跳超时半帧丢弃人工复现后修复，开发1072/新test1049通过23跳过。仍68/78、真实large关闭、Task8未完；全组1800秒可行性未证明。证据：docs/superpowers/evidence/2026-10-13-large-representative/README.md。
+
+
+2026-10-13大组人工接线：4项先失败转28通过，受限完整开发1070通过，新test1047通过/23元数据跳过；新runtime离线准备10/235、人工完整批及磁盘三场景验证通过。large真实模式仍代码关闭，覆盖68/78，无源读取/PG/冻结/导入，Task8未完。证据：docs/superpowers/evidence/2026-10-13-large-artificial-control/README.md。
+
+
+2026-10-13磁盘人工验证：用户明确空间足够且须控制测试资源后，自有磁盘排序三场景通过；临时峰值157.1MiB/容器内存峰值201.8MiB，约52.4秒，交换换出0、PG未变。采用应用总账及单文件上限，非文件系统配额或硬I/O隔离；未接通真实large，覆盖68/78不变。证据：docs/superpowers/evidence/2026-10-13-large-disk-artificial/README.md。
+
+
+2026-10-13大组准备：已核实68已覆盖+10大组/235列完整分割，3项人工关闭门通过；旧1GiB磁盘临时区/7200秒与现行64MiB/1800秒冲突，入口仍关闭。无真实大组读取/新增期望/PG/冻结/导入；证据：docs/superpowers/evidence/2026-10-13-sqlite-large-readiness/README.md。
+
+
+2026-10-13中组前台完成：固定快照单次只读10表156列整批证书核验通过，新增354363行/5430382字段，约1492.4秒/峰值146.2MiB，交换与宿主换出0；累计68/78，剩大组10表235列未查询。仍DRAFT、无PG/冻结/导入，Task8未完成；证据：docs/superpowers/evidence/2026-10-13-medium-foreground/README.md。以下为各批历史发生时点，不代表当前覆盖数。
+
+
+2026-10-13启动停点：本轮后台控制器未维持会话，真实读取尚未开始；21分钟前台人工验证通过，58/78不变，无PG/冻结/导入。新证据：docs/superpowers/evidence/2026-10-13-medium-controller-run/README.md；失败后重新调度另记授权。
+
+
+2026-10-13人工留证收尾：控制外层静态触发/信号、停止和退出已完成TDD及独立候选验证；旧真实取消发送方仍未知，覆盖58/78、Task8未完成。证据与权限false的下一次中组方案：docs/superpowers/evidence/2026-10-13-controller-evidence/README.md。
+
+
+2026-10-13最新：已授权中组单次只读重试约1179.5秒以cancelled停止；第9对象ADDR_CODES、8对象仅内部完成，无整批/新增期望，覆盖仍58/78。SIGTERM事件已留证，外层触发未知，I-06待人工改进；无PG/冻结/导入。证据：docs/superpowers/evidence/2026-10-13-medium-retry/README.md。
+
+
+2026-10-12收尾：末对象取消/超时诊断计数窗口已修复并经人工候选验证；58/78和旧中组根因未知保持，无真实重读/PG/冻结/导入。新证据及非执行重试审阅：docs/superpowers/evidence/2026-10-12-task-tail/README.md。
+
+
+2026-10-12本轮：B-18人工失败诊断与监督原因关联已验证；原中组根因未知，58/78覆盖不变，无真实重读/PG/冻结/导入，Task8未完成。统一证据：docs/superpowers/evidence/2026-10-12-task-failure/README.md。
+
+
+2026-10-12中组最新：37项先失败后通过、995开发通过，新test972通过/23跳过；中组准备10表156列及人工正/负例已验证。实际中组约955.93秒失败，通用内部失败与cancelled原因未充分留存，无完整批/新期望，覆盖仍58/78；未接PG/冻结/导入，Task8未完成。证据：docs/superpowers/evidence/2026-10-12-sqlite-medium/README.md。
+
+2026-10-12最新进度：有界缓存策略20项通过、958开发通过、新候选935通过/23跳过；固定快照完整复核及55表326列期望整批生成，约81.2秒/峰值119.5MiB，9次换出与内存停顿0。累计58/78表，另20表未查询；仍DRAFT、未接PG/冻结/导入，Task8未完成。证据：docs/superpowers/evidence/2026-10-12-read-cache-policy/README.md。
+
+
+2026-10-11茶香已明确批准固定快照一次全成员复核与55小表326列源期望生成；控制/监督/发布接线现已实现外部源模式与request摘要门，26项失败转最终93相关/936开发通过，一次新成果复核0问题。test候选构建持续换出775/828/1140触发取消，未产出新镜像、未开始runtime构建或读取真实源。授权保留，因资源风险停止后续负载，不称候选/真实就绪或Task8完成。见[本轮接线与构建停点](../../docs/superpowers/evidence/2026-10-11-sqlite-project-control/README.md)。以下记录保留原发生时点。
+
+
+2026-10-11新增runtime实际草案拒绝证据：3项负向检查通过，原草案与错误摘要在下游读取前拒绝；缺口报告列出执行字段转换、外部证书/清单选择与控制接线。随后茶香明确授权接通并人工验证只读真实控制器，复核固定快照2026-10-07-bootstrap一次、仅生成55小表326列源期望，保留原限制/停止门；不读NAS或另20表、不接PG、不冻结/导入。授权尚未执行，见[草案门与待接线范围](../../docs/superpowers/evidence/2026-10-11-sqlite-draft-gates/README.md)。
+
+
+2026-10-11停点后茶香明确要求继续，按原限制恢复一次人工候选：test完整回归885通过/23跳过，runtime已实际生成选定元数据的55表326列全DRAFT草案；50次宿主诊断采样换出均723，原停止阈值不变、两个容器回收。上轮换出原因仍未知，不宣称资源问题修复、Task8或真实执行完成，真实读取与PG关闭。见[本轮恢复证据](../../docs/superpowers/evidence/2026-10-11-sqlite-task-preparation-resume/README.md)。以下停点记录保留其发生时的结论。
+
+
+2026-10-11停点后只读调查：三次空闲换出计数723/723/723稳定，当前交换页主要记在Docker/containerd服务，缺少事发逐服务基线，不能认定事件根因；未恢复候选、未修改阈值/设置/服务，无新项目测试。见[只读调查](../../docs/superpowers/evidence/2026-10-11-host-swap-investigation/README.md)，原候选未完成和真实关闭结论保持。
+
+
 > 状态：Task 1–5 已实现并验证，Task 6 草案经选择器修复后模型通过、完整精确匹配，但导入门仍阻断；Git 提交待单独授权｜as_of 2026-10-07
 > 依据：`rules.md`、`datamgmt/docs/DESIGN.md`、`datamgmt/docs/OPERATIONS.md`、`datamgmt/config/roots.yaml`
 > 范围：只规划实现，不授权 Git 提交/推送、镜像拉取/构建、主机挂载、服务启停、数据库写入或正式导入。
@@ -122,6 +223,18 @@
 
 ## Task 6：生成并冻结首版 `usedata` 合同
 
+2026-10-10用户要求按已定原则继续：SQLite78表/736列子批次名称与源显式空值政策确认另存，现有无序比较组件的78个结构描述在32核验通过。独立源值期望仍缺，未完成本Task或Task10，不冻结/导入；当前事实统一见release/sqlite-review.md“当前进度”。下段保留前批时点。
+
+2026-10-09用户随后确认78表/736列保存类型及标量原值保留原则，4项确认消费检查通过、572单元通过；名称/空值约束/独立值合同未批准，未冻结或导入。dev全套575通过/5项既有目录检查失败，详见sqlite-review.md最新节。
+下段保留预算恢复后的观察时点，36列当时尚未确认类型。
+2026-10-09用户随后批准64表协调预算恢复与CLI显式SHA绑定，TDD/候选及64表统计完成；累计78表/736列，36列因空表/全NULL类型未决。最新观察及待审投影统一见sqlite-review.md及剩余类型执行账，不连接PG或导入。
+下段保留前批停止时点。
+2026-10-09剩余75表调查随后获批并执行，11表完整统计、第12表ASSOC_DATA触发vm_limit、63表未启动；
+权限TDD/候选/隔离与失败机器证据见release/sqlite-review.md最新节及sqlite-remaining-types执行账。558单元/547候选通过、19仓库产物跳过；Task6仍未完成，预算恢复另批，不接PG/冻结/导入。
+
+2026-10-09阶段提交8fbc8c9后，整理剩余75表/708列待审调查方案：docs/superpowers/plans/2026-10-09-sqlite-remaining-types.md。
+仅编写计划及scope，尚未批准读取/构建/执行；不改变Task6未完成、BLOCKED及导入前用户确认门。
+
 2026-10-09随后批准SQLite78表/76索引角色、完成三表28列只读类型统计；单元554、最终候选547通过/15仓库产物跳过，runtime smoke通过。
 完整机器证据与未批准类型/值/目标映射边界见release/sqlite-review.md最新节；Task6/Task10未完成，不扩大读取或导入。
 
@@ -218,6 +331,24 @@ Task6未完成，不能冒充Task10适配器。详细执行证据见docs/superpo
 
 ## Task 8：实现运行状态机、资源预算和可取消执行器
 
+2026-10-25单表协议新增：关闭审阅/严格父链和单表投影、控制端与底层独立校验、阶段及发布前原件重核、23角色metadata-only覆盖核验；实际限额/峰值与父预算严格一致，宿主换出按本次基线判定。仅人工十表/235列、取消/retry、宽流边界及离线四场景验证，真实保持68/78。没有数据库状态机、文件系统总配额或硬I/O隔离，真实表1800秒容量仍未证明，故下列Task8整体检查项保持未勾选。见[实施计划](../../docs/superpowers/plans/2026-10-17-real-partition-control.md)。
+
+2026-10-11元数据任务准备器已按用户短设计确认实施，31人工/908开发通过，生成全DRAFT模板且保留真实关闭门；完成marker持久化修正已失败复现。两候选构建完成，但test完整回归以swap_pressure停止，runtime未运行，见[本轮停点](../../docs/superpowers/evidence/2026-10-11-sqlite-task-preparation/README.md)。因此不称候选验证完成、真实执行就绪或Task整体完成，后续负载停下待调查换出。
+
+2026-10-11仅衔接[小组当前准备材料](../../docs/superpowers/evidence/2026-10-11-sqlite-small-readiness/README.md)，核对21项当前输入、55对象/326列及既有候选引用；未改产品代码或运行新项目检查。只读仓库元数据的任务准备器为下一步有限接线方案，未获短设计确认，真实执行仍关闭，Task整体不勾选。
+
+2026-10-10已按用户继续批准的设计接通人工整程截止：候选1800/宿主1830/SSH1880秒，覆盖预检至终端采样发布，源批预算不能超出；14失败转85相关通过、877开发通过，候选854通过/23跳过，短超时实际停止。见[截止接线证据](../../docs/superpowers/evidence/2026-10-10-sqlite-lifecycle-deadline/README.md)。以下各轮保留历史，真实75表/中大组/长期资源验证、B-16/B-17未完成，Task整体仍不勾选。
+
+2026-10-10后续仅整理[55表小组范围/预算待审材料](../contracts/releases/2026-10-06-bootstrap/sqlite-value-small-execution-review.md)，核对现有元数据；人工外层300秒与源批级1800秒不覆盖同一阶段，拟用整个候选生命周期1800秒与宿主/SSH兜底统一截止。方案尚待确认，未改产品代码或运行新项目测试/候选，真实读取仍关闭，Task整体不勾选完成。
+
+2026-10-10用户在资源停点后要求继续，人工控制层恢复验证已完成：新候选840通过/23跳过，实际只读控制成功及四项创建前拒绝；宿主单区间7页换出未达到持续门，前轮失败留证，不降低阈值。见[恢复证据](../../docs/superpowers/evidence/2026-10-10-sqlite-task-control-resume/README.md)。以下前轮停点与开发结果保留历史，真实任务、中大组和Task整体未完成。
+
+2026-10-10新增人工任务外部摘要/实际镜像身份控制门及P-17根配置修正；14新检查、863开发通过，两候选构建成功。候选完整回归因宿主连续换出触发swap_pressure停止，未重试或开展后续runtime控制层验证。见[本轮停点证据](../../docs/superpowers/evidence/2026-10-10-sqlite-task-control/README.md)。真实75表与Task8整体仍未完成。
+
+2026-10-10继续获只读入口准备/人工验证授权，新增批准请求绑定、关联元数据摘要及逐表小组预算消费、完整证书预检和实际只读挂载拒绝门；仅人工固定两表候选接入既有监控/末端采样发布。事实与一次新成果复核处置见[只读入口证据](../../docs/superpowers/evidence/2026-10-10-sqlite-readonly-entry/README.md)。真实project_snapshot仍仅API分支，无可信生产控制器/真实发布接线；中大组、磁盘临时区、数据库状态机和Task整体未完成，不读取剩余75表。
+
+2026-10-10本轮按明确人工授权接通批级执行包装、宿主10秒采样、容器内租约/进程组监督、SSH控制心跳、终端新采样确认及暂存结果发布。自有独立候选和一次新成果复核/修正证据见[人工执行证据](../../docs/superpowers/evidence/2026-10-10-sqlite-batch-runner/README.md)。这是人工数据前置切片，不勾选本Task整体完成；真实范围、数据库状态机、全载体执行、大表磁盘配额和生产验收未实现。未读取真实75表、不替换常驻或晋级现行镜像别名。
+
 **Files:** `run.py`、`resources.py`、`process.py`、对应三个 `tests/unit/test_*.py`。
 
 - [ ] 写失败测试固定 planned → inventory → loading → validating → ready_to_publish → published，任一步可 failed/cancelled，非法回跳拒绝。
@@ -228,6 +359,10 @@ Task6未完成，不能冒充Task10适配器。详细执行证据见docs/superpo
 - [ ] 经单独授权后提交：`git commit -m "feat(datamgmt): control runs resources and processes"`。
 
 ## Task 9：实现独立规范化比较器
+
+2026-10-10已批准并完成无序标量比较四任务的纯合成组件；编码、排序、实际整行/次数核对及候选验证事实统一见[执行账](../../docs/superpowers/plans/2026-10-09-sqlite-unordered-value-progress.md)。不含真实SQLite/PG适配器、全部类型/约束或全版本验证，不勾选本Task整体实施项；现有服务/别名、正式合同与导入门未变。以下2026-10-09段保留计划编写历史。
+
+2026-10-09用户“继续”确认SQLite整行内容/重复次数书面设计，形成[四任务待审执行计划](../../docs/superpowers/plans/2026-10-09-sqlite-unordered-value-comparison.md)。首切片仅合成text/bigint/有限float/NULL无序编码、受限外部排序及实际字节/次数核对；本轮只写文档，尚未实施，不接真实源/数据库、不替换服务或镜像别名、不提交。计划/执行方式确认后才按先写检查再实现推进，完整Task9/Task6/Task10未完成。
 
 2026-10-08用户“同意”批准后，纯合成text/bigint/NULL有序切片已实施并完成候选验证；证据及授权边界见[执行账](../../docs/superpowers/plans/2026-10-08-text-value-progress.md)。本Task完整类型/真实适配器未完成，Task6和合同冻结未放行；下文待审记录为前批历史。
 
@@ -245,6 +380,10 @@ Task6未完成，不能冒充Task10适配器。详细执行证据见docs/superpo
 - [ ] 经单独授权后提交：`git commit -m "feat(datamgmt): add independent canonical validation"`。
 
 ## Task 10：实现 SQLite 适配器
+
+2026-10-10随后批准源侧期望衔接与三表真实只读核对，完成3/78表完整源值期望及全快照摘要复核；18定向/723开发通过，候选700通过/23仓库元数据跳过。实施/一次评审及证据保存故障修复统一见[三表源侧证据](../../docs/superpowers/evidence/2026-10-10-sqlite-expectations/README.md)。剩余75表期待、加载器/PG独立核对、完整合同与全量彩排仍缺，本Task不勾选整体完成，正式导入前须通知并确认旧库处置。
+
+2026-10-10用户批准小范围独立源值读取接口，作为Task6/本Task的前置能力新增sqlite_values.py及人工文件检查，41定向/705开发通过，候选682通过/23仓库元数据跳过。一次评审/修复/镜像证据统一见docs/superpowers/evidence/2026-10-10-sqlite-values/README.md。尚无加载器、PG读取/核对、真实源期望或全载体范围，下面各完成项仍不勾选，不声称本Task完成。
 
 **Files:** `adapters/sqlite.py`、`verifiers/sqlite.py`、`tests/adapters/test_sqlite.py`。
 

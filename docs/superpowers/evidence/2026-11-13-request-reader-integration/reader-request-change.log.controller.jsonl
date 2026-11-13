@@ -1,0 +1,2 @@
+{"version":1,"run_suffix":"reader-request-change","layer":"windows_ssh_transport","reason":"remote_exit","utc":"2026-11-12T17:10:43.8125676Z","remote_exit_code":0,"ready_for_import":false}
+{"version":1,"run_suffix":"reader-request-change","layer":"windows_ssh_transport","reason":"stdin_close","utc":"2026-11-12T17:10:43.8186597Z","remote_exit_code":null,"ready_for_import":false}

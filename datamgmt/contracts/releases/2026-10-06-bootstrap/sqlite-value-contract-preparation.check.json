@@ -1,0 +1,21 @@
+{
+  "format": "xiangrugu.sqlite-value-contract-metadata-check.v1",
+  "as_of": "2026-10-10",
+  "execution_host": "192.168.3.32",
+  "container": "xiangrugu-dev",
+  "input_file": "datamgmt/contracts/releases/2026-10-06-bootstrap/sqlite-value-contract-preparation.draft.json",
+  "method": "metadata only; existing UnorderedSchema models, direct JSON/header reference, per-column primitive value acceptance and NULL acceptance/rejection assertions",
+  "exit_code": 0,
+  "status": "PERSISTED_METADATA_CHECKS_PASSED",
+  "proposal_sha256": "fab79f8864d3e7d93d383840d01529603d1a44840b758d76908ba765d73f8948",
+  "table_count": 78,
+  "column_count": 736,
+  "nullable_null_acceptance_checks": 552,
+  "notnull_null_rejection_checks": 184,
+  "primitive_type_acceptance_checks": 736,
+  "schema_and_header_checks": 78,
+  "expected_counts_and_value_hashes_pending": true,
+  "real_source_read": false,
+  "postgresql_connected": false,
+  "full_unit_suite_run": false
+}

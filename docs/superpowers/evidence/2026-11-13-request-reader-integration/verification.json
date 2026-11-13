@@ -1,0 +1,222 @@
+{
+  "as_of": "2026-11-13",
+  "status": "INSTALLED_REQUEST_READER_ARTIFICIAL_VERIFIED",
+  "fixture_rows": 465284,
+  "fixture_fields": 3722272,
+  "fixture_stream_bytes": 27255925,
+  "instrumented": true,
+  "measurement_overhead_calibrated": false,
+  "sqlite_next_contains_request_checks": true,
+  "complete": true,
+  "stop_reason": null,
+  "worker_failure": null,
+  "supervisor_elapsed_seconds": 1338.4144756379992,
+  "worker_elapsed_seconds": 1334.028176436,
+  "peak_memory_bytes": 121405440,
+  "phase_metrics": [
+    {
+      "name": "controller_preflight",
+      "elapsed_seconds": 0.038325071,
+      "request_read_seconds": 0.000111992,
+      "mount_check_seconds": 3.5118E-05,
+      "request_read_calls": 1,
+      "mount_check_calls": 2,
+      "sqlite_next_calls": 0,
+      "sqlite_next_inclusive_seconds": 0.0
+    },
+    {
+      "name": "request_preflight",
+      "elapsed_seconds": 0.173412265,
+      "request_read_seconds": 0.057651469,
+      "mount_check_seconds": 0.000923384,
+      "request_read_calls": 72,
+      "mount_check_calls": 72,
+      "sqlite_next_calls": 0,
+      "sqlite_next_inclusive_seconds": 0.0
+    },
+    {
+      "name": "snapshot_verify",
+      "elapsed_seconds": 0.113582893,
+      "request_read_seconds": 0.006087995,
+      "mount_check_seconds": 0.000637613,
+      "request_read_calls": 72,
+      "mount_check_calls": 72,
+      "sqlite_next_calls": 0,
+      "sqlite_next_inclusive_seconds": 0.0
+    },
+    {
+      "name": "batch_preflight",
+      "elapsed_seconds": 0.008791282,
+      "request_read_seconds": 0.002903245,
+      "mount_check_seconds": 0.00034656,
+      "request_read_calls": 78,
+      "mount_check_calls": 78,
+      "sqlite_next_calls": 0,
+      "sqlite_next_inclusive_seconds": 0.0
+    },
+    {
+      "name": "batch_digest_before",
+      "elapsed_seconds": 0.191707232,
+      "request_read_seconds": 0.004838269,
+      "mount_check_seconds": 0.000539846,
+      "request_read_calls": 73,
+      "mount_check_calls": 73,
+      "sqlite_next_calls": 0,
+      "sqlite_next_inclusive_seconds": 0.0
+    },
+    {
+      "name": "object_read_sort",
+      "elapsed_seconds": 0.006034651,
+      "request_read_seconds": 0.002016186,
+      "mount_check_seconds": 0.000239967,
+      "request_read_calls": 42,
+      "mount_check_calls": 42,
+      "sqlite_next_calls": 0,
+      "sqlite_next_inclusive_seconds": 0.0
+    },
+    {
+      "name": "read_encode_bucket",
+      "elapsed_seconds": 296.205004686,
+      "request_read_seconds": 191.694087052,
+      "mount_check_seconds": 22.376041646,
+      "request_read_calls": 1885353,
+      "mount_check_calls": 1885353,
+      "sqlite_next_calls": 465285,
+      "sqlite_next_inclusive_seconds": 130.740578693
+    },
+    {
+      "name": "chunk_sort",
+      "elapsed_seconds": 265.892124264,
+      "request_read_seconds": 185.745300862,
+      "mount_check_seconds": 21.8046761,
+      "request_read_calls": 1861264,
+      "mount_check_calls": 1861264,
+      "sqlite_next_calls": 0,
+      "sqlite_next_inclusive_seconds": 0.0
+    },
+    {
+      "name": "merge",
+      "elapsed_seconds": 537.681130675,
+      "request_read_seconds": 367.864318528,
+      "mount_check_seconds": 43.895899485,
+      "request_read_calls": 3722281,
+      "mount_check_calls": 3722281,
+      "sqlite_next_calls": 0,
+      "sqlite_next_inclusive_seconds": 0.0
+    },
+    {
+      "name": "final_stream_digest",
+      "elapsed_seconds": 233.586987711,
+      "request_read_seconds": 182.339827973,
+      "mount_check_seconds": 21.514542704,
+      "request_read_calls": 1861138,
+      "mount_check_calls": 1861138,
+      "sqlite_next_calls": 0,
+      "sqlite_next_inclusive_seconds": 0.0
+    },
+    {
+      "name": "batch_digest_after",
+      "elapsed_seconds": 0.103271139,
+      "request_read_seconds": 0.003569119,
+      "mount_check_seconds": 0.000409387,
+      "request_read_calls": 74,
+      "mount_check_calls": 74,
+      "sqlite_next_calls": 0,
+      "sqlite_next_inclusive_seconds": 0.0
+    },
+    {
+      "name": "metadata_recheck",
+      "elapsed_seconds": 0.009288891,
+      "request_read_seconds": 0.002439424,
+      "mount_check_seconds": 0.000305858,
+      "request_read_calls": 40,
+      "mount_check_calls": 40,
+      "sqlite_next_calls": 0,
+      "sqlite_next_inclusive_seconds": 0.0
+    },
+    {
+      "name": "stage_save",
+      "elapsed_seconds": 0.018503936,
+      "request_read_seconds": 0.005084836,
+      "mount_check_seconds": 0.000597272,
+      "request_read_calls": 79,
+      "mount_check_calls": 79,
+      "sqlite_next_calls": 0,
+      "sqlite_next_inclusive_seconds": 0.0
+    }
+  ],
+  "raw_members": 440,
+  "removed_candidates": 13,
+  "real_source_read": false,
+  "new_real_expectations": 0,
+  "coverage_complete_tables": 68,
+  "coverage_total_tables": 78,
+  "task8_complete": false,
+  "ready_for_import": false,
+  "request_checks_seconds": 1037.32343189,
+  "request_checks_percent": 77.75873480133839,
+  "last_observed_phase": "stage_save",
+  "invalid_heartbeat_observed": false,
+  "scratch_empty": true,
+  "baseline_supervisor_elapsed_seconds": 1800.194085256,
+  "baseline_complete": false,
+  "artificial_sqlite_sha256": "6b84511a3243823345d292fb3ac303fb35153f5c5817fd2cb346604a7793626d",
+  "installed_fast_path_verified": true,
+  "request_reader_fallback_calls": 0,
+  "development_passed": 1347,
+  "installed_passed": 1324,
+  "installed_skipped": 23,
+  "test_groups": [
+    {
+      "name": "dev-metadata",
+      "tests": 315,
+      "skipped": 0
+    },
+    {
+      "name": "dev-remainder",
+      "tests": 1023,
+      "skipped": 0
+    },
+    {
+      "name": "dev-fixtures",
+      "tests": 9,
+      "skipped": 0
+    },
+    {
+      "name": "installed-metadata",
+      "tests": 315,
+      "skipped": 0
+    },
+    {
+      "name": "installed-remainder",
+      "tests": 1023,
+      "skipped": 23
+    },
+    {
+      "name": "installed-fixtures",
+      "tests": 9,
+      "skipped": 0
+    }
+  ],
+  "actual_negative_triggers_verified": true,
+  "same_input_completed_phases": [
+    {
+      "name": "read_encode_bucket",
+      "baseline_seconds": 508.701401764,
+      "installed_seconds": 296.205004686,
+      "baseline_request_reads": 1885353,
+      "installed_request_reads": 1885353,
+      "baseline_mount_checks": 1885353,
+      "installed_mount_checks": 1885353
+    },
+    {
+      "name": "chunk_sort",
+      "baseline_seconds": 467.378169959,
+      "installed_seconds": 265.892124264,
+      "baseline_request_reads": 1861264,
+      "installed_request_reads": 1861264,
+      "baseline_mount_checks": 1861264,
+      "installed_mount_checks": 1861264
+    }
+  ]
+}

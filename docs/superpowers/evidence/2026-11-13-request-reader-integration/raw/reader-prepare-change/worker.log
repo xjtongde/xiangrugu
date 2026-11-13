@@ -1,0 +1,2 @@
+{"requests": "/data/var/run/project/requests.json", "golden": "/data/var/run/project/project-golden.json", "receipt": "/data/var/run/project/fixture-receipt.json", "sqlite": "/data/var/run/project/fixture/snapshots/artificial-v1/artificial.sqlite"}
+{"status": "SYNTHETIC_WORKER_COMPLETED", "reason": null, "process_group_gone": true}

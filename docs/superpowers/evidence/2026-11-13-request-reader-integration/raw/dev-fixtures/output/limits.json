@@ -1,0 +1,1 @@
+{"cpu.max":"50000 100000","memory.max":"805306368","memory.swap.max":"0","pids.max":"128","worker_ionice":"idle","worker_nice":19}

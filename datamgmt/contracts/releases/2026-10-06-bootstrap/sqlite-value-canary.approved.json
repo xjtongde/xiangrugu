@@ -1,0 +1,186 @@
+{
+  "version": 1,
+  "source_read_authorized": true,
+  "snapshot_id": "2026-10-07-bootstrap",
+  "rule_id": "m007906",
+  "source": {
+    "path": "harvard/cbdb/cbdb_20260919.sqlite3",
+    "kind": "file",
+    "size": 586485760,
+    "sha256": "bde1bb8eece3820d9e236c1d6b0f07d847d339669d4a85d79cd7252d58d83400"
+  },
+  "postgresql_authorized": false,
+  "ready_for_import": false,
+  "authorization": "用户同意三表源侧期望及全快照摘要核验；1核/768MiB/64MiB临时空间；不接数据库、不改服务、不提交",
+  "bindings": {
+    "preparation": "fab79f8864d3e7d93d383840d01529603d1a44840b758d76908ba765d73f8948",
+    "mapping": "297b7c766baa40cc660f262e1ac433973d5d8bdde8c28eb2aca90733bfaec7d9",
+    "decisions": "ca263a16ad485950f123a4fa57b56e2023c1161afbfa772565e59c32f498cc41",
+    "approved_types": "f4e9c753f0cfacf08dc8309a7f5b78a59916eb3c85ea2dda4fc832aba7fc76ad"
+  },
+  "objects": [
+    {
+      "source_object_id": "c5c282c5fb700f078899db99a4065514c1d213ab20117a12f84489a839454284",
+      "source_object_name": "ADMIN_CAT_TYPES",
+      "source_columns": [
+        "c_admin_cat_type_code",
+        "c_admin_cat_type_hz",
+        "c_admin_cat_type_trans",
+        "c_notes"
+      ],
+      "columns": [
+        {
+          "source_ordinal": 0,
+          "column_key": "28d0258d241a685717703b048501a3c89b7ee500e628ffbbef1e81ed97dabd1b",
+          "pg_type": "text",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 1,
+          "column_key": "dc6c6ed8b807040c43ff0e010f192445647de267bae6add95ceb4fb0e9b85fee",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 2,
+          "column_key": "5801c057047df607f0ed48fcbaa89e50e6252bd81a204ab52cef70e3eca55c71",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 3,
+          "column_key": "81b761d5111be0a84410ded8c82bd104cdea5e44279421974bac26643d086bc1",
+          "pg_type": "text",
+          "allow_null_value": true
+        }
+      ],
+      "schema_hash": "9f2b79fa6423ae43781b89bc9d6442995a16293d85a48e4678bc8083b4b4d763",
+      "previous_observed_rows": 0
+    },
+    {
+      "source_object_id": "3cf1a3286982ab392f3f0bed1a0dcc723f3a04205be610a6ec992ae66047c6cf",
+      "source_object_name": "SOCIAL_INSTITUTION_ADDR",
+      "source_columns": [
+        "c_inst_name_code",
+        "c_inst_code",
+        "c_inst_addr_type_code",
+        "c_inst_addr_begin_year",
+        "c_inst_addr_end_year",
+        "c_inst_addr_id",
+        "inst_xcoord",
+        "inst_ycoord",
+        "c_source",
+        "c_pages",
+        "c_notes"
+      ],
+      "columns": [
+        {
+          "source_ordinal": 0,
+          "column_key": "8611be4191be6d740a58c4b6f4f872f30a8b004f8165268e93f5e5b6caca60a2",
+          "pg_type": "bigint",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 1,
+          "column_key": "79ef189ee64657af916fa4c981d5b4a72b63f94ef340001abf60d3c4e0c9e85a",
+          "pg_type": "bigint",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 2,
+          "column_key": "28462a548d0302919350de6d6ae66c2fc9cc71fada7370b192ff41b9ae054da4",
+          "pg_type": "bigint",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 3,
+          "column_key": "429108f89e2ab6226397c5a180af08d03818719779b67ce9629048b326f9b437",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 4,
+          "column_key": "7741dc123614e56255517024d40b5ea82bfe03fb6818aec87f5ffa3b1126259d",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 5,
+          "column_key": "26ec69e6d968ccc07fd1748d14ee5ef0a40a46c63d454d83d570a49d174d8b72",
+          "pg_type": "bigint",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 6,
+          "column_key": "ab37a5d7fefbf1cd7cdb9a514654b7616a6d5e95a48d1c111115b9fb0e4e01ff",
+          "pg_type": "double precision",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 7,
+          "column_key": "1907d925ee8337d710ddd0518c8003d13ad576863c59b1d887c867c5aa1e3721",
+          "pg_type": "double precision",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 8,
+          "column_key": "099afc0e43b932e0d0695599c35c7009f6902c221a6e294589db23621e1b0fe5",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 9,
+          "column_key": "36e66effde25baaa43bdb3ec65be152d8d83ed3f1faf9ae271a57f6bc5ed3f54",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 10,
+          "column_key": "3218e753b0eaff528af25b69b2357cbe401f00b125741e04f88a91b9bae82f00",
+          "pg_type": "text",
+          "allow_null_value": true
+        }
+      ],
+      "schema_hash": "1f88cd8039ae3dbdc411864c52d5bbb1aa5dc20c59ff61dabf8b709f7382d1f9",
+      "previous_observed_rows": 3859
+    },
+    {
+      "source_object_id": "7d279c532467a3e32cacf0d4a2c7fc513ba73ebc2f35d1d9e192de6b52f10d9d",
+      "source_object_name": "SOCIAL_INSTITUTION_ALTNAME_CODES",
+      "source_columns": [
+        "c_inst_altname_type",
+        "c_inst_altname_desc",
+        "c_inst_altname_chn",
+        "c_notes"
+      ],
+      "columns": [
+        {
+          "source_ordinal": 0,
+          "column_key": "420349709d6600935d0ae82483974ef7f2765f0c67203c707558ce3797e25dc1",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 1,
+          "column_key": "dd4d89217516345befb51e4cb52a89494d73500f7b3c6caae29849392c8c1da2",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 2,
+          "column_key": "0ed2176efb0659be01dbe8a277334c049230d73eb5761afd72944464d45d216d",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 3,
+          "column_key": "0270a2af53b45b4651f0fa35a00f039daaab716c702d7d94bf897e84fd13c8f8",
+          "pg_type": "text",
+          "allow_null_value": true
+        }
+      ],
+      "schema_hash": "1a123f12677c940dbc7424a5a41f246dfa75c9ed8382a4be60b3ee16ea99dd1a",
+      "previous_observed_rows": 1
+    }
+  ]
+}

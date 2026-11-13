@@ -11,6 +11,8 @@ import shutil
 import stat
 import tarfile
 
+from .read_cache import require_read_cache
+
 
 class SnapshotError(ValueError):
     pass
@@ -24,7 +26,10 @@ def digest(value) -> str:
     return hashlib.sha256(canonical_json(value).encode("utf-8")).hexdigest()
 
 
-def sha256_file(path: Path) -> str:
+def sha256_file(path: Path, *, read_cache=None, guard=lambda: None) -> str:
+    require_read_cache(read_cache)
+    if read_cache is not None:
+        return read_cache.hash_file(path, guard=guard)
     result = hashlib.sha256()
     with path.open("rb") as stream:
         for chunk in iter(lambda: stream.read(1024 * 1024), b""):
@@ -32,7 +37,8 @@ def sha256_file(path: Path) -> str:
     return result.hexdigest()
 
 
-def inventory(root: Path) -> list[dict]:
+def inventory(root: Path, *, read_cache=None, guard=lambda: None) -> list[dict]:
+    require_read_cache(read_cache)
     if root.is_symlink() or not root.is_dir():
         raise SnapshotError("Input must be an existing directory, not a symbolic link")
     members = []
@@ -41,6 +47,8 @@ def inventory(root: Path) -> list[dict]:
 
     for directory, dirs, files in os.walk(root, followlinks=False, onerror=fail_on_walk_error):
         for name in sorted(dirs + files):
+            if read_cache is not None:
+                guard()
             member = Path(directory) / name
             mode = member.lstat().st_mode
             relative = member.relative_to(root).as_posix()
@@ -48,7 +56,10 @@ def inventory(root: Path) -> list[dict]:
                 raise SnapshotError("Symbolic links and special members require explicit disposition")
             entry = {"path": relative, "kind": "directory" if stat.S_ISDIR(mode) else "file"}
             if entry["kind"] == "file":
-                entry.update(size=member.stat().st_size, sha256=sha256_file(member))
+                size = member.stat().st_size
+                hashed = (sha256_file(member) if read_cache is None else
+                          sha256_file(member, read_cache=read_cache, guard=guard))
+                entry.update(size=size, sha256=hashed)
             members.append(entry)
     return sorted(members, key=lambda entry: entry["path"])
 
@@ -135,7 +146,9 @@ def create_snapshot(
         raise SnapshotError("Source or output cannot be accessed") from None
 
 
-def verify_snapshot(root: Path, certificate_path: Path, *, expected_source: Path) -> dict:
+def verify_snapshot(root: Path, certificate_path: Path, *, expected_source: Path,
+                    read_cache=None, guard=lambda: None) -> dict:
+    require_read_cache(read_cache)
     try:
         certificate = json.loads(certificate_path.read_text(encoding="utf-8"))
         if certificate["version"] != 1 or certificate["status"] != "VERIFIED":
@@ -143,7 +156,11 @@ def verify_snapshot(root: Path, certificate_path: Path, *, expected_source: Path
         if certificate["source_path"] != str(expected_source) or certificate["snapshot_id"] != root.name:
             raise SnapshotError("Snapshot certificate refers to another origin or version")
         members = certificate["members"]
-        if digest(members) != certificate["manifest_sha256"] or inventory(root) != members:
+        if digest(members) != certificate["manifest_sha256"]:
+            raise SnapshotError("Snapshot content or manifest changed")
+        observed = (inventory(root) if read_cache is None else
+                    inventory(root, read_cache=read_cache, guard=guard))
+        if observed != members:
             raise SnapshotError("Snapshot content or manifest changed")
         return certificate
     except (OSError, KeyError, TypeError, json.JSONDecodeError):

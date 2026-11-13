@@ -1,0 +1,135 @@
+1794502906
+1
+MemAvailable:    5476924 kB
+0.95 0.71 0.66 2/553 144281
+some avg10=0.00 avg60=0.07 avg300=0.23 total=18209745
+some avg10=0.00 avg60=0.00 avg300=0.00 total=0
+pswpout 0
+185818337280
+true
+1794502917
+2
+MemAvailable:    5407476 kB
+0.88 0.70 0.66 1/566 144541
+some avg10=1.91 avg60=0.44 avg300=0.30 total=18512639
+some avg10=0.00 avg60=0.00 avg300=0.00 total=0
+pswpout 0
+185812742144
+true
+1794502928
+3
+MemAvailable:    5392192 kB
+0.82 0.70 0.66 2/569 144888
+some avg10=0.80 avg60=0.40 avg300=0.29 total=18544277
+some avg10=0.00 avg60=0.00 avg300=0.00 total=0
+pswpout 0
+185812459520
+true
+1794502938
+4
+MemAvailable:    5375556 kB
+0.77 0.69 0.66 1/567 145196
+some avg10=0.29 avg60=0.34 avg300=0.28 total=18548745
+some avg10=0.00 avg60=0.00 avg300=0.00 total=0
+pswpout 0
+185812307968
+true
+1794502948
+5
+MemAvailable:    5390444 kB
+0.88 0.72 0.67 3/567 145491
+some avg10=0.10 avg60=0.28 avg300=0.27 total=18557737
+some avg10=0.00 avg60=0.00 avg300=0.00 total=0
+pswpout 0
+185812090880
+true
+1794502958
+6
+MemAvailable:    5409408 kB
+0.97 0.74 0.67 1/565 145789
+some avg10=0.03 avg60=0.24 avg300=0.26 total=18561217
+some avg10=0.00 avg60=0.00 avg300=0.00 total=0
+pswpout 0
+185811910656
+true
+1794502968
+7
+MemAvailable:    5381616 kB
+1.05 0.77 0.68 1/565 146099
+some avg10=0.01 avg60=0.20 avg300=0.25 total=18566453
+some avg10=0.00 avg60=0.00 avg300=0.00 total=0
+pswpout 0
+185811697664
+true
+1794502978
+8
+MemAvailable:    5380920 kB
+1.04 0.78 0.69 2/567 146426
+some avg10=0.00 avg60=0.17 avg300=0.24 total=18570875
+some avg10=0.00 avg60=0.00 avg300=0.00 total=0
+pswpout 0
+185811464192
+true
+1794502988
+9
+MemAvailable:    5402656 kB
+1.03 0.78 0.69 2/567 146730
+some avg10=0.00 avg60=0.14 avg300=0.23 total=18572288
+some avg10=0.00 avg60=0.00 avg300=0.00 total=0
+pswpout 0
+185811255296
+true
+1794502998
+10
+MemAvailable:    5383492 kB
+0.87 0.76 0.68 2/568 146989
+some avg10=0.00 avg60=0.12 avg300=0.22 total=18576598
+some avg10=0.00 avg60=0.00 avg300=0.00 total=0
+pswpout 0
+185811140608
+true
+1794503008
+11
+MemAvailable:    5382268 kB
+0.74 0.73 0.68 1/569 147301
+some avg10=0.00 avg60=0.10 avg300=0.21 total=18580379
+some avg10=0.00 avg60=0.00 avg300=0.00 total=0
+pswpout 0
+185810923520
+true
+1794503018
+12
+MemAvailable:    5393072 kB
+0.70 0.72 0.67 2/563 147537
+some avg10=0.36 avg60=0.15 avg300=0.22 total=18735563
+some avg10=0.00 avg60=0.00 avg300=0.00 total=0
+pswpout 0
+185802452992
+true
+1794503028
+13
+MemAvailable:    5374056 kB
+0.74 0.73 0.68 1/564 147728
+some avg10=1.27 avg60=0.42 avg300=0.28 total=18875008
+some avg10=0.00 avg60=0.00 avg300=0.00 total=0
+pswpout 0
+185788452864
+true
+1794503038
+14
+MemAvailable:    5381964 kB
+1.01 0.79 0.70 2/564 147898
+some avg10=8.02 avg60=2.02 avg300=0.63 total=20051987
+some avg10=0.00 avg60=0.00 avg300=0.00 total=0
+pswpout 0
+185783001088
+true
+1794503046
+15
+MemAvailable:    5446204 kB
+0.85 0.77 0.69 1/562 148055
+some avg10=4.18 avg60=1.92 avg300=0.65 total=20098603
+some avg10=0.00 avg60=0.00 avg300=0.00 total=0
+pswpout 0
+185771925504
+true

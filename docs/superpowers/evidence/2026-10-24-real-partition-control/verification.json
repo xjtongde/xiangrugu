@@ -1,0 +1,138 @@
+{
+  "verified": true,
+  "final": true,
+  "test_fixture_only": true,
+  "real_source_read": false,
+  "new_real_expectations": 0,
+  "real_coverage": "68/78",
+  "task8_complete": false,
+  "postgresql_connected": false,
+  "contract_frozen": false,
+  "ready_for_import": false,
+  "review_important_fixed": 2,
+  "review_minor_deferred": 0,
+  "review_count": 1,
+  "valid_red_failed": 24,
+  "valid_red_passed": 2,
+  "build_inputs": 130,
+  "test_image": "sha256:dd7ecbb021bebb4fb4c8a42111511eee3f2804a618c5b1b1788f2bcaf144aa53",
+  "runtime_image": "sha256:fed765cd793aa749bb80ece55d50d14a31c25fcda8234deefd40e40b4075d262",
+  "archive_sha256": "bea753b697b40e8c6190655882691da8eb7c14a3bc0d86d3aa36f3d085b560fa",
+  "archive_members": 1663,
+  "executed_candidates": 59,
+  "never_started_extraction_containers": 1,
+  "regression": [
+    {
+      "skip_reasons": [],
+      "unique_cases": 1314,
+      "passed": 1314,
+      "skipped": 0,
+      "kind": "dev"
+    },
+    {
+      "skip_reasons": [
+        {
+          "id": "tests.unit.test_sqlite_remaining_type_decisions::test_remaining_approval_binds_proposal_scope_and_role_identity",
+          "reason": "repository-only read permissions"
+        },
+        {
+          "id": "tests.unit.test_sqlite_remaining_type_decisions::test_remaining_scope_exactly_covers_75_tables_and_708_columns",
+          "reason": "repository-only read permissions"
+        },
+        {
+          "id": "tests.unit.test_sqlite_remaining_type_decisions::test_all_single_table_permissions_match_approved_identity_and_columns",
+          "reason": "repository-only read permissions"
+        },
+        {
+          "id": "tests.unit.test_sqlite_remaining_type_decisions::test_planning_scope_remains_unexecuted_and_cannot_claim_read_approval",
+          "reason": "repository-only read permissions"
+        },
+        {
+          "id": "tests.unit.test_sqlite_role_decisions::test_role_decision_binds_original_proposal_and_excludes_type_or_import_approval",
+          "reason": "repository-only release evidence"
+        },
+        {
+          "id": "tests.unit.test_sqlite_role_decisions::test_all_roles_are_complete_and_not_silently_promoted_to_import",
+          "reason": "repository-only release evidence"
+        },
+        {
+          "id": "tests.unit.test_sqlite_role_decisions::test_approved_scan_scope_is_exactly_three_tables_and_28_columns",
+          "reason": "repository-only release evidence"
+        },
+        {
+          "id": "tests.unit.test_sqlite_type_approval::test_type_decision_binds_review_and_source_without_import_permission",
+          "reason": "repository-only type decisions"
+        },
+        {
+          "id": "tests.unit.test_sqlite_type_approval::test_approved_types_cover_all_original_columns_in_exact_order",
+          "reason": "repository-only type decisions"
+        },
+        {
+          "id": "tests.unit.test_sqlite_type_approval::test_approval_preserves_null_empty_text_and_values_without_cleaning",
+          "reason": "repository-only type decisions"
+        },
+        {
+          "id": "tests.unit.test_sqlite_type_approval::test_projection_is_bound_to_decision_and_keeps_historical_proposals_pending",
+          "reason": "repository-only type decisions"
+        },
+        {
+          "id": "tests.unit.test_text_value_contract_proposal::test_proposal_binds_exact_existing_artifacts",
+          "reason": "repository metadata audit requires the controlled workspace, not the /app test image"
+        },
+        {
+          "id": "tests.unit.test_text_value_contract_proposal::test_each_object_binds_source_mapping_schema_and_complete_stream[0-expected0]",
+          "reason": "repository metadata audit requires the controlled workspace, not the /app test image"
+        },
+        {
+          "id": "tests.unit.test_text_value_contract_proposal::test_each_object_binds_source_mapping_schema_and_complete_stream[1-expected1]",
+          "reason": "repository metadata audit requires the controlled workspace, not the /app test image"
+        },
+        {
+          "id": "tests.unit.test_text_value_contract_proposal::test_each_object_binds_source_mapping_schema_and_complete_stream[2-expected2]",
+          "reason": "repository metadata audit requires the controlled workspace, not the /app test image"
+        },
+        {
+          "id": "tests.unit.test_text_value_contract_proposal::test_each_object_binds_source_mapping_schema_and_complete_stream[3-expected3]",
+          "reason": "repository metadata audit requires the controlled workspace, not the /app test image"
+        },
+        {
+          "id": "tests.unit.test_text_value_contract_proposal::test_each_object_binds_source_mapping_schema_and_complete_stream[4-expected4]",
+          "reason": "repository metadata audit requires the controlled workspace, not the /app test image"
+        },
+        {
+          "id": "tests.unit.test_text_value_contract_proposal::test_partial_proposal_cannot_claim_new_source_checks_or_release_approval",
+          "reason": "repository metadata audit requires the controlled workspace, not the /app test image"
+        },
+        {
+          "id": "tests.unit.test_text_value_contract_proposal::test_exact_five_object_scope_and_count_units",
+          "reason": "repository metadata audit requires the controlled workspace, not the /app test image"
+        },
+        {
+          "id": "tests.unit.test_text_value_contract_proposal::test_proposal_is_not_an_executable_release_contract",
+          "reason": "repository metadata audit requires the controlled workspace, not the /app test image"
+        },
+        {
+          "id": "tests.unit.test_text_value_contract_proposal::test_value_approval_is_bound_to_the_exact_five_object_proposal",
+          "reason": "repository metadata audit requires the controlled workspace, not the /app test image"
+        },
+        {
+          "id": "tests.unit.test_text_value_contract_proposal::test_approved_value_projection_preserves_all_proposal_data_and_provenance",
+          "reason": "repository metadata audit requires the controlled workspace, not the /app test image"
+        },
+        {
+          "id": "tests.unit.test_text_value_contract_proposal::test_partial_value_approval_does_not_authorize_names_freeze_source_or_import",
+          "reason": "repository metadata audit requires the controlled workspace, not the /app test image"
+        }
+      ],
+      "unique_cases": 1314,
+      "passed": 1291,
+      "skipped": 23,
+      "kind": "installed"
+    }
+  ],
+  "coverage_rows": 10000,
+  "coverage_fields": 235000,
+  "wide_memory_peak_bytes": 805306368,
+  "wide_memory_headroom_proven": false,
+  "cleanup_complete": true
+}

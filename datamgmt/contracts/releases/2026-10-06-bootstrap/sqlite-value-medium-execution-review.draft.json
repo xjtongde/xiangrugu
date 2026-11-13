@@ -1,0 +1,1482 @@
+{
+  "status": "DRAFT_MEDIUM_SCOPE_NOT_EXECUTION_AUTHORITY",
+  "group": "medium",
+  "ready_for_import": false,
+  "version": 1,
+  "git_revision": "8fbc8c97fcf1d818caddf6ab556fa82d986643ed",
+  "source_read_authorized": false,
+  "postgresql_authorized": false,
+  "objects": [
+    {
+      "source_object_name": "ADDR_BELONGS_DATA",
+      "expected_sha256": null,
+      "source_object_id": "46858f9f14636ed7a1ba2dc2e250b6142db8a307802e4b226d0428112fab15e6",
+      "read_limits": {
+        "max_file_bytes": 1073741824,
+        "max_columns": 64,
+        "max_rows": 100000,
+        "max_cells": 2000000,
+        "max_cell_bytes": 1048576,
+        "max_value_bytes": 33554432,
+        "max_vm_steps": 100000000,
+        "max_seconds": 600
+      },
+      "expected_count": null,
+      "sort_limits": {
+        "max_temp_files": 1024,
+        "max_differences": 100,
+        "max_stream_bytes": 33554432,
+        "merge_fan_in": 16,
+        "max_rows": 100000,
+        "max_field_bytes": 1048576,
+        "chunk_bytes": 2097152,
+        "max_temp_bytes": 67108864,
+        "chunk_rows": 4096,
+        "max_columns": 64,
+        "workers": 1,
+        "max_row_bytes": 1048576,
+        "max_seconds": 600
+      },
+      "columns": [
+        {
+          "source_ordinal": 0,
+          "column_key": "b46aa62ad9c489ee0c0b610cd244dd619a7684bca8aa9041c504f8b3b319da62",
+          "pg_type": "bigint",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 1,
+          "column_key": "d5e2189db023897686b5e1ba0bf445256991b371cce0742eefc4886c6044200b",
+          "pg_type": "bigint",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 2,
+          "column_key": "6a83a3a244e943d014c954abc1db172090ebe89734bd7f5bbbc3f6e6369bb52f",
+          "pg_type": "bigint",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 3,
+          "column_key": "a16d4928319d327429d598aad5c3a3223f230e62a68cf9dde539a54c2a81610f",
+          "pg_type": "bigint",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 4,
+          "column_key": "d06715cc30db187e9e621f14675d86da5db56ee34c54e8fb2fd57d1c9bb98e7e",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 5,
+          "column_key": "dceb94f20d9eeef367c20198d9ad6f8ea522cf1aa657cf8c1ce18718d2ec2358",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 6,
+          "column_key": "e3ef3bc27a20e6ffc07f0f4da054c87c2e96bd6986181c2e85d54d792e066d20",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 7,
+          "column_key": "ad5f37dc635e60569bd17242acdf2d19a4eec636bc02e42535ea007e33d1523a",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 8,
+          "column_key": "5259bb9c7d74987f4323a662074f6ca8f9a4e258218b03b608366736957a4f15",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 9,
+          "column_key": "14598af377f0c919962cccf5f8d6dd00b0d22bca0fa02aebea5462d224907d4e",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 10,
+          "column_key": "10e162f92d358c5c7cca89a747f971e46c156046e9f66d42747be469d3ad00e3",
+          "pg_type": "text",
+          "allow_null_value": true
+        }
+      ],
+      "schema_hash": "c10ad25b68f360eeeef9cdbda96223c23d7c8d167d7a5a12265b92d03df0ebbe",
+      "source_columns": [
+        "c_addr_id",
+        "c_belongs_to",
+        "c_firstyear",
+        "c_lastyear",
+        "c_source",
+        "c_pages",
+        "c_notes",
+        "c_created_by",
+        "c_created_date",
+        "c_modified_by",
+        "c_modified_date"
+      ]
+    },
+    {
+      "source_object_name": "OFFICE_CODE_TYPE_REL",
+      "expected_sha256": null,
+      "source_object_id": "d600c60c4c5c25b870e0728fdb7286985c4e56e183be7c019e04b9de3e67b7f6",
+      "read_limits": {
+        "max_file_bytes": 1073741824,
+        "max_columns": 64,
+        "max_rows": 100000,
+        "max_cells": 2000000,
+        "max_cell_bytes": 1048576,
+        "max_value_bytes": 33554432,
+        "max_vm_steps": 100000000,
+        "max_seconds": 600
+      },
+      "expected_count": null,
+      "sort_limits": {
+        "max_temp_files": 1024,
+        "max_differences": 100,
+        "max_stream_bytes": 33554432,
+        "merge_fan_in": 16,
+        "max_rows": 100000,
+        "max_field_bytes": 1048576,
+        "chunk_bytes": 2097152,
+        "max_temp_bytes": 67108864,
+        "chunk_rows": 4096,
+        "max_columns": 64,
+        "workers": 1,
+        "max_row_bytes": 1048576,
+        "max_seconds": 600
+      },
+      "columns": [
+        {
+          "source_ordinal": 0,
+          "column_key": "19e0a60117c48a6410cc059fc580ee488d4d4593fc078057bd70ef47fde1e10f",
+          "pg_type": "bigint",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 1,
+          "column_key": "8cae676a4a95389494c35ca3371689a02c21510403222be92c359fbbd2f74d0b",
+          "pg_type": "text",
+          "allow_null_value": false
+        }
+      ],
+      "schema_hash": "b5005fad5a46e57b1f60846e82f7df4c532dcd48089714df18e58163df549639",
+      "source_columns": [
+        "c_office_id",
+        "c_office_tree_id"
+      ]
+    },
+    {
+      "source_object_name": "OFFICE_CODES",
+      "expected_sha256": null,
+      "source_object_id": "d01c8719c90d340e418b405b057f160eabfa2989f21fb23e32447433c0ba814e",
+      "read_limits": {
+        "max_file_bytes": 1073741824,
+        "max_columns": 64,
+        "max_rows": 100000,
+        "max_cells": 2000000,
+        "max_cell_bytes": 1048576,
+        "max_value_bytes": 33554432,
+        "max_vm_steps": 100000000,
+        "max_seconds": 600
+      },
+      "expected_count": null,
+      "sort_limits": {
+        "max_temp_files": 1024,
+        "max_differences": 100,
+        "max_stream_bytes": 33554432,
+        "merge_fan_in": 16,
+        "max_rows": 100000,
+        "max_field_bytes": 1048576,
+        "chunk_bytes": 2097152,
+        "max_temp_bytes": 67108864,
+        "chunk_rows": 4096,
+        "max_columns": 64,
+        "workers": 1,
+        "max_row_bytes": 1048576,
+        "max_seconds": 600
+      },
+      "columns": [
+        {
+          "source_ordinal": 0,
+          "column_key": "ceb7eb121cc06b79e28fb17504a8b04e1aad4847423a152bb4ca2d8e157d42ed",
+          "pg_type": "bigint",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 1,
+          "column_key": "c424cc648900e81b55632367ec5f71bd2159177ad6affa3170a41d6a29f3f92f",
+          "pg_type": "bigint",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 2,
+          "column_key": "a6cf98c487ea0f72e6a1dc081882fa1a1a08bc471d59b8114bd727d4f7220fb1",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 3,
+          "column_key": "132ad0592422832b6de3eff60f9692d4e7ab76e8f424e7e4d0dc6c0e9f42b059",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 4,
+          "column_key": "9eed9baaaa7771d00c6dc6b58f33852da9f9c2da9b73d34d0a4b00bab2745243",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 5,
+          "column_key": "5c3fada831c51946df9b7b68fa67b4966c19b7884f085ae7580499ae8d8e2778",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 6,
+          "column_key": "f4e084ac2297a488becedca9c3e69c66d30a5d851007c09039f222fd9b9fe237",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 7,
+          "column_key": "b490b6215b32a894d5924252c4ebbaf7a4713ce869be3a53d0ea4bf302aa997c",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 8,
+          "column_key": "31a40819a6b80e5d06c516cf1fcf7bd7e9dde4be59ab89b97d0787cb54235b4b",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 9,
+          "column_key": "f51cfe90cc9d4b119ed57c6fc4939a40f52b13e75cb83a7171098b7bcc531ac6",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 10,
+          "column_key": "ace9891a22a2305d0e56387af515a6e231eb01fbb597d1e5421d5d2340aca177",
+          "pg_type": "text",
+          "allow_null_value": true
+        }
+      ],
+      "schema_hash": "70109e7ed049323c88a5bd25cd62d8380ed70f9258b52873413f21118e5fe1d4",
+      "source_columns": [
+        "c_office_id",
+        "c_dy",
+        "c_office_pinyin",
+        "c_office_chn",
+        "c_office_pinyin_alt",
+        "c_office_chn_alt",
+        "c_office_trans",
+        "c_office_trans_alt",
+        "c_source",
+        "c_pages",
+        "c_notes"
+      ]
+    },
+    {
+      "source_object_name": "MERGED_PERSON_DATA",
+      "expected_sha256": null,
+      "source_object_id": "6cd1e1ed453fc7e99dcea7208b5b0b2e9a6c694602bf628160c7593de47c5fbe",
+      "read_limits": {
+        "max_file_bytes": 1073741824,
+        "max_columns": 64,
+        "max_rows": 100000,
+        "max_cells": 2000000,
+        "max_cell_bytes": 1048576,
+        "max_value_bytes": 33554432,
+        "max_vm_steps": 100000000,
+        "max_seconds": 600
+      },
+      "expected_count": null,
+      "sort_limits": {
+        "max_temp_files": 1024,
+        "max_differences": 100,
+        "max_stream_bytes": 33554432,
+        "merge_fan_in": 16,
+        "max_rows": 100000,
+        "max_field_bytes": 1048576,
+        "chunk_bytes": 2097152,
+        "max_temp_bytes": 67108864,
+        "chunk_rows": 4096,
+        "max_columns": 64,
+        "workers": 1,
+        "max_row_bytes": 1048576,
+        "max_seconds": 600
+      },
+      "columns": [
+        {
+          "source_ordinal": 0,
+          "column_key": "a9b9cd8e3da5a091f3c49375bb2a90d0a8ca62c983fe57cdee344ec87fd2a37d",
+          "pg_type": "bigint",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 1,
+          "column_key": "d5f1559f259bc884699643c13f36cba44712423ce9676c2f677218f659a130ec",
+          "pg_type": "bigint",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 2,
+          "column_key": "93f9c5fc3ef0a854b9afda19f8b71233e2fe0eeabf4b4e740f565dad3c23076e",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 3,
+          "column_key": "41a601d86b36d40791a33346cd97be7ed4492417c23f2aa4cb5fc18d36118899",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 4,
+          "column_key": "306cb75338c3bee7b162e5a06859dd5ee6bfde3d1d5d1e2e13bce3a1f98bcf74",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 5,
+          "column_key": "1a552053ac02e0a3c9b4b04138441310a66781d10ee00a1a3f49ac1b96f74e29",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 6,
+          "column_key": "ec2621fc6034f4672e788564830d123e2bedbdf1d45268731e6664fa27c7dcf8",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 7,
+          "column_key": "1c4a72953770056e156502767139a2dbfc244a55a057ed115bbde0167242c67f",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 8,
+          "column_key": "26212a91aaa233d1637353ff428d32475549b5ba3a020cca5f46484e86105d56",
+          "pg_type": "text",
+          "allow_null_value": true
+        }
+      ],
+      "schema_hash": "50548185f98d33eb697b697011c0477d703740d0ba639b3f3ab72053dbb3727b",
+      "source_columns": [
+        "c_personid",
+        "c_merged_from_personid",
+        "c_notes",
+        "c_source",
+        "c_pages",
+        "c_created_by",
+        "c_modified_by",
+        "c_created_date",
+        "c_modified_date"
+      ]
+    },
+    {
+      "source_object_name": "TEXT_INSTANCE_DATA",
+      "expected_sha256": null,
+      "source_object_id": "2397e261469baf0ec4ad0d8c66a115db836b5ac87237f1d318ad84da3f4d508d",
+      "read_limits": {
+        "max_file_bytes": 1073741824,
+        "max_columns": 64,
+        "max_rows": 100000,
+        "max_cells": 2000000,
+        "max_cell_bytes": 1048576,
+        "max_value_bytes": 33554432,
+        "max_vm_steps": 100000000,
+        "max_seconds": 600
+      },
+      "expected_count": null,
+      "sort_limits": {
+        "max_temp_files": 1024,
+        "max_differences": 100,
+        "max_stream_bytes": 33554432,
+        "merge_fan_in": 16,
+        "max_rows": 100000,
+        "max_field_bytes": 1048576,
+        "chunk_bytes": 2097152,
+        "max_temp_bytes": 67108864,
+        "chunk_rows": 4096,
+        "max_columns": 64,
+        "workers": 1,
+        "max_row_bytes": 1048576,
+        "max_seconds": 600
+      },
+      "columns": [
+        {
+          "source_ordinal": 0,
+          "column_key": "685b61c278f8b716bef4116ef2b581aa281accc718f69b7ca3adada191447cd6",
+          "pg_type": "bigint",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 1,
+          "column_key": "2d0f1a42b1fb04dd8f6489f9ebc4e7c8c2a697b76fb78884ff2e2c58f6f21c00",
+          "pg_type": "bigint",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 2,
+          "column_key": "7c5d230fad9ba1e6bfb248bfd8c96e333377e37e6055c045164888a0f44494ed",
+          "pg_type": "bigint",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 3,
+          "column_key": "5d7d2cc1074dd22ed7c7ce229dfdf039622f501b78225ff1e73ebd3e97e63691",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 4,
+          "column_key": "8e88bf7950b964b79358f8f8c02ebb04310603a42bc1acbe9ffc65f8166b3de7",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 5,
+          "column_key": "c2f2e066a813f42bad8e9ace861a60eee613803d82f19bb508ca8ba887b0b474",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 6,
+          "column_key": "f967a518cb89b220c3a26aa80910135025e3078ef76cdc0104a1763a51622465",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 7,
+          "column_key": "942e648d91a6c44e40d41ee85fe21605fab6202ee45efd00f44e1e6340feccd0",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 8,
+          "column_key": "90fadba197f3f3c0e97a83f7ea90e661a9a17cd54e92a7dad4b8159624988bba",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 9,
+          "column_key": "69b159d5b6a0f6ba7158019b305d0a7c44fb447529da7dd65bc99d4826025536",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 10,
+          "column_key": "c020c3d29cc32cc703f2c8dbb9b30b579e2f1fa98e0faea4db9cb5e6f07dfc6f",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 11,
+          "column_key": "ecfe75f239d3d2fbc1bc836ca4c7302eb7b35ccbca2a949f49e3f5829d27d94f",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 12,
+          "column_key": "ef9a6e30ed99fa2dc458bd6fcc1793c8c7468c76ff984a5ed53fd4817656f267",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 13,
+          "column_key": "4ebb92dc6abe4d7d1c3d36b783cefc9c326de235ca7c5156dc473bd2b83e8000",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 14,
+          "column_key": "92490becdaaefb6fb4a5c213a6c6acc6c0030df4aff8ce5f6ee8cc7e43f71af6",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 15,
+          "column_key": "282690952d0a88e62d30ca9862db849f8794d3df9724f591028a80d6a7d12562",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 16,
+          "column_key": "7cf54624964425a7770184b4bc0995155f569f7a8a757239663d47d20ff073ed",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 17,
+          "column_key": "1aaf9336ccd59859014e9483d650b7aaa8be04374629c4c48cba59b73fcc9bc9",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 18,
+          "column_key": "cb86ce3feb0c1b1faadbb6798597551669a42ab2f25f62448a9e774fced345d5",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 19,
+          "column_key": "fe601327bd942a1b6a5aaf428b13ff54b2458227e6b57d583f1c9034a18e6006",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 20,
+          "column_key": "56839e5cf263994aa386f5b76dc0e5b601492e5d2da396992ed41e4c7e1bc61b",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 21,
+          "column_key": "1407d616f74863793ee60fd7703120226c2a1272b23e7f062e3e3185a5990eb1",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 22,
+          "column_key": "f4545abf10f423b9b5630eadc8ebda475e361462f3007d4b3c8911839e4d1668",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 23,
+          "column_key": "dfb24f270c81f9848cd094b7d993ac8d31adc05219d49c0fff5afb3304983d67",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 24,
+          "column_key": "5ac5f5613d5b9186593d42ddf27468cd11c2899545217c8a2170bf143cc50376",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 25,
+          "column_key": "b48773dc938c2bd69a05bef79dfafdf38c9b1c3057143f4453fc5373227c609b",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 26,
+          "column_key": "e2c2c83844f5aabc32401efb0019d7ee959958c7ea50e16e156386214e226fd7",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 27,
+          "column_key": "83a30bcd8dae8fbe178ec43c97868890890303faaa181ec0b5f9846e91496400",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 28,
+          "column_key": "92eaa6558f36f920bc7e9aba77f4ef5df2cf8466de4ffe8f00f66bb4185eca5d",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 29,
+          "column_key": "2c21ceef2f6154bf0e119f4b31ac5e3b7672bda52635ecae77ccfc12b6cbf7b8",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 30,
+          "column_key": "9f5f87ea3e67fc1237d7e54e3542ca73adefbac5fc7e8d857457143e2eca842a",
+          "pg_type": "text",
+          "allow_null_value": true
+        }
+      ],
+      "schema_hash": "c7039f10537aa52ac68866e117d1f6bd79f7225c4c4333954757e5d85c072bfe",
+      "source_columns": [
+        "c_textid",
+        "c_text_edition_id",
+        "c_text_instance_id",
+        "c_instance_title_chn",
+        "c_instance_title",
+        "c_instance_title_trans",
+        "c_part_of_instance",
+        "c_part_of_instance_notes",
+        "c_pub_country",
+        "c_pub_dy",
+        "c_pub_year",
+        "c_pub_nh_code",
+        "c_pub_nh_year",
+        "c_pub_range_code",
+        "c_pub_loc",
+        "c_publisher",
+        "c_print",
+        "c_pub_notes",
+        "c_source",
+        "c_pages",
+        "c_extant",
+        "c_url_api",
+        "c_url_homepage",
+        "c_notes",
+        "c_number",
+        "c_counter",
+        "c_title_alt_chn",
+        "c_created_by",
+        "c_modified_by",
+        "c_created_date",
+        "c_modified_date"
+      ]
+    },
+    {
+      "source_object_name": "TEXT_CODES",
+      "expected_sha256": null,
+      "source_object_id": "ef319a3ae9f6044175a38fbf0e10f8f3554cf8ff8f1c5bc1b0c859a35167e6bf",
+      "read_limits": {
+        "max_file_bytes": 1073741824,
+        "max_columns": 64,
+        "max_rows": 100000,
+        "max_cells": 2000000,
+        "max_cell_bytes": 1048576,
+        "max_value_bytes": 33554432,
+        "max_vm_steps": 100000000,
+        "max_seconds": 600
+      },
+      "expected_count": null,
+      "sort_limits": {
+        "max_temp_files": 1024,
+        "max_differences": 100,
+        "max_stream_bytes": 33554432,
+        "merge_fan_in": 16,
+        "max_rows": 100000,
+        "max_field_bytes": 1048576,
+        "chunk_bytes": 2097152,
+        "max_temp_bytes": 67108864,
+        "chunk_rows": 4096,
+        "max_columns": 64,
+        "workers": 1,
+        "max_row_bytes": 1048576,
+        "max_seconds": 600
+      },
+      "columns": [
+        {
+          "source_ordinal": 0,
+          "column_key": "a011d40a97e1983516dce85c6a968797fde6bbe5354e7160fe57d7c7d2f22254",
+          "pg_type": "bigint",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 1,
+          "column_key": "772fec4798f18d5be10d3dc896f8bfe604a87a98593013318cfdba9f0a2f5a83",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 2,
+          "column_key": "0f8975a266ec3c2767e0e03d549062e4d34d3995abf255829c5baa5133e0e48a",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 3,
+          "column_key": "e9547eba4aa4c0be6258cf7b69e4941a65d5303d0346b92743c6bf533c47d772",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 4,
+          "column_key": "dc350820cd30681903409e7808bc2462835f92e59d677694a43c2f94cfd000fe",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 5,
+          "column_key": "d32cecb6312969aaacb605168d2a9a4294aab280203b406bfc0199838d51e392",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 6,
+          "column_key": "e6a70863f3886d23fb3388004e73d8cae0c197200d95740e3f5f7bba685db3b9",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 7,
+          "column_key": "d6f432744d96100d1897155accaf8fe144c7294f9e7f55f05897f12d58648728",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 8,
+          "column_key": "c6c3efca7e80aa4e178807113155211802a882871315e75ef0d6100cffd29da1",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 9,
+          "column_key": "e1e15344e112eb7a5b5b3c967608ba5019cdc399883ba5bb96c8466889d0b7b2",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 10,
+          "column_key": "f8d2fc3febac36ec26605b33cfce4b7d4d5cd084a7eff2144202c63eb62b60b5",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 11,
+          "column_key": "8b64b76f321241fe3af1f12f3f12d5086bb9796f983b7d02c2045d91882e3325",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 12,
+          "column_key": "64fae1a51bc20ab8331bd32e3dd6f943c839119eb111ca618c54668364d5bc93",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 13,
+          "column_key": "a765b29bb1d6bbf42d861f5e2fe08b73ae4a4e56eed5800713af3456bf16ccfc",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 14,
+          "column_key": "a39e49734b4a1338cebf675a27511e0114c8017d8f0c59df7432e6110d150a53",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 15,
+          "column_key": "f397390e88d24121faac319be0baa5e1eb24529caa37d8f14cc6e270bfcdb67b",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 16,
+          "column_key": "472d87fda9a3b60ece937c7350e2b975c5e8e9eba1ac4d73d8d2a6a010e36e78",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 17,
+          "column_key": "e2b3ea6ef7a113986e4b3e04145148dcb121ad2f9855ff6bf862cb907dd4d170",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 18,
+          "column_key": "819dc485dc780b93e3f2bdfbdfdf6e9678f9b3e2deff485769b4c324aaf5c802",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 19,
+          "column_key": "d056c6758a6cb0aa0fd730675d7fe6fe7996b3a7bf3a7620773ff59b222a699d",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 20,
+          "column_key": "4d474cea1d5712d82b1074a81d890050fd5cd73bc163751487496f0b29ec40d1",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 21,
+          "column_key": "443002e58f2d59500899abd8c398983c9f6ee0013cb49abfede05096f69df8e0",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 22,
+          "column_key": "f3aa5e4936a52fe55f4c5e2dd8bd9af786910c6364f0d59483fc14e75da22705",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 23,
+          "column_key": "ebb4c505d36ef1be410fa67b38b8f5aca80eba0a19c8c749460ec7a5ceb38ee1",
+          "pg_type": "text",
+          "allow_null_value": true
+        }
+      ],
+      "schema_hash": "52c79762afc35e8d7770def183e7acbab2e7fbfde19bd85827ae2909832d712d",
+      "source_columns": [
+        "c_textid",
+        "c_title_chn",
+        "c_title",
+        "c_title_trans",
+        "c_text_type_id",
+        "c_text_year",
+        "c_text_nh_code",
+        "c_text_nh_year",
+        "c_text_range_code",
+        "c_bibl_cat_code",
+        "c_extant",
+        "c_text_country",
+        "c_text_dy",
+        "c_source",
+        "c_pages",
+        "c_url_api",
+        "c_url_api_coda",
+        "c_url_homepage",
+        "c_notes",
+        "c_title_alt_chn",
+        "c_created_by",
+        "c_modified_by",
+        "c_created_date",
+        "c_modified_date"
+      ]
+    },
+    {
+      "source_object_name": "STATUS_DATA",
+      "expected_sha256": null,
+      "source_object_id": "db5b864f03abece9d71c6ba8ee659d36f04da30e0ee3fc75906e1b797ca8d7e4",
+      "read_limits": {
+        "max_file_bytes": 1073741824,
+        "max_columns": 64,
+        "max_rows": 100000,
+        "max_cells": 2000000,
+        "max_cell_bytes": 1048576,
+        "max_value_bytes": 33554432,
+        "max_vm_steps": 100000000,
+        "max_seconds": 600
+      },
+      "expected_count": null,
+      "sort_limits": {
+        "max_temp_files": 1024,
+        "max_differences": 100,
+        "max_stream_bytes": 33554432,
+        "merge_fan_in": 16,
+        "max_rows": 100000,
+        "max_field_bytes": 1048576,
+        "chunk_bytes": 2097152,
+        "max_temp_bytes": 67108864,
+        "chunk_rows": 4096,
+        "max_columns": 64,
+        "workers": 1,
+        "max_row_bytes": 1048576,
+        "max_seconds": 600
+      },
+      "columns": [
+        {
+          "source_ordinal": 0,
+          "column_key": "837849443743fc11b420cb5b9d833cbef2198d5fd93c3c4144d5de56308639fe",
+          "pg_type": "bigint",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 1,
+          "column_key": "77b0f910ad2780608e34dcaf1e6ceb8c4c98f238a919a678a3a3f47ff3decb8b",
+          "pg_type": "bigint",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 2,
+          "column_key": "8688ecc254bffb448a8c7ca57c0603c4404a3db29c39eb9599bda05d7d6f6db3",
+          "pg_type": "bigint",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 3,
+          "column_key": "4ea0d82c791ed786bd12822ef6aa42e95b951b3855eebd1e07cdcace956880ca",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 4,
+          "column_key": "c69e0fab43b5056996a2bf06e600ba0c67ac3375d57c7ff3fa956955daecdd4a",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 5,
+          "column_key": "b7ffc13b6c611127e029cfe546ec6ac806ac565e4f1b253cf8529b6888e4f365",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 6,
+          "column_key": "50d2b013d760ccf32b545bf7f4b319f462ddea8e51f5a2e310a0e5974f8a1f6f",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 7,
+          "column_key": "f8c52cd4beb34962a1239e264696997711df2b232763323d720dcdb23ec63274",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 8,
+          "column_key": "6cde4ad66cbbf50732691f1b79f0eda899346e49793398c13dc273a0243d8e53",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 9,
+          "column_key": "3530c5709cd0cf5e75cdb83acd57c251427cdc048630b6372a435c905c547dae",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 10,
+          "column_key": "d5d993c0616a5374293930eb36816f2268b0a1f3009a5da710bed29c4bd7240a",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 11,
+          "column_key": "9b4c3e3a699f9004d2637010d1c057f394e05803a7679c29f7c73ae9d33e1fbd",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 12,
+          "column_key": "8d9e86ece32088662649e65340a2ffddc5ae079d11ea09e352fb97ea27ac099f",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 13,
+          "column_key": "40b5b388d81ba788e02b8223cfbd1808192928b7e2a8ae60246aeb5596ed1732",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 14,
+          "column_key": "090fb22ed25f11593058893d25f392d4651793bb8a0083515b5e78dc394abf2e",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 15,
+          "column_key": "c2dac9c856bafef9abab3a2c1a40ea2f23cefa20e617221258f25ea6c03a684d",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 16,
+          "column_key": "a3f9a1e47b4796c18025079b0fafbf69e0f97df43461bf865deb8e6a6f133060",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 17,
+          "column_key": "348d1b0aa0784739d62c6d3b606f7ae5b23d07d8f92b84d668114a9523130f84",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 18,
+          "column_key": "8d38a8688c6c7e40e2117a82297d935e2d7655e18807979617e0d5c08158a2e5",
+          "pg_type": "text",
+          "allow_null_value": true
+        }
+      ],
+      "schema_hash": "ebe18941f8a00c82f715a9cf02cf56eaa1b208a9647a1f5dab086e74d26545a2",
+      "source_columns": [
+        "c_personid",
+        "c_sequence",
+        "c_status_code",
+        "c_firstyear",
+        "c_fy_nh_code",
+        "c_fy_nh_year",
+        "c_fy_range",
+        "c_lastyear",
+        "c_ly_nh_code",
+        "c_ly_nh_year",
+        "c_ly_range",
+        "c_supplement",
+        "c_source",
+        "c_pages",
+        "c_notes",
+        "c_created_by",
+        "c_modified_by",
+        "c_created_date",
+        "c_modified_date"
+      ]
+    },
+    {
+      "source_object_name": "SOCIAL_INSTITUTION_CODES",
+      "expected_sha256": null,
+      "source_object_id": "a31eb9ac3968ef82b989c5463d2c6097668d1ceee491d0bcf48f4d0ae7ee8046",
+      "read_limits": {
+        "max_file_bytes": 1073741824,
+        "max_columns": 64,
+        "max_rows": 100000,
+        "max_cells": 2000000,
+        "max_cell_bytes": 1048576,
+        "max_value_bytes": 33554432,
+        "max_vm_steps": 100000000,
+        "max_seconds": 600
+      },
+      "expected_count": null,
+      "sort_limits": {
+        "max_temp_files": 1024,
+        "max_differences": 100,
+        "max_stream_bytes": 33554432,
+        "merge_fan_in": 16,
+        "max_rows": 100000,
+        "max_field_bytes": 1048576,
+        "chunk_bytes": 2097152,
+        "max_temp_bytes": 67108864,
+        "chunk_rows": 4096,
+        "max_columns": 64,
+        "workers": 1,
+        "max_row_bytes": 1048576,
+        "max_seconds": 600
+      },
+      "columns": [
+        {
+          "source_ordinal": 0,
+          "column_key": "afdad30acf79187747de360ab0dfa05f91d503effa0ecb448b7983f4bb12d099",
+          "pg_type": "bigint",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 1,
+          "column_key": "a9fe4ac7e2dfa720a0d932f76c31eadf18a0df94d126c7b24b78c136f3f2c4be",
+          "pg_type": "bigint",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 2,
+          "column_key": "f41cbe26dbfba996465104362f02dd1c270cbc2eca85ced514ab3466965edd9c",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 3,
+          "column_key": "560c1143b257544ff3790bc57dfd7db7aef11dfe89a7b9e9fd13a80767adcc0a",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 4,
+          "column_key": "97ea2cd5788709aa90244fc1c1e227f46d95d82dc7840d970edafebcc312da75",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 5,
+          "column_key": "e6012c710e1ec9b008df2ace1c7cbcddbff4af0b3cb51a09b83d316e3d632b90",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 6,
+          "column_key": "a3c87498eab03423a1fdf5c3009e78f067d34fc95648e63261d5666a0de79eea",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 7,
+          "column_key": "84eed751797af35b122c12be3da4fa7f8f916312af36ac4844ba2ed61234f51b",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 8,
+          "column_key": "757e08d337997c2ae22f1d068caaaf0ad931705ae462b6f10edab059c8b6a4bb",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 9,
+          "column_key": "0f2f0c6a31d5387eb0a662627bce1f101bb54a4cfef317384bb5a682e17a3866",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 10,
+          "column_key": "47701e023d7549b1fccfa821e691cdd506b499056d920ea1629a32206cabeef3",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 11,
+          "column_key": "43f24a4ebb7a43ddd59923f933d14ff2903036e59ce69bfa815bba0c6937f9ec",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 12,
+          "column_key": "aae21428817363af96fe90cef70561e6774e6a298cd9435d6305dc386982925d",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 13,
+          "column_key": "cb3e6d21ce4e6f1317b91bbbd51ba5872e072ca024f9300aaaadc754b29054f4",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 14,
+          "column_key": "63d44918915ca1f35a0feec0004588d040150261971ee3da694177b98ede7a84",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 15,
+          "column_key": "7446987bd9a57a61440ea6a85831312f77c7303058a17a04eeb8a8a9d3806635",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 16,
+          "column_key": "da5122cb6ac5f69b9700e121566991fc0cacea176eb166e01879bd1d11a9b5d6",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 17,
+          "column_key": "6eed442d445cf5708e5c1eda761733e3f8c9c5f67299849da111a92bb5015db5",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 18,
+          "column_key": "f27988376c57fe38977187134fbbe11d967010aeb7a249d9844ac2bfa59b04ba",
+          "pg_type": "text",
+          "allow_null_value": true
+        }
+      ],
+      "schema_hash": "5e77aec10934ef5314f46b935715ec8880590770325826090fa7775b8b32a2cf",
+      "source_columns": [
+        "c_inst_name_code",
+        "c_inst_code",
+        "c_inst_type_code",
+        "c_inst_begin_year",
+        "c_by_nianhao_code",
+        "c_by_nianhao_year",
+        "c_by_year_range",
+        "c_inst_begin_dy",
+        "c_inst_floruit_dy",
+        "c_inst_first_known_year",
+        "c_inst_end_year",
+        "c_ey_nianhao_code",
+        "c_ey_nianhao_year",
+        "c_ey_year_range",
+        "c_inst_end_dy",
+        "c_inst_last_known_year",
+        "c_source",
+        "c_pages",
+        "c_notes"
+      ]
+    },
+    {
+      "source_object_name": "ADDR_CODES",
+      "expected_sha256": null,
+      "source_object_id": "0992f307045129342f689403a33e68a26340a30fae5bd859a35f5d726289e312",
+      "read_limits": {
+        "max_file_bytes": 1073741824,
+        "max_columns": 64,
+        "max_rows": 100000,
+        "max_cells": 2000000,
+        "max_cell_bytes": 1048576,
+        "max_value_bytes": 33554432,
+        "max_vm_steps": 100000000,
+        "max_seconds": 600
+      },
+      "expected_count": null,
+      "sort_limits": {
+        "max_temp_files": 1024,
+        "max_differences": 100,
+        "max_stream_bytes": 33554432,
+        "merge_fan_in": 16,
+        "max_rows": 100000,
+        "max_field_bytes": 1048576,
+        "chunk_bytes": 2097152,
+        "max_temp_bytes": 67108864,
+        "chunk_rows": 4096,
+        "max_columns": 64,
+        "workers": 1,
+        "max_row_bytes": 1048576,
+        "max_seconds": 600
+      },
+      "columns": [
+        {
+          "source_ordinal": 0,
+          "column_key": "368936e8c37e44e9347beb4cb79235be6c783d2cbd39a27a4a8ed3b576437124",
+          "pg_type": "bigint",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 1,
+          "column_key": "dbaa8b263d1cfa6ced726954b6add324cf652524014436fea8d69e6f89299a80",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 2,
+          "column_key": "dee89ac1ae41f0bb8fd578f3dffa8b056067557da6d5e606952ce432c5a3a341",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 3,
+          "column_key": "01218887351c0e6c4fceccd520ab222d7419ca719ee3eb292628e166542565c5",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 4,
+          "column_key": "34552c3042e985a7851904693d67fcff00d47a6b7b7d06d64e8cb3ece61d6705",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 5,
+          "column_key": "fbb648b7a9b944ff04ad0c3693c9444fbec3f255f440af80df20f0c93dcbf80d",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 6,
+          "column_key": "9bc064178a8de298af1dc4f4dbf6dfd8e95f49fa722791984ce7227fe5cac55a",
+          "pg_type": "bigint",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 7,
+          "column_key": "0332dbb75640a23568474099d8d99f33ab55f4e62e67e1a2e85fdb70f8ff6d86",
+          "pg_type": "double precision",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 8,
+          "column_key": "da45b3e32bbd8a6d54a5041b906a33057fe451acdbc2458aeda10050d0b6e93b",
+          "pg_type": "double precision",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 9,
+          "column_key": "105069ddc4e431e5c6db7bb3fd93c9cf5317f45518893203c3e3ca96f3e4545a",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 10,
+          "column_key": "31d52aa312a0d7982e9e90200f291acf00e11b7919cc2c37334f10a6d1e768c6",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 11,
+          "column_key": "ec78165c33f47eaeb595332f5199d6620ffd9a648579f5c4fab574ddc1e5a126",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 12,
+          "column_key": "d05a3907d34e256d2e8006e41cc7a647c14846a96ddde7a9e44d093a569d9e53",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 13,
+          "column_key": "51d49663eb46053127fc4b003093054920b63bfcd502bc43668d370c10abe5ab",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 14,
+          "column_key": "1870a3c205cb79d35d2133395fa2704f38e36743cf2c310b0b4503d482ad50a2",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 15,
+          "column_key": "a2f8a377a8f48e630b41cad9e43f983f9b9a79f7ad340d231b9bcce4daca9e04",
+          "pg_type": "text",
+          "allow_null_value": true
+        }
+      ],
+      "schema_hash": "92ba100a8a604637ecd0832bf3df38af41af0e7ee31bc0edb9bde33ab5e73c7b",
+      "source_columns": [
+        "c_addr_id",
+        "c_name",
+        "c_name_chn",
+        "c_firstyear",
+        "c_lastyear",
+        "c_admin_type",
+        "c_admin_cat_code",
+        "x_coord",
+        "y_coord",
+        "CHGIS_PT_ID",
+        "c_notes",
+        "c_alt_names",
+        "c_created_by",
+        "c_created_date",
+        "c_modified_by",
+        "c_modified_date"
+      ]
+    },
+    {
+      "source_object_name": "BIOG_TEXT_DATA",
+      "expected_sha256": null,
+      "source_object_id": "c0927fbdffc762d7dbd6c006ceb4dfc3ed742eef8a17e7a8bdbfaebcb82d193a",
+      "read_limits": {
+        "max_file_bytes": 1073741824,
+        "max_columns": 64,
+        "max_rows": 100000,
+        "max_cells": 2000000,
+        "max_cell_bytes": 1048576,
+        "max_value_bytes": 33554432,
+        "max_vm_steps": 100000000,
+        "max_seconds": 600
+      },
+      "expected_count": null,
+      "sort_limits": {
+        "max_temp_files": 1024,
+        "max_differences": 100,
+        "max_stream_bytes": 33554432,
+        "merge_fan_in": 16,
+        "max_rows": 100000,
+        "max_field_bytes": 1048576,
+        "chunk_bytes": 2097152,
+        "max_temp_bytes": 67108864,
+        "chunk_rows": 4096,
+        "max_columns": 64,
+        "workers": 1,
+        "max_row_bytes": 1048576,
+        "max_seconds": 600
+      },
+      "columns": [
+        {
+          "source_ordinal": 0,
+          "column_key": "20db6ef384c5fde31084870d558f07a4e4795ea39393228be8c4fd0ac40d86a6",
+          "pg_type": "bigint",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 1,
+          "column_key": "a4f989add36010c4c5f91dd7353e4662a4bf5bdc5159ceff297f2cd7523875ec",
+          "pg_type": "bigint",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 2,
+          "column_key": "9789c5c77c11134fc22cd69b0c742d010d7736a2938c775c07aaab013939fba7",
+          "pg_type": "bigint",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 3,
+          "column_key": "233ddf6139b4e2a0414d80cfd563f2c313eb5875fe833ea71894ef8a661d59a7",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 4,
+          "column_key": "8168872390fa2f33b1b2086898762ec21f7da7c32a19aeb4df16b44c0dcc29a5",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 5,
+          "column_key": "48d53c29141e89c8afa341dabedba6f931aa28ee9883b7fbd03043e8f9affb73",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 6,
+          "column_key": "44d89cb5263d87a88f7d6b250c70f9fe1e66e4b497e85e44815bf62eb0f3e76e",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 7,
+          "column_key": "6a865693e70b66a688610af744f5e3aa34fe647056581e1029f2607a4ad9e5db",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 8,
+          "column_key": "271d392c375143118f12a4c3215f653a84b5c3f795203932766d54503052c625",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 9,
+          "column_key": "8accf231ae611df00a68ddd3ffda390a84dba3850e7f08af80c892ba425115bc",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 10,
+          "column_key": "dc4ff708f4588264e0bcd4a3a05c4001942af44c9943ced5774d4f343194a7a7",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 11,
+          "column_key": "efa4391e0e1c47e4462f82864bae8bbc19b5146b8d5f62ec0552d250bfc7ce8c",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 12,
+          "column_key": "b19e2c5d4a5b19b54600614647f2c2cea5642231c1e492ab3b2516183763cce4",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 13,
+          "column_key": "c3e5656eb08ad3c1eda3ecc6ef7348327cafa80176cb45dad47c9fa18b8152aa",
+          "pg_type": "text",
+          "allow_null_value": true
+        }
+      ],
+      "schema_hash": "79230eb39dde38a51faad0eb86c60e6e18bd73e7be7a782b3ba1d5140b6d81f5",
+      "source_columns": [
+        "c_textid",
+        "c_personid",
+        "c_role_id",
+        "c_year",
+        "c_nh_code",
+        "c_nh_year",
+        "c_range_code",
+        "c_source",
+        "c_pages",
+        "c_notes",
+        "c_created_by",
+        "c_modified_by",
+        "c_created_date",
+        "c_modified_date"
+      ]
+    }
+  ],
+  "contract_frozen": false,
+  "rule_id": "m007906",
+  "as_of": "2026-10-12",
+  "scope": {
+    "observed_cells_reference": 5430382,
+    "member": {
+      "size": 586485760,
+      "sha256": "bde1bb8eece3820d9e236c1d6b0f07d847d339669d4a85d79cd7252d58d83400",
+      "kind": "file",
+      "path": "harvard/cbdb/cbdb_20260919.sqlite3"
+    },
+    "already_completed_objects_excluded": 58,
+    "objects": 10,
+    "columns": 156,
+    "snapshot_id": "2026-10-07-bootstrap",
+    "observed_rows_reference": 354363,
+    "order": "Original remaining-budget medium group order",
+    "remaining_large_objects_excluded": 10
+  }
+}

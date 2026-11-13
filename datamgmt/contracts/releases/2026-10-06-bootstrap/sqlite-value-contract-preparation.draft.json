@@ -1,0 +1,5265 @@
+{
+  "format": "xiangrugu.sqlite-value-contract-preparation.v1",
+  "status": "SCHEMA_BOUND_SOURCE_EXPECTATIONS_PENDING",
+  "as_of": "2026-10-10",
+  "release_id": "2026-10-06-bootstrap",
+  "rule_id": "m007906",
+  "bindings": {
+    "target_mapping_proposal": {
+      "path": "datamgmt/contracts/releases/2026-10-06-bootstrap/sqlite-target-mapping-proposal.draft.json",
+      "sha256": "297b7c766baa40cc660f262e1ac433973d5d8bdde8c28eb2aca90733bfaec7d9"
+    },
+    "target_mapping_decision": {
+      "path": "datamgmt/contracts/releases/2026-10-06-bootstrap/sqlite-target-mapping-decisions.draft.json",
+      "sha256": "ca263a16ad485950f123a4fa57b56e2023c1161afbfa772565e59c32f498cc41"
+    },
+    "approved_types": {
+      "path": "datamgmt/contracts/releases/2026-10-06-bootstrap/sqlite-types-approved.draft.json",
+      "sha256": "f4e9c753f0cfacf08dc8309a7f5b78a59916eb3c85ea2dda4fc832aba7fc76ad"
+    },
+    "type_observations": {
+      "path": "datamgmt/contracts/releases/2026-10-06-bootstrap/sqlite-type-observations.draft.json",
+      "sha256": "cf4cbf6c0b60701091430d66c7d48b0f2445927fa68f9ae9ade299a0f1750ec3"
+    },
+    "encoder": {
+      "path": "datamgmt/src/xiangrugu_datamgmt/unordered_values.py",
+      "sha256": "25c7f7339b5d901460f0e0389b78fa1357778001a10574265fd72c2eba3f3ddd"
+    }
+  },
+  "value_format": "sqlite-unordered-values-v1",
+  "comparison_policy": "ALL_COLUMNS_FULL_ROW_BYTES_AND_EXACT_MULTIPLICITY",
+  "schema_columns_order": "SOURCE_ORDINAL_0_BASED",
+  "schema_hash_meaning": "COLUMN_DESCRIPTION_ONLY_NOT_BUSINESS_VALUES",
+  "target_nullability_policy": "SOURCE_EXPLICIT_NOTNULL_ONLY",
+  "allow_null_value_policy": "matches source explicit nullability policy; comparison input setting remains separate from future G2 database constraint verification",
+  "preservation": {
+    "duplicate_rows": true,
+    "row_read_order_is_record_identity": false,
+    "source_primary_key_is_match_key": false,
+    "integer": "signed-int64-exact",
+    "float": "finite-binary64-bit-exact-including-signed-zero",
+    "text": "strict-UTF8-no-normalization-or-trimming",
+    "null_and_empty_distinct": true
+  },
+  "verification": {
+    "status": "METADATA_SCHEMA_CHECKS_PASSED",
+    "host": "192.168.3.32",
+    "container": "xiangrugu-dev",
+    "table_count": 78,
+    "column_count": 736,
+    "all_schema_models_accepted": true,
+    "schema_bytes_checked_against_direct_json": true,
+    "all_headers_checked": true,
+    "names_recomputed": true,
+    "input_and_implementation_hashes_checked": true,
+    "source_read_this_run": false,
+    "postgresql_connected": false,
+    "production_adapter_implemented": false,
+    "unit_suite_run_this_batch": false
+  },
+  "observed_total_count_reference": 5623075,
+  "observation_counts_are_frozen_expectations": false,
+  "real_source_execution_budget": null,
+  "independent_value_contract_complete": false,
+  "ready_for_import": false,
+  "contract_frozen": false,
+  "disposition_retained": "BLOCKED",
+  "objects": [
+    {
+      "source_object_id": "46858f9f14636ed7a1ba2dc2e250b6142db8a307802e4b226d0428112fab15e6",
+      "source_object_name": "ADDR_BELONGS_DATA",
+      "observed_count_reference": 37177,
+      "expected_count": null,
+      "expected_sha256": null,
+      "schema_hash": "c10ad25b68f360eeeef9cdbda96223c23d7c8d167d7a5a12265b92d03df0ebbe",
+      "columns": [
+        {
+          "source_ordinal": 0,
+          "column_key": "b46aa62ad9c489ee0c0b610cd244dd619a7684bca8aa9041c504f8b3b319da62",
+          "pg_type": "bigint",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 1,
+          "column_key": "d5e2189db023897686b5e1ba0bf445256991b371cce0742eefc4886c6044200b",
+          "pg_type": "bigint",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 2,
+          "column_key": "6a83a3a244e943d014c954abc1db172090ebe89734bd7f5bbbc3f6e6369bb52f",
+          "pg_type": "bigint",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 3,
+          "column_key": "a16d4928319d327429d598aad5c3a3223f230e62a68cf9dde539a54c2a81610f",
+          "pg_type": "bigint",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 4,
+          "column_key": "d06715cc30db187e9e621f14675d86da5db56ee34c54e8fb2fd57d1c9bb98e7e",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 5,
+          "column_key": "dceb94f20d9eeef367c20198d9ad6f8ea522cf1aa657cf8c1ce18718d2ec2358",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 6,
+          "column_key": "e3ef3bc27a20e6ffc07f0f4da054c87c2e96bd6986181c2e85d54d792e066d20",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 7,
+          "column_key": "ad5f37dc635e60569bd17242acdf2d19a4eec636bc02e42535ea007e33d1523a",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 8,
+          "column_key": "5259bb9c7d74987f4323a662074f6ca8f9a4e258218b03b608366736957a4f15",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 9,
+          "column_key": "14598af377f0c919962cccf5f8d6dd00b0d22bca0fa02aebea5462d224907d4e",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 10,
+          "column_key": "10e162f92d358c5c7cca89a747f971e46c156046e9f66d42747be469d3ad00e3",
+          "pg_type": "text",
+          "allow_null_value": true
+        }
+      ]
+    },
+    {
+      "source_object_id": "0992f307045129342f689403a33e68a26340a30fae5bd859a35f5d726289e312",
+      "source_object_name": "ADDR_CODES",
+      "observed_count_reference": 30157,
+      "expected_count": null,
+      "expected_sha256": null,
+      "schema_hash": "92ba100a8a604637ecd0832bf3df38af41af0e7ee31bc0edb9bde33ab5e73c7b",
+      "columns": [
+        {
+          "source_ordinal": 0,
+          "column_key": "368936e8c37e44e9347beb4cb79235be6c783d2cbd39a27a4a8ed3b576437124",
+          "pg_type": "bigint",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 1,
+          "column_key": "dbaa8b263d1cfa6ced726954b6add324cf652524014436fea8d69e6f89299a80",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 2,
+          "column_key": "dee89ac1ae41f0bb8fd578f3dffa8b056067557da6d5e606952ce432c5a3a341",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 3,
+          "column_key": "01218887351c0e6c4fceccd520ab222d7419ca719ee3eb292628e166542565c5",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 4,
+          "column_key": "34552c3042e985a7851904693d67fcff00d47a6b7b7d06d64e8cb3ece61d6705",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 5,
+          "column_key": "fbb648b7a9b944ff04ad0c3693c9444fbec3f255f440af80df20f0c93dcbf80d",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 6,
+          "column_key": "9bc064178a8de298af1dc4f4dbf6dfd8e95f49fa722791984ce7227fe5cac55a",
+          "pg_type": "bigint",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 7,
+          "column_key": "0332dbb75640a23568474099d8d99f33ab55f4e62e67e1a2e85fdb70f8ff6d86",
+          "pg_type": "double precision",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 8,
+          "column_key": "da45b3e32bbd8a6d54a5041b906a33057fe451acdbc2458aeda10050d0b6e93b",
+          "pg_type": "double precision",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 9,
+          "column_key": "105069ddc4e431e5c6db7bb3fd93c9cf5317f45518893203c3e3ca96f3e4545a",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 10,
+          "column_key": "31d52aa312a0d7982e9e90200f291acf00e11b7919cc2c37334f10a6d1e768c6",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 11,
+          "column_key": "ec78165c33f47eaeb595332f5199d6620ffd9a648579f5c4fab574ddc1e5a126",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 12,
+          "column_key": "d05a3907d34e256d2e8006e41cc7a647c14846a96ddde7a9e44d093a569d9e53",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 13,
+          "column_key": "51d49663eb46053127fc4b003093054920b63bfcd502bc43668d370c10abe5ab",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 14,
+          "column_key": "1870a3c205cb79d35d2133395fa2704f38e36743cf2c310b0b4503d482ad50a2",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 15,
+          "column_key": "a2f8a377a8f48e630b41cad9e43f983f9b9a79f7ad340d231b9bcce4daca9e04",
+          "pg_type": "text",
+          "allow_null_value": true
+        }
+      ]
+    },
+    {
+      "source_object_id": "a5482923d76ba2550ec9ab783276f71bf766c9432c7dff0822cc939a82e294c3",
+      "source_object_name": "ADMIN_CAT_CODES",
+      "observed_count_reference": 213,
+      "expected_count": null,
+      "expected_sha256": null,
+      "schema_hash": "a8627500fd8ea09af8cd82a46d0f67cb5e016834a105ec70e2739cbda0d52836",
+      "columns": [
+        {
+          "source_ordinal": 0,
+          "column_key": "1c32ba09ad452c9730cda4639828e55b04a4e2de057168a5a02be1b762c0a7fd",
+          "pg_type": "bigint",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 1,
+          "column_key": "ea7a85b1bfe98d67a5f0122215c8de36fd47d3f951d7a25f8c271d1ca3a409c9",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 2,
+          "column_key": "da79e97112a04570f4aba8bcabdb54c6fd5807bf0add6543df0ec520431e1753",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 3,
+          "column_key": "3ccf71c2a42f088ae65448fb287a59a4e597d84b54e6e8921dcb1139fb9f027e",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 4,
+          "column_key": "6d9fdd93f8266caa5c4594e40adc8345fa17089cef3fe5ec22da88e9f1c81097",
+          "pg_type": "text",
+          "allow_null_value": true
+        }
+      ]
+    },
+    {
+      "source_object_id": "d67bb15cd96b5f39ff417e62d17111e19ff29318aae160524c2b0366e9b6a9bf",
+      "source_object_name": "ADMIN_CAT_CODE_TYPE_REL",
+      "observed_count_reference": 0,
+      "expected_count": null,
+      "expected_sha256": null,
+      "schema_hash": "614bf13b8d879172f05926f36042b4accd95182a8af52a870e5a0988ae65f02d",
+      "columns": [
+        {
+          "source_ordinal": 0,
+          "column_key": "a1a63b8159293cef43a4928a3ebc96f1d8d2db443d5eb5233785ab374d9997ea",
+          "pg_type": "bigint",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 1,
+          "column_key": "c3c2df9e7f5302d6c5efc6569e324066a00f7d5f3197c457f969d64560c73287",
+          "pg_type": "text",
+          "allow_null_value": false
+        }
+      ]
+    },
+    {
+      "source_object_id": "c5c282c5fb700f078899db99a4065514c1d213ab20117a12f84489a839454284",
+      "source_object_name": "ADMIN_CAT_TYPES",
+      "observed_count_reference": 0,
+      "expected_count": null,
+      "expected_sha256": null,
+      "schema_hash": "9f2b79fa6423ae43781b89bc9d6442995a16293d85a48e4678bc8083b4b4d763",
+      "columns": [
+        {
+          "source_ordinal": 0,
+          "column_key": "28d0258d241a685717703b048501a3c89b7ee500e628ffbbef1e81ed97dabd1b",
+          "pg_type": "text",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 1,
+          "column_key": "dc6c6ed8b807040c43ff0e010f192445647de267bae6add95ceb4fb0e9b85fee",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 2,
+          "column_key": "5801c057047df607f0ed48fcbaa89e50e6252bd81a204ab52cef70e3eca55c71",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 3,
+          "column_key": "81b761d5111be0a84410ded8c82bd104cdea5e44279421974bac26643d086bc1",
+          "pg_type": "text",
+          "allow_null_value": true
+        }
+      ]
+    },
+    {
+      "source_object_id": "6797d3dc10f3a23e8419426848bfd1a38e7925020b3b74c08e60b8e64b54ab01",
+      "source_object_name": "ALTNAME_CODES",
+      "observed_count_reference": 21,
+      "expected_count": null,
+      "expected_sha256": null,
+      "schema_hash": "a9be12dbc5d507ffca3393cbeaba404cff3cbb07b9beae34cfa628043dba556c",
+      "columns": [
+        {
+          "source_ordinal": 0,
+          "column_key": "2100e509dff47540961f166ef1ca5ca6b393fd15dcac00642915d4ed24965b28",
+          "pg_type": "bigint",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 1,
+          "column_key": "c57f85ef1319ff96d49f83b6a680e76e23f50ca446d39c4326eb690e97e8ba1f",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 2,
+          "column_key": "b0ebdba3eee164608274b5637b0bce87ef96bd3c4d7b7cbdd299a44acc7c99f1",
+          "pg_type": "text",
+          "allow_null_value": true
+        }
+      ]
+    },
+    {
+      "source_object_id": "9f2ca682f6d5e905282dafdfba4d7d0ee6efb62fafa832e7d2caabcb98f3aa0e",
+      "source_object_name": "ALTNAME_DATA",
+      "observed_count_reference": 208828,
+      "expected_count": null,
+      "expected_sha256": null,
+      "schema_hash": "0cc6b40ee12c32e206490c44e55ac067a38d8afb102b0aea8eeddc087e4c83f5",
+      "columns": [
+        {
+          "source_ordinal": 0,
+          "column_key": "44a3f8bd4da4aea2e35b02ae05ab968dcc47bdd1ec2b1a88b528ec3679d01361",
+          "pg_type": "bigint",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 1,
+          "column_key": "f440607141e5169187e9af771afdb1d217860fbdf7122723277a8b8261fa5002",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 2,
+          "column_key": "6b7a77458a0425a242a67bccfee56dd5c8be55d93344e08e6349945594a902f2",
+          "pg_type": "text",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 3,
+          "column_key": "2e6932c259121946aad40746b4122562e3d1d1cd202f616cbf98e95c0bed29b4",
+          "pg_type": "bigint",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 4,
+          "column_key": "f2950340af62f0a132fc2e541dede59182c5557932a64ba4f4b770c49b947a9c",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 5,
+          "column_key": "b05f7bca7a6c25c17d80031a05a01ec443dca3a94b7282a8fb63148daa1c5b5f",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 6,
+          "column_key": "12ec591da4524d81a873d346f8393060244fbdca5967dc52edf9e98c99816633",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 7,
+          "column_key": "250491cbfe40ef1cfd4ae1e6832205f57a93994e7ebdb5bd227bb3836aa1ce7a",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 8,
+          "column_key": "bb69a3d6d016a49fb82c7129aedfbdaedf1868ccc1256db9130f5d8a5aa8c59f",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 9,
+          "column_key": "6bf4811edd9b1fc9d96fd882e7f7a7091d8a112896c5df9c32d23e2f3386ada5",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 10,
+          "column_key": "a002d663d929f6b7edc9fa9c4df2ffa8c703bb6e85369278fdafe5b499c16f06",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 11,
+          "column_key": "f68039a9fa76845058b35ef3b5579235878cae68f1c3402437a4b25c295859a3",
+          "pg_type": "text",
+          "allow_null_value": true
+        }
+      ]
+    },
+    {
+      "source_object_id": "ebe710d90262905b8e6f4c8bc2860063c13ca7e2b9e10afe89a97996053cee72",
+      "source_object_name": "APPOINTMENT_CODES",
+      "observed_count_reference": 116,
+      "expected_count": null,
+      "expected_sha256": null,
+      "schema_hash": "507f11ed886ffd82d6ec83488c5a7a81c129e43acab2276e885dbc766ffeaf46",
+      "columns": [
+        {
+          "source_ordinal": 0,
+          "column_key": "d6b6d679216d6af43c62906f6f073a769ca3c4cfd74af68d3f8e56d858e20f42",
+          "pg_type": "bigint",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 1,
+          "column_key": "46fa55ee9f70e045bad8980353c862e84228ada2c15e03072ac492a7d364ef8a",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 2,
+          "column_key": "6b1cd71d0f3f759ed318c7e546d47b053b65b0af8a531a2ab1c48ea2bdd21a5d",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 3,
+          "column_key": "028a40b674822e117cf7bfc88391620c262e34f2a5bb766430f550d28f948f90",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 4,
+          "column_key": "fd9e91f31e66c91aa15f0a3fe8882b415f08c478c6264b943b56ccbc380e817f",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 5,
+          "column_key": "9b0e6565a3da9bd824eae6e0035ee1eddd5a4d1bce518502a90775eb78613e11",
+          "pg_type": "text",
+          "allow_null_value": true
+        }
+      ]
+    },
+    {
+      "source_object_id": "a0d7c6fe5024584ece5f93271cc6e125c92ec4872a4e344bc73b37eb02f025d7",
+      "source_object_name": "APPOINTMENT_CODE_TYPE_REL",
+      "observed_count_reference": 109,
+      "expected_count": null,
+      "expected_sha256": null,
+      "schema_hash": "6d0a30cc5262930806978324108ca599f27eeb11878940270becc258e058f44e",
+      "columns": [
+        {
+          "source_ordinal": 0,
+          "column_key": "88d7d131610234dec6ca85e7a01ebbf4e89a5dddefab231bbaefdc104747cea3",
+          "pg_type": "text",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 1,
+          "column_key": "88273fb8f41b36d547453cd19c15e423ffa52df23f6faa4085b480068bb95a53",
+          "pg_type": "bigint",
+          "allow_null_value": false
+        }
+      ]
+    },
+    {
+      "source_object_id": "8b4ef3b89fd49b53ca165285817016bb0a6be3bda180ce2257e4647dd3c005c8",
+      "source_object_name": "APPOINTMENT_TYPES",
+      "observed_count_reference": 13,
+      "expected_count": null,
+      "expected_sha256": null,
+      "schema_hash": "b4b0f5b2384177af7855b5c4232e6834dcd8e033ceec049c73a7b2eaa3e7e944",
+      "columns": [
+        {
+          "source_ordinal": 0,
+          "column_key": "10384e778f1a7d7e54467e2ca2dac04c8343fe01ca22a1730c37c6cdd46d4332",
+          "pg_type": "text",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 1,
+          "column_key": "c4093915b75ba637e6ce23c3c942ef0ec61d9fcd0c9f22c53ad40e02322f7ddb",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 2,
+          "column_key": "64a22792122a50ff43779aa6e5d33fafae735f895beb9683be35a47e8beb3153",
+          "pg_type": "text",
+          "allow_null_value": true
+        }
+      ]
+    },
+    {
+      "source_object_id": "292f833669d8496939fbd967398ba50f5e9253a76ac4ab19d869a4e77e92a9f1",
+      "source_object_name": "ASSOC_CODES",
+      "observed_count_reference": 498,
+      "expected_count": null,
+      "expected_sha256": null,
+      "schema_hash": "b83f6e1e46ce3f1c82ef4f8f7419720f800c118d073a39b589373f4f4f93df07",
+      "columns": [
+        {
+          "source_ordinal": 0,
+          "column_key": "d9c8213d6ea7a416f0e933159f5d20e635bd0032a001586f2c82f154682b0d2d",
+          "pg_type": "bigint",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 1,
+          "column_key": "05bfa7d738e82f5ca72b8cfccc5f2bb6b719988db0101d655bc83d51ed337e6d",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 2,
+          "column_key": "a62b661e614dbeef192a909eb40db0c8fb5a99ab55ac16e866622c6f7544c2cf",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 3,
+          "column_key": "d6291784a27bad88f0b03458b887eb57831e6ce9ff5b8161e995a706a1239441",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 4,
+          "column_key": "e843c7b4503a1b42aab6aaaa25f6adb423b2ab71261ab673bad7f59737e534bd",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 5,
+          "column_key": "cbbeaffc3a3c21f8e679e25e40d4542ed2d8261f77c94fc89a1c9d35e28a9a72",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 6,
+          "column_key": "c4f0e09ece951b568fa5369d01bdcc5893057b961672872b26ed1aec16f15629",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 7,
+          "column_key": "bf1f9c339d1b3b17ef51f1b252ffacf405d9ecefaa9fd059671d9b6bc4defed1",
+          "pg_type": "text",
+          "allow_null_value": true
+        }
+      ]
+    },
+    {
+      "source_object_id": "90b6c171a9aad4ae5b4401468f3c67600070a04594ffaac73b386c7626e21249",
+      "source_object_name": "ASSOC_CODE_TYPE_REL",
+      "observed_count_reference": 463,
+      "expected_count": null,
+      "expected_sha256": null,
+      "schema_hash": "acbd16d8a4745569ca17887c2a2537475a6dbffee2fbb8e548f8187b1be642c1",
+      "columns": [
+        {
+          "source_ordinal": 0,
+          "column_key": "20580dc42d80ebfe5d0fc79d19b0cd0c0b7d60eccf281d0804902a0234f16346",
+          "pg_type": "bigint",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 1,
+          "column_key": "95f8f07872c928b8a6bbf4927ecf3f847af0d022a99519aeb882c6fd45efb82e",
+          "pg_type": "text",
+          "allow_null_value": false
+        }
+      ]
+    },
+    {
+      "source_object_id": "9fb170990129259de5c0dd7c38de5e236cc4322166b816ee81fc6441df9f1dff",
+      "source_object_name": "ASSOC_DATA",
+      "observed_count_reference": 190048,
+      "expected_count": null,
+      "expected_sha256": null,
+      "schema_hash": "48305dbc1f9edcab3fedb8d9d90903474dad6d525787afc6a810bceca6179bad",
+      "columns": [
+        {
+          "source_ordinal": 0,
+          "column_key": "42dcf5b2b7a6ccae8550ab7d049a3a7605408bb219f08ae40e101abf07b2c9a6",
+          "pg_type": "bigint",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 1,
+          "column_key": "e88131a0eb513153625ee11e24e56847a3619e91d1a9551296379cfafcb68e9a",
+          "pg_type": "bigint",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 2,
+          "column_key": "067aa4f6bd609af5f96f16199f7d82a7955d60aeb05e968522ee1c7f48bed8f0",
+          "pg_type": "bigint",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 3,
+          "column_key": "ce2d77de689bc68481d1ab063c71150af6920eb2b581d307c1cde188e3608e40",
+          "pg_type": "bigint",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 4,
+          "column_key": "8e225bcccaf16031e8d068dcae526b938267fe5614f8e77edac3a1d8ef6b8e01",
+          "pg_type": "bigint",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 5,
+          "column_key": "414e25d23ada9dfb2c0d5961416e43f57fdf7cff759784d6ad27f300b3fbc87d",
+          "pg_type": "bigint",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 6,
+          "column_key": "fd2ed6a8eaaab01d9ba2e7d30264a836665c2cf25599cb33bd85677dbd501d76",
+          "pg_type": "bigint",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 7,
+          "column_key": "7e54a3ffe0b281917df80dbe1313f7bdab82cc69e09805e1314310cc5aad9759",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 8,
+          "column_key": "5072ae6d8bb936c9e246d7c63666f67afc9bca2df026420bd598c5843618fda2",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 9,
+          "column_key": "ad762da33a0dc7cdff543bce71893b9a95874c7f6ad25c8e117797a55d8eef78",
+          "pg_type": "bigint",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 10,
+          "column_key": "980e4a95b81e3d87c8ccfdf1e95c085f922e2d04fcdc5407f38279687724f617",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 11,
+          "column_key": "54a4b05d6cb1096837f82460438606ebdea941946e2f6687750437b83b5a10f4",
+          "pg_type": "bigint",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 12,
+          "column_key": "c4cc30ccae7d5beb6358a6ebef9de3ea305c9ec0875223aaf254c792d05e01fc",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 13,
+          "column_key": "d3bc64872dba0455e6063216babe9fdd42d50f2e894a013a11d5d2711b492f2f",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 14,
+          "column_key": "c85c01cb1270fd94a024d79b1304ff5c60dc3a2f360c6247b88bcba74e472771",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 15,
+          "column_key": "f743e3de32f80e20c7c044364fb5825e2a593daacb787aed789ccf98d9cfdd97",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 16,
+          "column_key": "1bf0f0e1e70ffd5cf5310867a94bd4b782a8e39467d08a659715b2c4c6d881c5",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 17,
+          "column_key": "f99272b54debed37fbb91c6a741af8fb63acae382c15ad260fc30b03459e73d8",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 18,
+          "column_key": "bdad7aceec313818158b819cbfd19dbe0e967d19cdd6fbeebca71e85e77aee64",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 19,
+          "column_key": "dd9920ad32b6d652e4cebbe204488fa031ef19da4a4b277c35931132ea2c065c",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 20,
+          "column_key": "58ed9f139ba6a28940fb0442ed800dc51a896248f9c012c813b2d80339af9768",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 21,
+          "column_key": "602fbeb1c9c75d3ccfb74c1e01ae575ba6710a679a8f2930f60906a506b3f6f6",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 22,
+          "column_key": "bdfaa408360a0a1f2648a24582819555dcb27451a4443837c036e5d4f22b9dc9",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 23,
+          "column_key": "a18aeacafaafd71abcb1ff5893fda2cc64f176fce6f81d3f471d192b93b3d8d0",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 24,
+          "column_key": "53217ce66011fc97c048c81bba010b582c5e7c3555f2cd5f36df91c9fcd0f518",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 25,
+          "column_key": "82e064776bc62dc1b4a3379ba9f6089c52017a8366b8762c8583b6f2fa9d4b53",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 26,
+          "column_key": "8823d07496b9f3a7b929ec9eade38a697451189627e9e11a314bab40bf0a93a7",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 27,
+          "column_key": "837e4fadb5c107cc5dd86d116f36ce43d0b468e477ca48baeebb25dbc62eecdd",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 28,
+          "column_key": "debc3d6dd5356000f0a253730918edadd98d2dabb4de49d6b475ab7c90d0fac2",
+          "pg_type": "text",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 29,
+          "column_key": "120ed0293be7c3b3837e5cfb1deb33b317f81716fa5b62d8a03e9b74a768307d",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 30,
+          "column_key": "cb10a9b43a75da9de787faca3e020cb9a7b8465fcf48baefcd85d5cb3cfc98c8",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 31,
+          "column_key": "b09eaf31402c0b998f47be5c07d64004d564247c1b84eef3deb06b1b05e8eb5e",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 32,
+          "column_key": "1e7f0a0166121c5f960b36358511d1a95a65378649c792ba786bd1fd68a74c81",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 33,
+          "column_key": "081b21d8cb1dac60be7fbde038d05c1973dbb4c235002dcf91c3a81323b3d1b2",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 34,
+          "column_key": "0015d9508339a87283dd5624c4fa94a711377081dba478e61b3dec967cf71fcb",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 35,
+          "column_key": "a49edb6806a21091fd372615e9b1d281bb1372a30e7b24f10293f13ddc95d571",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 36,
+          "column_key": "0df0588d60d2fd8c13055e203dae395d5d946a0d92ea7712f51800566b451e0f",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 37,
+          "column_key": "f8382c317f0244dd850b174b29b61054654b6849cd408477d54712565c1ba34d",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 38,
+          "column_key": "3aaee768a192dc72af16892c19eb52c875e72e7c2a42e108753b5f2815abc234",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 39,
+          "column_key": "2dd5976428901d40cd8a1f4b776cd1302b3538d4f6644c34a0953d89707abd54",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 40,
+          "column_key": "4b1df1eb58813bd0f12fcefda08362d601f9fe6c23ddeabfd1d93a77d02789a3",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 41,
+          "column_key": "0eec6c386be30262c5cfac47df5bfdb9f31ed13b86434e27e149b4f1603bb105",
+          "pg_type": "text",
+          "allow_null_value": true
+        }
+      ]
+    },
+    {
+      "source_object_id": "df2200548760e7dfb56cd640a8ce1489ce6b7403f0c66d03217df5fcd6709f43",
+      "source_object_name": "ASSOC_TYPES",
+      "observed_count_reference": 45,
+      "expected_count": null,
+      "expected_sha256": null,
+      "schema_hash": "34c9ef4b94f7bb95d2e50401961ce84f5181afdc137ff6bca14d94cf490e6bac",
+      "columns": [
+        {
+          "source_ordinal": 0,
+          "column_key": "9ab12f58d29ea37270666fffcb712a0b9cf1c20a7aa758c99b9af4afec06edf8",
+          "pg_type": "text",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 1,
+          "column_key": "fbb76246cb5b307b071d853915c6b8c6b8d5e73f5b4e52a5b53f2c986fd325a1",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 2,
+          "column_key": "980ef65da1db3a369a61ab3c2fa2ea62a86de99d23c9506d310e5d43102613f7",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 3,
+          "column_key": "5adeb08dc38c029bc7b629716a6cfb5abc34c60acbf146069d304cbb1cad9004",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 4,
+          "column_key": "ec5cfa725bb341b67a5dd27c6bd43a1bac97240ff4a6777f29a1138059485c2e",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 5,
+          "column_key": "704a4fb7c8abe472d94f928113ec2960b683c4154ab35ec94ee41ea6948f21e0",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 6,
+          "column_key": "4afd082e3082e545e6abcae1582d6727d3f1895e25e1e2345e87612b5aad297f",
+          "pg_type": "text",
+          "allow_null_value": true
+        }
+      ]
+    },
+    {
+      "source_object_id": "da75a8365c766c7e80d99b6e868e5ba2ebef9dec112857ceb9d6fe89f01446a0",
+      "source_object_name": "ASSUME_OFFICE_CODES",
+      "observed_count_reference": 6,
+      "expected_count": null,
+      "expected_sha256": null,
+      "schema_hash": "5ce17b373dea3225156b22e7c89533c03a1d5e672ceb5d789c10ac550a3f890c",
+      "columns": [
+        {
+          "source_ordinal": 0,
+          "column_key": "af03799bde854464587ab11f42dc0e589add3c7a70be47365dd3ecb3f2220aaf",
+          "pg_type": "bigint",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 1,
+          "column_key": "15dc79416b4757e3edc5e0ef8ed26b862a8057c445af5399751e050c470cc943",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 2,
+          "column_key": "25ffc57ebd9152d37b8056be185955df94bf376984ef7fd8d99a69cb47c07ce7",
+          "pg_type": "text",
+          "allow_null_value": true
+        }
+      ]
+    },
+    {
+      "source_object_id": "890c54ae6d73a428f41fd4aa4ae45e245d8f8a28057ddb02a40d78074f197732",
+      "source_object_name": "BIOG_ADDR_CODES",
+      "observed_count_reference": 22,
+      "expected_count": null,
+      "expected_sha256": null,
+      "schema_hash": "856379ec75d3e038d0d1d70166f99f608bd0faad873b6001db08a9cba36aff4d",
+      "columns": [
+        {
+          "source_ordinal": 0,
+          "column_key": "d2aac1e90e61a0836c330d80a936e13586b3f4884ec44bdc7a18ac830aede4f7",
+          "pg_type": "bigint",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 1,
+          "column_key": "f7437f32a7682af35d8378baad9f1c44835a010624cd3074b999e55d80f44ec2",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 2,
+          "column_key": "fd38756cfb2cbfd6ed7121875a71b88d2cb3839f3d6f5134c39b88f5566b7451",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 3,
+          "column_key": "d68cbdd233fe6d3b8e8c722822246f093ad97a29c3ff165441cb67a2878c68c4",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 4,
+          "column_key": "165abb996e426b30f58578bcdac08a3f97194eff2f6c71e58771f20c46aa4b6d",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 5,
+          "column_key": "312612bbf55a02e58c4b1ddfe8d70666e14aa295c902330de1354bc71507f588",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        }
+      ]
+    },
+    {
+      "source_object_id": "305c6a3f69bb04cf41086a1fa48876ec9d74eae5646d75ba25dfbc67a0106d7d",
+      "source_object_name": "BIOG_ADDR_DATA",
+      "observed_count_reference": 461637,
+      "expected_count": null,
+      "expected_sha256": null,
+      "schema_hash": "91fb907316fc2f0ef3d92badb5c3cdf8b0aeee96021539d5c792bfef2fe88888",
+      "columns": [
+        {
+          "source_ordinal": 0,
+          "column_key": "92d2be233f97f94cf4df10f835bcd952f6a9ff3556d0fe02c2b575a2cb9e191b",
+          "pg_type": "bigint",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 1,
+          "column_key": "fbcfc7e3ad8752ba0644e823df4bc4c33476d59d40a41882143b59776a7b61a7",
+          "pg_type": "bigint",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 2,
+          "column_key": "d36b94155abc0b59fa607e1c2a89491d3a37d93049214e67271e81d12e448c57",
+          "pg_type": "bigint",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 3,
+          "column_key": "d17f754853a8af0007644086f7e14745a78fdd4ed9ce0385abcc2ccd10108d72",
+          "pg_type": "bigint",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 4,
+          "column_key": "4650fbfd6f2fe47d343d1c74ff67c45032f5eb2cec3c55ff4651aea70acf26d0",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 5,
+          "column_key": "7c00307a6af1cd0bb75e4675933a44094816e575d438ad381f786701189514d7",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 6,
+          "column_key": "de781d88a9844b011a0d8c995825327f6500d241803288c431a7f5832d7fdb70",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 7,
+          "column_key": "f1fc6961e85f6cbe3d874fac785bd8742e72c9e0943cd73ca6bbc1564c9c44d9",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 8,
+          "column_key": "d3649221f76f71b518197cbb35b7c1bd0ade5a3c8029cff5dc4aa8b8edb6d423",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 9,
+          "column_key": "a8e674ea8cce4de04c1f85c114b947e093cbb8cc9936b46da5335da7ef9bace9",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 10,
+          "column_key": "b1eb4e62557e55b6e29abc1c849dd182c892bcc42a7cb7466392a1e34dd89bf5",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 11,
+          "column_key": "9d6bbdb11cb920295ae571d5c5a43e7f630dea5dcbfb3245118ab369c7805110",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 12,
+          "column_key": "4cb9575e5a4880c17da152472a2f6c3f5e3c88d6a6e7b00222938b0b3b3e49d0",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 13,
+          "column_key": "2fa2f87857173d71cfd0bd7d9f9d74fbc9065eea3d30b13e6e7e4596945138d9",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 14,
+          "column_key": "1daaab3b86c38045cc364162a7955ceee854b78808cf4822d0165d91416aa386",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 15,
+          "column_key": "9bc401c75dd57c68feebad8e2a595b2d42f988d5fc357b0803c52f1706936be1",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 16,
+          "column_key": "acf5a728c29402aa04da7183fdc265b87537c06593a0eff021dfd931fbb647a1",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 17,
+          "column_key": "471e2a6b2021934faebac38eeb9d813e928ff72769e018fbd0c35eff9527f159",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 18,
+          "column_key": "edcd8e5472b1f89d4eb94b03379367583dc8fc8b1ec8c18ef870b6a9bf03e2d2",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 19,
+          "column_key": "f7d3526e0b058d1ffa34060e73bb9b89e8ef8f3d3e7d4a236b4da544d87ea1b8",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 20,
+          "column_key": "5191ef81ffec3244c4ade1e034580fd995e7e917fe61842e93d1974b51453fab",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 21,
+          "column_key": "83dcf0c9abdec58e5693787140a44c3468c1f9aa1e73adb698672362b3529dad",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 22,
+          "column_key": "0e0c5c211df0720e6d579bbe7446dc37527c330853aaa82580e83d75f0c8b5da",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 23,
+          "column_key": "52af061db4191cb4693bb836d4ba703e9d64c8a7a1faa575531d75e0c69cd624",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 24,
+          "column_key": "a410c150d4e5781e323fd2f94e3040f7e003f1f400e014639cbbdccc24c62deb",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 25,
+          "column_key": "f9b56809b83e34740d9379872e64c7f77cdb1b9d3030cc9e3e7bb30c75dc30af",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 26,
+          "column_key": "17c2fb0a32c632096da6e12971c4000fc2ec7e9e4ba3719f5dc0162fc64d8fe9",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 27,
+          "column_key": "0185211514f5d76c51ef4a6cd26a693b5007148bc807599d2f7a29c0d8f103cb",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 28,
+          "column_key": "195e0c11afeeb68b8fb6ceb7d1861d9b91b898981d5315d2139b6893eedd5882",
+          "pg_type": "text",
+          "allow_null_value": true
+        }
+      ]
+    },
+    {
+      "source_object_id": "b5368f0e5560a00c5546ca285e9d92daf40b16ba35774f7c1ed2c9afee63fcaa",
+      "source_object_name": "BIOG_INST_CODES",
+      "observed_count_reference": 26,
+      "expected_count": null,
+      "expected_sha256": null,
+      "schema_hash": "bd398b5c47eab4f51f62810d0304559c71cc2bbc7a9c307c4b01e7534fa981b3",
+      "columns": [
+        {
+          "source_ordinal": 0,
+          "column_key": "f6215446cb94d07b3528bbb89719ab9b165bc3f6e81bf232dafb54f3d2f196f6",
+          "pg_type": "bigint",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 1,
+          "column_key": "d9651f441fd0e23e7e76608a97eb6474b40e388f0cc08d99af15c83741d88de9",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 2,
+          "column_key": "e9ed7509d07d3b396339432af1d1552084e90179163ceee5e9c0647deb55458c",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 3,
+          "column_key": "c3bf341d62215019b0706f2da3038610cd6d0eabcd648ed11b3ce74ae62e349a",
+          "pg_type": "text",
+          "allow_null_value": true
+        }
+      ]
+    },
+    {
+      "source_object_id": "1041721043a6d66715ea596ab1f1597588944042011f49aa9e8c639874870c3b",
+      "source_object_name": "BIOG_INST_DATA",
+      "observed_count_reference": 571,
+      "expected_count": null,
+      "expected_sha256": null,
+      "schema_hash": "19b6c467139b5558cfe343debd17e81c3c30ce4d8de934061c404e4686fba864",
+      "columns": [
+        {
+          "source_ordinal": 0,
+          "column_key": "b734ebbf977098738ae5b0a36d34c5260d62c52a8c2a2e22ca45765ebb74faeb",
+          "pg_type": "bigint",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 1,
+          "column_key": "a08ae9bfd71a4a35dc83f1e65677fbc89db32e29c5755a1da150e523ffc6c456",
+          "pg_type": "bigint",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 2,
+          "column_key": "5a72bd922682912c1170e225b40e396b35df7df55bef73b305260f996128abda",
+          "pg_type": "bigint",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 3,
+          "column_key": "9fd1933bd052e6151d3f92bd29aa122cb77b914370039ef7b31226a9beb1830b",
+          "pg_type": "bigint",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 4,
+          "column_key": "f1985594f0bf9a2dc6c327bfc10e333ba8b857525f16e014e0c1a84d86f678f2",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 5,
+          "column_key": "59a7de959dccc73bae2ede4f8674228d3f270b92e355e78e60cb5c6337fce4c2",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 6,
+          "column_key": "d2246a1ba56e091950c5f01b961659ffeb663237c77938c8074bed62c8f54bbd",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 7,
+          "column_key": "ed34832587dc5d9eaa0cfd1b9f927f5c6d1c531f628043c867f2c2fca34155f8",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 8,
+          "column_key": "28737a881e2017716a5148a6eb7172ad4a475e38afcfbd3b996f838686657c72",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 9,
+          "column_key": "a50ffcddab7c916db13365120c8ebd60963076e545c340a12f5ad0ac0d11de07",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 10,
+          "column_key": "75b5f880bcad0f8d2e7c0ea77cebd0f22513310f1ccafb4d39fce4f873a8206c",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 11,
+          "column_key": "8a24f89497d156868ea7183d81e236fd8b8d76c06e6c91381b3b50757b93f430",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 12,
+          "column_key": "a9377919647bdbc8a7b506c37ed88b3451c25965cf177db0340b26df051dc812",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 13,
+          "column_key": "a9bd76849497ed5855a2e500f46891b504743cdfc3b64b0f1ec98ad6bc5bc9fe",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 14,
+          "column_key": "70278baf4602a630f3a6000b5975a01f32184ce63549498ec2ad1be42b44f99e",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 15,
+          "column_key": "abf92e3b7284799873b06da7a94bfdd6249e5ab83a0e56d71682f758989f446d",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 16,
+          "column_key": "695673a18fa9ead8b9666cd5e73c60dd0a45c4db90414cbba06672a735efb912",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 17,
+          "column_key": "8d9ce557d035e88e8067f4ef12794584b8dca5992d225b05333d487ba388024d",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 18,
+          "column_key": "5fbcda2224977d6d98b91a1decf7081639bf3931643663d3e9a3c6e9aca24eea",
+          "pg_type": "text",
+          "allow_null_value": true
+        }
+      ]
+    },
+    {
+      "source_object_id": "dbe7676ac99cf1af42d35fce9e2282076a44001546b81f7b4b4e17bf2efd9359",
+      "source_object_name": "BIOG_MAIN",
+      "observed_count_reference": 661969,
+      "expected_count": null,
+      "expected_sha256": null,
+      "schema_hash": "2b0f8e5bfcea311ece208717547453b9afc8f68dadf0b1d3ef9c0036905407c6",
+      "columns": [
+        {
+          "source_ordinal": 0,
+          "column_key": "9175bee4c096b341b7f406e107ea282e3409336f3049bf28583f6f8f503f9df2",
+          "pg_type": "bigint",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 1,
+          "column_key": "df7b4ed38f39bd42ebc7e1783910e4ba40734fa90a3a68718850c73037936967",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 2,
+          "column_key": "bb98d374d3cec59331d7612e4ae595657bf49550354c365829e913a17b2c674a",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 3,
+          "column_key": "96673d44e071143840148bdfdc3924994fbe6832c7786035b7521db96f1ca526",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 4,
+          "column_key": "98d26f10faa14023c5a1184fa9ccd97199fb0870b7f321c21982ebb9de582f7e",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 5,
+          "column_key": "d5c911f13c2977c32a38d234ac1e36d7fd2eb310e201e408a1b6c26997d0d260",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 6,
+          "column_key": "9e386b1b5f74037be425be0aacce5148815233a91fc964840076c6066bd9c85b",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 7,
+          "column_key": "20d028b3d211cdddf6df70aa120726cacaac7abb1f4d6967bbec0e5534cb1829",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 8,
+          "column_key": "53defc5058fe71691d2fce76ff532172b6239a06542c0fe6c4b20c4b333980ad",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 9,
+          "column_key": "6139025ad6e1f6f1cae3608fc4a2ae978a7f20ce22342a8251921a47e7b69eee",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 10,
+          "column_key": "aed4da93b15abcd0884258fe5d99ca82c0793771b5402dcd48ea3e1e09fbb009",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 11,
+          "column_key": "97654eb215de3162a4f43e1a3b47111968ab4b8fc0874d019aebc12a8bf2f041",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 12,
+          "column_key": "870f2e58ecd5414f23349f26556f80f26072083942622f490a92637a17287a34",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 13,
+          "column_key": "c6bb0be8112153c99c0d8675f1d425cdf3a6e86ab68de88e74b7b7a21f64c244",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 14,
+          "column_key": "af9d29851517b4aee360ce536de71b7c082666f6f2cd44f51d26fb497d42732e",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 15,
+          "column_key": "d762b9eb0411ef5b9a44c2fe79bf6c6343c575bc23b6ba154f6d240369c84811",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 16,
+          "column_key": "5cc663bf94be33772eeb6349f627268318a4314dc87b092292448cf53b2aee1a",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 17,
+          "column_key": "60ea096ec468e65ab69b821314a146cda86aa82322f0ad64027aaa62b49d7f57",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 18,
+          "column_key": "31d67d260a15d3edc96b20498dec6f268a67523e2d723c8b23f4c36c1cc176f7",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 19,
+          "column_key": "12500edbc1286d0350223c352c97f0b006c57c884f4cc513b18271ba1e0f22af",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 20,
+          "column_key": "3b7927db05217a70cda68ea8f7bc41fc646a221630b634c33990e2b89b685a68",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 21,
+          "column_key": "d0be37e50a10628855b9ce78af1107af61c8e2d483733909dcc918c5320c04ef",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 22,
+          "column_key": "13f647eaf88ddf45482d23cab947b1014b148d1457452bac14aa879b9b02106f",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 23,
+          "column_key": "b9667f59873a67e71d4e64d4657f71b113ba74a16d5a8efe834bf898a1c787c7",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 24,
+          "column_key": "1da419c950916011ce5389d1ec9985fe698c2a24443f96da572b756c793e85a4",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 25,
+          "column_key": "0aa7b01004c2319e66968d02ab623ca46fc25c67299d37d5fffaf6ebd2ac7c8a",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 26,
+          "column_key": "afa59564176799e66618db96f5584df72f19d683153269138475375e15c3246d",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 27,
+          "column_key": "c1d0f598198e9ccba80b8f922c1593c818cb21018628c8ec3fe83de0da0fd085",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 28,
+          "column_key": "87d0786e801a7742b94a3a4555c1344da172333eaa450af58fa8cf2a81bcfe7c",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 29,
+          "column_key": "4acb9aa429436a6e39b557868bde534b73e5fa13eb2aa44a9b07d97d888b85d5",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 30,
+          "column_key": "05ea449c5e99547110f48ba714c01494b29819197fdd62e83950aea32c70c346",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 31,
+          "column_key": "6ee90103dc10a4db1c5fef3cc79a331bc4d3d721fe4b2edd41df16120350a7f1",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 32,
+          "column_key": "5bde58fe9b67d598fd5f6ec9abc2a0f6f09ecc9d0adeff060b95c502298769b5",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 33,
+          "column_key": "7fd775e73e5ef7a23f4909fee529ba95fa75be39053489f3eefc3cd9af630479",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 34,
+          "column_key": "8dd3aa8ab969235028594b818e5349cd05c7e684d01d2e35c757cd077d519e9a",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 35,
+          "column_key": "a03d68a94b06c55d4a7c5e51d2f25d892552681f1169fd86bc1a46fdd71fe49c",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 36,
+          "column_key": "2422be33672608b97abd0569acd4273f97d5b330747cdab9bb82ad593f4fc314",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 37,
+          "column_key": "1ef5d626473791bdf4457de9d837abfea9fa3e395477d938bf4bf252e110bad8",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 38,
+          "column_key": "bb6e1f0d11fa3e5b331f8c5aa97bb10cb4a3e46e2cda170f7b56a79cd7f6bab9",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 39,
+          "column_key": "2a9bf6acf834ee951326750b5c78c31abac4735016e2ceec535b6c08c93a62d3",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 40,
+          "column_key": "bcee1d4a1e7e60019e0e2f531b87ec39c1894a0a20d953a547c9e5b3f1a6b314",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 41,
+          "column_key": "72b9ccf4bb200137dbc04fb18e8e170ca43df47101ea25f0669bc2688ff23bd7",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 42,
+          "column_key": "c89a02f0b91ab14d7e84afc1963f49588392a9dd533d9d66fe710d22dc1a9f77",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 43,
+          "column_key": "c1f73cb6c70054ffde15f89cc8f7c162df21ccceddcd3fdbe8b105dcc4bab94d",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 44,
+          "column_key": "98db7c8217bebaf9828226f508f2d4dd201c1cd3625a0b31fd6ea3ce731f3cc3",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 45,
+          "column_key": "330e794be4bf7cc2e55d7851940af81219478093212c19e43933fd9515268be4",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 46,
+          "column_key": "2b6bb40b16331c36bc97b7b1b290ca048eee314e4246de4ef764f84887514c83",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 47,
+          "column_key": "14ce5c65afdef741ee557abfe6044c25afac0e5f9d234934b76d6e24d58569ac",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 48,
+          "column_key": "841ffb06fd7cf60014ab5076b4fd4994603d69b5734f04dfda7fb65e0cb78bc8",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 49,
+          "column_key": "8519a7bb44010f469ebd843e06050eb88bdfca829865d6d3e40734cb5b6a3160",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 50,
+          "column_key": "b5f1518c2677e0eebf62ba1739e6e27ea7458c21857466cf09f9e65e4be3b612",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 51,
+          "column_key": "b0302ed97c158f3f9719a50f5537adee69b21eabb5f225f6dd829b4619056913",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 52,
+          "column_key": "57726e017c2e12468423dabd3cec83ab8c5b4f30f187e2b0f63dd83b922893b4",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 53,
+          "column_key": "4db46f1c71ada29f3646f67ef26d233ec9b5499335e0fc40f7e61ca76ced0519",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 54,
+          "column_key": "1ec8157ca8bd38ba64dc9c3c982be5a8e892fce4c560f0e98d373a879afa6ca4",
+          "pg_type": "text",
+          "allow_null_value": true
+        }
+      ]
+    },
+    {
+      "source_object_id": "54f87dfb5be4a6ff98d34202244893a95e5d26f51f5e21c6e64ffd4be53f1fc6",
+      "source_object_name": "BIOG_SOURCE_DATA",
+      "observed_count_reference": 1254135,
+      "expected_count": null,
+      "expected_sha256": null,
+      "schema_hash": "d30880c71c45b2d8e74dc8a84c2f9a2152e7bd42184d637f86984fe143cded9e",
+      "columns": [
+        {
+          "source_ordinal": 0,
+          "column_key": "0fbfb5a9a7cb4854b31479d84df2624e4a1dc4cdbb5f8d94a83d2317a2c69dda",
+          "pg_type": "bigint",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 1,
+          "column_key": "85f78dec8704f7a307ea6184785fadea622d95f69c89a46ce3dc127819ad14b3",
+          "pg_type": "bigint",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 2,
+          "column_key": "294f48000d7f142bc398979c5011f1d3c345660add0ad850dd7b2526ef8a7bfb",
+          "pg_type": "text",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 3,
+          "column_key": "31c51a5263ccb1f330871e14eb18057ebcdb0bd2fc3f7b6db10726befb159210",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 4,
+          "column_key": "e22e668cd0d30720cbc2e8b1f3ca30d1cabac2c4c7ff1536e58434398f9fad65",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 5,
+          "column_key": "19dc15ac9a06f7e6fcf234f9da2d335fa4bd1a8ec9ff5bc75d8f3498eaeeaf74",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 6,
+          "column_key": "5d507980deb83e93a95cd5dd5cf4420f3ca029da5043b7d3a8bb16624f17a936",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 7,
+          "column_key": "cec58aeeb9f597241e5550079d960389ba282c9fe71f95bab1b3f52c5ada69e7",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 8,
+          "column_key": "99a00b0757a0a3b6a67bbb90686504b4dedd6f6f1a23e4797d959ed168eeae96",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 9,
+          "column_key": "65ad8f9a16ec91c5a5f0ee74bc0a6285192a8c98025c18273c1117f8c1001443",
+          "pg_type": "text",
+          "allow_null_value": true
+        }
+      ]
+    },
+    {
+      "source_object_id": "c0927fbdffc762d7dbd6c006ceb4dfc3ed742eef8a17e7a8bdbfaebcb82d193a",
+      "source_object_name": "BIOG_TEXT_DATA",
+      "observed_count_reference": 53354,
+      "expected_count": null,
+      "expected_sha256": null,
+      "schema_hash": "79230eb39dde38a51faad0eb86c60e6e18bd73e7be7a782b3ba1d5140b6d81f5",
+      "columns": [
+        {
+          "source_ordinal": 0,
+          "column_key": "20db6ef384c5fde31084870d558f07a4e4795ea39393228be8c4fd0ac40d86a6",
+          "pg_type": "bigint",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 1,
+          "column_key": "a4f989add36010c4c5f91dd7353e4662a4bf5bdc5159ceff297f2cd7523875ec",
+          "pg_type": "bigint",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 2,
+          "column_key": "9789c5c77c11134fc22cd69b0c742d010d7736a2938c775c07aaab013939fba7",
+          "pg_type": "bigint",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 3,
+          "column_key": "233ddf6139b4e2a0414d80cfd563f2c313eb5875fe833ea71894ef8a661d59a7",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 4,
+          "column_key": "8168872390fa2f33b1b2086898762ec21f7da7c32a19aeb4df16b44c0dcc29a5",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 5,
+          "column_key": "48d53c29141e89c8afa341dabedba6f931aa28ee9883b7fbd03043e8f9affb73",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 6,
+          "column_key": "44d89cb5263d87a88f7d6b250c70f9fe1e66e4b497e85e44815bf62eb0f3e76e",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 7,
+          "column_key": "6a865693e70b66a688610af744f5e3aa34fe647056581e1029f2607a4ad9e5db",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 8,
+          "column_key": "271d392c375143118f12a4c3215f653a84b5c3f795203932766d54503052c625",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 9,
+          "column_key": "8accf231ae611df00a68ddd3ffda390a84dba3850e7f08af80c892ba425115bc",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 10,
+          "column_key": "dc4ff708f4588264e0bcd4a3a05c4001942af44c9943ced5774d4f343194a7a7",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 11,
+          "column_key": "efa4391e0e1c47e4462f82864bae8bbc19b5146b8d5f62ec0552d250bfc7ce8c",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 12,
+          "column_key": "b19e2c5d4a5b19b54600614647f2c2cea5642231c1e492ab3b2516183763cce4",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 13,
+          "column_key": "c3e5656eb08ad3c1eda3ecc6ef7348327cafa80176cb45dad47c9fa18b8152aa",
+          "pg_type": "text",
+          "allow_null_value": true
+        }
+      ]
+    },
+    {
+      "source_object_id": "948d357a9cd3e4735590f8f1ab1220fa6a1fdbcb070332e66178f41f11a9fffc",
+      "source_object_name": "CHORONYM_CODES",
+      "observed_count_reference": 173,
+      "expected_count": null,
+      "expected_sha256": null,
+      "schema_hash": "1df2c252abe8a72474dc7694f316ce74c8dfdf98e2b27959d0f8334b394a71d5",
+      "columns": [
+        {
+          "source_ordinal": 0,
+          "column_key": "74e2bae7ac651425bd6bf0edd71540949f724cfc3318b6fd305b314b96a50505",
+          "pg_type": "bigint",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 1,
+          "column_key": "5ba1328dbd829da31e920e55995246b52e43487ad4ff46a9f494751faf9fe642",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 2,
+          "column_key": "87af6ccacca7e8a825c7782876462826791f5a17a4857fd1e07b4bf6c746b32c",
+          "pg_type": "text",
+          "allow_null_value": true
+        }
+      ]
+    },
+    {
+      "source_object_id": "d185909a9eededdd7da52ea072fa58022a67f9a25c30e26ffb65531c4df1e64a",
+      "source_object_name": "COUNTRY_CODES",
+      "observed_count_reference": 11,
+      "expected_count": null,
+      "expected_sha256": null,
+      "schema_hash": "322ec31b6fc6c35dc410e9bf0a26b8c4009955e023fb64f28b169600881bc73e",
+      "columns": [
+        {
+          "source_ordinal": 0,
+          "column_key": "088723322d3f5ea2b81b72b0b56d8ce7722672c1aff917432cca39cef374f209",
+          "pg_type": "bigint",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 1,
+          "column_key": "d477abeac9f7c7ec5ce4a3f176089636ddc9a07a144b672a026af749a4e1b58d",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 2,
+          "column_key": "a5265d70cbc96b21d1fde28c7af57a619cf1d10a05db37163ae625b27072c249",
+          "pg_type": "text",
+          "allow_null_value": true
+        }
+      ]
+    },
+    {
+      "source_object_id": "8495d5637f698983373a081730cb241e4138193c3b136aaf99ec1029bc4f8159",
+      "source_object_name": "DYNASTIES",
+      "observed_count_reference": 85,
+      "expected_count": null,
+      "expected_sha256": null,
+      "schema_hash": "c4b9450d2785bf7a30a98a71953ce9aef73bc605cb1e69c30904305a90cb669c",
+      "columns": [
+        {
+          "source_ordinal": 0,
+          "column_key": "4e375c09c148791a95f170d7c1e0526a8ccd5db9891829e686c8b5a3f2b83a2b",
+          "pg_type": "bigint",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 1,
+          "column_key": "88e3305570888e8fc0842d4a3b67db659cb5cbfe5befcd483221240c0bb81a2c",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 2,
+          "column_key": "52653259f479e30a450bd5646355df2adc30de5f62259c90f5e759c46f2ff907",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 3,
+          "column_key": "49d80beacb13276bb678dd42d0e20ee0708a377fa27bba886311134dc6f96ee0",
+          "pg_type": "bigint",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 4,
+          "column_key": "a18d4063928be64639806f0f79936fb208b6aa22bfccfb0108bba09e77cdcebc",
+          "pg_type": "bigint",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 5,
+          "column_key": "8adcb499f2972ed31fa878fd90e0385532b87065b4d97a5885f9c79bf71bc2e9",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        }
+      ]
+    },
+    {
+      "source_object_id": "bcba6a6b8512f381e4ffdb775c888684ed83bab654aacc6603ebc2a319d8b3a9",
+      "source_object_name": "ENTRY_CODES",
+      "observed_count_reference": 273,
+      "expected_count": null,
+      "expected_sha256": null,
+      "schema_hash": "8f9f330e1d5dec49a4c5465ac170a531e0e85c0fb5a589573f0cc7c19422722f",
+      "columns": [
+        {
+          "source_ordinal": 0,
+          "column_key": "880350f8c4b1b738831664f887acdb9da0587ed6a995105014bf63fab4dfb733",
+          "pg_type": "bigint",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 1,
+          "column_key": "00eb446dc7d9cf6cd3caf32f8a78455409017e9d5f7815f7182d1c92bd280334",
+          "pg_type": "text",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 2,
+          "column_key": "1879b671eeecb8bf4d84d1c5c643e96002c3b5a2fb7f0157fc4fc58a3c9d5e97",
+          "pg_type": "text",
+          "allow_null_value": false
+        }
+      ]
+    },
+    {
+      "source_object_id": "e8cb47acbd26088cf410e6323991980e62a18821edcd2b2544193c792692c8a7",
+      "source_object_name": "ENTRY_CODE_TYPE_REL",
+      "observed_count_reference": 284,
+      "expected_count": null,
+      "expected_sha256": null,
+      "schema_hash": "5c1e525dca7f426c9d93bb8e3679bbecf9b1d6b39d3c3b584e7f8331c8c8a435",
+      "columns": [
+        {
+          "source_ordinal": 0,
+          "column_key": "b01454ba08ef67451622f33040b4515cd9f6596bd700b3da614b99a4d7460f4d",
+          "pg_type": "bigint",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 1,
+          "column_key": "92088afa2730825c55a47abba3f6a68d820c9b55e210c5ad0d3157df888363d7",
+          "pg_type": "text",
+          "allow_null_value": false
+        }
+      ]
+    },
+    {
+      "source_object_id": "ca523586383aaebd35e8f1ad92eef5c2bac3c733d063da1e0b75074ce3a8169b",
+      "source_object_name": "ENTRY_DATA",
+      "observed_count_reference": 264975,
+      "expected_count": null,
+      "expected_sha256": null,
+      "schema_hash": "87da41188ec9009c71da57c78e3f75e97ec63dde4dc135d141b17987f3fc0ef0",
+      "columns": [
+        {
+          "source_ordinal": 0,
+          "column_key": "2d2d8510d798a2e863e0e72d3b6759e5f5737307093717cc3edfe9a0c84fbefc",
+          "pg_type": "bigint",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 1,
+          "column_key": "e76ad73ed2d2bed1dc2e559febb9962806587c466c9f01644d37e14ef973978d",
+          "pg_type": "bigint",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 2,
+          "column_key": "c2d763e315172aa6185acba07237c9882e6c5432fded0e962943624e1209e815",
+          "pg_type": "bigint",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 3,
+          "column_key": "bd04fbe23c2e272c726b64bfab3f190eb9723519509e7cd5bd7476a3d16ed877",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 4,
+          "column_key": "fcc271c7b9b35545e5d293d83d74169cbb94165ce43fbb5c6c2b33152180d1db",
+          "pg_type": "bigint",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 5,
+          "column_key": "c522e60f0a54e88e6ec51075318527800220be24ea9152cbbedac9f9b0ed66ba",
+          "pg_type": "bigint",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 6,
+          "column_key": "f33962fc68b381950a3baa249f51933207902b3fd7a65b756704b87d7cf69b55",
+          "pg_type": "bigint",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 7,
+          "column_key": "bbddee843de06311eccc501353c68dbef71e681d193fb2f5fcd6068498298d04",
+          "pg_type": "bigint",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 8,
+          "column_key": "816b0bb2e5644e19ca0561bd97f0ed52bbe8f0d2180c9f53a874654ea07a25cf",
+          "pg_type": "bigint",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 9,
+          "column_key": "38d18a1753898a53b88b92212141478bb063a441aa3b77fa16307db70ced5fb3",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 10,
+          "column_key": "e1160cc28a837a671cae5343538a6ef89e7c1289bf4a454f348bf28588ca1916",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 11,
+          "column_key": "772d3351f8c741383ce7743a405561c8f8bff5a6f00e8d1532a929be49401a4b",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 12,
+          "column_key": "3259819fb25a6d02dff5586c69b817fd828c279a0d5dacfa1594c764e7ef32b8",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 13,
+          "column_key": "4dfdd703e63f041a863506ad529f77fb6e21faa394e6d1bae848e3fe5ee539c1",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 14,
+          "column_key": "895041d3d5865ad3bb571b4c42678148cfc833682d9771c360f7acc041c32191",
+          "pg_type": "bigint",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 15,
+          "column_key": "7055badf9f7840b03e61a5c10c7a73dd7709c5214d2ba3b59422eece0a07f52c",
+          "pg_type": "bigint",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 16,
+          "column_key": "df0c35d400dbce8ece2956e66841d4bc2e26d263dfd0a32f7a080ad2c6a9fe07",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 17,
+          "column_key": "49a03b66ddb355da264d532c950e0a30db803cc77e3c882eaef20a7f02495ff0",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 18,
+          "column_key": "0b741c4f3699436dc60363a92ea8c49c2f00446f7b2634e499f1292e88ebcc7b",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 19,
+          "column_key": "6ef6608a29403acf714dfde4c7bb04077774ee178dbf3fdf4a13c701e821f752",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 20,
+          "column_key": "609738418366886ec97ae096988b7870488d657e72f7fd87e524ad8c66ef559b",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 21,
+          "column_key": "5f57b7b03a838251e9c1506c31c3a351b22ee92f880263bb1712f049800c4f94",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 22,
+          "column_key": "1859306eb68ce91cf3cbf1b6e4d5dacdf2dab294efef67ffb9831fcd1c55da87",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 23,
+          "column_key": "d4c8f4c475001c0e9befda9f663435467b4c9f328bf8d489ed5828ee25c1911e",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 24,
+          "column_key": "9edaf3057c424a0af0f1f05937f94a7b12c7ecec8a1d4d87ce6b2e357c56b900",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 25,
+          "column_key": "3aba41e9161b4c975886f99c25c020ace0516525fa0c4da71e5b86f5bb2dbf1d",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 26,
+          "column_key": "0011236deb41f7beacd44cf5244bcc7e6f2cb912eed85abdf31f059e42c18a88",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 27,
+          "column_key": "09aa3a66630a0ef6c13486457d0bc7254b8a866cdc1608c325140528385bf037",
+          "pg_type": "text",
+          "allow_null_value": true
+        }
+      ]
+    },
+    {
+      "source_object_id": "d0b882218e2d6d0d0a1b3edc92eca15dc24a25a41435bbb2c12a4f733af19ac2",
+      "source_object_name": "ENTRY_TYPES",
+      "observed_count_reference": 29,
+      "expected_count": null,
+      "expected_sha256": null,
+      "schema_hash": "da000a3f2206a16604a04edeab31d3959cf2b9470d300e2e16687d452f98d915",
+      "columns": [
+        {
+          "source_ordinal": 0,
+          "column_key": "6f4657cd9924d5fb5d5e5f36775902c7d3a0147c878bf1183b117dd6e5e3dec0",
+          "pg_type": "text",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 1,
+          "column_key": "1ae074698d94f0c184653491efd25f3886042bbdab90ea6abcdd9bc0d0251b41",
+          "pg_type": "text",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 2,
+          "column_key": "625d83d57fabcabbc4980cec90dc0f1fcbc0dd100eb87a7add28993e75f48bc8",
+          "pg_type": "text",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 3,
+          "column_key": "b1eff9ce999d79abf808fbf879e656e2d8888e29709b6d3e5b2d9b31a8a38230",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 4,
+          "column_key": "97fe5842e2e4c77772b502098c3b13b3c154667766ffcb051e083c81d07e4779",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 5,
+          "column_key": "11b1089a1fe635d170687a50df680010779b3fe99260f27e46bd4a742608e0cb",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        }
+      ]
+    },
+    {
+      "source_object_id": "6e59bb7ce49f96016643d70424d6131cd1962cf02c20c97864a9c103aece6d6d",
+      "source_object_name": "ETHNICITY_TRIBE_CODES",
+      "observed_count_reference": 498,
+      "expected_count": null,
+      "expected_sha256": null,
+      "schema_hash": "33d7cfd82534860d46db68e07e1369c743397732b2648cb15abf81ebf0f3728d",
+      "columns": [
+        {
+          "source_ordinal": 0,
+          "column_key": "55a32f559424379f013f1e9870d0e4c081f1d0c79610289982f490aee885abd2",
+          "pg_type": "bigint",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 1,
+          "column_key": "8882507fef306c8ab44976e7f677f38de8784a6fa0ff5e019d1393632e3d47e6",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 2,
+          "column_key": "bbda7502e4f1bfeb104b29cc12e3ca8740fe3535132dcd34fb86774e2bc0e9ec",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 3,
+          "column_key": "11e8141ef7e19bed591a43f65f00cc5980fb1f3593fcb78a5e27b1b7bffcce09",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 4,
+          "column_key": "382ea5256d1b07dced13c00d9d0e8f6e5623dd5e5f994a2b167f87cd296e4e5a",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 5,
+          "column_key": "0978ccea64423cc9f23363923d66dc15d42697aace845740d893e6a235a1af73",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 6,
+          "column_key": "d7c14b92547e24f3a0a6d509f11acbdc063825618e948dc41d7921522eb40918",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 7,
+          "column_key": "13ba3ed644b00faa9fae8e22f7ab37c500e779c4d2d4a27488294e0c334f6267",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 8,
+          "column_key": "ea5ac706e349139776fc1a6c1e02b5411efb21860e8fb9efff6713b4ae529a67",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 9,
+          "column_key": "2e4de4a083ccfffe71a89fc6b5eb1ccf3ee5c6a26780b7db4b910d5918db51ca",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 10,
+          "column_key": "95da126270eb5a003fca1e65ce3c1aebcca8b9f17dc72cbd6468d82874b5fd8f",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        }
+      ]
+    },
+    {
+      "source_object_id": "64711ebe6b141b5ad2e41cf66b0f5e4f2186534c7cd94d4af6da1a60937d48d7",
+      "source_object_name": "EVENTS_ADDR",
+      "observed_count_reference": 4,
+      "expected_count": null,
+      "expected_sha256": null,
+      "schema_hash": "1a28f6c1a0fd3618193b016528307e58fe562a8cf7e29718b1e671c0b3d82ffe",
+      "columns": [
+        {
+          "source_ordinal": 0,
+          "column_key": "89f5803ee4cb9e15be712b53dc485e2a45da88cfb744e4afea9198081b5ea156",
+          "pg_type": "bigint",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 1,
+          "column_key": "bf44d2d6ae55359d53e75787a12ac85f1b8c2d7947350438215b6da63d101524",
+          "pg_type": "bigint",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 2,
+          "column_key": "6f6bc472c4c13dcca730be6663ba1be94d59ed0df6e00ee2267689e333ac1f56",
+          "pg_type": "bigint",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 3,
+          "column_key": "8cb25645a3e3595276c92cfb1b59bb05bba3778cfa5ef90dd93621598d57f87b",
+          "pg_type": "bigint",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 4,
+          "column_key": "043ad220eb22cc40fd1caa250173749cfcd2f94100be16ba32338588e03e3cdc",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 5,
+          "column_key": "07931f364194d97fd8ce2be5ba637d36a2270713e536efe9ead7b02bf213c565",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 6,
+          "column_key": "e5e7b0862c2ec37886634fa8d090a45812e0b186b881ed993cc1915524eaa91a",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 7,
+          "column_key": "e19de3b4b1a7be46076f555559554457714717b7867668875bc5df025aed33bd",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 8,
+          "column_key": "6a43893b8cd939e5b11f4cdc4bbb090ee3ba6079f7812426ea8b18990bd44c5d",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 9,
+          "column_key": "3ceecc58cb56f3c73dcb5fadff1decc15bbe15fbfa9c5ada70fd8f27036be7bb",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 10,
+          "column_key": "805c56ec017c2a866255303a78fb046db9a15f24cdf32946e820ba30afac67f2",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 11,
+          "column_key": "8bed8b6d36d63df56ef10940f4ab32a40de37bfb82ffd0fe54a029930c479520",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        }
+      ]
+    },
+    {
+      "source_object_id": "388437f273c081f003c46de7273049507da319d3cca70cb9f2e4227961f8adc7",
+      "source_object_name": "EVENTS_DATA",
+      "observed_count_reference": 427,
+      "expected_count": null,
+      "expected_sha256": null,
+      "schema_hash": "c0e5b1e8fac1c68f7c1fede3475b16a0764f936831a39ed772e67e371d03df7a",
+      "columns": [
+        {
+          "source_ordinal": 0,
+          "column_key": "78569b823d660e163b5c4c7efe1fdafab1b5c79fcfebfb4ad83469c4c6c6b6ae",
+          "pg_type": "bigint",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 1,
+          "column_key": "d68b3369c74c7c103c7ac23c627ec3433e60dbc564476064b8b01cb8e2c7ae69",
+          "pg_type": "bigint",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 2,
+          "column_key": "15787df752c158adb664494352a824437a924318018ab4cad73ecedf20aec5d2",
+          "pg_type": "bigint",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 3,
+          "column_key": "161ab63317a0441e9ff6385fac13360a97db23d41a5050ccc585cda4df33302a",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 4,
+          "column_key": "3c1cc7e93c41c440230143f8bf579e2269f205494f59a9545fb1befed07d3c09",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 5,
+          "column_key": "de528957575d7330eab773d2eaf21de1aa147a4e3d14e4531eca6d4e2085a80e",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 6,
+          "column_key": "af7d14d36de5c60db4bf3720a500b80fb07fd841ec36d00ac55cb542a7b613cb",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 7,
+          "column_key": "ac5fa9faab7af4a40dee0a622ff2fd2752ca7b3d49f1405ee4846eeb9dd26b52",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 8,
+          "column_key": "9a725a968393115639db012645f8b25b4d2e4c7f16d2c07f48453b968fe6b8d9",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 9,
+          "column_key": "ef55cd1096f16d48e53a3136005945b8dd6a022812c401a9d44957f37a4df9db",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 10,
+          "column_key": "a3ffefec9997dd8387409553b9f140a2af3b9ba1bf3f218907574347cc11178a",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 11,
+          "column_key": "b715a77a25da4c0890417038f362b01551f45b75dfe5e91b6b6363b1dc140f6e",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 12,
+          "column_key": "98b7402df67d1df816b185ef31d7e6810ea77cc16e17cb0c016c82ebf4dc11f8",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 13,
+          "column_key": "3d7573d97c5e416ebb40f1db7b7536eb6a956efa4f90bc7f99a2831659de7ab7",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 14,
+          "column_key": "08b65c2be2be13fba23100eb59736af353e5a967c69b2017cb80a8eb54721f69",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 15,
+          "column_key": "19e91fb9010a7afec0519e427c7d9d8e79de2e0961869af607763fe620a9373d",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 16,
+          "column_key": "56a646bb92b625a9244dd3d0609d26bc9b1e4463db9928dba79d3e123eef0188",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 17,
+          "column_key": "d7691382032a5577dac72a795e077a653d128f7a1721b6136c93fd4e593b019d",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 18,
+          "column_key": "6f4f447f2ac21a7f4979e77ff60892c5ea2bf29f22ea9b1609a7d0ea0e48c9e1",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 19,
+          "column_key": "37dec97eed7a133b7d592c413250c4f70dcf1caf98a2149b1f576c5d38fb5eda",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 20,
+          "column_key": "1bd75305e1c8d11f0195c0c9b0ae6355c7aeb078168de178a095017a348018fc",
+          "pg_type": "text",
+          "allow_null_value": true
+        }
+      ]
+    },
+    {
+      "source_object_id": "deb45ec83a7457d1fb73ecb5360c3d074dd8b67bb6f0ccf3e65aebc27c9e3422",
+      "source_object_name": "EVENT_CODES",
+      "observed_count_reference": 117,
+      "expected_count": null,
+      "expected_sha256": null,
+      "schema_hash": "966796860f9d5257dc37f5d2c8e46ce93b185174aa87f3869ef941fb34e5693a",
+      "columns": [
+        {
+          "source_ordinal": 0,
+          "column_key": "6791c15d9e7c4a24ea81f5d2bc87f9a094879d357335bf71e5f07fb6b5d1b0c8",
+          "pg_type": "bigint",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 1,
+          "column_key": "efc12a603f16403b993635dca52abdd71bacfcd45e0dd235def85d40670ecd85",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 2,
+          "column_key": "9d3c5d34a782d304c5c379eb05bd7c9390c9c1a4099ecf1a4671d217d484cd67",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 3,
+          "column_key": "df29ab68e794fef417ee63a0ac8221e9fb10c641574e7b74ddf2675182c08002",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 4,
+          "column_key": "ee34ef79f9c51c3df311b15024eed2de74bf8eaf1ce93699a2bf505744123a83",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 5,
+          "column_key": "802aef5f34023e079d31ea039051a13dbc59175ca59fabc59ae98e36c29185ba",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 6,
+          "column_key": "6f8b9b35997b26e42e2e8c3bff75e33925e16989fa77245687577f5435164a93",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 7,
+          "column_key": "ae2fe654ade649e10af65edc26f6224b28a7954d28ac604b8b1a0b19e9257491",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 8,
+          "column_key": "3cf26ed021f64e63e5613b2ab17e03cd456ccf5ebcbfa0363871eb63337838f5",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 9,
+          "column_key": "2bb7114a3b1e48b4a2f8cf0085df8bd086932a53201460ca6aa85ea13a0678f8",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 10,
+          "column_key": "51dcb9ffd3c29332522c33f951cea29acc8c3006971abed156343a02f94d8779",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 11,
+          "column_key": "b4aecee2927f9169870dc27fd85d2db00368f3e21935a408d2119089c81652a3",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 12,
+          "column_key": "bc4485111a79c3d0a532e3e69ae25affc1bc13db8dc40d046ef6835335237e5b",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 13,
+          "column_key": "b2abe49c14a95f409696223885fbe187b679e9bcdde0e4299eeb66b1ec01408b",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 14,
+          "column_key": "f96d92896e005cad4001feb0230b75a62954e28f1f01d6fc2892c7dfe3848b4a",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 15,
+          "column_key": "6bb7ba15eb9e180fc89a975a8bb65ee5743ec21d768a1b566deb86d3aa9d4037",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 16,
+          "column_key": "a006b4fa20992c43ab41f29e0da3eca4912642f15c0e25c4a1d368e0d64de40e",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 17,
+          "column_key": "f4a4872794c53c7f3efe7b699844cf275bfcf82e14d64b0f8bc6985ebd2b9948",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 18,
+          "column_key": "074e361c13b1942b9721efc752acffaa5f50ac96f60ab7be9a054b6e7588516f",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 19,
+          "column_key": "9489c7f188df555debd8859212d4245389180f5311134f73dd4de8c1280e6613",
+          "pg_type": "text",
+          "allow_null_value": true
+        }
+      ]
+    },
+    {
+      "source_object_id": "ebce79fe8145e934d20293c6630b28fd70a80309e3ced5c6ffd27a272f82a2a8",
+      "source_object_name": "EXTANT_CODES",
+      "observed_count_reference": 4,
+      "expected_count": null,
+      "expected_sha256": null,
+      "schema_hash": "2fcc4fb77e06efc931f658879333b689da28d666c5a913c512fd50dadd2a28cd",
+      "columns": [
+        {
+          "source_ordinal": 0,
+          "column_key": "f566bec9bf38429108141ba661ad167d9de262c3854cfed476552dc409ba044e",
+          "pg_type": "bigint",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 1,
+          "column_key": "d5285294c4340fee1658988f3bcfd49a311a00af4fa6a49a6b5a881be04c208f",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 2,
+          "column_key": "8af4607b6ae89c439a249e2567930cbb6bb589547a0b10baf9ba1ba3d63ef148",
+          "pg_type": "text",
+          "allow_null_value": true
+        }
+      ]
+    },
+    {
+      "source_object_id": "3c653cd8f875d54ccd18cb919f44813069928af9edf275adb0124da981da422c",
+      "source_object_name": "GANZHI_CODES",
+      "observed_count_reference": 61,
+      "expected_count": null,
+      "expected_sha256": null,
+      "schema_hash": "eb88d1d1c541222f3650522a1336c85b5f2ccd6737f759e39cee1f4feb6e099a",
+      "columns": [
+        {
+          "source_ordinal": 0,
+          "column_key": "01bbad8f6cad5f4099085f27eb81371d2e754784acbd52853ae41fb54b46766d",
+          "pg_type": "bigint",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 1,
+          "column_key": "bd103b5a0994f2c61831a57b5002ad1702915edfc64fa765346654e90db243ff",
+          "pg_type": "text",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 2,
+          "column_key": "3d67c66ec4d5f01473fa114c3e1852fc879e8775039eee49a279d0c35514695e",
+          "pg_type": "text",
+          "allow_null_value": false
+        }
+      ]
+    },
+    {
+      "source_object_id": "8307b9b76e08df4a8297bc4bcf12ca005aa49d938d2d1a9cfc56b10a434ebaf8",
+      "source_object_name": "HOUSEHOLD_STATUS_CODES",
+      "observed_count_reference": 34,
+      "expected_count": null,
+      "expected_sha256": null,
+      "schema_hash": "3392ef99c8e2c776156b2b383d8575fa0d907869dcbc8f7adc1f7ac5db756e69",
+      "columns": [
+        {
+          "source_ordinal": 0,
+          "column_key": "c768bdd5b68e625bb008462cc78989d28d0f067197e852497b1b9d18dfb7de44",
+          "pg_type": "bigint",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 1,
+          "column_key": "561a381f10bdb9ae4e56a74c718fb4acad7b5652c4dce8d63a95dab7f34e7df2",
+          "pg_type": "text",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 2,
+          "column_key": "9199e76aa4de59bddbf53930b51d19f02b9231276d70ac77e2f69735bbafa4b2",
+          "pg_type": "text",
+          "allow_null_value": false
+        }
+      ]
+    },
+    {
+      "source_object_id": "6dd1f9500359bd800bb64ff159be5d2d6574b2afc48fbcb3898d308ec7d4efe5",
+      "source_object_name": "INDEXYEAR_TYPE_CODES",
+      "observed_count_reference": 31,
+      "expected_count": null,
+      "expected_sha256": null,
+      "schema_hash": "db63e48cf3108d989a5b1432b5f64de508e3b9e6b081d899700755cd8e60a26c",
+      "columns": [
+        {
+          "source_ordinal": 0,
+          "column_key": "0059bf54609ceec5e0b89a883341ec7deb4b0d7a6875307f370cb85242abb70b",
+          "pg_type": "text",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 1,
+          "column_key": "b63cde17592893a82c1f8275d37d8989abfcb09e091ba41bebee6b875aedfc43",
+          "pg_type": "text",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 2,
+          "column_key": "5f0cd12da002c3c724350cf385f03019bcf2a4ec53d41e83090c305db1a0ef3c",
+          "pg_type": "text",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 3,
+          "column_key": "b1b63f244aed695893e68f6c5b35d1c62c1ac3e7e423b2cc40a48957ffd06896",
+          "pg_type": "text",
+          "allow_null_value": true
+        }
+      ]
+    },
+    {
+      "source_object_id": "524dbf4e7d56e4a48aebbaea14e06064300e622cbc10bb18622a16558cd0f224",
+      "source_object_name": "KINREL_REDUCTION",
+      "observed_count_reference": 8,
+      "expected_count": null,
+      "expected_sha256": null,
+      "schema_hash": "19114ca4a44f776fd7fec14ddf6f19e235257dab8d2f2f17834340ce4d63cb36",
+      "columns": [
+        {
+          "source_ordinal": 0,
+          "column_key": "9a76c82a0da6555c27963d87352c23875ad20042ba54e4d564ca687ccffcca70",
+          "pg_type": "text",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 1,
+          "column_key": "7ee83c9301eda586f4665175b4ce911df0199100effa652b789e7bc6b6ea3983",
+          "pg_type": "text",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 2,
+          "column_key": "a45538125880d9a829311fc3874736692279e57fbc321be436c8f33f588bacaf",
+          "pg_type": "text",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 3,
+          "column_key": "f8cf7dac8451ca3c45ca421849d8900412acd31a02b1addf9a4f7a1b087e39fb",
+          "pg_type": "bigint",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 4,
+          "column_key": "ba6d1ed4ddb8a0948740c9ade12fc38de9c943835f47d3faca24734f3bb5d43a",
+          "pg_type": "bigint",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 5,
+          "column_key": "65bc0d536f77e2b95c696e30b7e5a0cbe099c9e76af61cc6ac51322a08a61160",
+          "pg_type": "bigint",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 6,
+          "column_key": "059cd6fec69aa8db62d20d5e876ba686f8202e69a66273dfebbc6fa9ad90da25",
+          "pg_type": "bigint",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 7,
+          "column_key": "c0829e68ad6fa7251527c3edf5ee7075fcd607731a6f0b8756fd2ccd4fa9a759",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 8,
+          "column_key": "3aa270244837724c8424e8a5d4a4f3984cc6a6fa92c4ea99f5ae69d64d7a6d24",
+          "pg_type": "bigint",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 9,
+          "column_key": "8b31403211f32ade7d49110d1fdb35dbbd6f50a5b2aec0ebcc57df39bf3f4b03",
+          "pg_type": "bigint",
+          "allow_null_value": false
+        }
+      ]
+    },
+    {
+      "source_object_id": "4e94c4869640cc48f886a7910ff2d009d9b78b3a83109ee314a86d298a3e0135",
+      "source_object_name": "KINSHIP_CODES",
+      "observed_count_reference": 488,
+      "expected_count": null,
+      "expected_sha256": null,
+      "schema_hash": "bb805c2390dccbf2117b4b84daccbc4b819eaa47029249ab306c2f109a72b17b",
+      "columns": [
+        {
+          "source_ordinal": 0,
+          "column_key": "f47beefa57ea7e3c0d0cb0bf1b3d01e9579f199efebbb68e07943aa7b800abe5",
+          "pg_type": "bigint",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 1,
+          "column_key": "fffd0b348a8f73955c84562e8f498beb3428444fa8116fa8f10905ac56a83343",
+          "pg_type": "bigint",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 2,
+          "column_key": "7970214bc9b9bd47cdf3652980cf1ed5557110433b1cc61b5925dfa25ec04a67",
+          "pg_type": "bigint",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 3,
+          "column_key": "fc0e40f4ab3970bd9b6249dad5adc7e7cb030493322447add878e3daaca2a702",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 4,
+          "column_key": "f7ff41b7457bca60bff03b47e2a2b82c874fc698cd17b33e5d030b6f22448199",
+          "pg_type": "text",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 5,
+          "column_key": "645166be06e00e1bff7275a26639cb5a0faafa62240e59c09e642268be41f761",
+          "pg_type": "text",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 6,
+          "column_key": "8538fd1cade98daf179d22a88468ccb4492b833e2b4623cd68796846e532210f",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 7,
+          "column_key": "41f2ca927c9dd48ba7ab1ad1745553005ab135ff9d4f4ab2a511edec6d77bd63",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 8,
+          "column_key": "7fab456e9ebb2c3246a716f22156eb76e0a05b39bc78f67c9a7c24ef80deea9b",
+          "pg_type": "bigint",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 9,
+          "column_key": "7f8de30db973a6e2691483a154bc7ba92e887211b09d55ea17ac0c201358fd1d",
+          "pg_type": "bigint",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 10,
+          "column_key": "8c05fa8df241a1058f3b7d2b10b2a3c8b0398e164638b143b567785ca351ade2",
+          "pg_type": "bigint",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 11,
+          "column_key": "05f54ae46ff335ce3d5d8f6bd274cdfb2edfbba01645f3d0e784a886c76298be",
+          "pg_type": "bigint",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 12,
+          "column_key": "f7eeccf701df451da5d31bf5413d36e2984f032d1a2620e056a20bfc7ad43f47",
+          "pg_type": "text",
+          "allow_null_value": false
+        }
+      ]
+    },
+    {
+      "source_object_id": "56cd86e4ef958052889ac741c698a33bf0c4dde78807a1152ad4c1a278a0b04f",
+      "source_object_name": "KIN_DATA",
+      "observed_count_reference": 562711,
+      "expected_count": null,
+      "expected_sha256": null,
+      "schema_hash": "d948e25a64d8d213f2f3009d1d67828989effd79e81fa8aa314ff30c20e5b5f6",
+      "columns": [
+        {
+          "source_ordinal": 0,
+          "column_key": "95599748c2b57974f96627db76f7390d707e8e868dd8148e2f92e3e73cb03d51",
+          "pg_type": "bigint",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 1,
+          "column_key": "bd690cd958f3014b0e40e6f55ea1b5370037f4c5c50c5a3b5c1cdb0be54aa047",
+          "pg_type": "bigint",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 2,
+          "column_key": "df445bc517d6e731848b491ff3d849512d0b30cf817f0e36698c7f3594f43435",
+          "pg_type": "bigint",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 3,
+          "column_key": "bb059076bccb380779f72f87d84b7c8c69d43cbdbb4a4b3f6164257c215910e6",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 4,
+          "column_key": "136626f65ff06dff72ad17267763d653e1921d050f7fb27e88775d22bbd5fb54",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 5,
+          "column_key": "c1584396fa56932d194918f20c601fa1e392b1bdc1dc4a84c0cf73c4f50cfc08",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 6,
+          "column_key": "f24c2021e2dcb21c265613a32216fca2b55bb2598e72bfb227bbcb948cbd2d51",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 7,
+          "column_key": "6bfb5bfa34dce2b4aedea96399593f499ad055fb25b6ee794526141ecce60e58",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 8,
+          "column_key": "223908ddb08c82a0bf9b9dfc0edb47cd4124949b057aefcbc0eb6e9494689cec",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 9,
+          "column_key": "6998c2bd2b525975482fce824b8ae030a7c37fcb92fbf435ca4ea0855010acb0",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 10,
+          "column_key": "ec53d45ffdb03f70505bdcf622295ddd9a78fe7f4197fb98effe372a230314e7",
+          "pg_type": "text",
+          "allow_null_value": true
+        }
+      ]
+    },
+    {
+      "source_object_id": "8d73c3fe57dad47ceb8193efb1b96bcace81e78b073a82f568e1b557bbf47ade",
+      "source_object_name": "KIN_MOURNING",
+      "observed_count_reference": 159,
+      "expected_count": null,
+      "expected_sha256": null,
+      "schema_hash": "1e65d995bbf1bb82654cfdf535860d5bfc80a9c2a055f65e3ac171e41d2bbb63",
+      "columns": [
+        {
+          "source_ordinal": 0,
+          "column_key": "de6c4398085afb8680fd9d6a584c0118c1e71edb07be6f414bbba31404bc5f55",
+          "pg_type": "text",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 1,
+          "column_key": "502ae757046fd7a2645595ee2f629b4498b803eaf5b4ca4c4f9ea308e5472123",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 2,
+          "column_key": "6f0c909b5a1298dc23baa41acf459c234cdc75488d634bb3bec8866551f06a17",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 3,
+          "column_key": "7e887a70f67728dee10ba95477018c8b226b2d3c728e77350e36dc1562ed648d",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 4,
+          "column_key": "2d93f5896cbecd81d1e833dab80a8fe265a3c97fa22e53b73433ac7ae5a4ac64",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 5,
+          "column_key": "7e6e9e836d9e16067d88646cf2ed37a559b8793b39a6c20ae4e4a8a89db2efc2",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 6,
+          "column_key": "bf343098ac2a9b527dd93a406a2b56b51de08542ec3da1f75456710907a99635",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 7,
+          "column_key": "74290a85a69f715601723ca4fc38863810fd4e623f39c53d3e546e4a28c6190e",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 8,
+          "column_key": "f0838677fe7e5b3acc6d908565b2c27a85fcf40e9cc59ca12fbe3d45312e039d",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 9,
+          "column_key": "2d95afbaa5555a4b4bfdbf5c2edd652a66040088cd9153bdebe413d090357fd9",
+          "pg_type": "text",
+          "allow_null_value": true
+        }
+      ]
+    },
+    {
+      "source_object_id": "165d50c9190d1961aacb099d2fd14aaec27d756db11383f26138939106778656",
+      "source_object_name": "KIN_MOURNING_STEPS",
+      "observed_count_reference": 159,
+      "expected_count": null,
+      "expected_sha256": null,
+      "schema_hash": "464c354a58ed34c674f5be9e77bab40053571141dca1027ec0b186e79aa51153",
+      "columns": [
+        {
+          "source_ordinal": 0,
+          "column_key": "c353adda46aac49d0e678112c55778f779a4c14a21734a265646a0dc7b8df1cc",
+          "pg_type": "text",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 1,
+          "column_key": "7124080ea49eeb05c005f73280f9c7631098a5f3bd7a26c1f4e52816af6aa3e7",
+          "pg_type": "bigint",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 2,
+          "column_key": "74d8ac311aa426baf23381747b25e82a1b97a727497ebb56fbe3a748ea27eed1",
+          "pg_type": "bigint",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 3,
+          "column_key": "40be49e3f91c15b6562d28d64a15078e2c41f542c0f4a8a4abf6f4a8ed0eb9c4",
+          "pg_type": "bigint",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 4,
+          "column_key": "d71b3fcd0fb7b318a0c18f25853ea85af4f909632ab323052e3837e904f38933",
+          "pg_type": "bigint",
+          "allow_null_value": false
+        }
+      ]
+    },
+    {
+      "source_object_id": "ec4b13bec95588941bf655bd939790aca5076a7f80f8cb3fcf9d2a78b3dc1944",
+      "source_object_name": "LITERARYGENRE_CODES",
+      "observed_count_reference": 12,
+      "expected_count": null,
+      "expected_sha256": null,
+      "schema_hash": "4f04ebcbf24ad3b5095e48287f9a569af574b937334f066a11476702ff91e06d",
+      "columns": [
+        {
+          "source_ordinal": 0,
+          "column_key": "88c7656b3e29f19583cda0d40115f05199312c7c47b68d1eb4226f347723313e",
+          "pg_type": "bigint",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 1,
+          "column_key": "db5bff2aca7226058371adc6c5ea682f566950489a7ca9763588d003e22b44aa",
+          "pg_type": "text",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 2,
+          "column_key": "69e1f44649c7c9db5ea0c4da82c55cc8dbb30c4f22e3fcc911c49c98ef38f3ec",
+          "pg_type": "text",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 3,
+          "column_key": "be4d2f3345c95268327a93a3478658da8c04283ba7b10654a000a3b88b3ab467",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        }
+      ]
+    },
+    {
+      "source_object_id": "5e75780c8b40bc4e4d97335d98b4a1a30b8894ae0997a811153f7371f2341f6d",
+      "source_object_name": "MEASURE_CODES",
+      "observed_count_reference": 7,
+      "expected_count": null,
+      "expected_sha256": null,
+      "schema_hash": "2c820f7872228c8dd48942a0a16c8a754ba5c67ecf1d7621c6b2f0cfaaa2ec81",
+      "columns": [
+        {
+          "source_ordinal": 0,
+          "column_key": "1e2987720520a879276fd02215fb69bc8e15ffc081fef973a8ca1b7ca80916aa",
+          "pg_type": "bigint",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 1,
+          "column_key": "148e3f355bd63205276aad8751873c5ec7348dae8233b8e8c9bd27230888a9ac",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 2,
+          "column_key": "7a007874268c7f5e18a0d2d75ebbade790a1bd23fd48e26cd818a6203a9b4159",
+          "pg_type": "text",
+          "allow_null_value": true
+        }
+      ]
+    },
+    {
+      "source_object_id": "6cd1e1ed453fc7e99dcea7208b5b0b2e9a6c694602bf628160c7593de47c5fbe",
+      "source_object_name": "MERGED_PERSON_DATA",
+      "observed_count_reference": 5994,
+      "expected_count": null,
+      "expected_sha256": null,
+      "schema_hash": "50548185f98d33eb697b697011c0477d703740d0ba639b3f3ab72053dbb3727b",
+      "columns": [
+        {
+          "source_ordinal": 0,
+          "column_key": "a9b9cd8e3da5a091f3c49375bb2a90d0a8ca62c983fe57cdee344ec87fd2a37d",
+          "pg_type": "bigint",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 1,
+          "column_key": "d5f1559f259bc884699643c13f36cba44712423ce9676c2f677218f659a130ec",
+          "pg_type": "bigint",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 2,
+          "column_key": "93f9c5fc3ef0a854b9afda19f8b71233e2fe0eeabf4b4e740f565dad3c23076e",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 3,
+          "column_key": "41a601d86b36d40791a33346cd97be7ed4492417c23f2aa4cb5fc18d36118899",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 4,
+          "column_key": "306cb75338c3bee7b162e5a06859dd5ee6bfde3d1d5d1e2e13bce3a1f98bcf74",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 5,
+          "column_key": "1a552053ac02e0a3c9b4b04138441310a66781d10ee00a1a3f49ac1b96f74e29",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 6,
+          "column_key": "ec2621fc6034f4672e788564830d123e2bedbdf1d45268731e6664fa27c7dcf8",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 7,
+          "column_key": "1c4a72953770056e156502767139a2dbfc244a55a057ed115bbde0167242c67f",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 8,
+          "column_key": "26212a91aaa233d1637353ff428d32475549b5ba3a020cca5f46484e86105d56",
+          "pg_type": "text",
+          "allow_null_value": true
+        }
+      ]
+    },
+    {
+      "source_object_id": "aed74d8d91b3062d97b8eb96334671851c67217f15c1b083edd15524d7ea5f84",
+      "source_object_name": "NIAN_HAO",
+      "observed_count_reference": 682,
+      "expected_count": null,
+      "expected_sha256": null,
+      "schema_hash": "1e52f79f7a3d72abad3e4874518fe51b5ef408aa955213900a4c4457c81402ff",
+      "columns": [
+        {
+          "source_ordinal": 0,
+          "column_key": "2be471d1efc816b10af1e15c96892226796fc6429f1ae8355c77deaa77e51f94",
+          "pg_type": "bigint",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 1,
+          "column_key": "3b8fdf26512d409ff28d4e8b5be781470ca5bae0875ba610418997bd8413f56d",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 2,
+          "column_key": "a4a1f7054f9f3480240034cf8e576d5efc5a997e15257fabe9881fc02e2702b0",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 3,
+          "column_key": "f0b8f908ebd3da914be0fd8a4cc4c018a1de8652f9378af6d7f09569beb73010",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 4,
+          "column_key": "1d7b1f997ef213755a98bb9cf86045013296a33d64a9aef6df8321a13aceedb3",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 5,
+          "column_key": "47354b0fb149962d690987ad098ddf72f8919a0a3c71d5bef842aa557334917d",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 6,
+          "column_key": "f4722389e0fbf014c21b940beb07b2db580273f9d4244169ec6d835b29055481",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        }
+      ]
+    },
+    {
+      "source_object_id": "5116056028433dab739df26d91d1f327c2186409fb3f418ae5f32e0cbd4a6095",
+      "source_object_name": "OCCASION_CODES",
+      "observed_count_reference": 10,
+      "expected_count": null,
+      "expected_sha256": null,
+      "schema_hash": "0c992c967423acf22dde76a1a2f687d4dd59edef0e76664b79950dd3e1c03a68",
+      "columns": [
+        {
+          "source_ordinal": 0,
+          "column_key": "0ce81176cf03a315255cb6952b55bfd7950ab3023c860f56d4244144bfb98b88",
+          "pg_type": "bigint",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 1,
+          "column_key": "8f4a8fb53e5ab54591559c8c858761aaa43cfffdc7042f4b009556bd85c7ca61",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 2,
+          "column_key": "77b9a1ce76f0db6c6b10e31c1535ff6e98dbaad3073b167643218994f936e99b",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 3,
+          "column_key": "1ca8c048937317f532bc99bd8e3d08aa0ab8e00a052d427ecbc25e8e0deea8ef",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        }
+      ]
+    },
+    {
+      "source_object_id": "2ee64cd64a319a58bac9ac32d21e411c093ccb4de65c3c9c72992f278d296fc0",
+      "source_object_name": "OFFICE_CATEGORIES",
+      "observed_count_reference": 15,
+      "expected_count": null,
+      "expected_sha256": null,
+      "schema_hash": "e21d4687d5e4a8308be4f9a71a12886d92b6bba343814f2320c75b833cc05ce8",
+      "columns": [
+        {
+          "source_ordinal": 0,
+          "column_key": "c39f7814075e7edafb6042d97a394d9ed3840cb983bb57c0efdc807a5f9825c2",
+          "pg_type": "bigint",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 1,
+          "column_key": "6d3b560871db0b0a8916c0368860471e7844f1b6abf86974430f26e255f7b9f3",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 2,
+          "column_key": "82bba6d5293cc7e351a6d7eeca308ecd5c017e5a6cf15ca12aee5231ba88e3ab",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 3,
+          "column_key": "d8185ec21580136b61832eed39de833653392d3611bd2c6458263078e5841670",
+          "pg_type": "text",
+          "allow_null_value": true
+        }
+      ]
+    },
+    {
+      "source_object_id": "d01c8719c90d340e418b405b057f160eabfa2989f21fb23e32447433c0ba814e",
+      "source_object_name": "OFFICE_CODES",
+      "observed_count_reference": 34162,
+      "expected_count": null,
+      "expected_sha256": null,
+      "schema_hash": "70109e7ed049323c88a5bd25cd62d8380ed70f9258b52873413f21118e5fe1d4",
+      "columns": [
+        {
+          "source_ordinal": 0,
+          "column_key": "ceb7eb121cc06b79e28fb17504a8b04e1aad4847423a152bb4ca2d8e157d42ed",
+          "pg_type": "bigint",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 1,
+          "column_key": "c424cc648900e81b55632367ec5f71bd2159177ad6affa3170a41d6a29f3f92f",
+          "pg_type": "bigint",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 2,
+          "column_key": "a6cf98c487ea0f72e6a1dc081882fa1a1a08bc471d59b8114bd727d4f7220fb1",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 3,
+          "column_key": "132ad0592422832b6de3eff60f9692d4e7ab76e8f424e7e4d0dc6c0e9f42b059",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 4,
+          "column_key": "9eed9baaaa7771d00c6dc6b58f33852da9f9c2da9b73d34d0a4b00bab2745243",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 5,
+          "column_key": "5c3fada831c51946df9b7b68fa67b4966c19b7884f085ae7580499ae8d8e2778",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 6,
+          "column_key": "f4e084ac2297a488becedca9c3e69c66d30a5d851007c09039f222fd9b9fe237",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 7,
+          "column_key": "b490b6215b32a894d5924252c4ebbaf7a4713ce869be3a53d0ea4bf302aa997c",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 8,
+          "column_key": "31a40819a6b80e5d06c516cf1fcf7bd7e9dde4be59ab89b97d0787cb54235b4b",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 9,
+          "column_key": "f51cfe90cc9d4b119ed57c6fc4939a40f52b13e75cb83a7171098b7bcc531ac6",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 10,
+          "column_key": "ace9891a22a2305d0e56387af515a6e231eb01fbb597d1e5421d5d2340aca177",
+          "pg_type": "text",
+          "allow_null_value": true
+        }
+      ]
+    },
+    {
+      "source_object_id": "d600c60c4c5c25b870e0728fdb7286985c4e56e183be7c019e04b9de3e67b7f6",
+      "source_object_name": "OFFICE_CODE_TYPE_REL",
+      "observed_count_reference": 43783,
+      "expected_count": null,
+      "expected_sha256": null,
+      "schema_hash": "b5005fad5a46e57b1f60846e82f7df4c532dcd48089714df18e58163df549639",
+      "columns": [
+        {
+          "source_ordinal": 0,
+          "column_key": "19e0a60117c48a6410cc059fc580ee488d4d4593fc078057bd70ef47fde1e10f",
+          "pg_type": "bigint",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 1,
+          "column_key": "8cae676a4a95389494c35ca3371689a02c21510403222be92c359fbbd2f74d0b",
+          "pg_type": "text",
+          "allow_null_value": false
+        }
+      ]
+    },
+    {
+      "source_object_id": "69663cb0e800f7ff177b961509f7cda984aee8ee2b9c0465d22d9efcf2c5d535",
+      "source_object_name": "OFFICE_TYPE_TREE",
+      "observed_count_reference": 2742,
+      "expected_count": null,
+      "expected_sha256": null,
+      "schema_hash": "e3f63c12a3a9d713c906bff975020065a123787ef452f4d46b06494b418b0d26",
+      "columns": [
+        {
+          "source_ordinal": 0,
+          "column_key": "1147c3a0ab5b3a13fdb3aa03d16f85612681642fc5edb0fd49c23c51b035b2bf",
+          "pg_type": "text",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 1,
+          "column_key": "39c209ac4184375b7615b80ef0385b2b258338fd32a707abc671ae94eb3e1b19",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 2,
+          "column_key": "9d949635ad03340dae607c313595759066bfdb74db4d84dc3233a31c8e843808",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 3,
+          "column_key": "df1f191bd1572935b3d9341697fc2045b2eb57fb829eaedf25814f763f38f880",
+          "pg_type": "text",
+          "allow_null_value": true
+        }
+      ]
+    },
+    {
+      "source_object_id": "1793896ce9b84d74e986856108e04ca0afb0c185b310638972a864cbb3100a65",
+      "source_object_name": "PARENTAL_STATUS_CODES",
+      "observed_count_reference": 7,
+      "expected_count": null,
+      "expected_sha256": null,
+      "schema_hash": "db79da5c7d3158661dabc481b07bcae1f48b4083468fb1f6d0c8dc661c965e49",
+      "columns": [
+        {
+          "source_ordinal": 0,
+          "column_key": "bc04a946521f002feb4b12421334d57001544fcbf9251e49b4c1c627167230e3",
+          "pg_type": "bigint",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 1,
+          "column_key": "86b87a6f91f173dfb52208cc28b904722c8b0fc22d979935c06b9e29fe1452fb",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 2,
+          "column_key": "2d62fdfc4934dc3e6d636854722af3598b3ef2c0d47046db4d8011d190af4cb6",
+          "pg_type": "text",
+          "allow_null_value": true
+        }
+      ]
+    },
+    {
+      "source_object_id": "1f42c468762af250033a2abfe8fee9c76f7bfa0885d442e91bc0a52a3f4e46cb",
+      "source_object_name": "POSSESSION_ACT_CODES",
+      "observed_count_reference": 4,
+      "expected_count": null,
+      "expected_sha256": null,
+      "schema_hash": "e8059e04deed32718a9031209546a85e8dfa6e5ad870126df6adc4e967134a38",
+      "columns": [
+        {
+          "source_ordinal": 0,
+          "column_key": "cb64cefd4b1dfb509f13594d95c0dbd4e0ac4f6d4a0721999039686a11c24027",
+          "pg_type": "bigint",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 1,
+          "column_key": "f146ee041637fe3584b482b4843a9b0c2b18bd5a494cdf4fe423534a6e6ec287",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 2,
+          "column_key": "321358f91a6472b3d2d1fb5609951e6b837d0c23d204698605bfc03fdb8938c6",
+          "pg_type": "text",
+          "allow_null_value": true
+        }
+      ]
+    },
+    {
+      "source_object_id": "86b87e42c731fc41f46c759bc17caa358cd9c4abff3c8c6f1d6b2a17611bba0c",
+      "source_object_name": "POSSESSION_ADDR",
+      "observed_count_reference": 62,
+      "expected_count": null,
+      "expected_sha256": null,
+      "schema_hash": "540e35b297cf4325f3bab66dfb3c407c51ef8a097b29ab7806cfbbf7de732903",
+      "columns": [
+        {
+          "source_ordinal": 0,
+          "column_key": "5f5bc89ce9af03fbaf1f01c279f5555ecec34ae8b94a7158aed000854c33e3be",
+          "pg_type": "bigint",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 1,
+          "column_key": "3f196ed4383aedc3e37ae0b9948e53c1cccb7d8581ae15a4adee1258b6e2b389",
+          "pg_type": "bigint",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 2,
+          "column_key": "6a9b4a1fe3506c14ce70ef6dafba220592265c483e9abf2429f7c9b110df7d6f",
+          "pg_type": "bigint",
+          "allow_null_value": false
+        }
+      ]
+    },
+    {
+      "source_object_id": "b22b6881828d34c8b2bee96bf57b58b9aefa474221780c4d0bd357ae9fe77f6d",
+      "source_object_name": "POSSESSION_DATA",
+      "observed_count_reference": 60,
+      "expected_count": null,
+      "expected_sha256": null,
+      "schema_hash": "f42eb9e698ce8ff1524c35af71c4b08fea992d5a4133cca9fb016addc3c9535a",
+      "columns": [
+        {
+          "source_ordinal": 0,
+          "column_key": "700aedef3fb11254c6915823cfb831f27628ec083725e4d20979bc27ce4d1024",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 1,
+          "column_key": "8f83c6754342f6ed26133a05aba9ba68dab98348d821a7af64a366032c93ee2d",
+          "pg_type": "bigint",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 2,
+          "column_key": "ea343caaaea3ca014de81309b68e0d27b2c4c1178dc5530e0a56c0ea7c48eb05",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 3,
+          "column_key": "c378c3578000a045f01c04be892617ddf24cc019c5bdaa3a1ca28b2505df56b6",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 4,
+          "column_key": "3d15141ff840ccb940fcc767de82d35ef6d7b0d3c367864fcb9790b7b7be6705",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 5,
+          "column_key": "6c2aa9c3a0858446c43b9b4197f7947a2cec16ca2abde9af9fb229fb5446d126",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 6,
+          "column_key": "68e6f7abc8961ab4218388bf59976e96a8ca7e8dae3981b98ffdfcc7e50a64e3",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 7,
+          "column_key": "539a959f42e9beee98f74764dc3af3c375f14fa933e6fe17cf38d1f17f7d4cc2",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 8,
+          "column_key": "08c56ddba5ca18e3743273916dea7ab88936e60b0965a7fde21d231c5a469532",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 9,
+          "column_key": "8d6dd97789ad403c64878461f6af9ad45dbc6d5a4c6b3eb0253311d34c3abde7",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 10,
+          "column_key": "6ccdd3c7dacb84042e3dbf4e6ca95907eea2e0d70144d0ba1e2b6df3014788b1",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 11,
+          "column_key": "cfbad3b7c5862c58dc3e9618780cb92b5650312acea0a7aa0a059eaedd113f85",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 12,
+          "column_key": "cf55966e0f200a113e621a4c470e7aa8059c835c701d25bf4b4cbf0eb9ecb4ea",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 13,
+          "column_key": "dc578606e4e6aece8a1328351fee598296e90a705fc62d94e7b96bffa4555f8f",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 14,
+          "column_key": "432ca07cd3bb133d9fa7a0e9fbbaec6f4019506d4e79f4e430031777cfb56f38",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 15,
+          "column_key": "ede15ae05953da56afe6805582d80b152121287fc8cae4e840fa29e33b2290c5",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 16,
+          "column_key": "6ab5740393ab8c69cf8853859d131e693e4552133eab8f7497229c14ec74d0f7",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 17,
+          "column_key": "79c4f43970afefcb7f9104134a046504688ec07ec86d66099b5da2f5c1cd5acd",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 18,
+          "column_key": "93217564de5efa9106c9f182f604c2ba0bb0960cb769c2424fc051062f7ec358",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 19,
+          "column_key": "35afa84a82691b6c15160e105dfcd4103d66430a7b1864d0280368574fff73f1",
+          "pg_type": "text",
+          "allow_null_value": true
+        }
+      ]
+    },
+    {
+      "source_object_id": "1650019ee3e5efb5dceeac27e7871317eb61551cfb3e7754be6be36c63bc52ac",
+      "source_object_name": "POSTED_TO_ADDR_DATA",
+      "observed_count_reference": 465284,
+      "expected_count": null,
+      "expected_sha256": null,
+      "schema_hash": "a942064328b43402fcb811a15f8adf24cfbcba2e94b10db203f7b1fa68e0bb08",
+      "columns": [
+        {
+          "source_ordinal": 0,
+          "column_key": "270f5c1d296b058a9c0f7302fd6a759c512a7948c13ad7a3c1c8a32b41babc20",
+          "pg_type": "bigint",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 1,
+          "column_key": "79d6569ce602b1b52fd4703d46f4912f18d185c67a0b5af8fea7c6cc190e708a",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 2,
+          "column_key": "0bab7b42cde363dbb54907b740b48a457398f46d2d60a2e43c535363ade50469",
+          "pg_type": "bigint",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 3,
+          "column_key": "4923cfb04d8e1fe747f27a77621520064a16466a4b8a80225dedac87a75d0bea",
+          "pg_type": "bigint",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 4,
+          "column_key": "508b72ab1ad766f616522767e7b82eb0619c5cd6dc1dc95cac60977f618f8bc6",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 5,
+          "column_key": "6688ae8629e5b8aa1184248e92727ee7ab1e5a5ea73e673e16482722df4fb2b0",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 6,
+          "column_key": "4ccc239cb2f7f3960768da29ad7c9e0f49dc19b8ca11e7a63402b9ed78ef28ad",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 7,
+          "column_key": "b885934cc48e8fb7e011c17a261b8329e15c3bcecfa43e5a059c2bb9f542b02a",
+          "pg_type": "text",
+          "allow_null_value": true
+        }
+      ]
+    },
+    {
+      "source_object_id": "27f8d929c040b31de5c63f1da525a72014790f0929c8715849797771cbe0dace",
+      "source_object_name": "POSTED_TO_OFFICE_DATA",
+      "observed_count_reference": 591518,
+      "expected_count": null,
+      "expected_sha256": null,
+      "schema_hash": "fbf2241850afb6f484c6f4b1af4faf4d7fc3b73e91b5944430cc1b4f0a3df2b4",
+      "columns": [
+        {
+          "source_ordinal": 0,
+          "column_key": "e85784c9d97b39b4f1552ae25efad7375bea3e6e42baba1c9a2801d0b2d3a8cc",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 1,
+          "column_key": "dad934eb5e0226a973548e67042118e55a88f305289c40fe8d9738ef86407f90",
+          "pg_type": "bigint",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 2,
+          "column_key": "4d8631bfff8e36e314d013b43cd804b6cbd169f0cdfb7450acce75c7c37535bd",
+          "pg_type": "bigint",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 3,
+          "column_key": "ba6cfec9fa21c6f1292a20c9e8b5cfd2b76b9f8c2c2545c21fc6c4df396ffc7f",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 4,
+          "column_key": "17b367b73ddb149b96c4d2023ae2683e875fb2133faac29ca51b74fce8554da3",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 5,
+          "column_key": "8102a20c2aa76f30a81d8724316d4aa5047e5369b9c43c2c3ed3369669f0cf6e",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 6,
+          "column_key": "f34e1d51e565b145298ac20d73ea5eb5a1ffaccb6138aa24605d458a194b4b6a",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 7,
+          "column_key": "489593c0002dfcead8c6739ad5e3667f3dbd0f2abd17b5563df9e1e5687bfceb",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 8,
+          "column_key": "aca4c3d79b49489a38dfd915b8418727caa39d46be2f7de7fdf3fcf572d1c833",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 9,
+          "column_key": "02654e7c2848409520f004e1e855366609db04e1f82727ade5b9bcb06490a01d",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 10,
+          "column_key": "9f7c7ba398a657afdd3f6fb8c9d7e69e43042e73e528d403eea08de673a912b4",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 11,
+          "column_key": "92daccf4d7e20aaf2ef9651b0a05c980e805726280939d74daf1dfeba764be0c",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 12,
+          "column_key": "bcec491e7ca10a717a0977bc18ae2123aca4235ea306ce0455cc1e9cd153900f",
+          "pg_type": "bigint",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 13,
+          "column_key": "213fc547ee2c784fcb47d1df042134be657c15d3a61f12025e011253f70a8a6c",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 14,
+          "column_key": "26a09d37092c22f784165affb37452634f0a026974a9aadb4ead45b3ee4d5b79",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 15,
+          "column_key": "e17f15af7c7fef44ea869af882404a4a7ef4e541ee408af41301ad6cb34848ad",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 16,
+          "column_key": "6aa08a4c62f12488804c4bb4f4985fd3ad5cd4127a2a0063067852922094bb1f",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 17,
+          "column_key": "953b67144f9a3cbd2cca0e3c678c67095e461e3cef9298722c7bceb83240e518",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 18,
+          "column_key": "b0e6fe343895dd067ba128b05d072f8ac1ef6db624abf5f294c1bcc12ab2ae58",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 19,
+          "column_key": "9552dbe770b14f16a6fcd595954040e3e15a414243b7079cd5f957726e7e9013",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 20,
+          "column_key": "55a6cd26aad2e66dea6a5b8ad500ec88f5071dabc6b1595643963d454d7cb5f0",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 21,
+          "column_key": "f335be4063c7569b21c563f08a15552e4f5f094bab9ada444036c444883620e5",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 22,
+          "column_key": "41e5e2f9f667800d9afbe6661c7c39e7303595f147c07311687a513712ffdced",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 23,
+          "column_key": "0fdc6dba0b4b8ce118001cafe4db498a22cb48cfa5e2dc81c7b1594147b38f09",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 24,
+          "column_key": "e7df0861155f7531ca238ae5f0e5d7dc94b0b0915e4c967eac106379dd63c1a1",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 25,
+          "column_key": "db1a7651f44fece4eb50f112e69f480ce1ac551e3f1651270752923312bf3b40",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 26,
+          "column_key": "cc2ee57e576520b3c4af05f00098cc9a8e81241f84987a9115a2b96c2bc79561",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 27,
+          "column_key": "717f72d9a67f4d86beb6a1ea94ead759ae75cb759e7eb75c131f732cd5c44967",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 28,
+          "column_key": "4de9544bc4b6aee4b5ba586c563796292b4b9dbf4952a0920ae324fd95fa6d32",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 29,
+          "column_key": "d8cfbda1dfacfb5a0bf3689bbdef0dbc931bf6b7f04325e18e8fef03ce883818",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 30,
+          "column_key": "1bdd97f0c2a3ba5da8da680e711069b77cf90d202b1d461ebcb251fbf2716c0d",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 31,
+          "column_key": "ef2b86436f5322e949d12e868fbb22ecb10513dd67d265712a76c5ef3fa4250f",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 32,
+          "column_key": "b3ec60670c816dd8b9172966cf6f5235fe9571cc62b4cb3abe28ccfff64c27f6",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 33,
+          "column_key": "5429e271327896191e1f951600255948de70cf7b55bfbf32f8a9fa57f6ab3cb9",
+          "pg_type": "text",
+          "allow_null_value": true
+        }
+      ]
+    },
+    {
+      "source_object_id": "290a487ced2fc4fad017eb59c911a10337e12fd81c625f8d69db769c12095b0a",
+      "source_object_name": "POSTING_DATA",
+      "observed_count_reference": 591487,
+      "expected_count": null,
+      "expected_sha256": null,
+      "schema_hash": "2b2b446dd0fab7db63747dc401f4efe4463be236759408d54183cba986797896",
+      "columns": [
+        {
+          "source_ordinal": 0,
+          "column_key": "64a47163688c661c8f73bbb11cd5f12412faba48cad2e8930379927a2761d510",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 1,
+          "column_key": "f2fa93f6d066e7b0aeb35169175f6ee1c96b348ea34b392ecb9a5e6980078da2",
+          "pg_type": "bigint",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 2,
+          "column_key": "9fac4e779b5f18e007a1764d2c8a550acd0c68e21aa6d81523b86b5d9a1b1f1b",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 3,
+          "column_key": "38bedf0e0b22b68d1f468b646ae2fdf7b367932e227b0f14a24b41822b8f6f08",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 4,
+          "column_key": "1f49e00b697c5b1a61aa78867a18e150e13769712143c646bd276415942f225f",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 5,
+          "column_key": "9d8e99ca2f8ece7077db7e83f81f4405fa3dc01e96b5ec14441d8450cc60705d",
+          "pg_type": "text",
+          "allow_null_value": true
+        }
+      ]
+    },
+    {
+      "source_object_id": "7999b3fb3ed23c1cedf8c19c057844595c209f48ac35ff6665ebb368b9820005",
+      "source_object_name": "SCHOLARLYTOPIC_CODES",
+      "observed_count_reference": 32,
+      "expected_count": null,
+      "expected_sha256": null,
+      "schema_hash": "ce43460754fcdd8460be57a47bb7b1ce4379f22cd3f6a6328675c0d9277e819e",
+      "columns": [
+        {
+          "source_ordinal": 0,
+          "column_key": "01140e3f65254fe15fdd284cf5306300e24cf729f6f5ab62320e46b7bdac5f42",
+          "pg_type": "bigint",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 1,
+          "column_key": "796b17ef1944383719da898b51ab360f312ec089e4d10340b3cc7ba7cbaddddb",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 2,
+          "column_key": "0345d6ef64812fbcf5ea434f2faeb439baeab8ca79500493ec2b05b1de58899e",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 3,
+          "column_key": "71b07f47e561c7ad8df13bb8dd46a65e3f7687345ccadd3f043c90511b86f7be",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 4,
+          "column_key": "0f40f553627499d44a8884f957da556bdcf549ce17243fc513b3bf719d74f3d0",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 5,
+          "column_key": "88c0db61bb84c075846f92454cc6fec0c02ccb801b25736b467cbe3d9a58e25f",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 6,
+          "column_key": "a323fff7027dd5ca9fb2a7d9b5edebcb608350ea587db7ad527181ae58e90ec0",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        }
+      ]
+    },
+    {
+      "source_object_id": "3cf1a3286982ab392f3f0bed1a0dcc723f3a04205be610a6ec992ae66047c6cf",
+      "source_object_name": "SOCIAL_INSTITUTION_ADDR",
+      "observed_count_reference": 3859,
+      "expected_count": null,
+      "expected_sha256": null,
+      "schema_hash": "1f88cd8039ae3dbdc411864c52d5bbb1aa5dc20c59ff61dabf8b709f7382d1f9",
+      "columns": [
+        {
+          "source_ordinal": 0,
+          "column_key": "8611be4191be6d740a58c4b6f4f872f30a8b004f8165268e93f5e5b6caca60a2",
+          "pg_type": "bigint",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 1,
+          "column_key": "79ef189ee64657af916fa4c981d5b4a72b63f94ef340001abf60d3c4e0c9e85a",
+          "pg_type": "bigint",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 2,
+          "column_key": "28462a548d0302919350de6d6ae66c2fc9cc71fada7370b192ff41b9ae054da4",
+          "pg_type": "bigint",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 3,
+          "column_key": "429108f89e2ab6226397c5a180af08d03818719779b67ce9629048b326f9b437",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 4,
+          "column_key": "7741dc123614e56255517024d40b5ea82bfe03fb6818aec87f5ffa3b1126259d",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 5,
+          "column_key": "26ec69e6d968ccc07fd1748d14ee5ef0a40a46c63d454d83d570a49d174d8b72",
+          "pg_type": "bigint",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 6,
+          "column_key": "ab37a5d7fefbf1cd7cdb9a514654b7616a6d5e95a48d1c111115b9fb0e4e01ff",
+          "pg_type": "double precision",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 7,
+          "column_key": "1907d925ee8337d710ddd0518c8003d13ad576863c59b1d887c867c5aa1e3721",
+          "pg_type": "double precision",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 8,
+          "column_key": "099afc0e43b932e0d0695599c35c7009f6902c221a6e294589db23621e1b0fe5",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 9,
+          "column_key": "36e66effde25baaa43bdb3ec65be152d8d83ed3f1faf9ae271a57f6bc5ed3f54",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 10,
+          "column_key": "3218e753b0eaff528af25b69b2357cbe401f00b125741e04f88a91b9bae82f00",
+          "pg_type": "text",
+          "allow_null_value": true
+        }
+      ]
+    },
+    {
+      "source_object_id": "5fc052143f65eb17c8dca33d5609cef5d17237a582637c70764dc13522c18f8f",
+      "source_object_name": "SOCIAL_INSTITUTION_ADDR_TYPES",
+      "observed_count_reference": 2,
+      "expected_count": null,
+      "expected_sha256": null,
+      "schema_hash": "4eb718c6e5d298d9d8b0562e99913eefa5da3d419d22b5d35e97204c39c5f054",
+      "columns": [
+        {
+          "source_ordinal": 0,
+          "column_key": "67663b35f8527310e0ec5498fec60b4e123669db7e652757758b6966390fa9b1",
+          "pg_type": "bigint",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 1,
+          "column_key": "b6e4766f3f27e768cd6dae2b1f4dbb19544dd589529a81d653e511a0f5c25fd0",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 2,
+          "column_key": "b4c36f6142b70907d093a22b51843e6030a6f4336df6b8d3793699184d958044",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 3,
+          "column_key": "329dd305aa88bbe932e6595352d086a00f66ac38079d5267060a9393c38b8410",
+          "pg_type": "text",
+          "allow_null_value": true
+        }
+      ]
+    },
+    {
+      "source_object_id": "7d279c532467a3e32cacf0d4a2c7fc513ba73ebc2f35d1d9e192de6b52f10d9d",
+      "source_object_name": "SOCIAL_INSTITUTION_ALTNAME_CODES",
+      "observed_count_reference": 1,
+      "expected_count": null,
+      "expected_sha256": null,
+      "schema_hash": "1a123f12677c940dbc7424a5a41f246dfa75c9ed8382a4be60b3ee16ea99dd1a",
+      "columns": [
+        {
+          "source_ordinal": 0,
+          "column_key": "420349709d6600935d0ae82483974ef7f2765f0c67203c707558ce3797e25dc1",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 1,
+          "column_key": "dd4d89217516345befb51e4cb52a89494d73500f7b3c6caae29849392c8c1da2",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 2,
+          "column_key": "0ed2176efb0659be01dbe8a277334c049230d73eb5761afd72944464d45d216d",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 3,
+          "column_key": "0270a2af53b45b4651f0fa35a00f039daaab716c702d7d94bf897e84fd13c8f8",
+          "pg_type": "text",
+          "allow_null_value": true
+        }
+      ]
+    },
+    {
+      "source_object_id": "808f117f10d010a51b3fce070fd3fc247224c6648a5f5040ade05e045cbf0999",
+      "source_object_name": "SOCIAL_INSTITUTION_ALTNAME_DATA",
+      "observed_count_reference": 0,
+      "expected_count": null,
+      "expected_sha256": null,
+      "schema_hash": "a045bf19c95a5ed719854acbaa4a0c58ea176be4193af29835ab217c0f1fd982",
+      "columns": [
+        {
+          "source_ordinal": 0,
+          "column_key": "b37387c869fc8d3cab8b4f2c4971f179cd58e16e95c58461ffbd1face794b0c2",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 1,
+          "column_key": "503feb827120fc89dd056c755f7e1107a7a10cafe4ac6f9ce9c8dace6be520b5",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 2,
+          "column_key": "0da06906090a016932b848f5dd837a3b88ff128c3c258964911a5aafa6e63398",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 3,
+          "column_key": "0f535db87f887c7f50d52b4d5e6e4acbcf58a5bff798bcfefec097beb4f912d4",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 4,
+          "column_key": "1852b51ae5fd37bf42f8169782f8cb3c0407302d091f587da176282d63a5e190",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 5,
+          "column_key": "4590ef19f90e1c0776ed48340ceffa45cfe2575f3abb31b102badee6a3eccd48",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 6,
+          "column_key": "a9b16197c460f6609ce302fea90c2b5c18815985bc239643556cdf6a311dc0d7",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 7,
+          "column_key": "877cf480956de9968a559f50c7ffae56a884072bcb910ebb91575cfb3e1801ea",
+          "pg_type": "text",
+          "allow_null_value": true
+        }
+      ]
+    },
+    {
+      "source_object_id": "a31eb9ac3968ef82b989c5463d2c6097668d1ceee491d0bcf48f4d0ae7ee8046",
+      "source_object_name": "SOCIAL_INSTITUTION_CODES",
+      "observed_count_reference": 4012,
+      "expected_count": null,
+      "expected_sha256": null,
+      "schema_hash": "5e77aec10934ef5314f46b935715ec8880590770325826090fa7775b8b32a2cf",
+      "columns": [
+        {
+          "source_ordinal": 0,
+          "column_key": "afdad30acf79187747de360ab0dfa05f91d503effa0ecb448b7983f4bb12d099",
+          "pg_type": "bigint",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 1,
+          "column_key": "a9fe4ac7e2dfa720a0d932f76c31eadf18a0df94d126c7b24b78c136f3f2c4be",
+          "pg_type": "bigint",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 2,
+          "column_key": "f41cbe26dbfba996465104362f02dd1c270cbc2eca85ced514ab3466965edd9c",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 3,
+          "column_key": "560c1143b257544ff3790bc57dfd7db7aef11dfe89a7b9e9fd13a80767adcc0a",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 4,
+          "column_key": "97ea2cd5788709aa90244fc1c1e227f46d95d82dc7840d970edafebcc312da75",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 5,
+          "column_key": "e6012c710e1ec9b008df2ace1c7cbcddbff4af0b3cb51a09b83d316e3d632b90",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 6,
+          "column_key": "a3c87498eab03423a1fdf5c3009e78f067d34fc95648e63261d5666a0de79eea",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 7,
+          "column_key": "84eed751797af35b122c12be3da4fa7f8f916312af36ac4844ba2ed61234f51b",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 8,
+          "column_key": "757e08d337997c2ae22f1d068caaaf0ad931705ae462b6f10edab059c8b6a4bb",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 9,
+          "column_key": "0f2f0c6a31d5387eb0a662627bce1f101bb54a4cfef317384bb5a682e17a3866",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 10,
+          "column_key": "47701e023d7549b1fccfa821e691cdd506b499056d920ea1629a32206cabeef3",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 11,
+          "column_key": "43f24a4ebb7a43ddd59923f933d14ff2903036e59ce69bfa815bba0c6937f9ec",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 12,
+          "column_key": "aae21428817363af96fe90cef70561e6774e6a298cd9435d6305dc386982925d",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 13,
+          "column_key": "cb3e6d21ce4e6f1317b91bbbd51ba5872e072ca024f9300aaaadc754b29054f4",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 14,
+          "column_key": "63d44918915ca1f35a0feec0004588d040150261971ee3da694177b98ede7a84",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 15,
+          "column_key": "7446987bd9a57a61440ea6a85831312f77c7303058a17a04eeb8a8a9d3806635",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 16,
+          "column_key": "da5122cb6ac5f69b9700e121566991fc0cacea176eb166e01879bd1d11a9b5d6",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 17,
+          "column_key": "6eed442d445cf5708e5c1eda761733e3f8c9c5f67299849da111a92bb5015db5",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 18,
+          "column_key": "f27988376c57fe38977187134fbbe11d967010aeb7a249d9844ac2bfa59b04ba",
+          "pg_type": "text",
+          "allow_null_value": true
+        }
+      ]
+    },
+    {
+      "source_object_id": "082757346f4f0c1cadfda0b81547424057f9f2f8f0aa83058ca120d6cb738c55",
+      "source_object_name": "SOCIAL_INSTITUTION_NAME_CODES",
+      "observed_count_reference": 2603,
+      "expected_count": null,
+      "expected_sha256": null,
+      "schema_hash": "d9e4478217e97ac963fae640c012791c066a283d02c8a84d70e4ec4c751b3438",
+      "columns": [
+        {
+          "source_ordinal": 0,
+          "column_key": "5d243cffe78833022832e20ba5b668f7fbc0c7e3ca070269197209cb47290b65",
+          "pg_type": "bigint",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 1,
+          "column_key": "5db9acf47510d444366fd7c03ed023a0307a78d73e03d4ed4e4d9e0a1333c03c",
+          "pg_type": "text",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 2,
+          "column_key": "29823a84e041d095aecddf502a66ba3a2490e6074262d268924fa6181aea48ec",
+          "pg_type": "text",
+          "allow_null_value": false
+        }
+      ]
+    },
+    {
+      "source_object_id": "838cf3c56fca22fea680630937ada8a2f6b797a446f479cc9ae8949ee2e3016d",
+      "source_object_name": "SOCIAL_INSTITUTION_TYPES",
+      "observed_count_reference": 7,
+      "expected_count": null,
+      "expected_sha256": null,
+      "schema_hash": "4fe1cd49acb5014d52c523be4b3756212f81134e5ea384de7ec2d961da67ea29",
+      "columns": [
+        {
+          "source_ordinal": 0,
+          "column_key": "bff096eb80bc28ce52906b98e1fa5af799c5ae123c85490d948093ff06d4f29b",
+          "pg_type": "bigint",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 1,
+          "column_key": "0f6a2e13eaab919e81c8abd93f1ec8894d4a0a9c0771f4f09b7e55d15e4b3547",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 2,
+          "column_key": "d6df31991b000940d7552a7efd2f2b25d2b6a755f414e2bab5c4ad342284b508",
+          "pg_type": "text",
+          "allow_null_value": true
+        }
+      ]
+    },
+    {
+      "source_object_id": "8aff60887889c1a9f095dfba5d7e0db7b7c90905a8742ea6d65ca9a6793457a9",
+      "source_object_name": "STATUS_CODES",
+      "observed_count_reference": 285,
+      "expected_count": null,
+      "expected_sha256": null,
+      "schema_hash": "9bac0e807745e0a874814691d2a542ee1f0d3293020768cb431dd003f10b47ec",
+      "columns": [
+        {
+          "source_ordinal": 0,
+          "column_key": "5cd24d83350963185717d8518d7cd825bc11236d87a431d08702fc627b2a51a0",
+          "pg_type": "bigint",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 1,
+          "column_key": "f292c86c8ec2fcdc42789f9bc0a5863e60e523ab2b2786cb9ad87ac8acf2f84d",
+          "pg_type": "text",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 2,
+          "column_key": "1f0785894c31bf1f3ee3c90645f0f07e3ffcbf8e19adb9701a96a19fb5adce87",
+          "pg_type": "text",
+          "allow_null_value": false
+        }
+      ]
+    },
+    {
+      "source_object_id": "59be367ff156869f66c1dabfd8f28da344e80ffd94cd826851a734020ec04180",
+      "source_object_name": "STATUS_CODE_TYPE_REL",
+      "observed_count_reference": 285,
+      "expected_count": null,
+      "expected_sha256": null,
+      "schema_hash": "084a1f68dc0c656a7f3e10999a55372cc86580496a13dad101f2a7b991703489",
+      "columns": [
+        {
+          "source_ordinal": 0,
+          "column_key": "f3d251499dc33c1b0b29fc44955cd7aef0874f697de9576f22fc13323c645d57",
+          "pg_type": "bigint",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 1,
+          "column_key": "3b46986354690a78b275de5cda617117ff2f996e4e0829fe68401552c0a9dc99",
+          "pg_type": "text",
+          "allow_null_value": false
+        }
+      ]
+    },
+    {
+      "source_object_id": "db5b864f03abece9d71c6ba8ee659d36f04da30e0ee3fc75906e1b797ca8d7e4",
+      "source_object_name": "STATUS_DATA",
+      "observed_count_reference": 73530,
+      "expected_count": null,
+      "expected_sha256": null,
+      "schema_hash": "ebe18941f8a00c82f715a9cf02cf56eaa1b208a9647a1f5dab086e74d26545a2",
+      "columns": [
+        {
+          "source_ordinal": 0,
+          "column_key": "837849443743fc11b420cb5b9d833cbef2198d5fd93c3c4144d5de56308639fe",
+          "pg_type": "bigint",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 1,
+          "column_key": "77b0f910ad2780608e34dcaf1e6ceb8c4c98f238a919a678a3a3f47ff3decb8b",
+          "pg_type": "bigint",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 2,
+          "column_key": "8688ecc254bffb448a8c7ca57c0603c4404a3db29c39eb9599bda05d7d6f6db3",
+          "pg_type": "bigint",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 3,
+          "column_key": "4ea0d82c791ed786bd12822ef6aa42e95b951b3855eebd1e07cdcace956880ca",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 4,
+          "column_key": "c69e0fab43b5056996a2bf06e600ba0c67ac3375d57c7ff3fa956955daecdd4a",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 5,
+          "column_key": "b7ffc13b6c611127e029cfe546ec6ac806ac565e4f1b253cf8529b6888e4f365",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 6,
+          "column_key": "50d2b013d760ccf32b545bf7f4b319f462ddea8e51f5a2e310a0e5974f8a1f6f",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 7,
+          "column_key": "f8c52cd4beb34962a1239e264696997711df2b232763323d720dcdb23ec63274",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 8,
+          "column_key": "6cde4ad66cbbf50732691f1b79f0eda899346e49793398c13dc273a0243d8e53",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 9,
+          "column_key": "3530c5709cd0cf5e75cdb83acd57c251427cdc048630b6372a435c905c547dae",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 10,
+          "column_key": "d5d993c0616a5374293930eb36816f2268b0a1f3009a5da710bed29c4bd7240a",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 11,
+          "column_key": "9b4c3e3a699f9004d2637010d1c057f394e05803a7679c29f7c73ae9d33e1fbd",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 12,
+          "column_key": "8d9e86ece32088662649e65340a2ffddc5ae079d11ea09e352fb97ea27ac099f",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 13,
+          "column_key": "40b5b388d81ba788e02b8223cfbd1808192928b7e2a8ae60246aeb5596ed1732",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 14,
+          "column_key": "090fb22ed25f11593058893d25f392d4651793bb8a0083515b5e78dc394abf2e",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 15,
+          "column_key": "c2dac9c856bafef9abab3a2c1a40ea2f23cefa20e617221258f25ea6c03a684d",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 16,
+          "column_key": "a3f9a1e47b4796c18025079b0fafbf69e0f97df43461bf865deb8e6a6f133060",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 17,
+          "column_key": "348d1b0aa0784739d62c6d3b606f7ae5b23d07d8f92b84d668114a9523130f84",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 18,
+          "column_key": "8d38a8688c6c7e40e2117a82297d935e2d7655e18807979617e0d5c08158a2e5",
+          "pg_type": "text",
+          "allow_null_value": true
+        }
+      ]
+    },
+    {
+      "source_object_id": "ee4f0144b3f7693974abb614e93ca3aca6027c2ee1e1999b1e30fc3b2ad1d54c",
+      "source_object_name": "STATUS_TYPES",
+      "observed_count_reference": 14,
+      "expected_count": null,
+      "expected_sha256": null,
+      "schema_hash": "a7e37690c8b75cd8fa59d7a4162cbdccea0d04a196eb099199cf56aa0a75c67e",
+      "columns": [
+        {
+          "source_ordinal": 0,
+          "column_key": "f73e24899ebb05f5d6e756682bead8e10a829b82dd9831fe702f7c237f3dd85f",
+          "pg_type": "text",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 1,
+          "column_key": "236b9c7588f013f005202341ceab9222c82ff07b3cd04ec476a8941f735c0cce",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 2,
+          "column_key": "bab7329691a2dd35cad96855a570a0c64a6658b97eb41d2a23cb9d1a29c93916",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 3,
+          "column_key": "6189cc33091568d9864dc78ffe1504b495ff18d86655de9667305108334921f5",
+          "pg_type": "text",
+          "allow_null_value": true
+        }
+      ]
+    },
+    {
+      "source_object_id": "f1b939bebbca9b7c071321e71413b7c6dfbdad73c9346d0589b6dbcfbd8f8027",
+      "source_object_name": "TEXT_BIBLCAT_CODES",
+      "observed_count_reference": 144,
+      "expected_count": null,
+      "expected_sha256": null,
+      "schema_hash": "00b3946e496d7dab9d39f7ab74c0e9c216c24ed2c1ddb27c171a995b0e63f6da",
+      "columns": [
+        {
+          "source_ordinal": 0,
+          "column_key": "92a421680d78120b29b63a9ff273628ad2f3aa4420abae4062ed46f0fc320765",
+          "pg_type": "bigint",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 1,
+          "column_key": "cecdc253d37e0fab87be4cc14b0e85a224a5b7f0bc909f621fd1245341e32aa5",
+          "pg_type": "text",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 2,
+          "column_key": "02c2449deb6d2c58b3864b5a1c9ea1c9b47228717528057e35baf97a325e38d0",
+          "pg_type": "text",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 3,
+          "column_key": "7c7f6ecfbea71943d78b359c607f156eed3d09578c59c78ed4e81c01b80fefd2",
+          "pg_type": "text",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 4,
+          "column_key": "35deed4182e8644f0203b706023f7761e1c4ff75d5c50709bce5f73edede26a4",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 5,
+          "column_key": "331b3f46974454c42916769d86d4dbcf31b003a65bb4c521f22fb5d36d40f5ac",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 6,
+          "column_key": "63f12877340760d2f13afd3ecefdb8855e1f0c236139187b5059153cc8c24549",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        }
+      ]
+    },
+    {
+      "source_object_id": "c1f569a9fa677ac5755c89cb1d80221d49ad6a5440c6256935666cd0caee4ebd",
+      "source_object_name": "TEXT_BIBLCAT_CODE_TYPE_REL",
+      "observed_count_reference": 144,
+      "expected_count": null,
+      "expected_sha256": null,
+      "schema_hash": "d8074c2c8cefb6bed543830cef58013dc0b28c23564ed7d701b9f736d378da21",
+      "columns": [
+        {
+          "source_ordinal": 0,
+          "column_key": "dde1c5ae9a2433ea4106c43924762bba5e765a2b5420489049f1ad207789e10e",
+          "pg_type": "bigint",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 1,
+          "column_key": "d9d4b03edb15cb3314763531460d2c07575c6c21e6c84b6a32d3d6a9e73ec37d",
+          "pg_type": "text",
+          "allow_null_value": false
+        }
+      ]
+    },
+    {
+      "source_object_id": "cab9177630d5c35d66ae3722e180c53df208e8543ca59592cdbf7fad9ee69cfa",
+      "source_object_name": "TEXT_BIBLCAT_TYPES",
+      "observed_count_reference": 51,
+      "expected_count": null,
+      "expected_sha256": null,
+      "schema_hash": "4a7034dab7eb461a73d7822657c7602cd45bf4ffd84f7308a0fc094080f0ab44",
+      "columns": [
+        {
+          "source_ordinal": 0,
+          "column_key": "8c042cb79b9d4ee858525013b1478919e928b785ae028675f9d2d851a7acc510",
+          "pg_type": "text",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 1,
+          "column_key": "062b0d3ba0ae334a2ce094e6f412cb7aeedc0465abf6fb050f28c95cf555d9b4",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 2,
+          "column_key": "744bab8510356e6fcadb7d2e7ae49ce32e326408254ec286c561d6b4bf4de767",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 3,
+          "column_key": "b6df508c55681363d8dd15d81b5bc6df3d633d9da981974440fe2312d335d823",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 4,
+          "column_key": "a8dd7639f4c457ce54cfebf975f113c6280ec7005e8c8eb5e2b21562e0601e6b",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 5,
+          "column_key": "cf3dc53e9407be273bcc81a732116e594607df5fafc7d632816f0c12e3cc9f01",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        }
+      ]
+    },
+    {
+      "source_object_id": "ef319a3ae9f6044175a38fbf0e10f8f3554cf8ff8f1c5bc1b0c859a35167e6bf",
+      "source_object_name": "TEXT_CODES",
+      "observed_count_reference": 62377,
+      "expected_count": null,
+      "expected_sha256": null,
+      "schema_hash": "52c79762afc35e8d7770def183e7acbab2e7fbfde19bd85827ae2909832d712d",
+      "columns": [
+        {
+          "source_ordinal": 0,
+          "column_key": "a011d40a97e1983516dce85c6a968797fde6bbe5354e7160fe57d7c7d2f22254",
+          "pg_type": "bigint",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 1,
+          "column_key": "772fec4798f18d5be10d3dc896f8bfe604a87a98593013318cfdba9f0a2f5a83",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 2,
+          "column_key": "0f8975a266ec3c2767e0e03d549062e4d34d3995abf255829c5baa5133e0e48a",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 3,
+          "column_key": "e9547eba4aa4c0be6258cf7b69e4941a65d5303d0346b92743c6bf533c47d772",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 4,
+          "column_key": "dc350820cd30681903409e7808bc2462835f92e59d677694a43c2f94cfd000fe",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 5,
+          "column_key": "d32cecb6312969aaacb605168d2a9a4294aab280203b406bfc0199838d51e392",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 6,
+          "column_key": "e6a70863f3886d23fb3388004e73d8cae0c197200d95740e3f5f7bba685db3b9",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 7,
+          "column_key": "d6f432744d96100d1897155accaf8fe144c7294f9e7f55f05897f12d58648728",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 8,
+          "column_key": "c6c3efca7e80aa4e178807113155211802a882871315e75ef0d6100cffd29da1",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 9,
+          "column_key": "e1e15344e112eb7a5b5b3c967608ba5019cdc399883ba5bb96c8466889d0b7b2",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 10,
+          "column_key": "f8d2fc3febac36ec26605b33cfce4b7d4d5cd084a7eff2144202c63eb62b60b5",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 11,
+          "column_key": "8b64b76f321241fe3af1f12f3f12d5086bb9796f983b7d02c2045d91882e3325",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 12,
+          "column_key": "64fae1a51bc20ab8331bd32e3dd6f943c839119eb111ca618c54668364d5bc93",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 13,
+          "column_key": "a765b29bb1d6bbf42d861f5e2fe08b73ae4a4e56eed5800713af3456bf16ccfc",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 14,
+          "column_key": "a39e49734b4a1338cebf675a27511e0114c8017d8f0c59df7432e6110d150a53",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 15,
+          "column_key": "f397390e88d24121faac319be0baa5e1eb24529caa37d8f14cc6e270bfcdb67b",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 16,
+          "column_key": "472d87fda9a3b60ece937c7350e2b975c5e8e9eba1ac4d73d8d2a6a010e36e78",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 17,
+          "column_key": "e2b3ea6ef7a113986e4b3e04145148dcb121ad2f9855ff6bf862cb907dd4d170",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 18,
+          "column_key": "819dc485dc780b93e3f2bdfbdfdf6e9678f9b3e2deff485769b4c324aaf5c802",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 19,
+          "column_key": "d056c6758a6cb0aa0fd730675d7fe6fe7996b3a7bf3a7620773ff59b222a699d",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 20,
+          "column_key": "4d474cea1d5712d82b1074a81d890050fd5cd73bc163751487496f0b29ec40d1",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 21,
+          "column_key": "443002e58f2d59500899abd8c398983c9f6ee0013cb49abfede05096f69df8e0",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 22,
+          "column_key": "f3aa5e4936a52fe55f4c5e2dd8bd9af786910c6364f0d59483fc14e75da22705",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 23,
+          "column_key": "ebb4c505d36ef1be410fa67b38b8f5aca80eba0a19c8c749460ec7a5ceb38ee1",
+          "pg_type": "text",
+          "allow_null_value": true
+        }
+      ]
+    },
+    {
+      "source_object_id": "2397e261469baf0ec4ad0d8c66a115db836b5ac87237f1d318ad84da3f4d508d",
+      "source_object_name": "TEXT_INSTANCE_DATA",
+      "observed_count_reference": 9817,
+      "expected_count": null,
+      "expected_sha256": null,
+      "schema_hash": "c7039f10537aa52ac68866e117d1f6bd79f7225c4c4333954757e5d85c072bfe",
+      "columns": [
+        {
+          "source_ordinal": 0,
+          "column_key": "685b61c278f8b716bef4116ef2b581aa281accc718f69b7ca3adada191447cd6",
+          "pg_type": "bigint",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 1,
+          "column_key": "2d0f1a42b1fb04dd8f6489f9ebc4e7c8c2a697b76fb78884ff2e2c58f6f21c00",
+          "pg_type": "bigint",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 2,
+          "column_key": "7c5d230fad9ba1e6bfb248bfd8c96e333377e37e6055c045164888a0f44494ed",
+          "pg_type": "bigint",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 3,
+          "column_key": "5d7d2cc1074dd22ed7c7ce229dfdf039622f501b78225ff1e73ebd3e97e63691",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 4,
+          "column_key": "8e88bf7950b964b79358f8f8c02ebb04310603a42bc1acbe9ffc65f8166b3de7",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 5,
+          "column_key": "c2f2e066a813f42bad8e9ace861a60eee613803d82f19bb508ca8ba887b0b474",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 6,
+          "column_key": "f967a518cb89b220c3a26aa80910135025e3078ef76cdc0104a1763a51622465",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 7,
+          "column_key": "942e648d91a6c44e40d41ee85fe21605fab6202ee45efd00f44e1e6340feccd0",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 8,
+          "column_key": "90fadba197f3f3c0e97a83f7ea90e661a9a17cd54e92a7dad4b8159624988bba",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 9,
+          "column_key": "69b159d5b6a0f6ba7158019b305d0a7c44fb447529da7dd65bc99d4826025536",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 10,
+          "column_key": "c020c3d29cc32cc703f2c8dbb9b30b579e2f1fa98e0faea4db9cb5e6f07dfc6f",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 11,
+          "column_key": "ecfe75f239d3d2fbc1bc836ca4c7302eb7b35ccbca2a949f49e3f5829d27d94f",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 12,
+          "column_key": "ef9a6e30ed99fa2dc458bd6fcc1793c8c7468c76ff984a5ed53fd4817656f267",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 13,
+          "column_key": "4ebb92dc6abe4d7d1c3d36b783cefc9c326de235ca7c5156dc473bd2b83e8000",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 14,
+          "column_key": "92490becdaaefb6fb4a5c213a6c6acc6c0030df4aff8ce5f6ee8cc7e43f71af6",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 15,
+          "column_key": "282690952d0a88e62d30ca9862db849f8794d3df9724f591028a80d6a7d12562",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 16,
+          "column_key": "7cf54624964425a7770184b4bc0995155f569f7a8a757239663d47d20ff073ed",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 17,
+          "column_key": "1aaf9336ccd59859014e9483d650b7aaa8be04374629c4c48cba59b73fcc9bc9",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 18,
+          "column_key": "cb86ce3feb0c1b1faadbb6798597551669a42ab2f25f62448a9e774fced345d5",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 19,
+          "column_key": "fe601327bd942a1b6a5aaf428b13ff54b2458227e6b57d583f1c9034a18e6006",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 20,
+          "column_key": "56839e5cf263994aa386f5b76dc0e5b601492e5d2da396992ed41e4c7e1bc61b",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 21,
+          "column_key": "1407d616f74863793ee60fd7703120226c2a1272b23e7f062e3e3185a5990eb1",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 22,
+          "column_key": "f4545abf10f423b9b5630eadc8ebda475e361462f3007d4b3c8911839e4d1668",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 23,
+          "column_key": "dfb24f270c81f9848cd094b7d993ac8d31adc05219d49c0fff5afb3304983d67",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 24,
+          "column_key": "5ac5f5613d5b9186593d42ddf27468cd11c2899545217c8a2170bf143cc50376",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 25,
+          "column_key": "b48773dc938c2bd69a05bef79dfafdf38c9b1c3057143f4453fc5373227c609b",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 26,
+          "column_key": "e2c2c83844f5aabc32401efb0019d7ee959958c7ea50e16e156386214e226fd7",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 27,
+          "column_key": "83a30bcd8dae8fbe178ec43c97868890890303faaa181ec0b5f9846e91496400",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 28,
+          "column_key": "92eaa6558f36f920bc7e9aba77f4ef5df2cf8466de4ffe8f00f66bb4185eca5d",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 29,
+          "column_key": "2c21ceef2f6154bf0e119f4b31ac5e3b7672bda52635ecae77ccfc12b6cbf7b8",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 30,
+          "column_key": "9f5f87ea3e67fc1237d7e54e3542ca73adefbac5fc7e8d857457143e2eca842a",
+          "pg_type": "text",
+          "allow_null_value": true
+        }
+      ]
+    },
+    {
+      "source_object_id": "81842a8665c4f159a950a1d784739bab96d64e8421c4f46657990ad436f60711",
+      "source_object_name": "TEXT_ROLE_CODES",
+      "observed_count_reference": 12,
+      "expected_count": null,
+      "expected_sha256": null,
+      "schema_hash": "3c8db7348ce2eee524d35a5dd8d5485caecb068841986b876efa0415faee0635",
+      "columns": [
+        {
+          "source_ordinal": 0,
+          "column_key": "49b7478ec7f6b5a66c46d095fede2ebbd1caa58297b6b2ec16279fecc72f9da9",
+          "pg_type": "bigint",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 1,
+          "column_key": "3c413e8012484f8b609a88b5fe87dc3b2a143d471bc085cc1f7835229e54b190",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 2,
+          "column_key": "077ae9060aea7abe44e91aaea2bb9a7ce77cb049e3726523d921df06606d50c2",
+          "pg_type": "text",
+          "allow_null_value": true
+        }
+      ]
+    },
+    {
+      "source_object_id": "fb859307d791b069cd252a27cf821f0a03d2f46e557690c91e25d0ede86eeaf6",
+      "source_object_name": "TEXT_TYPE",
+      "observed_count_reference": 126,
+      "expected_count": null,
+      "expected_sha256": null,
+      "schema_hash": "dcc36e67737eb7877bf2f7e92502aa289619d21a9d2bbbd7f75974c32f72c7b3",
+      "columns": [
+        {
+          "source_ordinal": 0,
+          "column_key": "d83e8ce071e4ecbaf7b26fa956d4634da6f30e6297a0bf2bd247898f7cd8de01",
+          "pg_type": "text",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 1,
+          "column_key": "7603cf613f5c0160b4e54af5ae4ebfb0a296734cbfdd30367059eadcc5e3fcdd",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 2,
+          "column_key": "69a34de117d8c4275595bf6dc79ae7b7ee24b2aef0a55ca7887f9c9a2c9b0606",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 3,
+          "column_key": "385ac457e409ae27d928175121434bb33f6390dba61d48d43f2c82b4045d7f38",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 4,
+          "column_key": "3e3cb9e2a84e377422f628e1889e3957bdb35c1c6f418d137867cef508906382",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 5,
+          "column_key": "4b34b762bde35608c71501d04f9d739720b21b756230a2d612ba3ca0ddd75771",
+          "pg_type": "bigint",
+          "allow_null_value": true
+        }
+      ]
+    },
+    {
+      "source_object_id": "645c4df5a7e49279fb44102e66db29ddc8bff26df235c27cb3a023838508f2e5",
+      "source_object_name": "YEAR_RANGE_CODES",
+      "observed_count_reference": 6,
+      "expected_count": null,
+      "expected_sha256": null,
+      "schema_hash": "ef9273b04ab9d435da7ab45b008f998f44b094971919028d51c6f8b246aa8ebb",
+      "columns": [
+        {
+          "source_ordinal": 0,
+          "column_key": "7ccd4aa6b94adda8db11964eb919c7b3f2e0f61984c4f0009bf16d484c66f2e7",
+          "pg_type": "bigint",
+          "allow_null_value": false
+        },
+        {
+          "source_ordinal": 1,
+          "column_key": "a35bd233529101509a6eb0630e601330f784078427a51564eb1fb5a99e606026",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 2,
+          "column_key": "36abf267fd93599bc995ea2b0a552cc1fe6ac84a3c6d1ae77a4f86e6837d87ba",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 3,
+          "column_key": "896d6ced0993b2179132b3d68de5e5d7195ddc0e2bf05cedd6f38d3c94f0b317",
+          "pg_type": "text",
+          "allow_null_value": true
+        },
+        {
+          "source_ordinal": 4,
+          "column_key": "60b7439c451a78bd950b0d9f82e283316494ffce9a951fde4354f2bcbbe77eac",
+          "pg_type": "text",
+          "allow_null_value": true
+        }
+      ]
+    }
+  ]
+}

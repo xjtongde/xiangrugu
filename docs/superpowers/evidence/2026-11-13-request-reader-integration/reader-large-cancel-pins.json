@@ -1,0 +1,16 @@
+{
+  "test_fixture_only": true,
+  "real_source_read": false,
+  "new_real_expectations": 0,
+  "partition_id": "large-p01",
+  "retry": false,
+  "attempt_kind": "first",
+  "scenario": "large",
+  "request_sha256": "583f0e89e4bfee601d429162364637fef331bb4c82d9f46f91c7db3e285481f9",
+  "approval_sha256": "af180e197a5036c660b6f84ae62f4b286c37985a82de34aba0a7e16119a52896",
+  "roots_sha256": "1a037c2ca5f386e758a2ee88aa2d6cf40afb1efadefdb8d03c5b6f89ed5683d9",
+  "parent_scope_sha256": "9a14aa388cb94787fe8578897bab80ecd90870ed476037fc66bd75d5195253f7",
+  "parent_budget_sha256": "17c89970bbdfbd0071463ecba6c2e5b057ed5847605f60d2b369fd7152e43279",
+  "partition_selection_sha256": "9100edc18a8874331b0e996f54645315a566f6dba8045ac3721b20e30b7c2aaf",
+  "descriptor_sha256": "4f7732b4e6c70bb9245bfcbde23d1aa8909949aaacf40f49cfbfb442438ab25e"
+}

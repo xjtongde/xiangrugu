@@ -1,0 +1,1 @@
+{"manifest_sha256":"1159f412317806c1450687ae406d82315ae657846693cf740be1f13dc4fd0f4a","members":[{"kind":"file","path":"artificial.sqlite","sha256":"c50ddf67bc78eda60d12832b0a94b2d812086beae67e3d713bab365e80289bbe","size":2207744}],"snapshot_id":"artificial-v1","source_path":"/data/var/run/project/authority-never-read","status":"VERIFIED","version":1}

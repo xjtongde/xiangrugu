@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "status": "METADATA_BUDGET_CHECK_PASSED_NOT_EXECUTION_APPROVAL",
+  "as_of": "2026-10-10",
+  "budget_file": "sqlite-value-remaining-budget.draft.json",
+  "budget_sha256": "9677badc6c0685f2f25fe22186527a902e18dcbeab2d2c12fbdd05ec0accfaf9",
+  "method": "Windows PowerShell arithmetic and SHA checks of existing metadata only; no project Python or source SQLite execution",
+  "checks": {
+    "unique_remaining_objects": 75,
+    "columns": 717,
+    "observed_rows": 5619215,
+    "observed_cells": 119323771,
+    "groups_cover_all_objects_once": true,
+    "each_object_fits_its_proposed_row_column_cell_and_byte_ceilings": true,
+    "each_profile_hash_matches_recorded_binding": true,
+    "prior_profiles_complete_with_same_source_size_and_pre_post_sha": true,
+    "execution_authority_flags_false": true
+  },
+  "new_source_values_read": false,
+  "postgresql_connected": false,
+  "product_tests_run_this_turn": false,
+  "ready_for_import": false
+}

@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "cpu_limit": 0.5,
+  "supersedes_only": "unchanged implementation requirement of full verify_snapshot in sqlite-value-resource-revision.draft.json",
+  "status": "IMPLEMENTATION_AMENDMENT_NOT_TASK_AUTHORITY",
+  "selected_policy": {
+    "window_bytes": 67108864,
+    "read_chunk_bytes": 1048576,
+    "selection": "trusted approved project_snapshot controller, no new request flags",
+    "method": "posix-fadvise-consumed-pages-v1",
+    "advice": "POSIX_FADV_DONTNEED for already consumed complete pages",
+    "failure": "stop without completed batch; no silent fallback"
+  },
+  "contract_frozen": false,
+  "invariants": [
+    "all snapshot members compared with certificate and manifest",
+    "fixed source origin and snapshot identity",
+    "full SQLite hashes before and after batch",
+    "default snapshot/standalone APIs unchanged",
+    "original cancellation deadline and host resource stop gates",
+    "no additional source/table/PG/import authority"
+  ],
+  "ready_for_import": false,
+  "approval_basis": "用户阅读2026-10-12-memory-cache-investigation/cache-policy-proposal.md后指示继续；仅限既有只读执行链缓存策略",
+  "swap_limit": 0,
+  "memory_limit": 805306368,
+  "source_read_authority": "external prior explicit fixed-snapshot plus 55-table authorization; this amendment is not an executable approval",
+  "as_of": "2026-10-12"
+}

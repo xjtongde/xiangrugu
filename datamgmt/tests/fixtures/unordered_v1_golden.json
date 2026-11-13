@@ -1,0 +1,14 @@
+{
+  "format": "sqlite-unordered-values-v1",
+  "cells": {
+    "null": "00",
+    "empty": "010000000000000000",
+    "symbol": "010000000000000003e29080",
+    "minus_one": "02ffffffffffffffff",
+    "one_float": "033ff0000000000000",
+    "positive_zero": "030000000000000000",
+    "negative_zero": "038000000000000000",
+    "subnormal": "030000000000000001"
+  },
+  "empty_text_row": "52000000010000000000000009010000000000000000"
+}

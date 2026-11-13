@@ -4,18 +4,6 @@ ARG PYTHON_BASE=python:3.11.16-slim-bookworm@sha256:4b4c524dc3dce996864e030c7bd9
 
 FROM ${PYTHON_BASE} AS base
 
-ARG BUILD_DATE=unknown
-ARG SOURCE_STATUS=dirty
-ARG VCS_REF=unknown
-ARG VERSION=0.1.0
-
-LABEL org.opencontainers.image.title="xiangrugu" \
-      org.opencontainers.image.description="Xiangrugu reproducible data-management runtime" \
-      org.opencontainers.image.created="${BUILD_DATE}" \
-      org.opencontainers.image.revision="${VCS_REF}" \
-      org.opencontainers.image.version="${VERSION}" \
-      io.xiangrugu.source.status="${SOURCE_STATUS}"
-
 ENV LANG=C.UTF-8 \
     LC_ALL=C.UTF-8 \
     PIP_ROOT_USER_ACTION=ignore \
@@ -26,13 +14,7 @@ ENV LANG=C.UTF-8 \
 
 WORKDIR /app
 
-RUN test "${BUILD_DATE}" != "unknown" \
-    && printf '%s\n' "${BUILD_DATE}" | grep -Eq '^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}Z$' \
-    && test "${VCS_REF}" != "unknown" \
-    && printf '%s\n' "${VCS_REF}" | grep -Eq '^[0-9a-f]{40}$' \
-    && test "${VERSION}" != "unknown" \
-    && printf '%s\n' "${SOURCE_STATUS}" | grep -Eq '^(clean|dirty)$' \
-    && test "$(dpkg-query -W -f='${Version}' ca-certificates)" = "20250419~deb12u1" \
+RUN test "$(dpkg-query -W -f='${Version}' ca-certificates)" = "20250419~deb12u1" \
     && test "$(dpkg-query -W -f='${Version}' tzdata)" = "2026b-0+deb12u1" \
     && groupadd --gid 10001 xiangrugu \
     && useradd --uid 10001 --gid 10001 --create-home \
@@ -49,7 +31,29 @@ COPY datamgmt/src /app/datamgmt/src
 RUN python -m pip install --disable-pip-version-check --no-cache-dir \
         --no-deps --no-build-isolation /app/datamgmt
 
+# Keep changing provenance outside the dependency and project installation cache.
+ARG BUILD_DATE=unknown
+ARG SOURCE_STATUS=dirty
+ARG VCS_REF=unknown
+ARG VERSION=0.1.0
+
+RUN test "${BUILD_DATE}" != "unknown" \
+    && printf '%s\n' "${BUILD_DATE}" | grep -Eq '^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}Z$' \
+    && test "${VCS_REF}" != "unknown" \
+    && printf '%s\n' "${VCS_REF}" | grep -Eq '^[0-9a-f]{40}$' \
+    && test "${VERSION}" != "unknown" \
+    && printf '%s\n' "${SOURCE_STATUS}" | grep -Eq '^(clean|dirty)$'
+
+LABEL org.opencontainers.image.title="xiangrugu" \
+      org.opencontainers.image.description="Xiangrugu reproducible data-management runtime" \
+      org.opencontainers.image.created="${BUILD_DATE}" \
+      org.opencontainers.image.revision="${VCS_REF}" \
+      org.opencontainers.image.version="${VERSION}" \
+      io.xiangrugu.source.status="${SOURCE_STATUS}"
+
 FROM base AS runtime
+
+COPY scripts/smoke-unordered-values.py /app/scripts/smoke-unordered-values.py
 
 USER 10001:10001
 ENTRYPOINT ["python", "-m", "xiangrugu_datamgmt"]
@@ -69,6 +73,8 @@ CMD ["python", "-m", "xiangrugu_datamgmt.devwatch"]
 
 FROM development AS test
 
+COPY Dockerfile /app/Dockerfile
+COPY datamgmt/contracts/releases/2026-10-06-bootstrap/sqlite-value-canary.approved.json /app/datamgmt/contracts/releases/2026-10-06-bootstrap/sqlite-value-canary.approved.json
 COPY datamgmt/config/roots.yaml /app/datamgmt/config/roots.yaml
 COPY docker-compose.yml /app/docker-compose.yml
 COPY scripts /app/scripts

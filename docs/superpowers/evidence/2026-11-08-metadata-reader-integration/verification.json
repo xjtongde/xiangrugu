@@ -1,0 +1,267 @@
+{
+  "status": "METADATA_READER_INTEGRATION_ARTIFICIAL_VALIDATED",
+  "as_of": "2026-11-08",
+  "development_passed": 1339,
+  "installed_passed": 1316,
+  "installed_skipped": 23,
+  "test_runs": [
+    {
+      "tests": 315,
+      "passed": 315,
+      "skipped": 0,
+      "name": "dev-metadata",
+      "memory_peak": 310980608
+    },
+    {
+      "tests": 1015,
+      "passed": 1015,
+      "skipped": 0,
+      "name": "dev-remainder",
+      "memory_peak": 172363776
+    },
+    {
+      "tests": 9,
+      "passed": 9,
+      "skipped": 0,
+      "name": "dev-fixtures",
+      "memory_peak": 633470976
+    },
+    {
+      "tests": 315,
+      "passed": 315,
+      "skipped": 0,
+      "name": "installed-metadata",
+      "memory_peak": 313864192
+    },
+    {
+      "tests": 1015,
+      "passed": 992,
+      "skipped": 23,
+      "name": "installed-remainder",
+      "memory_peak": 148070400
+    },
+    {
+      "tests": 9,
+      "passed": 9,
+      "skipped": 0,
+      "name": "installed-fixtures",
+      "memory_peak": 633536512
+    }
+  ],
+  "runtime_runs": [
+    {
+      "name": "reader-small",
+      "memory_peak": 56131584,
+      "sort_seconds": 4.182522415001586,
+      "sort_stats": {
+        "elapsed_seconds": 4.182522415001586,
+        "peak_chunk_bytes": 9808,
+        "peak_chunk_rows": 75,
+        "peak_temp_bytes": 262406,
+        "peak_temp_files": 17
+      },
+      "rows": 1000,
+      "fields": 8000,
+      "elapsed_seconds": 9.236070648999885
+    },
+    {
+      "name": "reader-small-profile",
+      "memory_peak": 54628352,
+      "sort_seconds": 8.409646063002583,
+      "sort_stats": {
+        "elapsed_seconds": 8.409646063002583,
+        "peak_chunk_bytes": 9808,
+        "peak_chunk_rows": 75,
+        "peak_temp_bytes": 262406,
+        "peak_temp_files": 17
+      },
+      "rows": 1000,
+      "fields": 8000,
+      "elapsed_seconds": 13.040101489001245
+    },
+    {
+      "name": "reader-baseline",
+      "memory_peak": 56004608,
+      "sort_seconds": 5.194910432001052,
+      "sort_stats": {
+        "elapsed_seconds": 5.194910432001052,
+        "peak_chunk_bytes": 9808,
+        "peak_chunk_rows": 75,
+        "peak_temp_bytes": 262406,
+        "peak_temp_files": 17
+      },
+      "rows": 1000,
+      "fields": 8000,
+      "elapsed_seconds": 9.029279082998983
+    },
+    {
+      "name": "reader-large",
+      "memory_peak": 87588864,
+      "sort_seconds": 400.8047087369996,
+      "sort_stats": {
+        "elapsed_seconds": 400.8047087369996,
+        "peak_chunk_bytes": 667794,
+        "peak_chunk_rows": 4096,
+        "peak_temp_bytes": 25759868,
+        "peak_temp_files": 33
+      },
+      "rows": 80000,
+      "fields": 640000,
+      "elapsed_seconds": 404.62597078199906
+    },
+    {
+      "name": "reader-baseline-large",
+      "memory_peak": 87388160,
+      "sort_seconds": 487.5802091289952,
+      "sort_stats": {
+        "elapsed_seconds": 487.5802091289952,
+        "peak_chunk_bytes": 667794,
+        "peak_chunk_rows": 4096,
+        "peak_temp_bytes": 25759868,
+        "peak_temp_files": 33
+      },
+      "rows": 80000,
+      "fields": 640000,
+      "elapsed_seconds": 493.1383583479983
+    }
+  ],
+  "strict_guard_calls": 16559,
+  "read_cadence_changed": false,
+  "filesystem_state_cached": false,
+  "product_module": "batch_execution",
+  "product_module_sha256": "c0811da85d56198ee7241722935b364c340905888827a9cdd7eb1a2a6cd151a4",
+  "test_image_id": "sha256:2e6a01b7915ad3290aa73c0071709590ef9e894cd4423926d9f4f88006a4372f",
+  "runtime_image_id": "sha256:55b3f27687ea32e397d49a6fdfa010a6a862c4b6c99c471d4ef68c3fe2030696",
+  "runtime_alias_promoted": false,
+  "actual_negative_triggers_verified": true,
+  "raw_members": 937,
+  "removed_candidates": 24,
+  "real_source_read": false,
+  "postgresql_connected": false,
+  "new_real_expectations": 0,
+  "coverage_complete_tables": 68,
+  "coverage_total_tables": 78,
+  "task8_complete": false,
+  "ready_for_import": false,
+  "real_1800_second_feasibility_proven": false,
+  "cleaned_artificial_paths": 44,
+  "installed_skip_details": [
+    {
+      "reason": "repository-only read permissions",
+      "classname": "tests.unit.test_sqlite_remaining_type_decisions",
+      "name": "test_remaining_approval_binds_proposal_scope_and_role_identity"
+    },
+    {
+      "reason": "repository-only read permissions",
+      "classname": "tests.unit.test_sqlite_remaining_type_decisions",
+      "name": "test_remaining_scope_exactly_covers_75_tables_and_708_columns"
+    },
+    {
+      "reason": "repository-only read permissions",
+      "classname": "tests.unit.test_sqlite_remaining_type_decisions",
+      "name": "test_all_single_table_permissions_match_approved_identity_and_columns"
+    },
+    {
+      "reason": "repository-only read permissions",
+      "classname": "tests.unit.test_sqlite_remaining_type_decisions",
+      "name": "test_planning_scope_remains_unexecuted_and_cannot_claim_read_approval"
+    },
+    {
+      "reason": "repository-only release evidence",
+      "classname": "tests.unit.test_sqlite_role_decisions",
+      "name": "test_role_decision_binds_original_proposal_and_excludes_type_or_import_approval"
+    },
+    {
+      "reason": "repository-only release evidence",
+      "classname": "tests.unit.test_sqlite_role_decisions",
+      "name": "test_all_roles_are_complete_and_not_silently_promoted_to_import"
+    },
+    {
+      "reason": "repository-only release evidence",
+      "classname": "tests.unit.test_sqlite_role_decisions",
+      "name": "test_approved_scan_scope_is_exactly_three_tables_and_28_columns"
+    },
+    {
+      "reason": "repository-only type decisions",
+      "classname": "tests.unit.test_sqlite_type_approval",
+      "name": "test_type_decision_binds_review_and_source_without_import_permission"
+    },
+    {
+      "reason": "repository-only type decisions",
+      "classname": "tests.unit.test_sqlite_type_approval",
+      "name": "test_approved_types_cover_all_original_columns_in_exact_order"
+    },
+    {
+      "reason": "repository-only type decisions",
+      "classname": "tests.unit.test_sqlite_type_approval",
+      "name": "test_approval_preserves_null_empty_text_and_values_without_cleaning"
+    },
+    {
+      "reason": "repository-only type decisions",
+      "classname": "tests.unit.test_sqlite_type_approval",
+      "name": "test_projection_is_bound_to_decision_and_keeps_historical_proposals_pending"
+    },
+    {
+      "reason": "repository metadata audit requires the controlled workspace, not the /app test image",
+      "classname": "tests.unit.test_text_value_contract_proposal",
+      "name": "test_proposal_binds_exact_existing_artifacts"
+    },
+    {
+      "reason": "repository metadata audit requires the controlled workspace, not the /app test image",
+      "classname": "tests.unit.test_text_value_contract_proposal",
+      "name": "test_each_object_binds_source_mapping_schema_and_complete_stream[0-expected0]"
+    },
+    {
+      "reason": "repository metadata audit requires the controlled workspace, not the /app test image",
+      "classname": "tests.unit.test_text_value_contract_proposal",
+      "name": "test_each_object_binds_source_mapping_schema_and_complete_stream[1-expected1]"
+    },
+    {
+      "reason": "repository metadata audit requires the controlled workspace, not the /app test image",
+      "classname": "tests.unit.test_text_value_contract_proposal",
+      "name": "test_each_object_binds_source_mapping_schema_and_complete_stream[2-expected2]"
+    },
+    {
+      "reason": "repository metadata audit requires the controlled workspace, not the /app test image",
+      "classname": "tests.unit.test_text_value_contract_proposal",
+      "name": "test_each_object_binds_source_mapping_schema_and_complete_stream[3-expected3]"
+    },
+    {
+      "reason": "repository metadata audit requires the controlled workspace, not the /app test image",
+      "classname": "tests.unit.test_text_value_contract_proposal",
+      "name": "test_each_object_binds_source_mapping_schema_and_complete_stream[4-expected4]"
+    },
+    {
+      "reason": "repository metadata audit requires the controlled workspace, not the /app test image",
+      "classname": "tests.unit.test_text_value_contract_proposal",
+      "name": "test_partial_proposal_cannot_claim_new_source_checks_or_release_approval"
+    },
+    {
+      "reason": "repository metadata audit requires the controlled workspace, not the /app test image",
+      "classname": "tests.unit.test_text_value_contract_proposal",
+      "name": "test_exact_five_object_scope_and_count_units"
+    },
+    {
+      "reason": "repository metadata audit requires the controlled workspace, not the /app test image",
+      "classname": "tests.unit.test_text_value_contract_proposal",
+      "name": "test_proposal_is_not_an_executable_release_contract"
+    },
+    {
+      "reason": "repository metadata audit requires the controlled workspace, not the /app test image",
+      "classname": "tests.unit.test_text_value_contract_proposal",
+      "name": "test_value_approval_is_bound_to_the_exact_five_object_proposal"
+    },
+    {
+      "reason": "repository metadata audit requires the controlled workspace, not the /app test image",
+      "classname": "tests.unit.test_text_value_contract_proposal",
+      "name": "test_approved_value_projection_preserves_all_proposal_data_and_provenance"
+    },
+    {
+      "reason": "repository metadata audit requires the controlled workspace, not the /app test image",
+      "classname": "tests.unit.test_text_value_contract_proposal",
+      "name": "test_partial_value_approval_does_not_authorize_names_freeze_source_or_import"
+    }
+  ],
+  "build_inputs_current_verified": 133,
+  "large_single_observation_elapsed_reduction_percent": 17.948793896810955
+}

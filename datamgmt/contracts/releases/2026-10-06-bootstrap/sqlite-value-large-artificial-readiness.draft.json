@@ -1,0 +1,81 @@
+{
+  "ready_for_import": false,
+  "historical_counts_are_expectations": false,
+  "source_read_authorized": false,
+  "status": "METADATA_READINESS_SUPPLEMENT_NOT_EXECUTABLE",
+  "as_of": "2026-10-13",
+  "scope": {
+    "order": "Original remaining-budget large group order",
+    "snapshot_id": "2026-10-07-bootstrap",
+    "already_completed_objects_excluded": 68,
+    "objects": 10,
+    "remaining_large_objects_excluded": 0,
+    "observed_cells_reference": 113816997,
+    "observed_rows_reference": 5252592,
+    "member": {
+      "kind": "file",
+      "path": "harvard/cbdb/cbdb_20260919.sqlite3",
+      "size": 586485760,
+      "sha256": "bde1bb8eece3820d9e236c1d6b0f07d847d339669d4a85d79cd7252d58d83400"
+    },
+    "columns": 235
+  },
+  "version": 1,
+  "git_revision": "8fbc8c97fcf1d818caddf6ab556fa82d986643ed",
+  "bindings": {
+    "mapping": {
+      "path": "datamgmt/contracts/releases/2026-10-06-bootstrap/sqlite-target-mapping-proposal.draft.json",
+      "sha256": "297b7c766baa40cc660f262e1ac433973d5d8bdde8c28eb2aca90733bfaec7d9"
+    },
+    "roots": {
+      "path": "datamgmt/config/roots.yaml",
+      "sha256": "6235c356fca754a687a2f02998770c9609b20748ade674d0050d86a0a428e07c"
+    },
+    "resource_revision": {
+      "path": "datamgmt/contracts/releases/2026-10-06-bootstrap/sqlite-value-resource-revision.draft.json",
+      "sha256": "62da716692678ea1ebfd790cc3e3b83847816155cac3d8cade075b1b6f35b164"
+    },
+    "original_scope_review": {
+      "path": "datamgmt/contracts/releases/2026-10-06-bootstrap/sqlite-value-large-artificial-review.draft.json",
+      "sha256": "5ff6d379066307180d4da3963d42635284f40278bb25ee1e1fb262cd80e08133"
+    },
+    "previous_small": {
+      "path": "datamgmt/contracts/releases/2026-10-06-bootstrap/sqlite-value-small.expected.draft.json",
+      "sha256": "51351b58001a44413232fc80f92131d982caca0603ef24d9cad7db76b2acc416"
+    },
+    "preparation_code": {
+      "path": "datamgmt/src/xiangrugu_datamgmt/task_preparation.py",
+      "sha256": "67fbb0982a9eb3a186eb5321f4dd9ff84ea5bc3889ae65a443f01ba90d98a53c"
+    },
+    "cache_amendment": {
+      "path": "datamgmt/contracts/releases/2026-10-06-bootstrap/sqlite-read-cache-amendment.draft.json",
+      "sha256": "eac3e17048c70ad14bbd2eddab22baa600b617a0a45b5f823a72b6c513f1670e"
+    },
+    "remaining_budget": {
+      "path": "datamgmt/contracts/releases/2026-10-06-bootstrap/sqlite-value-remaining-budget.draft.json",
+      "sha256": "9677badc6c0685f2f25fe22186527a902e18dcbeab2d2c12fbdd05ec0accfaf9"
+    },
+    "readonly_code": {
+      "path": "datamgmt/src/xiangrugu_datamgmt/readonly_batch.py",
+      "sha256": "f5ecc0098b53b7a2636d1df748c838efbb869f0d14b56e4951e7cf4b0135f15e"
+    },
+    "large_tests": {
+      "path": "datamgmt/tests/unit/test_large_artificial_batch.py",
+      "sha256": "a50467b1169f6275a1a8ac1c00dd53b9a34a38645b37e21221565f2519b6e146"
+    },
+    "preparation": {
+      "path": "datamgmt/contracts/releases/2026-10-06-bootstrap/sqlite-value-contract-preparation.draft.json",
+      "sha256": "fab79f8864d3e7d93d383840d01529603d1a44840b758d76908ba765d73f8948"
+    }
+  },
+  "postgresql_authorized": false,
+  "contract_frozen": false,
+  "authority_note": "Only artificial large development is authorized; project-snapshot large remains code-gated closed. This packet grants no source reading and creates no approval",
+  "source_status": "dirty",
+  "verified_artificial_deadlines": {
+    "real_mode_activated": false,
+    "candidate_seconds": 1800,
+    "host_seconds": 1830,
+    "transport_seconds": 1880
+  }
+}

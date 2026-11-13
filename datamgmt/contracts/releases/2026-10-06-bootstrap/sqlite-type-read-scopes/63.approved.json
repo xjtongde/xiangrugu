@@ -1,0 +1,32 @@
+{
+  "version": 1,
+  "status": "DRAFT_SINGLE_TABLE_READ_APPROVED",
+  "source_identity": {
+    "path": "harvard/cbdb/cbdb_20260919.sqlite3",
+    "kind": "file",
+    "size": 586485760,
+    "sha256": "bde1bb8eece3820d9e236c1d6b0f07d847d339669d4a85d79cd7252d58d83400"
+  },
+  "source_version": "2026-10-07-bootstrap",
+  "rule_id": "m007906",
+  "source_object_id": "838cf3c56fca22fea680630937ada8a2f6b797a446f479cc9ae8949ee2e3016d",
+  "remaining_decision_sha256": "f64522a65170894ab9b76c96b35b1ba83d0e84ffa65a1f9fce27b0493d141efd",
+  "scope_sha256": "fd13b18f1fd7d6ccd05e2bac375ffbae5f7ebb47fb2335c117ee02dc4e5dba96",
+  "proposal_sha256": "5a1d1308080a4d16459be74f2de71f89ad0c54e75dd61e6f7bdf6e36218487d8",
+  "roles_approved": true,
+  "profile_read_authorized": true,
+  "profile_scope": {
+    "SOCIAL_INSTITUTION_TYPES": [
+      "c_inst_type_code",
+      "c_inst_type_py",
+      "c_inst_type_hz"
+    ]
+  },
+  "raw_text_or_blob_output_authorized": false,
+  "type_mapping_approved": false,
+  "value_contract_approved": false,
+  "target_mapping_approved": false,
+  "ready_for_import": false,
+  "contract_frozen": false,
+  "disposition_retained": "BLOCKED"
+}

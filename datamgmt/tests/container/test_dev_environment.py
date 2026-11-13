@@ -7,7 +7,7 @@ from pathlib import Path
 import yaml
 
 
-PROJECT_ROOT = Path("/app")
+PROJECT_ROOT = Path(__file__).resolve().parents[3]
 
 
 def test_compose_declares_a_real_isolated_dev_process() -> None:
@@ -47,3 +47,33 @@ def test_sync_script_excludes_repository_and_sensitive_runtime_state() -> None:
     for excluded in (".git", ".env", ".secrets", "data", "usedata"):
         assert excluded in script
     assert "git ls-files" in script
+
+
+def test_changing_build_metadata_cannot_invalidate_dependency_installation() -> None:
+    dockerfile = (PROJECT_ROOT / "Dockerfile").read_text(encoding="utf-8")
+    dependency_install = dockerfile.index("--requirement /tmp/requirements.lock")
+    project_install = dockerfile.index("--no-deps --no-build-isolation /app/datamgmt")
+    for name in ("BUILD_DATE", "SOURCE_STATUS", "VCS_REF", "VERSION"):
+        # ARGs enter subsequent RUN environments even before explicit expansion.
+        assert dockerfile.index(f"ARG {name}=") > dependency_install
+        assert dockerfile.index(f"ARG {name}=") > project_install
+
+
+def test_late_metadata_validation_and_labels_are_inherited_by_all_targets() -> None:
+    dockerfile = (PROJECT_ROOT / "Dockerfile").read_text(encoding="utf-8")
+    base = dockerfile.split("FROM base AS runtime")[0]
+    for fragment in (
+        'test "${BUILD_DATE}" != "unknown"',
+        'test "${VCS_REF}" != "unknown"',
+        'test "${VERSION}" != "unknown"',
+        "'^(clean|dirty)$'",
+        'org.opencontainers.image.created="${BUILD_DATE}"',
+        'org.opencontainers.image.revision="${VCS_REF}"',
+        'org.opencontainers.image.version="${VERSION}"',
+        'io.xiangrugu.source.status="${SOURCE_STATUS}"',
+    ):
+        assert fragment in base
+    for target in ("runtime", "development"):
+        assert f"FROM base AS {target}" in dockerfile
+    for target in ("dev", "test"):
+        assert f"FROM development AS {target}" in dockerfile

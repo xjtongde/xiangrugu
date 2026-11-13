@@ -1,0 +1,2 @@
+{"version":1,"run_suffix":"installed-metadata","layer":"windows_ssh_transport","reason":"remote_exit","utc":"2026-11-12T17:07:21.1658391Z","remote_exit_code":0,"ready_for_import":false}
+{"version":1,"run_suffix":"installed-metadata","layer":"windows_ssh_transport","reason":"stdin_close","utc":"2026-11-12T17:07:21.1711770Z","remote_exit_code":null,"ready_for_import":false}

@@ -1,0 +1,77 @@
+EEEEEEEE                                                                 [100%]
+==================================== ERRORS ====================================
+___ ERROR at setup of test_supported_fast_path_reopens_current_regular_file ____
+
+    @pytest.fixture
+    def reader():
+>       from xiangrugu_datamgmt import request_reader
+E       ImportError: cannot import name 'request_reader' from 'xiangrugu_datamgmt' (/workspace/datamgmt/src/xiangrugu_datamgmt/__init__.py)
+
+datamgmt/tests/unit/test_request_reader.py:10: ImportError
+___ ERROR at setup of test_request_reader_refuses_unsafe_paths[parent-link] ____
+
+    @pytest.fixture
+    def reader():
+>       from xiangrugu_datamgmt import request_reader
+E       ImportError: cannot import name 'request_reader' from 'xiangrugu_datamgmt' (/workspace/datamgmt/src/xiangrugu_datamgmt/__init__.py)
+
+datamgmt/tests/unit/test_request_reader.py:10: ImportError
+_______ ERROR at setup of test_request_reader_refuses_unsafe_paths[fifo] _______
+
+    @pytest.fixture
+    def reader():
+>       from xiangrugu_datamgmt import request_reader
+E       ImportError: cannot import name 'request_reader' from 'xiangrugu_datamgmt' (/workspace/datamgmt/src/xiangrugu_datamgmt/__init__.py)
+
+datamgmt/tests/unit/test_request_reader.py:10: ImportError
+_____ ERROR at setup of test_request_reader_refuses_unsafe_paths[oversize] _____
+
+    @pytest.fixture
+    def reader():
+>       from xiangrugu_datamgmt import request_reader
+E       ImportError: cannot import name 'request_reader' from 'xiangrugu_datamgmt' (/workspace/datamgmt/src/xiangrugu_datamgmt/__init__.py)
+
+datamgmt/tests/unit/test_request_reader.py:10: ImportError
+_______ ERROR at setup of test_unsupported_syscall_uses_checked_fallback _______
+
+    @pytest.fixture
+    def reader():
+>       from xiangrugu_datamgmt import request_reader
+E       ImportError: cannot import name 'request_reader' from 'xiangrugu_datamgmt' (/workspace/datamgmt/src/xiangrugu_datamgmt/__init__.py)
+
+datamgmt/tests/unit/test_request_reader.py:10: ImportError
+__ ERROR at setup of test_missing_proc_fd_uses_fallback_and_closes_descriptor __
+
+    @pytest.fixture
+    def reader():
+>       from xiangrugu_datamgmt import request_reader
+E       ImportError: cannot import name 'request_reader' from 'xiangrugu_datamgmt' (/workspace/datamgmt/src/xiangrugu_datamgmt/__init__.py)
+
+datamgmt/tests/unit/test_request_reader.py:10: ImportError
+___ ERROR at setup of test_reopened_descriptor_must_refer_to_validated_inode ___
+
+    @pytest.fixture
+    def reader():
+>       from xiangrugu_datamgmt import request_reader
+E       ImportError: cannot import name 'request_reader' from 'xiangrugu_datamgmt' (/workspace/datamgmt/src/xiangrugu_datamgmt/__init__.py)
+
+datamgmt/tests/unit/test_request_reader.py:10: ImportError
+_______ ERROR at setup of test_growth_after_open_still_has_bounded_read ________
+
+    @pytest.fixture
+    def reader():
+>       from xiangrugu_datamgmt import request_reader
+E       ImportError: cannot import name 'request_reader' from 'xiangrugu_datamgmt' (/workspace/datamgmt/src/xiangrugu_datamgmt/__init__.py)
+
+datamgmt/tests/unit/test_request_reader.py:10: ImportError
+=========================== short test summary info ============================
+ERROR datamgmt/tests/unit/test_request_reader.py::test_supported_fast_path_reopens_current_regular_file
+ERROR datamgmt/tests/unit/test_request_reader.py::test_request_reader_refuses_unsafe_paths[parent-link]
+ERROR datamgmt/tests/unit/test_request_reader.py::test_request_reader_refuses_unsafe_paths[fifo]
+ERROR datamgmt/tests/unit/test_request_reader.py::test_request_reader_refuses_unsafe_paths[oversize]
+ERROR datamgmt/tests/unit/test_request_reader.py::test_unsupported_syscall_uses_checked_fallback
+ERROR datamgmt/tests/unit/test_request_reader.py::test_missing_proc_fd_uses_fallback_and_closes_descriptor
+ERROR datamgmt/tests/unit/test_request_reader.py::test_reopened_descriptor_must_refer_to_validated_inode
+ERROR datamgmt/tests/unit/test_request_reader.py::test_growth_after_open_still_has_bounded_read
+8 errors in 0.19s
+{"status": "SYNTHETIC_WORKER_STOPPED", "reason": "worker_exit", "process_group_gone": true}

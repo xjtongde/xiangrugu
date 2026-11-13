@@ -1,0 +1,44 @@
+2026年 11月 12日 星期四 17:35:46 UTC
+ARCHIVE_VERIFIED_AND_13_CANDIDATES_ABSENT
+ALREADY_ABSENT request-reader-red/output/tests
+REMOVED request-reader-red/output/scratch
+REMOVED request-reader-red/output/test-memory
+ALREADY_ABSENT request-reader-green/output/tests
+REMOVED request-reader-green/output/scratch
+REMOVED request-reader-green/output/test-memory
+ALREADY_ABSENT dev-metadata/output/tests
+REMOVED dev-metadata/output/scratch
+REMOVED dev-metadata/output/test-memory
+REMOVED dev-remainder/output/tests
+REMOVED dev-remainder/output/scratch
+ALREADY_ABSENT dev-remainder/output/test-memory
+REMOVED dev-fixtures/output/tests
+REMOVED dev-fixtures/output/scratch
+ALREADY_ABSENT dev-fixtures/output/test-memory
+ALREADY_ABSENT installed-metadata/output/tests
+REMOVED installed-metadata/output/scratch
+REMOVED installed-metadata/output/test-memory
+REMOVED installed-remainder/output/tests
+REMOVED installed-remainder/output/scratch
+ALREADY_ABSENT installed-remainder/output/test-memory
+REMOVED installed-fixtures/output/tests
+REMOVED installed-fixtures/output/scratch
+ALREADY_ABSENT installed-fixtures/output/test-memory
+REMOVED reader-prepare-change/output/scratch
+REMOVED reader-prepare-change/output/disk-scratch
+REMOVED reader-request-change/output/scratch
+REMOVED reader-request-change/output/disk-scratch
+REMOVED reader-prepare-large/output/scratch
+REMOVED reader-prepare-large/output/disk-scratch
+REMOVED reader-large-cancel/output/scratch
+REMOVED reader-large-cancel/output/disk-scratch
+REMOVED reader-large/output/scratch
+REMOVED reader-large/output/disk-scratch
+REMOVED reader-prepare-change/output/project
+REMOVED reader-prepare-large/output/project
+f3cee426-121d-4d5a-95ff-17a39436abc9
+98418cb6f08a3c550fb5d36261bc618c006f0a07912437399778fdd4370b1a72 2026-11-12T13:59:56.919146379Z healthy
+3d93fc7741f66f1f01aa250b25c4959addfe4c84df22ecbd0d0f82c13920c1fc 2026-11-12T13:59:56.948544217Z healthy
+pswpout 0
+文件系统        大小  已用  可用 已用% 挂载点
+/dev/sda1       233G   48G  174G   22% /

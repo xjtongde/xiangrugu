@@ -1,0 +1,195 @@
+{
+  "version": 1,
+  "format": "xiangrugu.sqlite-small-readiness-review.v1",
+  "as_of": "2026-10-11",
+  "status": "METADATA_READINESS_SUPPLEMENT_NOT_EXECUTABLE",
+  "git_revision": "8fbc8c97fcf1d818caddf6ab556fa82d986643ed",
+  "source_status": "dirty",
+  "source_read_authorized": false,
+  "postgresql_authorized": false,
+  "contract_frozen": false,
+  "ready_for_import": false,
+  "scope": {
+    "snapshot_id": "2026-10-07-bootstrap",
+    "member": {
+      "path": "harvard/cbdb/cbdb_20260919.sqlite3",
+      "kind": "file",
+      "size": 586485760,
+      "sha256": "bde1bb8eece3820d9e236c1d6b0f07d847d339669d4a85d79cd7252d58d83400"
+    },
+    "objects": 55,
+    "columns": 326,
+    "observed_rows_reference": 12260,
+    "observed_cells_reference": 76392,
+    "already_completed_objects_excluded": 3,
+    "remaining_medium_objects_excluded": 10,
+    "remaining_large_objects_excluded": 10,
+    "order": "Preserve original remaining-budget small-group order"
+  },
+  "scope_objects_repeated": false,
+  "scope_objects_authority": "original_scope_review binding; exactly 55 objects and ordered 326 columns",
+  "bindings": {
+    "remaining_budget": {
+      "path": "datamgmt/contracts/releases/2026-10-06-bootstrap/sqlite-value-remaining-budget.draft.json",
+      "sha256": "9677badc6c0685f2f25fe22186527a902e18dcbeab2d2c12fbdd05ec0accfaf9"
+    },
+    "resource_revision": {
+      "path": "datamgmt/contracts/releases/2026-10-06-bootstrap/sqlite-value-resource-revision.draft.json",
+      "sha256": "62da716692678ea1ebfd790cc3e3b83847816155cac3d8cade075b1b6f35b164"
+    },
+    "preparation": {
+      "path": "datamgmt/contracts/releases/2026-10-06-bootstrap/sqlite-value-contract-preparation.draft.json",
+      "sha256": "fab79f8864d3e7d93d383840d01529603d1a44840b758d76908ba765d73f8948"
+    },
+    "observations": {
+      "path": "datamgmt/contracts/releases/2026-10-06-bootstrap/sqlite-type-observations.draft.json",
+      "sha256": "cf4cbf6c0b60701091430d66c7d48b0f2445927fa68f9ae9ade299a0f1750ec3"
+    },
+    "mapping": {
+      "path": "datamgmt/contracts/releases/2026-10-06-bootstrap/sqlite-target-mapping-proposal.draft.json",
+      "sha256": "297b7c766baa40cc660f262e1ac433973d5d8bdde8c28eb2aca90733bfaec7d9"
+    },
+    "decisions": {
+      "path": "datamgmt/contracts/releases/2026-10-06-bootstrap/sqlite-target-mapping-decisions.draft.json",
+      "sha256": "ca263a16ad485950f123a4fa57b56e2023c1161afbfa772565e59c32f498cc41"
+    },
+    "approved_types": {
+      "path": "datamgmt/contracts/releases/2026-10-06-bootstrap/sqlite-types-approved.draft.json",
+      "sha256": "f4e9c753f0cfacf08dc8309a7f5b78a59916eb3c85ea2dda4fc832aba7fc76ad"
+    },
+    "prior_canary_result": {
+      "path": "datamgmt/contracts/releases/2026-10-06-bootstrap/sqlite-value-canary.expected.draft.json",
+      "sha256": "f052dad41433cf7ce0604a98a958bf85c6dcdc7106710963003453f35740614e"
+    },
+    "prior_canary_scope": {
+      "path": "datamgmt/contracts/releases/2026-10-06-bootstrap/sqlite-value-canary.approved.json",
+      "sha256": "6769af9a2910d3b3f2bb40813c2c86f8f6397965250c7e28c3b892c3a4da7e57"
+    },
+    "roots": {
+      "path": "datamgmt/config/roots.yaml",
+      "sha256": "6235c356fca754a687a2f02998770c9609b20748ade674d0050d86a0a428e07c"
+    },
+    "entry": {
+      "path": "datamgmt/src/xiangrugu_datamgmt/readonly_batch.py",
+      "sha256": "8dbb41f9e44c4e3defd205a08688314be89917b146ffd91bf43abdcf01ec951d"
+    },
+    "controller": {
+      "path": "datamgmt/src/xiangrugu_datamgmt/task_control.py",
+      "sha256": "d74a4407dc544d0ad280f443107b782fcacca37d4e9df534374a534438977f7e"
+    },
+    "host_runner": {
+      "path": "scripts/run-synthetic-batch.sh",
+      "sha256": "3739f0aa4eaaee63a16a051f9e7222219c379064845abb9f062ad3ead5a5b887"
+    },
+    "transport": {
+      "path": "scripts/invoke-synthetic-batch.ps1",
+      "sha256": "4d554499f573785f8b12ced5194f5e0df78fa12e9fb9e209a2f409ebf935f4c4"
+    },
+    "artificial_verification": {
+      "path": "docs/superpowers/evidence/2026-10-10-sqlite-task-control-resume/verification.json",
+      "sha256": "1749d239562894f776836b40035b09e4e2dd6e62074efd62eab52f2141221f11"
+    },
+    "original_scope_review": {
+      "path": "datamgmt/contracts/releases/2026-10-06-bootstrap/sqlite-value-small-execution-review.draft.json",
+      "sha256": "e7a2d9c86c55853c3ac4af69b54353c5b7b8629b76daccc9c5862ed6a4239608"
+    },
+    "original_preparation_evidence": {
+      "path": "docs/superpowers/evidence/2026-10-10-sqlite-small-review-preparation/verification.json",
+      "sha256": "309ff5a9c02dd2271d701c9a3ce0279e7c7391cc6ddd03f157ff00925561b16e"
+    },
+    "lifecycle_verification": {
+      "path": "docs/superpowers/evidence/2026-10-10-sqlite-lifecycle-deadline/verification.json",
+      "sha256": "541aea099e3ae76aa0cb16be0ed1ecd961aef63ef0ea351456946b40570e73e5"
+    },
+    "lifecycle_build_inputs": {
+      "path": "docs/superpowers/evidence/2026-10-10-sqlite-lifecycle-deadline/build-inputs.sha256.json",
+      "sha256": "6b0ad5c9744b77f05a5e6a22ae426671f0207c9b29ae827b9803a2083551e08a"
+    },
+    "supervisor": {
+      "path": "datamgmt/src/xiangrugu_datamgmt/candidate_supervisor.py",
+      "sha256": "d259ed797792bf2146cf0f9b421d0ab879d46f9369748222ffee8d204afd68b7"
+    },
+    "lifecycle_tests": {
+      "path": "datamgmt/tests/unit/test_lifecycle_deadline.py",
+      "sha256": "4b7bbdf6ffdd92ff3005b22f4b5c33211cf94859b1387cbaaaadf3477d5fce48"
+    }
+  },
+  "historical_binding_changes": [
+    {
+      "role": "entry",
+      "path": "datamgmt/src/xiangrugu_datamgmt/readonly_batch.py",
+      "preparation_sha256": "28a840b547ba43507ce371f343f4ee1785c9a248336d6ecb255cda5a7c090545",
+      "current_sha256": "8dbb41f9e44c4e3defd205a08688314be89917b146ffd91bf43abdcf01ec951d",
+      "expected_after_lifecycle_implementation": true
+    },
+    {
+      "role": "controller",
+      "path": "datamgmt/src/xiangrugu_datamgmt/task_control.py",
+      "preparation_sha256": "43184b62ab77bbb72ab869be0fa4db9f3db68c997c57ff032a868aa11f56733b",
+      "current_sha256": "d74a4407dc544d0ad280f443107b782fcacca37d4e9df534374a534438977f7e",
+      "expected_after_lifecycle_implementation": true
+    },
+    {
+      "role": "host_runner",
+      "path": "scripts/run-synthetic-batch.sh",
+      "preparation_sha256": "5e76e68f361b9c84d7023ec6e00e170d4e2a614a84f07d471d8be7829e367eba",
+      "current_sha256": "3739f0aa4eaaee63a16a051f9e7222219c379064845abb9f062ad3ead5a5b887",
+      "expected_after_lifecycle_implementation": true
+    },
+    {
+      "role": "transport",
+      "path": "scripts/invoke-synthetic-batch.ps1",
+      "preparation_sha256": "0fa250b4e91d7cd8fb64daf2a15885d31b29829ac1c67352a9e3a740e19da44b",
+      "current_sha256": "4d554499f573785f8b12ced5194f5e0df78fa12e9fb9e209a2f409ebf935f4c4",
+      "expected_after_lifecycle_implementation": true
+    }
+  ],
+  "verified_artificial_deadlines": {
+    "host_seconds": 1830,
+    "transport_seconds": 1880,
+    "candidate_seconds": 1800,
+    "real_mode_activated": false
+  },
+  "tested_candidate_reference": {
+    "development_passed": 877,
+    "candidate_skipped": 23,
+    "new_tests_this_round": 0,
+    "selected_for_real_execution": false,
+    "runtime_image": "sha256:dfacbeff3f8f62a141d84f621348a19663627bd516df392eae512626b49fe2f5",
+    "build_inputs": 102,
+    "candidate_passed": 854,
+    "test_image": "sha256:f932185995ee66a4ec1eb022725cc99ebda4ac9be2f5195e2aefb592a5f5f21e"
+  },
+  "logical_hash_bytes_reference": {
+    "full_snapshot_passes": 1,
+    "full_snapshot_bytes": 2508987728,
+    "sqlite_digest_passes": 2,
+    "sqlite_bytes": 586485760,
+    "total": 3681959248,
+    "not_physical_io_forecast": true,
+    "business_and_sort_io_excluded": true
+  },
+  "execution_gates": {
+    "selected_real_certificate_sha256": null,
+    "controller_real_mode": "hard closed",
+    "selected_real_manifest_sha256": null,
+    "host_swap_attribution": "unknown",
+    "real_execution_ready": false,
+    "stationary_readonly_window_confirmed": false,
+    "task8_complete": false,
+    "human_real_read_authorization_confirmed": false,
+    "host_input": "fixed artificial fixture only",
+    "real_request_sha256": null,
+    "real_approval_sha256": null
+  },
+  "next_bounded_design": {
+    "outputs": "New draft scope/budget/request template with all real-read authorization fields false, no APPROVED_READONLY_BATCH",
+    "verification": "Artificial metadata failure tests, development regression and unchanged candidate limits; no repeat audit of old core",
+    "inputs": "Repository metadata plus explicitly supplied certificate metadata and candidate identity",
+    "controller_real_mode_enabled": false,
+    "purpose": "Prepare digest-bound real-small task metadata offline; do not execute source reads",
+    "implementation_design_approved": false,
+    "source_or_database_opened": false
+  },
+  "notice": "Current hashes supplement the original preparation-time artifact; not an execution request, approval, or real-source read authority"
+}

@@ -1,0 +1,27 @@
+1794503048
+1
+MemAvailable:    5474392 kB
+0.85 0.77 0.69 1/551 148219
+some avg10=3.42 avg60=1.86 avg300=0.64 total=20133125
+some avg10=0.00 avg60=0.00 avg300=0.00 total=0
+pswpout 0
+185771995136
+true
+1794503059
+2
+MemAvailable:    5405184 kB
+0.79 0.76 0.69 1/564 148504
+some avg10=5.18 avg60=2.40 avg300=0.80 total=20702358
+some avg10=0.00 avg60=0.00 avg300=0.00 total=0
+pswpout 0
+185495494656
+true
+1794503069
+3
+MemAvailable:    5457508 kB
+0.83 0.77 0.69 2/563 148673
+some avg10=3.23 avg60=2.34 avg300=0.84 total=20950090
+some avg10=0.00 avg60=0.00 avg300=0.00 total=0
+pswpout 0
+185222152192
+true

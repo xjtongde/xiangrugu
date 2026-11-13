@@ -1,0 +1,2 @@
+{"version":1,"run_suffix":"installed-remainder","layer":"windows_ssh_transport","reason":"remote_exit","utc":"2026-11-12T17:09:43.0383109Z","remote_exit_code":0,"ready_for_import":false}
+{"version":1,"run_suffix":"installed-remainder","layer":"windows_ssh_transport","reason":"stdin_close","utc":"2026-11-12T17:09:43.0434134Z","remote_exit_code":null,"ready_for_import":false}

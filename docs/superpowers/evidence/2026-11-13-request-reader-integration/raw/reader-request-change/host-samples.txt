@@ -1,0 +1,9 @@
+1794503432
+1
+MemAvailable:    5459556 kB
+0.89 0.88 0.77 1/550 157457
+some avg10=0.73 avg60=1.75 avg300=0.99 total=24175950
+some avg10=0.00 avg60=0.00 avg300=0.00 total=0
+pswpout 0
+184622149632
+true

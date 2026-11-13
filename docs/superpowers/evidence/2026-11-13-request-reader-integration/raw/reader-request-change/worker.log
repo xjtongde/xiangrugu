@@ -1,0 +1,2 @@
+{"status": "CONTROLLED_SOURCE_ONLY_TASK_FAILED", "reason": "controller_request_changed", "failure": {"version": 1, "status": "CONTROLLED_TASK_FAILURE", "request_sha256": "7c13218926072f2f10350d6a30e4b9a981d9f6369550db477efbda0716d8c41a", "source_mode": "project_snapshot", "domain": "control", "code": "controller_request_changed", "stage": "object_read_sort", "object_index": 1, "completed_objects": 0, "ready_for_import": false, "raw_values_emitted": false}, "diagnostic_saved": true}
+{"status": "SOURCE_ONLY_WORKER_STOPPED", "reason": "worker_exit", "process_group_gone": true}

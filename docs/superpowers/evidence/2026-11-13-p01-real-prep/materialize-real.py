@@ -66,7 +66,8 @@ def main() -> int:
             and isinstance(auth.get('granted_by'), str) and auth.get('granted_by')):
         raise ValueError('authorization_binding')
 
-    # Review input must be the accepted closed review bytes.
+    # Review input must be the accepted closed review bytes, staged by the
+    # pin table at its recorded container path (rw evidence mount).
     review_file = Path('/data/var/run/review/review.json')
     if sha(review_file) != REVIEW_SHA:
         raise ValueError('review_identity')

@@ -1,85 +1,120 @@
-# 提案 v2（待审，未实施）：32 主机最小权限执行入口
+# 提案 v3（待审，未实施）：32 主机最小权限执行入口
 
-> 状态：**仅方案提交评审**（替代 v1/0032ca4 版）。本轮与既往各轮均未登录或修改
-> 32；真实任务卡 `real-p01-20261113-a` 保持 CLOSED。任何落地须先获总指挥批准。
-> v1 被否要点：操作账号进 docker 组＝等价近似 root，且直接触达 Docker socket。
-> ｜as_of 2026-11-14
+> 状态：**仅方案提交评审**（替代 v2/8f351fa）。本轮及既往各轮均未登录或修改
+> 32；真实任务卡 `real-p01-20261113-a` 保持 CLOSED。落地须先获总指挥批准。
+> v2 复核意见的落实点：①操作员上传区与运行输入/授权/登记/原始收据物理分离；
+> ②固定入口只消费操作员不可替换的已核验副本；③宿主授权门+容器授权门双保留；
+> ④挂载与 cgroup 核验相对源读取的时序写死；⑤镜像身份沿用已验收 `.Id` 口径；
+> ⑥补输入替换/未授权/重复启动三项验收条件。｜as_of 2026-11-14
 
-## 1. 设计原则（v2 硬约束）
+## 1. 硬约束（继承 v2，不变）
 
-1. **操作账号不属于 docker 组，不接触 `/var/run/docker.sock`**，也不得持有可
-   间接调用 docker/podman/systemctl-docker 的任何 sudo 条目。
-2. 容器启动能力**只存在于管理员控制的固定任务入口**：一个不可被操作者参数化
-   任意命令的受控触发器，而非通用 shell 通道。
-3. 固定入口在启动前**逐项绑定核验**：attempt、镜像摘要、输入清单、允许的挂载
-   表、资源限制——任一不符即拒启，且不落任何部分状态。
-4. **真实执行继续经过独立授权门**：`authorization.json`（操作员人工独占放置，
-   绑定卡片 SHA + attempt）仍是容器内 worker 的第一道字节门；本入口不复制、
-   不缓存、不绕过它。
-5. pg32 生产实例零暴露：入口不加载任何指向 pg32 的路径/变量；快照挂载源以
-   ro bind 由入口内部拼装，操作者无从指定源路径的能力。
+1. 操作账号 `xrgp01op` **不入 docker 组、不触 `/var/run/docker.sock`**，无任何可
+   间接调用容器运行时的 sudo 条目。
+2. 容器启动能力只存在于管理员安装的**固定任务入口**
+   `/usr/local/bin/xrg-p01-run`（sudoers 白名单钉到完整 argv，仅
+   `stage-a` / `stage-b` 两个子命令）。
+3. 真实执行的独立授权门不被入口旁路（见 §3 双门）。
 
-## 2. 组件与职责
+## 2. 目录分区：上传区与运行区分离
 
-| 组件 | 属主/权限 | 职责 |
-|---|---|---|
-| `/usr/local/bin/xrg-p01-run` | root:root 0755，目录 0755 root | 固定任务入口脚本：全部常量硬编码（attempt=`real-p01-20261113-a`、IMAGE=`sha256:8f89956…`、digest 钉定的 run-real.sh），启动前跑 §3 绑定核验，然后经 systemd-run 以专用 uid 拉起容器 |
-| sudoers 条目 | `/etc/sudoers.d/xrg-p01` 0440 | 仅一行：`xrgp01op ALL=(root) NOPASSWD: /usr/local/bin/xrg-p01-run stage-a, xrgp01op ALL=(root) NOPASSWD: /usr/local/bin/xrg-p01-run stage-b` ——白名单到**完整 argv**，无通配 |
-| `xrg-p01-verify`（同一脚本子命令） | root 0755 | 只读复核模式：对既有运行根出收据，不启动容器 |
-| 运行根 | ACL：`xrgp01op` rwx + 10001 rwx；父目录仅 --x | staging 上传落点与证据树；操作者可放件/收证，不能改入口 |
-| 镜像 | daemon 侧预拉取，按 repo@digest 引用 | 入口只用 `IMAGE@sha256:…` 全摘要引用；摘要不符拒启 |
+```text
+/opt/mydocker/xiangrugu/data/var/batch-runner-real-p01-20261113-a/
+├── inbox/                     ← 操作员唯一可写区（staging 上传落点）
+│   └── source-green-v1/…      （48 项包 + INPUTS.sha256）
+├── run-input/                 ← 管理员核验区：root:root 0755，xrgp01op 无写权
+│   ├── source-green-v1/       （由入口以 root 从 inbox 复制并 sha256sum -c 后固化）
+│   └── VERIFIED.sha256        （核验收据，含核验时间）
+├── authorization.json         ← 操作员独占创建(install -m 600)，入口只读挂载
+├── registry/                  ← 单次 attempt 登记（O_EXCL，root 属主）
+└── output/                    ← 原始收据树（monitor/batch/failure-report/心跳/
+                                 worker-output），容器 uid 10001 写入；
+                                 操作员仅可读（ACL r-x），不可写、不可删
+```
 
-操作者流程不变的部分：Windows `stage-real.ps1` → scp 至运行根（仍走既有传输
-账户或改由 `xrgp01op` sftp，仅运行根 ACL 内）→ `sudo /usr/local/bin/xrg-p01-run
-stage-a|stage-b` → 事后从运行根收取收据。
+要点：
+- **固定入口只使用 `run-input/` 内经核验且操作员无法替换的副本**。流程：操作员
+  传包进 `inbox/` → 触发 `xrg-p01-run verify-inbox`（第三条 sudo 白名单，纯本地
+  校验）→ 入口以 root 把 inbox 整树复制到 run-input、逐字节跑权威 INPUTS 清单、
+  核对卡片/review/roots 三 SHA，全部通过才写 `VERIFIED.sha256` 并把 run-input
+  chown root:root 0755（此后 xrgp01op 对该树零写权）。stage-a/stage-b 一律只认
+  run-input，绝不回读 inbox。
+- 原始收据只在 `output/`：容器写、操作员读；入口不提供任何删除/改写收据的子命令。
 
-## 3. 固定入口的启动前绑定核验（全部通过才允许创建容器）
+## 3. 双授权门（都保留，语义不同）
 
-1. **attempt 绑定**：argv 只接受 `stage-a` / `stage-b` 两个子命令；attempt id、
-   运行根路径、超时（1800/1830s）为脚本内常量，与环境无关。
-2. **镜像摘要**：`docker image inspect --format '{{index .RepoDigests 0}}'` 必须
-   逐字等于常量 `sha256:8f899568909671131b14cc1c06afeef93d6ef1eef7d5d0a1b18c3bf287bd0a0a`；
-   禁止 `latest`/tag 回退；缺失即拒（不自动 pull）。
-3. **输入清单**：对 `$remote/source-green-v1` 执行 `sha256sum -c INPUTS.sha256`
-   （权威 48 项清单随包钉入），任一行失败即拒；随后核对 task-card.closed.json
-   字节 = `41bd0ecf…`、review = `a7c2c5bd…`、roots = `6235c356…`。
-4. **允许的挂载**：入口生成的 docker 命令行写死后逐项断言于自身记录文件
-   `mount-plan.txt`（快照源仅 `/mnt/wd61workmetadata/usedata@ro → /data/imports/usedata/<SNAPSHOT_ID>`、
-   证据根 rw、其余全 ro/cap-drop ALL/network none/read-only rootfs），启动后
-   `docker inspect .Mounts` 与 plan 逐条比对，不符立即 stop 并保留现场。
-5. **资源限制**：cpu.max 50000 100000、memory 768MiB、swap=mem、pids 128、
-   nice19/ionice idle 以 cgroup 文件读回值断言（同已验收演练口径）。
-6. **独立授权门**：Stage A/B worker 容器内首步仍校验 `authorization.json`
-   （status/attempt/task_card_sha256/one_attempt_only/granted_by），缺失或绑定
-   不符 → 退出 2，早于任何源读取。入口本身不读该文件内容，只保证路径挂载。
-7. **单次 attempt**：入口检查登记文件（O_EXCL）；已存在即拒绝第二次启动，
-   与 RUNBOOK「一次 attempt」纪律一致。
+| 门 | 位置 | 校验内容 | 失败行为 |
+|---|---|---|---|
+| 宿主门 | `xrg-p01-run stage-b` 启动前（root） | `authorization.json` 存在、mode 600、属主合法、JSON 键 status/attempt_id/task_card_sha256/one_attempt_only/granted_by 逐项等值 | 拒启，不创建容器，不消耗登记 |
+| 容器门 | worker 容器内第一步（uid 10001，ro 挂载该文件） | 同文件再验字节 + 绑定卡片 SHA（现 RUNBOOK 既有逻辑，不改） | 退出 2（设计使然），早于任何源读取 |
 
-## 4. 明确不做
+宿主门防"误触发起容器"，容器门防"入口被绕过/篡改后仍守授权"——两门独立失效。
 
-- 不给 `xrgp01op` docker 组、socket 访问、通用 docker CLI sudo、systemctl 权。
-- 不提供任意命令/任意挂载/任意镜像的入口参数面（两个固定子命令之外无接口）。
-- 不在 32 直接编辑 Git 内容；入口脚本本体随交付包经 Windows staging 审阅后
-  由**管理员**安装（cp+chmod+visudo -cf），操作者无安装能力。
-- authorization.json 放置仍纯人工（install -m 600 独占创建），不经任何自动化。
+## 4. 固定入口启动前核验时序（写死；全部先于任何源读取）
 
-## 5. 验收条件（获批后的实施轮，逐项出机器可读收据）
+顺序即安全属性，编号步骤之间不得插入其他动作：
 
-1. `id xrgp01op` 不含 docker 组；`ls -l /var/run/docker.sock` 属组不含该用户；
-   `sudo -l -U xrgp01op` 输出恰为两条固定 argv 白名单，无其它条目。
-2. 以 `xrgp01op` 直接 `docker ps` / 打开 socket → EACCES，留 audit 记录。
-3. 篡改演练（在隔离副本根）：错镜像摘要 / 删一行 INPUTS / 加一条挂载 / 换
-   attempt id → 四种情形入口均拒启且退出码非 0、无容器创建、登记文件不消耗。
-4. refuse-no-authorization 走查：无 authorization.json 时 `stage-a` 到达容器内
-   拒绝路径（退出 2），证明独立授权门未被入口旁路。
-5. 正常演练：`stage-a` 全程产物与现 RUNBOOK R2 预期一致；`stage-b` 仅在执行
-   轮（茶香授权后）由总指挥现场监督下启用。
-6. 回退验证：`userdel xrgp01op; rm /etc/sudoers.d/xrg-p01
-   /usr/local/bin/xrg-p01-run; setfacl -b <运行根>` 后系统回到现状，无残留。
+1. **attempt/常量绑定**：argv 仅 `verify-inbox|stage-a|stage-b`；attempt id、路径、
+   超时为脚本常量。
+2. **登记预占**：`registry/<attempt>.lock` O_EXCL 创建（已存在 → 立即拒绝，
+   对应"重复启动"验收 R3）。
+3. **run-input 完整性**：对 run-input 重放 `sha256sum -c VERIFIED.sha256` 引用的
+   权威清单 + 三 SHA（卡片 `41bd0ecf…`、review `a7c2c5bd…`、roots `6235c356…`）。
+4. **镜像身份（沿用已验收口径）**：`docker image inspect --format '{{.Id}}'` 必须
+   逐字等于交付包收据中记录的镜像 `.Id`
+   `sha256:8f899568909671131b14cc1c06afeef93d6ef1eef7d5d0a1b18c3bf287bd0a0a`
+   ——与 materialize/演练收据链同源（controller-pins.txt、batch 记录均按 .Id
+   钉定）。本提案**不引入 RepoDigests 口径**；若总指挥要求仓库摘要，须另行在
+   registry 侧核实后再修订本节，当前视为未验证信息。
+5. **挂载计划生成与自检**：入口内部拼装 docker 命令行（快照源固定
+   `/mnt/wd61workmetadata/usedata` ro bind → `/data/imports/usedata/<SNAPSHOT_ID>`；
+   run-input ro、output rw、authorization ro、其余全 ro；read-only rootfs、
+   cap-drop ALL、no-new-privileges、network none），落盘 `mount-plan.txt`。
+6. **cgroup 资源常量**：cpu.max `50000 100000`、memory 768MiB、swap=mem、pids 128。
+7. **启动容器**（此时才允许出现任何能触源的进程）。
+8. **启动后立即比对**：`docker inspect .Mounts` ↔ mount-plan.txt 逐条一致、
+   cgroup 文件读回值 ↔ §4.6 一致（同已验收演练口径）；任一不符 → 立即 stop、
+   保留现场、登记标记 INVALID。
 
-## 6. 残余风险
+⇒ 源读取只可能发生在步骤 8 通过的窗口内；输入、镜像、挂载、资源四类核验全部
+结构性先于源读取。
 
-- root 通道（sshd root 登录）仍存在——那是**管理员侧**安装/审计通道，操作者
-  日常执行不再使用；是否进一步收紧（禁 root 密码/限源 IP）列为后续裁决项。
-- 入口脚本自身的完整性依赖 root:root 0755 + 交付包摘要钉定；建议实施轮把
-  `xrg-p01-run` 的 sha256 也写入任务卡附注，供 verify-real.sh 复核。
+## 5. 明确不做
+
+- 不给 `xrgp01op` docker 组/socket/通用 CLI/systemctl 权；不给 run-input、
+  registry、output 写权。
+- 入口无任意命令/挂载/镜像参数面；脚本本体 root:root 0755，其 sha256 写入任务
+  卡附注供 verify-real.sh 复核；安装由管理员执行（visudo -cf 校验）。
+- authorization.json 放置仍纯人工独占创建；入口与操作员通道都不写它。
+- 不在 32 直接编辑 Git 内容。
+
+## 6. 验收条件（获批后的实施轮，逐项出机器可读收据）
+
+基础项（继承 v2）：
+1. `id xrgp01op` 无 docker 组；socket EACCES；`sudo -l -U xrgp01op` 恰三条固定
+   argv 白名单。
+2. 正常走查：`verify-inbox`→`stage-a` 产物与现 RUNBOOK R2 预期一致；
+   `stage-b` 仅在茶香授权后、总指挥现场监督下启用。
+
+本轮新增三项（否决性）：
+
+- **R1 输入替换攻击**：verify-inbox 通过后，操作员改 inbox 内任一文件（如
+  run-real.sh 加一行注释）→ 再跑 `stage-a`：入口必须以 run-input 为准照常
+  校验通过（证明不受 inbox 影响）；随后直接改 run-input 内任一字节（需 root，
+  模拟篡改者）→ `stage-a` 必须在 §4.3 拒绝、退出非 0、无容器创建、登记标记
+  REFUSED 且不消耗 attempt 名额（REFUSED 记录单独落 registry/refusals/）。
+- **R2 未授权**：无 authorization.json（或字段不符）时 `stage-b`：宿主门拒启
+  （无容器）；放入合法外观但**未绑定本卡片 SHA** 的文件：容器门退出 2。两种
+  拒径都必须留各自收据，且 `output/` 无可执行副作用。
+- **R3 重复启动**：同一 attempt 第二次 `stage-a`/`stage-b` → §4.2 O_EXCL 立即
+  拒绝，退出非 0，错误串 `attempt_consumed`，不新建容器、不覆盖原收据。
+- **R4 越权写**：`xrgp01op` 对 run-input/registry/output 的写、删、chmod 全部
+  EACCES，audit 留痕。
+- **R5 回退**：`userdel xrgp01op; rm /etc/sudoers.d/xrg-p01 /usr/local/bin/xrg-p01-run;
+  setfacl -b <运行根>` 后回到现状。
+
+## 7. 残余风险
+
+- root ssh 通道仍在：定位为管理员安装/审计通道；是否收紧另列裁决项。
+- docker 守护进程本身仍是全局能力——本方案收缩的是**操作者可达面**，不声称
+  消除 daemon 权力本身。

@@ -1,47 +1,67 @@
-# stage-real.ps1 `-LocalOnly` —— Windows 校验步骤与实测状态
+# stage-real.ps1 本地入口 —— Windows 校验步骤与实测状态
 
-> as_of 2026-11-14。本文件回答两个问题：**怎么在 Windows 隔离检出里做纯本地
-> 48 项校验**，以及**这一轮到底测没测过**。
+> as_of 2026-11-14（v2，对应提案评审后的脚本修订）。回答两件事：**Windows 隔离
+> 检出里怎么复核**，以及**这一轮到底测没测过**。全程离线，不触 32。
 
 ## 1. 入口语义（脚本已实现）
 
+三个互斥模式：
+
 ```powershell
-# [Windows PowerShell 5] 在隔离检出的本目录内：
+# [Windows PowerShell 5] 在本目录（隔离检出内）：
+
+# (a) 仅本地校验：权威清单只读消费；成功后临时目录已被 finally 删除才打印
 powershell -ExecutionPolicy Bypass -File stage-real.ps1 -LocalOnly
+#   → LOCAL-ONLY STAGING CHECK PASSED: 48 files verified …（退出码 0）
+
+# (b) 独立重钉入口（唯一能改写两份 pin 清单的路径；完成即返回，绝不进传输段）
+powershell -ExecutionPolicy Bypass -File stage-real.ps1 -RegeneratePins
+#   → PINS REGENERATED LOCALLY from 48 staged files; no archive, no ssh/scp.
+
+# (c) 默认传输模式：两份已提交清单均只读消费（清单不符直接抛错），随后 tar+ssh/scp
 ```
 
-- 构建 packet 到一次性目录 `packet-local-check-<8hex>/`；
-- 用**已提交的权威清单** `packet-inputs-real.sha256`（48 项）逐字节门全部 staged 文件；
-- **绝不**写 `packet-inputs-real.sha256` / `packet-files-real.txt`（重钉只存在于传输路径且需
-  `$env:XRG_REGENERATE_INPUTS='1'`，代码位置在 `-LocalOnly` 的 `exit 0` 之后）；
-- **绝不**创建 tar、**绝不**调用 ssh/scp（四个网络调用点全部位于 `exit 0` 之后，
-  静态可核：`Select-String -Path stage-real.ps1 -Pattern '& (ssh|scp)'` 行号均晚于 exit 行）；
-- 成功输出唯一一行：`LOCAL-ONLY STAGING CHECK PASSED: 48 files verified …`，随后删除临时目录并 `exit 0`；
-  任何失败经 trap 清理临时目录后抛出非零退出。
+结构性保证（静态可核，与 OS 无关）：
+- `-LocalOnly` / `-RegeneratePins` 用 `return` 结束于 try 块内 ⇒ **finally 先删
+  本轮创建的临时 packet 目录，成功行后打印**；任何异常同样经 finally 清理并
+  非零退出。只有本轮创建且属瞬态模式的目录会被删除；传输模式 `packet-real/`
+  按原设计保留供操作员查验。
+- 全部 `& ssh` / `& scp` / tar 调用点都在两个本地入口的 `return` 之后；
+  默认路径不再写 `packet-inputs-real.sha256` / `packet-files-real.txt`
+  （旧 `$env:XRG_REGENERATE_INPUTS` 通道已废除）。
 
-摘要重生成与传输解耦：审阅者反复跑 `-LocalOnly` 无副作用；只有正式装包轮才走默认路径。
-
-## 2. Windows 复核步骤（获批操作员执行，约 2 分钟，全程离线）
+## 2. Windows 复核步骤（获批操作员执行，全程离线，约 3 分钟）
 
 1. `git clone <gitea> xrg-win-check && cd xrg-win-check && git checkout <本分支 SHA>`
 2. `cd docs\superpowers\evidence\2026-11-13-p01-real-prep`
-3. 预置断网保险（可选但建议）：临时把 `%SystemRoot%\System32\OpenSSH\ssh.exe`、
-   `scp.exe` 改名——若脚本有任何网络触达会立刻报错而非静默。
-4. `powershell -ExecutionPolicy Bypass -File stage-real.ps1 -LocalOnly`
-   → 预期恰好一行 `LOCAL-ONLY STAGING CHECK PASSED: 48 files …`，退出码 0。
-5. 事后核验：`git status --porcelain` 必须为空（未写 pin/清单/归档）；
-   目录中无 `packet-local-check-*` 残留；无 `packet-real/`、无 `packet-real.tar.gz`。
-6. 负例抽查（证伪门有效性）：任选一个 staged 工具副本注入 CRLF 后再跑
-   `-LocalOnly` → 预期 `Staged byte mismatch (CRLF or drift): <file>` 抛出。
-7. 恢复第 3 步改名（若做过）。
+3. **正例**：`powershell -ExecutionPolicy Bypass -File stage-real.ps1 -LocalOnly`
+   → 断言①输出恰为一行 `LOCAL-ONLY STAGING CHECK PASSED: 48 files …`；
+   → 断言②`$LASTEXITCODE -eq 0`；
+   → 断言③`Get-ChildItem -Directory -Filter 'packet-local-check-*'` 为空（无残留）；
+   → 断言④`git status --porcelain` 为空（未动 pin/清单/归档）。
+4. **CRLF 负例**：复制任一 staged 工具到临时副本不可行（清单只读），改为在克隆树内
+   `git config core.autocrlf true; git checkout -- .` 使某文本件带 CRLF，或直接
+   `(Get-Item ..\..\..\..\datamgmt\config\roots.yaml)` 注入——最简做法：
+   `Add-Content -Path (Join-Path $PWD '..\..\..\..\docs\superpowers\evidence\2026-11-13-request-reader-integration\verification.json') -Value ''`
+   再跑 `-LocalOnly` → 断言⑤抛出 `Staged byte mismatch (CRLF or drift): …`、
+   退出码非 0、断言⑥仍无 `packet-local-check-*` 残留；随后 `git checkout -- .` 还原。
+5. **无网络断言**：两步运行期间无需改名系统二进制；以结果为准——
+   断言⑦进程内无对 192.168.3.32 的连接（可选：`Get-NetTCPConnection` 抽查或
+   防火墙日志），且脚本源码中网络调用点均位于本地入口 return 之后（§1）。
+6. 收尾：`Remove-Item ..\..\.. -Recurse`（删除整个克隆树即可，无他物残留）。
 
 ## 3. 本轮实测状态
 
-- **DSH 会话主机为 Linux，无 PowerShell/pwsh**（`command -v pwsh powershell` → 空）。
-  ⇒ **Windows 原生 `-LocalOnly` 实测 = 待办**，按指令明确标记，不谎报。
-- 已完成的等价验证（Linux 替身，逻辑逐段对齐 §1–§5 + 权威清单门）：
-  在隔离检出（detached worktree @0032ca4）中以 Python 复刻同一 staging 集与
-  同一提交清单做字节门：**48/48，mismatches=0，dropped=0**。
-- 结构性保证（与操作系统无关，可静态复核）：所有 `& ssh` / `& scp` / pin 写入
-  语句都排在 `-LocalOnly` 分支的 `exit 0` 之后——PowerShell 顺序执行模型下
-  `-LocalOnly` 运行不可能触达它们。
+- DSH 会话主机为 Linux，无 PowerShell/pwsh ⇒ **Windows 原生 `-LocalOnly` /
+  `-RegeneratePins` 实测 = 待办**（按指令如实标记，不谎报）。
+- 等价逻辑已在 Linux 替身验证（detached worktree @HEAD，同一提交字节 + 同一
+  权威清单只读门，模拟 try/finally 流程）：
+  - 正例：**48/48，mismatch=0**，临时目录清理后不存在残留；
+  - CRLF 负例（对夹具输入注入 `\r\n` 后重建）：门捕获
+    `metadata/runtime-verification.json` 失配并判失败（对应 ps1 throw → 非零退出），
+    同样无临时目录残留；
+  - 两次运行前后 `packet-inputs-real.sha256` / `packet-files-real.txt` 摘要不变
+    （本地入口零写入得证）；全程未调用 ssh/scp/tar。
+  - 结构断言（网络调用点均位于两个本地入口 return 之后、括号/圆括号平衡）
+    静态复核通过。
+  替身脚本非 PowerShell 本体 ⇒ Windows 原生实测仍为待办。

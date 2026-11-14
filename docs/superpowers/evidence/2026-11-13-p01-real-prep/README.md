@@ -60,5 +60,5 @@ Stage B real-readonly（容器内，快照 /data/imports/usedata 只读挂载）
 
 ## 待裁决
 
-- **32 最小权限执行入口 v5**：仅方案已提交待审。在 v4（管理员独立固定权威清单、统一 T1–T11 时序表、受控快照根版本目录只读挂载）基础上补齐三个实施条件：①start 后宿主 cgroup 实际读回全过才写 GO 放行 worker，读回失败/宿主退出/等待超时三态均证明 worker 从未启动；②消费记录 fsync 前置于首次 start 请求之前（配置预检拒绝仍可重试），运行锁使恢复与活跃执行互斥，覆盖 ID 未落盘与启动结果不明两种中断；③授权原件由有授权权的人独占创建，容器 uid 10001 经 ro bind 读同字节副本并与宿主 confirmed 摘要三方一致，执行账号对原件/副本零写权。见 [PROPOSAL-32-minimal-entry.md](PROPOSAL-32-minimal-entry.md)（未实施、未登录 32）。
+- **32 最小权限执行入口 v6**：仅方案已提交待审。v4 骨架（管理员独立固定权威清单、统一 T1–T11 时序表、受控快照根版本目录只读挂载）＋ v5 三条件，v6 收敛为可实施细节：①GO 选定一次性命名 pipe（文件名钉 attempt+容器 ID、unlink 旧件失效、EOF 不可重放），五项宿主读回（cpu.max/memory.max/memory.swap.max/pids.max/io.weight——v5 io_scheduling 笔误已正）＋nice 全过才写 GO；宿主放行前退出时 PID1 FIFO open 15s 超时自毙；A-T9c 三态各要求 audit/fanotify+/proc 采样的进程事件证据证明 worker 从未启动；②消费记录 fd+父目录双 fsync 成功才发首次 start，半写/同步失败/终态中断语义齐备；stage-b 与 recover-orphan 同一常驻 flock 文件全程持锁互斥；start 响应丢失区分原入口存活（只报告）/已退出（只核对回收、不补 GO 不重发 start）；验收拆为 A-T9a 可重试与 A-T9b 后已消费；③授权发布走 staging→fsync→RENAME_NOREPLACE（二次原子失败、半成品不可见），宿主从已验证字节生成 root 0700 run-authz 受保护副本＋confirmed 摘要，ro bind 挂副本非原件，Stage A 首读前就绪，验收含 UID 10001 实读比对与操作员写删替换全面 EACCES。见 [PROPOSAL-32-minimal-entry.md](PROPOSAL-32-minimal-entry.md)（未实施、未登录 32）。
 - 其余见 [ACCESS-32.md](ACCESS-32.md) 与 RUNBOOK-REAL「授权」节。本包完成后停在授权前：未放置 authorization.json，未创建运行根，未启动任何 Stage A/B 容器。

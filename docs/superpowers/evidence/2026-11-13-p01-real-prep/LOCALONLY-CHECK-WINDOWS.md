@@ -21,6 +21,10 @@ powershell -ExecutionPolicy Bypass -File stage-real.ps1 -RegeneratePins
 # (c) 默认传输模式：两份已提交清单均只读消费（清单不符直接抛错），随后 tar+ssh/scp
 ```
 
+清理规则（caa1a13 复核意见落实）：finally **只删本轮创建的瞬态模式临时包**
+（`($LocalOnly -or $RegeneratePins) -and $createdPacket`），默认传输的 `packet-real`
+在成功与失败路径下都保留供操作员查验；本地模式成功行在清理完成后才打印。
+
 结构性保证（静态可核，与 OS 无关）：
 - `-LocalOnly` / `-RegeneratePins` 用 `return` 结束于 try 块内 ⇒ **finally 先删
   本轮创建的临时 packet 目录，成功行后打印**；任何异常同样经 finally 清理并
@@ -54,14 +58,13 @@ powershell -ExecutionPolicy Bypass -File stage-real.ps1 -RegeneratePins
 
 - DSH 会话主机为 Linux，无 PowerShell/pwsh ⇒ **Windows 原生 `-LocalOnly` /
   `-RegeneratePins` 实测 = 待办**（按指令如实标记，不谎报）。
-- 等价逻辑已在 Linux 替身验证（detached worktree @HEAD，同一提交字节 + 同一
-  权威清单只读门，模拟 try/finally 流程）：
-  - 正例：**48/48，mismatch=0**，临时目录清理后不存在残留；
-  - CRLF 负例（对夹具输入注入 `\r\n` 后重建）：门捕获
-    `metadata/runtime-verification.json` 失配并判失败（对应 ps1 throw → 非零退出），
-    同样无临时目录残留；
-  - 两次运行前后 `packet-inputs-real.sha256` / `packet-files-real.txt` 摘要不变
-    （本地入口零写入得证）；全程未调用 ssh/scp/tar。
-  - 结构断言（网络调用点均位于两个本地入口 return 之后、括号/圆括号平衡）
-    静态复核通过。
-  替身脚本非 PowerShell 本体 ⇒ Windows 原生实测仍为待办。
+- 等价逻辑已在 Linux 替身验证（detached worktree，同一提交字节 + 同一权威清单
+  只读门，模拟 try/finally 三断言，@caa1a13+本轮修订）：
+  - **正例**：rc=0，48/48 mismatch=0，临时包已删除、无残留；
+  - **CRLF 负例**（夹具输入注入 `\r\n`）：rc≠0，门捕获
+    `metadata/runtime-verification.json` 失配，临时包同样被 finally 删除；
+  - **默认包保留**：模拟传输段在 staging 后抛错，`packet-real`（48 文件）完整
+    保留——瞬态判定为假，finally 不触碰它；
+  - 两次本地运行前后两份 pin 清单摘要不变；全程未调用 ssh/scp/tar。
+  - 结构断言（网络调用点均位于两个本地入口 return 之后、括号平衡）静态通过。
+  替身脚本非 PowerShell 本体 ⇒ **Windows 原生实测仍为待办**。

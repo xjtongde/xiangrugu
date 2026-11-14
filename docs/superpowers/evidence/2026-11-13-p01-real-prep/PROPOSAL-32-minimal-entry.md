@@ -1,11 +1,16 @@
-# 提案 v3（待审，未实施）：32 主机最小权限执行入口
+# 提案 v3.1（待审，未实施）：32 主机最小权限执行入口
 
 > 状态：**仅方案提交评审**（替代 v2/8f351fa）。本轮及既往各轮均未登录或修改
 > 32；真实任务卡 `real-p01-20261113-a` 保持 CLOSED。落地须先获总指挥批准。
 > v2 复核意见的落实点：①操作员上传区与运行输入/授权/登记/原始收据物理分离；
 > ②固定入口只消费操作员不可替换的已核验副本；③宿主授权门+容器授权门双保留；
 > ④挂载与 cgroup 核验相对源读取的时序写死；⑤镜像身份沿用已验收 `.Id` 口径；
-> ⑥补输入替换/未授权/重复启动三项验收条件。｜as_of 2026-11-14
+> ⑥补输入替换/未授权/重复启动三项验收条件。
+> **v3.1（本 revision，回应 caa1a13 复核）**：新增 §4b 端到端时序表——逐步标明
+> 写入者、可信清单来源、占锁/消耗 attempt 时点与 worker 放行步骤；明确 Stage A
+> 成功后首次 Stage B 必可运行、预检拒绝不消耗名额、并发/重复 Stage B 只放行一次；
+> 授权由有授权权的人独占放置；可读源仅在容器核验完成后，挂载限定任务卡指定的
+> 快照版本目录。｜as_of 2026-11-14
 
 ## 1. 硬约束（继承 v2，不变）
 
@@ -52,7 +57,7 @@
 
 ## 4. 固定入口启动前核验时序（写死；全部先于任何源读取）
 
-顺序即安全属性，编号步骤之间不得插入其他动作：
+顺序即安全属性，编号步骤之间不得插入其他动作（逐步责任与放行动作见 §4b 时序表）：
 
 1. **attempt/常量绑定**：argv 仅 `verify-inbox|stage-a|stage-b`；attempt id、路径、
    超时为脚本常量。
@@ -78,6 +83,33 @@
 
 ⇒ 源读取只可能发生在步骤 8 通过的窗口内；输入、镜像、挂载、资源四类核验全部
 结构性先于源读取。
+
+## 4b. 端到端时序表（上传 → 读取，caa1a13 复核意见）
+
+可信清单来源缩写：**A** = run-input 内随包钉入的权威 `INPUTS.sha256`（48 项，
+verify-inbox 固化时逐字节核验过）；**C** = 入口脚本 root 常量。
+
+| # | 步骤 | 执行者/写入方 | 读取来源 | 可信清单 | 锁/attempt | 源可读？ |
+|---|---|---|---|---|---|---|
+| T1 | scp 上传包至 inbox | 操作员（xrgp01op，唯一可写区） | Windows packet-real.tar.gz | — | 无 | 否 |
+| T2 | `sudo xrg-p01-run verify-inbox` | **root（入口）**：复制 inbox→run-input、chown root 0755、写 VERIFIED.sha256 | inbox 整树 | A（包内附送，先对 C 中卡片/review/roots 三 SHA） | 无 | 否 |
+| T3 | 放置 authorization.json | **有授权权的人（茶香/被其点名的操作员本人）**，`install -m 600` 独占创建；入口与 xrgp01op 通道均不写 | — | 绑定卡片 SHA+attempt（内容自证） | 无 | 否 |
+| T4 | `sudo xrg-p01-run stage-a` 宿主预检 | root（入口） | run-input（拒绝再读 inbox） | A + C | O_EXCL `registry/stage-a.lock`（幂等：Stage A 成功收据存在即视为已完成，不重复跑） | 否——容器无快照挂载，物理不可读源 |
+| T5 | Stage A 容器（materialize） | uid 10001 | run-input ro、authorization ro | 容器门再验字节+卡片 SHA | 同上 | 否（本阶段设计上不触源） |
+| T6 | 操作员核对 controller-pins.txt 三 pin | 人（离线） | Stage A 收据 output/ | — | 无 | 否 |
+| T7 | `sudo xrg-p01-run stage-b` 宿主预检 | root（入口） | run-input + Stage A 成功收据 | A + C + Stage A 收据 pin | **O_EXCL `registry/<attempt>.lock`＝attempt 名额在此消耗**；预检任何一步失败 → 删除本次 lock 文件并落 registry/refusals/（**不消耗名额**） | 否 |
+| T8 | 启动候选容器（挂载拼装见 §4.5） | root（docker CLI 在入口内部） | 快照**仅任务卡指定版本目录** `/mnt/wd61workmetadata/usedata/<SNAPSHOT_ID>` ro bind → `/data/imports/usedata/<SNAPSHOT_ID>`；父目录不挂 | 生成 mount-plan.txt | lock 已持有 | **尚未**——worker 未放行 |
+| T9 | 启动后即时核验 | root（入口） | `docker inspect .Mounts`、cgroup 读回值 | mount-plan.txt + C | 不符→stop+登记 INVALID（消耗 attempt，留全现场） | **仍未**——核验不过绝不放行 worker |
+| T10 | **放行 worker**（supervisor Popen task_control） | 容器内 uid 10001 | 容器门字节校验通过 + T9 通过后由 supervisor 拉起 | 三方 pin 交叉（§4） | lock 已持有 | **是——全流程唯一读取窗口自此开始** |
+| T11 | 原始收据落 output/ | 容器 uid 10001 写；操作员 ACL r-x 只读 | — | — | 结束时 lock 转 done | 读取窗口随进程终止关闭 |
+
+关键不变式：
+- **首次可运行**：T5 Stage A 成功收据存在 + attempt lock 不存在 ⇒ T7 必然放行到
+  T10；同 attempt 第二次 stage-b 在 T7 O_EXCL 即拒（`attempt_consumed`），并发
+  双发起同理只有一个能持锁——**只能放行一次**。
+- **预检拒绝不消耗**：T7 在容器创建前的失败路径删除本次 lock、只留 refusals
+  记录；T9/T10 之后的失败才计入消耗（现场完整保留）。
+- 源读取仅存在于 T10–T11 窗口，且挂载面只有卡片钉定的快照版本目录（ro）。
 
 ## 5. 明确不做
 

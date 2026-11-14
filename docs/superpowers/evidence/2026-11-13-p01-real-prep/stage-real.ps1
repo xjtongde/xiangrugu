@@ -8,9 +8,10 @@
 #                        The committed manifest is used READ-ONLY in this mode.
 #   -LocalOnly           staging + authoritative-manifest gate ONLY: no pin rewrite,
 #                        no file-list write, no archive, no ssh/scp. The temp packet
-#                        dir created here is removed in a finally block BEFORE the
-#                        success line is printed; any failure also cleans up via the
-#                        same finally and exits nonzero.
+#                        dir created here is removed in a finally block and ONLY
+#                        THEN the success line prints; failures clean up the same
+#                        way and exit nonzero. Default-mode packet-real survives
+#                        every path (inspection artifact, never auto-deleted).
 #   -RegeneratePins      independent LOCAL re-pin entry point: builds its own temp
 #                        packet, rewrites packet-inputs-real.sha256 and
 #                        packet-files-real.txt from the verified staged bytes, then
@@ -100,8 +101,9 @@ try {
     if($LocalOnly){
         # Local-only verification entry point: authoritative gate passed above.
         # No pin/file-list writes, no archive, no ssh/scp. Return (not exit) so
-        # the finally block runs FIRST; the success line prints after cleanup.
-        Write-Output ('LOCAL-ONLY STAGING CHECK PASSED: '+$files.Count+' files verified against committed manifest; no pin rewrite, no archive, no ssh/scp.')
+        # the finally block cleans up FIRST; the success line prints there.
+        $script:localOnlyPassed=$true
+        $script:localOnlyCount=$files.Count
         return
     }
     # 6. default transport mode: both committed pin lists were consumed read-only
@@ -129,7 +131,15 @@ try {
     # including on the -LocalOnly/-RegeneratePins `exit 0` paths and on any
     # throw. Transport-mode packet-real is left in place by design (operator
     # inspects it), so we only remove dirs we created AND that are transient.
-    if($createdPacket -and (Test-Path $packet)){
+    # Cleanup rule (review point caa1a13): remove ONLY a packet this run CREATED
+    # AND that belongs to a transient local mode (-LocalOnly / -RegeneratePins).
+    # The default transport packet `packet-real` is ALWAYS kept — success or
+    # failure — so the operator can inspect exactly what was archived/sent.
+    if(($LocalOnly -or $RegeneratePins) -and $createdPacket -and (Test-Path $packet)){
         Remove-Item -LiteralPath $packet -Recurse -Force
+    }
+    if($script:localOnlyPassed){
+        # Printed only here: temp package removal has already happened above.
+        Write-Output ('LOCAL-ONLY STAGING CHECK PASSED: '+$script:localOnlyCount+' files verified against committed manifest; temp dir removed; no pin rewrite, no archive, no ssh/scp.')
     }
 }

@@ -1,19 +1,26 @@
-# 提案 v4（待审，未实施）：32 主机最小权限执行入口
+# 提案 v5（待审，未实施）：32 主机最小权限执行入口
 
-> 状态：**仅方案提交评审**（替代 v2/8f351fa）。本轮及既往各轮均未登录或修改
+> 状态：**仅方案提交评审**（迭代自 v4/1fa11e5）。本轮及既往各轮均未登录或修改
 > 32；真实任务卡 `real-p01-20261113-a` 保持 CLOSED。落地须先获总指挥批准。
 > v2 复核意见的落实点：①操作员上传区与运行输入/授权/登记/原始收据物理分离；
 > ②固定入口只消费操作员不可替换的已核验副本；③宿主授权门+容器授权门双保留；
 > ④挂载与 cgroup 核验相对源读取的时序写死；⑤镜像身份沿用已验收 `.Id` 口径；
 > ⑥补输入替换/未授权/重复启动三项验收条件。
 > **v3.1（回应 caa1a13）**：新增端到端时序表。
-> **v4（本 revision，回应 20f6b2a 复核）**：正文与验收合并为**一张统一时序表
+> **v4（回应 20f6b2a 复核）**：正文与验收合并为**一张统一时序表
 > §4b**，并落实四项：①权威 48 项清单由管理员从已审查提交独立固定，包内清单
 > 仅供比对；②候选"创建→核验→启动"的等待机制写死，核验完成前读取进程无法
 > 启动，核验失败/超时/控制器退出保持关闭；③授权目录归管理员，仅有授权权的
 > 人可放置；临时互斥锁与持久消费记录分列，覆盖预检拒绝/并发/完成后重复/中断
 > 恢复；④快照挂载沿用现有 run-real.sh 口径——受控快照根下任务卡指定版本目录
 > 只读绑定；改源路径单列待裁决差异。｜as_of 2026-11-14
+> **v5（本 revision，回应 1fa11e5 复核的三个实施条件）**：①T9–T10 重写为
+> 两段等待机制——宿主实际 cgroup 读回全过之前 worker 无法启动，验收覆盖
+> 读回失败/宿主退出/等待超时三态且均须证明 worker 从未启动；②消费记录提前到
+> 首次 docker start 请求之前 fsync 落盘，配置预检拒绝仍可重试，恢复子命令与
+> 活跃执行经运行锁互斥，补 ID 未落盘、启动结果不明两种中断；③授权原件独占
+> 创建方式与容器 uid 10001 只读同字节副本的确认链写死，执行账号对原件/副本
+> 均零写权。｜as_of 2026-11-14
 
 ## 1. 硬约束（继承 v2，不变）
 
@@ -68,6 +75,24 @@
 
 宿主门防"误触发起容器"，容器门防"入口被绕过/篡改后仍守授权"——两门独立失效。
 
+**授权原件与容器副本（实施条件③）**：
+
+- **原件独占创建**：`authz/authorization.json` 由有授权权的人以
+  `install -m 600 -o root /dev/null authz/authorization.json` 先建空件占位
+  （O_EXCL 语义），再单次写入 canonical JSON；目录 root:root 0710、组为
+  `xrgauthz`（仅该用户＋root 在组）。写毕 `chmod 0400`，入口只读。任何第二
+  次独占创建失败即视为冲突，人工裁决。
+- **宿主确认 → 同字节只读副本**：stage-b 宿主门按 §3 表逐项校验原件字段后，
+  入口计算原件 sha256 并写入本次运行收据 `run-input/AUTHZ.confirmed.json`
+  （root 属主，含摘要+时间）；随后把原件以 **ro bind 挂载到容器固定路径**
+  `/authorization/authorization.json`（现 run-real.sh 同款）。容器门第一步
+  重读该 ro 副本、比对卡片 SHA 与宿主门记录的同一摘要——**字节级三方一致**
+  （原件＝副本＝confirmed 记录）才继续。副本无法与原件漂移：同一 inode 的
+  ro bind，且 confirmed 摘要在 T9b 前已钉入消费链。
+- **执行账号零写权**：xrgp01op 对 `authz/`（0710 不在组）、对容器内挂载点
+  （ro bind）、对 `run-input/AUTHZ.confirmed.json`（root 0644）均不可写、
+  不可删、不可 chmod；其唯一参与是 T1 上传包。
+
 ## 4b. 统一时序表（正文与验收共用；T# 即验收编号）
 
 可信清单来源缩写：**P** = `pins/INPUTS.admin.sha256`（管理员从已审查提交独立
@@ -84,30 +109,41 @@
 | T6 | 操作员核对 controller-pins.txt 三 pin | 人（离线） | output/ Stage A 收据 | — | 无 | 否 |
 | T7 | `stage-b` 宿主预检 | root（入口） | run-input + Stage A 成功收据 + authz 授权 | P + C + Stage A 收据 pin | O_EXCL `registry/<attempt>.lock`（**临时互斥锁**；此步任何失败→删本次 lock、落 refusals 记录，**不写消费记录**） | 否 |
 | T8 | **docker create（只创建不启动）** | root（入口内部 docker CLI） | 命令行由入口拼装：仅任务卡指定版本目录 `$SNAPSHOT_HOST_ROOT/$SNAPSHOT_ID` ro bind → `/data/imports/usedata/$SNAPSHOT_ID`（现 run-real.sh :341 口径，受控快照根，父目录不挂）；其余同 C | 生成 mount-plan.txt | lock 持有 | **进程尚未运行**——create 态无任何执行 |
-| T9 | **等待机制（复核意见②）**：对 create 态容器核验 `.Mounts` ↔ mount-plan.txt、HostConfig cgroup 值 ↔ C；通过后 `docker start`，启动后再读回 cgroup 文件比对 | root（入口） | `docker inspect`（未启动态即可读全部配置）+ cgroup fs | mount-plan.txt + C | lock 持有 | **核验完成并全过之前，worker 根本不存在**；核验失败/等待超时/控制器自身退出 ⇒ 不 start 或立即 stop，**保持关闭**，登记 INVALID（此时才写消费记录） |
-| T10 | **放行点**：start 后 supervisor 先跑容器门字节校验，通过才 Popen task_control | 容器内 uid 10001 | 三方 pin 交叉 | 容器门 | lock 持有 | **是——全流程唯一读取窗口自 T10 开始** |
-| T11 | 收尾：原始收据落 output/（uid 10001 写，操作员 r-x）；入口把 lock 改名转 done 并**写持久消费记录 `pins/ATTEMPT_CONSUMED.json`**（O_EXCL，含 container_id、终态、时间） | 容器 + root（入口） | — | — | **临时锁退役，消费记录接管** | 窗口随进程终止关闭 |
+| T9a | **create 态静态核验**：`.Mounts` ↔ mount-plan.txt 逐条、HostConfig cgroup 参数 ↔ C；任一不符 → rm 容器、lock 删除、refusals 记录，**可重试**（未发过 start 请求） | root（入口） | `docker inspect`（create 态即含全部配置） | mount-plan.txt + C | lock 持有；**无消费记录** | 否——尚未 start，无任何执行 |
+| T9b | **消费记录前置（实施条件②）**：T9a 全过后、**发出首次 `docker start` 请求之前**，O_EXCL+fsync 持久写 `pins/ATTEMPT_CONSUMED.json`（state=START_REQUESTED，container_id 取 create 返回值）；写失败（含目录不可写/EEXIST）⇒ 不发 start、rm 容器 | root（入口） | — | C | **消费记录在此刻诞生＝名额消耗点前移到 start 请求之前** | 否 |
+| T9c | **等待机制（实施条件①）**：`docker start` 后入口轮询宿主 cgroup **实际读回**：`/sys/fs/cgroup/system.slice/docker-<id>.scope/{cpu.max,memory.max,memory.swap.max,pids.max}` 逐字等于 C，且容器 PID1 的 nice/ionice 读回符合；每轮间隔 0.2s，总预算 10s。**只有全部读回通过，入口才向 supervisor 控制通道写 GO**。读回失败/超时 ⇒ 立即 `docker stop`＋`docker rm`，消费记录改写 state=INVALID_READBACK（fsync），worker 保持未被放行 | root（入口） | cgroup fs + `/proc/<pid>/stat`,`/proc/<pid>/io_scheduling` | C | lock 持有，消费记录已存在 | 否——GO 未写，supervisor 不 Popen |
+| T10 | **放行点**：supervisor 阻塞等 GO（FIFO/控制文件，ro 挂载 `/control`）→ 收到后先跑容器门字节校验，通过才 Popen task_control | 容器内 uid 10001 | 三方 pin 交叉 + GO | 容器门 | lock 持有 | **是——全流程唯一读取窗口自 T10 开始，且必然在 T9c 读回通过之后** |
+| T11 | 收尾：原始收据落 output/（uid 10001 写，操作员 r-x）；入口把消费记录更新为终态（COMPLETED/STOPPED/TIMEOUT，fsync）、lock 改名 `.done` | 容器 + root（入口） | — | — | 消费记录承载终态 | 窗口随进程终止关闭 |
 
-⇒ 输入、镜像、挂载、资源四类核验全部结构性先于 T10；源读取只存在于 T10–T11。
+⇒ 输入、镜像、挂载、资源四类核验（T9a）与宿主 cgroup 实际读回（T9c）全部
+结构性先于 GO/放行（T10）；源读取只存在于 T10–T11。GO 通道单向：入口写、
+容器只读；xrgp01op 对控制目录零写权，故无法伪造放行。
 
-## 4c. 锁与消费记录语义（复核意见③，四场景全覆盖）
+## 4c. 锁与消费记录语义（实施条件②重写）
 
 | 记录 | 载体 | 生命周期 |
 |---|---|---|
-| 临时互斥锁 | `registry/<attempt>.lock`（O_EXCL 空文件，root） | T7 获取；预检失败即删（不消耗）；成功走到 T11 时改名 `.done` 并让位给消费记录 |
-| 持久消费记录 | `pins/ATTEMPT_CONSUMED.json`（O_EXCL，root，fsync） | 仅在越过 T9（容器真正 start 过）或 T11 正常完成时写入；一经写入永不可被 stage-b 路径删除 |
+| 临时互斥锁 | `registry/<attempt>.lock`（O_EXCL 空文件，root） | T7 获取；T9a 之前的失败即删（不消耗）；越过 T9b 后由消费记录接管，收尾时改名 `.done` |
+| 运行锁（恢复互斥） | `registry/<attempt>.running`（O_EXCL，内容＝入口 PID＋容器 ID） | T8 create 前获取、进程存活期持有（异常退出靠 flock/PID 判活回收）；**recover-orphan 子命令必须先原子取得它**——活跃执行期间恢复路径拿不到锁即拒，反之恢复进行中 stage-b 在 T8 拿不到运行锁也拒 ⇒ 两路严格互斥 |
+| 持久消费记录 | `pins/ATTEMPT_CONSUMED.json`（O_EXCL+fsync，root） | **T9b：首次 docker start 请求之前**写入（state=START_REQUESTED）；此后任何再启动在 T7 前置检查即立拒 |
 
-- **预检拒绝**：T7/T9 前置失败 ⇒ lock 已删、无消费记录、refusals/ 留明细 ⇒
-  attempt 名额仍在，修正后可重试。
-- **并发**：两个 stage-b 同时到 T7 ⇒ O_EXCL 只有一个成功，另一个立拒
-  `busy_or_consumed`；即便都过了 T7（不可能），T11 消费记录仍 O_EXCL 兜底。
-- **完成后重复启动**：T7 先查消费记录（存在 ⇒ 立拒 `attempt_consumed`，不碰
-  lock）；即使记录被绕过，`.done` lock 亦阻断。双重检查任一命中都不新建容器、
-  不覆盖原收据。
-- **中断恢复**：入口若在 T8–T10 间崩溃，重启后 `stage-b` 检测到 lock 存在且
-  `container-id.txt` 有 create/start 痕迹 ⇒ 不重用该 attempt：走"孤儿容器
-  stop→rm→补写消费记录 INVALID"的恢复子命令（白名单第四条），之后该 attempt
-  永久消耗——宁可保守烧掉名额，绝不留下第二个可执行窗口。
+- **可重试窗口（明确）**：凡未发出过 start 请求的失败——T7 预检、T9a create 态
+  静态核验不符（rm 容器即可）——均删 lock、落 refusals/、**不写消费记录**，
+  修正后可重试。一旦到达 T9b，名额即消耗，无论后续结果如何。
+- **并发**：双发 stage-b ⇒ T7 O_EXCL 只有一个进 T8；即便同时过了 T7，运行锁与
+  消费记录两道 O_EXCL 兜底，start 请求至多发出一次。
+- **完成后重复启动**：T7 先查消费记录（存在 ⇒ 立拒 `attempt_consumed`）；`.done`
+  lock 二次阻断；原收据零触碰。
+- **中断恢复两型（实施条件②点名）**：
+  1. *容器已 create、ID 尚未落盘*：恢复子命令取运行锁后按 label
+     `io.xiangrugu.synthetic-run=<suffix>` 反查孤儿容器（run-real.sh :190 同款
+     口径），stop→rm；因未越过 T9b 判定为"无消费记录 ⇒ 保守补记
+     INVALID_PRESTART（fsync）并永久消耗该 attempt"——宁可烧名额，不留第二
+     执行窗口。
+  2. *start 结果不明（响应丢失/超时）*：消费记录必已存在（T9b 在前）⇒ 恢复
+     路径读回容器 `State.Status`：running → 交回主循环继续 T9c 等待核验；
+     exited/unknown → 补记 INVALID_START_UNCONFIRMED、stop/rm 清场。任何分支
+     都不重发 start。
 
 ## 4d. 快照挂载口径（复核意见④）
 
@@ -149,10 +185,27 @@
   全程容器创建数 ≤1。
 - **A-T11 完成后重复**：正常完成后再发 stage-b → 消费记录命中立拒
   `attempt_consumed`，原收据零触碰。
-- **A-T8~T10 中断恢复**：kill 入口于 create 后/start 前 → recover-orphan 子命令
-  stop→rm→补记 INVALID；此后该 attempt 任何再启动被拒。
-- **A-T9 等待机制**：在 T9 注入挂载比对失败 → 断言 worker 进程从未存在
-  （inspect 时间线 + 无 monitor 文件）、容器保持停止、状态 INVALID。
+- **A-T9c 等待机制三态（实施条件①，逐态出收据）**：分别注入
+  ① cgroup 读回值被篡改为不符、② 入口进程在轮询中被 kill、③ 读回预算超时
+  （模拟 sysfs 延迟）——三种情况下都必须证明 **worker 从未启动**：容器内
+  PID1 始终是阻塞等 GO 的 supervisor（docker top 时间线）、`/control` 无 GO
+  写入记录、output/ 无 monitor/task 收据新增；容器最终 stopped/rm，消费记录
+  终态 INVALID_READBACK（②由恢复路径补记）。放行前读回通过的正常对照一次：
+  GO 时间戳晚于全部四项 cgroup 读回通过时间戳。
+- **A-T9b 消费前置**：断言 ATTEMPT_CONSUMED.json 的 mtime/fsync 序早于首次
+  start 请求日志时间戳；T9a 静态核验失败注入 ⇒ 无消费记录、可重试成功。
+- **A-T8~T10 中断恢复两型（实施条件②）**：
+  ① create 后 ID 未落盘处 kill → recover-orphan 经 label 反查孤儿、stop→rm、
+  补记 INVALID_PRESTART；此后 stage-b 立拒。
+  ② start 响应丢失（注入 docker CLI 超时）→ 恢复路径读回 State.Status，
+  running 交回主循环 / exited|unknown 补记 INVALID_START_UNCONFIRMED；
+  全程不重发 start，start 请求计数 ≤1。
+  ③ 恢复与活跃互斥：stage-b 主循环持运行锁期间调用 recover-orphan → 拿锁
+  失败即拒，反之亦然（两侧各验一次）。
+- **A-AUTHZ 原件/副本（实施条件③）**：xrgp01op 向 authz/ 写、改 confirmed
+  记录、remount 副本任一动作 EACCES/EPERM；正常走查中容器门读到的副本字节
+  sha256 == AUTHZ.confirmed.json == 宿主门记录，三方一致入收据；原件二次
+  install 独占创建失败留证。
 - **A-R 越权写**：xrgp01op 对 run-input/pins/registry/authz/output 的写删 chmod
   全部 EACCES，audit 留痕。
 - **A-F 回退**：`userdel xrgp01op; rm /etc/sudoers.d/xrg-p01

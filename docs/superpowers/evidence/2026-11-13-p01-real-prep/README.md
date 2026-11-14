@@ -60,5 +60,5 @@ Stage B real-readonly（容器内，快照 /data/imports/usedata 只读挂载）
 
 ## 待裁决
 
-- **32 最小权限执行入口 v4**：仅方案已提交待审（操作账号不入 docker 组、不触 socket；管理员从已审查提交独立固定权威 48 项清单；统一 T1–T11 时序表贯通正文与验收；临时互斥锁与持久消费记录分列；create→核验→start 等待机制先于任何源读取；快照挂载沿用 run-real.sh 受控根版本目录口径），见 [PROPOSAL-32-minimal-entry.md](PROPOSAL-32-minimal-entry.md)（未实施、未登录 32）。
+- **32 最小权限执行入口 v5**：仅方案已提交待审。在 v4（管理员独立固定权威清单、统一 T1–T11 时序表、受控快照根版本目录只读挂载）基础上补齐三个实施条件：①start 后宿主 cgroup 实际读回全过才写 GO 放行 worker，读回失败/宿主退出/等待超时三态均证明 worker 从未启动；②消费记录 fsync 前置于首次 start 请求之前（配置预检拒绝仍可重试），运行锁使恢复与活跃执行互斥，覆盖 ID 未落盘与启动结果不明两种中断；③授权原件由有授权权的人独占创建，容器 uid 10001 经 ro bind 读同字节副本并与宿主 confirmed 摘要三方一致，执行账号对原件/副本零写权。见 [PROPOSAL-32-minimal-entry.md](PROPOSAL-32-minimal-entry.md)（未实施、未登录 32）。
 - 其余见 [ACCESS-32.md](ACCESS-32.md) 与 RUNBOOK-REAL「授权」节。本包完成后停在授权前：未放置 authorization.json，未创建运行根，未启动任何 Stage A/B 容器。

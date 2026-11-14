@@ -48,7 +48,7 @@ Stage B real-readonly（容器内，快照 /data/imports/usedata 只读挂载）
 | `materialize-real.py` | Stage A 容器 worker：卡片/授权/review 三重字节门 → 产品 materialize → 收据 |
 | `run-real.sh` | 32 宿主运行器：refuse-no-authorization / materialize / real-readonly |
 | `verify-real.sh` | 32 宿主原生复核，独占发布 verification-real.json |
-| `stage-real.ps1` / `invoke-real.ps1` | Windows staging 字节门 / SSH 传输（real 模式传输截止 1880s） |
+| `stage-real.ps1` / `invoke-real.ps1` | Windows staging 字节门（含 `-LocalOnly` 仅本地校验入口，见 [LOCALONLY-CHECK-WINDOWS.md](LOCALONLY-CHECK-WINDOWS.md)）/ SSH 传输（real 模式传输截止 1880s） |
 | `packet-inputs-real.sha256` / `packet-files-real.txt` | 48 项权威清单（含 stage-a-inputs.tsv、verify-mount-table.py、verify-terminal.py） |
 | `stage-a-inputs.tsv` | Stage A/B 全部绑定路径的 sha↔容器路径↔staged 路径闭包表 |
 | `verify-mount-table.py` / `verify-terminal.py` | 挂载闭包复核 / Stage B 终态收据复核（38 演练已跑通） |
@@ -60,5 +60,5 @@ Stage B real-readonly（容器内，快照 /data/imports/usedata 只读挂载）
 
 ## 待裁决
 
-- **32 最小权限执行入口**：仅方案已提交待审，见 [PROPOSAL-32-minimal-entry.md](PROPOSAL-32-minimal-entry.md)（未实施、未登录 32）。
+- **32 最小权限执行入口 v2**：仅方案已提交待审（操作账号不入 docker 组、不触 socket；管理员固定任务入口），见 [PROPOSAL-32-minimal-entry.md](PROPOSAL-32-minimal-entry.md)（未实施、未登录 32）。
 - 其余见 [ACCESS-32.md](ACCESS-32.md) 与 RUNBOOK-REAL「授权」节。本包完成后停在授权前：未放置 authorization.json，未创建运行根，未启动任何 Stage A/B 容器。

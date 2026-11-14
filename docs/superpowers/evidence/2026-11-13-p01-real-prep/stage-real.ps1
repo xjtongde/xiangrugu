@@ -3,12 +3,34 @@
 # verifies every staged byte against packet-inputs-real.sha256 (catches CRLF
 # corruption), then exclusively creates the private runtime root and rechecks
 # there. Staged bytes are the ACCEPTED receipt outputs; nothing is regenerated.
+# Modes (mutually exclusive):
+#   default                    full staging + authoritative gate + SSH/SCP transfer
+#   -LocalOnly                 build packet + verify against the COMMITTED manifest;
+#                              NO regeneration, NO tar overwrite, NO ssh/scp
+#   $env:XRG_REGENERATE_INPUTS='1'  (transport path only) rewrite the two pin
+#                              lists from the verified staged bytes (re-pin).
+#                              -LocalOnly NEVER writes pins and NEVER touches network.
+[CmdletBinding()]
+param(
+    [switch]$LocalOnly
+)
 $ErrorActionPreference='Stop'
+$packet=$null
+if($LocalOnly){
+    # Any failure inside the script body transfers here; cleanup then rethrows.
+    trap {
+        try { if($packet -and (Test-Path $packet)){Remove-Item -LiteralPath $packet -Recurse -Force -ErrorAction SilentlyContinue} } catch {}
+        throw
+    }
+}
 $repo=(Resolve-Path (Join-Path $PSScriptRoot '../../../..')).Path
 $evidence='docs/superpowers/evidence/2026-11-13-p01-real-prep'
 $receipts='docs/superpowers/evidence/2026-11-13-p01-task-card-receipts'
-$packet=Join-Path $PSScriptRoot 'packet-real'
-if(Test-Path $packet){if(@(Get-ChildItem $packet -Force).Count){throw 'Existing nonempty packet'}}
+# -LocalOnly uses a throwaway packet dir so repeated review runs never collide
+# with the transport-mode packet-real tree (which must stay exclusive/fresh).
+if($LocalOnly){$packet=Join-Path $PSScriptRoot ('packet-local-check-{0}' -f [guid]::NewGuid().ToString('N').Substring(0,8))}
+else{$packet=Join-Path $PSScriptRoot 'packet-real'}
+if(Test-Path $packet){if(-not $LocalOnly){if(@(Get-ChildItem $packet -Force).Count){throw 'Existing nonempty packet'}}}
 else{[IO.Directory]::CreateDirectory($packet) | Out-Null}
 function Copy-Input([string]$relative,[string]$destinationRelative){
     if($relative.StartsWith('/') -or $relative.Contains('\') -or ($relative.Split('/') -contains '..')){throw 'Unsafe path'}
@@ -47,15 +69,7 @@ foreach($tool in @('materialize-real.py','run-real.sh','verify-real.sh',
 # 5. authoritative byte gate
 $files=@(Get-ChildItem $packet -Recurse -File | ForEach-Object {$_.FullName.Substring($packet.Length+1) -replace '\\','/'} | Sort-Object)
 $manifestPath=Join-Path $PSScriptRoot 'packet-inputs-real.sha256'
-if($env:XRG_REGENERATE_INPUTS -eq '1'){
-    # Offline regeneration ONLY: rebuild the manifest from the staged bytes so a
-    # packet that legitimately gains tools (e.g. stage-a-inputs.tsv,
-    # verify-mount-table.py, verify-terminal.py) can be re-pinned for review.
-    # Without this flag the existing manifest stays the authoritative gate.
-    $manifest=[string[]]($files | ForEach-Object {
-        (Get-FileHash -LiteralPath (Join-Path $packet ($_ -replace '/','\'))).Hash.ToLowerInvariant()+'  '+$_})
-    [IO.File]::WriteAllLines($manifestPath,$manifest,[Text.UTF8Encoding]::new($false))
-}
+if(-not (Test-Path $manifestPath)){throw 'Authoritative manifest packet-inputs-real.sha256 is missing'}
 $expected=@{}
 foreach($line in [IO.File]::ReadAllLines($manifestPath)){
     if($line){$parts=$line -split '  ',2; $expected[$parts[1]]=$parts[0]}
@@ -65,6 +79,22 @@ foreach($relative in $files){
     if(-not $expected.ContainsKey($relative)){throw "Unexpected staged file: $relative"}
     $actual=(Get-FileHash -LiteralPath (Join-Path $packet ($relative -replace '/','\'))).Hash.ToLowerInvariant()
     if($actual -cne $expected[$relative]){throw "Staged byte mismatch (CRLF or drift): $relative"}
+}
+if($LocalOnly){
+    # Local-only verification entry point: authoritative gate passed above.
+    # Deliberately stops BEFORE writing packet-files-real.txt, the tar archive,
+    # and every ssh/scp call, so a review run cannot mutate pins or touch host 32.
+    Write-Output ('LOCAL-ONLY STAGING CHECK PASSED: '+$files.Count+' files verified against committed manifest; no pin rewrite, no archive, no ssh/scp.')
+    Remove-Item -LiteralPath $packet -Recurse -Force
+    exit 0
+}
+# Pin-list regeneration is DECOUPLED from verification and only ever happens
+# on the transport path (never under -LocalOnly), still gated by the explicit
+# env flag. The authoritative manifest must already match the staged bytes.
+if($env:XRG_REGENERATE_INPUTS -eq '1'){
+    $manifest=[string[]]($files | ForEach-Object {
+        (Get-FileHash -LiteralPath (Join-Path $packet ($_ -replace '/','\'))).Hash.ToLowerInvariant()+'  '+$_})
+    [IO.File]::WriteAllLines($manifestPath,$manifest,[Text.UTF8Encoding]::new($false))
 }
 [IO.File]::WriteAllLines((Join-Path $PSScriptRoot 'packet-files-real.txt'),[string[]]$files,[Text.UTF8Encoding]::new($false))
 $archive=Join-Path $PSScriptRoot 'packet-real.tar.gz'

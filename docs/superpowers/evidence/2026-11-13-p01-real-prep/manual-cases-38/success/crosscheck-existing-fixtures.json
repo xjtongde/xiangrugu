@@ -1,0 +1,9 @@
+{
+ "request_bytes_sha_now": "743c177048255949eb2f97e97322cdde8a844f8812a8daaa135ce8782696371d",
+ "recorded_controller_request_sha256": "743c177048255949eb2f97e97322cdde8a844f8812a8daaa135ce8782696371d",
+ "match": true,
+ "approval_file_sha_now": "7bedf1b92737817001c96495ab8316f421a817ea0f072dd374cdb1b18d970185",
+ "recorded_approval_sha256": "7bedf1b92737817001c96495ab8316f421a817ea0f072dd374cdb1b18d970185",
+ "approval_match": true,
+ "note": "success 原件树缺失；此处仅对现存夹具字节做转录一致性交叉核对，非重跑。"
+}

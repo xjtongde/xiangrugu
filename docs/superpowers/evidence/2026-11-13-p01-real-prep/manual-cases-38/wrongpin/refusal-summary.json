@@ -1,0 +1,6 @@
+{
+ "expected": "refusal precedes monitoring loop; no monitor required per directive",
+ "monitor_receipt_present": false,
+ "refusal_point": "supervise.check_controller_request -> ValueError(controller_pin)",
+ "stdout_line_file": "worker-output.txt"
+}

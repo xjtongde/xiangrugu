@@ -1,0 +1,8 @@
+{
+ "process_group_gone": true,
+ "publication_artifacts_found": [],
+ "reason": "timeout",
+ "samples": 31,
+ "searched_glob": "hang-run/** (batch.staged.json | *.incomplete | publication-failure.json)",
+ "worker_exit_code": -15
+}

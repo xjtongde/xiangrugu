@@ -1,0 +1,56 @@
+{
+ "attempt": "real-p01-20261113-a",
+ "as_of": "2026-11-14",
+ "host": "38 rehearsal (image xiangrugu-rehearsal:p01-local, human-made; production image never used)",
+ "worker_argv_form": {
+  "stage_a": [
+   "python",
+   "/installed-origin.py",
+   "/materialize-real.py",
+   "<image-id>",
+   "<git-revision>"
+  ],
+  "stage_b_prefix": [
+   "python",
+   "/installed-origin.py",
+   "-m",
+   "xiangrugu_datamgmt.task_control"
+  ]
+ },
+ "cases": {
+  "success": {
+   "result": "PASS (prior round, not rerun this round)",
+   "evidence": "success/ (transcripts only — originals MISSING, see missing-originals.json)"
+  },
+  "fail": {
+   "result": "PASS",
+   "reason": "worker_exit",
+   "worker_exit_code": 1,
+   "domain": "control",
+   "code": "controller_pin",
+   "stage": "task_preflight",
+   "worker_receipt_equals_supervisor_copy": true,
+   "request_sha256": "743c177048255949eb2f97e97322cdde8a844f8812a8daaa135ce8782696371d",
+   "evidence": "fail/"
+  },
+  "wrongpin": {
+   "result": "PASS",
+   "refusal": "pre-loop check_controller_request -> ValueError(controller_pin)",
+   "monitor_receipt": "absent by design (monitoring loop never entered)",
+   "stdout_line": "SUPERVISION_FAILED",
+   "exit_code": 1,
+   "evidence": "wrongpin/"
+  },
+  "hang": {
+   "result": "PASS",
+   "reason": "timeout",
+   "max_seconds": 6,
+   "elapsed": 6.042,
+   "worker_exit_code": -15,
+   "process_group_gone": true,
+   "publication_artifacts": "none",
+   "evidence": "hang/"
+  }
+ },
+ "task_card": "CLOSED (unchanged); no real source read; host 32 untouched"
+}

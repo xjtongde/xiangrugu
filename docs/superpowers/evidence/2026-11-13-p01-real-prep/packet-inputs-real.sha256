@@ -1,6 +1,9 @@
-d161282360290061b245e0b7ea94bb56bd3f16dd9add31b49a9362b8d2a9d6c9  docs/superpowers/evidence/2026-11-13-p01-real-prep/materialize-real.py
-8a504bee2216f971175d81140202646b5907ffb3e8ba80bd20b6cf5753c02b3e  docs/superpowers/evidence/2026-11-13-p01-real-prep/run-real.sh
-e8083ff47d5e8b418a53ac0b4039f02d60c688ff89cd6f78f327e42c56b4d7e7  docs/superpowers/evidence/2026-11-13-p01-real-prep/verify-real.sh
+1532d258213e054712e6cd04e40159feb89aa3c14ea62be29e90ea55810782d1  docs/superpowers/evidence/2026-11-13-p01-real-prep/materialize-real.py
+3e1ab135230a8eb2faf4260a1bfe6df1930d9a54446a8f0e7550a55017ddf288  docs/superpowers/evidence/2026-11-13-p01-real-prep/run-real.sh
+1d776a66947c942b7f17071874109f1bfed2e9b39361230e069cffec7579e2ce  docs/superpowers/evidence/2026-11-13-p01-real-prep/stage-a-inputs.tsv
+dc666906a13422e967c448f502410dc7d3a5b7cf57b15bdcf5610803233bb80a  docs/superpowers/evidence/2026-11-13-p01-real-prep/verify-mount-table.py
+e40107079b21c07db4eb8efe8f9a741ad72db37c39ba1dca82fa341d5fa237bb  docs/superpowers/evidence/2026-11-13-p01-real-prep/verify-real.sh
+508fd4c03c0e3fe66505b910c994111fd63060dec3e36b21576540278c1251cd  docs/superpowers/evidence/2026-11-13-p01-real-prep/verify-terminal.py
 99359c17c687dad23af36db1f97d5f2ba512e4afa0d526036ebb333dde06fa3a  docs/superpowers/evidence/2026-11-13-request-reader-integration/installed-origin.py
 df1c63d6fc242369266cd5d122654a4c46f6d014c03bd388eefb7efa58ef0d18  metadata/build-inputs.sha256
 6235c356fca754a687a2f02998770c9609b20748ade674d0050d86a0a428e07c  metadata/datamgmt/config/roots.yaml

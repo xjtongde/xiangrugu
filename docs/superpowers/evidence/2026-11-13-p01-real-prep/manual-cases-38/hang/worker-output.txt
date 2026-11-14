@@ -1,0 +1,2 @@
+HANG_STUB_STARTED
+{"status": "SYNTHETIC_WORKER_STOPPED", "reason": "timeout", "process_group_gone": true}

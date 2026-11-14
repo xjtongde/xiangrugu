@@ -5,12 +5,16 @@
 > `IMAGE=sha256:8f899568909671131b14cc1c06afeef93d6ef1eef7d5d0a1b18c3bf287bd0a0a`；
 > 卡片 SHA `41bd0ecf…`；review SHA `a7c2c5bd…`；roots `6235c356…`。
 > **Stage B 是一次性 attempt：启动过一次后，无论结果如何都不得再次启动。**
+>
+> **38 人工演练（2026-11-14）**：success/fail/wrongpin/hang 四用例全部通过；worker argv 已修正为
+`python /installed-origin.py …` 解释器钉定形式（本 RUNBOOK 引用的 run-real.sh 已同步）。收据见
+`manual-cases-38/`。详见 README 顶部结论与 `rehearsal-evidence.json`。
 
 ## 步骤 R0：无授权拒绝验证 [Windows PowerShell]（现在即可安全执行，无需茶香授权）
 
 ```powershell
 cd docs\superpowers\evidence\2026-11-13-p01-real-prep
-powershell -ExecutionPolicy Bypass -File stage-real.ps1        # 预期 "Staged 45 …"，远端 packet-real-check.txt 45/45
+powershell -ExecutionPolicy Bypass -File stage-real.ps1        # 预期 "Staged 48 …"，远端 packet-real-check.txt 48/48
 powershell -ExecutionPolicy Bypass -File invoke-real.ps1 -ImageId $IMAGE -RunSuffix real-refuse-noauth -Mode refuse -LocalLog refuse.log
 ```
 

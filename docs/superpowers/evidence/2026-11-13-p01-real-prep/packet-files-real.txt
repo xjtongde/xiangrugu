@@ -1,6 +1,9 @@
 docs/superpowers/evidence/2026-11-13-p01-real-prep/materialize-real.py
 docs/superpowers/evidence/2026-11-13-p01-real-prep/run-real.sh
+docs/superpowers/evidence/2026-11-13-p01-real-prep/stage-a-inputs.tsv
+docs/superpowers/evidence/2026-11-13-p01-real-prep/verify-mount-table.py
 docs/superpowers/evidence/2026-11-13-p01-real-prep/verify-real.sh
+docs/superpowers/evidence/2026-11-13-p01-real-prep/verify-terminal.py
 docs/superpowers/evidence/2026-11-13-request-reader-integration/installed-origin.py
 metadata/build-inputs.sha256
 metadata/datamgmt/config/roots.yaml

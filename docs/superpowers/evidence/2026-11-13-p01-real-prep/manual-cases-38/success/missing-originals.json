@@ -1,0 +1,11 @@
+{
+ "status": "MISSING_ORIGINALS",
+ "finding": "上一轮（2026-11-14 03:08）success 用例在独立目录 .success-only/success-run/ 通过，rc=0；其原始终态收据树（monitor.success.json、batch.staged.json、双联 .incomplete、installed-origin.json 原件）随 .success-only 工作区在本轮开始前已不存在（指令：不清理、不重跑、不补造）。本轮核实：全盘仅 .p01-three-cases/success-run/ 为空目录占位。",
+ "what_survives": [
+  "passing-run-monitor.json —— 逐字转录自 .tmp/success_run11.log 的 ==== MONITOR ==== 段",
+  "passing-run-batch-summary.json —— 逐字转录自同日志 ==== BATCH SUMMARY KEYS ==== 段",
+  "stage-a-worker-argv.json —— Stage A 实际 worker argv（record 收据）"
+ ],
+ "original_log": ".tmp/success_run11.log（含 RETURN CODE 0、STAGED 行、twin sha == final sha True）",
+ "policy": "按指令不重跑、不补造；缺件如实记录。"
+}

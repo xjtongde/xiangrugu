@@ -39,11 +39,25 @@ Copy-Input "$receipts/returned/p01-card-metadata/output/task-card.closed.json" '
 Copy-Input 'docs/superpowers/evidence/2026-11-13-request-reader-integration/installed-origin.py' 'docs/superpowers/evidence/2026-11-13-request-reader-integration/installed-origin.py'
 Copy-Input 'docs/superpowers/evidence/2026-11-13-p01-task-card/controller-evidence.sh' 'scripts/controller-evidence.sh'
 Copy-Input 'docs/superpowers/evidence/2026-11-13-p01-task-card/controller-heartbeat.sh' 'scripts/controller-heartbeat.sh'
-foreach($tool in @('materialize-real.py','run-real.sh','verify-real.sh')){Copy-Input "$evidence/$tool" "$evidence/$tool"}
+# stage-a-inputs.tsv reproduces every absolute bound path (sha/container/staged);
+# verify-mount-table.py closes the REAL materialized mount set; verify-terminal.py
+# checks Stage B terminal receipts against the adjudicated rehearsal expectations.
+foreach($tool in @('materialize-real.py','run-real.sh','verify-real.sh',
+                   'stage-a-inputs.tsv','verify-mount-table.py','verify-terminal.py')){Copy-Input "$evidence/$tool" "$evidence/$tool"}
 # 5. authoritative byte gate
 $files=@(Get-ChildItem $packet -Recurse -File | ForEach-Object {$_.FullName.Substring($packet.Length+1) -replace '\\','/'} | Sort-Object)
+$manifestPath=Join-Path $PSScriptRoot 'packet-inputs-real.sha256'
+if($env:XRG_REGENERATE_INPUTS -eq '1'){
+    # Offline regeneration ONLY: rebuild the manifest from the staged bytes so a
+    # packet that legitimately gains tools (e.g. stage-a-inputs.tsv,
+    # verify-mount-table.py, verify-terminal.py) can be re-pinned for review.
+    # Without this flag the existing manifest stays the authoritative gate.
+    $manifest=[string[]]($files | ForEach-Object {
+        (Get-FileHash -LiteralPath (Join-Path $packet ($_ -replace '/','\'))).Hash.ToLowerInvariant()+'  '+$_})
+    [IO.File]::WriteAllLines($manifestPath,$manifest,[Text.UTF8Encoding]::new($false))
+}
 $expected=@{}
-foreach($line in [IO.File]::ReadAllLines((Join-Path $PSScriptRoot 'packet-inputs-real.sha256'))){
+foreach($line in [IO.File]::ReadAllLines($manifestPath)){
     if($line){$parts=$line -split '  ',2; $expected[$parts[1]]=$parts[0]}
 }
 if($files.Count -ne $expected.Count){throw ('Staged file count '+$files.Count+' != manifest '+$expected.Count)}

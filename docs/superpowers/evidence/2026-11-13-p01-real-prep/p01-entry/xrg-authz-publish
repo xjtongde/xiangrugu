@@ -1,0 +1,3 @@
+#!/bin/bash
+# authorizer-only publish helper; entry script dispatches on prog name/env
+XRG_P01_CALLER_UID="${SUDO_UID:-0}" exec /usr/local/bin/xrg-p01-entry-python publish "$@"

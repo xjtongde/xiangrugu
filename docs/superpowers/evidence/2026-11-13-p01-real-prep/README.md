@@ -56,9 +56,13 @@ Stage B real-readonly（容器内，快照 /data/imports/usedata 只读挂载）
 | `manual-cases-38/` | 四用例原始终态收据 + 实际 worker argv + success 缺件记录 |
 | `authorization.template.json` | 授权文件模板（canonical 键序；放置与否由茶香决定，本包不含已生效授权） |
 | `RUNBOOK-REAL.md` | 逐条命令、预期结果、收据路径 |
-| `ACCESS-32.md` | 32 登录方案与权限裁决材料 |
+| `ACCESS-32.md` | 32 登录方案与权限裁决材料（**方案 A/C 已被茶香明令禁止，仅作现状记录；以 ADMIN-STEPS-32.md 为准**） |
+| `p01-entry/` | **v14 最小权限入口实现轮交付物**：固定入口程序＋sudoers 包装＋GO 门 supervisor 变体＋夹具 stub docker/runner＋九用例人工夹具套件（当前 9/9 PASS，机器可读 `.suite/SUMMARY.json`），见其 [README](p01-entry/README.md) |
+| `INSTALL-CHANGES-32.md` | 32 安装变更清单：逐项路径/属主/mode、安装前状态核对、sudoers 片段＋visudo 校验、逐项回退依据 |
+| `MANUAL-ACCEPTANCE-32.md` | 32 人工夹具验收手册：正常路径→四项关键行为→⑥收尾窗口→人工资源清理；失败即保留现场停在验收阶段 |
+| `ADMIN-STEPS-32.md` | 管理员最少步骤 ＋ DSH 后续必备权限最小集（单独裁决单；不申请 root SSH 密钥/其他凭据/Codex 代跑） |
 
 ## 待裁决
 
-- **32 最小权限执行入口 v14**：仅方案已提交待审。本轮只动 §4g.3/.4、验收 ⑥ 与本指针：RESOLVED 发布定式＝root 独占临时件一次写齐最终内容＋属主/mode＋published 尾标 → 文件 fsync → 原子 rename → 父目录 fsync，双同步后不再改尾标。重入判定改为**一条不推断上一进程退出方式**的规则：新入口持 B 锁检查同一代次的 RESOLVED 与该路径要求的终态/refusals/Stage A 收据——缺失、损坏或绑定不一致即 `recovery_pending` 交恢复补齐；记录齐全也须重新确认候选状态（exited|dead|404）并对所需文件与父目录各补一次幂等 fsync；核实或同步失败保持阻断；全部成功后才按原有消费/重试规则决定去留。验收 ⑥ 扩为五窗，新增 (e)"所有记录均已可见、最后一次同步结果未知"：注入补同步失败断言零新增 create/start，补同步成功后 T9a 拒绝径才可重试、已消费 attempt 仍拒，另设正常收尾对照证明重入规则不惩罚善终。见 [PROPOSAL-32-minimal-entry.md](PROPOSAL-32-minimal-entry.md)（未实施、未登录 32）。
+- **32 最小权限执行入口 v14**：静态定稿（`20d8219`）后进入实现轮——实现与夹具验收套件已在 `p01-entry/`（9/9 PASS），32 侧部署与人工验收按 INSTALL/MANUAL/ADMIN 三件文档待管理员执行。**尚未登录 32、未实施任何 32 变更**。上一轮（v14 定稿轮）改动：§4g.3/.4、验收 ⑥ 与本指针：RESOLVED 发布定式＝root 独占临时件一次写齐最终内容＋属主/mode＋published 尾标 → 文件 fsync → 原子 rename → 父目录 fsync，双同步后不再改尾标。重入判定改为**一条不推断上一进程退出方式**的规则：新入口持 B 锁检查同一代次的 RESOLVED 与该路径要求的终态/refusals/Stage A 收据——缺失、损坏或绑定不一致即 `recovery_pending` 交恢复补齐；记录齐全也须重新确认候选状态（exited|dead|404）并对所需文件与父目录各补一次幂等 fsync；核实或同步失败保持阻断；全部成功后才按原有消费/重试规则决定去留。验收 ⑥ 扩为五窗，新增 (e)"所有记录均已可见、最后一次同步结果未知"：注入补同步失败断言零新增 create/start，补同步成功后 T9a 拒绝径才可重试、已消费 attempt 仍拒，另设正常收尾对照证明重入规则不惩罚善终。见 [PROPOSAL-32-minimal-entry.md](PROPOSAL-32-minimal-entry.md)（未实施、未登录 32）。
 - 其余见 [ACCESS-32.md](ACCESS-32.md) 与 RUNBOOK-REAL「授权」节。本包完成后停在授权前：未放置 authorization.json，未创建运行根，未启动任何 Stage A/B 容器。

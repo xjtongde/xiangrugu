@@ -1,6 +1,6 @@
-# 提案 v5（待审，未实施）：32 主机最小权限执行入口
+# 提案 v9（待审，未实施）：32 主机最小权限执行入口
 
-> 状态：**仅方案提交评审**（迭代自 v7/72c4a44）。本轮及既往各轮均未登录或修改
+> 状态：**仅方案提交评审**（迭代自 v8/34b3175）。本轮及既往各轮均未登录或修改
 > 32；真实任务卡 `real-p01-20261113-a` 保持 CLOSED。落地须先获总指挥批准。
 > v2 复核意见的落实点：①操作员上传区与运行输入/授权/登记/原始收据物理分离；
 > ②固定入口只消费操作员不可替换的已核验副本；③宿主授权门+容器授权门双保留；
@@ -47,6 +47,19 @@
 > xrg-authz-publish 改为从调用者暂存件读取校验→root 独占目录建新 inode→先固
 > 定字节/属主/mode 并同步→RENAME_NOREPLACE 发布＋父目录同步；staging mode 描述
 > 修正（0664 sticky，非 2733）。｜as_of 2026-11-14
+> **v9（本 revision，回应 34b3175 复核的三条）**：①§4e/T10/A-GO 按 Linux FIFO
+> 真实语义统一——reader open 成功不代表 writer 在场、首次空读 EAGAIN 不得提前
+> 结束等待、部分帧后断链即拒绝、ENXIO 归宿主非阻塞写端；/control 目录权限改
+> 0710＋FIFO 0644 并写明 UID 10001 的实际组身份与遍历路径；A-T9c 删"除 PID1
+> 外零命中"旧句，采集器先全量留存早期事件、再按实际出现的 cgroup 身份关联。
+> ②create 前持久 PREPARED 收据（attempt+GEN+阶段），ID 未落盘时以该记录↔
+> 候选标签↔固定创建配置三方核对，BOUND 后才用完整容器 ID 三元组核对；零匹配/
+> 多匹配/状态查询失败处置写死；DELIVERED 只证明宿主写出 GO——入口已退出时
+> 无论 DELIVERED 是否存在都必须核实确切停止/回收才补终态；验收增补
+> "DELIVERED 已落盘但候选仍运行"恢复分支。③.staging 目录权限修正为
+> root:xrgauthz 0770，§2/§3/T3 统一并验证非 root 授权人可建件、操作员不可
+> 访问不可调用发布；就绪时序改用 create 前 PREPARED 收据与 start 前 BOUND
+> 收据两段正向断言，移除对最终 gen.json mtime 的反向断言。｜as_of 2026-11-14
 > **v6（本 revision，回应 4ae88ec 复核的三个条款）**：①GO 选定为一次性命名
 > pipe，绑定本次 attempt+容器 ID、旧 GO 以 unlink 失效、宿主放行前退出时容器
 > PID1 自行超时关闭，I/O 优先级读回接口改正为 `/sys/fs/cgroup/<scope>/cpu.cgroup_weight`
@@ -79,10 +92,10 @@
 │   ├── source-green-v1/       （由入口以 root 从 inbox 复制并 sha256sum -c 后固化）
 │   └── VERIFIED.sha256        （核验收据，含核验时间）
 ├── authz/                     ← 授权目录 root:xrgauthz 0750；
-│   ├── .staging/                  授权人专属暂存区 root:xrgauthz 0664 +
-│   │   └── <uuid>.json            S_ISVTX（sticky：可建不可互删），授权人
-│   └── authorization.json         以 0600 写暂存件，publish 只认调用者
-│                                  （§3）；原件 root:xrgauthz 0400
+│   ├── .staging/                  暂存区 root:xrgauthz 0770+S_ISVTX（组
+│   │   └── <uuid>.json            rwx 可入可建，sticky 防互删），授权人
+│   └── authorization.json         0600 建件；publish 四步只认调用者（§3）
+│                                  ；原件 root:xrgauthz 0400
 ├── run-authz/                 ← 同代副本区 root:root 0755；每候选一对产物
 │   └── gen-<GEN-ID>/              gen-<GEN-ID>/authorization.json（root:10001
 │       ├── authorization.json     0644）＋gen 记录（含 GEN-ID、attempt、
@@ -124,11 +137,13 @@
 
 **授权原件发布与容器副本（v8，条款③）**：
 
-- **权限布局**：`authz/` root:xrgauthz **0750**（授权人可读目录、不可写）；
-  `authz/.staging/` root:xrgauthz **0664＋S_ISVTX**——组可读写、sticky：
-  授权人可建自己的暂存件、不能删改他人件（v7"2733 setgid+sticky"描述有误，
-  本版修正为 0664+sticky；setgid 不用于暂存语义）。原件最终态
-  **root:xrgauthz 0400**。
+- **权限布局（v9 定稿）**：`authz/` root:xrgauthz **0750**（授权人经组位读
+  目录与原件所在名、不可写）；`authz/.staging/` root:xrgauthz **0770＋
+  S_ISVTX**——目录需 w 才能 create/unlink，故组位必须给 **rwx**（v8 的 0664
+  缺目录执行位，非 root 授权人根本无法进入/建件，本版修正）；sticky 使
+  授权人之间不能删改他人暂存件（删除仅文件属主或目录属主 root 可为）。
+  xrgp01op 不在 xrgauthz 组 ⇒ 对 authz/ 连遍历都不可得（EACCES）。原件
+  最终态 **root:xrgauthz 0400**。
 - **发布流程（唯一被承认的路径）**：授权人
   1. `open authz/.staging/<uuid>.json O_WRONLY|O_CREAT|O_EXCL`（0600，属主＝授权人）；
   2. 写 canonical JSON → fsync → close；
@@ -162,8 +177,11 @@
   ⇒ 容器内只读。
 - **容器内 UID 10001 核验**：容器门实读**本代**副本全文、sha256 比对 gen.json
   confirmed、验卡片 SHA/attempt/GEN-ID/nonce 一致才继续；不一致 exit 2。
-- **就绪时序**：Stage A worker 首读 `/authorization/...` 前，其 gen 对已在
-  T4/T8 前落盘（验收断言 gen.json confirmed mtime < create 时间戳）。
+- **就绪时序（两段正向证明，v9）**：①`gen-<GEN-ID>.PREPARED.json` 于
+  **create 请求发出之前**已双 fsync 落盘——其内嵌本代副本与 gen.json 的
+  sha256，证明产物先于候选存在；②BOUND 收据于 **start 请求之前**写入。
+  不再使用"最终 gen.json mtime < create"的反向断言（BOUND 回填会合法地
+  刷新 mtime，反向断言不成立且无必要）。
 
 ## 4b. 统一时序表（正文与验收共用；T# 即验收编号）
 
@@ -175,16 +193,16 @@
 |---|---|---|---|---|---|---|
 | T1 | scp 上传包至 inbox | 操作员 xrgp01op（唯一可写区） | Windows packet-real.tar.gz | — | 无 | 否 |
 | T2 | `sudo xrg-p01-run verify-inbox` | **root（入口）**：复制 inbox→run-input、双清单核验、chown root 0755、写 VERIFIED.sha256 | inbox 整树 | **先 P==B 逐字节，再按 P 验 48 文件**＋C 三 SHA | 无 | 否 |
-| T3 | 发布授权 | **仅授权人**走 `.staging/<uuid>` O_EXCL → write → fsync → RENAME_NOREPLACE 独占发布（§3）；二次提交原子失败；目录 root:xrgauthz 0710 | — | 内容绑定卡片 SHA+attempt | 无 | 否 |
+| T3 | 发布授权 | **仅授权人**在 `.staging/`（0770+sticky）O_EXCL 建件 → write → fsync → `sudo xrg-authz-publish <uuid>` 四步发布（§3）；二次 EEXIST；操作员不可访问该树亦无 publish 权 | — | 内容绑定卡片 SHA+attempt | 无 | 否 |
 | T4 | `stage-a` 宿主预检 | root（入口）：校验原件字段→**生成 GEN-ID 与本代产物**（run-authz/gen-<GEN>/ 副本＋gen.json＋go/gen-<GEN>/ FIFO，T5/T8 首读前就绪） | run-input + authz 原件 | P + C | flock `registry/stage-a.flock`（常驻，同 §4c 语义；成功收据存在则幂等跳过） | 否——Stage A 容器无快照挂载 |
 | T5 | Stage A 容器 materialize | uid 10001 | run-input ro、**本代 gen-<GEN> 副本** ro | 容器门实读副本 sha256==本代 gen.json confirmed＋卡片 SHA/attempt/GEN/nonce | 同上 | 否 |
 | T6 | 操作员核对 controller-pins.txt 三 pin | 人（离线） | output/ Stage A 收据 | — | 无 | 否 |
 | T7 | `stage-b` 宿主预检（**持稳定锁**） | root（入口） | run-input + Stage A 成功收据 + authz 原件 → **新 GEN-ID 与本代产物**（与 stage-a 代次相互独立） | P + C + Stage A 收据 pin | `flock(LOCK_EX\|LOCK_NB)` on `registry/<attempt>.flock`（O_CREAT 常驻不删；§4c 持锁范围）；此步失败→释锁、落 refusals，**不写消费记录** | 否 |
-| T8 | **docker create（只创建不启动）** | root（入口内部 docker CLI） | 命令行由入口拼装：快照版本目录 ro bind（§4d 口径）；`--label io.xiangrugu.attempt-gen=<GEN-ID>`；bind 源＝本代 go/gen-<GEN>（/control ro）与 run-authz/gen-<GEN>（/authorization ro） | 生成 mount-plan.txt | flock 持有 | **进程尚未运行**。create 返回后、start 前：入口把**完整容器 ID 回填 gen.json（state=BOUND，fd+目录双 fsync）**——绑定 attempt+GEN-ID+container_id 三元组 |
+| T8 | **create 前持久准备收据 + docker create** | root（入口）：create 请求发出前先写 `run-authz/gen-<GEN-ID>.PREPARED.json`（attempt、GEN-ID、阶段＝pre-create、完整创建配置摘要含标签/挂载计划，fd+目录双 fsync），再执行 create（`--label io.xiangrugu.attempt-gen=<GEN-ID>`；bind 源＝本代 go/gen-<GEN>（/control ro）与 run-authz/gen-<GEN>（/authorization ro）；快照版本目录口径见 §4d） | 命令行由入口拼装 | 生成 mount-plan.txt + PREPARED 收据 | flock 持有 | **进程尚未运行**。create 返回后、start 前：完整容器 ID 回填 gen.json（state=BOUND，双 fsync）——此后三元组 attempt+GEN-ID+container_id 方可用于核对 |
 | T9a | **create 态静态核验**：`.Mounts` ↔ mount-plan.txt 逐条、HostConfig cgroup 参数 ↔ C；任一不符 → rm 容器、**释放 flock（锁文件保留不删）**、refusals 记录，**可重试**（未发过 start 请求） | root（入口） | `docker inspect`（create 态即含全部配置） | mount-plan.txt + C | flock 持有；**无消费记录** | 否——尚未 start，无任何执行 |
 | T9b | **消费记录前置（条款②）**：T9a 全过后、**首次 `docker start` 请求之前**：`open(O_WRONLY\|O_CREAT\|O_EXCL)` 写 `pins/ATTEMPT_CONSUMED.json`（state=START_REQUESTED，container_id＋GEN-ID 取自已 BOUND 的 gen.json）→ fsync(fd) → **fsync(pins/ 父目录 fd)**；两步全成功才准发 start。EEXIST（半写残留）⇒ 读回校验：字节完整且合法 ⇒ 视为已消费立拒重试；字节截断/非法 JSON ⇒ 拒绝启动（`consumed_record_corrupt`），人工裁决，绝不自动覆盖。任一 fsync 失败 ⇒ 不发 start、unlink 本次半成品、rm 容器、释锁（视同预检拒绝，可重试） | root（入口） | — | C | **双 fsync 完成＝名额消耗点，先于 start 请求** | 否 |
 | T9c | **等待机制（条款①，通道细节见 §4e）**：start 后入口轮询宿主读回四项 cgroup 值 `{cpu.max,memory.max,memory.swap.max,pids.max}` 逐字等于 C；nice/ionice 沿用现有**进程级核验**（candidate_supervisor check_limits 自报 worker_nice=getpriority、worker_ionice=`ionice -p` 查询回读，收据入 limits.json；io.weight 替代方案见 §8 待裁决）。每轮 0.2s、预算 10s。全过后按 §4e 交付 GO（单向道：宿主 open O_WRONLY\|O_NONBLOCK 轮询至 reader 出现，写一行 `GO <nonce>` 即 close）。读回不符/超时 ⇒ stop+rm、终态 INVALID_READBACK；**宿主在放行前退出**：PID1 等待 open 至自身 deadline（start+20s）⇒ SUPERVISION_ABORTED_NO_GO exit 1 自行关闭 | root（入口） | cgroup fs ＋ supervisor 自报 limits 收据 | C | flock 持有，消费记录已存在 | 否——GO 未交付，supervisor 超时自毙 |
-| T10 | **放行点（§4e，单向）**：PID1 supervisor 以 O_RDONLY\|O_NONBLOCK 轮询 `/control/go`（open 成功即有 writer），整行读到 `GO <nonce>` 且逐字匹配 ⇒ 容器门实读本代副本比对 gen.json confirmed → 通过才 Popen task_control；deadline 超时/EOF 无完整行/部分消息后断链/nonce 不符 ⇒ exit 1，全程零源读取。**不回写 ACK** | 容器内 uid 10001（bind 属组映射 10001 可读） | GO nonce + 三方 pin | 容器门 | flock 持有 | **是——唯一读取窗口自 T10 开始，且必然在 T9c 读回通过之后** |
+| T10 | **放行点（§4e，单向）**：PID1 supervisor open(O_RDONLY\|O_NONBLOCK) `/control/go`——**open 成功不代表 writer 在场**，进入 read 轮询：EAGAIN 持续等待（首次空读不结束）、累积缓冲直到整行 `GO <nonce>\n` 且探测确认无第二帧、逐字匹配 ⇒ 容器门实读本代副本比对 gen.json confirmed → 通过才 Popen task_control；deadline（start+20s）内未凑成完整单帧、部分帧后 EOF 断链、行数≠1 或 nonce 不符 ⇒ exit 1，全程零源读取。**不回写 ACK** | 容器内 uid 10001（egid 10001，经 0710 目录遍历＋FIFO 0644 可读） | GO nonce + 三方 pin | 容器门 | flock 持有 | **是——唯一读取窗口自 T10 开始，且必然在 T9c 读回通过之后** |
 | T11 | 收尾：原始收据落 output/（uid 10001 写，操作员 r-x）；入口把消费记录更新为终态（COMPLETED/STOPPED/TIMEOUT/INVALID_*，fd+父目录双 fsync），释 flock（锁文件保留不删） | 容器 + root（入口） | — | — | 消费记录承载终态；flock 释放 | 窗口随进程终止关闭 |
 
 ⇒ 输入、镜像、挂载、资源四类核验（T9a）与四项 cgroup 读回＋进程级
@@ -224,10 +242,9 @@ nice/ionice 自报核验（T9c）全部结构性先于 GO 交付/放行（T10）
      绝不重发 start**；若落在"已交付、留证前"不可确定窗口 ⇒ 一律按**可能已
      放行**处理，走 §4f：核实确切 stopped/rm 后才补 INVALID_DELIVERY_UNVERIFIED，
      attempt 保持已消费；若已放行过（DELIVERED.json 在案）⇒ 仅补终态。
-- **create 后 ID 未落盘**：仍按 label `io.xiangrugu.synthetic-run=<suffix>`
-  反查孤儿容器（run-real.sh :190 口径）stop→rm，保守补记 INVALID_PRESTART
-  并永久消耗（验收 A-T8a 保留）。恢复定位候选统一按标签
-  `io.xiangrugu.attempt-gen=<GEN-ID>` ↔ gen.json BOUND ↔ 消费记录三元组核对。
+- **create 后 ID 未落盘**：以 PREPARED 收据为基准按标签
+  `io.xiangrugu.attempt-gen=<GEN-ID>` 反查＋固定创建配置核对（§4f.1），零/
+  多/查询失败三态处置见 §4f.2；BOUND 后才用完整容器 ID 三元组核对。
 
 ## 4d. 快照挂载口径（复核意见④）
 
@@ -244,32 +261,43 @@ nice/ionice 自报核验（T9c）全部结构性先于 GO 交付/放行（T10）
 
 | 维度 | 规则 |
 |---|---|
-| 创建时机与路径 | **T8 create 之前**：入口建 `go/gen-<GEN-ID>/`（root:root 0750）并 `mkfifo go/gen-<GEN-ID>/go`（root:10001 **0640**）；create 以 `--mount type=bind,src=$run/go/gen-<GEN-ID>,dst=/control,readonly` 挂入——PID1 起跑时通道必已存在且随 mount-plan.txt 固化（T9a 静态核验项）。 |
-| UID 10001 读权限 | bind 呈现宿主 inode 原样：属组 10001＋g+r ⇒ 镜像 USER 10001 可读；xrgp01op 不在 10001 组、对 go/ 无写权 ⇒ 不可伪造。 |
+| 创建时机与路径 | **T8 create 之前**：入口建 `go/gen-<GEN-ID>/`（root:root **0710**）并 `mkfifo go/gen-<GEN-ID>/go`（root:10001 **0644**）；create 以 `--mount type=bind,src=$run/go/gen-<GEN-ID>,dst=/control,readonly` 挂入——PID1 起跑时通道必已存在且随 mount-plan.txt 固化（T9a 静态核验项）。 |
+| UID 10001 实际身份与可达路径 | 镜像 `USER 10001` ⇒ 进程 euid＝10001、**egid＝10001（镜像构建时显式 `groupadd -g 10001 xrgworker`，不依赖宿主 gid 映射）**。遍历链：`/`(ro rootfs)→`/control`（bind 根＝gen 目录，0710 对所有人给 x）→FIFO 0644 world-readable。目录取 0710 而非 0750：只需 x 遍历、不向无关身份泄露同代其它条目名；FIFO 写位仅属主 root（o+w 未开）⇒ 操作员与容器均不可写，**宿主独占写得保**。 |
 | 宿主写权限（独占、单向） | 仅入口（root）open O_WRONLY\|O_NONBLOCK；**通道内不存在反向数据面**。若未来确需回执：另定独立路径 `go/gen-<GEN-ID>/ack`（root:root 0600，仅宿主可读，容器侧无任何写身份），本版不启用。 |
 | 身份绑定 | 目录名钉 GEN-ID（create 前生成，§3）；create 返回后 start 前把完整容器 ID 回填 gen.json（state=BOUND）⇒ `attempt+GEN-ID+container_id` 三元组由标签、gen.json、消费记录三方共验；`nonce = sha256(confirmed_sha ‖ GEN-ID ‖ attempt)`，PID1 从本代 gen.json 重算期望值。 |
-| 双方非阻塞等待 | 宿主：open(O_WRONLY\|O_NONBLOCK) 循环（0.1s 步长）直到 ENXIO 消失（reader 已开）或 T9c 预算耗尽。容器：PID1 open(O_RDONLY\|O_NONBLOCK) 成功即表示 writer 在场，read 至整行。 |
-| 截止时间 | 宿主交付窗口＝T9c 通过后 ≤5s；容器 deadline＝start+20s：open 始终 ENXIO、或到时无完整行 ⇒ `SUPERVISION_ABORTED_NO_GO` exit 1。宿主交付前被杀 ⇒ 容器侧自然走该超时路径。 |
-| EOF / 部分消息 | 只接受**恰好一行** `GO <nonce>\n`：读到 EOF 而无完整行、或行数≠1、或字节不符 ⇒ exit 1（收据记 read_bytes 原文）。写侧单次 write 全行＋close。 |
-| 一次性消费 | 交付＝write 后立即 close（EOF 天然终结流）。**二次读取实测预期**：新 reader open 在无 writer 时 NONBLOCK 下直接 ENXIO；writer 曾开而今关 ⇒ read 返回 EOF(0 字节)。两种形态都取不回第二份 GO；实测值入收据。 |
+| 双方非阻塞等待（Linux FIFO 语义，v9 更正） | **容器侧 reader**：open(O_RDONLY\|O_NONBLOCK) **成功与否都不代表 writer 在场**（NONBLOCK 下无 writer 也能打开）；随后 read 序列：EAGAIN＝暂无数据继续轮询，**首次空读绝不提前结束等待**；读到 n>0 则累积缓冲直到出现 `\n`。**宿主侧 writer**：open(O_WRONLY\|O_NONBLOCK) 在尚无 reader 时返回 **ENXIO**——ENXIO 只属于非阻塞写端；入口据此轮询（0.1s 步长）直到 open 成功＝reader 在场。 |
+| 完整且仅一帧的判定 | 凑成 `\n` 后再做一次探测性 read：缓冲须恰为一行 `GO <nonce>\n` 且逐字匹配，且后续立即为 EAGAIN（管道已空）或 EOF ⇒ 放行成立。**部分帧后 read 返回 0（EOF，writer 断链）**、行数≠1、nonce 不符 ⇒ 拒绝 exit 1，收据记 read_bytes 原文与帧计数。 |
+| 截止时间 | 宿主交付窗口＝T9c 通过后 ≤5s（open+write+close）。容器 deadline＝start+20s：其间持续容忍 EAGAIN；到点仍未凑成完整单帧 ⇒ `SUPERVISION_ABORTED_NO_GO` exit 1。宿主交付前被杀 ⇒ 容器侧自然走该超时路径。 |
+| 一次性消费 | 交付＝write 后立即 close（EOF 终结流）。**重复读取三形态实测**：①writer 尚未连接——reader open 成功但 read 恒 EAGAIN，直至 deadline；②正常交付——首 reader 收到唯一帧；③事后重读——历史字节已被消耗，新 reader 只得 EAGAIN→deadline 或 EOF(0)，新 writer open(O_WRONLY\|NONBLOCK) 无 reader 时得 ENXIO。任何形态都取不回第二份 GO；实测值入收据。 |
 | 不换 inode | **已绑定候选（gen.json state=BOUND）的通道禁止 unlink/rename/mkfifo 重建**——inode 自 create 起至终态归档不变。换代次＝**新 GEN-ID 新目录**，绝不原地换件；旧代目录只读保留至 T11 归档移动。 |
-| DELIVERED 留证 | 宿主 close 成功后落 `go/gen-<GEN-ID>/DELIVERED.json`（双 fsync）。"已交付、留证前"崩溃窗口见 §4f。 |
+| DELIVERED 留证 | 宿主 close 成功后落 `go/gen-<GEN-ID>/DELIVERED.json`（双 fsync）。**其语义仅为"宿主已把 GO 写入管道并关闭"**——不证明容器读到、更不证明放行；容器是否读到以 exec 事件流为准。"已写出、留证前"崩溃窗口见 §4f。 |
 
-## 4f. GO 交付与留证之间宿主退出的恢复规则（v8，条款②补全）
+## 4f. 宿主退出后的恢复规则（v9，条款②重写）
 
-入口正常序：交付 GO（write+close）→ 落 `go/gen-<GEN-ID>/DELIVERED.json`
-（双 fsync）。单向通道无回执，故"已交付、留证前"窗口**必然存在**且不可缩小；
-若崩溃落于此，**放行与否不可确定 ⇒ 一律按"可能已放行"处理**：
+**证据语义**：DELIVERED.json 只证明"宿主写出 GO 并 close"，不证明容器读到或
+放行；exec 事件流才是 worker 是否启动的唯一判据。
 
-1. 恢复子命令持 flock 后读容器 `State.Status`＋PID 树：**必须核实确切已
-   stopped（或已回收 rm）**——running/created/状态漂移中一律先 stop→观察
-   exited→rm，不得凭猜测补记；
-2. 核实到位后才补终态 `INVALID_DELIVERY_UNVERIFIED`（fd+目录双 fsync），
-   并从 output/ 既有收据反查 worker 是否曾实际启动（task_control 产物、
-   exec 事件流命中），把结论附进同一收据；恢复定位候选一律经
-   `io.xiangrugu.attempt-gen=<GEN-ID>` 标签 ↔ gen.json BOUND 三元组核对；
-3. attempt **保持已消费**，任何分支不重发 start、不补发 GO。
-4. **start 请求计数主证据**＝入口在发起 Docker 请求处的本地日志行
+1. **候选定位分两段**：
+   - *ID 未落盘*（gen.json 无 BOUND/container_id）：以 **PREPARED 收据**为基准，
+     用 `docker ps -a --filter label=io.xiangrugu.attempt-gen=<GEN-ID>` 的候选
+     标签 ↔ PREPARED 内固定创建配置摘要（镜像 .Id、挂载面、entrypoint argv
+     哈希）逐项核对；
+   - *已 BOUND*：才使用完整容器 ID 做 attempt+GEN-ID+container_id 三元组核对
+     （inspect Labels ↔ gen.json ↔ 消费记录）。
+2. **三种匹配处置**：**零匹配** ⇒ 判定 create 请求未达 daemon：释容器侧资源、
+   补记 INVALID_PRESTART_NO_CONTAINER（双 fsync）、attempt 保持已消费（PREPARED
+   已存在即不可回退为可重试——保守向）；**多匹配**（同 GEN 标签 >1 容器，理论
+   不应发生）⇒ 全部 stop→rm、补记 INVALID_GEN_AMBIGUOUS 并升级人工裁决；
+   **状态查询失败**（daemon 无响应/超时）⇒ 恢复中止并保持 lock 现场，**不写
+   任何终态**——宁可挂起等待人工，不做猜测性收尾。
+3. **统一核实纪律**：入口已退出时，**无论 DELIVERED 是否存在**，都必须核实
+   确切候选已 stopped 或已回收（inspect State.Status＝exited/unknown＋无进程
+   残留）后才补终态；绝不代补发 GO、绝不重发 start。running ⇒ 先 stop→观察
+   exited→rm，再按窗口性质补 INVALID_DELIVERY_UNVERIFIED（有 DELIVERED）或
+   INVALID_READBACK/INVALID_START_UNCONFIRMED（无 DELIVERED），附 exec 事件流
+   反查结论。
+4. attempt **保持已消费**（T9b 双 fsync 之后不存在回退路径）。
+5. **start 请求计数主证据**＝入口在发起 Docker 请求处的本地日志行
    （`START_REQUEST cid=<id12> ts=…`，每次调用先记账后发起，fsync）；
    docker events 仅作容器状态佐证，不作计数依据。
 
@@ -315,17 +343,17 @@ nice/ionice 自报核验（T9c）全部结构性先于 GO 交付/放行（T10）
   注入父目录 fsync 失败（模拟 EIO）⇒ 不发 start、半成品 unlink、可重试。
 - **A-T9c 等待机制三态（条款①，主证据＝按候选身份关联的进程事件流）**：
   注入 ① 四项 cgroup 任一读回不符、② 入口在轮询中被 SIGKILL、③ 读回预算
-  超时。**主证据**：start 请求发出**之前**即挂 exec/fork 采集器（按
-  `docker-<id>.scope` cgroup inode 关联过滤，事件含 comm/pid/ts），三态各自
-  要求事件流中**除 PID1 supervisor 外零命中**——即便 task_control 瞬时启动
+  超时。**主证据**：start 请求发出**之前**即启用 exec/fork 采集器（事件含
+  comm/pid/ts/cgroup）：**先全量留存早期事件**（候选 cgroup 只在启动后才
+  出现，无法预先按 ID 过滤），BOUND 容器 ID 到手后按实际出现的
+  `docker-<完整ID>.scope` 身份对已留存与后续事件做关联归组；三态各自的
+  该 scope 归组结果须仅含 PID1 supervisor 与白名单预检进程——即便
+  task_control 瞬时启动
   也必被捕获，不依赖时间线推断。**允许已声明预检进程**：事件流中除 PID1
   supervisor 外仅可出现白名单项（supervisor 自身 fork 的 check_limits/ionice
   查询子进程，comm 与父链预先登记于 `declared_preflight.json`）；worker
   判定以 task_control 的 exec 事件为准，白名单外的任何 exec 即判该态失败。
-  **采集器启用与关联**：armed 于 start 请求发出之前（写入 armed_at 时戳）；
-  候选 cgroup 仅在启动后才出现 ⇒ 采集器先按 `docker-*.scope` 通配订阅
-  fork/exec 携带 cgroup 字段的事件，BOUND 容器 ID 到手后把过滤谓词收紧到
-  该 scope inode，前后窗口事件全部留存供审计。采集器随收据输出 `capture_status`
+  采集器随收据输出 `capture_status`
   （armed_at 早于 start 请求时间戳、events_seen、dropped 计数）；**dropped>0
   或 arm 迟于 start ⇒ 该态验收判无效重跑**。辅助证据（不作唯一依据）：源
   访问审计（audit -w ＋ fanotify 零命中）、output/ 无 task_control 产物。
@@ -335,8 +363,9 @@ nice/ionice 自报核验（T9c）全部结构性先于 GO 交付/放行（T10）
   自报通过时间戳，收据逐项列读回原文。
 - **A-GO 语义（§4e 逐项实测入收据）**：①通道在 create 前已存在、路径按
   GEN-ID 固定且 mount-plan 含之；②UID 10001 NONBLOCK open 成功、xrgp01op
-  open(O_WRONLY) EACCES；③二次读取实测记录实际形态（ENXIO 或 EOF 0 字节）
-  ——均不得取回第二份 GO；④**inode 稳定性**：BOUND 前后及交付全程
+  open(O_WRONLY) EACCES；③重复读取三形态各留实测：writer 未连接（reader open 成功＋read 恒
+  EAGAIN 至 deadline）、正常交付（唯一帧）、事后重读（EAGAIN→deadline 或
+  EOF(0)，新 writer 得 ENXIO）——均不得取回第二份 GO（ENXIO 仅出现在非阻塞写端实测记录）；④**inode 稳定性**：BOUND 前后及交付全程
   `stat go/gen-<GEN-ID>/go` 的 st_ino 不变，任何 unlink/rename 尝试 EACCES；
   换代演练走新 GEN 目录而非原地换件；⑤nonce 由 confirmed_sha‖GEN-ID‖attempt
   重算匹配，伪造/多行/截断行均 exit 1；⑥通道无任何反向数据面（strace 记录
@@ -355,10 +384,21 @@ nice/ionice 自报核验（T9c）全部结构性先于 GO 交付/放行（T10）
      之后、DELIVERED.json 落盘之前 → 恢复必须按"可能已放行"处理：核实
      确切 stopped/rm 后才补 INVALID_DELIVERY_UNVERIFIED，附 exec 事件流
      反查结论；attempt 保持已消费，后续 stage-b 立拒。
+  ③c *DELIVERED 已落盘但候选仍运行（v9 增补）*：write+close+DELIVERED 双
+     fsync 完成后 kill 入口，容器仍在跑 → 恢复不得以 DELIVERED 存在推断
+     worker 状态：按 §4f.3 stop→观察 exited→rm，核实后补终态（TIMEOUT/
+     STOPPED 依 exec 事件流是否见过 task_control 判定），不补 GO、不重发
+     start；对照分支——无 DELIVERED 而同为 running 时走 ③b 语义。
+  ③d *PREPARED 两段定位口径*：分别在 gen.json 未 BOUND 与已 BOUND 两处
+     kill：前者恢复仅凭 PREPARED↔标签↔创建配置摘要核对定位；后者用三元组
+     核对。另注入零匹配（daemon 侧手工 rm）→ INVALID_PRESTART_NO_CONTAINER、
+     多匹配（同标签造两个容器）→ INVALID_GEN_AMBIGUOUS 全停全清＋人工升级、
+     查询失败（stub daemon 超时）→ 恢复中止不写终态三种处置各一收据。
   ④ *flock 互斥双向*：stage-b 持锁期 recover-orphan 拿不到锁即拒；恢复持锁
      期 stage-b 同样立拒（两侧各验一次，锁文件始终存在不被删）。
 - **A-AUTHZ（条款③）**：
-  ① 发布全流程实走通：授权人 staging O_EXCL(0600) → fsync →
+  ① 发布全流程实走通：**非 root 授权人**在 .staging（0770+sticky）确可
+     O_EXCL 建件(0600)（getuid≠0 断言入收据）→ fsync →
      `sudo xrg-authz-publish <uuid>`——程序从**调用者的**暂存件读取并做
      schema 校验（非法内容拒绝且不产生正式件）；在 root 独占 .publish-tmp
      新 inode 内先固定字节/root:xrgauthz/0400 双同步，再 NOREPLACE rename
@@ -366,14 +406,16 @@ nice/ionice 自报核验（T9c）全部结构性先于 GO 交付/放行（T10）
   ② 否决性四连：**第二次发布 EEXIST** 留证；**发布中断**（kill 于 tmp 成形
      后、rename 前 ⇒ 正式路径仍 ENOENT 可重发；kill 于 rename 后、父目录
      同步前 ⇒ 幂等补同步成功且摘要一致）；**操作员调用 publish 被拒**
-     （sudo 白名单不含＋文件权限双证）；**暂存件后续变化不影响原件**
-     （发布后改写/删除 .staging 件，原件 sha256 前后不变——不同 inode 证明）。
+     （sudo -l 不含该命令的 runas 尝试 EPERM＋authz/ 遍历 EACCES 双证）；
+     **暂存件后续变化不影响原件**（发布后改写/删除 .staging 件，原件 sha256
+     前后不变——不同 inode 证明）；操作员对 .staging 连目录都不可进入。
   ③ 同代绑定：交错预检演练——stage-a(GEN-A) 与 stage-b(GEN-B) 各绑各的
      gen-/go/ 目录与标签互不覆盖；**容器内 UID 10001 实读本代副本全文
      sha256 == 本代 gen.json confirmed == 宿主门记录**三方一致入收据；
-     gen.json confirmed mtime < 对应候选 create 时间戳（Stage A 首读前就绪）；
-     create 返回后 start 前 gen.json state=BOUND 且 container_id 与 inspect
-     Labels 的 attempt-gen 一致（读回/放行/恢复三处共验同一绑定）。
+     Stage A 首读前就绪由两段正向收据证明：**PREPARED（create 前，含副本与
+     gen.json 摘要）＋BOUND（start 前）**，不用 mtime 反向断言；BOUND 的
+     container_id 与 inspect Labels 的 attempt-gen 一致（读回/放行/恢复三处
+     共验同一绑定）。
   ④ 操作员破坏面：xrgp01op 对 authz/、.staging/、run-authz/gen-*、go/ 的
      写/删/rename/chmod 全 EACCES/EPERM（audit 留痕）。
 

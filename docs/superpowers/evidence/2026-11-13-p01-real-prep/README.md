@@ -60,5 +60,5 @@ Stage B real-readonly（容器内，快照 /data/imports/usedata 只读挂载）
 
 ## 待裁决
 
-- **32 最小权限执行入口 v13**：仅方案已提交待审。v12 骨架上两条收口：①RESOLVED 发布与生效分离（§4g.3/.4）——完整 JSON＋published:true 只证明内容完整；上次入口中断或同步结果不明时，新入口持 B 锁保持阻断，须由恢复路径对同一代次重新核实候选状态、补完文件与父目录同步后才宣告生效；验收 ⑥(b) 增补"正式件已可见、内容与尾标完整、父目录同步未完成或失败"用例并断言无新增 create/start。②统一收尾条件（T9a/T5/T11/§4g/⑥(c)/A-T9a-2）：各路径要求的 refusals／终态／Stage A 成功收据必须持久化于释锁之前；RESOLVED 有效而收尾记录未落 ⇒ 新入口仍 recovery_pending、由恢复补齐；⑥(c) 恢复前先重发 stage-b 证明零新增请求；④ 把持锁期并发竞争（busy）与原入口退出后的 recovery_pending 分为两案，返回码与日志标记不同源。见 [PROPOSAL-32-minimal-entry.md](PROPOSAL-32-minimal-entry.md)（未实施、未登录 32）。
+- **32 最小权限执行入口 v14**：仅方案已提交待审。本轮只动 §4g.3/.4、验收 ⑥ 与本指针：RESOLVED 发布定式＝root 独占临时件一次写齐最终内容＋属主/mode＋published 尾标 → 文件 fsync → 原子 rename → 父目录 fsync，双同步后不再改尾标。重入判定改为**一条不推断上一进程退出方式**的规则：新入口持 B 锁检查同一代次的 RESOLVED 与该路径要求的终态/refusals/Stage A 收据——缺失、损坏或绑定不一致即 `recovery_pending` 交恢复补齐；记录齐全也须重新确认候选状态（exited|dead|404）并对所需文件与父目录各补一次幂等 fsync；核实或同步失败保持阻断；全部成功后才按原有消费/重试规则决定去留。验收 ⑥ 扩为五窗，新增 (e)"所有记录均已可见、最后一次同步结果未知"：注入补同步失败断言零新增 create/start，补同步成功后 T9a 拒绝径才可重试、已消费 attempt 仍拒，另设正常收尾对照证明重入规则不惩罚善终。见 [PROPOSAL-32-minimal-entry.md](PROPOSAL-32-minimal-entry.md)（未实施、未登录 32）。
 - 其余见 [ACCESS-32.md](ACCESS-32.md) 与 RUNBOOK-REAL「授权」节。本包完成后停在授权前：未放置 authorization.json，未创建运行根，未启动任何 Stage A/B 容器。

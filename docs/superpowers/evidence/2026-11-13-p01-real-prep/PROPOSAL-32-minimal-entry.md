@@ -1,6 +1,6 @@
-# 提案 v12（待审，未实施）：32 主机最小权限执行入口
+# 提案 v13（待审，未实施）：32 主机最小权限执行入口
 
-> 状态：**仅方案提交评审**（迭代自 v11/eb88a76）。本轮及既往各轮均未登录或修改
+> 状态：**仅方案提交评审**（迭代自 v12/8b43ff9）。本轮及既往各轮均未登录或修改
 > 32；真实任务卡 `real-p01-20261113-a` 保持 CLOSED。落地须先获总指挥批准。
 > v2 复核意见的落实点：①操作员上传区与运行输入/授权/登记/原始收据物理分离；
 > ②固定入口只消费操作员不可替换的已核验副本；③宿主授权门+容器授权门双保留；
@@ -85,7 +85,7 @@
 > 分列无 writer 时 read=0 与有 writer 暂无数据时 EAGAIN（均等到截止）；UID/
 > GID 10001 读权验收以实际只读挂载后的容器内 /control/go 为准，宿主 setpriv
 > 降为补充。另修正正文标题滞留 v9 的问题。｜as_of 2026-11-14
-> **v12（本 revision，回应 eb88a76 复核的三条）**：①A-T8~T10⑤ 主故障点移至
+> **v12（回应 eb88a76 复核的三条）**：①A-T8~T10⑤ 主故障点移至
 > create 请求已发出、T9b 尚未落盘，覆盖 PREPARED 未 BOUND 与 BOUND 后未消费
 > 两个子态，断言消费记录与 RECOVERY_PENDING 均不存在时先重发 stage-b 得
 > recovery_pending、零新增 create/start，再调恢复。②新增 §4g 统一锁序（A→B
@@ -95,6 +95,15 @@
 > 「RESOLVED 已出现但发布未完成」中断窗与 ⑦ 锁序/五步齐备演练。③删除 §4e
 > 一次性消费旧句；A-GO 分别实测无 writer read=0 与 writer 在场未写 EAGAIN，
 > 两者均不得提前退出。｜as_of 2026-11-14
+> **v13（本 revision，回应 8b43ff9 复核的两条）**：①RESOLVED 发布与生效分离
+> ——完整 JSON＋published:true 只证明内容完整；上次入口中断/同步结果不明时，
+> 新入口持 B 锁保持阻断，由恢复路径对同一代次重新核实并完成文件与父目录同步
+> 后才生效（§4g.3/.4）；验收 ⑥(b) 增补"正式件已可见、内容与尾标完整、父目录
+> 同步未完成或失败"用例，断言无新增 create/start。②统一 T9a/T5/T11/§4g/⑥(c)
+> 收尾条件：该路径要求的 refusals/终态/成功收据必须持久化于释锁之前；RESOLVED
+> 有效而收尾记录未落 ⇒ 新入口仍阻断、由恢复补齐；⑥(c) 恢复前先重发 stage-b
+> 证明零新增请求；④ 把持锁期竞争（busy）与原入口退出后的 recovery_pending
+> 分为两案，返回码与日志标记不同源。｜as_of 2026-11-14
 > **v6（回应 4ae88ec 复核的三个条款）**：①GO 选定为一次性命名
 > pipe，绑定本次 attempt+容器 ID、旧 GO 以 unlink 失效、宿主放行前退出时容器
 > PID1 自行超时关闭，I/O 优先级读回接口改正为 `/sys/fs/cgroup/<scope>/cpu.cgroup_weight`
@@ -230,15 +239,15 @@
 | T2 | `sudo xrg-p01-run verify-inbox` | **root（入口）**：复制 inbox→run-input、双清单核验、chown root 0755、写 VERIFIED.sha256 | inbox 整树 | **先 P==B 逐字节，再按 P 验 48 文件**＋C 三 SHA | 无 | 否 |
 | T3 | 发布授权 | **仅授权人**在 `.staging/`（0770+sticky）O_EXCL 建件 → write → fsync → `sudo xrg-authz-publish <uuid>` 四步发布（§3）；二次 EEXIST；操作员不可访问该树亦无 publish 权 | — | 内容绑定卡片 SHA+attempt | 无 | 否 |
 | T4 | `stage-a` 宿主预检 | root（入口）：校验原件字段→**生成 GEN-ID 与本代产物**（run-authz/gen-<GEN>/ 副本＋gen.json＋go/gen-<GEN>/ FIFO，T5/T8 首读前就绪） | run-input + authz 原件 | P + C | **锁序（§4g）**：先 `stage-a.flock`，凡涉本 attempt 代次记录读写即升级取 `attempt.flock`（顺序固定 a→b，绝不反向）；成功收据存在则幂等跳过 | 否——Stage A 容器无快照挂载 |
-| T5 | Stage A 容器 materialize | uid 10001 | run-input ro、**本代 gen-<GEN> 副本** ro | 容器门实读副本 sha256==本代 gen.json confirmed＋卡片 SHA/attempt/GEN/nonce | 同 T4 锁序 | 否。**收尾（§4g）**：Stage A 容器 exited→核实该确切容器状态→写本代 RESOLVED（双 fsync）→释两把锁；失败/中断走 §4f 同一纪律 |
+| T5 | Stage A 容器 materialize | uid 10001 | run-input ro、**本代 gen-<GEN> 副本** ro | 容器门实读副本 sha256==本代 gen.json confirmed＋卡片 SHA/attempt/GEN/nonce | 同 T4 锁序 | 否。**收尾（§4g.2）**：Stage A 容器 exited→核实该确切容器状态→写本代 RESOLVED（双 fsync）→Stage A 成功/失败收据持久化（先于释锁）→释两把锁；RESOLVED 有效但收据未落 ⇒ 新入口仍阻断、由恢复补齐（§4g.4）；失败/中断走 §4f 同一纪律 |
 | T6 | 操作员核对 controller-pins.txt 三 pin | 人（离线） | output/ Stage A 收据 | — | 无 | 否 |
 | T7 | `stage-b` 宿主预检（**持稳定锁**） | root（入口） | run-input + Stage A 成功收据 + authz 原件 → **新 GEN-ID 与本代产物**（与 stage-a 代次相互独立） | P + C + Stage A 收据 pin | `flock(LOCK_EX\|LOCK_NB)` on `registry/<attempt>.flock`（O_CREAT 常驻不删；§4c 持锁范围）；此步失败→释锁、落 refusals，**不写消费记录** | 否 |
 | T8 | **create 前持久准备收据 + docker create** | root（入口）：create 请求发出前先写 `run-authz/gen-<GEN-ID>.PREPARED.json`（attempt、GEN-ID、阶段＝pre-create、完整创建配置摘要含标签/挂载计划，fd+目录双 fsync），再执行 create（`--label io.xiangrugu.attempt-gen=<GEN-ID>`；bind 源＝本代 go/gen-<GEN>（/control ro）与 run-authz/gen-<GEN>（/authorization ro）；快照版本目录口径见 §4d） | 命令行由入口拼装 | 生成 mount-plan.txt + PREPARED 收据 | flock 持有 | **进程尚未运行**。create 返回后、start 前：完整容器 ID 回填 gen.json（state=BOUND，双 fsync）——此后三元组 attempt+GEN-ID+container_id 方可用于核对 |
-| T9a | **create 态静态核验**：`.Mounts` ↔ mount-plan.txt 逐条、HostConfig cgroup 参数 ↔ C；任一不符 → rm 容器→**核实该候选 exited/deleted→写本代 RESOLVED（双 fsync）→再释 flock（锁文件保留不删）→refusals 记录**，重试资格随 RESOLVED 生效（§4g；未发过 start 请求） | root（入口） | `docker inspect`（create 态即含全部配置） | mount-plan.txt + C | flock 持有；**无消费记录** | 否——尚未 start，无任何执行 |
+| T9a | **create 态静态核验**：`.Mounts` ↔ mount-plan.txt 逐条、HostConfig cgroup 参数 ↔ C；任一不符 → rm 容器→**核实该候选 exited/deleted→写本代 RESOLVED（双 fsync）→refusals 记录持久化（fd+父目录双 fsync，先于释锁）→再释 flock（锁文件保留不删）**；重试资格须待 RESOLVED 生效**且** refusals 已持久（§4g.4；未发过 start 请求） | root（入口） | `docker inspect`（create 态即含全部配置） | mount-plan.txt + C | flock 持有；**无消费记录** | 否——尚未 start，无任何执行 |
 | T9b | **消费记录前置（条款②）**：T9a 全过后、**首次 `docker start` 请求之前**：`open(O_WRONLY\|O_CREAT\|O_EXCL)` 写 `pins/ATTEMPT_CONSUMED.json`（state=START_REQUESTED，container_id＋GEN-ID 取自已 BOUND 的 gen.json）→ fsync(fd) → **fsync(pins/ 父目录 fd)**；两步全成功才准发 start。EEXIST（半写残留）⇒ 读回校验：字节完整且合法 ⇒ 视为已消费立拒重试；字节截断/非法 JSON ⇒ 拒绝启动（`consumed_record_corrupt`），人工裁决，绝不自动覆盖。任一 fsync 失败 ⇒ 不发 start、unlink 本次半成品、rm 容器、释锁（视同预检拒绝，可重试） | root（入口） | — | C | **双 fsync 完成＝名额消耗点，先于 start 请求** | 否 |
 | T9c | **等待机制（条款①，通道细节见 §4e）**：start 后入口轮询宿主读回四项 cgroup 值 `{cpu.max,memory.max,memory.swap.max,pids.max}` 逐字等于 C；nice/ionice 沿用现有**进程级核验**（candidate_supervisor check_limits 自报 worker_nice=getpriority、worker_ionice=`ionice -p` 查询回读，收据入 limits.json；io.weight 替代方案见 §8 待裁决）。每轮 0.2s、预算 10s。全过后按 §4e 交付 GO（单向道：宿主 open O_WRONLY\|O_NONBLOCK 轮询至 reader 出现，写一行 `GO <nonce>` 即 close）。读回不符/超时 ⇒ stop+rm、终态 INVALID_READBACK；**宿主在放行前退出**：PID1 等待 open 至自身 deadline（start+20s）⇒ SUPERVISION_ABORTED_NO_GO exit 1 自行关闭 | root（入口） | cgroup fs ＋ supervisor 自报 limits 收据 | C | flock 持有，消费记录已存在 | 否——GO 未交付，supervisor 超时自毙 |
 | T10 | **放行点（§4e 状态机，单向）**：PID1 supervisor open(O_RDONLY\|O_NONBLOCK) `/control/go`（root:10001 0710 目录遍历＋0640 组位可读）；read 两阶段——零字节阶段 read=0/EAGAIN 均等到 deadline；收帧阶段 EAGAIN 续等、EOF 时终校验整段恰为唯一 `GO <nonce>\n` ⇒ 容器门实读本代副本比对 gen.json confirmed → 通过才 Popen task_control；截断/附加字节/nonce 不符/deadline（start+20s）未到完整帧 ⇒ exit 1，全程零源读取。**不回写 ACK** | 容器内 uid/gid 10001（无 userns-remap 前提） | GO nonce + 三方 pin | 容器门 | flock 持有 | **是——唯一读取窗口自 T10 开始，且必然在 T9c 读回通过之后** |
-| T11 | 收尾（§4g 统一序）：原始收据落 output/（uid 10001 写，操作员 r-x）；worker 进程终止→**核实确切候选 exited**→写本代 RESOLVED（双 fsync）→消费记录更新终态（COMPLETED/STOPPED/TIMEOUT/INVALID_*，fd+父目录双 fsync）→释 flock（锁文件保留不删） | 容器 + root（入口） | — | — | RESOLVED 先于终态；消费记录承载终态；flock 释放 | 窗口随进程终止关闭 |
+| T11 | 收尾（§4g 统一序）：原始收据落 output/（uid 10001 写，操作员 r-x）；worker 进程终止→**核实确切候选 exited**→写本代 RESOLVED（双 fsync）→消费记录更新终态（COMPLETED/STOPPED/TIMEOUT/INVALID_*，fd+父目录双 fsync，**先于释锁**）→释 flock（锁文件保留不删） | 容器 + root（入口） | — | — | RESOLVED 先于终态、终态先于释锁；RESOLVED 有效但终态未落 ⇒ 阻断维持（§4g.4）；消费记录承载终态 | 窗口随进程终止关闭 |
 
 ⇒ 输入、镜像、挂载、资源四类核验（T9a）与四项 cgroup 读回＋进程级
 nice/ionice 自报核验（T9c）全部结构性先于 GO 交付/放行（T10）；源读取只
@@ -257,9 +266,10 @@ nice/ionice 自报核验（T9c）全部结构性先于 GO 交付/放行（T10）
 - **可重试窗口（T9a 及更早，v11 收紧）**：T7 预检失败（无代次记录）可直接
   重试。**T9a create 态静态核验不符的重试资格不是即时的**：PREPARED 已落盘
   ⇒ 该代次进入"未 RESOLVED"状态并自带阻断——必须走 §4f 对**确切候选**完成
-  stop→rm→核实结果先持久落盘（RESOLVED 标记）后，重试资格才恢复；期间任何
-  新 stage-* 一律 `recovery_pending` 拒绝。入口若在 rm 之前崩溃，同一阻断
-  逻辑天然覆盖（记录仍在、未 RESOLVED）。
+  stop→rm→核实结果先持久落盘（RESOLVED）**且 refusals 收据持久化（释锁前，
+  §4g.2）**后，重试资格才恢复；期间任何新 stage-* 一律 `recovery_pending`
+  拒绝。入口若在 rm 之前崩溃，同一阻断逻辑天然覆盖（记录仍在、未 RESOLVED）；
+  RESOLVED 在场但 refusals/终态未落亦不解除（§4g.4）。
 - **T9b 之后一律已消费**：双 fsync 完成的瞬间起，任何后续失败（start 不明、
   读回不符、超时、崩溃）只能走恢复/终态路径，不再释放重试资格。
 - **终态更新中断**：入口若在"改写终态 fd fsync 后、父目录 fsync 前"崩溃，
@@ -358,7 +368,7 @@ TIMEOUT 必须另有**独立截止证据**（入口主循环的 deadline 判定�
    （`START_REQUEST cid=<id12> ts=…`，先记账后发起，fsync）；docker events 仅
    作容器状态佐证，不作计数依据。
 
-## 4g. 统一锁序与收尾顺序（v12，条款②）
+## 4g. 统一锁序与收尾顺序（v13，条款①②）
 
 一套规则覆盖 Stage A/B 正常收尾、T9a 可重试拒绝与恢复路径：
 
@@ -372,15 +382,24 @@ TIMEOUT 必须另有**独立截止证据**（入口主循环的 deadline 判定�
    `gen-<GEN-ID>.RESOLVED.json`**（内容见第 3 条，fd+父目录双 fsync）→
    更新消费记录/终态或 refusals（双 fsync）→ 释锁。T9a 静态拒绝同样执行
    第 2、3 步后才算"可重试"；正常 Stage A（T5 后）与 Stage B（T11）亦然。
-3. **RESOLVED 有效性判定（读取端）**：合法件＝O_EXCL 发布、含 GEN-ID、
-   attempt、最终容器 ID（若曾 BOUND）、核实快照（State.Status＋时间戳）、
-   处置清单、`published:true` 尾标；读取端 json.loads 全量解析＋GEN-ID/
-   attempt 双字段匹配才算有效。**半写（截断）、损坏（解析失败）、fsync 结果
-   不明或无 published 尾标 ⇒ 一律视为无效＝阻断维持**，恢复方按第 2 步幂等
-   重写整个文件（换新临时件+rename，不在旧 inode 上修补）。不存在"部分有效"。
-4. **中断语义**：崩溃落在"核实完成、RESOLVED 未写或未发布完成"任意点，
-   重启方在同一 B 锁内重做核实（幂等）并完整重写发布 RESOLVED；期间
-   stage-* 起手检查因找不到有效 RESOLVED 而保持 `recovery_pending`。
+3. **RESOLVED 发布与生效判定（v13 收紧）**：写入序＝root 独占临时件成形 →
+   rename 入位 → chmod/chown 固定 → **文件 fsync → 父目录 fsync → 最后一步
+   以原子 rename 落 `published:true` 尾标件**（或直接改写带尾标的正式件后再
+   双同步——顺序定义如下文）。读取端判"内容完整"（json.loads 全量解析＋
+   GEN-ID/attempt 双字段匹配＋`published:true` 尾标在案）**只证明字节完整，
+   不单独构成生效**。生效还需第 4 条的重入核实。**半写（截断）、损坏（解析
+   失败）、无 published 尾标 ⇒ 直接无效＝阻断维持**，恢复方换新临时件整体
+   重写（不在旧 inode 上修补）。不存在"部分有效"。
+4. **重入判定（上次入口中断/同步结果不明时）**：新入口持 B 锁的起手检查发现
+   本代次存在"内容完整且带 published 尾标"的 RESOLVED、但该路径要求的
+   **终态或拒绝收据尚未持久化**，或该 RESOLVED 由**已中断的上一次运行**写出
+   （其 fd/父目录同步是否完成不可自证）⇒ **不得据文件在场即解除阻断**：
+   保持 `recovery_pending`，交由恢复路径在 B 锁内对**同一代次**重新核实候选
+   状态、补完文件与父目录同步（幂等重写或仅补同步），并在收尾记录（终态/
+   refusals）持久化之后才宣告 RESOLVED 生效、解除阻断。
+5. **中断语义**：崩溃落在"核实完成→RESOLVED 写入→同步→终态/refusals"任一
+   点，重启方均保持阻断并按第 4 条由恢复路径收敛；期间 stage-* 起手检查
+   一律 `recovery_pending`。
 
 ## 5. 明确不做
 
@@ -413,12 +432,12 @@ TIMEOUT 必须另有**独立截止证据**（入口主循环的 deadline 判定�
   `busy_or_consumed` 立退，且**全程不得触碰持锁方候选**——断言竞争方对
   该 container ID 无 stop/rm/inspect-set 调用、其 go/gen-<GEN-ID>/ 与
   run-authz/gen-<GEN-ID>/ 字节前后摘要不变（audit/exec 日志双证）。
-- **A-T9a-2 静态配置拒绝（v11 收紧）**：注入 `.Mounts` 或 HostConfig 与
-  plan/C 不符 ⇒ rm 容器、**flock 释放而锁文件仍在**（ls 证据）、refusals/
-  明细、无消费记录。**重试资格非即时**：RESOLVED 落盘前再发 stage-b ⇒ 得
-  `recovery_pending` 拒（PREPARED 未 RESOLVED 自带阻断，§4c 表行）；对确切
-  候选完成回收并先持久核实结果（RESOLVED 双 fsync）后，修正重试才成功进入
-  T9b。断言该序列中 create/start 计数仍为 1/0。
+- **A-T9a-2 静态配置拒绝（v13 统一收尾条件）**：注入 `.Mounts` 或 HostConfig
+  与 plan/C 不符 ⇒ rm 容器、**flock 释放而锁文件仍在**（ls 证据）、无消费
+  记录。**重试资格非即时且条件齐备**：仅 RESOLVED 在场不够——refusals 收据
+  必须已释锁前持久（§4g.2），二者任一未落而再发 stage-b ⇒ `recovery_pending`
+  拒；对确切候选完成回收、RESOLVED 双 fsync、refusals 双 fsync 三者齐备后，
+  修正重试才成功进入 T9b。断言该序列中 create/start 计数仍为 1/0。
 - **A-T9b 后已消费（拆分②）**：双 fsync 完成后注入任意失败（start 超时、
   读回不符、终态更新崩溃）→ 一律不得回到可重试态：stage-b 再发起立拒，
   终态只能经恢复路径补记，消费记录 fd+目录双同步痕迹入收据。
@@ -498,8 +517,12 @@ TIMEOUT 必须另有**独立截止证据**（入口主循环的 deadline 判定�
      含两份 inspect 全文快照、PENDING 挂起待人工；配置不符（改 stub 镜像
      .Id 使标签命中而摘要不符）同样保留升级；daemon 查询超时 → 保持
      RECOVERY_PENDING、零终态写入。
-  ④ *flock 互斥双向*：stage-b 持锁期 recover-orphan 拿不到锁即拒；恢复持锁
-     期 stage-b 同样立拒（两侧各验一次，锁文件始终存在不被删）。
+  ④ *flock 互斥双向（与 recovery_pending 严格分案，v13）*：本项只测**持锁
+     期间的并发竞争**——stage-b 持锁期 recover-orphan LOCK_NB 拿不到立退
+     `busy`；恢复持锁期 stage-b 同样立退 `busy`（两侧各验一次，锁文件始终
+     存在不被删；此时代次记录可能正被合法持有者推进，**不产生也不消费
+     recovery_pending**）。原入口退出后的 `recovery_pending` 拒绝属 ⑤/⑥ 案，
+     断言两案的返回码与日志标记不同源（busy≠recovery_pending）。
   ⑤ *create 已发出、T9b 未落盘时崩溃→先重发 stage-b、后调恢复（v12 主故障点）*：
      kill 于 START_REQUEST/CREATE_REQUEST 先记账之后、ATTEMPT_CONSUMED 写入
      之前，**两个子态各演练一次**——(a) PREPARED 已落盘但 gen.json 未 BOUND；
@@ -509,13 +532,18 @@ TIMEOUT 必须另有**独立截止证据**（入口主循环的 deadline 判定�
      `recovery_pending` 拒且**无任何新增 create/start 请求**（CREATE_*/START_*
      先记账日志行数不变＋docker events 无新建/启容器事件双证）；随后调用
      recover-orphan 正常收敛（按 §4f.1/§4f.2 定位、核实、RESOLVED、终态）。
-  ⑥ *核实已完成、收尾记录未写完时再次中断（v12 细化三窗）*：分别在 kill 于
-     (a) 核实完成、RESOLVED 文件未出现；(b) **RESOLVED 临时件已出现但发布
-     （rename＋published 尾标＋父目录 fsync）未完成**；(c) RESOLVED 已有效、
-     终态更新前——三个窗口注入。重启方均在 B 锁内幂等重做核实并完整重写
-     发布 RESOLVED；断言 (b) 中半写/无 published 尾标件被读取端判无效＝阻断
-     维持（ls＋解析失败记录入收据）、三窗全程第二次 create/start 计数为 0、
-     不存在"核实与收尾之间半程放行"。
+  ⑥ *核实已完成、收尾记录未写完时再次中断（v13 四窗）*：分别在 kill 于
+     (a) 核实完成、RESOLVED 文件未出现；(b) **RESOLVED 正式文件已可见、内容
+     完整且带 published 尾标，但父目录 fsync 尚未完成或结果不明**；(c)
+     RESOLVED 已有效、但该路径要求的终态（T11）/refusals（T9a）/Stage A
+     成功收据（T5）尚未持久化；(d) 上述记录已落、释锁前——四个窗口注入。
+     (b) 特别验证 §4g.4：**新入口持 B 起手检查见到完整 published 件仍不得
+     解除阻断**（同步不可自证⇒按上次运行遗留处理），先重发 stage-b 得
+     `recovery_pending`，恢复路径对同一代次重新核实候选状态并补完文件＋
+     父目录同步后才宣告生效；(c) 同样先重发 stage-b 得 `recovery_pending`，
+     再由恢复补齐终态/refusals/收据后解除。(a)(d) 走幂等重写/正常收敛。
+     断言：(b) 半写/无尾标变体被读取端直接判无效（ls＋解析记录入收据）；
+     **四窗全程无新增 create/start**（先记账日志行数不变＋events 双证）。
   ⑦ *统一锁序与收尾（§4g，v12 新增）*：静态检查＋运行实验双证——锁定获取
      顺序仅 A→B（stage-a 触代次记录时加取 B；无先 B 后 A 路径）；Stage A
      正常收尾、Stage B T11、T9a 可重试拒绝三条路径的收据均含 §4g.2 五步齐备

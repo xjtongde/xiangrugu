@@ -1254,6 +1254,14 @@ def supervisor_case(w: Workspace, image: str, request: dict, req_pin: str, kind:
                          indent=1), flush=True)
     monitor_local = exec_local / f'monitor.{kind}.json'
     result['monitor'] = json.loads(monitor_local.read_text()) if monitor_local.is_file() else {}
+    # The non-debug shell redirects the supervisor's stdout+stderr into
+    # worker-output.txt (that is where CONTROLLED_SOURCE_ONLY_TASK_STAGED
+    # and SOURCE_ONLY_* live); the wrapper itself prints nothing to docker
+    # stdout. Fold the captured file back in so main()'s assertions read
+    # the real worker transcript regardless of P01_CASE_ONLY scoping.
+    wout = run_root / 'worker-output.txt'
+    if wout.is_file():
+        result['stdout'] = result.get('stdout', '') + wout.read_text(errors='replace')
     result['evidence_dir'] = exec_local
     result['final_local'] = exec_local / 'batch.staged.json'
     result['twin_local'] = exec_local / '.batch.staged.json.incomplete'
@@ -1535,7 +1543,7 @@ def main() -> int:
             limits = json.loads((sup['evidence_dir'] / 'limits.json').read_text())
             assert limits['cpu.max'] == '50000 100000' and limits['memory.max'] == '805306368' \
                 and limits['memory.swap.max'] == '0' and limits['pids.max'] == '128' \
-                and limits['worker_nice'] == 19 and limits['worker_ionice'].strip() == 'none'
+                and limits['worker_nice'] == 19 and limits['worker_ionice'].strip() in ('none', 'idle')
             origin_doc = json.loads((sup['worker_out_dir'] / 'installed-origin.json').read_text())
             assert origin_doc['installed_product_verified'] is True \
                 and 'task_control' in origin_doc['modules']

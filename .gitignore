@@ -8,5 +8,7 @@
 __pycache__/
 *.pyc
 
-# 夹具验收套件工作树（可由 local-suite.py 随时再生；机器可读收据以 SUMMARY.json 形式随回报移交，不入版本库）
-docs/superpowers/evidence/2026-11-13-p01-real-prep/p01-entry/.suite/
+# 本机操作笔记与 Windows 专用说明，不进入 Gitea（R-11）
+.local/
+**/LOCALONLY-CHECK-WINDOWS.md
+docs/superpowers/evidence/2026-11-13-p01-task-card/RUNBOOK.md

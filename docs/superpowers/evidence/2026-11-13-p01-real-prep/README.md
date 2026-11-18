@@ -48,7 +48,7 @@ Stage B real-readonly（容器内，快照 /data/imports/usedata 只读挂载）
 | `materialize-real.py` | Stage A 容器 worker：卡片/授权/review 三重字节门 → 产品 materialize → 收据 |
 | `run-real.sh` | 32 宿主运行器：refuse-no-authorization / materialize / real-readonly |
 | `verify-real.sh` | 32 宿主原生复核，独占发布 verification-real.json |
-| `stage-real.ps1` / `invoke-real.ps1` | Windows staging 字节门（三模式：默认传输只读消费权威清单；`-LocalOnly` 仅本地校验；`-RegeneratePins` 独立重钉，见 [LOCALONLY-CHECK-WINDOWS.md](LOCALONLY-CHECK-WINDOWS.md)）/ SSH 传输（real 模式传输截止 1880s） |
+| `stage-real.ps1` / `invoke-real.ps1` | Windows staging 字节门（三模式：默认传输只读消费权威清单；`-LocalOnly` 仅本地校验；`-RegeneratePins` 独立重钉，本机专用校验步骤仅在本地保留，不作为 clone 后的项目依赖）/ SSH 传输（real 模式传输截止 1880s） |
 | `packet-inputs-real.sha256` / `packet-files-real.txt` | 48 项权威清单（含 stage-a-inputs.tsv、verify-mount-table.py、verify-terminal.py） |
 | `stage-a-inputs.tsv` | Stage A/B 全部绑定路径的 sha↔容器路径↔staged 路径闭包表 |
 | `verify-mount-table.py` / `verify-terminal.py` | 挂载闭包复核 / Stage B 终态收据复核（38 演练已跑通） |

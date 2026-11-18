@@ -1,32 +1,18 @@
 # datamgmt 操作生命周期
 
-2026-11-08：保持逐次检查的元数据读取器已进入独立候选并完成人工验证，运行/复核/资源及精确清理收据见[本轮证据](../../docs/superpowers/evidence/2026-11-08-metadata-reader-integration/README.md)。两个新镜像没有晋级现行别名，人工结果不计真实覆盖，不代表真实1800秒可行；下一次真实读取另行具名授权。
+当前执行顺序与授权边界见下文；六块整理任务及现状统一见 [六块整理进度](IMPORT-PACKAGE-TODO.md)。历史头部进度已迁入 [历史摘录](PROGRESS-HISTORY.md)。
 
-2026-10-25：单表协议的人工执行、取消后新attempt、宽流边界及离线覆盖入口见[本轮证据脚本与收据](../../docs/superpowers/evidence/2026-10-24-real-partition-control/README.md)。公开project_partition CLI只生成不可执行审阅件；审批JSON不是人类授权，真实读取仍须具名批准，任何PG写入及pg32b旧数据处置另行确认。project_partition_coverage只消费明确选定metadata和收据，不读取SQLite，不按“最新目录”选择attempt；人工结果的外部标记不能删除或计入真实覆盖。以下保留既有历史操作记录。
-
-2026-10-12中组最新：37项先失败后通过、995开发通过，新test972通过/23跳过；中组准备10表156列及人工正/负例已验证。实际中组约955.93秒失败，通用内部失败与cancelled原因未充分留存，无完整批/新期望，覆盖仍58/78；未接PG/冻结/导入，Task8未完成。证据：docs/superpowers/evidence/2026-10-12-sqlite-medium/README.md。
-
-2026-10-12最新进度：有界缓存策略20项通过、958开发通过、新候选935通过/23跳过；固定快照完整复核及55表326列期望整批生成，约81.2秒/峰值119.5MiB，9次换出与内存停顿0。累计58/78表，另20表未查询；仍DRAFT、未接PG/冻结/导入，Task8未完成。证据：docs/superpowers/evidence/2026-10-12-read-cache-policy/README.md。
-
-
-2026-10-11茶香已明确批准固定快照一次全成员复核与55小表326列源期望生成；控制/监督/发布接线现已实现外部源模式与request摘要门，26项失败转最终93相关/936开发通过，一次新成果复核0问题。test候选构建持续换出775/828/1140触发取消，未产出新镜像、未开始runtime构建或读取真实源。授权保留，因资源风险停止后续负载，不称候选/真实就绪或Task8完成。见[本轮接线与构建停点](../../docs/superpowers/evidence/2026-10-11-sqlite-project-control/README.md)。以下记录保留原发生时点。
-
-
-2026-10-11停点后茶香明确要求继续，按原限制恢复一次人工候选：test完整回归885通过/23跳过，runtime已实际生成选定元数据的55表326列全DRAFT草案；50次宿主诊断采样换出均723，原停止阈值不变、两个容器回收。上轮换出原因仍未知，不宣称资源问题修复、Task8或真实执行完成，真实读取与PG关闭。见[本轮恢复证据](../../docs/superpowers/evidence/2026-10-11-sqlite-task-preparation-resume/README.md)。以下停点记录保留其发生时的结论。
-
-
-2026-10-11停点后只读调查：三次空闲换出计数723/723/723稳定，当前交换页主要记在Docker/containerd服务，缺少事发逐服务基线，不能认定事件根因；未恢复候选、未修改阈值/设置/服务，无新项目测试。见[只读调查](../../docs/superpowers/evidence/2026-10-11-host-swap-investigation/README.md)，原候选未完成和真实关闭结论保持。
-
-
-> 状态：Task 1–5 API 及 Task 6 流式快照桥已实现；完整操作 CLI 尚未实现｜as_of 2026-10-07
+> 当前操作边界更新于 2026-11-19；后文带日期的 API 和示例保留对应历史版本，执行前核对实际能力。
 
 本文件规定模块实现后的唯一操作顺序。当前命令是接口契约，不代表现有代码已经支持；在实施和测试完成前不得用于正式数据。
 
-## 首次真实导入前的用户确认门
+## 当前授权与执行顺序
 
-2026-10-08 用户要求：“导入之前通知我”，并要求届时共同确认pg32b原有数据如何处理。任何真实源数据写入（包括sample、rehearsal、staging与正式库）之前必须停下通知用户，列出具体目标数据库/对象、现存对象冲突、资源影响以及拟采取的保留或处置步骤，获明确批准才继续。仅完成合同或测试不能自动越过此门。
+茶香在本会话确认使用 `pg32b/xiangrugu`，并要求整理全部 `usedata`、在 32 落盘后导入。该指令授权为此读取真实源、创建版本化整理目录和目标库、向目标库导入；不代表这些动作已经发生。随后确认六块整理、每块讨论一次，当前先完成文档和第 1 块准备，再按六块进度推进。
 
-当前不连接或修改pg32b，不创建数据库，不删除/清空/覆盖旧数据，也不变更pg32。旧库不作为源、基线或验收依据；备份、迁移、改名或删除等操作均需具体范围另获授权。pg32b旧数据最终处置仍待用户决定，本要求不预先选择“删除”方案。
+真实装载前仍须通知茶香实际目标、批次、冲突和资源影响；属于现有授权的内容不重复索要许可，超出范围才另行确认。`cbdb`、`cbdb_reh` 保留，旧库不作来源或验收基线；创建 `xiangrugu` 无需先删除旧库。删除、清空、覆盖、改名、备份迁移旧库，以及新增安装、服务/系统变更、Git 提交推送均不在本轮文档授权内。`pg32` 生产实例受保护。
+
+旧 `real-p01-20261113-a` 及历史已消费任务卡保持关闭，不复用旧 attempt。此前 GO/FIFO 控制链人工测试和局部 PASS 保留为工程证据，暂停该支线；它们不增加导入包完成数或数据库导入量。当前派工、完成条件与讨论记录只在六块整理进度维护。
 
 ## 运行形态与目录
 
@@ -35,13 +21,14 @@
 当前开发执行链固定为：
 
 ```text
-Windows Git 工作区（只修改）
-→ 受控同步到 32:/opt/mydocker/xiangrugu/deploy
+Codex / DSH 各自的 Git clone（仓库根 .）
+→ Gitea 提交、审阅、获取并核对版本
+→ 32:/opt/mydocker/xiangrugu/deploy（经授权接收 Git 版本）
 → xiangrugu-dev:/workspace（只读源码挂载）
 → 32 主机上的 watcher、测试和后续业务服务
 ```
 
-Windows 不安装或运行项目 Python、Docker 测试和服务。后续 Agent 必须先同步，再通过 SSH 在 32 主机验证；不得直接编辑远端 `deploy` 后留下未回传 Git 的分叉。常驻开发容器运行真实 watcher，禁止 `sleep infinity` 等伪保活。当前 watcher 只提供首个模块的测试反馈；真实业务入口建立后，由同一 `dev` 目标运行并热重载。
+Windows 不安装或运行项目 Python、Docker 测试和服务。Codex 与 DSH 在各自 clone 中形成提交，只经 Gitea 对齐项目文档，分别使用自己的账号；工作区路径由各自环境决定。未提交成果不自动同步，也不直接覆盖其他 clone。项目构建、测试和执行仍在 32，部署接收经过核对的 Git 版本；当前 watcher 的具体运行状态须执行前核实，不得用 `sleep infinity` 伪装业务入口。
 
 ## 项目源快照
 
@@ -84,23 +71,23 @@ bash scripts/copy-source-snapshot.sh
 
 ### 人工 SQLite 批级执行与监控（2026-10-10）
 
-2026-10-11新增task_preparation.prepare_task及模块CLI，仅读取外部摘要选定的仓库元数据，生成scope.draft.json、budget.draft.json、request.draft.json与完成元数据preparation.json，授权全false、证书/清单/批准及执行路径未选择；真实执行入口不变。候选因持续换出已停止，runtime准备命令未实际执行，不重试或继续项目负载。API、一次性监控适配与实际停点见[本轮证据](../../docs/superpowers/evidence/2026-10-11-sqlite-task-preparation/README.md)。
+2026-10-11新增task_preparation.prepare_task及模块CLI，仅读取外部摘要选定的仓库元数据，生成scope.draft.json、budget.draft.json、request.draft.json与完成元数据preparation.json，授权全false、证书/清单/批准及执行路径未选择；真实执行入口不变。候选因持续换出已停止，runtime准备命令未实际执行，不重试或继续项目负载。API、一次性监控适配与实际停点见本轮证据（历史路径 `../../docs/superpowers/evidence/2026-10-11-sqlite-task-preparation/README.md`）。
 
-2026-10-11当前待审材料与代码衔接见[非执行准备补充](../../docs/superpowers/evidence/2026-10-11-sqlite-small-readiness/README.md)。21项准备绑定不等于执行request.bindings，不可直接作为最多16项的执行绑定输入；真实证书/清单、窗口、请求和授权仍未选定。拟只生成DRAFT元数据模板，方案未实施，无新真实执行命令。
+2026-10-11当前待审材料与代码衔接见非执行准备补充（历史路径 `../../docs/superpowers/evidence/2026-10-11-sqlite-small-readiness/README.md`）。21项准备绑定不等于执行request.bindings，不可直接作为最多16项的执行绑定输入；真实证书/清单、窗口、请求和授权仍未选定。拟只生成DRAFT元数据模板，方案未实施，无新真实执行命令。
 
-当前人工受控入口已绑定批准请求中的lifecycle_seconds与实际参数，整程候选1800秒、宿主1830秒、SSH1880秒；普通人工300/330/380秒，短超时负例3/33/380秒。截止涵盖预检/完整人工快照/读取排序/暂存/新宿主采样发布，监控持久化后过期也不发布最终结果。实现与本轮实际候选结果见[整程截止证据](../../docs/superpowers/evidence/2026-10-10-sqlite-lifecycle-deadline/README.md)；真实模式仍关闭。以下各轮叙述保留历史，不是新的真实执行指令。
+当前人工受控入口已绑定批准请求中的lifecycle_seconds与实际参数，整程候选1800秒、宿主1830秒、SSH1880秒；普通人工300/330/380秒，短超时负例3/33/380秒。截止涵盖预检/完整人工快照/读取排序/暂存/新宿主采样发布，监控持久化后过期也不发布最终结果。实现与本轮实际候选结果见整程截止证据（历史路径 `../../docs/superpowers/evidence/2026-10-10-sqlite-lifecycle-deadline/README.md`）；真实模式仍关闭。以下各轮叙述保留历史，不是新的真实执行指令。
 
 后续真实小组待审材料见[精确55表范围与逐表预算](../contracts/releases/2026-10-06-bootstrap/sqlite-value-small-execution-review.md)。当前源批计时在全快照校验后开始，人工外层仍300秒；待审方案使用整个候选生命周期1800秒并衔接宿主1830秒/SSH1880秒兜底，未激活。它不是可执行request或批准文件；无新真实读取命令、无快照访问、无数据库操作。
 
-用户在上述开发轮的资源停止后要求继续，已按原限制恢复一次候选验证：840通过/23跳过，新控制器人工只读成功及四项摘要/镜像revision错误创建前拒绝。没有修改产品代码、镜像或停止阈值；宿主单区间7页换出未触发持续门，来源未知，不能保证宿主无交换。实际结果与已验证调用见[恢复证据](../../docs/superpowers/evidence/2026-10-10-sqlite-task-control-resume/README.md)。以下实现轮停点保留历史时点。
+用户在上述开发轮的资源停止后要求继续，已按原限制恢复一次候选验证：840通过/23跳过，新控制器人工只读成功及四项摘要/镜像revision错误创建前拒绝。没有修改产品代码、镜像或停止阈值；宿主单区间7页换出未触发持续门，来源未知，不能保证宿主无交换。实际结果与已验证调用见恢复证据（历史路径 `../../docs/superpowers/evidence/2026-10-10-sqlite-task-control-resume/README.md`）。以下实现轮停点保留历史时点。
 
-本轮新增仅人工任务控制器和readonly-controlled宿主模式：在容器创建前核对三个外部选定文件摘要及Docker inspect实际镜像身份，查询过程中复查任务描述不变。14新检查与863开发回归通过，但候选完整回归被宿主连续换出的swap_pressure门停止，未重试，实际新控制器成功/故障候选尚未运行。资源风险核实前停止新增负载；不以容器swap=0保证宿主无交换。见[控制层资源停点证据](../../docs/superpowers/evidence/2026-10-10-sqlite-task-control/README.md)。
+本轮新增仅人工任务控制器和readonly-controlled宿主模式：在容器创建前核对三个外部选定文件摘要及Docker inspect实际镜像身份，查询过程中复查任务描述不变。14新检查与863开发回归通过，但候选完整回归被宿主连续换出的swap_pressure门停止，未重试，实际新控制器成功/故障候选尚未运行。资源风险核实前停止新增负载；不以容器swap=0保证宿主无交换。见控制层资源停点证据（历史路径 `../../docs/superpowers/evidence/2026-10-10-sqlite-task-control/README.md`）。
 
 随后获批的正式只读入口准备为`readonly_batch.execute_readonly_batch(request, cancelled=...)`，调用者必须先取得用户具体范围授权、可信批准文件预期摘要、实际镜像身份及无写入者窗口，并将执行置于受限监控内。批准文件绑定除批准路径/摘要外的整个规范请求，包含镜像、Git、输出、scratch、roots/证书/scope/逐表budget及关联文档路径/摘要；scope的关联摘要须逐项相同，所有预算描述须按对象顺序精确匹配。整个证书的成员键、类型、大小/摘要、路径唯一性/顺序先预检；全部快照成员与元数据逐路径检查只读挂载，再运行原完整快照验证及批前后摘要。
 
 当前仅支持`small`，最多55表、单表300秒/批1800秒上限、64MiB排序临时字节预算；实际人工控制器仍有300秒外层限制，未实现真实1800秒执行控制器。中/大组直接拒绝，不增加磁盘临时区。`source_mode=project_snapshot`只是库API准备分支，业务根由外部选定摘要的roots配置提供；本轮人工控制器硬拒绝真实模式，未开放真实CLI或真实发布；批准JSON不是人类签名，不能仅凭文件中的true自行开始真实读取。只读挂载不排除特权进程从其它挂载修改，仍须实际无写入者窗口。
 
-本轮`readonly-prepare`自行生成固定人工两表及绑定文件；`readonly`只能消费同一专用运行根内已退出并移除的准备容器产物，以只读bind挂载输入，沿用完成后新宿主采样才发布。`readonly-writable`是故意以可写挂载验证拒绝的人工故障模式，不用于业务读取。晚取消/写入失败可能保留`.incomplete`，禁止把它当最终结果、禁止原地自动重试；仅源侧complete不等于执行已发布。具体已验证命令、镜像和机器证据见[只读入口准备证据](../../docs/superpowers/evidence/2026-10-10-sqlite-readonly-entry/README.md)。
+本轮`readonly-prepare`自行生成固定人工两表及绑定文件；`readonly`只能消费同一专用运行根内已退出并移除的准备容器产物，以只读bind挂载输入，沿用完成后新宿主采样才发布。`readonly-writable`是故意以可写挂载验证拒绝的人工故障模式，不用于业务读取。晚取消/写入失败可能保留`.incomplete`，禁止把它当最终结果、禁止原地自动重试；仅源侧complete不等于执行已发布。具体已验证命令、镜像和机器证据见只读入口准备证据（历史路径 `../../docs/superpowers/evidence/2026-10-10-sqlite-readonly-entry/README.md`）。
 
 当前已接通人工数据专用入口，不接受真实快照文件：`synthetic_batch_probe`自行创建两个固定人工表；`batch_execution`绑定人工配置、证书、范围和预算的完整摘要，完整复核人工快照后调用批级核心。批结果先写`.incomplete`并fsync，监督进程确认工作成功、进程组已回收及完成后的宿主新采样通过，再以no-clobber链接发布。保留暂存链接，不宣称最终目录项能抵御断电丢失；失败不重试、不启动下一批。
 
@@ -108,13 +95,9 @@ bash scripts/copy-source-snapshot.sh
 
 宿主每10秒只读采样内存、负载、PSI、swap-out、磁盘余量及pg32/pg32b健康、ID/StartedAt；阈值沿用资源修订草案。工作完成后必须另发新采样，不能靠尚未过期的旧采样发布。容器监督进程以25秒租约拦截宿主采样中断；Windows控制端通过SSH持续发送心跳，EOF或15秒无心跳取消本轮候选。有限TERM/KILL、停止确认和移除只作用于本轮自有容器，确认失败则保留并报告。保护依据是采样和内核限制，不是瞬时零延迟的整机隔离。
 
-PowerShell（Windows，只负责传输；运行根须已获授权且存在，镜像须本轮自有候选）：
+本机专用传输和 PowerShell 示例已拆出共享文档；接手者从自己的 clone 经 Gitea 对齐，项目运行仍在 32 执行。
 
-```powershell
-powershell -NoProfile -ExecutionPolicy Bypass -File C:\Users\zkyxy\Documents\codex-xiangrugu\scripts\invoke-synthetic-batch.ps1 -ImageId sha256:32019ee0e00da1dc6ed2f40cf073a8c815ceb7ae4d474ba09cdd65bc365cb424 -RunSuffix artificial-new-run -RuntimeRoot /opt/mydocker/xiangrugu/data/var/batch-runner-20261010 -Mode batch -Revision 8fbc8c97fcf1d818caddf6ab556fa82d986643ed -LocalLog C:\Users\zkyxy\Documents\codex-xiangrugu\artificial-new-run.transport.log
-```
-
-后续执行仍需相应授权且使用全新RunSuffix。`batch`仅人工两表；`full`需test候选；`lease-loss`、`timeout`、`cancel`、`disconnect`和`collector-failure`仅人工停止检查。完整证据与当前限制见[本轮证据](../../docs/superpowers/evidence/2026-10-10-sqlite-batch-runner/README.md)。真实75表范围、真实只读卷/预算消费、大表磁盘临时区和读取授权门仍未接通，本入口不能用于真实读取；Task8整体未完成，数据库写入前仍通知用户并确认旧数据处置。
+后续执行仍需相应授权且使用全新RunSuffix。`batch`仅人工两表；`full`需test候选；`lease-loss`、`timeout`、`cancel`、`disconnect`和`collector-failure`仅人工停止检查。完整证据与当前限制见本轮证据（历史路径 `../../docs/superpowers/evidence/2026-10-10-sqlite-batch-runner/README.md`）。真实75表范围、真实只读卷/预算消费、大表磁盘临时区和读取授权门仍未接通，本入口不能用于真实读取；Task8整体未完成，数据库写入前仍通知用户并确认旧数据处置。
 
 `InventoryBuilder(...).scan(root)` 接受已独立验证且稳定的项目快照，返回不可变 `InventoryManifest`；`canonical_bytes()` 是规范 JSON，`sha256` 为这些规范字节的摘要。清单不含宿主绝对根路径或扫描时间，因此相同成员字节、相对位置和限制可重复得到相同结果。完整 CLI 尚未实现。
 
@@ -184,24 +167,16 @@ NUL 候选核验原账摘要/大小、有效前缀每条声明及全部严格匹
 
 ## 当前可用的开发命令
 
-PowerShell（Windows，只负责 Git 和文件同步）：
+本机专用传输和 PowerShell 示例已拆出共享文档；接手者从自己的 clone 经 Gitea 对齐，项目运行仍在 32 执行。
 
-```powershell
-Set-Location C:\Users\zkyxy\Documents\codex-xiangrugu
-& .\scripts\sync-dev.ps1
-ssh 192.168.3.32 'docker logs --tail 50 xiangrugu-dev'
-ssh 192.168.3.32 'docker exec xiangrugu-dev python -m pytest datamgmt/tests/unit -q'
-ssh 192.168.3.32 'docker exec xiangrugu-dev python -m xiangrugu_datamgmt --help'
-```
-
-普通源码修改同步后会自动触发测试，无须 `up` 或重建容器。同步仅覆盖文件，不自动删除远端残留；重命名或删除文件时先列出远端具体目标，按授权范围处理后再同步。同步脚本固定目标为 32 的 `deploy`，排除 `.git`、`.agents`、`.secrets`、`.env` 及变体、私钥文件、`data` 和 `usedata`。
+接收前核对分支、提交和本地差异，文档对齐通过 Git 完成，不使用文件覆盖脚本。部署或测试动作另按授权执行，不能因文档已接收就自动启动服务或重建容器。凭据、本机设置、源数据和运行目录不参与文档 Git 同步。
 
 Linux shell（32 主机，仓库同步目录；依赖或 Dockerfile 改变后执行）：
 
 ```bash
 cd /opt/mydocker/xiangrugu/deploy
-VCS_REF=1a34956fbcbe7877fbad04ee5a7ec9e3dd52bf05 SOURCE_STATUS=dirty sh scripts/build-task1.sh
-# VCS_REF 必须换成 Windows 当前 git rev-parse HEAD；SOURCE_STATUS 如实填写。
+VCS_REF="$(git rev-parse HEAD)" SOURCE_STATUS=dirty sh scripts/build-task1.sh
+# 从32已核对的仓库根执行；SOURCE_STATUS 按实际工作树填写。
 docker compose --profile dev up -d dev
 docker logs --tail 50 xiangrugu-dev
 cat /opt/mydocker/xiangrugu/data/var/devwatch/status.json
@@ -214,7 +189,7 @@ cat /opt/mydocker/xiangrugu/data/var/devwatch/status.json
 代码变更先进入常驻开发反馈，再按以下顺序晋级；不允许在运行中容器里直接修补：
 
 ```text
-Git 工作区 → 同步 deploy → dev watcher 反馈
+各自 clone → Gitea → 32 受控 Git 版本 → 经授权运行并核对反馈
 → 构建候选镜像 → 镜像内单元/集成测试
 → 记录 Git commit 与镜像 digest → 替换长期容器 → 健康检查
 ```
@@ -285,10 +260,10 @@ python -m xiangrugu_datamgmt cancel --run-id <run_id>
 
 ## 2026-10-12 人工工作失败诊断
 
-控制CLI的`--failure-evidence`选择全新失败文件；监督CLI同时选择`--worker-failure`和外部`--worker-request-sha256`。通用人工受控runner固定到本轮运行区的`worker-failure.json`，实际人工成功/第二表预算失败/取消及复验成品见[本轮诊断证据](../../docs/superpowers/evidence/2026-10-12-task-failure/README.md)。`reason`仍是监督停止原因，`worker_failure`另存静态工作错误/阶段；`missing`或`invalid`不允许猜根因。旧真实执行包装原件不改写、不重跑；新的真实执行及包装输入固定另须授权。
+控制CLI的`--failure-evidence`选择全新失败文件；监督CLI同时选择`--worker-failure`和外部`--worker-request-sha256`。通用人工受控runner固定到本轮运行区的`worker-failure.json`，实际人工成功/第二表预算失败/取消及复验成品见本轮诊断证据（历史路径 `../../docs/superpowers/evidence/2026-10-12-task-failure/README.md`）。`reason`仍是监督停止原因，`worker_failure`另存静态工作错误/阶段；`missing`或`invalid`不允许猜根因。旧真实执行包装原件不改写、不重跑；新的真实执行及包装输入固定另须授权。
 
-后续已用人工TDD与候选修复末对象批后取消/超时的计数窗口，见[尾部诊断收尾](../../docs/superpowers/evidence/2026-10-12-task-tail/README.md)。阶段更新先于末次guard，不表示后置源摘要已通过；完成数量始终不作续读/整批发布依据。该证据入口内的中组重试审阅仍是权限false的非执行范围，未经用户明确授权不启动真实任务。
+后续已用人工TDD与候选修复末对象批后取消/超时的计数窗口，见尾部诊断收尾（历史路径 `../../docs/superpowers/evidence/2026-10-12-task-tail/README.md`）。阶段更新先于末次guard，不表示后置源摘要已通过；完成数量始终不作续读/整批发布依据。该证据入口内的中组重试审阅仍是权限false的非执行范围，未经用户明确授权不启动真实任务。
 
-2026-10-13用户随后明确批准该精确单次重试；新的运行记录与第9对象取消停点见[本次真实重试](../../docs/superpowers/evidence/2026-10-13-medium-retry/README.md)。批准JSON/三摘要/新包装保留为这次历史任务，不能自动复用于再读。没有整批成品时不发布8对象内部进度；外层停止触发未知，先人工留证改进I-06，不调预算或重试真实任务。
+2026-10-13用户随后明确批准该精确单次重试；新的运行记录与第9对象取消停点见本次真实重试（历史路径 `../../docs/superpowers/evidence/2026-10-13-medium-retry/README.md`）。批准JSON/三摘要/新包装保留为这次历史任务，不能自动复用于再读。没有整批成品时不发布8对象内部进度；外层停止触发未知，先人工留证改进I-06，不调预算或重试真实任务。
 
-2026-10-13后续人工I-06留证已验证，见[控制外层证据](../../docs/superpowers/evidence/2026-10-13-controller-evidence/README.md)。宿主controller-stop.json保存首次静态分支/观测信号，controller-events.jsonl记录停止/强杀/退出；Windows本地LocalLog.controller.jsonl记录SSH传输分支。临界区信号排队、每次同步有短截止；留证失败静态告警后继续原精确容器停止。观察到信号不表示识别发送者，不依据首次包装事件覆盖工作诊断或监督原因；竞合时分别保留。硬杀或内核不可中断I/O仍不能保证留证。下一次真实范围包、非执行包装及三摘要须重新经明确授权后激活，旧批准不复用；1800/1830/1880秒、读取/排序及资源门保持，Task8仍未完成。
+2026-10-13后续人工I-06留证已验证，见控制外层证据（历史路径 `../../docs/superpowers/evidence/2026-10-13-controller-evidence/README.md`）。宿主controller-stop.json保存首次静态分支/观测信号，controller-events.jsonl记录停止/强杀/退出；Windows本地LocalLog.controller.jsonl记录SSH传输分支。临界区信号排队、每次同步有短截止；留证失败静态告警后继续原精确容器停止。观察到信号不表示识别发送者，不依据首次包装事件覆盖工作诊断或监督原因；竞合时分别保留。硬杀或内核不可中断I/O仍不能保证留证。下一次真实范围包、非执行包装及三摘要须重新经明确授权后激活，旧批准不复用；1800/1830/1880秒、读取/排序及资源门保持，Task8仍未完成。

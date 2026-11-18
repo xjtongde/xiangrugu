@@ -52,7 +52,7 @@
 
 ## 准备与核验（代跑后回填）
 
-本地已完成：交接三件套与最新证据阅读；父级 review 14 项绑定 pin、roots、证书、7 个安装模块与 11-13 构建输入逐项吻合；逻辑摘要预算推导核对。32 侧纯元数据核验（metadata/product-gate/reject 三运行＋原生 verify）由 Windows/Codex 侧按 [RUNBOOK.md](RUNBOOK.md) 代跑，收据回传后在此回填摘要与结论。
+本地已完成：交接三件套与最新证据阅读；父级 review 14 项绑定 pin、roots、证书、7 个安装模块与 11-13 构建输入逐项吻合；逻辑摘要预算推导核对。32 侧纯元数据核验（metadata/product-gate/reject 三运行＋原生 verify）由 Windows/Codex 侧按当时的本机代跑步骤执行（Windows 专用 runbook 现仅本机保留，不作为共享依赖），收据回传后在此回填摘要与结论。
 
 第二轮（验收准备）：修复 `invoke-review.ps1` 默认 `source-green-v1` 被自身校验正则拒绝的缺陷（14 组用例静态验证；代跑侧证实该缺陷真实发生并在其 Windows 副本同样处置）；6 份非 `-text` staging 输入的字节差异与来源见 [input-byte-diff-analysis.md](input-byte-diff-analysis.md)。
 

@@ -1,45 +1,8 @@
 # datamgmt 最终设计规格
 
-2026-11-08读取器合同补充：有界32条缓存仅保存纯词法Path对象及祖先元组；每次保留整链符号链接检查、叶子stat和有界重读，只合并同次类型/大小重复stat。不缓存文件系统状态、fd、字节或授权结论，不改变guard频率、阶段/发布前重核及取消截止；不新增TOCTOU原子性保证。兼容性及人工候选验证见[正式集成证据](../../docs/superpowers/evidence/2026-11-08-metadata-reader-integration/README.md)。
+本文件维护数据保真、合同和全量发布的设计约束。当前阶段及六块整理任务见 [六块整理进度](IMPORT-PACKAGE-TODO.md)，执行授权见 [OPERATIONS.md](OPERATIONS.md)。历史头部进度已迁入 [历史摘录](PROGRESS-HISTORY.md)。
 
-2026-10-25新增严格project_snapshot单表协议：完整10表/235列父链先校验，再投影一个分区；控制端和底层独立验证实际镜像、审批、源身份及原件pin，阶段/发布前重核；独立23角色离线入口不读SQLite或数据库。权限与资源设计见[已实施设计](../../docs/superpowers/specs/2026-10-16-real-partition-control-design.draft.md)，人工验证及当前限制见[证据入口](../../docs/superpowers/evidence/2026-10-24-real-partition-control/README.md)。真实仍68/78、Task8未完，真实任务另行具名授权。以下是历史时点记录。
-
-2026-10-15人工单表闭环已验证：10表235列/1万行23.5万字段十个手工摘要吻合，取消/新attempt重试及离线九项缺覆盖、十项完成、重复/冲突拒绝通过。47核验/2夹具、1180开发、新test1157通过23跳过；3重要复核修复、123输入/919原件/28容器清理。真实仍68/78，large关闭、Task8未完。见docs/superpowers/evidence/2026-10-15-partition-coverage/README.md。
-
-
-2026-10-15单表草案准备已实现：完整large父范围10/235先校验，再投影一表；六文档摘要链及发布前输入/生成/stage复核，权限关闭。64定向、1131开发、新test1108通过23跳过，新runtime纯人工CLI核对通过；119输入/两独立镜像/138原件、7容器清理。真实large关闭、人工执行与覆盖汇总未实现，68/78、Task8未完。证据：docs/superpowers/evidence/2026-10-15-partition-preparation/README.md。
-
-
-2026-10-14 I-07人工调度已验证：100毫秒重型校验调度/每次轻量取消截止/阶段强制复核/父监督独立人工发布摘要，26定向、1098开发、新test1075通过23跳过。相同人工2万行47万字段84.4→14.45秒；真实模式仍逐次校验、68/78与large关闭保持。初次取消137缺监督报告保留，后续运行中取消/截止无最终批。证据：docs/superpowers/evidence/2026-10-14-guard-opt/README.md。
-
-
-2026-10-14高唯一行大组人工批：10表235列/20万行470万字段完整匹配独立摘要，约811秒/峰值72.8MiB、临时23.1MiB，换出0。新增夹具RED10失败1通过转11通过，新开发1072/安装候选1049通过23跳过；产品代码和116构建输入未变，复用固定镜像。覆盖仍68/78，真实large关闭，Task8未完。证据：docs/superpowers/evidence/2026-10-14-large-unique/README.md。
-
-
-2026-10-13大组代表性人工批：10表235列（156整数/79文本）两档均完整匹配独立摘要；大档100000行/2350000字段约419.3秒、峰值61.7MiB，交换换出0。B-20心跳超时半帧丢弃人工复现后修复，开发1072/新test1049通过23跳过。仍68/78、真实large关闭、Task8未完；全组1800秒可行性未证明。证据：docs/superpowers/evidence/2026-10-13-large-representative/README.md。
-
-
-2026-10-13大组人工接线：4项先失败转28通过，受限完整开发1070通过，新test1047通过/23元数据跳过；新runtime离线准备10/235、人工完整批及磁盘三场景验证通过。large真实模式仍代码关闭，覆盖68/78，无源读取/PG/冻结/导入，Task8未完。证据：docs/superpowers/evidence/2026-10-13-large-artificial-control/README.md。
-
-
-2026-10-13中组前台完成：固定快照单次只读10表156列整批证书核验通过，新增354363行/5430382字段，约1492.4秒/峰值146.2MiB，交换与宿主换出0；累计68/78，剩大组10表235列未查询。仍DRAFT、无PG/冻结/导入，Task8未完成；证据：docs/superpowers/evidence/2026-10-13-medium-foreground/README.md。以下为各批历史发生时点，不代表当前覆盖数。
-
-
-2026-10-13人工留证收尾：控制外层静态触发/信号、停止和退出已完成TDD及独立候选验证；旧真实取消发送方仍未知，覆盖58/78、Task8未完成。证据与权限false的下一次中组方案：docs/superpowers/evidence/2026-10-13-controller-evidence/README.md。
-
-
-2026-10-13最新：已授权中组单次只读重试约1179.5秒以cancelled停止；第9对象ADDR_CODES、8对象仅内部完成，无整批/新增期望，覆盖仍58/78。SIGTERM事件已留证，外层触发未知，I-06待人工改进；无PG/冻结/导入。证据：docs/superpowers/evidence/2026-10-13-medium-retry/README.md。
-
-
-2026-10-12收尾：末对象取消/超时诊断计数窗口已修复并经人工候选验证；58/78和旧中组根因未知保持，无真实重读/PG/冻结/导入。新证据及非执行重试审阅：docs/superpowers/evidence/2026-10-12-task-tail/README.md。
-
-
-2026-10-12本轮：B-18人工失败诊断与监督原因关联已验证；原中组根因未知，58/78覆盖不变，无真实重读/PG/冻结/导入，Task8未完成。统一证据：docs/superpowers/evidence/2026-10-12-task-failure/README.md。
-
-
-2026-10-12中组最新：37项先失败后通过、995开发通过，新test972通过/23跳过；中组准备10表156列及人工正/负例已验证。实际中组约955.93秒失败，通用内部失败与cancelled原因未充分留存，无完整批/新期望，覆盖仍58/78；未接PG/冻结/导入，Task8未完成。证据：docs/superpowers/evidence/2026-10-12-sqlite-medium/README.md。
-
-> 状态：主体容器架构及 32 主机常驻开发环境修订已批准｜as_of 2026-10-07
+> 基础设计批准时点：2026-10-07；本次目标库与文档职责对齐更新于 2026-11-19。此日期不代表全部设计已实现或通过真实导入验收。
 >
 > 本文件是香如故数据接入模块的架构、数据合同、验证和发布规则的唯一权威来源。实现不得静默偏离。
 
@@ -51,7 +14,7 @@
 
 唯一权威输入为 `/mnt/wd61workmetadata/usedata`。目标为 32 主机 `pg32b:5433` 实例中新建的 `xiangrugu` 数据库。
 
-现有 `cbdb` 仅供观察，`cbdb_reh` 是旧彩排库；两者都没有权威性，不得参与清单、映射、期望值或验收。其删除或其他处置必须另获用户明确授权。
+现有 `cbdb` 仅供观察，`cbdb_reh` 是旧彩排库；两者都没有权威性，不得参与清单、映射、期望值或验收。两库保留，删除或其他处置必须另获用户明确授权；新建 `xiangrugu` 不依赖先处置旧库。
 
 本模块不负责业务 API、页面、搜索、向量、知识图谱或数据校勘。上层应用只能消费已经发布的数据版本。
 
@@ -216,7 +179,7 @@ inventory → diff → contract check → staging import
 
 每次运行使用唯一 `run_id`。staging 名称必须包含 `run_id`。单对象发布中的旧对象处理、staging 改名和审计记录必须位于同一事务；失败整体回滚，不允许手工续跑修补 SQL。
 
-首次构建使用 `xiangrugu_sample`、`xiangrugu_rehearsal` 和 `xiangrugu` 三个数据库。后续更新默认完整重建，不做行级原地增量：在正式库中建立 `build_<run_id>_cbdb/chgis/harv` 影子 schema，完整验证后在一个事务中把当前 schema 改名为 `retired_<release>_*`，再把影子 schema 改为稳定名称。用于 PostgreSQL 标识符的 run/release token 必须按本文件的标识符规则规范化，不能直接拼接带连字符的原始 `release_id`。
+2026-11-19 用户确认本次使用 `pg32b/xiangrugu`。此前 `xiangrugu_sample`、`xiangrugu_rehearsal` 为规划的隔离库名，不是本次必须另建的数据库；样本、彩排和正式发布仍需隔离并保留独立证据，具体命名在执行方案中明确，不得覆盖既有对象。后续更新默认完整重建，不做行级原地增量：在目标库中建立 `build_<run_id>_cbdb/chgis/harv` 影子 schema，完整验证后在一个事务中把当前 schema 改名为 `retired_<release>_*`，再把影子 schema 改为稳定名称。用于 PostgreSQL 标识符的 run/release token 必须按本文件的标识符规则规范化，不能直接拼接带连字符的原始 `release_id`。
 
 `audit` 不参与换名，持续保存版本历史。默认保留上一版 retired schema 作为快速回滚点；删除旧 schema 必须另获授权。
 

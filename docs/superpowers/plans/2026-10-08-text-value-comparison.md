@@ -12,7 +12,7 @@
 
 ## Global Constraints
 
-- Windows `C:\Users\zkyxy\Documents\codex-xiangrugu`仅编辑/sync；所有Python和测试经SSH在32执行。
+- 本计划命令从各自 clone 的仓库根执行；本机仅编辑，所有 Python 和测试经 SSH 在 32 执行。个人 clone 位置不作为共享前提，文档对齐按 rules.md R-10 执行。
 - text严格UTF-8、禁止Unicode规范化/strip/推断/替换；bigint排除bool且限定[-2^63,2^63-1]。
 - 默认100,000记录/端、512列、单text1MiB、单行payload8MiB、完整流256MiB/端、差异明细100项；允许收紧不允许静默扩大。
 - 字节标记、整数端序、列JSON/header/row/trailer完全按规格§4–5；最后一列为`derived:__src_rownum`，不得再发明格式。

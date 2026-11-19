@@ -1,6 +1,6 @@
 # 全量导入包与映射进度
 
-更新日期：2026-11-19。当前阶段为数据整理与映射，第 1/6 块 CBDB 整理完成待 Codex 验收，第 2–6 块待执行。第 1 块交付在本 release 的 [import-package/cbdb/](../contracts/releases/2026-10-06-bootstrap/import-package/cbdb/SUMMARY.md)；10 表/235 列源侧值验证单列未决，不计入映射完成，ready_for_import=False 保持。
+更新日期：2026-11-19。当前阶段为数据整理与映射，第 1–2/6 块（CBDB、普通表格）整理完成待 Codex 验收，第 3–6 块待执行。交付在本 release 的 [import-package/cbdb/](../contracts/releases/2026-10-06-bootstrap/import-package/cbdb/SUMMARY.md) 与 [import-package/tabular/](../contracts/releases/2026-10-06-bootstrap/import-package/tabular/SUMMARY.md)；CBDB 10 表/235 列源侧值验证、表格 176 件待证据单列未决，不计入映射完成，ready_for_import=False 保持。
 
 本文件是当前阶段、六块待办、交付和讨论结论的唯一进度入口。设计约束见 [DESIGN.md](DESIGN.md)，执行权限见 [OPERATIONS.md](OPERATIONS.md)，原 Task 1–18 工程依赖见 [IMPLEMENTATION-PLAN.md](IMPLEMENTATION-PLAN.md)，既往运行记录见 [PROGRESS-HISTORY.md](PROGRESS-HISTORY.md)。其他入口只链接本文件，不复制当前进度。
 
@@ -30,7 +30,7 @@
 | 块 | 范围 | 状态 | 本块交付 | 完成后的讨论 |
 |---|---|---|---|---|
 | 1 | CBDB SQLite、JSON 及配套成员 | 整理完成待验收 | 78 表/736 列映射、全部 CBDB 成员处置、未决项及确认依据 | 对象关系、类型和命名的剩余决定 |
-| 2 | TSV/CSV/Excel、独立 DBF 等普通表格 | 待执行 | 文件/工作表/记录对象、编码、字段、空值及目标映射 | 编码或表格语义的未决项 |
+| 2 | TSV/CSV/Excel、独立 DBF 等普通表格 | 整理完成待验收 | 文件/工作表/记录对象、编码、字段、空值及目标映射 | 编码或表格语义的未决项 |
 | 3 | Shapefile、MapInfo、KML 等空间矢量 | 待执行 | 组件组、属性、几何、CRS 原声明及目标映射 | 组件缺失、坐标声明和异常保留 |
 | 4 | Access/MDB、SQL 数据 | 待执行 | 内部对象及字段清单、读取/隔离方法、目标映射及不兼容项 | 不能无损读取或表达的具体对象 |
 | 5 | 栅格、其他格式和非业务成员 | 待执行 | 栅格对象与入库方式；说明/图片/校验文件用途；未知件明细 | 剩余格式的处置决定 |
@@ -51,14 +51,24 @@
 - 成员：inventory 8004 中 CBDB 路径恰 3（目录容器、385B 出版方元数据 JSON、586,485,760B 主源 sqlite3 m007906）；JSON 经 32 只读取证为元数据描述关系，非重复载体，分别处置。
 - 确认态：类型子批 type_mapping_approved=true（700 观测+36 declaration-only，后者 PROPOSED_NOT_AUTHORIZED 未升级）；命名/空值按 decisions 用户继续确认（184 禁止空/552 允许空）；proposal 顶层 flags 逐字保持 False/BLOCKED，ready_for_import=False。
 - 独立核对：a03 七项全 PASS（覆盖/字段顺序全量/目标名三层唯一/basis sha 重算/配套处置/剩余 10 表三方吻合/旧文件零改动），三处口径注记见 `.cbdb-block1-20261119/a03-cross-evidence.txt`。
+- Codex 验收结论：截至第 2 块基线 a33e46e，Gitea 未见 Codex 独立验收提交；茶香已派发第 2 块（验收后推进），验收结论原文待 Codex 回传补记，不预填。
 - 未决项：①PG 生产装载器未实现（importer/load.py 仅 staging 原型且须修订，禁直跑）②大组 10 表读取需另行授权+预算修订（1GiB scratch>64MiB 执行域）③全版本命名分配未完成（naming_scope 子批）④约束执行未批准⑤36 declaration-only 列类型待授权。
 
 ### 第 2 块普通表格
 
-- [ ] 合并已确认的 5 件文本/83 列规则，清点全部其他表格及工作表。
-- [ ] 明确编码、分隔/引号规则、空串/NULL、单元格类型、行序与源行号。
-- [ ] 独立 DBF 归本块；空间组件中的 DBF 由第 3 块负责，交叉引用不重复装载。
+- [x] 合并已确认的 5 件文本/83 列规则，清点全部其他表格及工作表。
+- [x] 明确编码、分隔/引号规则、空串/NULL、单元格类型、行序与源行号。
+- [x] 独立 DBF 归本块；空间组件中的 DBF 由第 3 块负责，交叉引用不重复装载。
 - [ ] 形成对象和列映射、成员覆盖、已确认/未决明细，验收并讨论。
+
+#### 第 2 块完成记录（2026-11-19，DSH 整理，待 Codex 验收）
+
+- 交付：`import-package/tabular/`（本 release 下）members.json、object-mapping.json、handoffs.json、evidence-gaps.json、SUMMARY.md、build_tabular_package.py（确定性合并，重跑字节一致）。
+- 候选 **1636**（inventory 8004 末链名大小写不敏感过滤：csv 7/xls 14/xlsx 13/dbf 704/TAB 142/tab 5/txt 751）；处置闭合 **organized 5 + handoff-block3 846 + handoff-block5 609 + pending-evidence 176 = 1636**，无重复计数。
+- 5 件文本合并：权威件 text-schema-approved.draft.yaml（5 对象/83 源字段=54+5+11+7+6/5 派生 __src_rownum bigint；schema harv×4+chgis×1）；逐列对账 mismatches=0；读取规则两 decisions yaml 12 键逐字沿用（empty_string=preserve_not_null、type_inference=false、source_order=preserve）；table_names/target_mapping/ready_for_import=false 与 BLOCKED 原样保持；表名为候选，全量碰撞留第 6 块。
+- **DBF 归属实测**：704/704 全有 shp/shx 兄弟组件⇒全部交块 3，**独立 DBF=0**（lead 全扫描独立证实）；approved-dbf-*-reading 仅覆盖 1884route 两诊断件（空间组件），随块 3 交接不重复认领。TAB 142（MapInfo 定义）⇒块 3。
+- 核对缺陷与修复：a03 首轮揪出 1 件静默遗漏（RAS_1900_pdb2_README.TXT，大写 .TXT 未入扩展名集+名称预剔先于登记）；a02 修复（大小写不敏感+先全量登记后分类）补录 handoff-block5，1635→1636 闭合，a03 复核。
+- 未决项：①176 件待证据（csv 7/xls 14/xlsx 13 无读取批准件+工作表清单缺口；txt 142 非决定性名称模式需授权后首行抽样判表性）②块 5 交接 609 件仅名称模式判定、内容未读③PG 装载器 GAP 沿用块 1④全版本命名碰撞第 6 块。
 
 ### 第 3 块空间矢量
 
@@ -108,3 +118,4 @@ PASS 必须覆盖本块全部范围及处置；未决项保留 PARTIAL/BLOCKED�
 - 2026-11-19：茶香确认六块顺序，要求每次派工标明当前阶段、完成一块讨论一次；当前先整理文档，第 1 块尚未派发。
 - 2026-11-19：茶香确定目标为 pg32b/xiangrugu，并要求整理全部源数据、在 32 落盘后导入；Codex 核对，DSH 执行。旧 p01 任务卡保持关闭。
 - 2026-11-19：DSH 第 1/6 块 CBDB 整理完成（30 分钟盒内，lead/a02/a03 三方核对），产物与进度经 DSH 身份提交推送 Gitea；待 Codex 独立验收后与茶香讨论，再决定第 2 块派工。未写库、未部署、未改 GO/FIFO。
+- 2026-11-19：DSH 第 2/6 块普通表格整理完成（30 分钟盒内）：1636 候选四路处置闭合、5 件/83 列/5 派生逐列合并零失配、DBF 704/704 全空间交块 3（独立 DBF=0）；a03 揪出 1 件大写 .TXT 静默遗漏经修复复核闭合；176 件待证据/609 件名称模式交块 5 如实单列。产物与进度经 DSH 身份提交推送 Gitea，待 Codex 验收后讨论第 3 块。未写库、未部署、未开源字节（工作表清点待授权）。

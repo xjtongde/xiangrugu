@@ -1,0 +1,36 @@
+== ITEM 3: ChinaWBeta.Field.Definitions x2 disposition ==
+
+ /ChinaW_KML_utf.zip/ChinaWBeta.Field.Definitions.txt
+  dialect: {"bom": true, "delimiter": "\t", "encoding_strict_ok": "utf-16"}
+  ws: [{"columns": 7, "data_records_observed": 159, "worksheet": null}]
+  fields: ['Variable', 'COLUMN', 'ITEMNAME', 'WIDTH', 'OUTPUT', 'TYPE', 'DECIMALS']
+  status state: PROPOSED_NOT_AUTHORIZED
+
+ /ChinaW_pts_gbk.zip/ChinaWBeta.Field.Definitions.txt
+  dialect: {"bom": true, "delimiter": "\t", "encoding_strict_ok": "utf-16"}
+  ws: [{"columns": 7, "data_records_observed": 159, "worksheet": null}]
+  fields: ['Variable', 'COLUMN', 'ITEMNAME', 'WIDTH', 'OUTPUT', 'TYPE', 'DECIMALS']
+  status state: PROPOSED_NOT_AUTHORIZED
+  member disp: organized | basis keys: ['basis_files_sha256', 'bom', 'confirmation_state', 'data_records', 'delimiter', 'encoding_used', 'header_columns', 'raw_sha256_observed', 'sha_match_snapshot', 'snapshot_path', 'verified_on']
+  member disp: organized | basis keys: ['basis_files_sha256', 'bom', 'confirmation_state', 'data_records', 'delimiter', 'encoding_used', 'header_columns', 'raw_sha256_observed', 'sha_match_snapshot', 'snapshot_path', 'verified_on']
+
+== ITEM 4: counts/uniqueness/nonreg ==
+total: 1640 | disp: {'handoff-block5': 620, 'organized': 160, 'pending-evidence': 14, 'handoff-block3': 846} | sum: 1640
+approved: 5 proposed: 155 fields: 3560
+independent dup column_id: 0 | dup target_name: 0
+recipe recompute global: 3560/3560
+markers b3 846 / 846 b5 620 / 620 | approved cols 83 + 5 | flags verbatim: True
+xls pending: 14 /14 gaps: 14 | PARTIAL count: 4
+status tuples: {('PROPOSED_NOT_AUTHORIZED', False): 155}
+entry sha head: 668900d43663 unchanged: True
+modified lines: 9 [' M datamgmt/docs/IMPORT-PACKAGE-TODO.md', ' M docs/superpowers/evidence/2026-11-13-p01-real-prep/p01-en', ' M docs/superpowers/evidence/2026-11-13-p01-real-prep/rehear']
+
+== ITEM 5: SUMMARY sync ==
+ S: ## 计数（candidates=1640）
+ S: | xls | 14 | **14 全部读不了**（BIFF，xlrd/转换器宿主+容器全缺）⇒pending-evidence 逐件入 gaps |
+ S: | .TAB 大写 | 142 | MapInfo 空间表定义⇒块3 |
+ S: 全量唯一性复核（机器件 object-mapping.uniqueness_review）：**155 表 / 3560 列，column_id 违例 0、target_column 违例 0、真重复源名消歧计数 0**（ChinaW 伪 dup 消除后为 0；跨表同 schema 候选名碰撞留块6）。计数终态：candidates 16
+ disclosure 名级 : 4
+ disclosure name-level : 0
+ disclosure 三方 : 2
+ disclosure audit : 2

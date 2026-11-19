@@ -1,0 +1,7 @@
+KML/ChinaW_KML_utf.zip: delivered hdr ['Variable', 'COLUMN', 'ITEMNAME', 'WIDTH', 'OUTPUT', 'TYPE', 'DECIMALS']
+   my utf-16 parse: header ['Variable', 'COLUMN', 'ITEMNAME', 'WIDTH', 'OUTPUT', 'TYPE', 'DECIMALS'] | data_rows 159 | delivered ws records 159 | match True
+shapefiles/ChinaW_pts_gbk.zip: delivered hdr ['Variable', 'COLUMN', 'ITEMNAME', 'WIDTH', 'OUTPUT', 'TYPE', 'DECIMALS']
+   my utf-16 parse: header ['Variable', 'COLUMN', 'ITEMNAME', 'WIDTH', 'OUTPUT', 'TYPE', 'DECIMALS'] | data_rows 159 | delivered ws records 159 | match True
+
+member basis encoding: latin-1 bom: False data_records: 160
+om dialect encoding: utf-16 bom: True ws records: 159

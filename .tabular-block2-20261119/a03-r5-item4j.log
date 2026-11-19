@@ -1,0 +1,13 @@
+scanned: 133 errors: 0
+  rc 0
+
+FINAL comma scan: quoted-match 130 | naive-artifact 3 | errors 0 of 133
+    ('rrisons.zip!MingGarrisonsSheet_29jan08.csv', 'NAIVE11 vs q11')
+    ('VN/KUFJTG/beijing_sites.zip!hist_sites.csv', 'NAIVE5 vs q5')
+    ('ibet_twns_utf.zip!Tibet_twns_2009_utf8.csv', 'NAIVE13 vs q13')
+
+ MingGarrisonsSheet_29jan08.csv | naive==quoted(strip)? True | delivered names sample: ['wei_id', 'type_ch', 'orig_id']
+
+ hist_sites.csv | naive==quoted(strip)? True | delivered names sample: ['esri2', 'name_redo', 'hz_name']
+
+ Tibet_twns_2009_utf8.csv | naive==quoted(strip)? False | delivered names sample: ['"THL_ID"', '"Tibetan"', '"Wylie"']

@@ -30,7 +30,7 @@
 | 块 | 范围 | 状态 | 本块交付 | 完成后的讨论 |
 |---|---|---|---|---|
 | 1 | CBDB SQLite、JSON 及配套成员 | 已验收（入库缺口另列） | 78 表/736 列映射、全部 CBDB 成员处置、未决项及确认依据 | 对象关系、类型和命名的剩余决定 |
-| 2 | TSV/CSV/Excel、独立 DBF 等普通表格 | 整理完成待验收 | 文件/工作表/记录对象、编码、字段、空值及目标映射 | 编码或表格语义的未决项 |
+| 2 | TSV/CSV/Excel、独立 DBF 等普通表格 | PARTIAL（XLS 14 待依赖决策，余整理完成待验收） | 文件/工作表/记录对象、编码、字段、空值及目标映射 | 编码或表格语义的未决项 |
 | 3 | Shapefile、MapInfo、KML 等空间矢量 | 待执行 | 组件组、属性、几何、CRS 原声明及目标映射 | 组件缺失、坐标声明和异常保留 |
 | 4 | Access/MDB、SQL 数据 | 待执行 | 内部对象及字段清单、读取/隔离方法、目标映射及不兼容项 | 不能无损读取或表达的具体对象 |
 | 5 | 栅格、其他格式和非业务成员 | 待执行 | 栅格对象与入库方式；说明/图片/校验文件用途；未知件明细 | 剩余格式的处置决定 |
@@ -78,6 +78,17 @@
 - 改判块 5 共 11 件新入（10 非表格 txt 内容证据+CountryFilesFormat.ods 字段格式说明文档）+2 irregular Notes 升级内容证据；块 5 609→**620**。**首个实质阻塞：XLS 14 件 BIFF 现有工具不可读**（宿主+容器无 xlrd/转换器），逐件入 gaps（建议授权装 xlrd 或批准派生解析器），未伪报 sheet 清单。
 - 终态闭合：**1640 = organized 160（批准 5+提案 155）+ block3 846 + block5 620 + pending 14**；块 3/块 5 交接项 pending_review=true 全量（846/846、620/620）；结构异常留证（NGIA csv BOM+尾空列方言、china_chron.txt 首行即数据、ChinaW.Master.Beta.csv 12 重复表头名、CHGIS v6/V4 六对字典簿行级全同保留双成员）。
 - 佐证：`.tabular-probe-20261119/`（probe_out/headers/sheet_counts/carrier_compare/ods_structure 等，sha 入 basis）；a03 三轮独立核对（ROUND 2 揪出内容版未落盘缺口+SUMMARY 公式笔误，经修复 ROUND 3 复核）。
+
+#### 第 2 块收尾记录（2026-11-19 round 3，列身份整表分配，终态 PARTIAL）
+
+- 配方修复：列身份改**整张表一次分配**（identity.py allocate_columns 真函数：重复 slug 由 `__c{ordinal}` 后缀消歧，identity 含序号+源名天然唯一）；155 提案对象全量重分配，源列名/序号/全列保留不丢不并；批准 5 件权威映射不动。
+- 三处定点修复实证：两份 ChinaW.Master.Beta.csv 176 列全保留、4 组重复源名（' 1820 "'×5/' prefectural level'×2/' county level'×2/' 1893 "'×7）column_id 由共享变互异、目标名消歧；china_chron.txt 首行按数据保留（header_row=null、676 记录），两模块实查无现行无表头规则⇒稳定序号名 col_001…col_020 经同一整表配方分配（提案态披露）。
+- 全量唯一性：uniqueness_review 155 表/3560 列 column_id 违例 0、target_column 违例 0（脚本 assert 硬闸+lead 独立复算 0）；跨表同 schema 碰撞留第 6 块。
+- **lead 方言裁定（a03 ROUND 4 注记）**：两份 ChinaW.Master.Beta.csv 旧 naive split(',') 176 列系伪影（引号内含逗号表头被错切）；引号感知 csv.reader=**159 列×2、零重复源名**（GB2312 探测/gb18030 严格解码、2403 数据行，lead/a03 SSH 独立基线一致）——与已确认文本读取语义（DOUBLE_QUOTE/doublequote）及 R-08 一致，**引号感知为正**，裁定披露入件（dialect_resolution 176→159 对照+证据 sha），提案态可逆待茶香讨论确认。字段总数 3594→**3560**。逗号 txt 107 件全量审计 naive==strict 无同类伪影；2 件个别 ragged 数据行（v3/v4_time_cnty_pts_utf）入 quote_artifact_audit 留块 6 值合同复核。CountryFilesFormat.ods 行数三值并列（39 table-row/37 含内容/38 数据行）。
+- SUMMARY 五类陈旧文案清除，计数与机器件逐项一致；确定性重跑字节一致。
+- **XLS 14 件环境核查（lead）**：项目锁定件（requirements.lock/requirements-dev.lock/pyproject）无 xlrd/openpyxl/odfpy/chardet；32 112 枚自有 xiangrugu 镜像同一哈希锁定 Dockerfile 谱系，最新两枚实测四模块全缺；宿主/容器/转换工具全缺。**确需安装或构建，报茶香决定**：建议 xlrd==2.0.1（PyPI 稳定版，2.x 专支持 .xls BIFF 恰合所需），哈希入 datamgmt/requirements.lock 后按 R-09 重建自有镜像（docker build -t xiangrugu:runtime-tabular-reader-<date>-a），只读挂载快照清点 14 件（14,177,280B≈13.5MiB）工作表/字段/源类型；备选：批准派生纯 stdlib BIFF 解析器（工作量大）。本轮不装不建，gap 14 逐件含 environment_audit 保留。
+- **第 2 块终态 PARTIAL**：1640=organized 160（批准 5+提案 155/3560 字段）+block3 846+block5 620+pending 14（XLS）；XLS 补齐并验收后方可转 PASS。
+- 名级修复追加（a03 ROUND 5 ③FAIL 揪出）：上轮审计仅比列数漏检名级伪影（缺陷如实入件）；名级全量三方比对（139 件=txt132+csv7，BOM 嗅探+严格解码+csv.reader 引号感知+行尾安全，逐元素比对）clean 128/diff 11，11 件全重导：Tibet_twns_2009_utf8.csv 13 净名（旧 12 列字面引号包裹+\r）、MingGarrisons/hist_sites/tan_GBK_names1/2/nima_feat_desig 末列 \r 清除、**ChinaWBeta.Field.Definitions.txt ×2 UTF-16LE+BOM 重判为 TAB 7 列数据字典表⇒organized 提案**（先例 v4/v6_data_dictionary 对齐；双副本 17580B sha 同保留镜像块6；旧 latin-1 NUL 碎片失真消除）。字段 3560 不变、唯一性双 0、闭合不变；a03 ROUND 6 复扫。
 
 ### 第 3 块空间矢量
 
@@ -129,3 +140,4 @@ PASS 必须覆盖本块全部范围及处置；未决项保留 PARTIAL/BLOCKED�
 - 2026-11-19：DSH 第 1/6 块 CBDB 整理完成（30 分钟盒内，lead/a02/a03 三方核对），产物与进度经 DSH 身份提交推送 Gitea；待 Codex 独立验收后与茶香讨论，再决定第 2 块派工。未写库、未部署、未改 GO/FIFO。
 - 2026-11-19：DSH 第 2/6 块普通表格整理完成（30 分钟盒内）：1636 候选四路处置闭合、5 件/83 列/5 派生逐列合并零失配、DBF 704/704 全空间交块 3（独立 DBF=0）；a03 揪出 1 件大写 .TXT 静默遗漏经修复复核闭合；176 件待证据/609 件名称模式交块 5 如实单列。产物与进度经 DSH 身份提交推送 Gitea，待 Codex 验收后讨论第 3 块。未写库、未部署、未开源字节（工作表清点待授权）。
 - 2026-11-19：第 2 块续做（30 分钟盒内）：ODS 4 补录、32 快照只读核实 180 件（789/789 sha 对账）、新增提案映射 155 对象/3594 字段（PROPOSED_NOT_AUTHORIZED）、11 件内容证据改判块 5、XLS 14 件依赖缺口为首个实质阻塞；终态 1640=160+846+620+14，交接待复核标记全量。第 1 块 Codex 已验收（3 成员/78 表/736 字段，剩余入库缺口另列）。第 2 块收口后再进入第 3 块。
+- 2026-11-19：第 2 块收尾（30 分钟盒内）：列身份整表分配修复（__c{ordinal} 消歧）、三处定点修复实证、全量 3594 列唯一性违例 0、SUMMARY 陈旧文案核销；XLS 14 环境核查确证无锁定依赖/无可用自有镜像，xlrd==2.0.1 决策路径报茶香；**第 2 块终态 PARTIAL**（XLS 补齐前不转 PASS），逐件缺口保留。待 Codex 验收与茶香依赖决策。

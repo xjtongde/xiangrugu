@@ -1,0 +1,8 @@
+probe files: [('carrier_compare.json', 657), ('chgis_dict_pairs.json', 472), ('chw_strict.json', 11512), ('headers.json', 23841), ('manifest.json', 144793), ('name_level_audit.json', 14923), ('ods_structure.json', 1257), ('probe.py', 5663), ('probe_out.jsonl', 550485), ('sheet_counts.json', 2346), ('txt_csv_audit.json', 19895), ('txt_headers.json', 77995), ('txt_strictwidths.json', 414)]
+basis claims: 11 mismatches: 0 []
+ S: ROUND-5 名级修复（a03 三方比对发现、lead 基线对照）：上轮审计仅比**列数** naive==strict，漏掉名级引号包裹/尾
+ S: /编码失真——如实披露入机器件 name_level_audit（method+prior_round_defect_disclosed）。本轮 139 对象（txt132+csv7）**名级全量三方比对：clean 128 / diff 11**，diff 全部重导并整表重分配：①Tibet_twns_2009_utf8.csv 13 净名 [THL_ID,Tibetan,Wylie,Pinyin,Twn_GB_ext,…]、933 数据行（与 lead
+ S: 注记）。修复后字段总数 **3560**（11 件重导净增减为 0：CHW 176→159 已在上一轮计入，本轮名级修正不改列数）。
+
+member basis: {"bom": false, "confirmation_state": "PROPOSED_NOT_AUTHORIZED", "data_records": 160, "delimiter": "\t", "encoding_used": "latin-1", "header_columns": 7, "raw_sha256_observed": "240115892831a600d4f5db9a8f5806411d21228067eb7e60544317f6c586b8a3", "sha_match_snapshot": true, "snapshot_path": "/opt/mydocker/xiangrugu/data/imports/use
+victim objects within audited 139: 8 of expected 8

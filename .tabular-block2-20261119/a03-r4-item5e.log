@@ -1,0 +1,14 @@
+== FINAL CONSOLIDATED (rerun w/ safe keys) ==
+independent dup column_id: 0 | dup target_name: 0 | objs with dup tn: []
+self-reported: {"column_id_violations": 0, "columns_reviewed": 3594, "disambiguated_duplicate_source_names": 8, "headerless_objects": ["chgis-v6/China_Periods_ReignDates.zip!china_chron/china_chron.txt"], "tables_reviewed": 155, "targe
+china_chron: header_row None | data_records 676 | names stable: True | dup flag: False
+recipe china_chron/china_chron.txt: 20/20
+recipe /ChinaW_KML_utf.zip/ChinaW.Master.Beta.csv: 176/176
+recipe /ChinaW_pts_gbk.zip/ChinaW.Master.Beta.csv: 176/176
+recipe ngia_dsg_codes_2017-03-15.csv: 6/6
+recipe MajorChinaPeriods_Lex_2015-12-21.ods: 13/13
+FINAL recipe aggregate: 391/391
+closure: {'handoff-block5': 620, 'organized': 160, 'pending-evidence': 14, 'handoff-block3': 846} sum 1640
+markers b3: 846 / 846 | b5: 620 / 620
+gaps: 14 all xls: True
+xls size sum: 14177280

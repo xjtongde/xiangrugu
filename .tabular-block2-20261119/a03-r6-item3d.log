@@ -1,0 +1,9 @@
+both members basis encoding/bom/data_records:
+   ip', 'ChinaWBeta.Field.Definitions.txt'] latin-1 False 160
+   ip', 'ChinaWBeta.Field.Definitions.txt'] latin-1 False 160
+members with encoding_used==latin-1: 12 ["['tib19pdb_orig.txt']", "_pts_gb.ZIP', 'v3_ts_cnty_pts_gb.txt']", "pts_PRC.ZIP', 'v3_ts_cnty_pts_gb.txt']", "pts_USA.ZIP', 'v3_ts_cnty_pts_gb.txt']", "', 'ChinaWBeta.Field.Definitions.txt']", "n_pts_prc.zip', 'v4_1911_twn_pts.txt']"]
+
+name_level_audit type: dict
+keys: ['clean_count', 'diff_objects']
+method: None
+diff/reexport entries: 0

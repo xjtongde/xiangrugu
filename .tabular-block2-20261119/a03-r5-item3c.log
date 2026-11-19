@@ -1,0 +1,19 @@
+== ITEM 4/5/6: ods rows, markers, disclosure ==
+ S: | ods | 4 | stdlib content.xml 解析成功：3 数据表⇒organized(提案态)；**CountryFilesFormat_2016-07-16.ods 内容证据判为字段格式说明文档（表头 Field Name/Description/Type/MaxLength，37 行）⇒块5**；与同 basename xlsx/csv 分别处置不认重复；Manshu.ods 附 __Anonymous_Sheet_DB__0 dat
+ S: 快照=/opt/mydocker/xiangrugu/data/imports/usedata/2026-10-07-bootstrap（SSH 32 实测存在；嵌套件经 zipfile 提取到 /tmp，快照字节零接触；sha256 对账 inventory 全数一致）。工具面：宿主 python3.11.2 仅 chardet（openpyxl/xlrd/odf/pandas/lxml 缺、容器全缺、无 soffice/ssconvert/catdoc
+
+ods_structure.json CountryFilesFormat entry: [{"tables": [{"sheet": "Sheet1", "rows_nonempty_incl_header": 37, "header_row": ["Field Name", "Field Description", "Field Type", "MaximumField Length/Precision"]}], "database_ranges": []}]
+probe files mtime: [('carrier_compare.json', 657), ('chgis_dict_pairs.json', 472), ('chw_strict.json', 11512), ('headers.json', 23841), ('manifest.json', 144793), ('ods_structure.json', 1257), ('probe.py', 5663), ('probe_out.jsonl', 550485), ('sheet_counts.json', 2346)]
+
+basis sha claims: 10 mismatches: 0
+markers b3 846 / 846 b5 620 / 620 | approved cols 83 5 | flags verbatim: True
+gap items: 14 | all xls: True
+xls pending: 14 size sum: 14177280
+'PARTIAL' count: 4
+proposed status tuples: {('PROPOSED_NOT_AUTHORIZED', False, False): 155}
+disclosure '引号感知': 0
+disclosure 'quote-aware': 2
+disclosure 'csv.reader': 2
+disclosure 'DOUBLE_QUOTE': 7
+disclosure 'R-08': 2
+disclosure 'before_after_columns': 2

@@ -1,0 +1,13 @@
+divergent objects (8):
+   ('KAHBT/tan_atlas_gbk_mar01.zip!tan_GBK_names1.txt', 'NAIVE vs QUOTED same 5 cols | crlf=1 quotewrap=0', 'q5')
+   ('KAHBT/tan_atlas_gbk_mar01.zip!tan_GBK_names2.txt', 'NAIVE vs QUOTED same 5 cols | crlf=1 quotewrap=0', 'q5')
+   ('ing_Garrisons.zip!MingGarrisonsSheet_29jan08.csv', 'NAIVE vs QUOTED same 11 cols | crlf=1 quotewrap=0', 'q11')
+   ('KV/nima_feat_desig_apr02.zip!nima_feat_desig.txt', 'NAIVE vs QUOTED same 3 cols | crlf=1 quotewrap=0', 'q3')
+   ('7910/DVN/KUFJTG/beijing_sites.zip!hist_sites.csv', 'NAIVE vs QUOTED same 5 cols | crlf=1 quotewrap=0', 'q5')
+   ('2009_tibet_twns_utf.zip!Tibet_twns_2009_utf8.csv', 'NAIVE vs QUOTED same 13 cols | crlf=1 quotewrap=12', 'q13')
+   ('naW_KML_utf.zip/ChinaWBeta.Field.Definitions.txt', 'UTF16-BOM parse-error object; delivered==naive(bytes-decoded-as-latin1)', 'q=None')
+   ('naW_pts_gbk.zip/ChinaWBeta.Field.Definitions.txt', 'UTF16-BOM parse-error object; delivered==naive(bytes-decoded-as-latin1)', 'q=None')
+
+ /ChinaW_KML_utf.zip/ChinaWBeta.Field.Definitions.txt dialect: {"bom": false, "delimiter": "\t", "encoding_strict_ok": "latin-1"}
+
+ /ChinaW_pts_gbk.zip/ChinaWBeta.Field.Definitions.txt dialect: {"bom": false, "delimiter": "\t", "encoding_strict_ok": "latin-1"}

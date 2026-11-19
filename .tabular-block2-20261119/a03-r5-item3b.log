@@ -1,0 +1,8 @@
+delivered source_file_or_chain: harvard-full/doi_10_7910/DVN/M7WEFY/v5_2009_tibet_twns_utf.zip!Tibet_twns_2009_utf8.csv
+
+SSH: quoted cols: 13 | rows: 933 | enc: utf-8-sig
+header: ["THL_ID", "Tibetan", "Wylie", "Pinyin", "Twn_GB_ext", "Town_hz", "Town_unit", "GBCENMQ", "Par_nm_py", "Par_nm_alt", "Par_nm_hz", "Par_type", "Pref_py"]
+naive cols: 13 | naive header: ["\"THL_ID\"", "\"Tibetan\"", "\"Wylie\"", "\"Pinyin\"", "\"Twn_GB_ext\"", "\"Town_hz\"", "\"Town_unit\"", "\"GBCENMQ\"", "\"Par_nm_py\"", "\"Par_nm_alt\"", "\"Par_nm_hz\"", "\"Par_type\"", "\"Pref_py\"\r"]
+ 
+
+delivered names: ["\"THL_ID\"", "\"Tibetan\"", "\"Wylie\"", "\"Pinyin\"", "\"Twn_GB_ext\"", "\"Town_hz\"", "\"Town_unit\"", "\"GBCENMQ\"", "\"Par_nm_py\"", "\"Par_nm_alt\"", "\"Par_nm_hz\"", "\"Par_type\"", "\"Pref_py\"\r"]

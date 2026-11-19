@@ -1,0 +1,12 @@
+== ITEM 4: XLS gap per-item ==
+xls members: 14 | total size: 14177280 (lead cites 14,177,280)
+gap items: 14 | resolved via inventory join: 12 | == pending idset: False
+triple-key completeness failures: 0
+distinct missing texts: 1
+'PARTIAL' occurrences: 4
+ S: # 普通表格整理摘要（第 2/6 块，仅整理不写库）
+ S: approved-dbf-{character,numeric}-reading.json 仅覆盖 1884route 两诊断件（且 limitations 自述非生产验证器），两者均为空间组件⇒随块3交接，块2 不重复认领。704 dbf 经同目录 shp/shx 兄弟扫描全部命中空间组件⇒块3 对象级清单见 handoffs.json
+ S: ## 第 2 块续做（32 项目快照只读核实 180 件）
+ S: 快照=/opt/mydocker/xiangrugu/data/imports/usedata/2026-10-07-bootstrap（SSH 32 实测存在；嵌套件经 zipfile 提取到 /tmp，快照字节零接触；sha256 对账 inventory 全数一致）。工具面：宿主 python3.11.2 仅 chardet（ope
+ S: 全量唯一性复核（机器件 object-mapping.uniqueness_review）：**155 表 / 3594 列，column_id 违例 0、target_column 违例 0**（跨表同 schema 候选名碰撞留块6）。计数终态：candidates 1640 = organized 160(批准5+提案155) + 
+ S: 1. **XLS 14 件（14,177,280 B）BIFF 读取缺口保持⇒第 2 块终态 PARTIAL**：lead 环境核查确证项目锁定件无 xlrd/openpyxl/odfpy/chardet（pyproject 仅 psycopg/pydantic/PyYAML/pyproj/jsonschema）、32 全部 112 枚自

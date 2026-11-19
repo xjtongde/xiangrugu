@@ -1,0 +1,7 @@
+== ITEM 3: approved five non-regression ==
+cols 83 ==83: True | derived 5 ==5: True | flags verbatim: True
+rule keys: ['automatic_fallback', 'delimiter', 'doublequote', 'duplicate_records', 'empty_string', 'quotechar', 'record_separator', 'source_order', 'type_inference', 'unquoted_interior_quote', 'values', 'whitespace']
+all rule keys appear in decisions carriers: True
+
+carrier interpretation snippet: n/a
+delivered rules obj0: {"automatic_fallback": false, "delimiter": "TAB", "doublequote": true, "duplicate_records": "preserve", "empty_string": "preserve_not_null", "quotechar": "DOUBLE_QUOTE", "record_separator": "LF", "source_order": "preserve", "type_inference": false, "unquoted_interior_quote": "literal", "values": "strings", "whitespace": "preserve"}

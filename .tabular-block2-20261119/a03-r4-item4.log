@@ -1,0 +1,20 @@
+== ITEM 4 XLS state ==
+total: 1640 | disp: {'handoff-block5': 620, 'organized': 160, 'pending-evidence': 14, 'handoff-block3': 846} | sum: 1640
+xls dispositions: {'pending-evidence': 14}
+gap items: 14 | grouped: {'xls': 14}
+ missing text: ["BIFF reader (xlrd absent; no soffice/ssconvert/catdoc/xls2csv/in2csv/xlsx2csv anywhere)"]
+'PARTIAL' occurrences: 0
+'xlrd' occurrences: 65
+'BIFF' occurrences: 35
+
+== SUMMARY vs machine lines ==
+ S: 生成：build_tabular_package.py 确定性合并；旧文件零改动。候选口径=archive_chain[-1] 末链名扩展名（**大小写不敏感**；.tab 合计 147，按功能精确分叉：大写 .TAB=MapInfo 空间表定义⇒块3，小写 .tab=文本表候选）。
+ S: ## 计数（candidates=1640）
+ S: | xls | 14 | **14 全部读不了**（BIFF，xlrd/转换器宿主+容器全缺）⇒pending-evidence 逐件入 gaps |
+ S: | xlsx | 13 | stdlib zipfile+xml 解析成功⇒organized(提案态)，sheet/字段/行数留证 |
+ S: | ods | 4 | stdlib content.xml 解析成功：3 数据表⇒organized(提案态)；**CountryFilesFormat_2016-07-16.ods 内容证据判为字段格式说明文档（表头 Field Name/Description/Type/MaxLength，37 行）⇒块5**；与同 basenam
+ S: | .TAB 大写 | 142 | MapInfo 空间表定义⇒块3 |
+ S: | txt | 751 | 内容级核实：**132 表格候选⇒organized(提案态)**；非表格⇒块5（其中 10 件由 pending 升级为内容证据、607 件名称模式获内容复核、2 件 irregular Notes.txt 亦升级块5） |
+ S: 处置分布：organized=160、handoff-block3=846、handoff-block5=620、pending-evidence=14（合计 1640=candidates ✓）。
+ S: 快照=/opt/mydocker/xiangrugu/data/imports/usedata/2026-10-07-bootstrap（SSH 32 实测存在；嵌套件经 zipfile 提取到 /tmp，快照字节零接触；sha256 对账 inventory 全数一致）。工具面：宿主 python3.11.2 仅 chardet（ope
+ S: 1. csv7+xls14+xlsx13 无读取批准件、无 sheet 级对象清单⇒逐件列于 evidence-gaps.json。

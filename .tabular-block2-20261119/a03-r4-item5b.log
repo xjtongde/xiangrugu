@@ -1,0 +1,9 @@
+== stale line check ==
+ LINE: '1. XLS 14 件 BIFF 读取缺口保持（宿主/容器 xlrd 与转换器全缺，逐件错误见 evidence-gaps.json）；lead 正锁定 xlrd/自有镜像坐标，转发后可只读清点 sheet+字段+源类型。csv/xlsx/ods/txt 的读取批准件缺口已由本轮快照内容核实补上证据（PROPOSED_NOT_AUTHORIZED，正式批准件仍待茶香派工）。'
+
+numbered list lines:
+   1. XLS 14 件 BIFF 读取缺口保持（宿主/容器 xlrd 与转换器全缺，逐件错误见 evidence-gaps.json）；lead 正锁定 xlrd/自有镜像坐标，转发后可只读清点 sheet+字段+源类型。csv/xlsx/ods/txt 的读取批准件缺口已由本轮快照内容核实补上证据（PROPOSED_NOT_AUTHORIZED，正式批准件
+   2. PG 装载器未实现（沿用块1 GAP）；本包不运行任何装载。
+   3. 全版本命名碰撞未完成（块6）。
+
+stale csv/xlsx claim present: False

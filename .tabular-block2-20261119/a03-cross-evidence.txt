@@ -276,3 +276,172 @@ SSH 32 `-F /home/zky/.ssh/config 32` 独立复算成功（宿主 stdlib，零安
 结论：ROUND 3 六项全部 PASS，无实质不一致。两处如实注记：(a) lead 消息 156/3598 与终态 155/3594 之差
 系 a02 报告滞后、文件为准；(b) column_id 配方在重复表头处产生跨列共享 id（3 对象、flag 已披露），
 是否合规留 lead/茶香裁定。ROUND 2 缺口（sheet 清单/新增映射/PROPOSED 态）在本版全部补齐并核验。
+
+====================================================================
+ROUND 4 —— 第 2/6 块收尾复核（列身份整表分配修复 + XLS PARTIAL 口径）
+记录时刻：2026-11-19T16:56:48Z。基线 HEAD=f240065；本轮起表实测 16:53:28Z（lead 更正时点）。
+产物最新 mtime 实测 16:54:00-01Z（早于预估 17:13Z；期间 16:17:42Z 一版为旧缺口态，已按终态字节复核）。
+日志：a03-r4-baseline/item1*/item3/item4*/item5*.log。SSH 32 `-F /home/zky/.ssh/config` 只读复算多次成功。
+
+① 三处定点修正独立复算                              PASS（一处方法披露）
+- ChinaW.Master.Beta.csv ×2（KML/ChinaW_KML_utf.zip、shapefiles/ChinaW_pts_gbk.zip）：
+  交付 176 列全保留、ordinal 1..176 连续、dup 区目标名消歧为 __c{ordinal} 后缀（ord40/45/48 ' 1820 "'→
+  t__u20_1820_u20__u22___c40/_c45/_c48；ord47→t__u20_prefectural_u20_level__c47），表内 target/column_id 唯一。
+  观测披露：我 SSH 用 csv 模块引号感知解析得 159 列（无 dup），与交付 176 不符；比对确认 a02 的
+  original_name 序列 == naive split(',') 176 项逐元素相等（delivered==naive-split True）——即字段切分沿用
+  naive-comma 口径（与上轮 txt_headers 留证一致），未采用 RFC4180 引号感知切分。含逗号引用表头件
+  （本件 w302/w304 等）因此产生"伪重复表头名"。列数/唯一性/可追溯均自洽，但**方言口径请 lead 裁定**：
+  若最终导入按 quoted csv 解析，此 176 列定义需重导。
+- china_chron.txt：header_row=null ✓、data_records_observed=676（probe line_count 677−1 首行数据）、
+  序号稳定列名 col_001..col_020 且 original_name==col_NNN 全 True、7 组原 dup 名随 headerless 处理消解
+  （duplicate_source_header_names=false）、ws.header_basis 引文披露"first physical line is data…no project
+  headerless rule exists — disclosed proposal state"。
+
+② 全量列唯一性+整表配方                             PASS
+- 我独立复算（非引产物自述）：160 对象（批准 5+提案 155）逐表 column_id 违例 **0**、target_name 违例 **0**
+  （批准件含派生 __src_rownum 亦 0）。om.uniqueness_review 自述 {155 表/3594 列/违例 0/消歧 8/headerless 1}
+  与我复算一致。
+- naming.py 真函数**整表一次调用**语义复算：抽核 5 对象（3 dup 件+2 干净件）column_id+target 全匹配
+  391/391；全局 155 对象整表复算 **3594/3594** 逐字段 identity+target 相等——上轮"单元素调用共享 id"
+  缺陷已按整表语义修复并可在库函数下完全再生。
+- build 脚本 call site 实证：`maps = allocate_columns(list(originals), object_id=object_id)` 单次整表调用。
+
+③ 批准 5 件非回归                                   PASS
+- 83 源列+5 派生恒等；flags_verbatim==carrier True；read_method.rules 12 键值逐字
+  （TAB/DOUBLE_QUOTE/doublequote true/LF/literal/strings/preserve_not_null/preserve×3/type_inference false/
+  automatic_fallback false）与 text-reading-decisions + additional- 两载体一致；候选名与提案 155 零碰撞（表内）。
+
+④ XLS 14 gap+PARTIAL 口径                           PASS ⇒ 支持第 2 块终态判定 **PARTIAL**
+- members xls 14 件全部 pending-evidence、source_identity size 合计 **14,177,280 B**（与 lead 引用逐字节相等）；
+  evidence-gaps items=14、全部 .xls、三元组齐备、missing 文案统一「BIFF reader (xlrd absent; no
+  soffice/ssconvert/catdoc/xls2csv/in2csv/xlsx2csv anywhere)」；经 inventory joined-chain join 14/14 唯一解析
+  ==pending idset sym=0。
+- SUMMARY「XLS 14 件（14,177,280 B）BIFF 读取缺口保持⇒第 2 块终态 PARTIAL」在位（'PARTIAL' 出现 4 处）；
+  lead 环境核查结论（无锁定 xlrd、112 枚自有镜像同哈希谱系四模块全缺、宿主/容器/转换器全缺）与
+  我上轮宿主实测（python3.11.2 仅 chardet、无转换工具）不矛盾——本轮未装未建合规。
+- 观测注：CountryFilesFormat ods 判文档件的 SUMMARY 括注「37 行」vs 我 SSH 精确复算 table-row 总数 **39**
+  （Sheet1 39 rows；若扣表头则 38——37 来源不可由该口径复现）。分类结论 documentation 不受影响，数字笔误级。
+
+⑤ SUMMARY==机器件+确定性+稳定性                    PASS（两处笔误注记）
+- 闭合行 1640=organized 160(5+155)+block3 846+block5 620+pending 14 与机器件逐项一致；txt 行 132/619 分解一致；
+  「14 全部读不了」与 gaps 一致；旧缺口陈述（csv7+xls14+xlsx13 无 sheet 清单）已清除，改为
+  「XLS 缺口保持+其余已由快照内容核实补证（PROPOSED_NOT_AUTHORIZED）」的分项如实表述。
+- 确定性：静态核 build 含 sorted()/整表分配确定性路径；六产物同秒 mtime（16:54:00-01Z）符合一次生成；
+  双跑硬证仍建议 lead 执行（我方只读约束不跑生成器）。
+- git porcelain M=6：tabular 4 文件（members/handoffs 终态字节与 16:17 版相同故不在 M 列）+entry/rehearsal
+  P01 既有；相对 f240065 无 tabular/probe/TODO 之外旧文件改动。probe 目录 basis_files_sha256 声明 7 键
+  vs 实际 mismatches=0；入口 sha head 668900d43663 未变；绝对路径/file:// 0 命中。
+- 注记②：SUMMARY ods 行「37 行」笔误见上（④）。
+
+结论：ROUND 4 五项全部 PASS，无阻塞级不一致；两处如实注记（ChinaW naive-comma 切分口径、ods 37-vs-39
+行数笔误）+确定性双跑留 lead。**第 2/6 块终态判定建议：PARTIAL**（依据=XLS 14 件 14,177,280B 读取缺口
+保持，gap 逐件在位且口径如实；其余覆盖/映射/唯一性/交接/SUMMARY 全部核验通过）。
+
+====================================================================
+ROUND 5 —— lead 裁定「引号感知为正」后 a02 重导版复核（终态 mtime 实测 17:03:14Z）
+记录时刻：2026-17:06:20Z 前完成（实际起算 16:59:40Z，硬停 17:23:15Z 内）。基线 HEAD=f240065。
+注：本轮存在两个中间版本——17:00:19Z（ChinaW 已改 159、ods 行未修）、17:03:14Z（终态）；
+以下全部按 **17:03:14Z 终态字节** 复核。SSH quoted 基线预建 16:59:57Z/17:00:10Z。日志 a03-r5-*.log。
+
+① ChinaW×2 重导复核                                   PASS
+- 交付两对象各 159 列；我 SSH csv.reader 引号感知复算 header 列表与交付 original_name **逐元素相等**
+  （delivered==quoted True ×2）；ordinal 1..159 连续；column_id/target_name 表内唯一 True×2；
+  data_records_observed=2403 == 我的 quoted rows 实测；whole-table 配方抽核 159/159 ×2。
+- flags.dialect_resolution 披露在件：basis「consistent with approved text reading semantics (quotechar
+  DOUBLE_QUOTE, doublequote=true) and R-08 faithfulness; proposal state reversible」、
+  before_after_columns [176,159]、evidence_sh…（chw_strict.json 新证据文件实存，basis sha mismatches=0）。
+
+② 计数闭合                                            PASS
+- fields 总数 **3560**（=3594−2×176+2×159=3560 精确闭合）；proposed 155、approved 5、organized 160；
+  四路闭合 1640 = organized 160 + block3 846 + block5 620 + pending 14 ✓（members/handoffs 同步再生）。
+- 全量唯一性独立复算：160 对象 column_id 违例 **0**、target_name 违例 **0**；
+  om.uniqueness_review 自述 {3560 列/违例 0/消歧 0/headerless 1} 与我一致；
+  naming.py 真函数整表语义全局复算 **3560/3560** identity+target 完全再生。
+
+③ 其余对象 naive 伪影核查                             FAIL（首个不一致见下）
+- 我对 delimiter==',' 的 133 个 csv/txt 对象做全量 SSH quoted-vs-naive-vs-delivered 三方比对：
+  **130 个 delivered==quoted（干净）**；3 个 delivered==naive≠quoted：
+  (a) MingGarrisonsSheet_29jan08.csv 11 列、(b) hist_sites.csv 5 列——两者列数相同，仅末列名带
+      尾随 '\r'（CRLF 文件 naive split 残留），quoted 解析无 '\r'；影响轻但口径不统一。
+  (c) **Tibet_twns_2009_utf8.csv：13 列中 12 个交付名保留字面双引号包裹（'"THL_ID"' 等）且末列带
+      '\r'，quoted 解析应为 ['THL_ID','Tibetan',…] 无引号——该件正是"引号感知为正"裁定的同类受害者，
+      未被 a02 本轮修复覆盖**。⇒ 首个不一致：Tibet_twns_2009_utf8.csv delivered≠quoted（quote-wrap 伪影）。
+- 另扫 tab 分隔 txt（delimiter=='\t'）发现同类残留 5 件：tan_GBK_names1/2.txt、nima_feat_desig.txt
+  （末列 '\r'）+ **ChinaWBeta.Field.Definitions.txt ×2（UTF-16LE+BOM 件，quoted 解析直接报
+  new-line-in-unquoted-field 错，交付 dialect encoding_strict_ok='latin-1'、bom=false，字段名呈
+  'ÿþV\x00a\x00r\x00i\x00a' NUL 碎片——编码判定与切分双重失真，建议 lead 复核该两件处置）**。
+- ods/xlsx 载体不在 csv 扫描口径（16 件 reader 误用报错属我方扫描器限制，非交付问题）。
+
+④ ods 行数笔误修正                                    PASS
+- SUMMARY ods 行改为「39 table-row 总数（a03 口径）、其中 37 含内容行（1 表头+36 字段说明行，末 2 行全空）、38 数据行…」——
+  与我 SSH 精确复算逐项一致（table-row 元素 39、非空行 37、row0=Field Name 表头、rows37/38 全空）。
+
+⑤ 非回归                                              PASS
+- 批准 5 件：83+5 列恒等、flags_verbatim True；markers b3 846/846、b5 620/620 全 true；
+  gaps 14 全 xls、xls size 14,177,280 B、PARTIAL 出现 4 处、第 2 块终态 PARTIAL 口径在位；
+  proposed status 155/155 PROPOSED_NOT_AUTHORIZED 零升级。
+- porcelain M=9：tabular 6 文件+TODO+entry/rehearsal（P01 既有）+我的证据文件；旧文件零改动成立；
+  entry sha head 668900d43663 未变；绝对路径/file:// 0 命中；确定性静态核通过（六产物同秒 17:03:14Z）。
+
+⑥ 裁定披露在件                                        PASS
+- object-mapping 内 quote-aware×2、before_after_columns×2、R-08×2、DOUBLE_QUOTE×7；
+  uniqueness_review 新增 objects_with_quote_artifact_audit 字段（108…截样）。
+
+结论：①②④⑤⑥ PASS；**③ FAIL——首个不一致=Tibet_twns_2009_utf8.csv（12/13 列名保留字面引号包裹，
+delivered==naive≠quoted，与 lead 裁定口径冲突）**；次级不一致 4 件末列 '\r' CRLF 残留
+（MingGarrisons/hist_sites/tan_GBK×2/nima_feat_desig 共 5 件）与 ChinaWBeta.Field.Definitions.txt ×2
+UTF-16 件编码失真（dialect latin-1/bom false/NUL 碎片名）。准确计数：fields 3560、闭合 1640 不变、
+唯一性违例 0/0、配方再生 3560/3560、干净 csv/txt 130/133。XLS 缺口保持 ⇒ 第 2 块维持 PARTIAL。
+
+====================================================================
+ROUND 6 —— ROUND 5 ③FAIL 修复版复扫（终态 mtime 实测 17:09:57Z）
+记录时刻：2026-11-19T17:13:55Z。基线 HEAD=f240065；硬停 17:23:15Z 内完成。日志 a03-r6-*.log。
+审计方法（按 lead 修正）：**名级全量三方比对**——我 SSH BOM-aware strict csv 解析 header 逐元素 vs
+delivered original_name，范围 delimiter∈{',','\t'} 全部 **139 对象**（txt 132+csv 7），含原受害件。
+
+① 7+2 受害件修复实证                                  PASS（UTF-16 两件留证差一处注记）
+- Tibet_twns_2009_utf8.csv：交付 13 名==我的 quoted ['THL_ID','Tibetan',…] 逐元素 True，引号包裹清零、'\r' 0。
+- MingGarrisonsSheet_29jan08.csv 11 列、hist_sites.csv 5 列：==quoted True，末列 '\r' 清零。
+- tan_GBK_names1/2.txt 5 列、nima_feat_desig.txt 3 列：==quoted True（gb18030/utf-8），'\r' 清零。
+- ChinaWBeta.Field.Definitions.txt ×2：交付 7 名 ['Variable','COLUMN','ITEMNAME','WIDTH','OUTPUT','TYPE','DECIMALS']
+  == 我 utf-16-le+BOM 解码 quoted header 逐元素 True；data_records_observed=159==我复算非空数据行；
+  om dialect {encoding_strict_ok:'utf-16', bom:true} 正确（首字节实测 \xff\xfe）。
+  ⇒ 但见 ②注记：members judgement_basis 侧同两件仍记 encoding_used latin-1/bom false/data_records 160。
+
+② 名级审计全量 clean                                  PASS（两处口径注记如实报）
+- 我的独立扫描：**139/139 names-clean、mismatch 0、errors 0**（含 china_chron headerless-by-design col_NNN
+  件按设计豁免；抽核覆盖全部 8 个原受害对象 + ngia csv/MajorChina csv/Tibet/hist 等 ≥8 件逐一相等）。
+- 注记A（members 侧滞后）：judgement_basis.encoding_used=='latin-1' 仍 12 件，其中 10 件 om dialect 亦
+  latin-1（我 cascade 同样落 latin-1——utf-8/gb18030 strict 解码确实失败，属真实无更优编码判定，字段名
+  内容不受影响、名级已 clean）；但 **ChinaWBeta×2 的 member basis 仍停留旧值 latin-1/bom=false/records=160**，
+  与 om 侧已修复的 utf-16/bom=true/159 自相矛盾——members 未同步再生该两件 basis 字段（笔误级，建议下轮带上）。
+- 注记B（BOM 标签口径）：20 件 delivered dialect {encoding:'utf-8', bom:true} vs 我 'utf-8-sig'——
+  首字节实测 EF BB BF 存在、bom:true 标记在位，仅编码命名口径差异（utf-8+BOM=utf-8-sig），非失真。
+- a02 机器件 name_level_audit.json：clean_count 128/diff_objects 11 与我 ROUND 5 发现一致（其 diff 计数
+  含 china_chron 名级豁免件披露），prior_round_defect_disclosed 缺陷披露在件；basis_files_sha256 声明 11 键
+  mismatches=0（新证据文件 txt_csv_audit.json/txt_strictwidths.json/chw_strict.json/name_level_audit.json 实存）。
+
+③ ChinaWBeta×2 处置判定内容证据                       PASS（带注记A）
+- 两件 disposition=organized（提案态）、status PROPOSED_NOT_AUTHORIZED；member basis 有 raw_sha256_observed
+  （sha_match_snapshot true）、snapshot_path、header_columns 7、data_records（值见注记A delta）、verified_on。
+- 内容实质=字段定义文档（Variable/COLUMN/…表头描述 ChinaW 字段规格）⇒作为 CHGIS 字段字典证据支撑两
+  ChinaW.Master.Beta.csv 的 159 列定义，organize 为表格候选合理；正式批准仍待茶香。
+
+④ 新计数闭合+唯一性+非回归                            PASS
+- 1640 = organized 160 + block3 846 + block5 620 + pending 14 ✓；approved 5/proposed 155/**fields 3560**；
+  独立复算 dup column_id 0、dup target_name 0；naming.py 整表配方全局再生 **3560/3560**。
+- 批准 5 件 83+5 列恒等、flags_verbatim True；markers b3 846/846、b5 620/620；gaps 14 全 xls、
+  PARTIAL×4、xls size 14,177,280B 不变；status 155/155 PROPOSED_NOT_AUTHORIZED 零升级；
+  entry sha head 668900d43663 未变；porcelain M=9 无 tabular/TODO/entry/rehearsal/证据目录外改动；
+  绝对路径/file:// 0 命中；六产物同秒 17:09:57Z（确定性静态核通过，双跑硬证留 lead）。
+
+⑤ SUMMARY 同步                                        PASS
+- 「ROUND-5 名级修复」段在位：披露上轮仅比列数缺陷（prior_round_defect_disclosed 指向机器件）、
+  139 对象名级三方比对 clean 128/diff 11、11 件重导清单（Tibet 净名/933 行、CHW FDef UTF-16 重判等）、
+  修复后 fields 3560 净增减 0 解释闭合；计数行 1640=160+846+620+14 与机器件一致；ods 39/37/38 行径复核保留。
+
+结论：ROUND 6 五项全部 PASS。首个不一致（ROUND 5 Tibet quote-wrap）已消除并经名级全量复扫证实清零；
+残留仅两处口径级注记：(A) members judgement_basis 侧 ChinaWBeta×2 旧值 latin-1/160 未随 om 修复同步
+（建议 a02 下轮修）；(B) 20 件 utf-8+bom:true 与我 utf-8-sig 命名口径差（非失真）。准确计数：
+names-clean 139/139｜fields 3560｜闭合 1640｜唯一性违例 0/0｜配方再生 3560/3560｜basis sha mismatches 0。
+XLS 缺口保持 ⇒ **第 2 块维持 PARTIAL**。

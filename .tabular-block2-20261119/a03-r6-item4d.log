@@ -1,0 +1,8 @@
+dialect delta groups: {('utf-8', 'utf-8-sig'): 20}
+utf-8 vs utf-8-sig delivered bom flags: Counter({True: 20})
+FDef first bytes: b'\xff\xfeV\x00'
+ Traceback (most recent call last):
+  File "<stdin>", line 8, in <module>
+  File "/usr/lib/python3.11/zipfile.py", line 1300, in __init__
+    self.fp = io.open(file, filemode)
+              ^^^^^^^^^^^ rc 1

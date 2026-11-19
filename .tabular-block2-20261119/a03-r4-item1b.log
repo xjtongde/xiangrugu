@@ -1,0 +1,11 @@
+probe entry keys: ['bom', 'data_records', 'delimiter', 'encoding_used', 'header_row', 'key', 'line_count', 'sha256_of_raw']
+probe data_records: 676 | header_row present? True
+delivered ws: [{"columns": 20, "data_records_observed": 676, "header_basis": "first physical line is data; stable ordinal names col_001.. proposed via whole-table allocate_columns (no project headerless rule exists — disclosed proposal state)", "header_row": null, "worksheet": null}]
+delivered original_names[:6]: ['col_001', 'col_002', 'col_003', 'col_004', 'col_005', 'col_006']
+
+ChinaW flags: {"duplicate_handling": "whole-table allocate_columns applied; duplicate source names retained, target names/ids disambiguated by __c{ordinal}", "duplicate_source_header_names": true, "headerless_first_line_is_data": false, "ods_database_ranges": []}
+ChinaW targets sample dup region: ['t__u22_w51_u20_adm_u2e__u20_status_u20_of_u20_capital__8d03cbfa', 't__u20_1820_u20__u22___c40', 'w52_u20_adm_u20_dao_u20_in_u20_which_u20_this_u20_uni__ad8edbd3', 'w53_u20_adm_u20_dao_u20_in_u20_which_u20_this_u20_uni__b76ba88e', 'w54_u20_no_u2e__u20_of_u20_dao_u20_yamen_u20_in_u20_t__b9b00f64', 't__u22_w55_u20_type_u20_of_u20_dao_u20_yamens_u20_in___ae1bd199', 't__u20_1820_u20__u22___c45', 't__u22_w56_u20_span_u20_of_u20_control', 't__u20_prefectural_u20_level__c47', 't__u20_1820_u20__u22___c48', 't__u22_w57_u20_span_u20_of_u20_control', 't__u20_county_u20_level__c50']
+ChinaW originals ord40/45/47/48: [' 1820 "', ' 1820 "', ' prefectural level', ' 1820 "']
+
+ordinal breaks: 0
+GLOBAL whole-table recipe recompute: 3594/3594 | objects fully matching: 155/155 | bad:[]

@@ -1,0 +1,24 @@
+scanned: 139 errors: 10
+ ERR LTD3L/RAS_1900_pdb2_gis.ZIP!tib19pdb_orig.txt list index out of range
+ ERR v3_time_cnty_pts_gb.ZIP/v3_ts_cnty_pts_gb.txt list index out of range
+ ERR 3_time_cnty_pts_PRC.ZIP/v3_ts_cnty_pts_gb.txt list index out of range
+ ERR 3_time_cnty_pts_USA.ZIP/v3_ts_cnty_pts_gb.txt list index out of range
+ ERR o/v4_1911_twn_pts_prc.zip/v4_1911_twn_pts.txt list index out of range
+ ERR o/v4_1911_twn_pts_usa.zip/v4_1911_twn_pts.txt list index out of range
+ ERR v4_time_cnty_pts_prc.zip/v4_time_cnty_pts.txt list index out of range
+ ERR v4_time_cnty_pts_usa.zip/v4_time_cnty_pts.txt list index out of range
+ ERR _1911_twn_pts_gbk.zip/v4_1911_twn_pts_gbk.txt list index out of range
+ ERR ime_cnty_pts_gbk.zip/v4_time_cnty_pts_gbk.txt list index out of range
+  rc 0
+
+NAME AUDIT FINAL: clean(incl headerless-by-design) 129 | mismatch 0 | errors 10 of 139
+    ('3L/RAS_1900_pdb2_gis.ZIP!tib19pdb_orig.txt', 'list index out of range')
+    ('time_cnty_pts_gb.ZIP/v3_ts_cnty_pts_gb.txt', 'list index out of range')
+    ('ime_cnty_pts_PRC.ZIP/v3_ts_cnty_pts_gb.txt', 'list index out of range')
+    ('ime_cnty_pts_USA.ZIP/v3_ts_cnty_pts_gb.txt', 'list index out of range')
+    ('4_1911_twn_pts_prc.zip/v4_1911_twn_pts.txt', 'list index out of range')
+    ('4_1911_twn_pts_usa.zip/v4_1911_twn_pts.txt', 'list index out of range')
+    ('time_cnty_pts_prc.zip/v4_time_cnty_pts.txt', 'list index out of range')
+    ('time_cnty_pts_usa.zip/v4_time_cnty_pts.txt', 'list index out of range')
+    ('11_twn_pts_gbk.zip/v4_1911_twn_pts_gbk.txt', 'list index out of range')
+    ('_cnty_pts_gbk.zip/v4_time_cnty_pts_gbk.txt', 'list index out of range')

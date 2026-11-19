@@ -1,0 +1,20 @@
+members basis latin-1: 12
+    ['tib19pdb_orig.txt']
+    pefiles/v3_time_cnty_pts_gb.ZIP', 'v3_ts_cnty_pts_gb.txt']
+    apinfo/v3_time_cnty_pts_PRC.ZIP', 'v3_ts_cnty_pts_gb.txt']
+    apinfo/v3_time_cnty_pts_USA.ZIP', 'v3_ts_cnty_pts_gb.txt']
+    L/ChinaW_KML_utf.zip', 'ChinaWBeta.Field.Definitions.txt']
+    ['mapinfo/v4_1911_twn_pts_prc.zip', 'v4_1911_twn_pts.txt']
+    ['mapinfo/v4_1911_twn_pts_usa.zip', 'v4_1911_twn_pts.txt']
+    mapinfo/v4_time_cnty_pts_prc.zip', 'v4_time_cnty_pts.txt']
+    mapinfo/v4_time_cnty_pts_usa.zip', 'v4_time_cnty_pts.txt']
+    s/ChinaW_pts_gbk.zip', 'ChinaWBeta.Field.Definitions.txt']
+    files/v4_1911_twn_pts_gbk.zip', 'v4_1911_twn_pts_gbk.txt']
+    les/v4_time_cnty_pts_gbk.zip', 'v4_time_cnty_pts_gbk.txt']
+tib19pdb_orig.txt [('utf-8-sig', 'fail'), ('utf-8', 'fail'), ('gb18030', 'fail')] first bytes: b'"Area"'
+ Traceback (most recent call last):
+  File "<stdin>", line 21, in <module>
+  File "<stdin>", line 7, in readb
+  File "/usr/lib/python3.11/zipfile.py",  rc 1
+
+name_level_audit full: {"clean_count": 128, "diff_objects": [{"key": "chgis-v6/China_Periods_ReignDates.zip!china_chron/china_chron.txt", "problems": ["names"], "enc_old": "utf-8", "enc_new": "utf-8", "bom_old": false, "bom_new": false, "cols_old": 20, "cols_new": 20, "strict_header": ["秦", "秦", "", "", "-249", "BCE", "-247", "BCE", "莊襄王", "莊襄王", "赵子楚", "趙子楚", "", "", "", "咸阳", "咸阳市", "34.33", "108.71", "1.00"], "data_r

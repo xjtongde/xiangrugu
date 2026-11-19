@@ -1,0 +1,19 @@
+
+tan_GBK_names1.txt: delivered ['地名', '朝代', '属性', '册号']
+   quoted: ["'地名'", "'朝代'", "'属性'", "'册号'"]
+   naive : ["'地名'", "'朝代'", "'属性'", "'册号'"]
+   first diffs vs quoted: [(4, "'页号\\r'", "'页号'")]
+
+tan_GBK_names2.txt: delivered ['地名', '朝代', '属性', '册号']
+   quoted: ["'地名'", "'朝代'", "'属性'", "'册号'"]
+   naive : ["'地名'", "'朝代'", "'属性'", "'册号'"]
+   first diffs vs quoted: [(4, "'页号\\r'", "'页号'")]
+
+nima_feat_desig.txt: delivered ['Feat_Code', 'Feat_Class', 'Feat_Name\r']
+   quoted: ["'Feat_Code'", "'Feat_Class'", "'Feat_Name'"]
+   naive : ["'Feat_Code'", "'Feat_Class'", "'Feat_Name\\r'"]
+   first diffs vs quoted: [(2, "'Feat_Name\\r'", "'Feat_Name'")]
+
+errors on ods/xlsx (reader misuse, expected): 16 | other errors: 2
+   REAL ERR: _KML_utf.zip/ChinaWBeta.Field.Definitions.txt new-line character seen in unquoted field - do you need to o
+   REAL ERR: _pts_gbk.zip/ChinaWBeta.Field.Definitions.txt new-line character seen in unquoted field - do you need to o

@@ -1,0 +1,27 @@
+scanned: 133 errors: 10
+ ERR DVN/ELTD3L/RAS_1900_pdb2_gis.ZIP!tib19pdb_orig.txt list index out of range
+ ERR iles/v3_time_cnty_pts_gb.ZIP/v3_ts_cnty_pts_gb.txt list index out of range
+ ERR nfo/v3_time_cnty_pts_PRC.ZIP/v3_ts_cnty_pts_gb.txt list index out of range
+ ERR nfo/v3_time_cnty_pts_USA.ZIP/v3_ts_cnty_pts_gb.txt list index out of range
+ ERR apinfo/v4_1911_twn_pts_prc.zip/v4_1911_twn_pts.txt list index out of range
+ ERR apinfo/v4_1911_twn_pts_usa.zip/v4_1911_twn_pts.txt list index out of range
+ ERR info/v4_time_cnty_pts_prc.zip/v4_time_cnty_pts.txt list index out of range
+ ERR info/v4_time_cnty_pts_usa.zip/v4_time_cnty_pts.txt list index out of range
+ ERR es/v4_1911_twn_pts_gbk.zip/v4_1911_twn_pts_gbk.txt list index out of range
+ ERR /v4_time_cnty_pts_gbk.zip/v4_time_cnty_pts_gbk.txt list index out of range
+  rc 0
+
+comma objects: quoted-match 120 | naive-artifact 3 | errors 10
+    ('rrisons.zip!MingGarrisonsSheet_29jan08.csv', 'NAIVE 11 vs quoted 11')
+    ('3L/RAS_1900_pdb2_gis.ZIP!tib19pdb_orig.txt', 'list index out of range')
+    ('time_cnty_pts_gb.ZIP/v3_ts_cnty_pts_gb.txt', 'list index out of range')
+    ('ime_cnty_pts_PRC.ZIP/v3_ts_cnty_pts_gb.txt', 'list index out of range')
+    ('ime_cnty_pts_USA.ZIP/v3_ts_cnty_pts_gb.txt', 'list index out of range')
+    ('VN/KUFJTG/beijing_sites.zip!hist_sites.csv', 'NAIVE 5 vs quoted 5')
+    ('ibet_twns_utf.zip!Tibet_twns_2009_utf8.csv', 'NAIVE 13 vs quoted 13')
+    ('4_1911_twn_pts_prc.zip/v4_1911_twn_pts.txt', 'list index out of range')
+    ('4_1911_twn_pts_usa.zip/v4_1911_twn_pts.txt', 'list index out of range')
+    ('time_cnty_pts_prc.zip/v4_time_cnty_pts.txt', 'list index out of range')
+    ('time_cnty_pts_usa.zip/v4_time_cnty_pts.txt', 'list index out of range')
+    ('11_twn_pts_gbk.zip/v4_1911_twn_pts_gbk.txt', 'list index out of range')
+    ('_cnty_pts_gbk.zip/v4_time_cnty_pts_gbk.txt', 'list index out of range')

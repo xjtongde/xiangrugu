@@ -1,0 +1,6 @@
+== ITEM 2: counts & closure ==
+total: 1640 | disp: {'handoff-block5': 620, 'organized': 160, 'pending-evidence': 14, 'handoff-block3': 846} | sum: 1640
+approved: 5 proposed: 155 fields: 3560 (expect 3560)
+independent dup column_id: 0 | dup target_name: 0
+self-reported: {"column_id_violations": 0, "columns_reviewed": 3560, "disambiguated_duplicate_source_names": 0, "headerless_objects": ["chgis-v6/China_Periods_ReignDates.zip!china_chron/china_chron.txt"], "tables_reviewed": 155, "target_column_violations": 0}
+GLOBAL whole-table recipe: 3560/3560 | bad objects:[]

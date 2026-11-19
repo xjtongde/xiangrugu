@@ -1,0 +1,6 @@
+i_10_7910/DVN/ELTD3L/RAS_1900_pdb2_gis.ZIP!tib19pdb_orig.txt found: True
+   chain parts: ['tib19pdb_orig.txt']
+zip!shapefiles/v3_time_cnty_pts_gb.ZIP/v3_ts_cnty_pts_gb.txt found: False
+outer names: ['Tib19pdb_orig.xls', 'tib19pdb.sbn', 'tib19pdb.sbx', 'tib19pdb.shp', 'tib19pdb.shx', 'tib19pdb_orig.txt', 'tib19pdb.dbf', 'README_TIBET_1900.txt']
+bytes: 90558 head: b'"Area","Perimeter","Mapt9dd_","Mapt9dd_id","Id","Name_rus","Name_rus_2","Name_ro'
+  rc 0

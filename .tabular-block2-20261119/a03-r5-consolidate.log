@@ -1,0 +1,12 @@
+== FINAL CONSOLIDATION (mtimes 17:03:14Z) ==
+total: 1640 | disp: {'handoff-block5': 620, 'organized': 160, 'pending-evidence': 14, 'handoff-block3': 846} | sum: 1640
+approved: 5 proposed: 155 fields: 3560
+independent dup column_id: 0 | dup target_name: 0
+markers b3 846 / 846 | b5 620 / 620
+approved cols 83 + 5 derived | flags verbatim: True
+xls pending: 14 /14 size: 14177280 | gaps: 14
+'PARTIAL' count: 4
+ S-ods: | ods | 4 | stdlib content.xml 解析成功：3 数据表⇒organized(提案态)；**CountryFilesFormat_2016-07-16.ods 内容证据判为字段格式说明文档（表头 Field Name/Description/Type/MaxLength；SSH 复测：**39 table-row 总数**（a03 口径）、其中 **37 含内容行**（1 表头+36 字段说明行，末 2 行全空）、**38 数据行
+disclosure quote-aware: 2 | before_after_columns: 2 | R-08: 2
+KML/ChinaW_KML_utf.zip: 159 cols == my quoted True unique-id True unique-tn True
+shapefiles/ChinaW_pts_gbk.zip: 159 cols == my quoted True unique-id True unique-tn True

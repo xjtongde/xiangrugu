@@ -1,0 +1,10 @@
+== ITEM 5 checks ==
+gap item exts: {'xls': 14}
+
+SSH CountryFilesFormat row recount:
+ Sheet1 rows: 39
+total rows all sheets: 39
+ 
+modified lines: 5 [' M docs/superpowers/evidence/2026-11-13-p01-real-prep/p01-entry/xrg_p0', ' M docs/superpowers/evidence/2026-11-13-p01-real-prep/rehearsal-eviden']
+entry sha head: 668900d43663 unchanged: True
+abs-path hits: {'/mnt/': 0, 'file://': 0, '/home/zky': 0, 'C:\\': 0}

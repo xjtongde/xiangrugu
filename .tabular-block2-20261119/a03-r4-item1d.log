@@ -1,0 +1,8 @@
+bytes: 1216908
+utf-8 FAIL 'utf-8' codec can't decode byte 0xb3 in position 1984: inval
+gb18030 strict OK len 1160384
+utf8-replace quoted cols: 159 | ord40: 'w52 Adm Dao in which this unit falls 1820 Hanzi '
+utf8 naive cols: 176 | dup region sample: ['\' 1820 "\'', "'w52 Adm Dao in which this unit falls 1820 Hanzi '"]
+  rc 0
+members 2485034362ca 1729952
+handoffs 8b95f1bcde90 547567

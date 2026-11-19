@@ -1,0 +1,17 @@
+mtimes: [('SUMMARY.md', '17:03:14'), ('build_tabular_package.py', '17:03:14'), ('evidence-gaps.json', '17:03:14'), ('handoffs.json', '17:03:14'), ('members.json', '17:03:14'), ('object-mapping.json', '17:03:14')]
+scanned: 155 errors: 18
+  rc 0
+
+ALL 155 objects scan: exact-quoted 130 | naive-divergent 6 | crlf/other 1 | errors 18
+    ('ignDates.zip!china_chron/china_chron.txt', 'OTHER dn20 q20 n20')
+    ('zip!MajorChinaPeriods_Lex_2015-12-21.ods', 'new-line character seen in unquoted field - do you need to open the fi')
+    ('n_atlas_gbk_mar01.zip!tan_GBK_names1.txt', 'NAIVE n5 vs q5')
+    ('n_atlas_gbk_mar01.zip!tan_GBK_names2.txt', 'NAIVE n5 vs q5')
+    ('isons.zip!MingGarrisonsSheet_29jan08.csv', 'NAIVE n11 vs q11')
+    ('-03-15.zip!ngia_dsg_codes_2017-03-15.ods', 'new-line character seen in unquoted field - do you need to open the fi')
+    ('feat_desig_apr02.zip!nima_feat_desig.txt', 'NAIVE n3 vs q3')
+    ('/KUFJTG/beijing_sites.zip!hist_sites.csv', 'NAIVE n5 vs q5')
+    ('_SHP.zip!Manshu_Index_Stanford_links.ods', 'new-line character seen in unquoted field - do you need to open the fi')
+    ('SHP.zip!Manshu_Index_Stanford_links.xlsx', 'new-line character seen in unquoted field - do you need to open the fi')
+    ('et_twns_utf.zip!Tibet_twns_2009_utf8.csv', 'NAIVE n13 vs q13')
+    ('utf.zip/ChinaWBeta.Field.Definitions.txt', 'new-line character seen in unquoted field - do you need to open the fi')

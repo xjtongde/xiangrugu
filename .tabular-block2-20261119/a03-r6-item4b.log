@@ -1,0 +1,12 @@
+tib19pdb_orig.txt                          | member latin-1 | om enc latin-1 bom False
+time_cnty_pts_gb.ZIP/v3_ts_cnty_pts_gb.txt | member latin-1 | om enc latin-1 bom False
+ime_cnty_pts_PRC.ZIP/v3_ts_cnty_pts_gb.txt | member latin-1 | om enc latin-1 bom False
+ime_cnty_pts_USA.ZIP/v3_ts_cnty_pts_gb.txt | member latin-1 | om enc latin-1 bom False
+L_utf.zip/ChinaWBeta.Field.Definitions.txt | member latin-1 | om enc utf-16 bom True
+4_1911_twn_pts_prc.zip/v4_1911_twn_pts.txt | member latin-1 | om enc latin-1 bom False
+4_1911_twn_pts_usa.zip/v4_1911_twn_pts.txt | member latin-1 | om enc latin-1 bom False
+time_cnty_pts_prc.zip/v4_time_cnty_pts.txt | member latin-1 | om enc latin-1 bom False
+time_cnty_pts_usa.zip/v4_time_cnty_pts.txt | member latin-1 | om enc latin-1 bom False
+s_gbk.zip/ChinaWBeta.Field.Definitions.txt | member latin-1 | om enc utf-16 bom True
+11_twn_pts_gbk.zip/v4_1911_twn_pts_gbk.txt | member latin-1 | om enc latin-1 bom False
+_cnty_pts_gbk.zip/v4_time_cnty_pts_gbk.txt | member latin-1 | om enc latin-1 bom False

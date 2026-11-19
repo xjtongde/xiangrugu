@@ -1,0 +1,14 @@
+ok
+  rc 0
+
+KML/ChinaW_KML_utf.zip: delivered 7 cols | quoted-parse-error: new-line character seen in unquoted field - do you need to o
+   delivered==naive: True | naive cols: 7
+   delivered[:5]: ["'ÿþV\\x00a\\x00r\\x00i\\x00a", "'\\x00C\\x00O\\x00L\\x00U\\x0", "'\\x00I\\x00T\\x00E\\x00M\\x0", "'\\x00W\\x00I\\x00D\\x00T\\x0", "'\\x00O\\x00U\\x00T\\x00P\\x0"]
+   disposition-side: this is txt category — check members verdict:
+
+shapefiles/ChinaW_pts_gbk.zip: delivered 7 cols | quoted-parse-error: new-line character seen in unquoted field - do you need to o
+   delivered==naive: True | naive cols: 7
+   delivered[:5]: ["'ÿþV\\x00a\\x00r\\x00i\\x00a", "'\\x00C\\x00O\\x00L\\x00U\\x0", "'\\x00I\\x00T\\x00E\\x00M\\x0", "'\\x00W\\x00I\\x00D\\x00T\\x0", "'\\x00O\\x00U\\x00T\\x00P\\x0"]
+   disposition-side: this is txt category — check members verdict:
+   member disp: organized | verdict: None
+   member disp: organized | verdict: None

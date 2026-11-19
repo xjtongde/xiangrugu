@@ -1,0 +1,16 @@
+done 0 errors
+  rc 0
+
+names-clean: 139/139 scanned | dialect encoding deltas vs my cascade: 20
+    ('_2017-03-15.zip!ngia_dsg_codes_2017-03-15.csv', 'utf-8', 'utf-8-sig')
+    ('820_cnty_pts_utf.zip/v4_1820_cnty_pts_utf.txt', 'utf-8', 'utf-8-sig')
+    ('_1820_lks_pgn_utf.zip/v4_1820_lks_pgn_utf.txt', 'utf-8', 'utf-8-sig')
+    ('820_pref_pgn_utf.zip/v4_1820_pref_pgn_utf.txt', 'utf-8', 'utf-8-sig')
+    ('820_pref_pts_utf.zip/v4_1820_pref_pts_utf.txt', 'utf-8', 'utf-8-sig')
+    ('820_prov_pgn_utf.zip/v4_1820_prov_pgn_utf.txt', 'utf-8', 'utf-8-sig')
+    ('911_cnty_pgn_utf.zip/v4_1911_cnty_pgn_utf.txt', 'utf-8', 'utf-8-sig')
+    ('911_cnty_pts_utf.zip/v4_1911_cnty_pts_utf.txt', 'utf-8', 'utf-8-sig')
+    ('911_pref_pgn_utf.zip/v4_1911_pref_pgn_utf.txt', 'utf-8', 'utf-8-sig')
+    ('911_pref_pts_utf.zip/v4_1911_pref_pts_utf.txt', 'utf-8', 'utf-8-sig')
+    ('911_prov_pgn_utf.zip/v4_1911_prov_pgn_utf.txt', 'utf-8', 'utf-8-sig')
+    ('911_prov_pts_utf.zip/v4_1911_prov_pts_utf.txt', 'utf-8', 'utf-8-sig')

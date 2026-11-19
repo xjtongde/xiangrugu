@@ -1,0 +1,7 @@
+== ITEM 3: naive-artifact scan across all objects ==
+objects w/ quote-fragment names: 1
+    ('2009_tibet_twns_utf.zip!Tibet_twns_2009_utf8.csv', 13, False)
+probe txt_headers entries w/ fragments: 0 []
+spot ngia_dsg_codes_2017-03-15.csv: fields 6 == quoted header False
+spot MajorChinaPeriods_Lex_2015-12-21.csv: fields 13 == quoted header False
+china_chron ws records: 676 | probe rows(quoted-tab): 677 consistent: True

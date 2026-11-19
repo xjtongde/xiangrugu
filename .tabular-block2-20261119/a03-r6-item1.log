@@ -1,0 +1,23 @@
+  SUMMARY.md 17:09:57Z 7859
+  build_tabular_package.py 17:09:57Z 55176
+  evidence-gaps.json 17:09:57Z 13419
+  handoffs.json 17:09:57Z 547567
+  members.json 17:09:57Z 2005077
+  object-mapping.json 17:09:57Z 2438306
+
+== ITEM 1: victim fixes name-level ==
+victim objects matched: 8
+scanned: 8 errors: 0
+  rc 0
+HBT/tan_atlas_gbk_mar01.zip!tan_GBK_names1.txt: delivered 5 | ==quoted True | \r residue 0 | my enc gb18030 bom False
+HBT/tan_atlas_gbk_mar01.zip!tan_GBK_names2.txt: delivered 5 | ==quoted True | \r residue 0 | my enc gb18030 bom False
+g_Garrisons.zip!MingGarrisonsSheet_29jan08.csv: delivered 11 | ==quoted True | \r residue 0 | my enc utf-8 bom False
+/nima_feat_desig_apr02.zip!nima_feat_desig.txt: delivered 3 | ==quoted True | \r residue 0 | my enc utf-8 bom False
+10/DVN/KUFJTG/beijing_sites.zip!hist_sites.csv: delivered 5 | ==quoted True | \r residue 0 | my enc utf-8 bom False
+09_tibet_twns_utf.zip!Tibet_twns_2009_utf8.csv: delivered 13 | ==quoted True | \r residue 0 | my enc utf-8 bom False
+W_KML_utf.zip/ChinaWBeta.Field.Definitions.txt: delivered 7 | ==quoted False | \r residue 0 | my enc utf-16-le bom True
+   diffs: [(0, "'Variable'", "'\\ufeffVariable'")]
+W_pts_gbk.zip/ChinaWBeta.Field.Definitions.txt: delivered 7 | ==quoted False | \r residue 0 | my enc utf-16-le bom True
+   diffs: [(0, "'Variable'", "'\\ufeffVariable'")]
+
+ITEM1 all-victims clean: False

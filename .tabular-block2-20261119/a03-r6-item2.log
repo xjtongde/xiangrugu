@@ -1,0 +1,16 @@
+audit scope: 139 objects
+scanned: 139 errors: 10
+  rc 0
+
+NAME-LEVEL AUDIT: clean 128 | mismatch 1 | errors 10 of 139
+    ('ReignDates.zip!china_chron/china_chron.txt', 'hdrless=True d3 [(0, "\'col_001\'", "\'秦\'"), (1, "\'col_002\'", "\'秦\'")]')
+    ('3L/RAS_1900_pdb2_gis.ZIP!tib19pdb_orig.txt', 'list index out of range')
+    ('time_cnty_pts_gb.ZIP/v3_ts_cnty_pts_gb.txt', 'list index out of range')
+    ('ime_cnty_pts_PRC.ZIP/v3_ts_cnty_pts_gb.txt', 'list index out of range')
+    ('ime_cnty_pts_USA.ZIP/v3_ts_cnty_pts_gb.txt', 'list index out of range')
+    ('4_1911_twn_pts_prc.zip/v4_1911_twn_pts.txt', 'list index out of range')
+    ('4_1911_twn_pts_usa.zip/v4_1911_twn_pts.txt', 'list index out of range')
+    ('time_cnty_pts_prc.zip/v4_time_cnty_pts.txt', 'list index out of range')
+    ('time_cnty_pts_usa.zip/v4_time_cnty_pts.txt', 'list index out of range')
+    ('11_twn_pts_gbk.zip/v4_1911_twn_pts_gbk.txt', 'list index out of range')
+    ('_cnty_pts_gbk.zip/v4_time_cnty_pts_gbk.txt', 'list index out of range')

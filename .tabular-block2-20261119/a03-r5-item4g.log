@@ -1,0 +1,20 @@
+MingGarrisonsSheet_29jan08.csv: fields 11 | dialect_resolution: null
+hist_sites.csv: fields 5 | dialect_resolution: null
+Tibet_twns_2009_utf8.csv: fields 13 | dialect_resolution: null
+scanned: 133 errors: 10
+  rc 0
+
+FINAL comma scan: quoted-match 120 | naive-artifact 3 | errors 10
+    ('rrisons.zip!MingGarrisonsSheet_29jan08.csv', 'NAIVE11 vs q11')
+    ('3L/RAS_1900_pdb2_gis.ZIP!tib19pdb_orig.txt', 'list index out of range')
+    ('time_cnty_pts_gb.ZIP/v3_ts_cnty_pts_gb.txt', 'list index out of range')
+    ('ime_cnty_pts_PRC.ZIP/v3_ts_cnty_pts_gb.txt', 'list index out of range')
+    ('ime_cnty_pts_USA.ZIP/v3_ts_cnty_pts_gb.txt', 'list index out of range')
+    ('VN/KUFJTG/beijing_sites.zip!hist_sites.csv', 'NAIVE5 vs q5')
+    ('ibet_twns_utf.zip!Tibet_twns_2009_utf8.csv', 'NAIVE13 vs q13')
+    ('4_1911_twn_pts_prc.zip/v4_1911_twn_pts.txt', 'list index out of range')
+    ('4_1911_twn_pts_usa.zip/v4_1911_twn_pts.txt', 'list index out of range')
+    ('time_cnty_pts_prc.zip/v4_time_cnty_pts.txt', 'list index out of range')
+    ('time_cnty_pts_usa.zip/v4_time_cnty_pts.txt', 'list index out of range')
+    ('11_twn_pts_gbk.zip/v4_1911_twn_pts_gbk.txt', 'list index out of range')
+    ('_cnty_pts_gbk.zip/v4_time_cnty_pts_gbk.txt', 'list index out of range')

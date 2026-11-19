@@ -1,0 +1,15 @@
+probe china_chron: data_records: 676 | line_count: 677 | header_row[:6]: ['秦', '秦', '', '', '-249', 'BCE']
+delivered ws data_records_observed: 676 | header_row: None
+original names col_001.. stable: True
+ probe mtime: carrier_compare.json 657
+ probe mtime: chgis_dict_pairs.json 472
+ probe mtime: headers.json 23841
+ probe mtime: manifest.json 144793
+ probe mtime: ods_structure.json 1257
+ probe mtime: probe.py 5663
+ probe mtime: probe_out.jsonl 550485
+ probe mtime: sheet_counts.json 2346
+ probe mtime: txt_headers.json 77995
+
+basis sha claims: 7 mismatches: 0
+allocate_columns call sites: ['maps = allocate_columns(list(originals), object_id=object_id)', '上轮 `allocate_columns([name])` 逐列单元素调用，使重复表头名共享同一 column_id。本轮改为**每表一次整表调用**（以函数实际语义为准：同 slug 基底者由 `_']

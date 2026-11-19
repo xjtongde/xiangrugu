@@ -1,0 +1,7 @@
+comma-scan objects with trailing-\r names: 3
+    ('isons.zip!MingGarrisonsSheet_29jan08.csv', 1, 'naive')
+    ('/KUFJTG/beijing_sites.zip!hist_sites.csv', 1, 'naive')
+    ('et_twns_utf.zip!Tibet_twns_2009_utf8.csv', 1, 'naive')
+
+Tibet delivered names == naive: True
+Tibet dialect bom: False | flags dup: False

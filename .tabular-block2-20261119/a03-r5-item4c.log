@@ -1,0 +1,15 @@
+delimited-comma objects: 133
+scanned: 133
+ 
+
+comma-delimiter objects checked: 133 | problems: 131
+    ('isons.zip!MingGarrisonsSheet_29jan08.csv', 'NAIVE artifact 11 vs quoted 11')
+    ('/RAS_1900_pdb2_gis.ZIP!tib19pdb_orig.txt', 'list index out of range')
+    ('_pref_pts_gb.ZIP/v3_1911_pref_pts_gb.txt', '"There is no item named \'shapefiles\' in the archive"')
+    ('ref_pts_utf.ZIP/v3_1911_pref_pts_utf.txt', '"There is no item named \'shapefiles\' in the archive"')
+    ('11_twn_pts_gb.ZIP/v3_1911_twn_pts_gb.txt', '"There is no item named \'shapefiles\' in the archive"')
+    ('_twn_pts_utf.ZIP/v3_1911_twn_pts_utf.txt', '"There is no item named \'shapefiles\' in the archive"')
+    ('me_cnty_pts_gb.ZIP/v3_ts_cnty_pts_gb.txt', '"There is no item named \'shapefiles\' in the archive"')
+    ('_cnty_pts_utf.ZIP/v3_ts_cnty_pts_utf.txt', '"There is no item named \'shapefiles\' in the archive"')
+    ('_time_pref_pgn_gb.ZIP/ts_pref_pgn_gb.txt', '"There is no item named \'shapefiles\' in the archive"')
+    ('time_pref_pgn_PRC.ZIP/ts_pref_pgn_gb.txt', '"There is no item named \'shapefiles\' in the archive"')

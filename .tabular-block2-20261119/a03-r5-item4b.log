@@ -1,0 +1,8 @@
+total table-row elements: 39 | nonempty rows: 37
+row 0 '||Field Name||||Field Description||||Field Type||||Maximum||Field Length||/Precision|||'
+row 1 '||RC||||Region Font Code.\xa0 A code that determines the equivalent characters used when generating the SORT and NO DIACRIT'
+row 2 '||UFI||||Unique Feature Identifier.\xa0 A number which uniquely identifies a feature.||||Number||||38|||'
+row 36 '||F_TERM_DT||||Feature termination date. The date a feature could no longer be verified on cartographic source or imager'
+row 37 '|'
+row 38 '|'
+  rc 0

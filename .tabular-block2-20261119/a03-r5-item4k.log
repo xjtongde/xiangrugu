@@ -1,0 +1,18 @@
+
+MingGarrisonsSheet_29jan08.csv: delivered 11 | quoted 11 | naive 11
+  delivered==quoted: False | delivered==naive: True
+  naive[:4]: ['wei_id', 'type_ch', 'orig_id', 'src']
+  quoted[:4]: ['wei_id', 'type_ch', 'orig_id', 'src']
+  delivered[:4]: ['wei_id', 'type_ch', 'orig_id', 'src']
+
+hist_sites.csv: delivered 5 | quoted 5 | naive 5
+  delivered==quoted: False | delivered==naive: True
+  naive[:4]: ['esri2', 'name_redo', 'hz_name', 'ft_id']
+  quoted[:4]: ['esri2', 'name_redo', 'hz_name', 'ft_id']
+  delivered[:4]: ['esri2', 'name_redo', 'hz_name', 'ft_id']
+
+Tibet_twns_2009_utf8.csv: delivered 13 | quoted 13 | naive 13
+  delivered==quoted: False | delivered==naive: True
+  naive[:4]: ['"THL_ID"', '"Tibetan"', '"Wylie"', '"Pinyin"']
+  quoted[:4]: ['THL_ID', 'Tibetan', 'Wylie', 'Pinyin']
+  delivered[:4]: ['"THL_ID"', '"Tibetan"', '"Wylie"', '"Pinyin"']

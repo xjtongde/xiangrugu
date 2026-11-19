@@ -1,0 +1,22 @@
+delivered originals count: 176 | first 6: ['w1 ChinaW ID', 'w2 Hanzi name', 'w3 Pinyin name', 'w4 CHGIS link', 'SYS-ID', 'w5 Type of adm. Unit']
+ord40 name repr: ' 1820 "'
+
+SSH header comparison:
+ quoted header cols: 159 | ord40: 'w52 Adm Dao in which this unit falls 1820 Hanzi ' | ord45: 'w57 Span of control, county level, 1820 '
+naive cols: 176 | ord40: ' 1820 "'
+ 
+porcelain lines: 133
+    M datamgmt/contracts/releases/2026-10-06-bootstrap/import-package/tabular/SUMMARY.md
+    M datamgmt/contracts/releases/2026-10-06-bootstrap/import-package/tabular/build_tabular_package.py
+    M datamgmt/contracts/releases/2026-10-06-bootstrap/import-package/tabular/evidence-gaps.json
+    M datamgmt/contracts/releases/2026-10-06-bootstrap/import-package/tabular/object-mapping.json
+    M docs/superpowers/evidence/2026-11-13-p01-real-prep/p01-entry/xrg_p01_entry.py
+    M docs/superpowers/evidence/2026-11-13-p01-real-prep/rehearsal-evidence.json
+   ?? .cache-home/
+   ?? .cbdb-block1-20261119/
+   ?? .fifo-probe-20261117/
+   ?? .fixture-window-20261117/
+   ?? .go-deadline-20261117/
+   ?? .go-gate-20261118/
+   ?? .go-gid-20261118/
+   ?? .go-integration-20261118/

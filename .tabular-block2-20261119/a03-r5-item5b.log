@@ -1,0 +1,15 @@
+GLOBAL recipe final bytes: 3560/3560 | bad:[]
+self-reported: {"column_id_violations": 0, "columns_reviewed": 3560, "disambiguated_duplicate_source_names": 0, "headerless_objects": ["chgis-v6/China_Periods_ReignDates.zip!china_chron/china_chron.txt"], "objects_with_quote_artifact_audit": 108
+basis claims: 10 mismatches: 0 []
+entry sha head: 668900d43663 unchanged: True
+modified lines: 9
+     M .tabular-block2-20261119/a03-cross-evidence.txt
+     M datamgmt/contracts/releases/2026-10-06-bootstrap/import-package/tabular/SUMMARY.md
+     M datamgmt/contracts/releases/2026-10-06-bootstrap/import-package/tabular/build_tabular_packag
+     M datamgmt/contracts/releases/2026-10-06-bootstrap/import-package/tabular/evidence-gaps.json
+     M datamgmt/contracts/releases/2026-10-06-bootstrap/import-package/tabular/members.json
+     M datamgmt/contracts/releases/2026-10-06-bootstrap/import-package/tabular/object-mapping.json
+     M datamgmt/docs/IMPORT-PACKAGE-TODO.md
+     M docs/superpowers/evidence/2026-11-13-p01-real-prep/p01-entry/xrg_p01_entry.py
+     M docs/superpowers/evidence/2026-11-13-p01-real-prep/rehearsal-evidence.json
+abs-path hits: {'/mnt/': 0, 'file://': 0, '/home/zky': 0, 'C:\\': 0}

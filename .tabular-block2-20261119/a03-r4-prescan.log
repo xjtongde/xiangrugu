@@ -1,0 +1,15 @@
+china_chron/china_chron.txt: whole-table targets unique True | ids unique True
+   ord 1 orig '秦' -> expected target: t__u79e6___c1
+   ord 2 orig '秦' -> expected target: t__u79e6___c2
+   ord 3 orig '' -> expected target: t___c3
+   ord 4 orig '' -> expected target: t___c4
+KML/ChinaW_KML_utf.zip/ChinaW.Master.Beta.csv: whole-table targets unique True | ids unique True
+   ord 40 orig ' 1820 "' -> expected target: t__u20_1820_u20__u22___c40
+   ord 45 orig ' 1820 "' -> expected target: t__u20_1820_u20__u22___c45
+   ord 47 orig ' prefectural level' -> expected target: t__u20_prefectural_u20_level__c47
+   ord 48 orig ' 1820 "' -> expected target: t__u20_1820_u20__u22___c48
+les/ChinaW_pts_gbk.zip/ChinaW.Master.Beta.csv: whole-table targets unique True | ids unique True
+   ord 40 orig ' 1820 "' -> expected target: t__u20_1820_u20__u22___c40
+   ord 45 orig ' 1820 "' -> expected target: t__u20_1820_u20__u22___c45
+   ord 47 orig ' prefectural level' -> expected target: t__u20_prefectural_u20_level__c47
+   ord 48 orig ' 1820 "' -> expected target: t__u20_1820_u20__u22___c48

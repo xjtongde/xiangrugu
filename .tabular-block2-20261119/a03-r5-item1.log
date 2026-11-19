@@ -1,0 +1,24 @@
+  SUMMARY.md 17:00:19Z 7105
+  build_tabular_package.py 17:00:19Z 50120
+  evidence-gaps.json 17:00:19Z 13419
+  handoffs.json 17:00:19Z 547567
+  members.json 17:00:19Z 1795827
+  object-mapping.json 17:00:19Z 2357838
+
+== ITEM 1: ChinaW quoted re-export ==
+
+KML/ChinaW_KML_utf.zip: delivered fields 159 | my quoted cols 159 rows 2403
+  originals == quoted header list: True
+  col_id unique: True | target unique: True | ordinals 1..159: True
+  whole-table recipe recompute: 159 / 159
+  flags: {"dialect_resolution": {"basis": "consistent with approved text reading semantics (quotechar DOUBLE_QUOTE, doublequote=true) and R-08 faithfulness; proposal state reversible, pending 茶香 discussion confirmation", "before_after_columns": [176, 159], "evidence_sh
+  dialect: {"bom": null, "delimiter": ",", "encoding_strict_ok": "gb18030"}
+  ws: [{"columns": 159, "data_records_observed": 2403, "worksheet": null}]
+
+shapefiles/ChinaW_pts_gbk.zip: delivered fields 159 | my quoted cols 159 rows 2403
+  originals == quoted header list: True
+  col_id unique: True | target unique: True | ordinals 1..159: True
+  whole-table recipe recompute: 159 / 159
+  flags: {"dialect_resolution": {"basis": "consistent with approved text reading semantics (quotechar DOUBLE_QUOTE, doublequote=true) and R-08 faithfulness; proposal state reversible, pending 茶香 discussion confirmation", "before_after_columns": [176, 159], "evidence_sh
+  dialect: {"bom": null, "delimiter": ",", "encoding_strict_ok": "gb18030"}
+  ws: [{"columns": 159, "data_records_observed": 2403, "worksheet": null}]

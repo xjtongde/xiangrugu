@@ -1,0 +1,16 @@
+scanned: 133 errors: 128
+  rc 0
+
+comma objects: quoted-match 2 | naive-match(artifact) 3 | errors 128
+    ('rrisons.zip!MingGarrisonsSheet_29jan08.csv', 'NAIVE 11 vs quoted 11')
+    ('3L/RAS_1900_pdb2_gis.ZIP!tib19pdb_orig.txt', 'list index out of range')
+    ('11_pref_pts_gb.ZIP/v3_1911_pref_pts_gb.txt', '"There is no item named \'shapefiles\' in the archive"')
+    ('_pref_pts_utf.ZIP/v3_1911_pref_pts_utf.txt', '"There is no item named \'shapefiles\' in the archive"')
+    ('1911_twn_pts_gb.ZIP/v3_1911_twn_pts_gb.txt', '"There is no item named \'shapefiles\' in the archive"')
+    ('11_twn_pts_utf.ZIP/v3_1911_twn_pts_utf.txt', '"There is no item named \'shapefiles\' in the archive"')
+    ('time_cnty_pts_gb.ZIP/v3_ts_cnty_pts_gb.txt', '"There is no item named \'shapefiles\' in the archive"')
+    ('me_cnty_pts_utf.ZIP/v3_ts_cnty_pts_utf.txt', '"There is no item named \'shapefiles\' in the archive"')
+    ('v3_time_pref_pgn_gb.ZIP/ts_pref_pgn_gb.txt', '"There is no item named \'shapefiles\' in the archive"')
+    ('3_time_pref_pgn_PRC.ZIP/ts_pref_pgn_gb.txt', '"There is no item named \'shapefiles\' in the archive"')
+    ('_time_pref_pgn_utf.ZIP/ts_pref_pgn_utf.txt', '"There is no item named \'shapefiles\' in the archive"')
+    ('_time_pref_pts_gb.ZIP/v3_ts_pref_pt_gb.txt', '"There is no item named \'shapefiles\' in the archive"')

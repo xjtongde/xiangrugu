@@ -1,0 +1,19 @@
+== baseline state (pre-fix?) ==
+  SUMMARY.md 16:17:42Z 5347
+  build_tabular_package.py 16:17:41Z 41440
+  evidence-gaps.json 16:17:42Z 5322
+  handoffs.json 16:17:42Z 547567
+  members.json 16:17:42Z 1729952
+  object-mapping.json 16:17:42Z 2339059
+objects with dup column_id: 3 [('ds_ReignDates.zip!china_chron/china_chron.txt', 7), ('KML/ChinaW_KML_utf.zip/ChinaW.Master.Beta.csv', 12), ('les/ChinaW_pts_gbk.zip/ChinaW.Master.Beta.csv', 12)]
+objects with dup target_name: 3 [('ds_ReignDates.zip!china_chron/china_chron.txt', 7), ('KML/ChinaW_KML_utf.zip/ChinaW.Master.Beta.csv', 12), ('les/ChinaW_pts_gbk.zip/ChinaW.Master.Beta.csv', 12)]
+
+china_chron: fields 20 | ws: [{"columns": 20, "data_records_observed": 676, "worksheet": null}]
+ flags: {"duplicate_header_names": true, "ods_database_ranges": []}
+ dialect: {"bom": false, "delimiter": "\t", "encoding_strict_ok": "utf-8"}
+ first field names: ['秦', '秦', '', '', '-249', 'BCE', '-247', 'BCE']
+ first targets: ['t__u79e6_', 't__u79e6_', 't_', 't_', 't__u2d_249', 'bce', 't__u2d_247', 'bce']
+
+ChinaW: ve.zip!KML/ChinaW_KML_utf.zip/ChinaW.Master.Beta.csv | fields: 176 | dup flag: True | targets unique: False
+
+ChinaW: shapefiles/ChinaW_pts_gbk.zip/ChinaW.Master.Beta.csv | fields: 176 | dup flag: True | targets unique: False

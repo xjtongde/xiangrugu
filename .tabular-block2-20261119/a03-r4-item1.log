@@ -1,0 +1,23 @@
+  SUMMARY.md 16:54:01Z 5347
+  build_tabular_package.py 16:54:00Z 44158
+  evidence-gaps.json 16:54:01Z 5322
+  handoffs.json 16:54:01Z 547567
+  members.json 16:54:01Z 1729952
+  object-mapping.json 16:54:01Z 2350971
+
+== ITEM 1: three fixes ==
+ALL 160 objects: dup column_id: 0 [] | dup target_name: 0 []
+RECIPE china_chron/china_chron.txt: col_id 20/20 | target 20/20
+RECIPE KML/ChinaW_KML_utf.zip/ChinaW.Master.Beta.csv: col_id 176/176 | target 176/176
+RECIPE efiles/ChinaW_pts_gbk.zip/ChinaW.Master.Beta.csv: col_id 176/176 | target 176/176
+RECIPE ngia_dsg_codes_2017-03-15.csv: col_id 6/6 | target 6/6
+RECIPE MajorChinaPeriods_Lex_2015-12-21.ods: col_id 13/13 | target 13/13
+
+china_chron ws: [{"columns": 20, "data_records_observed": 676, "header_basis": "first physical line is data; stable ordinal names col_001.. proposed via whole-table allocate_columns (no project headerless rule exists
+dialect: {"bom": false, "delimiter": "\t", "encoding_strict_ok": "utf-8"}
+flags: {"duplicate_handling": "n/a", "duplicate_source_header_names": false, "headerless_first_line_is_data": true, "ods_database_ranges": []}
+fields count: 20 | first targets: ['col_u5f_001', 'col_u5f_002', 'col_u5f_003', 'col_u5f_004', 'col_u5f_005', 'col_u5f_006']
+first originals: ["'col_001'", "'col_002'", "'col_003'", "'col_004'", "'col_005'", "'col_006'"]
+Traceback (most recent call last):
+  File "<stdin>", line 42, in <module>
+KeyError: 'duplicate_header_names'

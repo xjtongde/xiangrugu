@@ -211,3 +211,68 @@ ITEM 6 SUMMARY 口径修复                            PASS（除 146 笔误）
 ITEM 2/FAIL+ITEM 3 FAIL：本轮承诺的工作簿逐 sheet 字段核实与新增映射（PROPOSED_NOT_AUTHORIZED）
 在 15:59:47Z 落盘版中完全缺席——首个实质不一致=该交付缺口本身，非数据造假。
 建议：请 a02 澄清 180 件核实是否仍在进行（预计 16:16Z 前另版落盘），届时我做第三段追加复核。
+
+====================================================================
+ROUND 3 —— a02 内容版（终态 mtime 实测 16:16:24Z）三段复核
+记录时刻：2026-11-19T16:23:54Z。基线 HEAD=0e9cc95；入口 sha head 668900d43663 实测未变。
+SSH 32 `-F /home/zky/.ssh/config 32` 独立复算成功（宿主 stdlib，零安装）。日志：a03-r3-*.log。
+按 lead 更正基准（以终态文件为准）核对。
+
+① 终态四路闭合+各类计数                              PASS
+- total_candidates=1640==len(members)；dispositions organized 160 + block3 846 + block5 620 + pending 14 = 1640 ✓。
+- organized=批准 5（tab-text，无 pending_review 标记恰为 5 件权威 selector chain=[]）∪ 提案 155——
+  我按成员恒等式独立验证 organized idset == approved∪proposed True。
+- ods 4 件：3 organized + 1 handoff-block5（CountryFilesFormat，lead 认可口径）✓。
+- 工作表 sheet 名对照我的 SSH 基线：ods×4 中 3 件交付 sheets==基线 True（MajorChina ['Sheet1']、
+  ngia_dsg_codes ['ngia_dsg_codes_2017-03-15']、Manshu.ods 交付 Sheet1/cols10/data60；
+  观测注：__Anonymous_Sheet_DB__0 在 fields 侧覆盖=True）；xlsx×3==基线 True
+  （含 v6_data_dictionary.xlsx 内 sheet 名='v4_data_dictionary' 实测如此）。
+- NGIA csv 方言独立复算：bom=True、utf-8 strict ok、delimiter ','、header CODE/NAME/TEXT/…、rows 631
+  ==交付 dialect_observations {bom:true,delimiter:",",encoding_strict_ok:"utf-8"} ✓。
+- china_chron.txt 首行即数据 flag：我 SSH quoted-parse 首行=['秦','秦','','','-249','BCE',…]、
+  duplicate_header_names=True、records 676==交付 20 fields/dup flag True ✓。
+
+② 新映射计数+naming 配方+零升级                      PASS（一处方法披露）
+- proposed_objects=155、fields 合计=3594（lead 消息 156/3598 为滞后数，终态 155/3594，差异如实注记）；
+  status 全部 ('PROPOSED_NOT_AUTHORIZED', schema/table_names/target_mapping/ready=False, BLOCKED) 155/155——零升级 ✓。
+- ordinal 连续 1..n：155 对象 0 断裂；candidate_table_name 唯一 155/155、与批准 5 名 0 重叠、长度≤63 全过。
+- naming.py 配方独立复算（import 真库函数）：3/3 对象 candidate_table_name slug+limited 复算相等；
+  quote_identifier 一致性抽核通过；column_id 全局复算 **3594/3594 匹配**——但须披露：逐字段单元素
+  allocate_columns([name]) 调用序（build L437/L497 `_col_entry(sid,h,i+1)` 每次新建 nmap ⇒ identity 用 ordinal=1）
+  才是交付值来源；若按整表一次 allocate_columns 则 dup 名单元格会带 __c{ordinal} 后缀而交付未带
+  （china_chron ord2 '秦' 的 column_id 即 ord1 同值——dup 组共享 id，objects with duplicate column_ids=3，
+  均为 dup-header 对象且已如实 flag）。观测：该配方使重复表头列共享 column_id，属实现选择非伪造；
+  target_name 亦未加 __c 后缀（quoted 一致 9/20 for obj0 即此因）。建议 lead 裁定是否要求列级唯一 id。
+- Manshu 双载体比对证据 carrier_compare.json：ods_rows=xlsx_rows=61、ordered_equal=False、
+  keyset_equal_on_first5cols=True、row_order_differs=True、双向 ordered_sha 8d7bda62…/52d5ce26… 可核。
+
+③ 改判 12 件+block5 619/620+pending 14               PASS
+- txt 终态：organized 132（表格候选，全部经 txt_headers.json full-key join 132/132 有 delimiter/encoding/header_row/data_records 内容证据）
+  + block5 619（617 non-tabular + 2 irregular Notes 升级，verdicts 实测）；txt pending=0
+  ⇒ 原 142 pending 去向 = 132 organized + 10 block5（其中 2 为 irregular Notes，8 为名称模式获内容复核）——
+  SUMMARY「10 件由 pending 升级为内容证据」与机器件一致（观测注：619 中含旧 609 的名称模式件，其
+  content_verdict 字段亦已补挂，619/619 有 verdict）。
+- block5=620=txt 619+ods 1 ✓；pending-evidence=14==xls 14，gaps items=14、missing 文案统一
+  「BIFF reader (xlrd absent; no soffice/ssconvert/catdoc/xls2csv/in2csv/xlsx2csv anywhere)」逐件在位 ✓。
+
+④ pending_review 标记                                PASS
+- 我独立复算：handoffs block3 846/846、block5 620/620 均 pending_review=true（含 CountryFilesFormat，
+  a02 已按 lead 指令补标）；members 侧 789 件带标记（organized 155+block5 620+pending 14），
+  批准 5 件无标记（正确：不属"待复核提案"）。
+
+⑤ SUMMARY 同步+对账证据                              PASS
+- txt 行已改为内容级口径（132⇒organized 提案态；609→619 分解 10 升级+607 复核+2 Notes），
+  不再出现 146 笔误；1640/160/620/14/155 各行与机器件一致；「14 全部读不了」与 gaps 一致。
+- .tabular-probe-20261119/（仓库根，git 跟踪）9 文件实存；basis_files_sha256 声明 7 键 vs 实际文件
+  sha mismatches=0；probe_out.jsonl 789 行 sha_match true 789/789（expect_sha==inventory inner 对账）；
+  manifest.json 789 条 outer-zip sha 直接比对仅 213/789——观测注：manifest 存的是 INNER 成员字节 sha，
+  与 OUTER zip 行本不相等，非矛盾（probe_out 的 expect/actual 对账才是有效路径，789/789 True）。
+
+⑥ 非回归                                             PASS
+- 批准 5 件：83 源列+5 派生、flags_verbatim==carrier True、source_object_id/selector 原样。
+- git porcelain M=9：tabular 目录 6 文件（本轮更新）+ IMPORT-PACKAGE-TODO.md + entry/rehearsal（P01 时代既有）；
+  相对 HEAD 0e9cc95 无 tabular/TODO/probe 之外的旧文件改动；entry worktree sha 仍 668900d4…。
+
+结论：ROUND 3 六项全部 PASS，无实质不一致。两处如实注记：(a) lead 消息 156/3598 与终态 155/3594 之差
+系 a02 报告滞后、文件为准；(b) column_id 配方在重复表头处产生跨列共享 id（3 对象、flag 已披露），
+是否合规留 lead/茶香裁定。ROUND 2 缺口（sheet 清单/新增映射/PROPOSED 态）在本版全部补齐并核验。

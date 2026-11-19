@@ -1,0 +1,11 @@
+== ITEM 1 coverage ==
+my independent count: 1636 | members total_candidates: 1635 | len(members): 1635
+set equality: False | missing from members: 1 | extra in members: 0
+MISSING MEMBER RAW: ('harvard-full/doi_10_7910/DVN/ELTD3L/RAS_1900_pdb2_README.TXT', (), ())
+ inventory entry: {"kind": "file", "relative_path": "harvard-full/doi_10_7910/DVN/ELTD3L/RAS_1900_pdb2_README.TXT", "size": 574, "sha256": "8a7a659ed5b7ba967c11260e333721bbf9e97ef31f066f6c01a9beb0c326774d", "signature": "unknown"}
+ leaf name: harvard-full/doi_10_7910/DVN/ELTD3L/RAS_1900_pdb2_README.TXT | endswith .TXT upper: True
+members entries with same relative_path: 0
+mine by ext: {'.txt': 751, '.xls': 14, '.csv': 7, '.dbf': 704, '.tab': 147, '.xlsx': 13}
+their class_counts: {'csv': 7, 'dbf': 704, 'tab-mapinfo-spatial-definition': 142, 'tab-text': 5, 'txt': 750, 'xls': 14, 'xlsx': 13}
+selection_rule: extension of archive_chain[-1] (nested names live in the chain tail; relative_path is the outer zip), case-sensitive .TAB vs .tab split per lead census
+SPOT_AUDIT_N:24 sha/size misses: 0 []

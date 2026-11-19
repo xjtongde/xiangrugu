@@ -1,0 +1,10 @@
+gap resolved: 180 miss: 0 | == pending idset: True sym: 0
+gap items missing triple keys: 0
+cats: {'txt': 751, 'xls': 14, 'csv': 7, 'ods': 4, 'dbf': 704, 'tab-mapinfo-spatial-definition': 142, 'xlsx': 13, 'tab-text': 5}
+disp: {'handoff-block5': 609, 'pending-evidence': 180, 'handoff-block3': 846, 'organized': 5}
+block3: 846 block5: 609
+b3==members(h3): True
+b5==members(h5): True
+b3 role field present: True | b5 pattern field present: True
+nonreg cols 83 derived 5 flags: True
+ODS sha/size vs inventory rows(outer zip) n/a; vs own source_identity==registered earlier True. sheet-audit presence in members: 0

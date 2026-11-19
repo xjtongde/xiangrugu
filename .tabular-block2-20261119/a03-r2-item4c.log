@@ -1,0 +1,18 @@
+gap items: 180 | resolved uniquely: 29 | unresolved: 151 | ambiguous: 0
+   MISS: chgis-v6/China_Periods_ReignDates.zip!china_chron/china_chron.txt
+   MISS: chgis-v6/China_Periods_ReignDates.zip!china_chron/china_chron.xls
+   MISS: chgis-v6/China_Periods_ReignDates.zip!china_chron/china_chron_fields.xls
+   MISS: harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip!shapefiles/chgis_tmpl_pts_utf.ZIP/CHGIS_TMPL_28apr.xls
+   MISS: harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip!shapefiles/v2_1948_rock_maps.ZIP/img_res.txt
+   MISS: harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip!shapefiles/v3_1911_pref_pts_gb.ZIP/v3_1911_pref_pts_gb
+resolved == pending idset: False | sym: 151
+pending-only: 151
+    i_10_7910/DVN/PDGOZ0/V4_Data_Archive.zip ('metadata/v4_data_dictionary.xlsx',)
+    i_10_7910/DVN/PDGOZ0/V4_Data_Archive.zip mapinfo/v4_1911_prov_pts_prc.zip', 'v4_1911_prov_pts.txt')
+    i_10_7910/DVN/PDGOZ0/V4_Data_Archive.zip files/v4_time_reg_pgn_utf.zip', 'v4_time_reg_pgn_utf.txt')
+    chgis-v6/China_Periods_ReignDates.zip ('china_chron/china_chron.xls',)
+    full/doi_10_7910/DVN/ZZKZ6U/CHGIS_V2.zip ('shapefiles/v2_1948_rock_maps.ZIP', 'img_res.txt')
+    i_10_7910/DVN/HIMIVE/V3_Data_Archive.zip apefiles/v3_time_pref_pgn_utf.ZIP', 'ts_pref_pgn_utf.txt')
+
+SUMMARY txt-line check: machine txt 609+142=751; SUMMARY:
+    | txt | 751 | 含大写 .TXT（大小写不敏感纳入，修复 a03 ITEM 1）：说明件⇒块5（名称模式判定）609 件；其余 146 件待内容抽样判定 |

@@ -1,0 +1,20 @@
+== ITEM1 RECHECK FINAL ==
+in members: 1 | in block5: 1 | in block3: 0
+ members: sha==inventory True (8a7a659ed5b7) | size==inventory True (574) | chain [] | ordinals []
+   category:txt disposition:handoff-block5 ledger:BLOCKED rule_ids:['m002721']
+ block5: sha==inventory True (8a7a659ed5b7) | size==inventory True (574) | chain [] | ordinals []
+   category:None disposition:None ledger:None rule_ids:None
+SUMMARY relevant lines: ["## 计数（candidates=1636）", "| txt | 751 | 含大写 .TXT（大小写不敏感纳入，修复 a03 ITEM 1）：说明件⇒块5（名称模式判定）609 件；其余 142 件待内容抽样判定 |", "处置分布：organized=5、handoff-block3=846、handoff-block5=609、pending-evidence=176（合计 1636=candidates ✓）。"]
+total_candidates: 1636 | len(members): 1636
+categories: {'txt': 751, 'xls': 14, 'csv': 7, 'dbf': 704, 'tab-mapinfo-spatial-definition': 142, 'xlsx': 13, 'tab-text': 5}
+dispositions: {'handoff-block5': 609, 'pending-evidence': 176, 'handoff-block3': 846, 'organized': 5}
+block3 == members(h3): True | block5 == members(h5): True | b3∩b5: 0
+my independent candidate count: 1636 | members idset == candidates idset: True | sym: 0
+organized-set == five-objects-set: True | sym: 0
+four-way union == candidates: True | sym: 0
+no_double_count_check: {"union_equals_candidates": true}
+gap_object_count: 176 | items: 176
+nonreg flags verbatim==carrier: True
+nonreg source cols: 83 ==83: True | derived: 5 ==5: True
+nonreg block3 == members(dbf+tabmi): True | sym: 0
+determinism static evidence: sorted() present: True | ext lower(): True

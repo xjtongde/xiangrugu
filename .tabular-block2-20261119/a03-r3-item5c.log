@@ -1,0 +1,11 @@
+column_id recompute ALL fields first-3-objects: 3/46
+ ord 1 orig '秦' | recomputed==delivered: True
+ ord 2 orig '秦' | recomputed==delivered: False
+ ord 3 orig '' | recomputed==delivered: False
+ ord 4 orig '' | recomputed==delivered: False
+
+field-count != sum(ws.columns): 0 of 155
+members pending_review True total: 789 | by disposition: {'organized': 155, 'handoff-block3': 0, 'handoff-block5': 620, 'pending-evidence': 14}
+Traceback (most recent call last):
+  File "<stdin>", line 28, in <module>
+TypeError: unhashable type: 'dict'

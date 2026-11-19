@@ -1,0 +1,6 @@
+gap items: 180 | resolved uniquely (joined-chain): 180 | unresolved: 0 | ambiguous: 0
+resolved == pending idset: True | sym: 0
+pending-only: 0
+
+SUMMARY txt-line check: machine txt 609+142=751; SUMMARY:
+    | txt | 751 | 含大写 .TXT（大小写不敏感纳入，修复 a03 ITEM 1）：说明件⇒块5（名称模式判定）609 件；其余 146 件待内容抽样判定 |

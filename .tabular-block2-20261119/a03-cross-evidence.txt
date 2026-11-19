@@ -1,0 +1,213 @@
+a03 交叉验证 —— CBDB 第 2/6 块普通表格（members/object-mapping/handoffs/evidence-gaps/SUMMARY）
+记录时刻：2026-11-19T15:47:10Z（date -u 实测；启动快照 15:35:03Z；基线 HEAD=a33e46e 实测一致）
+被验产物：datamgmt/contracts/releases/2026-10-06-bootstrap/import-package/tabular/
+（members.json 1,019,946B / object-mapping.json 51,752B / handoffs.json 490,723B /
+evidence-gaps.json 59,728B / SUMMARY.md 2,923B / build_tabular_package.py 22,275B；
+members.json 落地实测 15:35:2xZ——早于 lead 预估 15:52Z。）
+
+【明确披露】独立只读核对：全部复算由我的 python 直读仓库文件完成，不执行 a02 脚本；
+未写库/未部署/未 SSH 32（本轮判定链在 inventory+批准件内闭环；worksheet 清单类缺源字节者标 pending）。
+日志：a03-inventory-filter.log / a03-authoritative-carrier.log / a03-carrier-deep.log /
+a03-item1-members.log / a03-item2-full.log / a03-item345.log / a03-item45.log /
+a03-item5-final.log / a03-item67.log。
+
+====================================================================
+ITEM 1 覆盖                                     PASS（一处计数差异见"首个不一致"）
+- 我独立过滤（kind=file ∧ splitext(archive_chain[-1]∨relative_path).lower ∈
+  {.tab,.tsv,.csv,.xls,.xlsx,.dbf,.txt}）⇒ **1636**；分扩展名 txt 751 / dbf 704 /
+  TAB|tab 147 / xls 14 / xlsx 13 / csv 7、tsv 0——与 lead 侦察六数逐项相等。
+- members.json total_candidates=1635、len(members)=1635；category 分布
+  {txt 750, dbf 704, tab-mapinfo-spatial-definition 142, tab-text 5, xls 14, xlsx 13, csv 7}。
+- **首个不一致（计数级）**：差 1 件 = `harvard-full/doi_10_7910/DVN/ELTD3L/RAS_1900_pdb2_README.TXT`
+  （inventory kind=file, size=574, sha=8a7a659ed5b7ba96…, archive_chain=[]）。
+  观测：该件在我过滤集内、不在 members.json 任何条目（同 relative_path 命中 0）、也不在
+  handoff 两块的并集（no_double_count_check.union_equals_candidates=True 自洽于其 1635 口径）。
+  ⇒ members.json 相对 inventory 存在**恰好 1 件静默遗漏**，且其选择规则
+  「extension of archive_chain[-1]…case-sensitive .TAB vs .tab split」文本未解释该排除。
+  推测（标注）：a02 生成器可能按 README 名称模式先行剔除文档件、后又把 txt 文档件整体移交
+  block5 时漏计该大写 .TXT；需 a02 出示 build 逻辑或补录。
+- 嵌套链/ordinals/sha/size 恒等抽核 **N=24（每扩展名 4 件）**：sha/size misses=0；
+  重复身份 0；identity=(relative_path, chain, ordinals) 全键匹配。
+
+====================================================================
+ITEM 2 五件既有决定准确合并                                    PASS
+- 权威载体确证 = REL/text-schema-approved.draft.yaml（.yaml 扩展名 JSON 内容，实测可 json.load）：
+  object_count=5、source_column_count=83、schema_approved=true、source_column_mapping/
+  nullable/types approved=true、derived_rownum_mapping_approved=true；
+  table_names_approved=false、target_mapping_approved=false、ready_for_import=false、
+  global_name_allocation_complete=false、逐对象 disposition_retained=BLOCKED——flags 原样保留。
+- 五对象 rule_ids=m008002/m008003/m008004/m004812/m006642 与 lead 坐标逐一相符；
+  列数 54+5+11+7+6=**83**（独立求和 True）；ACADEMY 列数 54 以件内实值为准（ITR 双源亦 54）。
+- 行数 2957/40199/1033/29/3389 与 raw_expected sha/size==inventory 5/5 True；
+  schema harv×4 + chgis×1 ✔；候选表名==proposed_target.table 5/5、block2 内候选重名 0。
+- object-mapping 合并逐列对：**83 源字段+5 派生 __src_rownum（bigint，origin=one-based data
+  record order excluding header）全键比较 mismatches=0**（ordinal/original_name/target_name/
+  quoted_target_name/target_type/nullable/column_id/codec/empty_strings_observed/
+  row_order=preserve；type/nullable/column_mapping_approved 载侧均 True）。
+- 读取规则逐条对：read_method.rules 12 键（delimiter TAB/quotechar DOUBLE_QUOTE/doublequote/
+  record_separator LF/unquoted_interior_quote literal/values strings/**empty_string
+  preserve_not_null**/whitespace/duplicate_records/source_order preserve/**type_inference false**/
+  automatic_fallback false）与 text-reading-decisions.draft.yaml + additional- 两 yaml 的
+  interpretation 段逐字一致（两 yaml verbatim 已留档）；值合同=text-value-contract-approved.
+  draft.json（value_contract_approved=true、header_excluded=true、ready_for_import=false）。
+- 2 附加 .tab（m004812 7 列/m006642 6 列）**含于** 83（54+5+11+7+6），非另加——证据即上式。
+- confirmation_basis 4 件 distinct paths 存在+sha 全对（problems=[]）。
+
+====================================================================
+ITEM 3 工作表抽核                                             PASS（pending 合格形态）
+- xls/xlsx 27 件全部带 worksheet_inventory GAP 声明：「requires authorized read of workbook
+  sheet lists on host 32 (not performed this round)」——本轮无源字节读取授权下如实 pending ✔。
+- 5 个 tsv 对象 ordinal 连续 1..n：54/5/11/7/6 全 True；ITR 三件 columns 数与 records
+  （2958/40200/1034 incl header）与 carrier source_record_count（-1 header）互证一致。
+
+====================================================================
+ITEM 4 目标名称                                               PASS
+- 规则出处核对：object_name_convention 逐对象引文（"single unnamed TSV table identified by
+  exact outer file basename"）+ proposed_target{schema,table,expected_count,expected_sha256}；
+  om.candidate_table_name==carrier.proposed_target.table 5/5；target_schema==approved_schema 5/5。
+- 未做全量唯一断言（按任务书留第 6 块）；块内重复：candidates 去重后 5/5 无重；
+  naming_scope 子批语义（TABLE_NAMES_APPROVED=false 全文出现）保持。
+
+====================================================================
+ITEM 5 空间 DBF 归属 + txt 分类                                PASS（含一处我自身误判澄清）
+- handoffs.block3_spatial objects=**846** == members(dbf 704 + tab-mapinfo 142) identity 集合
+  **相等 True（sym=0）**；ext 分布 {dbf 704, tab 142}；sha/size==members.json misses=0（846 全查）。
+- 与 approved-spatial-binding-context.json 一致性：bound_objects=2、component 家族
+  （cpg/dbf/prj/qpj/shp/shx ×2）inner 名在 block3 命中 2/2；b3.relation_evidence 直接引用该件；
+  diagnostic_reading_overlap 引 approved-dbf-{character,numeric}-reading 两件（paths 各 2、
+  均在 block3 ids）⇒ 独立 DBF 归块2 口径为「组件级绑定+诊断读取不重复计数」，五对象在
+  block3/block5 出现次数=**0**（不混）。
+- 观测注①：block3 多数成员是 shapefile-component 角色（role 字段），其 inner 名并非全部来自
+  binding-context bound_objects（后者仅 2 族 12 件）——与 b3.composition「704+142」口径一致，
+  属"扩展名+MapInfo 定义"批量归属而非逐件绑定证据；如实报。
+- 观测注②（我的方法错误披露）：首轮我用「byrp[outer].sha == item.sha」抽核得大量假失配——
+  错在外层 zip 的 inventory sha 本就不等于嵌套成员条目 sha；改用 identity 全键对齐后 0 miss。
+  过程输出留档 a03-item5-final.log。
+- .txt 分类抽核：block5 objects=**608**，ext 全 .txt；README-named 606、
+  ChinaWBeta.w305.Notes.txt ×2（notes 家族）⇒ 非-(README/notes/metadata)-named=**0**；
+  classification_basis=「documentary NAME pattern only (content unread this round); every item
+  still carries its BLOCKED ledger disposition until block-5 review confirms」——如实。
+  表格型 txt 归块2 者=5 个 tab-text 载体对象（tab 本质 TSV），txt 中无表格件主张。
+
+====================================================================
+ITEM 6 evidence-gaps                                          PASS
+- gap_object_count=176==len(items)；items 键={object, missing, suggested_next} 三元组齐备率
+  176/176（suggestion 键名=suggested_next，首轮我按 'suggestion' 找键得假 0——已纠，留档）。
+- grouped_summary {csv 7, txt 142, xls 14, xlsx 13}=176 ✔ 与 disposition_counts
+  pending-evidence=176 恒等；organized=5（五对象已整理）、handoff-block3=846、
+  handoff-block5=608；ledger_disposition 全体 BLOCKED（无升级）。
+  5+846+608+176=1635==members 总数（闭合；差额即 ITEM 1 那 1 件）。
+
+====================================================================
+ITEM 7 稳定性/引用/计数                                       PASS
+- git status --porcelain release 目录：仅 1 行=新目录 import-package/tabular/（未跟踪）；
+  旧文件 0 修改。六产物 '/mnt/'、'file://'、'/home/zky'、'C:\' 0 命中——纯仓库相对引用。
+- SUMMARY 关键计数 {1635,846,608,750,704,142,83,5} 全出现且与机器件吻合；
+  751/1636 未出现（与其 1635 口径自洽，但正是 ITEM 1 差异的另一面）。
+- 入口 sha256 head=668900d43663 未变；git M=2；AST 未涉改。
+
+结论：ITEM 2/3/4/6/7 PASS；ITEM 1 FAIL（1 件遗漏）；ITEM 5 PASS（两处观测注记如实报）。
+首个不一致=RAS_1900_pdb2_README.TXT 未入 members.json（1636 vs 1635），建议 a02 出示
+build_tabular_package.py 过滤逻辑或补录该件后我复核。
+
+====================================================================
+ITEM1-RECHECK —— a02 修复后复核（lead team-message-f511ebe6，15:47Z 指令）
+记录时刻：2026-11-19T15:52:25Z（date -u 实测）。产物重生成实测 mtime 23:48:50 本地 = 15:48:50Z。
+日志：a03-item1-recheck.log。全程只读；未执行 build 脚本。
+
+① 该件在 members+handoffs.block5 且恒等：**PASS**
+   RAS_1900_pdb2_README.TXT in members:1 | block5:1 | block3:0；
+   members/block5 双侧 sha==inventory True(8a7a659ed5b7) size==574 True chain=[] ordinals=[]；
+   category=txt, disposition=handoff-block5, ledger_disposition=BLOCKED, rule_ids=['m002721']。
+
+② 计数与闭合：**PASS**
+   total_candidates=1636、len(members)=1636；txt=751；block5=609、block3=846、pending=176、organized=5；
+   四路闭合 5+846+609+176=1636=candidates ✓；
+   我独立过滤候选 idset == members idset（sym=0）；
+   organized-set == text-schema-approved 五对象集（sym=0）；
+   four-way union == candidates（sym=0）；b3∩b5=0；
+   no_double_count_check.union_equals_candidates=true 与我复算一致。
+
+③ SUMMARY 同步：**PASS**
+   「## 计数（candidates=1636）」；「| txt | 751 | 含大写 .TXT（大小写不敏感纳入，修复 a03 ITEM 1）：
+   说明件⇒块5（名称模式判定）609 件；其余 142 件待内容抽样判定 |」；
+   处置分布行 5/846/609/176 合计 1636——三处与机器件逐项吻合。
+   （观测注：SUMMARY 正文以名称模式描述该件归块5，未点名 RAS_1900 文件名——判定依据充分。）
+
+④ 非回归抽核：**PASS**
+   flags_verbatim==carrier 逐键 True；source cols 83==83、derived __src_rownum 5==5；
+   block3 idset == members(dbf+tab-mapinfo) idset（sym=0）；evidence-gaps 176 items 不变。
+
+⑤ 确定性重跑：**部分核验 PASS（受限如实报）**
+   本轮约束为只读、不得执行 a02 脚本 ⇒ 无法双跑比对字节。静态证据：build_tabular_package.py
+   含 sorted() 全序化 + 扩展名 lower() 大小写不敏感逻辑（L62/L107/L334 实测 grep）；
+   六产物 mtime 同秒（15:48:50Z）符合一次确定性生成。若需硬证，请 lead 授权 a02 双跑留 diff。
+
+结论：ITEM 1 修复确认成立，第 2/6 块七项全部 PASS，无新不一致。
+
+====================================================================
+ROUND 2（第 2/6 块续做：ODS 补录+180 件核实）独立只读核对
+记录时刻：2026-11-19T16:13:30Z（date -u 实测；启动快照 15:58:25Z）。基线 HEAD=0e9cc95 实测一致。
+产物重生成实测 mtime=15:59:47Z（早于预估 16:16Z）。日志：a03-r2-baseline/item1/item2/item2-ssh/
+item4/item4b/item4c/final.log。SSH 32 按 lead 指令 `-F /home/zky/.ssh/config 32` 只读抽样成功
+（裸 ssh exit 255 系系统配置权限，非我方越界）；宿主 python3 3.11.2+chardet 5.1.0 实测确认；
+未装依赖、未用第三方容器（R-09 合规观测）。
+
+ITEM 1 ODS 覆盖                                    PASS
+- 我独立过滤 inventory leaf(.ods)（大小写不敏感）=4 件，与 members 新增 4 件恒等：
+  MajorChinaPeriods_Lex_2015-12-21.ods(98236dffa267,58461)/ngia_dsg_codes_2017-03-15.ods(aa29f122b8a8,46334)/
+  CountryFilesFormat_2016-07-16.ods(d8adf2a32c8f,13980)/Manshu_Index_Stanford_links.ods(30d483d810aa,87626)，
+  sha/size/chain/ordinals 逐键==inventory True；category=ods、disposition=pending-evidence、ledger BLOCKED。
+- Manshu 双载体分别登记不认重复：.ods(30d483d8…) 与 .xlsx(4501179a…) 各 1 行、sha distinct True、
+  rule_ids 不同（m004203/m004185），无合并去重标记。
+
+ITEM 2 工作表清单                                  FAIL（首个实质不一致，见下）
+- a02 交付现状：members.json 31 个工作簿（xls14+xlsx13+ods4）judgement_basis 全部仍为
+  「GAP: requires authorized read of workbook sheet lists on host 32 (not performed this round)」——
+  **本轮承诺的逐 sheet 字段核实未出现在任何机器件中**（PROPOSED_NOT_AUTHORIZED 全目录出现 0 次）。
+- 我 SSH 32 stdlib zipfile+XML 独立复算 7 件（ods×4 + xlsx×3）：
+  MajorChinaPeriods_Lex→['Sheet1']；ngia_dsg_codes→['ngia_dsg_codes_2017-03-15']；
+  CountryFilesFormat→['Sheet1','FULL_NAME','UFI']；Manshu.ods→['Sheet1','__Anonymous_Sheet_DB__0']；
+  Manshu.xlsx→['Sheet1']；v4_data_dictionary.xlsx→['v4_data_dictionary']；v6_data_dictionary.xlsx→['v4_data_dictionary']（观测注：v6 文件内 sheet 名即 v4_data_dictionary，实测如此）。
+  XLS 首件实测 magic=d0cf11e0a1b11ae1（OLE CFB）、宿主无 xlrd ⇒ 与 lead「XLS 14 不可读=阻塞」口径一致，
+  a02 对 xls 逐件 gap 未伪报 ✔（14 条 .xls gap items 齐备）。
+- 【首个实质不一致】lead 派工称 a02 正在做「32 快照只读核实 180 件+工作簿逐 sheet 字段」，
+  但 15:59:47Z 落盘版 members/evidence-gaps 无任何 sheet 清单/内容级判定字段；若属未完成而非
+  遗漏，则应显式 pending 而非维持旧 GAP 文案「not performed this round」。待复核标记亦未见新增
+  （block3 role/block5 pattern 为上轮既有字段，非本轮"待复核"标记）。
+
+ITEM 3 新增映射                                    FAIL（同上根因）
+- object-mapping.json 未变（mtime 15:59:47Z 同批但内容 object_count=5/source_column_count=83 原样）；
+  新对象 0 个、PROPOSED_NOT_AUTHORIZED 0 处 ⇒ 无可核对象，判 FAIL（缺产物，非伪造批准——
+  恰相反，无任何批准态升级，flags verbatim==carrier True）。候选名 naming.py 规则静态读取在案
+  （slug+limited63+__hash8 后缀、allocate_tables/columns 冲突断言），无新候选可对其校验。
+
+ITEM 4 计数                                        PASS（一处 SUMMARY 文案差异）
+- total_candidates=1640==len(members)；categories {txt751,dbf704,TAB类142+5,xls14,xlsx13,csv7,ods4}=1640；
+  dispositions organized5+block3 846+block5 609+pending180=1640 闭合 ✓；
+  evidence-gaps gap_object_count=180==items==grouped_summary{csv7,ods4,txt142,xls14,xlsx13}==
+  members(pending) by-cat；三元组 keys 齐备 180/180；gap object 串经 inventory joined-chain join
+  180/180 唯一解析==pending idset sym=0（观测注：inventory archive_chain 元素本身含 '/'，
+  如 'china_chron/china_chron.xls'，故须以拼接形态对齐——我首轮误 split 得假 151 miss，已纠并留档）。
+- txt 改判 block5 者本轮=0（609 全为名称模式 basis，content-evidenced 0）⇒ 无"改判需内容证据"违例。
+- SUMMARY txt 行写「其余 146 件待内容抽样判定」，机器件=142（751−609）⇒ **SUMMARY 笔误 146≠142**；
+  处置分布行 180 与机器件一致（146 为该单行错误，不影响闭合）。
+
+ITEM 5 交接保留                                    PASS
+- block3 846==members(h3) idset True（role 字段 shapefile-dbf-component/mapinfo-tab-definition 在位）；
+- block5 609==members(h5) idset True（pattern readme/README/Notes 在位）；b3∩b5=0；
+- 五件文本非回归：83 源列+5 派生、flags_verbatim==carrier True、om 内容上轮等价。
+- 注：任务书"待复核标记"未见新增专用字段（见 ITEM 2 不一致），既有 role/pattern 视为上轮口径保留。
+
+ITEM 6 SUMMARY 口径修复                            PASS（除 146 笔误）
+- 「大小写不敏感」陈述在；「.tab 合计 147」分叉大写 142⇒块3+小写 5 全整理「无待证据 .tab」✔；
+  旧「+2 待证据」错误字样 0 处；绝对路径/file:// 0 命中；入口 sha head 668900d43663 实测未变。
+- 观测：porcelain 显示 tabular 目录 4 文件为 " M"（已跟踪修改态）而非上轮 "??"——
+  说明期间已被提交入 0e9cc95 或索引变更；旧文件零改动断言无法再以未跟踪性佐证，如实报。
+  M 行数=7（含 IMPORT-PACKAGE-TODO.md、rehearsal-evidence.json、xrg_p01_entry.py 等既有工作树修改，
+  其中 entry diff 38 hunks 为 P01 时代既有未提交修改，worktree sha 仍=668900d4… 与基线锚点一致）。
+
+结论：ITEM 1/4/5/6 PASS（ITEM 4 附 146≠142 SUMMARY 笔误；ITEM 6 附 M 状态观测）；
+ITEM 2/FAIL+ITEM 3 FAIL：本轮承诺的工作簿逐 sheet 字段核实与新增映射（PROPOSED_NOT_AUTHORIZED）
+在 15:59:47Z 落盘版中完全缺席——首个实质不一致=该交付缺口本身，非数据造假。
+建议：请 a02 澄清 180 件核实是否仍在进行（预计 16:16Z 前另版落盘），届时我做第三段追加复核。

@@ -1,0 +1,24 @@
+TOTAL source fields: 83 ==83: True | derived: 5 ==5: True
+mismatches (same-key semantic compare): 0
+carrier contains source_order/preserve tokens: False False
+  m008002 read_method rule keys: ['automatic_fallback', 'delimiter', 'doublequote', 'duplicate_records', 'empty_string', 'quotechar', 'record_separator', 'source_order', 'type_inference', 'unquoted_interior_quote', 'values', 'whitespace']
+{
+ "evidence_files": [
+  "text-reading-decisions.draft.yaml"
+ ],
+ "rules": {
+  "automatic_fallback": false,
+  "delimiter": "TAB",
+  "doublequote": true,
+  "duplicate_records": "preserve",
+  "empty_string": "preserve_not_null",
+  "quotechar": "DOUBLE_QUOTE",
+  "record_separator": "LF",
+  "source_order": "preserve",
+  "type_inference": false,
+  "unquoted_interior_quote": "literal",
+  "values": "strings",
+  "whitespace": "preserve"
+ },
+ "scope_note": "approved rules cover these exact five files only (authorization_reference quoted in reading decisions)"
+}

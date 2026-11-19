@@ -1,0 +1,21 @@
+{
+ "manshu": {
+  "ods_rows": 61,
+  "xlsx_rows": 61,
+  "ordered_equal": false,
+  "keyset_equal_on_first5cols": true,
+  "row_order_differs": true,
+  "ods_ordered_sha": "8d7bda62191aa988eb5e3709eb5a33ab3b7071feedfd459d43b54abea6c8f896",
+  "xlsx_ordered_sha": "52d5ce26c36b1baa8f22a84abc281dc8226267d8b1a16690d3dbe94aa909290f"
+ },
+ "mcp": {
+  "csv_rows": 53,
+  "ods_rows": 53,
+  "width": 13,
+  "header_equal": true,
+  "differing_cells_exact": 9,
+  "differing_cells_only_nbsp": 4,
+  "csv_ordered_sha": "dcc5d8a22fc598d4bf1f6968af004f089258c0322ca9fa39183ae8f95f89ff9b",
+  "ods_ordered_sha": "a808ec537322a9cf083be5190c1d8fcca67add8e850d6f2057604947059f8e6f"
+ }
+}

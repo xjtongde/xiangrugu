@@ -1,0 +1,11 @@
+== ITEM 1 pre-scan: inventory .ods independent filter == 4
+  chgis-v6/China_Periods_ReignDates.zip :: MajorChinaPeriods_Lex_2015-12-21.ods | sha: 98236dffa267 | size: 58461
+  harvard-full/doi_10_7910/DVN/I4UIKV/ngia_dsg_codes_2017-03-15.zip :: ngia_dsg_codes_2017-03-15.ods | sha: aa29f122b8a8 | size: 46334
+  harvard-full/doi_10_7910/DVN/I4UIKV/ngia_dsg_codes_2017-03-15.zip :: CountryFilesFormat_2016-07-16.ods | sha: d8adf2a32c8f | size: 13980
+  harvard-full/doi_10_7910/DVN/M7WEFY/Manshu_200K_index_SHP.zip :: Manshu_Index_Stanford_links.ods | sha: 30d483d810aa | size: 87626
+Manshu .ods: ['Manshu_Index_Stanford_links.ods'] | Manshu .xlsx: [('Manshu_Index_Stanford_links.xlsx', '4501179ae4e9')]
+distinct sha between carriers: True
+
+expected closure after fix: organized 5 + block3 846 + block5 609 + pending 176 + ODS new 4 = 1640
+current grouped_summary: {'csv': 7, 'txt': 142, 'xls': 14, 'xlsx': 13} | gap items: 176
+local files mentioning sheets for target workbooks: ['datamgmt/contracts/releases/2026-10-06-bootstrap/inventory.json', 'datamgmt/contracts/releases/2026-10-06-bootstrap/mirror-candidates.json', 'datamgmt/contracts/releases/2026-10-06-bootstrap/disposition-ledger-metadata-review.json', 'datamgmt/contracts/releases/2026-10-06-bootstrap/disposition-ledger-after-selector-fix.json', 'datamgmt/contracts/releases/2026-10-06-bootstrap/import-package/tabular/members.json', 'datamgmt/contracts/releases/2026-10-06-bootstrap/import-package/tabular/evidence-gaps.json']

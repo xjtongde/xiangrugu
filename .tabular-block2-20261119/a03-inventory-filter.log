@@ -1,0 +1,25 @@
+entries: 8004 complete: False
+CANDIDATE_TOTAL: 1636
+by ext: {'.txt': 751, '.xls': 14, '.csv': 7, '.dbf': 704, '.tab': 147, '.xlsx': 13}
+  .csv: mine=7 vs lead-recon=7 match=True
+  .xls: mine=14 vs lead-recon=14 match=True
+  .xlsx: mine=13 vs lead-recon=13 match=True
+  .dbf: mine=704 vs lead-recon=704 match=True
+  .txt: mine=751 vs lead-recon=751 match=True
+  .tab: mine=147 vs lead-recon=147 match=True
+nested (archive_chain non-empty): 1591 | top-level: 45
+uppercase .TAB files: 142
+ sample .csv chgis-v6/China_Periods_ReignDates.zip chain_len= 1 sha= f61327e1f319 size= 6816
+ sample .csv harvard-full/doi_10_7910/DVN/5RUXK8/Ming_Garrisons.zip chain_len= 1 sha= 844fd38bbd63 size= 30473
+ sample .dbf harvard-full/doi_10_7910/DVN/25413/DCW_CHINA_contours.zip chain_len= 1 sha= dce640e56c69 size= 15635210
+ sample .dbf harvard-full/doi_10_7910/DVN/29302/v5_Hartwell_2010.zip chain_len= 1 sha= 6c2348883368 size= 1169498
+ sample .tab harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip chain_len= 2 sha= c7bb2a785505 size= 715
+ sample .tab harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip chain_len= 2 sha= 802eb7f5c08f size= 819
+ sample .txt chgis-v6/China_Periods_ReignDates.zip chain_len= 1 sha= f3054769b536 size= 1306
+ sample .txt chgis-v6/China_Periods_ReignDates.zip chain_len= 1 sha= 4d41c5ec8239 size= 82206
+ sample .xls chgis-v6/China_Periods_ReignDates.zip chain_len= 1 sha= 11c07a694dc8 size= 231424
+ sample .xls chgis-v6/China_Periods_ReignDates.zip chain_len= 1 sha= 00a3a60b375d size= 16384
+ sample .xlsx harvard-full/doi_10_7910/DVN/M7WEFY/Manshu_200K_index_SHP.zip chain_len= 1 sha= 4501179ae4e9 size= 14048
+ sample .xlsx harvard-full/doi_10_7910/DVN/PDGOZ0/V4_Data_Archive.zip chain_len= 1 sha= 04c602c6b075 size= 11248
+CANDIDATE_SET_SHA256: 5ec5a3aee3618d9f7af1c0e2c2f9c1e2150c2d5d54b9636e5eea02d94f5ed2fd
+count check sum of ext counts: 1636

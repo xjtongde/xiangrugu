@@ -1,0 +1,8 @@
+orig ==delivered: False
+target ==delivered: False
+ord+orig+idx ==delivered: False
+delivered: 966e28cd93629d66bd6b91b7c723860bbd6a2db5f96283018dbd1bb245736e7e
+field keys: ['column_id', 'null_policy', 'nullable', 'original_name', 'quoted_target_name', 'source_column_ordinal', 'target_name', 'target_type', 'type_note']
+overall orig-formula match: 155/3594
+objects with duplicate column_ids: 3
+organized without pending_review: 5 | categories: {'tab-text': 5}

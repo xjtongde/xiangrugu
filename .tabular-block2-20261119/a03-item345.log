@@ -1,0 +1,17 @@
+== ITEM 5 corrected comparisons ==
+block3 idset == members(dbf+tab-mi) idset: True | sym: 0
+block5 idset == members(txt) idset: False | sym: 142
+raw lens: i3 846 i5 608 | members dbf+tabmi 846 | members txt 750
+handoff(1454) sha/size != members.json misses: 0 []
+INVENTORY SPOT N:24 misses: 24
+    ('chgis-v6/China_Periods_ReignDates.zip', 'inaPeriods.txt', 'None', 'f42aea1df2')
+    ('chgis-v6/China_Periods_ReignDates.zip', 'hina_chron.txt', 'None', 'f42aea1df2')
+    ('chgis-v6/China_Periods_ReignDates.zip', 'hina_chron.xls', 'None', 'f42aea1df2')
+    ('chgis-v6/China_Periods_ReignDates.zip', 'ron_fields.xls', 'None', 'f42aea1df2')
+    ('chgis-v6/China_Periods_ReignDates.zip', 'HINA_CHRON.txt', 'None', 'f42aea1df2')
+    ('chgis-v6/China_Periods_ReignDates.zip', '2015-12-21.csv', 'None', 'f42aea1df2')
+ nested identity found in inventory entries: True chgis-v6/China_Periods_ReignDates.zip DME_MajorChinaPeriods.txt
+ nested identity found in inventory entries: True chgis-v6/China_Periods_ReignDates.zip ina_chron/china_chron.txt
+five objects inventory-identity+sha ok: 5 /5
+block5 non-README-named: 2 ['ChinaWBeta.w305.Notes.txt', 'ChinaWBeta.w305.Notes.txt']
+RAS_1900_pdb2_README.TXT present in members.json: 0

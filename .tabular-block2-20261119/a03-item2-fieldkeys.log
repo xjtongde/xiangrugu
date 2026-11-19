@@ -1,0 +1,18 @@
+field keys: ['column_id', 'empty_strings_observed', 'encoding', 'nullable', 'original_name', 'quoted_target_name', 'row_order', 'source_column_ordinal', 'target_name', 'target_type']
+{
+ "column_id": "df86d255b7714be5c26a3bd081ab7224244ab4d3e20589e0104376bb38d57fea",
+ "empty_strings_observed": 0,
+ "encoding": {
+  "codec": "utf-8",
+  "column": "id",
+  "errors": "strict",
+  "object_name": "ACADEMY_Data.tab"
+ },
+ "nullable": false,
+ "original_name": "id",
+ "quoted_target_name": "\"id\"",
+ "row_order": "preserve",
+ "source_column_ordinal": 1,
+ "target_name": "id",
+ "target_type": "text"
+}

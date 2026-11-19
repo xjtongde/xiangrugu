@@ -1,0 +1,6 @@
+sheets: [{"columns": 13, "data_records_observed": 52, "worksheet": null}]
+GLOBAL delivered-ordinal formula match: 155/3594 | firstbad:('ignDates.zip!china_chron/china_chron.txt', 2, "'秦'", '966e28cd9362')
+raw False
+strip False
+NFKC False
+lower False

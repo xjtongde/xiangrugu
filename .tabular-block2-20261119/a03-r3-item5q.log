@@ -1,0 +1,5 @@
+GLOBAL single-call recipe column_id: 3594/3594 | objects fully matching: 155/155 bad:0
+sheet_counts type: dict | entries: 17
+headers.json type: list | entries: 24
+sample: None 
+organized by cat: {'txt': 132, 'csv': 7, 'ods': 3, 'xlsx': 13, 'tab-text': 5}

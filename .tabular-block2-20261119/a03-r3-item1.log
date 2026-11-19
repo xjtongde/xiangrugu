@@ -1,0 +1,18 @@
+== sheet-name comparison (worksheets_observed[].worksheet) ==
+MajorChinaPeriods_Lex_2015-12-21.ods: delivered ['Sheet1'] == mine ['Sheet1'] -> True | cols [('Sheet1', 13)]
+ngia_dsg_codes_2017-03-15.ods: delivered ['ngia_dsg_codes_2017-03-15'] == mine ['ngia_dsg_codes_2017-03-15'] -> True | cols [('ngia_dsg_codes_2017-03-15', 5)]
+CountryFilesFormat_2016-07-16.ods: NOT FOUND
+Manshu_Index_Stanford_links.ods: delivered ['Sheet1'] == mine ['Sheet1', '__Anonymous_Sheet_DB__0'] -> False | cols [('Sheet1', 10)]
+Manshu_Index_Stanford_links.xlsx: delivered ['Sheet1'] == mine ['Sheet1'] -> True | cols [('Sheet1', 10)]
+v4_data_dictionary.xlsx: delivered ['v4_data_dictionary'] == mine ['v4_data_dictionary'] -> True | cols [('v4_data_dictionary', 3)]
+v6_data_dictionary.xlsx: delivered ['v4_data_dictionary'] == mine ['v4_data_dictionary'] -> True | cols [('v4_data_dictionary', 3)]
+
+== field-count spot 6 objects ==
+  riods_ReignDates.zip!china_chron/china_chron.txt | fields: 20 | sample keys: ['column_id', 'null_policy', 'nullable', 'original_name', 'quoted_target_name', 'source_column_ordinal', 'target_name', 'target_type']
+  gnDates.zip!MajorChinaPeriods_Lex_2015-12-21.ods | fields: 13 | sample keys: ['column_id', 'null_policy', 'nullable', 'original_name', 'quoted_target_name', 'source_column_ordinal', 'target_name', 'target_type']
+  des_2017-03-15.zip!ngia_dsg_codes_2017-03-15.csv | fields: 6 | sample keys: ['column_id', 'null_policy', 'nullable', 'original_name', 'quoted_target_name', 'source_column_ordinal', 'target_name', 'target_type']
+  K_index_SHP.zip!Manshu_Index_Stanford_links.xlsx | fields: 10 | sample keys: ['column_id', 'null_policy', 'nullable', 'original_name', 'quoted_target_name', 'source_column_ordinal', 'target_name', 'target_type']
+  ip!KML/ChinaW_KML_utf.zip/ChinaW.Master.Beta.csv | fields: 176 | sample keys: ['column_id', 'null_policy', 'nullable', 'original_name', 'quoted_target_name', 'source_column_ordinal', 'target_name', 'target_type']
+  efiles/ChinaW_pts_gbk.zip/ChinaW.Master.Beta.csv | fields: 176 | sample keys: ['column_id', 'null_policy', 'nullable', 'original_name', 'quoted_target_name', 'source_column_ordinal', 'target_name', 'target_type']
+
+CountryFilesFormat variants: []

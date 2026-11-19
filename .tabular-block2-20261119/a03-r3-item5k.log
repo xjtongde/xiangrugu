@@ -1,0 +1,12 @@
+published source_object_id: 4cd87d680b1599b008baeb06ea4bba1fe64bddb37f845098e22ab0159af98a52
+  basis 4cd87d680b1599b008baeb06ea4bba1fe64bddb3: False
+  basis t___majorchinaperiods_u5f_lex_u5f_2015_u: False
+  basis chgis-v6/China_Periods_ReignDates.zip!Ma: False
+  basis 23eadc5144abd7ddb435143fad3c8acf86765f0c: False
+L 431 : from xiangrugu_datamgmt.naming import allocate_tables, allocate_columns, quote_identifier, NameInput
+L 437 : nm = allocate_columns([original], object_id=object_id)[0]
+SID L 391 : "source_object_id": o["source_object_id"],
+SID L 430 : from xiangrugu_datamgmt.identity import source_object_id
+SID L 490 : sid = source_object_id(relative_path=si["relative_path"],
+SID L 506 : "source_object_id": sid,
+SID L 644 : 快照=/opt/mydocker/xiangrugu/data/imports/usedata/2026-10-07-bootstrap（SSH 32 实测存在；嵌套件经 zipfile 提取到 /tmp，快照字节零接触；sha256 对账 inventory 全数一致）。工具面：宿主 python

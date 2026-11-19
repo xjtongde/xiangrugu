@@ -1,0 +1,27 @@
+L1:                             for nm, hr, *_ in headers_by_sheet]
+L2:     ds = _dataset_of(si["relative_path"], "/".join(si["archive_chain"]))
+L3:     objname = (si["archive_chain"][-1].rsplit("/", 1)[-1] if si["archive_chain"]
+L4:                else si["relative_path"].rsplit("/", 1)[-1])
+L5:     sid = source_object_id(relative_path=si["relative_path"],
+L6:                            archive_chain=si["archive_chain"],
+L7:                            object_name=objname, carrier=carrier or "tsv")
+L8:     nmap = allocate_tables([NameInput(ds, objname, sid)])[0]
+L9:     fields_all = []
+L10:     sheets_out = []
+L11:     for sheet_nm, hdr, nrows, enc, bom, delim in headers_by_sheet:
+L12:         cols = [_col_entry(sid, h, i + 1) for i, h in enumerate(hdr)]
+L13:         fields_all.extend(cols)
+L14:         sheets_out.append({"worksheet": sheet_nm, "columns": len(hdr),
+L15:                            "data_records_observed": nrows})
+L16:     dup = len(hdr) != len(set(hdr)) if headers_by_sheet else False
+L17:     proposed_objs.append({
+L18:         "source_file_or_chain": pkey,
+L19:         "worksheets_observed": sheets_out,
+L20:         "carrier": carrier or "tsv",
+L21:         "source_object_id": sid,
+L22:         "dataset_namespace": ds,
+L23:         "target_schema": None,
+L24:         "candidate_table_name": nmap.target,
+L25:         "fields": fields_all,
+L26:         "dialect_observations": {"delimiter": headers_by_sheet[0][5],
+L27:                                  "encoding_strict_ok": headers_by_sheet[0][3],

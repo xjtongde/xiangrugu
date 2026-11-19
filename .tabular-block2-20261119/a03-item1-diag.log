@@ -1,0 +1,7 @@
+missing identities count: 1
+ RAW: ('harvard-full/doi_10_7910/DVN/ELTD3L/RAS_1900_pdb2_README.TXT', (), ())
+ INV entry: {"archive_chain": [], "archive_ordinals": [], "kind": "file", "relative_path": "harvard-full/doi_10_7910/DVN/ELTD3L/RAS_1900_pdb2_README.TXT", "sha256": "8a7a659ed5b7ba967c11260e333721bbf9e97ef31f066f6c01a9beb0c326774d", "signature": "unknown", "size": 574}
+members entries with that name in archive_chain: 0
+mine: {'.txt': 751, '.xls': 14, '.csv': 7, '.dbf': 704, '.tab': 147, '.xlsx': 13}
+their category field: {'txt': 750, 'xls': 14, 'csv': 7, 'dbf': 704, 'tab-mapinfo-spatial-definition': 142, 'xlsx': 13, 'tab-text': 5}
+sum categories: 1635

@@ -1,0 +1,66 @@
+== raw_expected vs inventory identity (5 objs) ==
+ m008002 harvard/tab/ACADEMY_Data.tab: sha/size==inventory True
+ m008003 harvard/tab/Index_of_the_Complete_Prose_of_the_Yuan_Dynasty_vol_1-60.t: sha/size==inventory True
+ m008004 harvard/tab/writings of the 19c missionaries in China.tab: sha/size==inventory True
+ m004812 harvard-full/doi_10_7910/DVN/MI56KU/2001_Shanghai_0_INDEX_OF_PRESENTAT: sha/size==inventory True
+ m006642 harvard-full/doi_10_7910/DVN/SK7KGK/GB_91_HZ_040201_UTF8.tab: sha/size==inventory True
+
+== text-reading-decisions.draft.yaml (verbatim head) ==
+# 用户只批准读取解释；不是 frozen sources/decoding 合同或导入授权。
+version: 1
+status: draft
+release_id: 2026-10-06-bootstrap
+source_version: 2026-10-07-bootstrap
+inventory_sha256: fb5e6b334b898d62dc0e5c77094fdb50e0946300e6e3009f447b2ecd1bc216db
+base_contract_sha256: 0b98f0078dd3d2756984881610df67a5a937fa1b93005ecf99fba66f6626422c
+reading_semantics_approved: true
+authorization_reference: "2026-10-07 用户答复：同意，继续；对应三件文件的 BOM/引号解释及仅 ACADEMY 反斜杠转义提案"
+ready_for_import: false
+interpretation:
+  header_record: 1
+  delimiter: TAB
+  quotechar: DOUBLE_QUOTE
+  doublequote: true
+  record_separator: LF
+  unquoted_interior_quote: literal
+  values: strings
+  empty_string: preserve_not_null
+  whitespace: preserve
+  duplicate_records: preserve
+  source_order: preserve
+  type_inference: false
+  automatic_fallback: false
+rules:
+  - rule_id: m008002
+    relative_path: harvard/tab/ACADEMY_Data.tab
+    archive_chain: []
+    archiv
+
+== additional-text-reading-decisions.draft.yaml (verbatim head) ==
+# 批准只覆盖这两个精确源件的读取解释，不是冻结、目标映射或导入授权。
+version: 1
+status: draft
+release_id: 2026-10-06-bootstrap
+source_version: 2026-10-07-bootstrap
+base_contract_sha256: 0b98f0078dd3d2756984881610df67a5a937fa1b93005ecf99fba66f6626422c
+candidate_evidence_sha256: 15fe7928e1bc7457a4077cc253a5f8f7750b04c67578dae847a4f849ec5d35d2
+reading_semantics_approved: true
+authorization_reference: "2026-10-07 用户答复：同意，继续；对应上海索引双引号加反斜杠、GB 表双引号不转义的精确读取提案"
+ready_for_import: false
+interpretation:
+  header_record: 1
+  delimiter: TAB
+  quotechar: DOUBLE_QUOTE
+  doublequote: true
+  record_separator: LF
+  unquoted_interior_quote: literal
+  values: strings
+  empty_string: preserve_not_null
+  whitespace: preserve
+  duplicate_records: preserve
+  source_order: preserve
+  type_inference: false
+  automatic_fallback: false
+rules:
+  - rule_id: m004812
+    relative_path: harvard-full/doi_10_7910/DVN/MI56KU/2001_Shanghai_0_INDEX_OF_PRESEN

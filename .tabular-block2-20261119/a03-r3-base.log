@@ -1,0 +1,11 @@
+== RE-READ latest state ==
+disp: {'handoff-block5': 620, 'organized': 160, 'pending-evidence': 14, 'handoff-block3': 846} | total: 1640
+approved: 5 | proposed: 155 | fields: 3594
+distinct status: 1
+    (('confirmation_state', 'PROPOSED_NOT_AUTHORIZED'), ('disposition_retained', 'BLOCKED'), ('ready_for_import', False), ('schema_approved', False), ('table_names_approved', False), ('target_mapping_appr 155
+block5 without pending_review: 1 ["('CountryFilesFormat_2016-07-16.ods',)"]
+pending_review value forms: [True]
+b3 pending_review forms: [True]
+organized by cat: {'txt': 132, 'csv': 7, 'ods': 3, 'xlsx': 13, 'tab-text': 5}
+txt block5: 619 | txt organized: 132 | txt pending: 0
+Notes txt dispositions: Counter({'handoff-block5': 2})

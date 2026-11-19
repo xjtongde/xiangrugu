@@ -1,0 +1,5 @@
+target_name ==delivered: False
+quoted ==delivered: False
+name-only ==delivered: False
+column_id constant per original_name within obj0: True
+name-only formula global match: 0/3594

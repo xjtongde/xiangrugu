@@ -1,0 +1,14 @@
+== ITEM 6 evidence-gaps ==
+gap_object_count: 176 | items len: 176
+item keys: ['missing', 'object', 'suggested_next']
+items lacking object+gap+suggestion triple: 176 [("{'missing': ['content-type determination (needs authorized read-only sampling)',", True, True, False), ("{'missing': ['reader approval (csv/xls/xlsx dialect)', 'sheet-level object inven", True, True, False), ("{'missing': ['reader approval (csv/xls/xlsx dialect)', 'sheet-level object inven", True, True, False), ("{'missing': ['reader approval (csv/xls/xlsx dialect)', 'sheet-level object inven", True, True, False)]
+grouped_summary: {"csv": 7, "txt": 142, "xls": 14, "xlsx": 13}
+
+disposition counts: {'handoff-block5': 608, 'pending-evidence': 176, 'handoff-block3': 846, 'organized': 5}
+ledger_disposition distinct: {'BLOCKED'}
+
+SUMMARY mentions key counts: {'1635': True, '846': True, '608': True, '750': True, '704': True, '142': True, '83': True, '5': True, '751': False, '1636': False}
+absolute/file-URI refs: []
+porcelain lines: 1 | non-new-dir lines: []
+entry sha256 head: 668900d43663
+M count: 2

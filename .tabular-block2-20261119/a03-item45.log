@@ -1,0 +1,18 @@
+== ITEM 5 corrected: handoff items vs inventory entries identity+sha ==
+distinct handoff identities checked 86/1454 misses: 1368 [('chain-diff', '/doi_10_7910/DVN/25413/DCW_CHINA_contours.zip', "('asia_contour.dbf',)", "DCW_CHINA_README.txt',), (7,))"), ('chain-diff', 'll/doi_10_7910/DVN/29302/v5_Hartwell_2010.zip', "v5_0741_chin_chn_0741_c.dbf',)", "900_cnty_1990.shx',), (2466,))"), ('chain-diff', 'll/doi_10_7910/DVN/29302/v5_Hartwell_2010.zip', "v5_0741_chin_chn_0741_p.dbf',)", "900_cnty_1990.shx',), (2466,))"), ('chain-diff', 'll/doi_10_7910/DVN/29302/v5_Hartwell_2010.zip', "/v5_0741_circ_gn_0741_d.dbf',)", "900_cnty_1990.shx',), (2466,))")]
+handoff inner ext distribution: {'.dbf': 704, '.tab': 142, '.txt': 608}
+block3 .TAB upper: 142 | .tab lower: 0
+block3 items whose inner name matches spatial-bound component names: 2 / 846
+spatial inner names sample: ['5_1884route/ca1884route_przh_1251.cpg', '5_1884route/ca1884route_przh_1251.dbf', '5_1884route/ca1884route_przh_1251.prj', '5_1884route/ca1884route_przh_1251.qpj', '5_1884route/ca1884route_przh_1251.shp', '5_1884route/ca1884route_przh_1251.shx']
+char paths: 2 numeric paths: 2
+candidates matching char-reading file: 2 | numeric: 2
+
+== ITEM 4 candidate-name rule provenance spot ==
+  m008002 | convention quoted: True | schema: harv | table==proposed: True
+  m008003 | convention quoted: True | schema: harv | table==proposed: True
+  m008004 | convention quoted: True | schema: harv | table==proposed: True
+  m004812 | convention quoted: True | schema: harv | table==proposed: True
+  m006642 | convention quoted: True | schema: chgis | table==proposed: True
+five candidate equality: 5 /5
+carrier naming_scope value: None
+candidate dup within block2: 0

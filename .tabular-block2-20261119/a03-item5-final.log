@@ -1,0 +1,7 @@
+== ITEM 5 FINAL: handoff items vs inventory entries identity+sha ==
+fully matched identities 86/1454 misses: 1368 [('chain-diff', '/doi_10_7910/DVN/25413/DCW_CHINA_contours.zip', "('asia_contour.dbf',)", "DCW_CHINA_README.txt',), (7,))"), ('chain-diff', 'll/doi_10_7910/DVN/29302/v5_Hartwell_2010.zip', "v5_0741_chin_chn_0741_c.dbf',)", "900_cnty_1990.shx',), (2466,))"), ('chain-diff', 'll/doi_10_7910/DVN/29302/v5_Hartwell_2010.zip', "v5_0741_chin_chn_0741_p.dbf',)", "900_cnty_1990.shx',), (2466,))"), ('chain-diff', 'll/doi_10_7910/DVN/29302/v5_Hartwell_2010.zip', "/v5_0741_circ_gn_0741_d.dbf',)", "900_cnty_1990.shx',), (2466,))")]
+spot DBF nested 0/24 | TAB nested 0/12 | TXT nested 5/12 | top-level 8/8
+counts: dbf-nested 704 tab-nested 142 txt-nested 576 top-level 32
+block5 non-(README/notes/metadata)-named: 0 []
+block3 items matching spatial-bound component basenames: 2 / 846
+five objects appearing in block3/block5: 0

@@ -1,0 +1,30 @@
+== independent-text-reading checks (3 objects) ==
+ obj: harvard/tab/ACADEMY_Data.tab | rule_id: m008002 | header_width: 54 | columns: 54 | records_incl_header: 2958 | data_records: 2957 | all_values_equal: True
+ obj: harvard/tab/Index_of_the_Complete_Prose_of_the_Yuan_Dynasty_vol_1-60.tab | rule_id: m008003 | header_width: 5 | columns: 5 | records_incl_header: 40200 | data_records: 40199 | all_values_equal: True
+ obj: harvard/tab/writings of the 19c missionaries in China.tab | rule_id: m008004 | header_width: 11 | columns: 11 | records_incl_header: 1034 | data_records: 1033 | all_values_equal: True
+itr reading_semantics_approved: True ready_for_import: False
+
+== full-text-candidate-observations.json ==
+keys: ['base_contract_sha256', 'bom_semantics_approval', 'candidate_values_digest_format', 'column_encoding_approval', 'dialect_approval', 'generated_at', 'git_revision', 'image_digest', 'independent_value_truth', 'inventory_sha256', 'observations', 'ready_for_import', 'release_id', 'scope', 'snapshot_manifest_sha256', 'snapshot_verified_before_and_after', 'source_data_or_contract_modified', 'source_status', 'source_version', 'status', 'stdlib_reference', 'version']
+objects len: 3
+sample keys: ['candidates', 'cr_without_lf', 'crlf_sequences', 'lf_without_cr', 'nul_bytes', 'quote_bytes', 'raw_sha256', 'raw_size', 'relative_path', 'rule_id', 'terminal_line_break', 'utf8_bom_prefix'] 
+sample: {"candidates": [{"candidate_values_sha256": null, "codec": "utf-8", "data_records_if_first_is_header": null, "decode_errors": "strict", "delimiter": "\t", "doublequote": true, "escapechar": null, "field_size_limit_chars": 131072, "last_physical_line": 214, "logical_records_total": null, "max_columns": 512, "max_records": 100000, "newline": "", "parse_complete": false, "parse_error": "'\t' expected
+
+== additional-independent-text-reading.json ==
+keys: ['base_contract_sha256', 'candidate_evidence_sha256', 'formal_contract_modified', 'generated_at', 'git_revision', 'image_digest', 'members', 'reading_decisions_sha256', 'ready_for_import', 'release_id', 'snapshot_manifest_sha256', 'snapshot_verified_before_and_after', 'source_status', 'source_version', 'status', 'version']
+checks len: 0
+addl top flags: {'base_contract_sha256': '0b98f0078dd3d2756984881610df67a5a937fa1b93005ecf99fba66f6626422c', 'candidate_evidence_sha256': '15fe7928e1bc7457a4077cc253a5f8f7750b04c67578dae847a4f849ec5d35d2', 'formal_contract_modified': False, 'generated_at': '2026-10-07T13:25:51.755875+00:00', 'git_revision': '1a34956fbcbe7877fbad04ee5a7ec9e3dd52bf05', 'reading_decisions_sha256': 'cb94b467d57018f9257dc4767570328eabe106b309fce42e68d6298dfac5528a', 'ready_for_import': False, 'release_id': '2026-10-06-bootstrap', 'snapshot_manifest_sha256': '03174f42f62dbea16402cdcbd05aa132a0a478453d7f31a09127374835f14699', 'snapshot_verified_before_and_after': True, 'source_status': 'dirty', 'source_version': '2026-10-07-bootstrap', 'status': 'APPROVED_ADDITIONAL_SOURCE_READING_ONLY', 'version': 1}
+m004812 found in additional: False 
+m006642 found in additional: False 
+Traceback (most recent call last):
+  File "<stdin>", line 34, in <module>
+  File "<stdin>", line 4, in load
+  File "/usr/lib/python3.13/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "/usr/lib/python3.13/json/decoder.py", line 345, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/json/decoder.py", line 363, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)

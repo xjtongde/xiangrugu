@@ -1,0 +1,23 @@
+== ITEM ① closure ==
+total: 1640 | disp: {'handoff-block5': 620, 'organized': 160, 'pending-evidence': 14, 'handoff-block3': 846} | sum: 1640
+ods: {'organized': 3, 'handoff-block5': 1}
+approved: 5 proposed: 155 fields: 3594
+organized == approved ∪ proposed: True | appr⊂org: True | prop size: 155
+
+== ITEM ② markers ==
+pending_review: b3 846/846 | b5 620/620 | CF item present:1 marked:True
+CF member disposition: handoff-block5 | verdict: {"basis_files_sha256": {"carrier_compare.json": "23606d8b1cfa188eda10db48f06e2cf8490a54df9132038d431c8857afd58cf9", "chgis_dict_pairs.json": "3d706e3877b7c12924c2ef65b007923976a5fc
+CF block5 entry keys: ['archive_chain', 'archive_ordinals', 'content_verdict', 'kind', 'pattern', 'pending_review', 'relative_path', 'sha256', 'signature', 'size'] | content_verdict: documentation
+
+txt block5 619 with content_verdict 619 | Notes-family 2 verdicts ['irregular', 'irregular']
+block5 entries w/ content_verdict: 620 / 620
+
+gap items: 14 | distinct missing texts: 1 | grouped: {'xls': 14}
+ S: 生成：build_tabular_package.py 确定性合并；旧文件零改动。候选口径=archive_chain[-1] 末链名扩展名（**大小写不敏感**；.tab 合计 147，按功能精确分叉：大写 .TAB=MapInfo 空间表定义⇒块3，小写 .tab=文本表候选）。
+ S: ## 计数（candidates=1640）
+ S: | xls | 14 | **14 全部读不了**（BIFF，xlrd/转换器宿主+容器全缺）⇒pending-evidence 逐件入 gaps |
+ S: | .TAB 大写 | 142 | MapInfo 空间表定义⇒块3 |
+ S: | txt | 751 | 内容级核实：**132 表格候选⇒organized(提案态)**；非表格⇒块5（其中 10 件由 pending 升级为内容证据、607 件名称模式获内容复核、2 件 irregular Notes.txt 亦升级块5） |
+ S: 处置分布：organized=160、handoff-block3=846、handoff-block5=620、pending-evidence=14（合计 1640=candidates ✓）。
+ S: 快照=/opt/mydocker/xiangrugu/data/imports/usedata/2026-10-07-bootstrap（SSH 32 实测存在；嵌套件经 zipfile 提取到 /tmp，快照字节零接触；sha256 对账 inventory 全数一致）。工具面：宿主 python3.11.2 仅 chardet（ope
+ S: 1. csv7+xls14+xlsx13 无读取批准件、无 sheet 级对象清单⇒逐件列于 evidence-gaps.json。

@@ -1,0 +1,24 @@
+== ITEM 6 SUMMARY wording ==
+   生成：build_tabular_package.py 确定性合并；旧文件零改动。候选口径=archive_chain[-1] 末链名扩展名（**大小写不敏感**；.tab 合计 147，按功能精确分叉：大写 .TAB=MapInfo 空间表定义⇒块3，小写 .tab=文本表候选）。
+   | csv | 7 | 全部待证据（无读取批准件） |
+   | xls | 14 | 待证据（含 sheet 清单缺口） |
+   | xlsx | 13 | 待证据（同上） |
+   | .TAB 大写 | 142 | MapInfo 空间表定义⇒块3 |
+   | .tab 小写 | 5 | 全部已整理（权威 5 件，含 2 附加 .tab；无待证据 .tab） |
+   | txt | 751 | 含大写 .TXT（大小写不敏感纳入，修复 a03 ITEM 1）：说明件⇒块5（名称模式判定）609 件；其余 146 件待内容抽样判定 |
+   权威载体=text-schema-approved.draft.yaml（yaml 后缀 JSON 内容）：object_count=5、source_column_count=83、schema/column-mapping/nullable/types/derived-rownum approved=true；table_names/target_map
+
+porcelain total: 124 | tabular-dir lines: 4 | other lines: 120
+   OTHER:  M datamgmt/docs/IMPORT-PACKAGE-TODO.md
+   OTHER:  M docs/superpowers/evidence/2026-11-13-p01-real-prep/p01-entry/xrg_p01_entry.py
+   OTHER:  M docs/superpowers/evidence/2026-11-13-p01-real-prep/rehearsal-evidence.json
+   OTHER: ?? .cache-home/
+   OTHER: ?? .cbdb-block1-20261119/
+   OTHER: ?? .fifo-probe-20261117/
+   OTHER: ?? .fixture-window-20261117/
+   OTHER: ?? .go-deadline-20261117/
+abs-path hits: {'/mnt/': 0, 'file://': 0, '/home/zky': 0, 'C:\\': 0}
+entry sha head: 668900d43663 unchanged: True
+
+txt math: block5 609 + pending 142 = 751; SUMMARY claims 其余146 -> discrepancy 4
+gaps grouped txt: 142 | gap items: 180

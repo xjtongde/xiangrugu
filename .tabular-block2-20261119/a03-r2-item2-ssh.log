@@ -1,0 +1,3 @@
+XLSX metadata/v4_data_dictionary.xlsx sheets: ['v4_data_dictionary']
+XLSX v6_data_dictionary.xlsx sheets: ['v4_data_dictionary']
+NOT-IN chgis-v6/China_Periods_ReignDates.zip metadata/xtra_geo_source.xlsx | sample: []

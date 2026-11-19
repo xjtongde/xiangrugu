@@ -1,0 +1,3 @@
+ds_ReignDates.zip!china_chron/china_chron.txt: table True | col ids+targets 0/20 | quoted 9/20
+ates.zip!MajorChinaPeriods_Lex_2015-12-21.csv: table True | col ids+targets 1/13 | quoted 13/13
+ates.zip!MajorChinaPeriods_Lex_2015-12-21.ods: table True | col ids+targets 1/13 | quoted 13/13

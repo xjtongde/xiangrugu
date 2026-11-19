@@ -1,0 +1,21 @@
+== FINAL STATE ==
+total: 1640 | disp: {'handoff-block5': 620, 'organized': 160, 'pending-evidence': 14, 'handoff-block3': 846} | sum: 1640
+ods dispositions: Counter({'organized': 3, 'handoff-block5': 1})
+approved: 5 | proposed: 155 | fields: 3594
+pending_review: block3 846 / 846 | block5 620 / 620
+CountryFilesFormat in block5: 1 | pending_review: True
+   content_verdict keys: {"content_verdict": "documentation"}
+   member judgement_basis: {"basis_files_sha256": {"carrier_compare.json": "23606d8b1cfa188eda10db48f06e2cf8490a54df9132038d431c8857afd58cf9", "chgis_dict_pairs.json": "3d706e3877b7c12924c2ef65b007923976a5fc6600358983d407a35fe9b6817c", "headers.json": "f6918e37d734e08e843bd33bdb0d1a3b97830cb8c128d4d418d9a062b433b653", "ods_structure.json": "8085a127872edb1edde0fc84b133b7efdefca2a809bb7bfbf4d727b3f6e41c87", "probe_out.jsonl"
+organized by cat: {'txt': 132, 'csv': 7, 'ods': 3, 'xlsx': 13, 'tab-text': 5}
+txt block5: 619 | ods block5: 1 | block5 total: 620
+pending by cat: {'xls': 14} | gap items: 14 | grouped: {'xls': 14}
+naming china_chron/china_chron.txt: recomputed=china_u5f_chron__china_u5f_chron_u2e_txt delivered=china_u5f_chron__china_u5f_chron_u2e_txt match:True
+naming hinaPeriods_Lex_2015-12-21.csv: recomputed=t___majorchinaperiods_u5f_lex_u5f_2015_u2d_12_u2d_21_u2e_csv delivered=t___majorchinaperiods_u5f_lex_u5f_2015_u2d_12_u2d_21_u2e_csv match:True
+naming hinaPeriods_Lex_2015-12-21.ods: recomputed=t___majorchinaperiods_u5f_lex_u5f_2015_u2d_12_u2d_21_u2e_ods delivered=t___majorchinaperiods_u5f_lex_u5f_2015_u2d_12_u2d_21_u2e_ods match:True
+SUMMARY has 1640 : True
+SUMMARY has 160 : True
+SUMMARY has 620 : True
+SUMMARY has 14 : True
+SUMMARY has 142 : True
+SUMMARY has 155 : True
+nonreg approved cols 83 5 flags: True

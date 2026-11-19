@@ -1,0 +1,26 @@
+modified tracked lines: 7
+     M datamgmt/contracts/releases/2026-10-06-bootstrap/import-package/tabular/SUMMARY.md
+     M datamgmt/contracts/releases/2026-10-06-bootstrap/import-package/tabular/build_tabular_package.py
+     M datamgmt/contracts/releases/2026-10-06-bootstrap/import-package/tabular/evidence-gaps.json
+     M datamgmt/contracts/releases/2026-10-06-bootstrap/import-package/tabular/members.json
+     M datamgmt/docs/IMPORT-PACKAGE-TODO.md
+     M docs/superpowers/evidence/2026-11-13-p01-real-prep/p01-entry/xrg_p01_entry.py
+     M docs/superpowers/evidence/2026-11-13-p01-real-prep/rehearsal-evidence.json
+worktree sha head: 668900d43663 | HEAD-commit sha head: 6f5987f6037d
+diff --stat: .../p01-entry/xrg_p01_entry.py                     | 436 ++++++++++++++-------
+ 1 file changed, 291 insertions(+), 145 deletions(-)
+diff hunks: 38 | first hunk:
+diff --git a/docs/superpowers/evidence/2026-11-13-p01-real-prep/p01-entry/xrg_p01_entry.py b/docs/superpowers/evidence/2026-11-13-p01-real-prep/p01-entry/xrg_p01_entry.py
+index 115bd0c..4fa0716 100755
+--- a/docs/superpowers/evidence/2026-11-13-p01-real-prep/p01-entry/xrg_p01_entry.py
++++ b/docs/superpowers/evidence/2026-11-13-p01-real-prep/p01-entry/xrg_p01_entry.py
+@@ -48,6 +48,9 @@ READBACK_BUDGET_S, READBACK_POLL_S = 10.0, 0.2
+ GO_DELIVERY_WINDOW_S, GO_DEADLINE_S = 5.0, 20.0
+ INIT_WAIT_S = float(os.environ.get("XRG_P01_INIT_WAIT", "8"))
+ STAGE_A_SECONDS, STAGE_B_SECONDS = 300, 1830
++# run-real.sh:351 — worker --failure-evidence and supervisor --worker-failure
++# are the SAME path so the correlation reader sees one receipt's bytes twice.
++FAILURE_REPORT = "/data/var/run/failure-report.json"
+ PACKET_FILES = 48
+ DOCKER_TIMEOUT = 10
+ # v14 §2: the sudoers whitelist pins fixed paths + subcommands only; the

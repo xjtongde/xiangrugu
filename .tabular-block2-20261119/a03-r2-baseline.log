@@ -1,0 +1,23 @@
+== baseline state at 15:58Z ==
+total_candidates: 1636 | len(members): 1636
+categories: {'txt': 751, 'xls': 14, 'csv': 7, 'dbf': 704, 'tab-mapinfo-spatial-definition': 142, 'xlsx': 13, 'tab-text': 5}
+dispositions: {'handoff-block5': 609, 'pending-evidence': 176, 'handoff-block3': 846, 'organized': 5}
+inventory .ods independent filter count: 4
+   chgis-v6/China_Periods_ReignDates.zip | chain: ['MajorChinaPeriods_Lex_2015-12-21.ods'] | sha: 98236dffa267 | size: 58461
+   harvard-full/doi_10_7910/DVN/I4UIKV/ngia_dsg_codes_2017-03-15.zip | chain: ['ngia_dsg_codes_2017-03-15.ods'] | sha: aa29f122b8a8 | size: 46334
+   harvard-full/doi_10_7910/DVN/I4UIKV/ngia_dsg_codes_2017-03-15.zip | chain: ['CountryFilesFormat_2016-07-16.ods'] | sha: d8adf2a32c8f | size: 13980
+   harvard-full/doi_10_7910/DVN/M7WEFY/Manshu_200K_index_SHP.zip | chain: ['Manshu_Index_Stanford_links.ods'] | sha: 30d483d810aa | size: 87626
+ods already registered in members: 0 of 4
+Manshu outer zip entries: 41
+  Manshu .xlsx: 1 | .ods: 1
+Traceback (most recent call last):
+  File "<stdin>", line 32, in <module>
+NameError: name 'time' is not defined. Did you forget to import 'time'?
+lrwxrwxrwx 1 nobody nogroup 55 2026年 4月14日 /etc/ssh/ssh_config.d/20-systemd-ssh-proxy.conf -> /usr/lib/systemd/ssh_config.d/20-systemd-ssh-proxy.conf
+  mtime SUMMARY.md 15:53:07Z
+  mtime build_tabular_package.py 15:57:31Z
+  mtime evidence-gaps.json 15:53:07Z
+  mtime handoffs.json 15:53:07Z
+  mtime members.json 15:53:07Z
+  mtime object-mapping.json 15:53:07Z
+ssh config perms check:

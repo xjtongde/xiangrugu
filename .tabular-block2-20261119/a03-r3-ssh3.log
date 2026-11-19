@@ -1,0 +1,7 @@
+rows: 2404 | header cols: 159
+dup headers: {}
+row-length dist first50: {159: 50}
+rows wider than 159 (first20): [] []
+  rc 0
+delivered field names tail: ['w187 Construction material of wall ', 'w188 No. of gate towers ', 'w189 No. of corner towers ', 'w190 No. of other towers ', 'w191 Total no. of towers ', 'w192 No. of moon walls ', 'w193 No. of battlements ', 'w194 No. of cannon emplacements ', 'w195 No. of sentry posts ', 'w196 Presence of moat ', 'w197 Depth of moat in zhang ', 'w198 Depth of moat in meters ', 'w199 Width of moat in zhang ', 'w200 Width of moat in meters ', 'w201 no. of water gates ', 'w301 Physio-graphic Macro-region ', '"w302 Frontier situation of capital cities', ' 1893 "', 'w303 Core-periphery dichotomy 19thC ', 'w304  Core-periphery dichotomy 16thC ', 'w305 Comments\r']
+dialect: {"bom": false, "delimiter": ",", "encoding_strict_ok": "gb18030"}

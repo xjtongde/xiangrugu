@@ -1,0 +1,3 @@
+txt_headers entries: 132 | keys: ['bom', 'data_records', 'delimiter', 'encoding_used', 'header_row', 'key', 'line_count', 'sha256_of_raw']
+single-call recipe (ordinal=1 per call): 3110/3110
+bad samples: []

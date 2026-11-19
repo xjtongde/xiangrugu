@@ -1,0 +1,6 @@
+txt organized full-key join to txt_headers: 132/132 | misses 0 sample []
+matched with delimiter evidence: 132
+
+modified lines: 9 | non-tabular modified: [' M datamgmt/docs/IMPORT-PACKAGE-TODO.md', ' M docs/superpowers/evidence/2026-11-13-p01-real-prep/p01-entry/xrg_p01_entry.py', ' M docs/superpowers/evidence/2026-11-13-p01-real-prep/rehearsal-evidence.json']
+probe dir tracked? True | exists at repo root: True
+entry sha head: 668900d43663 unchanged: True

@@ -1,0 +1,12 @@
+txt organized: 132 | block5: 619
+ member keys: ['category', 'disposition', 'judgement_basis', 'ledger_disposition', 'ledger_rule_ids', 'pending_review', 'source_identity']
+   basis: {"basis_files_sha256": {"carrier_compare.json": "23606d8b1cfa188eda10db48f06e2cf8490a54df9132038d431c8857afd58cf9", "chgis_dict_pairs.json": "3d706e3877b7c12924c2ef65b007923976a5fc6600358983d407a35fe9b6817c", "headers.json": "f6918e37d734e08e843bd33bdb0d1a3b97
+ member keys: ['category', 'disposition', 'judgement_basis', 'ledger_disposition', 'ledger_rule_ids', 'pending_review', 'source_identity']
+   basis: {"basis_files_sha256": {"carrier_compare.json": "23606d8b1cfa188eda10db48f06e2cf8490a54df9132038d431c8857afd58cf9", "chgis_dict_pairs.json": "3d706e3877b7c12924c2ef65b007923976a5fc6600358983d407a35fe9b6817c", "headers.json": "f6918e37d734e08e843bd33bdb0d1a3b97
+ member keys: ['category', 'disposition', 'judgement_basis', 'ledger_disposition', 'ledger_rule_ids', 'pending_review', 'source_identity']
+   basis: {"basis_files_sha256": {"carrier_compare.json": "23606d8b1cfa188eda10db48f06e2cf8490a54df9132038d431c8857afd58cf9", "chgis_dict_pairs.json": "3d706e3877b7c12924c2ef65b007923976a5fc6600358983d407a35fe9b6817c", "headers.json": "f6918e37d734e08e843bd33bdb0d1a3b97
+txt organized matched into proposed_objects: 5/132 | with dialect_observations: 5
+
+manifest rows checked vs inventory OUTER zip size/sha: 789/789 match 213
+probe_out first400 lines sha_match true: 400/400
+probe_out total lines: 789 | sha_match true: 789

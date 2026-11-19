@@ -1,0 +1,5 @@
+KML/ChinaW_KML_utf.zip: enc gb18030 | cols 159 | dup header names distinct 0 | extra 0
+shapefiles/ChinaW_pts_gbk.zip: enc gb18030 | cols 159 | dup header names distinct 0 | extra 0
+  rc 0
+_Archive.zip!KML/ChinaW_KML_utf.zip/ChinaW.Master.Beta.csv | delivered fields: 176 | dup names distinct: 4 | extra: 12 | flag: True
+e.zip!shapefiles/ChinaW_pts_gbk.zip/ChinaW.Master.Beta.csv | delivered fields: 176 | dup names distinct: 4 | extra: 12 | flag: True

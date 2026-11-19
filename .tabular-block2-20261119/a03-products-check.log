@@ -1,0 +1,17 @@
+files: ['SUMMARY.md', 'build_tabular_package.py', 'evidence-gaps.json', 'handoffs.json', 'members.json', 'object-mapping.json']
+  SUMMARY.md 2923 bytes
+  build_tabular_package.py 22275 bytes
+  evidence-gaps.json 59728 bytes
+  handoffs.json 490723 bytes
+  members.json 1019946 bytes
+  object-mapping.json 51752 bytes
+
+members keys: ['class_counts', 'disposition_counts', 'format', 'members', 'release_id', 'selection_rule', 'total_candidates']
+members len: 1635
+sample: {"category": "txt", "disposition": "handoff-block5", "judgement_basis": {"basis": "documentary-name pattern (README/notes/metadata family); non-tabular role", "confidence": "name-pattern only — content unread this round (R-07 byte reads need authorization)"}, "ledger_disposition": "BLOCKED", "ledger_rule_ids": ["m000005"], "source_identity": {"archive_chain": ["README_MajorChinaPeriods.txt"], "arc
+
+object-mapping keys: ['derived_rownum_count', 'flags_verbatim_from_text_schema_approved', 'format', 'object_count', 'objects', 'source_column_count']
+
+handoffs keys: ['block3_spatial', 'block5_documentation', 'format', 'no_double_count_check']
+
+evidence-gaps keys: ['format', 'gap_object_count', 'grouped_summary', 'items']

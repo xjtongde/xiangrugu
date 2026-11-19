@@ -1,0 +1,14 @@
+L 436 : def _col_entry(object_id, original, ordinal):
+L 464 : headers_by_sheet = [(None, th["header_row"], th["data_records"],
+L 468 : headers_by_sheet = [(None, he["header_row"],
+L 475 : headers_by_sheet = [(t["sheet"], t["header_row"],
+L 482 : headers_by_sheet = [(s["sheet"], s["header_row"], None, None, None, None)
+L 485 : headers_by_sheet = [(nm, hr, (nrows.get(nm) or 1) - 1, None, None, None)
+L 486 : for nm, hr, *_ in headers_by_sheet]
+L 496 : for sheet_nm, hdr, nrows, enc, bom, delim in headers_by_sheet:
+L 497 : cols = [_col_entry(sid, h, i + 1) for i, h in enumerate(hdr)]
+L 501 : dup = len(hdr) != len(set(hdr)) if headers_by_sheet else False
+L 511 : "dialect_observations": {"delimiter": headers_by_sheet[0][5],
+L 512 : "encoding_strict_ok": headers_by_sheet[0][3],
+L 513 : "bom": headers_by_sheet[0][4]},
+L 515 : len(h) != len(set(h)) for _, h, *_ in headers_by_sheet),

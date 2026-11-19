@@ -1,0 +1,14 @@
+== GAPS 14 xls per-item error text ==
+ obj: 6/China_Periods_ReignDates.zip!china_chron/china_chron.xls | missing: ["BIFF reader (xlrd absent; no soffice/ssconvert/catdoc/xls2csv/in2csv/xlsx2csv anywhere)"]
+ obj: _Periods_ReignDates.zip!china_chron/china_chron_fields.xls | missing: ["BIFF reader (xlrd absent; no soffice/ssconvert/catdoc/xls2csv/in2csv/xlsx2csv anywhere)"]
+ obj: 10_7910/DVN/ELTD3L/RAS_1900_pdb2_gis.ZIP!Tib19pdb_orig.xls | missing: ["BIFF reader (xlrd absent; no soffice/ssconvert/catdoc/xls2csv/in2csv/xlsx2csv anywhere)"]
+ obj: harvard-full/doi_10_7910/DVN/EOH3FV/1999_gb_pop_uce.xls | missing: ["BIFF reader (xlrd absent; no soffice/ssconvert/catdoc/xls2csv/in2csv/xlsx2csv anywhere)"]
+ obj: zip!shapefiles/chgis_tmpl_pts_utf.ZIP/CHGIS_TMPL_28apr.xls | missing: ["BIFF reader (xlrd absent; no soffice/ssconvert/catdoc/xls2csv/in2csv/xlsx2csv anywhere)"]
+
+probe dir found: ['.tabular-probe-20261119']
+files: 9
+claimed basis files: 7 | mismatches: 0 []
+carrier_compare keys/type: dict {'manshu': {'ods_rows': 61, 'xlsx_rows': 61, 'ordered_equal': False, 'keyset_equal_on_first5cols': True, 'row_order_differs': True, 'ods_ordered_sha': '8d7bda62191aa988eb5e3709eb5a33ab3b7071feedfd459d
+
+S: | txt | 751 | 内容级核实：**132 表格候选⇒organized(提案态)**；非表格⇒块5（其中 10 件由 pending 升级为内容证据、607 件名称模式获内容复核、2 件 irregular Notes.txt 亦升级块5） |
+ordinal contiguous first40: True | field count distinct: [(29, 20), (23, 19), (30, 16), (24, 12), (3, 11)]

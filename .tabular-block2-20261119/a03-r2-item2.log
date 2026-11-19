@@ -1,0 +1,15 @@
+workbook members: 31
+with sheet inventory: 0 | still GAP: 31
+
+GAP sample basis: {"reason": "xls member with no per-object reader approval, sheet/column contract or value expectations in this release directory", "worksheet_inventory": "GAP: requires authorized read of workbook sheet lists on host 32 (not performed this round)"}
+
+gap items ending .xls: 14
+  obj: 6/China_Periods_ReignDates.zip!china_chron/china_chron.xls | missing: ['reader approval (csv/xls/xlsx dialect)', 'sheet-level object inventory', 'column/type review', 'value expectations']
+  obj: _Periods_ReignDates.zip!china_chron/china_chron_fields.xls | missing: ['reader approval (csv/xls/xlsx dialect)', 'sheet-level object inventory', 'column/type review', 'value expectations']
+  obj: 10_7910/DVN/ELTD3L/RAS_1900_pdb2_gis.ZIP!Tib19pdb_orig.xls | missing: ['reader approval (csv/xls/xlsx dialect)', 'sheet-level object inventory', 'column/type review', 'value expectations']
+  SUMMARY.md 15:59:47Z 3149
+  build_tabular_package.py 15:59:47Z 23498
+  evidence-gaps.json 15:59:47Z 61053
+  handoffs.json 15:59:47Z 490987
+  members.json 15:59:47Z 1023475
+  object-mapping.json 15:59:47Z 51752

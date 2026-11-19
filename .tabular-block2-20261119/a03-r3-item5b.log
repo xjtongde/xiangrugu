@@ -1,0 +1,7 @@
+delivered column_id: 966e28cd93629d66bd6b91b7c723860bbd6a2db5f96283018dbd1bb245736e7e
+v1 ==delivered: True
+v1-dataset ==delivered: False
+v1-cand ==delivered: False
+
+approved field sample keys: ['column_id', 'empty_strings_observed', 'encoding', 'nullable', 'original_name', 'quoted_target_name', 'row_order', 'source_column_ordinal', 'target_name', 'target_type']
+approved column_id: df86d255b7714be5c26a3bd081ab7224244ab4d3e20589e0104376bb38d57fea

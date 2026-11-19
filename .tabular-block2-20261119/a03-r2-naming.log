@@ -1,0 +1,16 @@
+== product mtimes baseline ==
+  SUMMARY.md 2026-11-19T15:53:07Z
+  build_tabular_package.py 2026-11-19T15:57:31Z
+  evidence-gaps.json 2026-11-19T15:53:07Z
+  handoffs.json 2026-11-19T15:53:07Z
+  members.json 2026-11-19T15:53:07Z
+  object-mapping.json 2026-11-19T15:53:07Z
+naming.py candidates: ['datamgmt/src/xiangrugu_datamgmt/naming.py']
+
+== file datamgmt/src/xiangrugu_datamgmt/naming.py len 2832 ==
+    def slug(value: str) -> str:
+    def limited(base: str, identity: str, *, force_hash: bool = False, suffix: str = "") -> str:
+    def allocate_tables(entries: list[NameInput]) -> tuple[NameMap, ...]:
+    def allocate_columns(originals: list[str], *, object_id: str) -> tuple[NameMap, ...]:
+    def quote_identifier(value: str) -> str:
+    def validate_schema(value: str) -> str:

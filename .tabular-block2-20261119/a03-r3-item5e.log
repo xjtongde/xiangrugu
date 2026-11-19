@@ -1,0 +1,8 @@
+objects with duplicate column_ids: 3
+    ('ds_ReignDates.zip!china_chron/china_chron.txt', 7, True)
+    ('KML/ChinaW_KML_utf.zip/ChinaW.Master.Beta.csv', 12, True)
+    ('les/ChinaW_pts_gbk.zip/ChinaW.Master.Beta.csv', 12, True)
+
+dup-name field pair ordinals: [1, 2] | same column_id? True
+target-based per-field match: False False
+targets: 't__u79e6_' 't__u79e6_'

@@ -1,0 +1,12 @@
+== ITEM 1 ODS coverage (corrected keys) ==
+ MajorChinaPeriods_Lex_2015-12-21.ods: registered True sha/size/chain identical True | category:ods disposition:pending-evidence
+ ngia_dsg_codes_2017-03-15.ods: registered True sha/size/chain identical True | category:ods disposition:pending-evidence
+ CountryFilesFormat_2016-07-16.ods: registered True sha/size/chain identical True | category:ods disposition:pending-evidence
+ Manshu_Index_Stanford_links.ods: registered True sha/size/chain identical True | category:ods disposition:pending-evidence
+ALL 4 ODS IDENTICAL: True
+Manshu dual carriers separate rows: 1 1 | distinct sha: True
+ dup-merge flags absent check: {}
+
+categories: {'txt': 751, 'xls': 14, 'csv': 7, 'ods': 4, 'dbf': 704, 'tab-mapinfo-spatial-definition': 142, 'xlsx': 13, 'tab-text': 5}
+dispositions: {'handoff-block5': 609, 'pending-evidence': 180, 'handoff-block3': 846, 'organized': 5} | closure sum: 1640
+txt dispositions: {'handoff-block5': 609, 'pending-evidence': 142}

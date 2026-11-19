@@ -1,0 +1,5 @@
+probe header_row[:8]: ['秦', '秦', '', '', '-249', 'BCE', '-247', 'BCE']
+probe delimiter: '\t' | encoding: utf-8 | data_records: 676
+organized unmarked: 5 ['[]', '[]', '[]', '[]', '[]']
+txt by disposition: {'handoff-block5': 619, 'organized': 132}
+Notes in block5: 2 | verdicts: ['irregular', 'irregular']

@@ -1,0 +1,6 @@
+inner names: ['ChinaW.Master.Beta.csv', 'ChinaW.Master.Beta.xls']
+ChinaW KML utf: enc gb18030 | cols 159 | dup header names distinct 0 | extra columns from dups 0
+CountryFilesFormat sheets: ['Sheet1', 'FULL_NAME', 'UFI'] | rows per sheet: [39]
+
+STDERR: 
+rc: 0

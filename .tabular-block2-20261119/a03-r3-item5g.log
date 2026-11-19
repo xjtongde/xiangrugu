@@ -1,0 +1,22 @@
+False ['xiangrugu.column.v1', '4a537d9816fc89062847f7b9a8d993f9c236b241283c164e1d49145
+False ['xiangrugu.column.v1', '4a537d9816fc89062847f7b9a8d993f9c236b241283c164e1d49145
+False ['xiangrugu.column.v2', '4a537d9816fc89062847f7b9a8d993f9c236b241283c164e1d49145
+False ['xiangrugu.column.v1', 'china_u5f_chron__china_u5f_chron_u2e_txt', 2, '秦']
+False ['xiangrugu.column.v1', 'china_u5f_chron__china_u5f_chron_u2e_txt', '秦']
+False ['xiangrugu.column', '4a537d9816fc89062847f7b9a8d993f9c236b241283c164e1d4914518a
+False ['4a537d9816fc89062847f7b9a8d993f9c236b241283c164e1d4914518a1074c5', '秦']
+False ['xiangrugu.column.v1', '4a537d9816fc89062847f7b9a8d993f9c236b241283c164e1d49145
+
+build script around column_id:
+": [{**{k: c[k] for k in ("source_column_ordinal", "original_name",
+                                           "target_name", "quoted_target_name",
+                                           "target_type", "nullable", "encoding",
+                                           "empty_strings_observed", "column_id")},
+                    "row_order": READ_RULES["source_order"]}
+                   for c in o["source_columns"]]
+                   + [{"synthetic": True, "target_name": dc["target_name"],
+                       "target_type": dc["target_type"], "origin": dc["origin"],
+                       "range": dc["range"], "mapping_approved": dc["mapping_approved"]}
+                      for dc in o["derived_columns"]],
+        "read_method": {"rules": READ_RULES, "scope_note":
+                

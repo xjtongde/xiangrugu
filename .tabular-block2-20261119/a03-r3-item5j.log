@@ -1,0 +1,9 @@
+v1 int ordinal ==delivered: False
+v1 str ordinal ==delivered: False
+with dataset ==delivered: False
+with cand ==delivered: False
+sha(source_file_or_chain)-based: False
+orig bytes repr: 'name_en'
+field0 match earlier means oid ok; recompute field1 by hand:
+False 54d4a744f9b288ca193ce357fb8312acabbc8709f0ca7635f33f5cadfc9a00fb
+delivered: b5918bb675b404e6e62ee6edc60e2546ea23152fa74e3305e40ca89779aca5ef

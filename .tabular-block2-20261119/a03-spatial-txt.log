@@ -1,0 +1,20 @@
+total components: 12
+component inner ext distribution: {'.cpg': 2, '.dbf': 2, '.prj': 2, '.qpj': 2, '.shp': 2, '.shx': 2}
+components ending .dbf: 2 | sample: [('attributes', 'm002706', 'harvard-full/doi_10_7910/DVN/E7HDYD/1884route.zip :: 5_1884route/Ca1884route_przh_1251.dbf'), ('attributes', 'm002714', 'harvard-full/doi_10_7910/DVN/E7HDYD/1884route.zip :: 5_1884route/Ca1884route_przh_utf8.dbf')]
+txt total: 751 README-named(inner): 607 other: 144
+   other txt: china_chron/china_chron.txt | outer: chgis-v6/China_Periods_ReignDates.zip
+   other txt: tan_GBK_names1.txt | outer: harvard-full/doi_10_7910/DVN/3KAHBT/tan_atlas_gbk_mar01.zip
+   other txt: tan_GBK_names2.txt | outer: harvard-full/doi_10_7910/DVN/3KAHBT/tan_atlas_gbk_mar01.zip
+   other txt: tib19pdb_orig.txt | outer: harvard-full/doi_10_7910/DVN/ELTD3L/RAS_1900_pdb2_gis.ZIP
+   other txt: harvard-full/doi_10_7910/DVN/HHVVHX/CHGIS_V6_EULA.txt | outer: harvard-full/doi_10_7910/DVN/HHVVHX/CHGIS_V6_EULA.txt
+   other txt: img_res.txt | outer: harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip
+   other txt: v3_1911_pref_pts_gb.txt | outer: harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip
+   other txt: v3_1911_pref_pts_utf.txt | outer: harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip
+   other txt: v3_1911_twn_pts_gb.txt | outer: harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip
+   other txt: v3_1911_twn_pts_utf.txt | outer: harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip
+   other txt: v3_ts_cnty_pts_gb.txt | outer: harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip
+   other txt: v3_ts_cnty_pts_utf.txt | outer: harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip
+   other txt: ts_pref_pgn_gb.txt | outer: harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip
+   other txt: ts_pref_pgn_gb.txt | outer: harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip
+   other txt: ts_pref_pgn_utf.txt | outer: harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip
+non-readme txt categories: {'other': 139, 'eula': 5}

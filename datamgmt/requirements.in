@@ -3,3 +3,4 @@ pydantic==2.13.5
 PyYAML==6.0.3
 pyproj==3.7.2
 jsonschema==4.26.0
+xlrd==2.0.2

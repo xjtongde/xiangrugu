@@ -1,0 +1,18 @@
+  SUMMARY.md 18:44:19Z 9796
+  build_tabular_package.py 18:44:19Z 62178
+  evidence-gaps.json 18:44:19Z 385
+  handoffs.json 18:44:19Z 547567
+  members.json 18:44:19Z 2164930
+  object-mapping.json 18:44:19Z 2850488
+
+== ITEM 1: XLS one-object-per-nonempty-sheet ==
+delivered xls objects: 15 | my nonempty sheets total: 15
+delivered pairs == expected: True | sym: 0 []
+issues (multi-ws objects): []
+members with empty_sheet_policy: 14 /14 | members listing zero-dim sheets: 3 (my baseline files w/ empties: 3 )
+
+== ITEM 3: split MingGarrisons nested ==
+objects for that file: 2
+Traceback (most recent call last):
+  File "<stdin>", line 36, in <module>
+TypeError: object of type 'int' has no len()

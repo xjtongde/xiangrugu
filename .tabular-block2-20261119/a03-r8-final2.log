@@ -1,0 +1,16 @@
+== RE-VERIFY vs FINAL BYTES (18:50:07Z) ==
+closure: {'handoff-block5': 620, 'organized': 174, 'handoff-block3': 846} sum 1640
+approved: 5 proposed: 170 fields: 4065
+sid unique: True 175/175
+dup column_id: 0 dup target: 0
+xls objects: 15
+xls pairs==expected: True sym 0
+worksheet=None remaining: 0
+TABLE-labeled flat objects: 138
+status: {('PROPOSED_NOT_AUTHORIZED', False): 170}
+markers b3 846 / 846 | b5 620 / 620
+approved 83 + 5 | flags verbatim: True | rules keys: 12
+entry sha head: 668900d43663 unchanged: True
+abs-path hits: {'/mnt/': 0, 'file://': 0, '/home/zky': 0}
+gaps: 0
+split sid recompute (final bytes): True objs: 2

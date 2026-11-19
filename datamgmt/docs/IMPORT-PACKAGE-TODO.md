@@ -99,6 +99,16 @@
 - 映射提案：**+14 xls 对象/505 字段**（15 非空 sheet 整表 allocate_columns）；target_type 按源单元格类型分布提案（全 NUMBER⇒double precision、混合/文本⇒text；CHW xls 8 number/151 text），observed_cell_types 逐列留证，nullable 由 EMPTY/BLANK 观测驱动；确认态全 PROPOSED_NOT_AUTHORIZED，basis=镜像 Id+xlrd 版本+证据 sha；empty_string=preserve_not_null、行序 preserve+__src_rownum 沿用。
 - **新闭合：1640 = organized 174（批准 5+提案 169）+ block3 846 + block5 620 + pending 0**；uniqueness_review **169 表/4065 列双 0 违例**；gaps 归零（剩余缺口仅批准面）；pending_review 14/14；确定性重跑字节一致。**读取面 PARTIAL⇒COMPLETE；批准面仍 PROPOSED_NOT_AUTHORIZED，ready_for_import=False**。待 Codex 独立验收后收口第 2 块，再进入第 3 块空间矢量。
 
+#### 第 2 块工作表映射收尾记录（2026-11-19 round 5，复用已提交读取证据）
+
+- MingGarrisonsSheet_29jan08.xls（V4_Data_Archive.zip!KML/ming_garrisons_KML.zip）横拼对象（25 字段=Sheet1 14+Sheet2 11）**拆为两个独立导入对象**：Sheet1（sid 0e2674e1…，14 字段源序，nrows 773/data 772）、Sheet2（sid 04e26d04…，11 字段，nrows 376/data 375）；身份输入 convention `<member>#<sheet>` 经 identity.py 真函数、候选表名经 naming.py 真函数，逐对象 worksheet_split.convention 披露；**禁止横拼/按行号合并**；归档成员仍登记一个源文件。
+- 同类扫描（方法修正披露：上轮用错键 nrows/rows 全漏，本轮正确键 columns/data_records_observed）：**多非空 sheet 合并仅此一处**；xlsx 13 各单命名 sheet、ods 按 table:table 逐表成对象、其余 XLS 各 1 非空 sheet；零残留。
+- 补名：csv/txt 平面件 null worksheet 统一 'TABLE' 标签（138 件）；76ed534c…（RUXK8/Ming_Garrisons.zip!MingGarrisonsSheet_29jan08.**csv**）经授权镜像只读回测兄弟簿（sheet_names=[Sheet1,Sheet2,Sheet3]），11 列表头与 Sheet2 逐列同构（11 列/375 行）⇒worksheet 标 'Sheet2' 带比对注记（提案态解释性标签，待复核）；与嵌套件 Sheet2 对象双成员保留镜像块 6。null 标签终值 0。过程缺陷披露：常量 hoist 遗漏致修复初版两轮静默失效，经机器件复核抓到——标签类修复必须断言终值。
+- 空 sheet：零维 Sheet2/Sheet3 共 5 处保留 members 清点结构事实，不建对象。
+- 消歧明细：uniqueness_review.disambiguation_detail **5 对象 23 处全 XLS 面**（xlrd 首行空表头 ''×n：1999_gb_pop_uce extra4、KML/Gazetteers.Beta extra7、ming_garrisons Sheet1 extra3、gbk/Gazetteers.Beta extra7、THDL_ADMareas extra2），__c{ordinal} 消歧；csv/txt 面 ChinaW 修正后 0；违例双 0。
+- SUMMARY 陈旧段修复（lead 指定文本、a02 编辑周期应用、lead 终验）：「读不了 14」清零、提案分解含 xls 每表一对象口径、169→170 同步。
+- **对象级终值：proposed 170/4065 字段（拆分净增减 0）、170 表唯一性双 0、候选表名跨对象碰撞 0、sid 全局唯一**；成员级闭合 1640=174+846+620+0 不变；确定性重跑字节一致；未重建镜像/未写库/未改源件。a03 ROUND 8 独立核对。
+
 ### 第 3 块空间矢量
 
 - [ ] 将已有候选组落实到确切归档链与组件身份；缺件、大小写差异、孤立组件均有处置。

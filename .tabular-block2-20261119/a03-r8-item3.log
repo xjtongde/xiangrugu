@@ -1,0 +1,22 @@
+objects: 2
+baseline keys: ['harvard-full/doi_10_7910/DVN/PDGOZ0/V4_Data_Archive.zip!KML/ming_garrisons_KML.zip/MingGarrisonsSheet_29jan08.xls']
+
+ sheet Sheet1: fields 14 | records 772 vs nrows-1 772
+   names==my xlrd header: True
+   candidate_table_name: kml_u2f_ming_u5f_garrisons_u5f_kml_u2e_zip__minggarri__0e2674e1
+   source_object_id: 0e2674e128b8f4529373e267c69c32edae6398384391dcae108a8c84cb25ac99
+   ws keys: ['columns', 'data_records_observed', 'worksheet']
+   structural_flags dup: True
+
+ sheet Sheet2: fields 11 | records 375 vs nrows-1 375
+   names==my xlrd header: True
+   candidate_table_name: kml_u2f_ming_u5f_garrisons_u5f_kml_u2e_zip__minggarri__04e26d04
+   source_object_id: 04e26d04ac121010c54af241861505e5ec611e4e6fa0e3e9b50afc54cbe4622c
+   ws keys: ['columns', 'data_records_observed', 'worksheet']
+   structural_flags dup: False
+
+global source_object_id unique: 170 of 175 incl approved -> True
+
+Sheet1: matched conventions: NONE of guesses
+
+Sheet2: matched conventions: NONE of guesses

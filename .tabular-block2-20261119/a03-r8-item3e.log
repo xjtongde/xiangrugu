@@ -1,0 +1,5 @@
+member si chain: ['KML/ming_garrisons_KML.zip', 'MingGarrisonsSheet_29jan08.xls'] | rp: harvard-full/doi_10_7910/DVN/PDGOZ0/V4_Data_Archive.zip | carrier: 'xls'
+Sheet1: objname='MingGarrisonsSheet_29jan08.xls#Sheet1' carrier='xls' | sid match:True | table match:True
+Sheet2: objname='MingGarrisonsSheet_29jan08.xls#Sheet2' carrier='xls' | sid match:True | table match:True
+
+ITEM3 conventions recompute (exact build inputs): PASS

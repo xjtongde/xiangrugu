@@ -1,0 +1,5 @@
+obj keys sample: ['candidate_table_name', 'carrier', 'confirmation_basis', 'dataset_namespace', 'dialect_observations', 'fields', 'independent_verification', 'load_method', 'read_method', 'source_file_or_chain', 'source_object_id', 'status', 'structural_flags', 'target_schema', 'worksheet_split', 'worksheets_observed']
+Sheet1: objname='MingGarrisonsSheet_29jan08.xls#Sheet1' | sid match:False | table match:False
+Sheet2: objname='MingGarrisonsSheet_29jan08.xls#Sheet2' | sid match:False | table match:False
+
+ITEM3 conventions recompute: FAIL

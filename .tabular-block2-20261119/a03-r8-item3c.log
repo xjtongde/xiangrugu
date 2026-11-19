@@ -1,0 +1,11 @@
+Sheet1: '#<sheet>' convention match: False
+   candidate_table_name recompute: kml_u2f_ming_u5f_garrisons_u5f_kml_u2e_zip__minggarri__7f0a3f26 ==delivered: False
+Sheet2: '#<sheet>' convention match: False
+   candidate_table_name recompute: kml_u2f_ming_u5f_garrisons_u5f_kml_u2e_zip__minggarri__41f3a25d ==delivered: False
+
+ITEM3 identity+table-name conventions: FAIL
+worksheet_split field present: True worksheet_split": {"convention": "multi-non-empty-sheet XLS workbook split per sheet; source_object_id input object_name = '<member>#<sheet>' (identit
+worksheet_split field present: True worksheet_split": {"convention": "multi-non-empty-sheet XLS workbook split per sheet; source_object_id input object_name = '<member>#<sheet>' (identit
+
+fields per object vs sheet dims: [(14, 14), (11, 11)]
+member entries for that file: 1

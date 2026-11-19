@@ -1,0 +1,17 @@
+XLS baseline: ve.zip!KML/ming_garrisons_KML.zip/MingGarrisonsSheet_29jan08.xls
+   nonempty: [('Sheet1', 773, 14), ('Sheet2', 376, 11)]
+
+fix table context:
+ isons.zip!"
+    "MingGarrisonsSheet_29jan08.csv": "Sheet2"}
+xls_sheet_names_fix = XLS_SHEET_NAMES_FIX
+
+
+def _emit_object(pkey, si, ext, carrier, ds, objname, headers_for_group,
+                 xls_typeinfo=None, headerless_width=None):
+    sid = source_object_id(relative_path=si["relative_path"],
+                           archive_chain=si["archive_chain"],
+                           object_name=objname,
+                           carrier=carrier or "tsv")
+    nmap = allocate_tables([NameInput(ds, objname, sid)])[0]
+    if ext in ("csv", "txt") and len(

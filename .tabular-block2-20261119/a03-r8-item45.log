@@ -1,0 +1,21 @@
+== ITEM 4: counts & uniqueness ==
+closure: {'handoff-block5': 620, 'organized': 174, 'handoff-block3': 846} sum 1640
+approved: 5 proposed: 170 fields: 4065
+source_object_id global unique: True (175/175)
+per-object dup column_id: 0 | dup target_name: 0
+xls objects: 15
+status: {('PROPOSED_NOT_AUTHORIZED', False, False): 170}
+
+== ITEM 5: non-regression + SUMMARY stale-fix ==
+approved cols 83 + 5 | flags verbatim: True | rules keys: 12
+markers b3 846 / 846 | b5 620 / 620
+entry sha head: 668900d43663 unchanged: True
+'读不了' occurrences: 0 | '无法读取': 0
+ S: 快照=/opt/mydocker/xiangrugu/data/imports/usedata/2026-10-07-bootstrap（SSH 32 实测存在；嵌套件经 zipfile 提取到 /tmp，快照字节零接触；sha256 对账 inventory 全数一致）。工具面：宿主 python3.11.2 仅 chardet（openpyxl/xlrd/odf/panda
+ S: 全量唯一性复核（机器件 object-mapping.uniqueness_review）：**170 表 / 4065 列，column_id 违例 0、target_column 违例 0、真重复源名消歧计数 23**（ChinaW 伪 dup 消除后为 0；跨表同 schema 候选名碰撞留块6）。计数终态（XLS 补齐轮）：candidates 1640 = organ
+ S: 对象级计数：proposed **169→170**、字段 **4065 不变**（拆分净增减 0）、唯一性重跑 **170 表/4065 列双 0 违例**；成员级闭合 1640=174+846+620+0 不变。
+modified: 5
+abs-path hits: {'/mnt/': 0, 'file://': 0, '/home/zky': 0}
+gaps items: 0 | grouped: {}
+
+76ed534c obj: ing_Garrisons.zip!MingGarrisonsSheet_29jan08.csv | ws: [{"columns": 11, "data_records_observed": 375, "worksheet": "TABLE"}]

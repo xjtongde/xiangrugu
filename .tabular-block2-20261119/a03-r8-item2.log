@@ -1,0 +1,12 @@
+done 17 errors 0
+  rc 0
+xlsx files with >1 nonempty sheet: 0
+
+xlsx coverage (file,my nonempty,delivered objs): mismatches: 0 []
+sample: [('P.zip!Manshu_Index_Stanford_links.xlsx', 1, 1), ('e.zip!metadata/v4_data_dictionary.xlsx', 1, 1), ('ive.zip!metadata/v4_feature_types.xlsx', 1, 1), ('ve.zip!metadata/xtra_change_types.xlsx', 1, 1), ('ve.zip!metadata/xtra_contributors.xlsx', 1, 1)]
+
+ods: (file,tables,db_ranges,delivered objs):
+   ('zip!MajorChinaPeriods_Lex_2015-12-21.ods', ['Sheet1'], 0, 1)
+   ('-03-15.zip!ngia_dsg_codes_2017-03-15.ods', ['ngia_dsg_codes_2017-03-15'], 0, 1)
+   ('15.zip!CountryFilesFormat_2016-07-16.ods', ['Sheet1'], 0, 0)
+   ('_SHP.zip!Manshu_Index_Stanford_links.ods', ['Sheet1'], 2, 1)

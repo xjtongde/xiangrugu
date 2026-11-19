@@ -1,0 +1,8 @@
+76ed src: harvard-full/doi_10_7910/DVN/5RUXK8/Ming_Garrisons.zip!MingGarrisonsSheet_29jan08.csv | carrier: csv | ws: [{"columns": 11, "data_records_observed": 375, "worksheet": "TABLE"}]
+not an xls in my baseline (csv file): isons.zip!MingGarrisonsSheet_29jan08.csv
+
+objects with worksheet=None remaining: 0 []
+  xls_probe.py 5686
+  xls_probe_out.json 64515
+  xls_targets.json 2483
+basis claims: 13 mismatches: 0 []

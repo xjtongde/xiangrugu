@@ -1,0 +1,12 @@
+  SUMMARY.md 18:50:07Z 12291
+  build_tabular_package.py 18:49:58Z 67176
+  evidence-gaps.json 18:50:07Z 385
+  handoffs.json 18:50:07Z 547567
+  members.json 18:50:07Z 2164930
+  object-mapping.json 18:50:07Z 2852041
+
+76ed disclosure context: columns/data_records_observed 复扫全部提案对象：**多非空 sheet 合并仅 MingGarrisons 一处**；xlsx 13 件每簿均单命名 sheet、ods 3 数据件各取 table:table 已逐表成对象（CountryFiles 文档件在块5）、其余 XLS 件各仅 1 非空 sheet——无其他拆分需求。
+**补名**：csv/txt 平面件 worksheet=null 共 139 处⇒**138 件真平面件**统一改标 'TABLE'（机器可寻址）；**例外 76ed534c…（Ming_Garrisons.zip!MingGarrisonsSheet_29jan08.csv）系工作簿导出件非平面件**——复用授权镜像只读回测同 zip 兄弟簿 MingGarrisonsSheet_29jan08.xls（sha 740b18d3af11…）sheet_names=[Sheet1,Sheet2,Sheet3]，该 csv 11 列表头与其 **Sheet2 逐列一致（wei_id…end_yr，11 列/375 行同构）**⇒worksheet 补真名 **'Sheet2'** 并注内容比对；与嵌套件拆分出的 Sheet2 对象（04e26d04…）构成双成员保留（不同归档链，镜像比对留
+
+'读不了' md hits: 0 []
+modified lines: 5 [' M datamgmt/contracts/releases/2026-10-06-bootstrap/import-packa', ' M datamgmt/contracts/releases/2026-10-06-bootstrap/import-packa', ' M datamgmt/contracts/releases/2026-10-06-bootstrap/import-packa', ' M docs/superpowers/evidence/2026-11-13-p01-real-prep/p01-entry/', ' M docs/superpowers/evidence/2026-11-13-p01-real-prep/rehearsal-']

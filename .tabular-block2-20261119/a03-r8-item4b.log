@@ -1,0 +1,4 @@
+global recipe recompute (whole-table): 4065/4065
+candidate_table_name unique: True (170/170)
+objects with worksheet_split disclosure: 2
+xls_probe_out keys: 14

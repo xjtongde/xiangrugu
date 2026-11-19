@@ -1,0 +1,16 @@
+files: 14 | total NONEMPTY sheets: 13 | errors: 2
+   ods_ReignDates.zip!china_chron/china_chron.xls : [('Nian_hao_strip3', 678, 20)] empty: []
+   gnDates.zip!china_chron/china_chron_fields.xls : [('Sheet1', 21, 2)] empty: ['Sheet2', 'Sheet3']
+   ELTD3L/RAS_1900_pdb2_gis.ZIP!Tib19pdb_orig.xls : [('Tib19pdb_orig', 556, 20)] empty: []
+   ull/doi_10_7910/DVN/EOH3FV/1999_gb_pop_uce.xls : [] empty: []
+   es/chgis_tmpl_pts_utf.ZIP/CHGIS_TMPL_28apr.xls : [('temples_mainA_21aprJOIN', 2408, 23)] empty: []
+   CHGIS_v4_buddhist_KML.zip/CHGIS_TMPL_28apr.xls : [('temples_mainA_21aprJOIN', 2408, 23)] empty: []
+   zip!KML/ChinaW_KML_utf.zip/Gazetteers.Beta.xls : [('TEMP1', 963, 10)] empty: []
+   !KML/ChinaW_KML_utf.zip/ChinaW.Master.Beta.xls : [('ChinaW', 2404, 159)] empty: []
+   rrisons_KML.zip/MingGarrisonsSheet_29jan08.xls : [('Sheet1', 773, 14), ('Sheet2', 376, 11)] empty: ['Sheet3']
+   pefiles/ChinaW_pts_gbk.zip/Gazetteers.Beta.xls : [('TEMP1', 963, 10)] empty: []
+   iles/ChinaW_pts_gbk.zip/ChinaW.Master.Beta.xls : [('ChinaW', 2404, 159)] empty: []
+   s/v4_buddhist_pts_utf.zip/CHGIS_TMPL_28apr.xls : [('temples_mainA_21aprJOIN', 2408, 23)] empty: []
+   10_7910/DVN/PRCLTU/THDL_ADMareas_rev022401.xls : [] empty: []
+   13.zip!CodeBook_Tibet_Monasteries_20120629.xls : [('Sheet1', 19, 4)] empty: ['Sheet2', 'Sheet3']
+  rc 0

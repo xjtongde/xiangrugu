@@ -512,3 +512,50 @@ xiangrugu:runtime-tabular-xls-20261119-a（容器内 python3.11.16+xlrd 2.0.2）
 （+14 xls）｜proposed 169/fields 4065｜唯一性违例 0/0｜gaps 0｜markers 846/846+620/620｜闭合 1640。
 **判定建议：第 2/6 块 XLS 缺口闭合 ⇒ 具备从 PARTIAL 升级为 PASS（待茶香对该轮授权的正式验收确认）之条件；
 本机核验面已无遗留缺口，唯余块 3-6 交接事项。**
+
+====================================================================
+ROUND 8 —— 工作表映射收尾独立核对（拆分+补名+全量同类复查）
+记录时刻：2026-11-19T18:50:50Z。基线 HEAD=d8fbecd；产物两轮落盘 18:44:19Z 与终态 **18:50:07Z**
+（全部结论以终态字节复核，final2 重跑）。我的独立枚举方式：候选镜像内自写 xlrd 脚本全 14 件逐 sheet
+枚举（a03-r8-sheet-baseline.json 留证）+ stdlib zipfile/xml 解析 xlsx/ods + naming/identity 真函数再生。
+日志 a03-r8-*.log。
+
+① XLS 非空工作表一一对应                              PASS
+- 我的容器枚举：**15 张非空 sheet**（嵌套 MingGarrisons Sheet1(773×14)+Sheet2(376×11)、其余 13 件各 1）
+  ==交付 xls 对象 **15 个**；(file,sheet) 集合对称差 **0**——无一漏、无一合并、每对象恰 1 worksheet。
+- 空 sheet 清点保留：我见 3 文件共 5 张零维表（china_chron_fields/MingGarrisons/CodeBook 之 Sheet2/3）；
+  交付 14/14 members 带 empty_sheet_policy 文本、3 件 basis sheets_observed 含 0×0 事实不建对象 ✓。
+
+② XLSX/ODS 同类合并复查                               PASS
+- 我独立 stdlib 解析 13 xlsx（含嵌套链提取）：**每簿均仅 1 张有行 sheet**（>1 非空 sheet 文件数 0），
+  交付对象覆盖 (file,nonempty-sheet) 对 mismatch 0——上轮 a02 错键扫描虽漏，但事实上无 xlsx 多表合并缺陷。
+- ods 3 数据件 table:table 各 1 表各成对象（MajorChina/ngia/Manshu）；CountryFilesFormat 文档件在块5 正确
+  不建提案对象；Manshu db_ranges=2 作为结构证据留位。多非空 sheet 合并全库仅 MingGarrisons 一处（SUMMARY
+  复扫声明与我独立枚举一致）。
+
+③ 拆分件实证                                          PASS
+- 两对象：Sheet1 14 字段/772 records、Sheet2 11 字段/375 records==我 xlrd nrows−1；names==源 row0 逐元素 True；
+  无横拼痕迹（fields 数==各自 ncols、旧 25 字段合并对象已不存在）；worksheet_split convention 双件披露。
+- source_object_id 真函数再生：object_name='<member>#<sheet>'、carrier='xls' ⇒ 0e2674e1…/04e26d04…
+  **两件 match True**（注：首轮我用 pkey 全链 leaf 猜错一次，按 build 源码 _emit_object 实参复现后闭合）；
+  candidate_table_name 经 allocate_tables(NameInput(ds,objname,sid)) 再生两件相等；全局候选表名唯一 170/170。
+- 成员级仍一条源文件（members.json ming_garrisons_KML 链 1 条）✓。
+
+④ 计数/唯一性                                         PASS
+- proposed **169→170**、fields **4065 不变**（拆分净增减 0：25=14+11）；source_object_id 全局唯一 175/175；
+  独立复算 dup column_id 0、dup target_name 0；整表配方全局再生 **4065/4065**；闭合 1640=174+846+620+0 ✓；
+  状态 170/170 PROPOSED_NOT_AUTHORIZED；uniqueness_review 自述 170 表/4065 列与机器件一致。
+
+⑤ 非回归+SUMMARY 修正                                 PASS
+- 批准 5 件 83+5 恒等、flags verbatim True、rules 12 键；markers b3 846/846、b5 620/620；entry 668900d43663 未变；
+  porcelain M=5（tabular 3+P01 entry/rehearsal 2）无越界；绝对路径/file:// 0 命中；gaps 0。
+- SUMMARY「读不了」字样仓内 md grep **0 命中**；分解行含 csv7+xlsx13+ods3+txt132+xls 逐非空 sheet 口径。
+- 顶层 76ed534c…（Ming_Garrisons.zip!MingGarrisonsSheet_29jan08.csv）worksheet=null→**'Sheet2'** 补名：
+  我独立验证该 csv 头 11 列 [wei_id…end_yr] 与同快照兄弟 XLS 的 Sheet2 表头**逐列相等**、375 行同构，
+  补名有内容证据；平面件 'TABLE' 标 138 件、None 残留 **0**。probe 目录新增 xls_probe.py/out/targets，
+  basis_files_sha256 13 键 mismatches 0。
+- 确定性静态核通过（六产物同秒 18:50:07Z），双跑硬证留 lead。
+
+结论：ROUND 8 五项全部 PASS，首个不一致无。准确计数：xls 非空 sheet 15==对象 15（sym 0）｜xlsx 多表件 0｜
+proposed 170｜fields 4065｜sid 唯一 175/175｜配方再生 4065/4065｜None 残留 0｜TABLE 138｜闭合 1640。
+第 2/6 块工作表映射面无遗留缺陷，维持 ROUND 7 判定建议（PASS 升级待茶香验收）。

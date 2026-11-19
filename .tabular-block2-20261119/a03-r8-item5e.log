@@ -1,0 +1,6 @@
+my csv header: ['wei_id', 'type_ch', 'orig_id', 'src', 'name_py', 'name_ch', 'point_id', 'latitude', 'longitude', 'beg_yr', 'end_yr']
+delivered names == my csv header: True
+delivered names == Sheet1-style guess: True
+records: 375 == mine 375
+
+nested XLS Sheet2 header == top-level CSV header: True

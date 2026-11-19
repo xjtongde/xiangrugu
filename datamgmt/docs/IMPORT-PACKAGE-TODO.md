@@ -1,6 +1,6 @@
 # 全量导入包与映射进度
 
-更新日期：2026-11-19。当前阶段为数据整理与映射，第 1/6 块 CBDB 待执行，六块均未验收完成。本轮先整理项目文档，尚未向 DSH 派发第 1 块。
+更新日期：2026-11-19。当前阶段为数据整理与映射，第 1/6 块 CBDB 整理完成待 Codex 验收，第 2–6 块待执行。第 1 块交付在本 release 的 [import-package/cbdb/](../contracts/releases/2026-10-06-bootstrap/import-package/cbdb/SUMMARY.md)；10 表/235 列源侧值验证单列未决，不计入映射完成，ready_for_import=False 保持。
 
 本文件是当前阶段、六块待办、交付和讨论结论的唯一进度入口。设计约束见 [DESIGN.md](DESIGN.md)，执行权限见 [OPERATIONS.md](OPERATIONS.md)，原 Task 1–18 工程依赖见 [IMPLEMENTATION-PLAN.md](IMPLEMENTATION-PLAN.md)，既往运行记录见 [PROGRESS-HISTORY.md](PROGRESS-HISTORY.md)。其他入口只链接本文件，不复制当前进度。
 
@@ -19,7 +19,7 @@
 | CBDB | SQLite 78 表、736 列已有类型及名称/空值政策；68/78 是该文件的源侧值验证覆盖，既非导入表数，也非整个 usedata 完成比例 |
 | 其他来源 | 5 件文本、83 列有局部确认；空间清单有 705 个 Shapefile 候选组、146 个 MapInfo 候选关系；候选组数不等于已确认的导入对象数 |
 | 目标实例 | 本会话只读实查 pg32b 运行于 5433，已有 cbdb、cbdb_reh 和 postgres；xiangrugu 尚未创建。数据盘约 173 GiB 可用，执行前重新核对 |
-| 控制链 | 38 分支最后只读核对 HEAD 为 357362e，入口工作树摘要 668900d4…；离线同代集成因人工 roots 与生产 pin 不一致 BLOCKED，产品运行验收未完成；保留成果，暂停 GO/FIFO 微修，不能计入数据整理或导入完成 |
+| 控制链 | 38 已接收文档分支 99817df（Codex 原作者保留）；入口工作树摘要 668900d4… 未提交改动保留；离线同代集成因人工 roots 与生产 pin 不一致 BLOCKED，产品运行验收未完成；保留成果，暂停 GO/FIFO 微修，不能计入数据整理或导入完成 |
 
 分组事实和用户确认从 [首版合同目录](../contracts/releases/2026-10-06-bootstrap/) 追溯。既有决定直接合并，新汇总不重开已关闭的历史审查。源值期望的剩余验证与导入包映射分别登记，不因一个表尚无值摘要就隐去其已完成的结构映射。
 
@@ -29,7 +29,7 @@
 
 | 块 | 范围 | 状态 | 本块交付 | 完成后的讨论 |
 |---|---|---|---|---|
-| 1 | CBDB SQLite、JSON 及配套成员 | 待执行 | 78 表/736 列映射、全部 CBDB 成员处置、未决项及确认依据 | 对象关系、类型和命名的剩余决定 |
+| 1 | CBDB SQLite、JSON 及配套成员 | 整理完成待验收 | 78 表/736 列映射、全部 CBDB 成员处置、未决项及确认依据 | 对象关系、类型和命名的剩余决定 |
 | 2 | TSV/CSV/Excel、独立 DBF 等普通表格 | 待执行 | 文件/工作表/记录对象、编码、字段、空值及目标映射 | 编码或表格语义的未决项 |
 | 3 | Shapefile、MapInfo、KML 等空间矢量 | 待执行 | 组件组、属性、几何、CRS 原声明及目标映射 | 组件缺失、坐标声明和异常保留 |
 | 4 | Access/MDB、SQL 数据 | 待执行 | 内部对象及字段清单、读取/隔离方法、目标映射及不兼容项 | 不能无损读取或表达的具体对象 |
@@ -38,12 +38,20 @@
 
 ### 第 1 块 CBDB
 
-- [ ] 逐项归集全部 CBDB 成员，包含 JSON 与 SQLite 的关系；只在有证据时判定镜像，不按格式优先级丢弃不同内容。
-- [ ] 合并 `sqlite-target-mapping-proposal.draft.json`、`sqlite-target-mapping-decisions.draft.json` 及 `sqlite-review.md` 中的既有确认。
-- [ ] 对齐 78 表、736 列的身份、字段顺序、类型、空值、schema 与表列名；核对无重复目标名。
-- [ ] 输出每个对象的装载方法、独立回读方法和依赖能力；缺装载器如实标注，映射完成不能冒充程序已实现。
-- [ ] 列出源侧期望未覆盖的 10 表和后续验证安排，与已完成映射分别计数。
+- [x] 逐项归集全部 CBDB 成员，包含 JSON 与 SQLite 的关系；只在有证据时判定镜像，不按格式优先级丢弃不同内容。
+- [x] 合并 `sqlite-target-mapping-proposal.draft.json`、`sqlite-target-mapping-decisions.draft.json` 及 `sqlite-review.md` 中的既有确认。
+- [x] 对齐 78 表、736 列的身份、字段顺序、类型、空值、schema 与表列名；核对无重复目标名。
+- [x] 输出每个对象的装载方法、独立回读方法和依赖能力；缺装载器如实标注，映射完成不能冒充程序已实现。
+- [x] 列出源侧期望未覆盖的 10 表和后续验证安排，与已完成映射分别计数。
 - [ ] Codex 验收新汇总，与茶香讨论后记录结论及第 2 块启动状态。
+
+#### 第 1 块完成记录（2026-11-19，DSH 整理，待 Codex 验收）
+
+- 交付：`import-package/cbdb/`（本 release 下）members.json、table-mapping.json（78）、field-mapping.json（736）、remaining-value-verification.json（10 表/235 列）、SUMMARY.md、build_cbdb_package.py（确定性合并脚本，重跑字节一致）。
+- 成员：inventory 8004 中 CBDB 路径恰 3（目录容器、385B 出版方元数据 JSON、586,485,760B 主源 sqlite3 m007906）；JSON 经 32 只读取证为元数据描述关系，非重复载体，分别处置。
+- 确认态：类型子批 type_mapping_approved=true（700 观测+36 declaration-only，后者 PROPOSED_NOT_AUTHORIZED 未升级）；命名/空值按 decisions 用户继续确认（184 禁止空/552 允许空）；proposal 顶层 flags 逐字保持 False/BLOCKED，ready_for_import=False。
+- 独立核对：a03 七项全 PASS（覆盖/字段顺序全量/目标名三层唯一/basis sha 重算/配套处置/剩余 10 表三方吻合/旧文件零改动），三处口径注记见 `.cbdb-block1-20261119/a03-cross-evidence.txt`。
+- 未决项：①PG 生产装载器未实现（importer/load.py 仅 staging 原型且须修订，禁直跑）②大组 10 表读取需另行授权+预算修订（1GiB scratch>64MiB 执行域）③全版本命名分配未完成（naming_scope 子批）④约束执行未批准⑤36 declaration-only 列类型待授权。
 
 ### 第 2 块普通表格
 
@@ -99,3 +107,4 @@ PASS 必须覆盖本块全部范围及处置；未决项保留 PARTIAL/BLOCKED�
 
 - 2026-11-19：茶香确认六块顺序，要求每次派工标明当前阶段、完成一块讨论一次；当前先整理文档，第 1 块尚未派发。
 - 2026-11-19：茶香确定目标为 pg32b/xiangrugu，并要求整理全部源数据、在 32 落盘后导入；Codex 核对，DSH 执行。旧 p01 任务卡保持关闭。
+- 2026-11-19：DSH 第 1/6 块 CBDB 整理完成（30 分钟盒内，lead/a02/a03 三方核对），产物与进度经 DSH 身份提交推送 Gitea；待 Codex 独立验收后与茶香讨论，再决定第 2 块派工。未写库、未部署、未改 GO/FIFO。

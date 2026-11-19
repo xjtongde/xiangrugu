@@ -1,0 +1,9 @@
+probe files: [('carrier_compare.json', 657), ('chgis_dict_pairs.json', 472), ('chw_strict.json', 11512), ('headers.json', 23841), ('manifest.json', 144793), ('name_level_audit.json', 14923), ('ods_structure.json', 1257), ('probe.py', 5663), ('probe_out.jsonl', 550485), ('sheet_counts.json', 2346), ('txt_csv_audit.json', 19895), ('txt_headers.json', 77995), ('txt_strictwidths.json', 414), ('xls_probe.py', 5686), ('xls_probe_out.json', 64515), ('xls_targets.json', 2483)]
+basis claims: 13 mismatches: 0 []
+
+FDef member basis now: enc utf-16 bom True records 159
+xls without pending_review: 0
+xls basis keys sample: ['basis_files_sha256', 'confirmation_state', 'datemode', 'empty_sheet_policy', 'formula_semantics', 'raw_sha256_observed', 'sha_match_snapshot', 'sheets_observed', 'snapshot_path', 'verified_on']
+
+uniqueness_review: {"column_id_violations": 0, "columns_reviewed": 4065, "disambiguated_duplicate_source_names": 23, "headerless_objects": ["chgis-v6/China_Periods_ReignDates.zip!china_chron/china_chron.txt"], "objects_with_quote_artifact_audit": 108, "tables_reviewed": 169, "ta
+sorted( occurrences: 3

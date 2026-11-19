@@ -1,0 +1,8 @@
+== baseline state (pre-XLS) ==
+total: 1640 | disp: {'handoff-block5': 620, 'organized': 160, 'pending-evidence': 14, 'handoff-block3': 846} | sum: 1640
+xls: 14 | disp: {'pending-evidence': 14}
+inventory .xls filter: 14
+idset equal: True | sym: 0
+same rp+chain multiple ordinals: 0
+gap items now: 14 | grouped: {'xls': 14}
+approved: 5 proposed: 155 fields: 3560

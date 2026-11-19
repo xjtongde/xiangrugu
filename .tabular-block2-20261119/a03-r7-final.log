@@ -1,0 +1,11 @@
+== FINAL ROUND 7 CONSOLIDATION ==
+closure: {'handoff-block5': 620, 'organized': 174, 'handoff-block3': 846} sum 1640 | organized by cat: {'txt': 132, 'xls': 14, 'csv': 7, 'ods': 3, 'xlsx': 13, 'tab-text': 5}
+members pending_review: 789 of 1640
+markers b3 846 / 846 | b5 620 / 620
+organized unmarked (approved 5?): 5 {'tab-text': 5}
+proposed status: {('PROPOSED_NOT_AUTHORIZED', False, False): 169}
+uniqueness dup ids: 0 dup targets: 0 | fields: 4065
+gaps items: 0 | PARTIAL count: 0
+entry sha head: 668900d43663 unchanged: True
+modified: 8 | non-tabular: [' M datamgmt/docs/IMPORT-PACKAGE-TODO.md', ' M docs/superpowers/evidence/2026-11-13-p01-real-prep/p01-en', ' M docs/superpowers/evidence/2026-11-13-p01-real-prep/rehear']
+abs-path hits: {'/mnt/': 0, 'file://': 0, '/home/zky': 0, 'C:\\': 0}

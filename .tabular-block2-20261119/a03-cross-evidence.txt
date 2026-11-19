@@ -445,3 +445,70 @@ delivered original_name，范围 delimiter∈{',','\t'} 全部 **139 对象**（
 （建议 a02 下轮修）；(B) 20 件 utf-8+bom:true 与我 utf-8-sig 命名口径差（非失真）。准确计数：
 names-clean 139/139｜fields 3560｜闭合 1640｜唯一性违例 0/0｜配方再生 3560/3560｜basis sha mismatches 0。
 XLS 缺口保持 ⇒ **第 2 块维持 PARTIAL**。
+
+====================================================================
+ROUND 7 —— XLS 14 件补齐独立核对（茶香授权 xlrd==2.0.2 + 候选镜像轮）
+记录时刻：2026-11-19T18:19:50Z。基线 HEAD=a5f913d；产物 mtime 实测 18:14:54-18:15:21Z（早于预估 18:24Z）。
+我的独立复算方式：**自己的脚本**（未执行 a02 任何脚本），docker run --rm 快照 :ro 挂载
+xiangrugu:runtime-tabular-xls-20261119-a（容器内 python3.11.16+xlrd 2.0.2）全量重解析 14/14 件。
+日志 a03-r7-*.log。
+
+① 14 件清单恒等                                       PASS
+- inventory 独立过滤 leaf(.xls) 大小写不敏感 ==14；与 members xls 14 件按 (rp,chain,ordinals) 恒等式
+  idset equal True、sym 0；size vs inventory 逐件 mismatches 0（inner sha 由 container 侧我自行读取字节复核）。
+- 同名多 ordinals：V4_Data_Archive.zip 内 ChinaW.Master.Beta.xls/Gazetteers.Beta.xls/CHGIS_TMPL_28apr.xls
+  经不同中间 zip 各现 2 次，(rp,chain) 分组 multi=0——每件 chain 唯一（KML/…vs shapefiles/…区分），
+  分别处置成立；重复内容对（同 inner sha d1ff9ecb…×2、bbf2d21c…×2、27db25a5…×2、c40743ac…）以不同
+  source_object_id 各自成对象，未见串号。
+- 14 件 disposition 全部 pending-evidence→organized(提案态)；gaps items 14→**0**、grouped {}。
+
+② 工作表覆盖独立重解析                                PASS（一处口径披露）
+- 我的 xlrd 全量重解析 14/14 无错；sheet 名/nrows/ncols/首行 header 逐元素比对：
+  **delivered original_name == 我的 xlrd row0 header 全 14 件 True**（含 ChinaW.Master.Beta.xls 159 列大件、
+  嵌套双 zip CHGIS_TMPL_28apr.xls ×3、RAS_1900/Tib19pdb_orig.xls、top-level 1999_gb_pop_uce/THDL_ADMareas）。
+- 空表策略实证：china_chron_fields.xls(MingGarrisonsSheet 有 Sheet3 空、CodeBook 有 Sheet2/3 空)——
+  交付 worksheets_observed 仅收非空表，member basis empty_sheet_policy
+  「zero-dimension sheets recorded as structure facts, not mapped objects」+sheets_observed 含 0×0 事实留证。一致。
+- 行数口径：delivered data_records_observed == nrows−1（首行为表头）14/14 件 0 例外（china_chron.xls
+  678 行→677 records 实测吻合）。
+- 单元格类型分布抽核 china_chron.xls 全量重算：delivered 聚合 {TEXT 11639, EMPTY 1216, NUMBER 685}
+  == 我 data-only（排除表头行）全量计数 **精确相等**；含表头则 TEXT 差 20（表头 20 元）——即 a02 类型统计
+  口径=data rows only，与字段级 observed_cell_types 一致，无失真。DATE 列 datemode=0 留审标注在位。
+
+③ 字段与目标映射                                      PASS
+- naming.py 真函数整表配方抽核 3 件：ChinaW.Master.Beta.xls 159/159、china_chron.xls 20/20、
+  CodeBook 4/4 identity+target 再生相等。
+- 状态 169/169 ('PROPOSED_NOT_AUTHORIZED', schema/table_names/target_mapping/ready=False, BLOCKED) 零升级。
+- 公式缓存语义标注在位：formula_semantics「xlrd returns ONLY cached formula results; original formula
+  text unavailable — per-cell formula presence cannot be determined」（member basis + om type_note 两处）。
+- 空白/空串政策沿用：null_policy「empty_string=preserve_not_null (proposal沿用已批准政策，未升级)」逐字段在位；
+  read_method 注明镜像 Id sha256:6144346a501c…+快照 :ro 只读清点。
+
+④ 非回归                                              PASS
+- 批准 5 件：83+5 列恒等、flags_verbatim True、read_method.rules 12 键在位。
+- 155 旧提案保留：fields 3560→**4065**（净增 505 = xls 14 件之和；132 txt+7 csv+3 ods+13 xlsx+5 tab-text
+  organized 组成不变+xls 14⇒organized 174）；闭合 1640=174+846+620+0 ✓。
+- 唯一性独立复算 dup column_id 0、dup target_name 0（uniqueness_review 自述 169 表/4065 列/违例 0/消歧 23 一致）。
+- markers b3 846/846、b5 620/620；members pending_review 789=155+620+14(xls 新组织件亦标记)，
+  批准 5 件仍无标记正确。entry sha head 668900d43663 未变；porcelain M=8 无 tabular/TODO/P01 外改动；绝对路径 0。
+
+⑤ 镜像与依赖实证                                      PASS
+- docker inspect 6144346a501c7ba1299e28862a303007fddd6a9e8030c6b6e7c1ca52921b6cd3：labels revision==
+  a163f00ede2f9cc4592b636970cc243f6210cf30、source.status clean、created 2026-11-19T18:06:48Z、version 0.1.0 ✓。
+- 容器内 xlrd.__version__==2.0.2（site-packages/xlrd 实路径打印）；requirements.lock L316-317
+  「xlrd==2.0.2 \ --hash=sha256:ea762c3d29f4cca48d82df517b6d89fbce4db3107f9d78713e48cd321d5c9aa9 # via -r requirements.in」
+  与茶香指定值逐字相等；git show a163f00e:datamgmt/requirements.lock 同含该行（构建上下文可溯）。
+- 宿主 python3 import xlrd 仍失败（未宿主安装 ✓）；别名三枚复验 c15019fe…/89f1a097…/474da53d…
+  与 lead 留证逐一相等（未替换 ✓）。披露注记（archive 先传后覆盖）与我观测不矛盾：最终镜像内 xlrd 在位+哈希安装成功为实证面。
+
+⑥ 缺口如实+闭合+确定性                                PASS
+- gaps 0 项且 SUMMARY 划线「~~XLS 14 件 BIFF 读取缺口~~ 已闭合（茶香授权轮）」；无任何残留 gap 伪装闭合。
+- SUMMARY 计数行 1640=organized 174+block3 846+block5 620+pending 0 与机器件逐项一致；
+  PARTIAL 字样已随缺口闭合清零（4→0）。
+- 确定性静态核：build 含 sorted() 3 处+整表分配；六产物同秒 mtime；双跑硬证留 lead。
+- ROUND 6 注记A（FDef×2 member basis latin-1 滞后）本轮已同步：实测 encoding utf-16/bom True/records 159 ✓。
+
+结论：ROUND 7 六项全部 PASS，首个不一致无。准确计数：xls 14/14 独立重解析全匹配｜organized 174
+（+14 xls）｜proposed 169/fields 4065｜唯一性违例 0/0｜gaps 0｜markers 846/846+620/620｜闭合 1640。
+**判定建议：第 2/6 块 XLS 缺口闭合 ⇒ 具备从 PARTIAL 升级为 PASS（待茶香对该轮授权的正式验收确认）之条件；
+本机核验面已无遗留缺口，唯余块 3-6 交接事项。**

@@ -1,0 +1,25 @@
+== ITEM 3: xls mapping recipe & policy ==
+xls objects: 14
+recipe ChinaW.Master.Beta.xls: 159/159
+recipe china_chron.xls: 20/20
+recipe CodeBook_Tibet_Monasteries_20120629.xls: 4/4
+ token formula : 20
+ token cached : 40
+ token xlrd : 21
+ token empty_string : 20
+ token row_order : 0
+ token preserve : 20
+read_method sample: "xlrd==2.0.2 in locked runtime candidate image xiangrugu:runtime-tabular-xls-20261119-a (sha256:6144346a501c7ba1299e28862a303007fddd6a9e8030c6b6e7c1ca52921b6cd3), snapshot :ro mount"
+null_policy sample: empty_string=preserve_not_null (proposal沿用已批准政策，未升级)
+status: {"confirmation_state": "PROPOSED_NOT_AUTHORIZED", "disposition_retained": "BLOCKED", "ready_for_import": false, "schema_approved": false, "table_names_approved": false, "target_mapping_approved": false, "value_contract_a
+
+all proposed status tuples: {('PROPOSED_NOT_AUTHORIZED', False, False): 169}
+
+== ITEM 4: non-regression ==
+closure: {'handoff-block5': 620, 'organized': 174, 'handoff-block3': 846} sum 1640
+approved cols 83 + 5 | flags verbatim: True | rules keys: 12
+markers b3 846 / 846 | b5 620 / 620
+independent dup column_id: 0 | dup target_name: 0 | fields total: 4065
+Traceback (most recent call last):
+  File "<stdin>", line 48, in <module>
+NameError: name 'subprocess' is not defined. Did you forget to import 'subprocess'?

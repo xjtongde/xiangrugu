@@ -1,0 +1,23 @@
+XLS 补齐轮 lead 基线记录（2026-11-19T18:05:25Z，基线提交 a5f913df573bd277988971bb106e8c3a4df727d9）
+茶香授权：xlrd==2.0.2 wheel sha256=ea762c3d29f4cca48d82df517b6d89fbce4db3107f9d78713e48cd321d5c9aa9；32 独立 runtime 候选镜像；只读检查 14 件 XLS。
+约束：不宿主装依赖、不替换服务/镜像别名、不写库、不改源件。
+现有别名镜像基线 Id（本轮不得变更）：
+xiangrugu:runtime (=runtime-crs-verified-20261008=runtime-pre-value-v1-20261008T122211Z) sha256:c15019fed0fba9a8319ab129d0b1be1814ac22e775c7dccf8083e01220b4cb78
+xiangrugu:dev (=dev-schema-final-20261008T144709Z) sha256:89f1a0978cb817871d50d6468f3dec19e3ea1e67d5bc73457a62fd10b5b8732d
+xiangrugu:test (=test-crs-verified-20261008=test-pre-value-v1-20261008T122211Z) sha256:474da53d4fb0d7033ebe61eb74ac2b623cc7907b55b719fbc5f829270810a240
+32 xiangrugu 镜像总数：112；32 git 2.39.5 可用。
+构建流程：scripts/build-task1.sh L9-13 改编——仅 --target runtime、独立标签 xiangrugu:runtime-tabular-xls-20261119-a、build-arg VCS_REF=锁件提交/SOURCE_STATUS=clean；不跑全脚本（防别名覆盖）。
+构建上下文：lead git archive 锁件提交 → SSH 32 /opt/mydocker/xiangrugu/build-candidates/runtime-tabular-xls-20261119-a/（不触 deploy）。
+硬停：18:34:09Z。
+构建结果（a02 执行，lead 记录 18:08Z）：
+镜像 Id=sha256:6144346a501c7ba1299e28862a303007fddd6a9e8030c6b6e7c1ca52921b6cd3
+tag=xiangrugu:runtime-tabular-xls-20261119-a（独立标签，未跑 build-task1.sh 全脚本）
+labels: revision=a163f00ede2f9cc4592b636970cc243f6210cf30 created=2026-11-19T18:06:48Z source.status=clean version=0.1.0
+容器内 xlrd.__version__=2.0.2（--require-hashes 全过，wheel sha 匹配）
+别名基线复核未动（a02 独立复核==lead 留证三值）
+上下文：lead git archive a163f00 → SSH 解包（a02 曾先传一次，lead 覆盖，构建以 lead 版为准，xlrd 在位已验）
+lead 独立实证（18:08:14Z，docker inspect/run 亲测非引 a02 自述）：
+Id=sha256:6144346a501c7ba1299e28862a303007fddd6a9e8030c6b6e7c1ca52921b6cd3 ✓
+labels revision=a163f00ede2f9cc4592b636970cc243f6210cf30 created=2026-11-19T18:06:48Z ✓
+候选容器 xlrd 2.0.2 ✓
+别名 Id 三枚==基线（c15019fe…/89f1a097…/474da53d…）未替换 ✓

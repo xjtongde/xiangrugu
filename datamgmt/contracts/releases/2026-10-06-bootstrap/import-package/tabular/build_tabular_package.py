@@ -81,6 +81,7 @@ if probe_recs is not None:
     dict_pairs = pload("chgis_dict_pairs.json")
     ods_structure = pload("ods_structure.json")
     chw_strict = pload("chw_strict.json")
+    xls_probe = {r["key"]: r for r in pload("xls_probe_out.json")}
     txt_csv_audit = pload("txt_csv_audit.json")
     _nla = pload("name_level_audit.json")
     nla_diff = {d["key"]: d for d in _nla["diff_objects"]}
@@ -91,6 +92,7 @@ if probe_recs is not None:
                            "sheet_counts.json", "carrier_compare.json",
                            "chgis_dict_pairs.json", "ods_structure.json",
                            "chw_strict.json", "txt_csv_audit.json",
+                           "xls_probe_out.json", "xls_targets.json",
                            "name_level_audit.json",
                            "txt_strictwidths.json")}
 else:
@@ -222,36 +224,34 @@ for e in inv:
         pkey = key[0] + ("!" + "/".join(key[1]) if key[1] else "")
         pr = probe[pkey]
         if cls == "xls":
-            # BIFF binary: xlrd/converter absent on host AND container (lead fact
-            # 4); stdlib BOF walk yielded no usable boundsheet names — unreadable.
-            base.update(disposition="pending-evidence",
+            xr = xls_probe[pkey]
+            base.update(disposition="organized",
                         judgement_basis={
-                            "verified_on": "host-32 project snapshot read-only extraction",
+                            "verified_on": "container xiangrugu:runtime-tabular-xls-"
+                                           "20261119-a (image sha256:6144346a501c7ba1"
+                                           "299e28862a303007fddd6a9e8030c6b6e7c1ca52"
+                                           "921b6cd3, VCS_REF a163f00ede2f9cc4592b636"
+                                           "970cc243f6210cf30), xlrd==2.0.2 locked by "
+                                           "hash ea762c3d…, snapshot mounted :ro; "
+                                           "xlrd.open_workbook(on_demand=True)",
+                            "snapshot_path": SNAP_HOST_PATH,
                             "sha_match_snapshot": pr.get("sha_match"),
-                            "error": "missing xlrd/converter on host+container; stdlib "
-                                     "BOF walk produced no boundsheet inventory",
-                            "verdict": "unreadable-this-round"},
+                            "raw_sha256_observed": pr.get("sha256"),
+                            "sheets_observed": [{"sheet_name": s["sheet_name"],
+                                                 "nrows": s["nrows"],
+                                                 "ncols": s["ncols"]}
+                                                for s in xr["sheets"]],
+                            "datemode": xr.get("datemode"),
+                            "formula_semantics": "cached_value_semantics: xlrd returns "
+                                                 "ONLY cached formula results; original "
+                                                 "formula text unavailable — per-cell "
+                                                 "formula presence cannot be determined",
+                            "empty_sheet_policy": "zero-dimension sheets recorded as "
+                                                  "structure facts, not mapped objects",
+                            "confirmation_state": "PROPOSED_NOT_AUTHORIZED",
+                            "basis_files_sha256": probe_sha},
                         pending_review=True)
-            gap_items.append({"object": pkey,
-                              "missing": ["BIFF reader (xlrd absent; no soffice/ssconvert/"
-                                          "catdoc/xls2csv/in2csv/xlsx2csv anywhere)"],
-                              "error": "missing xlrd/converter on host+container",
-                              "environment_audit": {
-                                  "project_locks": "grep of datamgmt/requirements.lock and "
-                                                   "requirements-dev.lock: xlrd/openpyxl/"
-                                                   "odfpy/chardet all ABSENT; pyproject deps "
-                                                   "only psycopg/pydantic/PyYAML/pyproj/jsonschema",
-                                  "own_images": "all 112 xiangrugu images on 32 share one "
-                                                "Dockerfile + hash-locked lineage; newest two "
-                                                "(runtime-request-reader-20261113-a, "
-                                                "runtime-metadata-reader-20261108-a) tested: "
-                                                "all four modules missing",
-                                  "decision_needed": "installing or building requires 茶香 "
-                                                     "authorization; this round installs nothing"},
-                              "suggested_next": "茶香 decision on xlrd==2.0.1 PyPI pin into "
-                                                "lock files + rebuilt own image, or approval "
-                                                "of a derived stdlib BIFF parser evidence track"})
-            counts["pending_evidence"] += 1
+            counts["organized"] += 1
         elif cls == "csv" and (pr.get("verdict") == "non-tabular"
                                or pkey in headers_e):
             # NGIA csv: line-count heuristic said ragged, but STRICT csv-module
@@ -510,8 +510,16 @@ for m in members_out:
     si = m["source_identity"]
     pkey = si["relative_path"] + ("!" + "/".join(si["archive_chain"]) if si["archive_chain"] else "")
     ext = m["category"]
-    carrier = {"csv": "csv", "xlsx": "xlsx", "ods": "ods", "txt": None}[ext]
-    if ext == "txt":
+    carrier = {"csv": "csv", "xls": "xls", "xlsx": "xlsx", "ods": "ods",
+               "txt": None}[ext]
+    if ext == "xls":
+        xr = xls_probe[pkey]
+        headers_by_sheet = [(s["sheet_name"],
+                             [str(c["header_cell_row0"]) for c in s["columns"]],
+                             max(s["nrows"] - 1, 0), None, None, None)
+                            for s in xr["sheets"] if s["nrows"] and s["ncols"]]
+        xls_typeinfo = {s["sheet_name"]: s["columns"] for s in xr["sheets"]}
+    elif ext == "txt":
         th = txt_headers[pkey]
         nd = nla_diff.get(pkey)
         if pkey == HEADERLESS_TXT_KEY:
@@ -586,6 +594,25 @@ for m in members_out:
             hdr_desc = None
         else:
             cols = _cols_whole_table(sid, hdr)
+            if ext == "xls":
+                tinfo = xls_typeinfo.get(sheet_nm, [])
+                for f_, ti in zip(cols, tinfo):
+                    dist = ti["cell_type_distribution_data_rows"]
+                    nonempty = {k: v for k, v in dist.items()
+                                if k not in ("EMPTY", "BLANK")}
+                    kinds = set(nonempty)
+                    if kinds == {"NUMBER"}:
+                        f_["target_type"] = "double precision"
+                    elif kinds <= {"TEXT", "NUMBER"} and "NUMBER" in kinds:
+                        f_["target_type"] = "text"
+                    else:
+                        f_["target_type"] = "text"
+                    f_["observed_cell_types"] = dist
+                    f_["type_note"] = ("PROPOSED from xlrd cached-value type "
+                                       "distribution; DATE columns need datemode "
+                                       "conversion review; formula cells expose "
+                                       "cached results only")
+                    f_["nullable"] = any(k in dist for k in ("EMPTY", "BLANK")) or f_["nullable"]
             hdr_desc = None
         fields_all.extend(cols)
         entry = {"worksheet": sheet_nm, "columns": len(cols),
@@ -662,9 +689,15 @@ for m in members_out:
                 else None),
             "ods_database_ranges": (ods_structure.get(pkey, {})
                                     .get("database_ranges") or [])},
-        "read_method": "stdlib zipfile+xml.etree (xlsx/ods) or csv module strict parse "
-                       "(csv/txt) on host-32 project snapshot, read-only; NO external "
-                       "dependency installed (existing capability, not new)",
+        "read_method": ("xlrd==2.0.2 in locked runtime candidate image "
+                        "xiangrugu:runtime-tabular-xls-20261119-a "
+                        "(sha256:6144346a501c7ba1299e28862a303007fddd6a9e8030c6b6e"
+                        "7c1ca52921b6cd3), snapshot :ro mount"
+                        if ext == "xls" else
+                        "stdlib zipfile+xml.etree (xlsx/ods) or csv module strict "
+                        "parse (csv/txt) on host-32 project snapshot, read-only; "
+                        "NO external dependency installed (existing capability, "
+                        "not new)"),
         "load_method": LOAD_GAP_P,
         "independent_verification": {
             "state": "PROPOSED_NOT_AUTHORIZED",
@@ -790,8 +823,10 @@ write("object-mapping.json", obj_map)
 write("handoffs.json", handoffs)
 
 gaps = {"format": "xiangrugu.import-package.tabular.evidence-gaps.v1",
-        "block2_terminal_state": "PARTIAL (XLS 14 unreadable pending 茶香 dependency "
-                                 "decision; everything else resolved this round)",
+        "block2_terminal_state": "COMPLETE for read-evidence: XLS 14 readable via "
+                                 "authorized locked image xiangrugu:runtime-tabular-xls-"
+                                 "20261119-a (xlrd==2.0.2, sha256:ea762c3d…); remaining "
+                                 "gaps are approval-plane only (PROPOSED_NOT_AUTHORIZED)",
         "xls_total_bytes": sum(x["source_identity"]["size"] for x in members_out
                                if x["category"] == "xls"),
         "gap_object_count": len(gap_items),
@@ -815,7 +850,7 @@ summary = f"""# 普通表格整理摘要（第 2/6 块，仅整理不写库）
 | 类 | 数量 | 去向 |
 |---|---|---|
 | csv | {cc['csv']} | 本轮快照核实：6 表格候选⇒organized(提案态)，1 NGIA 严格解析 6×632 规整⇒organized 并记方言注记 |
-| xls | {cc['xls']} | **14 全部读不了**（BIFF，xlrd/转换器宿主+容器全缺）⇒pending-evidence 逐件入 gaps |
+| xls | {cc['xls']} | **茶香授权后全可读**：锁定 xlrd==2.0.2（sha ea762c3d…入 requirements.lock）+32 构建独立候选镜像 runtime-tabular-xls-20261119-a（Id 6144346a501c…，VCS_REF a163f00e…），快照 :ro 挂载、on_demand 只读清点⇒14 件 organized(提案态)，逐 sheet nrows/ncols/列类型分布留证；公式语义统一标注 cached_value_semantics（xlrd 仅缓存结果，公式原文不可得）；空零维 Sheet2/Sheet3 记结构事实不建对象 |
 | xlsx | {cc['xlsx']} | stdlib zipfile+xml 解析成功⇒organized(提案态)，sheet/字段/行数留证 |
 | ods | {cc['ods']} | stdlib content.xml 解析成功：3 数据表⇒organized(提案态)；**CountryFilesFormat_2016-07-16.ods 内容证据判为字段格式说明文档（表头 Field Name/Description/Type/MaxLength；SSH 复测：**39 table-row 总数**（a03 口径）、其中 **37 含内容行**（1 表头+36 字段说明行，末 2 行全空）、**38 数据行**=总行减表头——三值如实并列）⇒块5**；与同 basename xlsx/csv 分别处置不认重复；Manshu.ods 附 __Anonymous_Sheet_DB__0 database-range 结构事实留证 |
 | dbf | {cc['dbf']} | **全部为 Shapefile 空间组件⇒块3**（统一目录键的 shp/shx 兄弟扫描 704/704 命中，与 lead 侦察一致；独立 DBF=0） |
@@ -836,13 +871,12 @@ approved-dbf-{{character,numeric}}-reading.json 仅覆盖 1884route 两诊断件
 
 ## 收尾轮：列身份整表分配（修复上轮逐字段配方缺陷）
 上轮 `allocate_columns([name])` 逐列单元素调用，使重复表头名共享同一 column_id。本轮改为**每表一次整表调用**（以函数实际语义为准：同 slug 基底者由 `__c{{ordinal}}` 后缀消歧；identity 含序号+源名故天然唯一），全部 155 提案对象重分配；批准 5 件权威映射未动。**lead 方言裁定（a03 ROUND 4 注记(a)）**：两份 ChinaW.Master.Beta.csv 的 naive split(',') 176 列系伪影（引号内含逗号表头 w302/w304 被错切），RFC4180 引号感知 csv.reader=**159 列且零重复源名**——与项目已确认文本读取语义（quotechar DOUBLE_QUOTE/doublequote=true）及 R-08 忠实一致；**引号感知为正，裁定披露入件（dialect_resolution：前后 176→159 对照+strict_widths [[159,2404]]+证据 sha），提案态可逆待茶香讨论确认**。china_chron.txt——首行按数据保留（header_row=null、data_records=676 不变），naming/identity **无现行无表头规则**（两模块已查），采用稳定序号名 col_001…col_020 经**同一整表配方**分配（target col_u5f_001…），提案态披露。全量逗号 txt 复核：naive==strict 列数（107 件抽核 0 差异）⇒无同类伪影需改；2 件全文件宽度存在个别 ragged 行（v3/v4_time_cnty_pts_utf，strict 24×2811+23×2 / 25×4889+26×3）如实记入 quote_artifact_audit.full_file_width_profile 供块6 值合同复核。
-全量唯一性复核（机器件 object-mapping.uniqueness_review）：**{uniq['tables_reviewed']} 表 / {uniq['columns_reviewed']} 列，column_id 违例 {uniq['column_id_violations']}、target_column 违例 {uniq['target_column_violations']}、真重复源名消歧计数 {uniq['disambiguated_duplicate_source_names']}**（ChinaW 伪 dup 消除后为 0；跨表同 schema 候选名碰撞留块6）。计数终态：candidates 1640 = organized 160(批准5+提案155) + block3 846 + block5 620 + pending 14。
+全量唯一性复核（机器件 object-mapping.uniqueness_review）：**{uniq['tables_reviewed']} 表 / {uniq['columns_reviewed']} 列，column_id 违例 {uniq['column_id_violations']}、target_column 违例 {uniq['target_column_violations']}、真重复源名消歧计数 {uniq['disambiguated_duplicate_source_names']}**（ChinaW 伪 dup 消除后为 0；跨表同 schema 候选名碰撞留块6）。计数终态（XLS 补齐轮）：candidates 1640 = organized **174**(批准5+提案169) + block3 846 + block5 620 + pending **0**；proposed 字段 **4065**（xls +505）。
 
 ROUND-5 名级修复（a03 三方比对发现、lead 基线对照）：上轮审计仅比**列数** naive==strict，漏掉名级引号包裹/尾 \r/编码失真——如实披露入机器件 name_level_audit（method+prior_round_defect_disclosed）。本轮 139 对象（txt132+csv7）**名级全量三方比对：clean {nla_clean_count} / diff {len(nla_diff)}**，diff 全部重导并整表重分配：①Tibet_twns_2009_utf8.csv 13 净名 [THL_ID,Tibetan,Wylie,Pinyin,Twn_GB_ext,…]、933 数据行（与 lead 基线逐元素等）；②MingGarrisons/hist_sites 末列 \r 清除；③tan_GBK_names1/2、nima_feat_desig 末列 \r 清除（tab 件同病）；④**ChinaWBeta.Field.Definitions.txt ×2：BOM fffe UTF-16LE 嗅探+严格解码重判**——latin-1 NUL 碎片名消除，实为 TAB 分隔 7 列真实数据字典表（[Variable,COLUMN,ITEMNAME,WIDTH,OUTPUT,TYPE,DECIMALS]、159 数据行），处置按内容证据=**organized 提案态**（先例 v4/v6_data_dictionary.xlsx），encoding_resolution 披露含双副本 17580B 字节同、保留双成员镜像比对留块6。china_chron 首行数据判定不受影响（仅观测单元格尾 \r 注记）。修复后字段总数 **{uniq['columns_reviewed']}**（11 件重导净增减为 0：CHW 176→159 已在上一轮计入，本轮名级修正不改列数）。
 
 ## GAP / 未决
-1. **XLS 14 件（{xbytes:,} B）BIFF 读取缺口保持⇒第 2 块终态 PARTIAL**：lead 环境核查确证项目锁定件无 xlrd/openpyxl/odfpy/chardet（pyproject 仅 psycopg/pydantic/PyYAML/pyproj/jsonschema）、32 全部 112 枚自有镜像同一 Dockerfile+哈希锁定谱系且最新两枚实测四模块全缺、宿主/容器/转换器全缺——**需安装或构建⇒报茶香决定（xlrd==2.0.1 入锁定件+重建自有镜像路径），本轮不装不建**；逐件错误在 evidence-gaps.json。csv/xlsx/ods/txt 的读取批准件缺口已由快照内容核实补上证据（PROPOSED_NOT_AUTHORIZED，正式批准件仍待茶香派工）。
-2. PG 装载器未实现（沿用块1 GAP）；本包不运行任何装载。
+1. ~~XLS 14 件 BIFF 读取缺口~~ **已闭合（茶香授权轮）**：requirements.lock/in 锁 xlrd==2.0.2（官方 wheel sha256 ea762c3d…逐字）、32 构建独立标签候选镜像（未触 deploy/别名，runtime/dev/test Id 基线复核未变）、容器内 xlrd.__version__=2.0.2 实证；14 件全部只读清点成功（sha 对账 14/14 匹配）。嵌套链解析器在本目录格式上迭代七版方正确（inventory chain 末元素含目录前缀+外层 relative_path 已含末段——如实记录防复发）。剩余缺口仅为批准面：全部新映射 PROPOSED_NOT_AUTHORIZED，正式读取/装载批准件待茶香派工。2. PG 装载器未实现（沿用块1 GAP）；本包不运行任何装载。
 3. 全版本命名碰撞未完成（块6）。
 
 **ready_for_import=False 保持；类型推断禁止沿用；空串≠NULL 沿用；行序保留+派生行号单列。**

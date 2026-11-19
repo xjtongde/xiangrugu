@@ -1,0 +1,7 @@
+nrows: 678 | row0: ['period', 'pd_tra', 'sub_period', 'sub_tra', 'begin_yr', 'beg_yr_sfx', 'end_yr', 'end_yr_sfx']
+row1: ['秦', '秦', '', '', '-249', 'BCE', '-247', 'BCE']
+last row: ['清', '清', '', '', '1909', 'CE', '1911', 'CE']
+nonblank data rows excl row0: 677
+  rc 0
+delivered header names[:8]: ['period', 'pd_tra', 'sub_period', 'sub_tra', 'begin_yr', 'beg_yr_sfx', 'end_yr', 'end_yr_sfx']
+delivered records: 677

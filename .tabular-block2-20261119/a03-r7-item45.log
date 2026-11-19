@@ -1,0 +1,15 @@
+entry sha head: 668900d43663 unchanged: True
+modified lines: 8 [' M datamgmt/contracts/releases/2026-10-06-bootstrap/import-p', ' M datamgmt/contracts/releases/2026-10-06-bootstrap/import-p', ' M datamgmt/contracts/releases/2026-10-06-bootstrap/import-p', ' M datamgmt/contracts/releases/2026-10-06-bootstrap/import-p', ' M datamgmt/contracts/releases/2026-10-06-bootstrap/import-p', ' M datamgmt/docs/IMPORT-PACKAGE-TODO.md', ' M docs/superpowers/evidence/2026-11-13-p01-real-prep/p01-en', ' M docs/superpowers/evidence/2026-11-13-p01-real-prep/rehear']
+gaps items: 0 | grouped: {}
+'PARTIAL' count: 0
+
+formula context: distribution; DATE columns need datemode conversion review; formula cells expose cached results only"}, {"column_id": "fd697c86233e7a551ed31fae51d6051e019829930ddac46029ba7f92fabc1fd7", "null_policy": "empty_string=preserve_not_null (proposal沿用已批准政策，未升级)", "nullable": true, "observed_cell_types": {"TEXT": 2403}, "origi
+ S: | xls | 14 | **茶香授权后全可读**：锁定 xlrd==2.0.2（sha ea762c3d…入 requirements.lock）+32 构建独立候选镜像 runtime-tabular-xls-20261119-a（Id 6144346a501c…，VCS_REF a163f00e…），快照 :ro 挂载、on_demand 只读清点⇒14 件 organized(提案态)，逐
+ S: | xlsx | 13 | stdlib zipfile+xml 解析成功⇒organized(提案态)，sheet/字段/行数留证 |
+ S: | ods | 4 | stdlib content.xml 解析成功：3 数据表⇒organized(提案态)；**CountryFilesFormat_2016-07-16.ods 内容证据判为字段格式说明文档（表头 Field Name/Description/Type/MaxLength；SSH 复测：**39 table-row 总数**（a03 口径）、其中 **37 含内容行**（1
+ S: 处置分布：organized=174、handoff-block3=846、handoff-block5=620、pending-evidence=0（合计 1640=candidates ✓）。
+ S: 快照=/opt/mydocker/xiangrugu/data/imports/usedata/2026-10-07-bootstrap（SSH 32 实测存在；嵌套件经 zipfile 提取到 /tmp，快照字节零接触；sha256 对账 inventory 全数一致）。工具面：宿主 python3.11.2 仅 chardet（openpyxl/xlrd/odf/pandas/lxml 缺、容
+ S: 全量唯一性复核（机器件 object-mapping.uniqueness_review）：**169 表 / 4065 列，column_id 违例 0、target_column 违例 0、真重复源名消歧计数 23**（ChinaW 伪 dup 消除后为 0；跨表同 schema 候选名碰撞留块6）。计数终态（XLS 补齐轮）：candidates 1640 = organized **174
+ S: 清除（tab 件同病）；④**ChinaWBeta.Field.Definitions.txt ×2：BOM fffe UTF-16LE 嗅探+严格解码重判**——latin-1 NUL 碎片名消除，实为 TAB 分隔 7 列真实数据字典表（[Variable,COLUMN,ITEMNAME,WIDTH,OUTPUT,TYPE,DECIMALS]、159 数据行），处置按内容证据=**organi
+ S: 注记）。修复后字段总数 **4065**（11 件重导净增减为 0：CHW 176→159 已在上一轮计入，本轮名级修正不改列数）。
+ S: 1. ~~XLS 14 件 BIFF 读取缺口~~ **已闭合（茶香授权轮）**：requirements.lock/in 锁 xlrd==2.0.2（官方 wheel sha256 ea762c3d…逐字）、32 构建独立标签候选镜像（未触 deploy/别名，runtime/dev/test Id 基线复核未变）、容器内 xlrd.__version__=2.0.2 实证；14 件全部只读清点

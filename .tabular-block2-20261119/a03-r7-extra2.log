@@ -1,0 +1,8 @@
+member basis empty_sheet_policy: "zero-dimension sheets recorded as structure facts, not mapped objects"
+member basis formula_semantics: "cached_value_semantics: xlrd returns ONLY cached formula results; original formula text unavailable — per-cell formula presence cannot be determined"
+member basis datemode: 0 | sheets_observed: [{"ncols": 4, "nrows": 19, "sheet_name": "Sheet1"}, {"ncols": 0, "nrows": 0, "sheet_name": "Sheet2"}, {"ncols": 0, "nrows": 0, "sheet_name": "Sheet3"}]
+{'china_chron/china_chron.xls': {'TEXT': 11659, 'EMPTY': 1216, 'NUMBER': 685}}
+  rc 0
+
+delivered aggregate: {'TEXT': 11639, 'EMPTY': 1216, 'NUMBER': 685} 
+my full recompute   : {'TEXT': 11659, 'EMPTY': 1216, 'NUMBER': 685} | equal: False

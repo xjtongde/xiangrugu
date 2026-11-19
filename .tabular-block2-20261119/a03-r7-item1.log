@@ -1,0 +1,16 @@
+  SUMMARY.md 9137
+  build_tabular_package.py 58928
+  evidence-gaps.json 275
+  handoffs.json 547567
+  members.json 2164930
+  object-mapping.json 2845984
+
+== ITEM 1: 14 xls list identity ==
+total: 1640 | disp: {'handoff-block5': 620, 'organized': 174, 'handoff-block3': 846} | sum: 1640
+xls members: 14 | disp: {'organized': 14}
+inventory filter: 14 | idset==members: True sym 0
+size mismatches vs inventory: 0 []
+same rp+chain multi ordinals: 0
+
+gap items: 0 | grouped: {}
+approved: 5 proposed: 169 fields: 4065

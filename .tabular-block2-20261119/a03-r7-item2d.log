@@ -1,0 +1,4 @@
+ChinaW name diffs: 29 | all trailing-space-only: False | sample: [('s, 1820 ', 'es, 1820'), ('0 Hanzi ', 'alls 182'), ('0 Pinyin', 'alls 182'), (', 1820  ', 'ity, 182')]
+
+CodeBook delivered sheets: ['Sheet1'] | mine: ['Sheet1', 'Sheet2', 'Sheet3']
+   delivered dims: [(4, 18)] | mine: [(4, 19), (0, 0), (0, 0)]

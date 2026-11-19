@@ -1,0 +1,18 @@
+done 14 errors 0
+  rc 0
+ods_ReignDates.zip!china_chron/china_chron.xls: names==full-header True | delivered sheets ['Nian_hao_strip3'] vs all-sheets ['Nian_hao_strip3']
+gnDates.zip!china_chron/china_chron_fields.xls: names==full-header True | delivered sheets ['Sheet1'] vs all-sheets ['Sheet1', 'Sheet2', 'Sheet3']
+ELTD3L/RAS_1900_pdb2_gis.ZIP!Tib19pdb_orig.xls: names==full-header True | delivered sheets ['Tib19pdb_orig'] vs all-sheets ['Tib19pdb_orig']
+es/chgis_tmpl_pts_utf.ZIP/CHGIS_TMPL_28apr.xls: names==full-header True | delivered sheets ['temples_mainA_21aprJOIN'] vs all-sheets ['temples_mainA_21aprJOIN']
+CHGIS_v4_buddhist_KML.zip/CHGIS_TMPL_28apr.xls: names==full-header True | delivered sheets ['temples_mainA_21aprJOIN'] vs all-sheets ['temples_mainA_21aprJOIN']
+zip!KML/ChinaW_KML_utf.zip/Gazetteers.Beta.xls: names==full-header True | delivered sheets ['TEMP1'] vs all-sheets ['TEMP1']
+!KML/ChinaW_KML_utf.zip/ChinaW.Master.Beta.xls: names==full-header True | delivered sheets ['ChinaW'] vs all-sheets ['ChinaW']
+rrisons_KML.zip/MingGarrisonsSheet_29jan08.xls: names==full-header True | delivered sheets ['Sheet1', 'Sheet2'] vs all-sheets ['Sheet1', 'Sheet2', 'Sheet3']
+pefiles/ChinaW_pts_gbk.zip/Gazetteers.Beta.xls: names==full-header True | delivered sheets ['TEMP1'] vs all-sheets ['TEMP1']
+iles/ChinaW_pts_gbk.zip/ChinaW.Master.Beta.xls: names==full-header True | delivered sheets ['ChinaW'] vs all-sheets ['ChinaW']
+s/v4_buddhist_pts_utf.zip/CHGIS_TMPL_28apr.xls: names==full-header True | delivered sheets ['temples_mainA_21aprJOIN'] vs all-sheets ['temples_mainA_21aprJOIN']
+13.zip!CodeBook_Tibet_Monasteries_20120629.xls: names==full-header True | delivered sheets ['Sheet1'] vs all-sheets ['Sheet1', 'Sheet2', 'Sheet3']
+
+FULL comparison: names-exact-match objects 12/14 | issues 2
+    ('-full/doi_10_7910/DVN/EOH3FV/1999_gb_pop_uce.xls', 'NO RESULT')
+    ('i_10_7910/DVN/PRCLTU/THDL_ADMareas_rev022401.xls', 'NO RESULT')

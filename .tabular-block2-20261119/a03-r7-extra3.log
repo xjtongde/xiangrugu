@@ -1,0 +1,7 @@
+ws: [{"columns": 20, "data_records_observed": 677, "worksheet": "Nian_hao_strip3"}]
+col1 types: {'TEXT': 677} | colN types: {'NUMBER': 677}
+data-only: {'TEXT': 11639, 'EMPTY': 1216, 'NUMBER': 685} | header row: {'TEXT': 20}
+  rc 0
+
+delivered aggregate: {'TEXT': 11639, 'EMPTY': 1216, 'NUMBER': 685} 
+my data-only recompute: {'TEXT': 11639, 'EMPTY': 1216, 'NUMBER': 685} | equal: True

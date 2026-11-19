@@ -1,0 +1,4 @@
+harvard-full/doi_10_7910/DVN/EOH3FV/1999_gb_pop_uce.xls: delivered raw key 'harvard-full/doi_10_7910/DVN/EOH3FV/1999_gb_pop_uce.xls' | out keys sample: ['harvard-full/doi_10_7910/DVN/EOH3FV/1999_gb_pop_uce.xls!', 'harvard-full/doi_10_7910/DVN/PRCLTU/THDL_ADMareas_rev022401.xls!']
+   names==full-header: True | sheets delivered vs all: ['adm3'] ['adm3']
+harvard-full/doi_10_7910/DVN/PRCLTU/THDL_ADMareas_rev022401.xls: delivered raw key 'harvard-full/doi_10_7910/DVN/PRCLTU/THDL_ADMareas_rev022401.xls' | out keys sample: ['harvard-full/doi_10_7910/DVN/EOH3FV/1999_gb_pop_uce.xls!', 'harvard-full/doi_10_7910/DVN/PRCLTU/THDL_ADMareas_rev022401.xls!']
+   names==full-header: True | sheets delivered vs all: ['THDL_ADMareas'] ['THDL_ADMareas']

@@ -1,0 +1,4 @@
+delivered records==nrows-1 exceptions: 0 []
+china_chron.xls mine nrows: [678] | delivered: 677
+nrows: 678 | nonblank rows (incl header): 678
+  rc 0

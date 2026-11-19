@@ -1,0 +1,40 @@
+ Traceback (most recent call last):
+  File "/mnt/a03_r7_script.py", line 25, in <module>
+    cases=json.load(open('/mnt/cases.json'))
+                    ^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/mnt/cases.json'
+ rc 1
+Traceback (most recent call last):
+  File "<stdin>", line 55, in <module>
+  File "/usr/lib/python3.13/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "/usr/lib/python3.13/json/decoder.py", line 345, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/json/decoder.py", line 363, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+results: 9 | errors: 0
+delivered xls objects: 14
+ods_ReignDates.zip!china_chron/china_chron.xls: sheets True | cols True | fields 20 vs headercells 20
+ELTD3L/RAS_1900_pdb2_gis.ZIP!Tib19pdb_orig.xls: sheets True | cols True | fields 20 vs headercells 20
+es/chgis_tmpl_pts_utf.ZIP/CHGIS_TMPL_28apr.xls: sheets True | cols True | fields 23 vs headercells 23
+CHGIS_v4_buddhist_KML.zip/CHGIS_TMPL_28apr.xls: sheets True | cols True | fields 23 vs headercells 23
+!KML/ChinaW_KML_utf.zip/ChinaW.Master.Beta.xls: sheets True | cols True | fields 159 vs headercells 159
+iles/ChinaW_pts_gbk.zip/ChinaW.Master.Beta.xls: sheets True | cols True | fields 159 vs headercells 159
+s/v4_buddhist_pts_utf.zip/CHGIS_TMPL_28apr.xls: sheets True | cols True | fields 23 vs headercells 23
+13.zip!CodeBook_Tibet_Monasteries_20120629.xls: sheets False | cols True | fields 4 vs headercells 4
+
+issues: 9
+    ('eignDates.zip!china_chron/china_chron_fields.xls', 'NO RESULT')
+    ('-full/doi_10_7910/DVN/EOH3FV/1999_gb_pop_uce.xls', 'NO RESULT')
+    ('e.zip!KML/ChinaW_KML_utf.zip/Gazetteers.Beta.xls', 'NO RESULT')
+    ('hinaW_KML_utf.zip/ChinaW.Master.Beta.xls', "hdr diff first=[('w51  Adm. Status of capital cities, 1820 ', 'w51  Adm. Status of capital cities, 1820'), ('w52 Adm Dao in which this unit falls 1820 Hanzi ', 'w52 Adm Dao in which this unit falls 182')]")
+    ('garrisons_KML.zip/MingGarrisonsSheet_29jan08.xls', 'NO RESULT')
+    ('hapefiles/ChinaW_pts_gbk.zip/Gazetteers.Beta.xls', 'NO RESULT')
+    ('hinaW_pts_gbk.zip/ChinaW.Master.Beta.xls', "hdr diff first=[('w51  Adm. Status of capital cities, 1820 ', 'w51  Adm. Status of capital cities, 1820'), ('w52 Adm Dao in which this unit falls 1820 Hanzi ', 'w52 Adm Dao in which this unit falls 182')]")
+    ('i_10_7910/DVN/PRCLTU/THDL_ADMareas_rev022401.xls', 'NO RESULT')
+
+ChinaW big: [{"name": "ChinaW", "nrows": 2404, "ncols": 159, "header": ["w1 ChinaW ID", "w2  Hanzi name  ", "w3  Pinyin name  ", "w4 CHGIS link", "SYS-ID", "w5 Type of adm. Unit ", "w6   Hanzi type  ", "w7  Pinyin type ", "w8    Adm. Level ", "w9 1820 ", "w10 1893", "w11 Change events", "w12 End-record year  ", "w13 Begin- record year ", "w14 Change Source  ", "w21 Capital ", "w22 Yamen ", "w23 Xian", "w24    Prefectural level u

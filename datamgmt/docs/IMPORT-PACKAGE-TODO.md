@@ -30,7 +30,7 @@
 | 块 | 范围 | 状态 | 本块交付 | 完成后的讨论 |
 |---|---|---|---|---|
 | 1 | CBDB SQLite、JSON 及配套成员 | 已验收（入库缺口另列） | 78 表/736 列映射、全部 CBDB 成员处置、未决项及确认依据 | 对象关系、类型和命名的剩余决定 |
-| 2 | TSV/CSV/Excel、独立 DBF 等普通表格 | PARTIAL（XLS 14 待依赖决策，余整理完成待验收） | 文件/工作表/记录对象、编码、字段、空值及目标映射 | 编码或表格语义的未决项 |
+| 2 | TSV/CSV/Excel、独立 DBF 等普通表格 | 整理完成待验收（XLS 14 已补齐，读取面 COMPLETE） | 文件/工作表/记录对象、编码、字段、空值及目标映射 | 编码或表格语义的未决项 |
 | 3 | Shapefile、MapInfo、KML 等空间矢量 | 待执行 | 组件组、属性、几何、CRS 原声明及目标映射 | 组件缺失、坐标声明和异常保留 |
 | 4 | Access/MDB、SQL 数据 | 待执行 | 内部对象及字段清单、读取/隔离方法、目标映射及不兼容项 | 不能无损读取或表达的具体对象 |
 | 5 | 栅格、其他格式和非业务成员 | 待执行 | 栅格对象与入库方式；说明/图片/校验文件用途；未知件明细 | 剩余格式的处置决定 |
@@ -90,6 +90,15 @@
 - **第 2 块终态 PARTIAL**：1640=organized 160（批准 5+提案 155/3560 字段）+block3 846+block5 620+pending 14（XLS）；XLS 补齐并验收后方可转 PASS。
 - 名级修复追加（a03 ROUND 5 ③FAIL 揪出）：上轮审计仅比列数漏检名级伪影（缺陷如实入件）；名级全量三方比对（139 件=txt132+csv7，BOM 嗅探+严格解码+csv.reader 引号感知+行尾安全，逐元素比对）clean 128/diff 11，11 件全重导：Tibet_twns_2009_utf8.csv 13 净名（旧 12 列字面引号包裹+\r）、MingGarrisons/hist_sites/tan_GBK_names1/2/nima_feat_desig 末列 \r 清除、**ChinaWBeta.Field.Definitions.txt ×2 UTF-16LE+BOM 重判为 TAB 7 列数据字典表⇒organized 提案**（先例 v4/v6_data_dictionary 对齐；双副本 17580B sha 同保留镜像块6；旧 latin-1 NUL 碎片失真消除）。字段 3560 不变、唯一性双 0、闭合不变；a03 ROUND 6 复扫。
 
+#### 第 2 块 XLS 补齐记录（2026-11-19 round 4，茶香授权，读取面 COMPLETE 待 Codex 验收）
+
+- 授权：锁定 xlrd==2.0.2（PyPI 官方 wheel sha256 ea762c3d29f4cca48d82df517b6d89fbce4db3107f9d78713e48cd321d5c9aa9 逐字）+32 独立 runtime 候选镜像+只读检查 14 件 XLS；不宿主装依赖、不替换服务/镜像别名、不写库、不改源件。
+- 锁件提交 **a163f00ede2f9cc4592b636970cc243f6210cf30**（requirements.lock+requirements.in，追加式谱系）；构建上下文=lead git archive 该提交经 SSH 解包至 32 /opt/mydocker/xiangrugu/build-candidates/runtime-tabular-xls-20261119-a/（不触 deploy）。
+- 镜像（a02 构建，lead 独立 docker inspect/run 实证）：**Id=sha256:6144346a501c7ba1299e28862a303007fddd6a9e8030c6b6e7c1ca52921b6cd3**，tag xiangrugu:runtime-tabular-xls-20261119-a（独立标签，未跑 build-task1.sh 全脚本防别名覆盖）；labels revision=a163f00/created=2026-11-19T18:06:48Z/source.status=clean/version=0.1.0；容器内 **xlrd 2.0.2**（--require-hashes 全过）；别名三枚 Id 未动（runtime c15019fe…/dev 89f1a097…/test 474da53d…，lead 留证 .xls-block2-20261119/lead-baseline.txt）。
+- 只读检查：快照 :ro 挂载、on_demand=True，**14/14 全可读、sha 对账 14/14 匹配**；逐件 sheets/nrows/ncols+逐列 XL_CELL 类型分布入 xls_probe_out.json；ChinaW.Master.Beta.xls ChinaW 2404×159 与引号感知 CSV 159 列同构互证；china_chron.xls Nian_hao_strip3 678×20；MingGarrisons Sheet1 773×14+Sheet2 376×11；零维 sheet 记结构事实不建对象；datemode 注记；**公式语义逐件 cached_value_semantics 标注**（xlrd 仅缓存结果、原文不可得、逐格不可判）；嵌套链解析器七版迭代过程如实披露（chain 末元素含目录前缀+relative_path 双重路径语义）。
+- 映射提案：**+14 xls 对象/505 字段**（15 非空 sheet 整表 allocate_columns）；target_type 按源单元格类型分布提案（全 NUMBER⇒double precision、混合/文本⇒text；CHW xls 8 number/151 text），observed_cell_types 逐列留证，nullable 由 EMPTY/BLANK 观测驱动；确认态全 PROPOSED_NOT_AUTHORIZED，basis=镜像 Id+xlrd 版本+证据 sha；empty_string=preserve_not_null、行序 preserve+__src_rownum 沿用。
+- **新闭合：1640 = organized 174（批准 5+提案 169）+ block3 846 + block5 620 + pending 0**；uniqueness_review **169 表/4065 列双 0 违例**；gaps 归零（剩余缺口仅批准面）；pending_review 14/14；确定性重跑字节一致。**读取面 PARTIAL⇒COMPLETE；批准面仍 PROPOSED_NOT_AUTHORIZED，ready_for_import=False**。待 Codex 独立验收后收口第 2 块，再进入第 3 块空间矢量。
+
 ### 第 3 块空间矢量
 
 - [ ] 将已有候选组落实到确切归档链与组件身份；缺件、大小写差异、孤立组件均有处置。
@@ -141,3 +150,4 @@ PASS 必须覆盖本块全部范围及处置；未决项保留 PARTIAL/BLOCKED�
 - 2026-11-19：DSH 第 2/6 块普通表格整理完成（30 分钟盒内）：1636 候选四路处置闭合、5 件/83 列/5 派生逐列合并零失配、DBF 704/704 全空间交块 3（独立 DBF=0）；a03 揪出 1 件大写 .TXT 静默遗漏经修复复核闭合；176 件待证据/609 件名称模式交块 5 如实单列。产物与进度经 DSH 身份提交推送 Gitea，待 Codex 验收后讨论第 3 块。未写库、未部署、未开源字节（工作表清点待授权）。
 - 2026-11-19：第 2 块续做（30 分钟盒内）：ODS 4 补录、32 快照只读核实 180 件（789/789 sha 对账）、新增提案映射 155 对象/3594 字段（PROPOSED_NOT_AUTHORIZED）、11 件内容证据改判块 5、XLS 14 件依赖缺口为首个实质阻塞；终态 1640=160+846+620+14，交接待复核标记全量。第 1 块 Codex 已验收（3 成员/78 表/736 字段，剩余入库缺口另列）。第 2 块收口后再进入第 3 块。
 - 2026-11-19：第 2 块收尾（30 分钟盒内）：列身份整表分配修复（__c{ordinal} 消歧）、三处定点修复实证、全量 3594 列唯一性违例 0、SUMMARY 陈旧文案核销；XLS 14 环境核查确证无锁定依赖/无可用自有镜像，xlrd==2.0.1 决策路径报茶香；**第 2 块终态 PARTIAL**（XLS 补齐前不转 PASS），逐件缺口保留。待 Codex 验收与茶香依赖决策。
+- 2026-11-19：第 2 块 XLS 补齐（茶香授权 xlrd==2.0.2，30 分钟盒内）：锁件 a163f00、独立候选镜像 6144346a…（xlrd 2.0.2 实证、别名未动、不宿主安装）、14/14 全可读 sha 全匹配、+14 对象/505 字段提案、闭合 1640=174+846+620+0、169 表/4065 列唯一性双 0、公式缓存语义逐件标注；读取面 COMPLETE，批准面 PROPOSED_NOT_AUTHORIZED 保持。待 Codex 独立验收后收口第 2 块，再进入第 3 块空间矢量。

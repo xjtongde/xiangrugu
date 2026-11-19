@@ -1,0 +1,7 @@
+Dates.zip!china_chron/china_chron_fields.xls: empty sheets ['Sheet2', 'Sheet3'] | delivered ['Sheet1'] | policy text present: False
+isons_KML.zip/MingGarrisonsSheet_29jan08.xls: empty sheets ['Sheet3'] | delivered ['Sheet1', 'Sheet2'] | policy text present: False
+.zip!CodeBook_Tibet_Monasteries_20120629.xls: empty sheets ['Sheet2', 'Sheet3'] | delivered ['Sheet1'] | policy text present: False
+records-vs-nrows mismatches beyond ±1 convention: 0
+
+my sampled types (china_chron.xls): {'1': 586, '0': 50}
+delivered observed_cell_types aggregate: {'TEXT': 11639, 'EMPTY': 1216, 'NUMBER': 685}

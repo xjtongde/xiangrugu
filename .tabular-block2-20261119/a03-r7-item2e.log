@@ -1,0 +1,7 @@
+diffs where mine(40-char trunc) not prefix of delivered: 0 []
+all consistent with 40-char truncation: True
+delivered names w/ trailing spaces: 70 | hdr(40trunc) count len==40: 34
+
+CodeBook: delivered ws: [{"columns": 4, "data_records_observed": 18, "worksheet": "Sheet1"}]
+   empty sheets Sheet2/3 in delivered? False | flags: {"dialect_resolution": null, "duplicate_handling": "n/a", "duplicate_source_header_names": false, "encoding_resolution": null, "headerless_first_line_is_data": false, "ods_database_ranges": [], "quote
+   read_method note: "xlrd==2.0.2 in locked runtime candidate image xiangrugu:runtime-tabular-xls-20261119-a (sha256:6144346a501c7ba1299e28862a303007fddd6a9e8030c6b6e7c1ca52921b6cd3), snapshot :ro mount"

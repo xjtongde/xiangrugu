@@ -1,0 +1,16 @@
+== FINAL CONSOLIDATION (bytes  14:50:59Z) ==
+om counts: {"approved_objects_reused_verbatim": 2, "candidate_groups_total": 903, "consistency_asserts_passed": true, "gap_groups": 3, "groups_confirmed_read_only": 903, "groups_pending_evidence": 0, "mapped_objects_total": 898, "proposed_objects": 896}
+array: 896 | fams: {'shapefile': 702, 'mapinfo_candidate': 142, 'kml': 52}
+unmapped-not-gap-not-approved: 2 ['4707253f48821badfa9af3a27c26d205f645a90054f08270486a64babb7d8afa', '60cd5f12782cfef87b1119998751a457c9e7e4b99124e9d6e471cb130776e350']
+    60cd5f12782c BLOCKED CONFIRMED_READ_ONLY ['.tab'] ard-full/doi_10_7910/DVN/SK7KGK', 'outer_relative_path': ''}
+    4707253f4882 BLOCKED CONFIRMED_READ_ONLY ['.tab'] ard-full/doi_10_7910/DVN/MI56KU', 'outer_relative_path': ''}
+
+non-null srid: 0 | sid unique: True 898/898
+status variants: {'{"confirmation_state": "PROPOSED_NOT_AUTHORIZED", "ready_for_import": ': 896}
+approved byte-equal to binding entries: True | reuse_mode both VERBATIM: True
+tabular six vs HEAD mismatches: []
+entry sha head: 668900d43663 unchanged: True
+abs-path hits: {'/mnt/': 0, 'file://': 0, '/home/zky': 0, '/opt/mydocker': 0}
+
+SUMMARY 896 line: 提案 **896**（shapefile 702 + mapinfo_tab 142 + kml 52，均 PROPOSED_NOT_AUTHORIZED）；缺口组 **3**。组级泳道分区机器断言在码：approved 2 + proposed 896 + 
+KML first mention ctx:  705；shapefile/mapinfo 沿用 spatial-component-candidates.json，KML 52 件本轮按同一外层文件+链+stem 规则补查入组；inventory sha256=fb5e6b334b898d62… 核验一致后直接复用） - 已确证组（头级只读取证全命中、sha 对账 2708/2708 匹配 0 错）：**903** - 映射对象合计 **898** =批准逐字沿用 **2** +

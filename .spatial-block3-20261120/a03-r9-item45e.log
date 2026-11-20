@@ -1,0 +1,14 @@
+total: 844
+  844x {"confirmation_state": "PROPOSED_NOT_AUTHORIZED", "ready_for_import": false}
+binding token srid : 1
+binding token SRID : 0
+binding token 4326 : 0
+binding token qpj : 2
+binding token QPJ : 0
+binding token axis_order : 0
+binding token XY : 1
+
+approved structure keys: ['authorization_file', 'object', 'reuse_mode', 'source_object_id']
+all components raw_verified True both objs: True
+ obj 9b4496c9 | binding entry byte-equal to nested object: True
+ obj e601ce1a | binding entry byte-equal to nested object: True

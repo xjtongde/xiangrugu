@@ -1,0 +1,23 @@
+== 4 delta groups (mine-only) explanation ==
+
+ VN/MI56KU/2001_Shanghai_0_INDEX_OF_PRESENTATIONS.tab | dir=. stem=2001_Shanghai_0_INDEX_OF_PRESENTAT
+   members: ['2001_Shanghai_0_INDEX_OF_PRESENTATIONS.tab']
+
+ ard-full/doi_10_7910/DVN/SB8ZTM/Ming_Routes_2016.zip | dir=. stem=Ming_Stations_2016
+   members: ['Ming_Stations_2016.cpg']
+
+ full/doi_10_7910/DVN/SK7KGK/GB_91_HZ_040201_UTF8.tab | dir=. stem=GB_91_HZ_040201_UTF8
+   members: ['GB_91_HZ_040201_UTF8.tab']
+
+ harvard/tab/ACADEMY_Data.tab | dir=. stem=ACADEMY_Data
+   members: ['ACADEMY_Data.tab']
+
+ _the_Complete_Prose_of_the_Yuan_Dynasty_vol_1-60.tab | dir=. stem=Index_of_the_Complete_Prose_of_the
+   members: ['Index_of_the_Complete_Prose_of_the_Yuan_Dynasty_vol_1-60.tab']
+
+ rd/tab/writings of the 19c missionaries in China.tab | dir=. stem=writings of the 19c missionaries i
+   members: ['writings of the 19c missionaries in China.tab']
+
+== delivered-only keys (should be none) == [('', (), 'harvard-full/doi_10_7910/DVN/MI56KU', '2001_Shanghai_0_INDEX_OF_PRESENTATIONS'), ('', (), 'harvard-full/doi_10_7910/DVN/SK7KGK', 'GB_91_HZ_040201_UTF8')]
+reassigned: 2001_Shanghai_0_INDEX_OF_PRESENTATIONS.tab -> group 4707253f4882
+reassigned: GB_91_HZ_040201_UTF8.tab -> group 60cd5f12782c

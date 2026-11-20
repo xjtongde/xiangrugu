@@ -1,0 +1,3 @@
+checked 52 | mismatches: 1
+    me_pref_pts_KML.zip/v4_time_pref_pts.kml {'counts': {'Placemark': 1087, 'Point': 1086}, 'delivered': {'MultiGeometry': 1086, 'Placemark': 1087, 'Point': 1086}}
+  rc 0

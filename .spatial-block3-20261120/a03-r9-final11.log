@@ -1,0 +1,9 @@
+GB_91_HZ_040201_UTF8.tab | tabular disp: organized | category: tab-text
+2001_Shanghai_0_INDEX_OF_PRESENTATIONS.tab | tabular disp: organized | category: tab-text
+kml /Ming_Garrisons.zip!ming_time-te.kml : {"Placemark": 375, "Point": 375} | obj geom keys: ['coordinate_transform', 'crs_declaration_verbatim_in_kml', 'geometry_kind_counts_observed', 'placemarks_observed', 'srid', 'srid_note', 'xy_preserve_original_ieee754']
+kml v4_1820_KML.zip/v4_1820_pref_pts.kml : {"Placemark": 602, "Point": 602} | obj geom keys: ['coordinate_transform', 'crs_declaration_verbatim_in_kml', 'geometry_kind_counts_observed', 'placemarks_observed', 'srid', 'srid_note', 'xy_preserve_original_ieee754']
+kml v4_1820_KML.zip/v4_1820_prov_pgn.kml : {"LinearRing": 551, "Placemark": 1410, "Point": 940, "Polygon": 470} | obj geom keys: ['coordinate_transform', 'crs_declaration_verbatim_in_kml', 'geometry_kind_counts_observed', 'placemarks_observed', 'srid', 'srid_note', 'xy_preserve_original_ieee754']
+kml v4_1820_KML.zip/v4_1820_prov_pts.kml : {"Placemark": 48, "Point": 48} | obj geom keys: ['coordinate_transform', 'crs_declaration_verbatim_in_kml', 'geometry_kind_counts_observed', 'placemarks_observed', 'srid', 'srid_note', 'xy_preserve_original_ieee754']
+kml _v4_1820_KML.zip/v4_1820_rvr_lin.kml : {"LineString": 5983, "Placemark": 16403, "Point": 10420} | obj geom keys: ['coordinate_transform', 'crs_declaration_verbatim_in_kml', 'geometry_kind_counts_observed', 'placemarks_observed', 'srid', 'srid_note', 'xy_preserve_original_ieee754']
+
+kml spot objs checked: 5 | srid: {None}

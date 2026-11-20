@@ -1,0 +1,21 @@
+== FINAL STATE CONSOLIDATION ==
+counts: groups 903 | om counts: {"approved_objects_reused_verbatim": 2, "candidate_groups_total": 903, "consistency_asserts_passed": true, "gap_groups": 3, "groups_confirmed_read_only": 903, "groups_pending_evidence": 0, "mapped_objects_total": 898, "p
+array proposed: 896 | families: {'shapefile': 702, 'mapinfo_candidate': 142, 'kml': 52}
+
+kml objects: 52
+ sample: {"group_id": "ede4d5481e114810e6b28009c3785b6dfe3404aef79b8aed42d5a83e005e18c3", "primary_member": "harvard-full/doi_10_7910/DVN/5RUXK8/Ming_Garrisons.zip!ming_time-te.kml", "candidate_table_name": "harvard_u2d_full_u2f_doi_u5f_10_u5f_7910_u2f_dvn_u2f___12265266", "carrier": "kml", "geometry_proposal": "{'coordinate_transform': 'NONE', 'crs_declaration_verbatim_in_kml': None, 'geome"}
+ status: {"confirmation_state": "PROPOSED_NOT_AUTHORIZED", "ready_for_import": false}
+ crs: {"kml_xml_crs_clause_searched": "none found in stdlib scan", "prj_declaration_verbatim": null}
+
+unmapped-not-gap-not-approved: 2 ["['4707253f48821badfa9af3a27c26d205f645a90054f08270486a64babb"]
+reconcile: 903 - 3 gaps - 2 approved - 2 unaccounted = 896 vs array 896
+non-null srid objs: 0 []
+sid unique: True 896/896
+status variants: {896: '{"confirmation_state": "PROPOSED_NOT_AUTHORIZED", "ready_for_import": false}'}
+block3 exactly-once: 846 missing: 0 multi: 0
+
+SUMMARY 896 line ctx: 提案 **896**（shapefile 702 + mapinfo_tab 142，均 PROPOSED_NOT_AUTHORIZED）；缺口组 **3**
+
+## 846 交接归属闭合
+block3 成员 846=dbf 704+TAB
+'kml 52' in mapping decomposition: False

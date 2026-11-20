@@ -1,6 +1,6 @@
 # 全量导入包与映射进度
 
-更新日期：2026-11-19。当前阶段为数据整理与映射，第 1–2/6 块（CBDB、普通表格）整理完成待 Codex 验收，第 3–6 块待执行。交付在本 release 的 [import-package/cbdb/](../contracts/releases/2026-10-06-bootstrap/import-package/cbdb/SUMMARY.md) 与 [import-package/tabular/](../contracts/releases/2026-10-06-bootstrap/import-package/tabular/SUMMARY.md)；CBDB 10 表/235 列源侧值验证、表格 176 件待证据单列未决，不计入映射完成，ready_for_import=False 保持。
+更新日期：2026-11-20。当前阶段为数据整理与映射，第 1–2/6 块（CBDB、普通表格）已获 Codex 验收，第 3/6 块空间矢量进行中，第 4–6 块待执行。交付在本 release 的 [import-package/cbdb/](../contracts/releases/2026-10-06-bootstrap/import-package/cbdb/SUMMARY.md)、[import-package/tabular/](../contracts/releases/2026-10-06-bootstrap/import-package/tabular/SUMMARY.md) 与 [import-package/spatial/](../contracts/releases/2026-10-06-bootstrap/import-package/spatial/SUMMARY.md)；CBDB 10 表/235 列源侧值验证单列未决，不计入映射完成，ready_for_import=False 保持。
 
 本文件是当前阶段、六块待办、交付和讨论结论的唯一进度入口。设计约束见 [DESIGN.md](DESIGN.md)，执行权限见 [OPERATIONS.md](OPERATIONS.md)，原 Task 1–18 工程依赖见 [IMPLEMENTATION-PLAN.md](IMPLEMENTATION-PLAN.md)，既往运行记录见 [PROGRESS-HISTORY.md](PROGRESS-HISTORY.md)。其他入口只链接本文件，不复制当前进度。
 
@@ -30,8 +30,8 @@
 | 块 | 范围 | 状态 | 本块交付 | 完成后的讨论 |
 |---|---|---|---|---|
 | 1 | CBDB SQLite、JSON 及配套成员 | 已验收（入库缺口另列） | 78 表/736 列映射、全部 CBDB 成员处置、未决项及确认依据 | 对象关系、类型和命名的剩余决定 |
-| 2 | TSV/CSV/Excel、独立 DBF 等普通表格 | 整理完成待验收（XLS 14 已补齐，读取面 COMPLETE） | 文件/工作表/记录对象、编码、字段、空值及目标映射 | 编码或表格语义的未决项 |
-| 3 | Shapefile、MapInfo、KML 等空间矢量 | 待执行 | 组件组、属性、几何、CRS 原声明及目标映射 | 组件缺失、坐标声明和异常保留 |
+| 2 | TSV/CSV/Excel、独立 DBF 等普通表格 | 已验收（Codex 2026-11-20，提交 5478271） | 文件/工作表/记录对象、编码、字段、空值及目标映射 | 编码或表格语义的未决项 |
+| 3 | Shapefile、MapInfo、KML 等空间矢量 | 进行中（首个 30 分钟盒） | 组件组、属性、几何、CRS 原声明及目标映射 | 组件缺失、坐标声明和异常保留 |
 | 4 | Access/MDB、SQL 数据 | 待执行 | 内部对象及字段清单、读取/隔离方法、目标映射及不兼容项 | 不能无损读取或表达的具体对象 |
 | 5 | 栅格、其他格式和非业务成员 | 待执行 | 栅格对象与入库方式；说明/图片/校验文件用途；未知件明细 | 剩余格式的处置决定 |
 | 6 | 全量合并、重复关系及 32 落盘 | 待执行 | 全部成员覆盖、唯一目标命名、包清单、执行顺序、完整性报告及绝对路径 | 全量包验收、导入准备与实际执行安排 |
@@ -161,3 +161,5 @@ PASS 必须覆盖本块全部范围及处置；未决项保留 PARTIAL/BLOCKED�
 - 2026-11-19：第 2 块续做（30 分钟盒内）：ODS 4 补录、32 快照只读核实 180 件（789/789 sha 对账）、新增提案映射 155 对象/3594 字段（PROPOSED_NOT_AUTHORIZED）、11 件内容证据改判块 5、XLS 14 件依赖缺口为首个实质阻塞；终态 1640=160+846+620+14，交接待复核标记全量。第 1 块 Codex 已验收（3 成员/78 表/736 字段，剩余入库缺口另列）。第 2 块收口后再进入第 3 块。
 - 2026-11-19：第 2 块收尾（30 分钟盒内）：列身份整表分配修复（__c{ordinal} 消歧）、三处定点修复实证、全量 3594 列唯一性违例 0、SUMMARY 陈旧文案核销；XLS 14 环境核查确证无锁定依赖/无可用自有镜像，xlrd==2.0.1 决策路径报茶香；**第 2 块终态 PARTIAL**（XLS 补齐前不转 PASS），逐件缺口保留。待 Codex 验收与茶香依赖决策。
 - 2026-11-19：第 2 块 XLS 补齐（茶香授权 xlrd==2.0.2，30 分钟盒内）：锁件 a163f00、独立候选镜像 6144346a…（xlrd 2.0.2 实证、别名未动、不宿主安装）、14/14 全可读 sha 全匹配、+14 对象/505 字段提案、闭合 1640=174+846+620+0、169 表/4065 列唯一性双 0、公式缓存语义逐件标注；读取面 COMPLETE，批准面 PROPOSED_NOT_AUTHORIZED 保持。待 Codex 独立验收后收口第 2 块，再进入第 3 块空间矢量。
+- 2026-11-20：**第 2 块 Codex 验收通过**（茶香转发，核对 Gitea 提交 5478271）：15 张非空 XLS 工作表各有独立映射，MingGarrisons 拆 14 列/11 列两对象；终态 **174 件已整理源成员、175 个映射对象（5 沿用既有确认+170 提案）**；正式装载和回读验收留在入库阶段。进入第 3/6 块空间矢量（基线 5478271，首个 30 分钟盒）：复用 spatial-component-candidates（705 Shapefile/146 MapInfo 候选）与 spatial-review 决定，846 交接归属+全量矢量补查，按外层文件/完整归档链/成员序号分组，2 批准对象逐字沿用，证据齐全者补提案映射（原坐标+CRS 声明保留）。
+- 2026-11-20：第 3/6 块空间矢量首盒（30 分钟）：inventory sha fb5e6b33…==候选件记录值断言后复用分组；**候选组 903（shapefile 705+mapinfo 146+kml 52）/确证组 903（头级只读取证 2708+ 记录 0 错 0 sha 失配，复用块 2 授权镜像未重建）/映射对象 898（批准 2 逐字+提案 896）**；846 交接（dbf704+TAB142）逐件恰属一组断言闭合；泳道分区 approved 2+proposed 896+gap 3+text-owned-by-block2 2=903 UNASSIGNED=0；KML 52 初版零归属经 lead 终核揪出补全（52/52 提案，srid=null，ExtendedData 属性面留正式读取器合同披露）；counts 陈旧字段 844≠846 经 lead 揪出修正+断言防复发；缺件组 1（v5_time_pref_pts_utf 缺 dbf）+prj 缺 3 注记；**首个实质阻塞=casefold 孪生无主件组 2（v3_time_pref_pgn_PRC/V3_…仅 DAT/IND/MAP 无 .TAB）待茶香裁定合并/独立合同**；2 批准（Ca1884route_przh_1251/utf8，SRID4326/原 XY/PRJ+QPJ 双保留/轴序注记）JSON 子树字节级相等断言；提案面 srid 全 null 不推导扩展、Z/M 2 件 target_type_proposal=null 留正式合同；stdlib 取证无新依赖；取证四版迭代过程缺陷如实披露。a03 ROUND 9 独立核对。

@@ -1,0 +1,10 @@
+member_key hits: 5244 of 5244
+
+== ITEM 1 final ==
+assigned members (via inventory join): 5244
+block3 covered exactly once: 846 | missing: 0 | multi-group: 0
+covered-but-not-block3: 4398 [('harvard-full/doi_10_7910/DVN/M7WEFY/v5_SMR_pgn_utf.zip', ('v5_SMR_SubR_pgn_utf_wgs.shp',), (18,)), ('harvard-full/doi_10_7910/DVN/PDGOZ0/V4_Data_Archive.zip', ('shapefiles/v4_1997_prov_pgn_gbk.zip', 'v4_1997_prov_pgn_gbk.shx'), (106, 3))]
+unresolved keys: 0 []
+
+all group-member exts: {'.dbf': 704, '.prj': 702, '.sbn': 667, '.sbx': 667, '.shp': 705, '.shx': 705, '.shp.xml': 407, '.cpg': 21, '.tab': 144, '.dat': 142, '.id': 142, '.map': 142, '.ind': 96}
+block3 exts: {'dbf': 704, 'tab': 142}

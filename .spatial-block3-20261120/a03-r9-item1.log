@@ -1,0 +1,8 @@
+groups keys: ['baseline_git', 'basis_files_sha256', 'casefold_auto_merge', 'counts', 'cross_container_matching', 'generated_by', 'grouping_rule_verbatim_from_candidates', 'groups', 'image_read_only_probe', 'inventory_sha256', 'known_anomalies', 'ready_for_import', 'status']
+om keys: ['approved_objects_verbatim', 'counts', 'proposed_objects', 'ready_for_import', 'srid_policy', 'status']
+
+== ITEM 1: 846 attribution ==
+tabular block3 members: 846 | unique ids: 846
+spatial assigned members: 1
+block3 not covered: 846 | covered-but-not-block3: 1
+members in >1 group: 1 ['(None, (), ())']

@@ -1,0 +1,24 @@
+== ITEM 6: three counts vs SUMMARY/machine + gaps + refs ==
+  SUMMARY.md 14:48:19Z 2966
+  build_spatial_package.py 14:48:11Z 24656
+  evidence-gaps.json 14:48:19Z 5457
+  groups.json 14:48:19Z 5127770
+  object-mapping.json 14:48:19Z 5190008
+
+candidate groups: 851 | fam: {'shapefile': 705, 'mapinfo_candidate': 146}
+confirmed read-only: 851 | pending: 0
+mapping objects: 844 + approved verbatim 2 = 846
+
+gap groups: 3 | non-gap groups without object: 4
+    c32e4c0d72a0 shapefile r_relative_path': 'harvard-full/doi_10_7910/DVN/E7HDYD/1884route.zip'} | members: ['.cpg', '.dbf', '.prj', '.shp', '.shx']
+    79877fa814d5 shapefile r_relative_path': 'harvard-full/doi_10_7910/DVN/E7HDYD/1884route.zip'} | members: ['.cpg', '.dbf', '.prj', '.shp', '.shx']
+    4707253f4882 mapinfo_candidate ry': 'harvard-full/doi_10_7910/DVN/MI56KU', 'outer_relative_path': ''} | members: ['.tab']
+    60cd5f12782c mapinfo_candidate ry': 'harvard-full/doi_10_7910/DVN/SK7KGK', 'outer_relative_path': ''} | members: ['.tab']
+ S: ## 三计数
+ S: - 候选组 **851**（shapefile 705 + mapinfo 146，沿用 spatial-component-candidates.json，inventory sha256=fb5e6b334b898d62… 核验一致后直接复用）
+ S: - 已确证组（头级只读取证全命中、sha 对账 2708/2708 匹配 0 错）：**851**
+ S: - 映射对象：批准逐字沿用 **2** + 提案 **844**（shapefile 702 + mapinfo_tab 142，均 PROPOSED_NOT_AUTHORIZED）；缺口组 **3**
+ S: ## 846 交接归属闭合
+ S: block3 成员 846=dbf 704+TAB 142，逐件恰属一组（无串组/遗漏/重复），机器核于 groups.json.block3_members_attributed_exactly_once=846。提案对象 846 与交接 846 数值巧合但口径不同：提案按组主件（.shp/.tab）计数——含缺 dbf 组的 shp 仍提案（属性合同入 gaps 注记），不
+
+abs-path hits: {'/mnt/': 0, 'file://': 0, '/home/zky': 0, '/opt/mydocker': 0}

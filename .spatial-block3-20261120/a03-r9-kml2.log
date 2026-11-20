@@ -1,0 +1,12 @@
+gaps: 55 | gap_group_count: 55 | dependency_gaps: 0
+gap families: {'shapefile': 1, 'mapinfo_candidate': 2, 'kml': 52}
+
+kml gap entry sample: {"family": "kml", "group_id": "ede4d5481e114810e6b28009c3785b6dfe3404aef79b8aed42d5a83e005e18c3", "members": ["harvard-full/doi_10_7910/DVN/5RUXK8/Ming_Garrisons.zip!ming_time-te.kml"], "missing": [], "reason": "no primary component (.shp/.tab) present in group; casefold-ambiguity twin holding only DAT/IND/MAP — no independent reader contract exists; kept BLOCKED pending 茶香 ruling", "stem": "ming_time-te"}
+
+SUMMARY KML section: v2_time_cnty_pts_utf）——与 lead 侦察一致；可选件 sbn/sbx/ind 缺失非阻塞已在各组 optional_absent 注记。KML 52 件几何元素统计入证据（Point/Polygon/LinearRing/Placemark 计数）。 |  | ## 映射政策 | 2 批准对象（Ca1884route_przh_1251/utf8，59 记录，SRID4326 语境、原 X/Y 不交换不转换、PRJ+QPJ 双保留、轴序差异注记不消除）**逐字沿用**自 approved-spatial-binding-context.json（sid 经 identity.py 真函数复算==批准值，断言在码）。其余组提案映射：geometry_type 按 SHP 头 offset32（分布 Point192/PolyLi
+
+po families: {'shapefile': 702, 'mapinfo_candidate': 142} | total 844
+
+block3 covered exactly once: 846 | missing: 0 | multi: 0
+groups.json counts field: 
+groups.counts: {"block3_members_attributed_exactly_once": 846, "candidate_groups_total": 903, "groups_confirmed_read_only": 903, "groups_pending_evidence": 0, "mapinfo_groups": 146, "shapefile_groups": 705}

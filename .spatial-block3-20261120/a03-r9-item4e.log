@@ -1,0 +1,9 @@
+attr order type: list
+[{"decimals": 0, "ordinal": 1, "original_name": "FNODE_", "source_type": "N", "width_bytes": 11}, {"decimals": 0, "ordinal": 2, "original_name": "TNODE_", "source_type": "N", "width_bytes": 11}, {"decimals": 0, "ordinal": 3, "original_name": "LPOLY_", "source_type": "N", "width_bytes": 11}, {"decimals": 0, "ordinal": 4, "original_name": "RPOLY_", "source_type": "N", "width_bytes": 11}, {"decimals"
+
+my dbf fields[:3]: ['FNODE_', 'TNODE_', 'LPOLY_']
+delivered dbf evidence fields[:3]: ['FNODE_', 'TNODE_', 'LPOLY_']
+
+approved reuse_mode: VERBATIM_FROM_APPROVED_BINDING_CONTEXT | auth file: approved-spatial-binding-context.json
+inner obj keys: ['component_binding_approved', 'components', 'formal_disposition_retained', 'object_name', 'primary_rule_id', 'source_object_id']
+4326 in inner: False | QPJ: True | axis: False

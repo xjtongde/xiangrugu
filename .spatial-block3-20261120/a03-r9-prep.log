@@ -1,0 +1,26 @@
+candidates keys: ['base_contract_sha256', 'casefold_ambiguities', 'casefold_auto_merge', 'coverage_retained', 'cross_container_matching', 'formal_contract_modified', 'generated_at', 'git_revision', 'grouping', 'image_digest', 'inventory_sha256', 'known_tsv_exclusions', 'mapinfo_candidates', 'ready_for_import', 'release_id', 'shapefile_candidates', 'source_bytes_read_this_batch', 'source_status', 'source_version', 'sources', 'status', 'summary', 'unassigned_related_members', 'version']
+inventory_sha256 claim: fb5e6b334b898d62dc0e5c77094fdb50e0946300e6e3009f447b2ecd1bc216db | actual: fb5e6b334b898d62dc0e5c77094fdb50e0946300e6e3009f447b2ecd1bc216db
+grouping rule: "Exact physical containing archive identity, exact directory and exact basename stem; suffix case only used for candidate classification"
+items: 0
+ meta coverage_retained = {'blocked': 7914, 'errors': 1, 'matched': 8004, 'multiple': 0, 'total': 8004, 'unexplained': 0, 'unmatched': 0}
+shapefile_candidates type: list len 705
+mapinfo_candidates type: list len 146
+shp sample: {"candidate_id": "d1c9f7fc5564698456effb107e56bb0d0b653376e52f4f26a1e2e1abd6b3d921", "content_validated": false, "cpg_absent": true, "disposition_retained": "BLOCKED", "duplicate_extensions": [], "family_candidate": "shapefile", "location": {"container_chain": [], "container_ordinals": [], "exact_stem": "asia_contour", "member_directory": ".", "outer_relative_path": "harvard-full/doi_10_7910/DVN/2
+
+summary: {"casefold_ambiguity_sets": 2, "excluded_known_tsv": 3, "extension_candidate_members": 5248, "extensions": {".cpg": 22, ".dat": 142, ".dbf": 704, ".id": 142, ".ind": 96, ".map": 142, ".prj": 702, ".sbn": 667, ".sbx": 667, ".shp": 705, ".shp.xml": 407, ".shx": 705, ".tab": 147}, "inventory_files": 7918, "mapinfo_native_four_extension_groups": 140, "mapinfo_relationship_candidate_groups": 146, "mif_mid_pair_groups": 0, "shapefile_candidate_groups": 705, "shapefile_groups_duplicate_extension": 0, "
+
+casefold_ambiguities: [{"exact_locations": [{"container_chain": ["shapefiles/v3_time_pref_pgn_PRC.ZIP"], "container_ordinals": [66], "exact_stem": "V3_time_pref_pgn_PRC", "member_directory": ".", "outer_relative_path": "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip"}, {"container_chain": ["shapefiles/v3_time_pref_pgn_PRC.ZIP"], "container_ordinals": [66], "exact_stem": "v3_time_pref_pgn_PRC", "member_director
+
+unassigned_related_members: [{"archive_chain": ["Ming_Stations_2016.cpg"], "archive_ordinals": [2], "disposition_retained": "BLOCKED", "extension_candidate": ".cpg", "leaf_path": "Ming_Stations_2016.cpg", "relative_path": "harvard-full/doi_10_7910/DVN/SB8ZTM/Ming_Routes_2016.zip", "rule_id": "m006629", "sha256": "3ad3031f5503a
+
+known_tsv_exclusions: [{"archive_chain": [], "archive_ordinals": [], "disposition_retained": "BLOCKED", "extension_candidate": ".tab", "leaf_path": "harvard/tab/ACADEMY_Data.tab", "relative_path": "harvard/tab/ACADEMY_Data.tab", "rule_id": "m008002", "sha256": "d21bd9f625acd85e66298fd8635b64c54f380d36b8f44f5d1d9734a0bf55
+
+cross_container_matching: false
+
+== MY INDEPENDENT RECOMPUTE: inventory filter + grouping ==
+my vector-ext filter: 5300 | by ext: {'.dbf': 704, '.prj': 702, '.sbn': 667, '.sbx': 667, '.shp': 705, '.shx': 705, '.shp.xml': 407, '.cpg': 22, '.kml': 52, '.tab': 147, '.id': 142, '.ind': 96, '.map': 142, '.dat': 142}
+.kml count: 52 | .TAB uppercase raw: 147
+my casefold ambiguity locations: 0
+
+== my casefold recompute v2 (stem-case sets per group) ==
+my ambiguity stems: 0

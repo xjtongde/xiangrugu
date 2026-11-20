@@ -1,0 +1,14 @@
+gap_group_count: 3 | gaps len: 3
+families: {'shapefile': 1, 'mapinfo_candidate': 2}
+kml groups==kml gaps: False sym 52
+counts: {}
+groups counts: {"block3_members_attributed_exactly_once": 846, "by_family": {"kml": 52, "mapinfo_candidate": 146, "shapefile": 705}, "candidate_groups_total": 903, "groups_confirmed_read_only": 903, "groups_pending_evidence": 0}
+om counts: {"approved_objects_reused_verbatim": 2, "candidate_groups_total": 903, "gap_groups": 3, "groups_confirmed_read_only": 903, "proposed_objects": 896} | array: 896 | kml objs: 52
+ S: ## 三计数
+ S: - 候选组 **903**（shapefile 705 + mapinfo 146，沿用 spatial-component-candidates.json，inventory sha256=fb5e6b334b898d62… 核验一致后直接复用）
+ S: - 已确证组（头级只读取证全命中、sha 对账 2708/2708 匹配 0 错）：**903**
+ S: - 映射对象：批准逐字沿用 **2** + 提案 **896**（shapefile 702 + mapinfo_tab 142，均 PROPOSED_NOT_AUTHORIZED）；缺口组 **3**
+ S: ## 846 交接归属闭合
+ S: block3 成员 846=dbf 704+TAB 142，逐件恰属一组（无串组/遗漏/重复），机器核于 groups.json.block3_members_attributed_exactly_once=846。提案对象 846 与交接 846 数值巧合但口径不同：提案按组主件（.shp/.tab）计数——含缺 dbf 组的 shp 仍提案（属性合同入 gaps 注记），不含孪生无主件组；两套
+ S: 缺 .dbf 组 1（v5_time_pref_pts_utf）、缺 .prj 组 3（tib19pdb/v2_time_cnty_pgn_utf/v2_time_cnty_pts_utf）——与 lead 侦察一致；可选件 sbn/sbx/ind 缺失非阻塞已在各组 optional_absent 注记。KML 52 件几何元素统计入证据（Point/Polygon/LinearRing/Pla
+ S: 缺口组 3：见 evidence-gaps.json（casefold 孪生无主件组等）；依赖缺口：无新增（stdlib struct/xml.etree 现有能力覆盖全部取证）。

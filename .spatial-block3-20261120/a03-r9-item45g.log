@@ -1,0 +1,6 @@
+type list len: 844 | unique group_id: 844
+raw '"group_id"' occurrences: 844 | proposed_objects section check
+status variants total: 844
+  844x {"confirmation_state": "PROPOSED_NOT_AUTHORIZED", "ready_for_import": false}
+
+om['counts']: {"approved_objects_reused_verbatim": 2, "candidate_groups_total": 851, "gap_groups": 3, "groups_confirmed_read_only": 851, "proposed_objects": 844}

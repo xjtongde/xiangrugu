@@ -1,0 +1,17 @@
+my groups: 855 | delivered: 851
+key sets equal: False | sym: 8 [('', (), 'harvard-full/doi_10_7910/DVN/MI56KU', '2001_Shanghai_0_INDEX_OF_PRESENTATIONS'), ('harvard-full/doi_10_7910/DVN/SB8ZTM/Ming_Routes_2016.zip', (), '.', 'Ming_Stations_2016'), ('harvard-full/doi_10_7910/DVN/SK7KGK/GB_91_HZ_040201_UTF8.tab', (), '.', 'GB_91_HZ_040201_UTF8')]
+grp 1698cca1ec31 stem=v5_time_pref_pts_utf         members 5 match:True misscore:['.dbf']
+grp 4b8715a6e53b stem=tib19pdb                     members 5 match:True misscore:['.prj']
+grp f236c768164a stem=v2_time_cnty_pgn_utf         members 5 match:True misscore:['.prj']
+grp 14aa5844a80a stem=v2_time_cnty_pts_utf         members 5 match:True misscore:['.prj']
+grp 6369b62ae14c stem=V3_time_pref_pgn_PRC         members 2 match:True misscore:[]
+grp ca752f78d2b5 stem=v3_time_pref_pgn_PRC         members 3 match:True misscore:['.tab']
+grp 3d1e641e2484 stem=V3_time_pref_pgn_PRC         members 2 match:True misscore:[]
+grp ff9ffff7dc71 stem=v3_time_pref_pgn_PRC         members 3 match:True misscore:['.tab']
+grp 03d0eb788049 stem=v5_1080_chin_chn_1080_c      members 7 match:True misscore:[]
+grp 10546205ec0e stem=v5_1080_chin_chn_1080_l      members 7 match:True misscore:[]
+grp c3a9a83aa84d stem=v5_1080_chin_chn_1080_p      members 7 match:True misscore:[]
+grp fe269171ff6f stem=v5_1080_chin_chn_1080_p      members 7 match:True misscore:[]
+
+spot groups checked: 14 | mismatches: 0
+missing core ext totals: {'.prj': 3, '.dbf': 1, '.tab': 2}

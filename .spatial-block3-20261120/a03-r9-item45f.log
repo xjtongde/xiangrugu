@@ -1,0 +1,6 @@
+len(po): 844
+objects lacking status.confirmation_state: 0
+Traceback (most recent call last):
+  File "<stdin>", line 11, in <module>
+  File "<stdin>", line 11, in <genexpr>
+AttributeError: 'int' object has no attribute 'get'

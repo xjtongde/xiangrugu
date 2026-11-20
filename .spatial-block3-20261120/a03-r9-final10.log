@@ -1,0 +1,10 @@
+lane partition: {'proposed': 896, 'approved': 2, 'gap': 3, 'unaccounted': 2}
+   unaccounted: 4707253f4882 tory': 'harvard-full/doi_10_7910/DVN/MI56KU', 'outer_relative_path': ''} | members: ['.tab']
+   unaccounted: 60cd5f12782c tory': 'harvard-full/doi_10_7910/DVN/SK7KGK', 'outer_relative_path': ''} | members: ['.tab']
+
+SUMMARY '2001_Shanghai_0_INDEX_OF_PRE': PRC/V3_…，仅 DAT/IND/MAP 无 .TAB）+2 组的 .TAB 系顶层平面件已被块2按 tab-text 整理（GB_91_HZ_040201_UTF8.tab、2001_Shanghai_0_INDEX_OF_PRESENTATIONS.tab）。  ## 缺件统计（实算） 缺 .dbf 组 1（v5_time_pref_pts_utf）、缺 .prj 组 3（tib19pdb/v2_time_c
+
+SUMMARY 'GB_91_HZ_040201_UTF8': d 歧义孪生组（v3_time_pref_pgn_PRC/V3_…，仅 DAT/IND/MAP 无 .TAB）+2 组的 .TAB 系顶层平面件已被块2按 tab-text 整理（GB_91_HZ_040201_UTF8.tab、2001_Shanghai_0_INDEX_OF_PRESENTATIONS.tab）。  ## 缺件统计（实算） 缺 .dbf 组 1（v5_time_pref_pts_utf）、缺 .p
+
+groups.known_anomalies mentions Shanghai: True | GB_91: True
+ctx: biguity pair — plus (b) 2 further groups whose single .TAB member is a top-level plain file already organized by block 2 as tab-text (GB_91_HZ_040201_UTF8.tab, 2001_Shanghai_0_INDEX_OF_PRESENTATIONS.tab); both are recorded here as mapinfo-component groups with their block-2 disposition.", "missing_components_computed": {"dbf_mis

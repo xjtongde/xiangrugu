@@ -1,0 +1,4 @@
+{"group_id": "d1c9f7fc5564698456effb107e56bb0d0b653376e52f4f26a1e2e1abd6b3d921", "primary_member": "harvard-full/doi_10_7910/DVN/25413/DCW_CHINA_contours.zip!asia_contour.shp", "candidate_table_name": "harvard_u2d_full_u2f_doi_u5f_10_u5f_7910_u2f_dvn_u2f___e575b8df", "geometry_proposal": {"bbox_observed": [69.99957275390625, 10.0, 140.0, 60.0, 0.0, 0.0, 0.0, 0.0], "coordinate_transform": "NONE (original coordinates preserved)", "geometry_type_observed": "PolyLine", "source_shape_type": 3, "srid": null, "srid_note": "SRID approval exists ONLY for the two bound 1884route objects (per-case); never auto-derived for other groups", "tab_obj_declaration_verbatim": null, "target_type_note_mapinfo": 
+Traceback (most recent call last):
+  File "<stdin>", line 10, in <module>
+NameError: name 'Counter' is not defined

@@ -1,0 +1,5 @@
+groups: 851 | counts: {"block3_members_attributed_exactly_once": 846, "candidate_groups_total": 851, "groups_confirmed_read_only": 851, "groups_pending_evidence": 0, "mapinfo_groups": 146, "shapefile_groups": 705}
+
+group keys: ['block2_handoff_members', 'casefold_ambiguity_member', 'disposition_retained', 'evidence_state', 'family_candidate', 'group_id', 'location', 'members', 'missing_core_extensions', 'optional_absent']
+member sample keys: ['evidence', 'ext', 'leaf', 'member_key', 'rule_id', 'sha256_inventory', 'sha_match_snapshot', 'size']
+member sample: {"evidence": {"dbf": {"fields": [{"dec": 0, "len": 11, "name": "FNODE_", "type": "N"}, {"dec": 0, "len": 11, "name": "TNODE_", "type": "N"}, {"dec": 0, "len": 11, "name": "LPOLY_", "type": "N"}, {"dec": 0, "len": 11, "name": "RPOLY_", "type": "N"}, {"dec": 3, "len": 12, "name": "LENGTH", "type": "N"}, {"dec": 0, "len": 11, "name": "COUNTOURS_", "type": "N"}, {"dec": 0, "len": 11, "name": "COUNTOURS_", "type": "N"}, {

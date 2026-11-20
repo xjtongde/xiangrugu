@@ -1,0 +1,12 @@
+== ITEM 2: candidate coverage & grouping rule ==
+my filter total: 5248 | claim extension_candidate_members: 5248
+ext count diffs (mine,cands): {}
+
+delivered groups by family: {'shapefile': 705, 'mapinfo_candidate': 146} | total: 851
+
+known_tsv_exclusions: 3 ['harvard/tab/ACADEMY_Data.tab', 'e_Prose_of_the_Yuan_Dynasty_vol_1-60.tab', 'ngs of the 19c missionaries in China.tab']
+coverage_retained: {"blocked": 7914, "errors": 1, "matched": 8004, "multiple": 0, "total": 8004, "unexplained": 0, "unmatched": 0}
+unassigned_related_members: 1 [('Ming_Stations_2016.cpg', '.cpg')]
+
+mapinfo groups w/o .tab member: 0 []
+groups with casefold_ambiguity_member: 4

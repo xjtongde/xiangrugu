@@ -1,0 +1,15 @@
+done 8 errors 0
+  rc 0
+CW_CHINA_contours.zip!asia_contour.shp: geo True | dbf-ev==mine True | attr-order False
+5_Hartwell/v5_0741_chin_chn_0741_c.shp: geo True | dbf-ev==mine True | attr-order False
+5_Hartwell/v5_0741_chin_chn_0741_p.shp: geo True | dbf-ev==mine True | attr-order False
+v5_Hartwell/v5_0741_circ_gn_0741_d.shp: geo True | dbf-ev==mine True | attr-order False
+v5_Hartwell/v5_0741_circ_hb_0741_d.shp: geo True | dbf-ev==mine True | attr-order False
+v5_Hartwell/v5_0741_circ_hd_0741_d.shp: geo True | dbf-ev==mine True | attr-order False
+v5_Hartwell/v5_0741_circ_hn_0741_d.shp: geo True | dbf-ev==mine True | attr-order False
+5_Hartwell/v5_0741_circ_hun_0741_d.shp: geo True | dbf-ev==mine True | attr-order False
+
+geometry match 8/8
+
+approved contains srid field: False | value 4326 anywhere: False
+approved sample keys: ['authorization_file', 'object', 'reuse_mode', 'source_object_id']

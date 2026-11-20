@@ -1,0 +1,6 @@
+status variant: 846 | {"confirmation_state": "PROPOSED_NOT_AUTHORIZED", "ready_for
+
+approved verbatim objs: 2
+Traceback (most recent call last):
+  File "<stdin>", line 11, in <module>
+AttributeError: 'list' object has no attribute 'keys'

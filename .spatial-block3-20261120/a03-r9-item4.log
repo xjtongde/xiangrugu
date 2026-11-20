@@ -1,0 +1,6 @@
+== ITEM 4: new mapping spot checks ==
+approved verbatim: 2 | proposed: 848 | om counts: {"approved_objects_reused_verbatim": 2, "candidate_groups_total": 851, "gap_groups": 3, "groups_confirmed_read_only": 851, "proposed_objects": 848}
+srid_policy: "approved SRIDs apply per-case to the two bound objects only; all proposals keep srid=null with CRS declarations verbatim"
+
+ obj: ['attribute_order_from_dbf_header', 'basis', 'block2_handoff_members', 'candidate_table_name', 'carrier', 'crs', 'dataset_namespace', 'family_candidate', 'geometry_proposal', 'group_id']
+   keys: ['attribute_order_from_dbf_header', 'basis', 'block2_handoff_members', 'candidate_table_name', 'carrier', 'crs', 'dataset_namespace', 'family_candidate', 'geometry_proposal', 'group_id', 'optional_components_absent', 'primary_member', 'source_object_id', 'status']

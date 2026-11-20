@@ -1,0 +1,13 @@
+4707253f4882 | in gaps: False | gap reason: - | group disposition: BLOCKED | members: ['.tab']
+60cd5f12782c | in gaps: False | gap reason: - | group disposition: BLOCKED | members: ['.tab']
+
+gap entries reasons:
+    shapefile 1698cca1ec31 missing: None | reason: required header evidence absent
+    mapinfo_candidate ca752f78d2b5 missing: ['.tab'] | reason: no primary component (.shp/.tab) present in group; casefold-ambiguity twin holding only DAT/IND/MAP — no indep
+    mapinfo_candidate ff9ffff7dc71 missing: ['.tab'] | reason: no primary component (.shp/.tab) present in group; casefold-ambiguity twin holding only DAT/IND/MAP — no indep
+
+SUMMARY 903 line: 候选组 **903**（kml 52 + mapinfo_candidate 146 + shapefile 705；shapefile/mapinfo 沿用 spatial-component-candidates.json，KML 52 件本轮按同一外层文件+链+stem 规则补查入组；inve
+确证 line: 已确证组（头级只读取证全命中、sha 对账 2708/2708 匹配 0 错）：**903** - 映射对象：批准逐字沿用 **2** + 提案 **896**（shapefile 702 + mapinfo_tab 142，均 PROPO
+
+members total: 5296 | sha_match_snapshot True: 2708
+members with header-level evidence: 756

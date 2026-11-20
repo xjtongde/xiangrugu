@@ -1,0 +1,19 @@
+len(po): 844 | om counts: {"approved_objects_reused_verbatim": 2, "candidate_groups_total": 851, "gap_groups": 3, "groups_confirmed_read_only": 851, "proposed_objects": 844}
+
+ c32e4c0d72a0 shapefile | primary-cands: [('.shp', '.zip!5_1884route/Ca1884route_przh_1251.shp')]
+
+ 79877fa814d5 shapefile | primary-cands: [('.shp', '.zip!5_1884route/Ca1884route_przh_utf8.shp')]
+
+ 4707253f4882 mapinfo_candidate | primary-cands: [('.tab', '2001_Shanghai_0_INDEX_OF_PRESENTATIONS.tab')]
+
+ 60cd5f12782c mapinfo_candidate | primary-cands: [('.tab', '0_7910/DVN/SK7KGK/GB_91_HZ_040201_UTF8.tab')]
+
+approved 9b4496c9 outer: harvard-full/doi_10_7910/DVN/E7HDYD/1884route.zip | chains: [['5_1884route/Ca1884route_przh_1251.cpg'], ['5_1884route/Ca1884route_przh_1251.dbf'], ['5_1884route/Ca1884route_przh_1251.prj']]
+
+approved e601ce1a outer: harvard-full/doi_10_7910/DVN/E7HDYD/1884route.zip | chains: [['5_1884route/Ca1884route_przh_utf8.cpg'], ['5_1884route/Ca1884route_przh_utf8.dbf'], ['5_1884route/Ca1884route_przh_utf8.prj']]
+
+tab-only group 4707253f4882 members: [('.tab', '6KU/2001_Shanghai_0_INDEX_OF_PRESENTATIONS.tab')] | block3_handoff_members: 0 | evidence_state: CONFIRMED_READ_ONLY
+
+tab-only group 60cd5f12782c members: [('.tab', 'oi_10_7910/DVN/SK7KGK/GB_91_HZ_040201_UTF8.tab')] | block3_handoff_members: 0 | evidence_state: CONFIRMED_READ_ONLY
+
+reconcile: 851 - 3(gaps) - 2(approved) - 2(tab-only?) = 844 vs len(po) 844

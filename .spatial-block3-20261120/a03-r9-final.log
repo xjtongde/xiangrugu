@@ -1,0 +1,10 @@
+kml groups==kml gaps: False | sym: 52
+kml groups with kml_elements evidence: 52 / 52
+sample evidence: {"kml_elements": {"Placemark": 375, "Point": 375}}
+kml disposition_retained: Counter({'BLOCKED': 52})
+
+tab-in-other-group mapinfo candidates (casefold twins): 146
+approved-covered groups: ['79877fa814d544fbb31e0284409edf2d6906666be98eeabd083bc0a00595c479', 'c32e4c0d72a062ed42ffc7aa453814be01d9a7c1fb26b25b45c5a6d0cae390a0']
+unmapped-not-gap-not-approved: 2
+    60cd5f12782c mapinfo_candidate ['7910/DVN/SK7KGK/GB_91_HZ_040201_UTF8.tab'] | in gaps? False
+    4707253f4882 mapinfo_candidate ['01_Shanghai_0_INDEX_OF_PRESENTATIONS.tab'] | in gaps? False

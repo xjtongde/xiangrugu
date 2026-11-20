@@ -1,0 +1,17 @@
+evidence_state: {'CONFIRMED_READ_ONLY': 851} | gap_group_count: 3
+   gap: 1698cca1ec31 shapefile missing: None | members 5
+   gap: ca752f78d2b5 mapinfo_candidate missing: ['.tab'] | members 3
+   gap: ff9ffff7dc71 mapinfo_candidate missing: ['.tab'] | members 3
+proposals srid=null: 848 / 848
+approved verbatim objs: 2 | 4326: 0 | QPJ: True | PRJ: True | axis: False
+Traceback (most recent call last):
+  File "<stdin>", line 13, in <module>
+  File "/usr/lib/python3.13/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "/usr/lib/python3.13/json/decoder.py", line 345, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/json/decoder.py", line 363, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)

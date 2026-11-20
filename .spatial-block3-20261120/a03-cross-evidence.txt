@@ -1,0 +1,64 @@
+
+====================================================================
+ROUND 9 —— 第 3/6 块空间矢量独立核对（含 lead 揪缺后 KML 修复轮，多轮落盘终态 14:50:46-59Z）
+记录时刻：2026-11-19T14:52:10Z。基线 HEAD=5478271。只读；候选镜像未用（stdlib struct/xml 即可）。
+日志 .spatial-block3-20261120/a03-r9-*.log。产物三轮 mtime：14:45:18/14:49:20/14:50:46Z（a02 修复滚动），
+全部结论按 **14:50:46Z 后终态字节** 复跑（final9/final10）。
+
+① 846 交接归属                                        PASS
+- 独立从 tabular/members.json 取 handoff-block3 idset=846（dbf 704+tab 142）；经 inventory join
+  （member_key rp!chain 形式，5244/5244 命中）重算归属：**恰属一组 846、missing 0、multi-group 0**。
+- groups.counts.block3_members_attributed_exactly_once=846 与我实算一致。
+
+② 全量候选覆盖与分组规则                              PASS
+- inventory_sha256 fb5e6b33…==candidates 声明==当前实测（复用前提成立）。
+- 我独立过滤候选件 13 扩展名集合：**5248 件、逐 ext 与 candidates.summary.extensions 零差**
+  （shp705/shx705/dbf704/prj702/sbn667/sbx667/shp.xml407/cpg22/tab147/dat142/id142/map142/ind96/kml52）。
+- tab 147−3 known_tsv_exclusions（ACADEMY/Yuan/missionaries，块2已整理 tab-text，排除正确）⇒组内 .tab 144。
+- mapinfo 146 vs TAB 主件 142 差额 4 件解释可核：2 件 casefold 孪生组仅 DAT/IND/MAP 无 .TAB（入 gaps）
+  +2 件顶层平面 .tab（GB_91_HZ_040201_UTF8/2001_Shanghai_0_INDEX）已被块2 organized(tab-text)——
+  我在 tabular members 实证两件确为 organized/tab-text ✓。kml 52 本轮补查入组（lead 揪缺后修复）。
+
+③ 组件串组/遗漏/重复                                  PASS
+- 我的独立分组（exact outer+parent-chain+dir+EXACT stem）：shapefile/mapinfo 域与交付组键集对称差仅
+  6 键，逐一溯源=KML 52 新组（我原 VEC 过滤含 kml、a02 首轮不含→修复后一致）+2 顶层 tab 目录口径
+  （mine dir='.' vs delivered dir=文件所在目录当 outer=''）——语义等价非串组。
+- 抽核 14 组（缺 dbf×1、缺 prj×3、casefold 孪生×4、同名跨归档 v5_1080×4 等）**成员集==交付 14/14 True**。
+- 缺件实算对照：missing_core_extensions 聚合 {prj:3, dbf:1}+gaps 2 缺 .tab 孪生组==lead 基准（v5_time_pref_pts_utf 缺 dbf；tib19pdb/v2_time_cnty_pgn_utf/v2_time_cnty_pts_utf 缺 prj）✓；ind 缺 46 基准在 optional_absent 非阻塞注记。
+
+④ 新映射抽核                                          PASS
+- 我容器外 stdlib 独立重读 8 件 .shp 头（offset32 shape type+file code 9994）+对应 .dbf 字段描述符：
+  **geometry_type/source_shape_type 8/8 相等；dbf evidence fields==我解析 8/8；attribute_order_from_dbf_header
+  名称/类型/宽度/小数/序 8/8 全等**（asia_contour、v5_0741 系列）。
+- srid=null 政策：896 提案对象递归扫描 **non-null srid 0**；srid_policy 文本「approved SRIDs apply per-case
+  to the two bound objects only; never auto-derived」；KML 52 对象 srid 全 null+xy_preserve_original_ieee754。
+- candidate_table_name naming 真函数再生抽核 3/3 match；sid 全局唯一 898/898；状态 896/896 PROPOSED_NOT_AUTHORIZED。
+- KML 几何统计独立复核 52/52：49 精确相等；2 件差异为标签口径（delivered 计 <gx:Firmament>? 否——是
+  MultiGeometry 标签我未扫；1 件 LineString 我多数 1 个 <LineString> 出现于 ExtendedData 文本节点位置差异）
+  ——均为计数包含面微差非内容错误，如实披露不判 FAIL。
+
+⑤ 批准非回归                                          PASS
+- 2 批准对象 VERBATIM_FROM_APPROVED_BINDING_CONTEXT：嵌套 object 与 binding ctx bound_objects 条目
+  **byte-equal 2/2**；components 6 角色 raw_verified 全 True；PRJ+QPJ 双保留+轴序注记在 binding 语境
+  （crs contract EPSG 4326 WKT base64 在位；SRID4326 系语境值非对象字段——如实现测）。
+- 块2 tabular 六件 sha == HEAD(5478271) **mismatches 0**；entry 668900d43663 未变；porcelain 无越界改动；
+  绝对路径/file:///opt/mydocker 命中 0。
+
+⑥ 三计数/gaps/确定性                                  PASS（一处观察项）
+- 终态三计数：**候选组 903**（shp705+mapinfo146+kml52）==我实算；**确证组 903**（pending 0，sha 对账
+  2708/2708 匹配 0 错与我 member sha_match_snapshot 计数 2708 一致）；**映射对象 898=批准 2+提案 896**
+  （702 shp+142 tab+52 kml）==机器 counts==SUMMARY；counts.proposed_objects==实列 896（陈旧字段已修）。
+- 泳道分区机器断言 consistency_asserts_passed=true；我独立分区 proposed 896/approved 2/gap 3/**unaccounted 2**
+  ——该 2 组（顶层平面 tab）已在 SUMMARY「缺口组构成」句+groups.known_anomalies_carried 显式披露为
+  块2已处置件，非静默遗漏；但严格泳道 903=896+2+3+2 未在 counts 字段单列，建议下版加 unaccounted_documented=2
+  或并入 gap 类（观察项，不阻塞）。
+- gaps 逐件 3（1 缺 dbf 组+2 casefold 孪生缺 .tab 组）+known_anomalies_carried（casefold 2 对/tsv 3/unassigned cpg 1）；
+  dependency_gaps 0。确定性静态核通过（五产物同秒 14:50:46Z），双跑硬证留 lead。
+
+结论：ROUND 9 六项全部 PASS。首个不一致：无阻塞级；两处如实披露——(A) KML 元素统计 2/52 标签口径微差
+（MultiGeometry 我未扫 1 件、LineString ±1 正则边界 1 件，内容无错）；(B) 顶层平面 tab 2 组不在四泳道
+counts 单列但双处文档披露。准确计数：候选 903｜确证 903｜映射 898（2+896）｜gaps 3｜846 归属一次且仅一次
+｜shp/dbf 抽核 8/8 全等｜srid 自动推导 0｜sid 唯一 898/898。
+判定建议：**第 3/6 块 PARTIAL**——头级取证+映射提案面完备（PASS 质量），但 (i) KML 52 件仅几何统计证据
+无要素属性/坐标级合同（本轮范围即头级）、(ii) 全部 896 提案待茶香批准、(iii) 2 观察项待清；
+正式导入仍属块 4 之后。

@@ -1,0 +1,15 @@
+status variant: 844 | {"confirmation_state": "PROPOSED_NOT_AUTHORIZED", "ready_for_import": false}
+
+components type: list len 6
+comp sample: {"raw_sha256": "ea80b523f4585374b7c94e7b9b420166e845e318f0efb4bafd6f51d3e8b1f72a", "raw_size": 4, "raw_verified": true, "role": "character_encoding_declaration", "rule_id": "m002705", "selector": {"archive_chain": ["5_1884route/Ca1884route_przh_1251.cpg"], "ar
+
+4326 ctx: NOT FOUND in verbatim obj
+orig-coord ctx: ?
+QPJ ctx: ?
+spatial-attributes-approved datamgmt/contracts/releases/2026-10-06-bootstrap/spatial-attributes-approved.draft.yaml
+spatial-crs-approved datamgmt/contracts/releases/2026-10-06-bootstrap/spatial-crs-approved.draft.yaml
+spatial-geometry-approved datamgmt/contracts/releases/2026-10-06-bootstrap/spatial-geometry-approved.draft.yaml
+
+tabular six vs HEAD mismatches: []
+entry sha head: 668900d43663 unchanged: True
+porcelain: 118 ['?? .cache-home/', '?? .cbdb-block1-20261119/', '?? .fifo-probe-20261117/', '?? .fixture-window-20261117/', '?? .go-deadline-20261117/', '?? .go-gate-20261118/', '?? .go-gid-20261118/', '?? .go-integration-20261118/', '?? .go-transport-20261118/', '?? .manual-pkg-20261116/', '?? .open-deadline-20261117/', '?? .p01-three-cases/', '?? .prio-container-20261117/', '?? .prio-host-20261117/']

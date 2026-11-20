@@ -1,0 +1,8 @@
+keys: ['dependency_gaps', 'gap_group_count', 'gaps', 'known_anomalies_carried', 'status']
+ list dependency_gaps: len 0 | sample: 
+  gap_group_count = 3
+ list gaps: len 3 | sample: {"family": "shapefile", "group_id": "1698cca1ec31bef23bf8a13f45ca631a5d6fdf7ea1fd0f78482f8a55411fdc22", "members": ["harvard-full/doi_10_7910/DVN/M7WEFY/v5_time_pref_pts_utf.zip!v5_time_pref_pts_utf.p
+  status = SPATIAL_EVIDENCE_GAPS
+
+'kml' occurrences in gaps file: 0 | 'ming_time-te': 0
+context: {"dependency_gaps": [], "gap_group_count": 3, "gaps": [{"family": "shapefile", "group_id": "1698cca1ec31bef23bf8a13f45ca631a5d6fdf7ea1fd0f78482f8a55411fdc22", "members": ["harvard-full/doi_10_7910/DVN/M7WEFY/v5_time_pref_pts_utf.zip!v5_time_pref_pts_utf.prj", "harvard-full/doi_10_7910/DVN/M7WEFY/v5

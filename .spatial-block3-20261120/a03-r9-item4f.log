@@ -1,0 +1,8 @@
+attr-order == my independent dbf header parse (8 objs): True
+table name recompute: 5f_7910_u2f_dvn_u2f___e575b8df match: True
+table name recompute: 5f_7910_u2f_dvn_u2f___d9e16f24 match: True
+table name recompute: 5f_7910_u2f_dvn_u2f___de6d0a2c match: True
+
+sid unique: True 848/848
+status: {('PROPOSED_NOT_AUTHORIZED', False): 846}
+proposals with non-null srid anywhere: 0 []

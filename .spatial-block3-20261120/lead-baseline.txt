@@ -1,0 +1,6 @@
+第 3/6 块 lead 基线与终核（2026-11-20，盒 14:26:08→14:56:08Z，基线 5478271）
+inventory.json sha256=fb5e6b334b898d62…==spatial-component-candidates.inventory_sha256（复用前提断言）
+lead 独立实算：shp 705/缺 dbf 1=v5_time_pref_pts_utf.shp（M7WEFY）/缺 prj 3=tib19pdb+v2_time_cnty_pgn_utf+v2_time_cnty_pts_utf；TAB 142/kml 52
+lead 终核揪出两缺陷经 a02 速修：①KML 52 初版零归属→52 组+52 提案全处置；②om.counts.proposed_objects 844≠实列→896==896 断言防复发
+终态独立核（14:51:39Z）：groups 903（705+146+52）/confirmed 903/pending 0；lane approved2+proposed896+gap3+text-owned2=903 UNASSIGNED=0；proposed list 896==counts；mapped_total 898；kml 52；srid 全 null；approved 2；sid 唯一；field-id dup 0；846 归属断言过
+首个实质阻塞：casefold 孪生无主件组 2（仅 DAT/IND/MAP 无 .TAB）待茶香裁定

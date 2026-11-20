@@ -1,0 +1,9 @@
+objects without confirmation_state: 0
+
+binding axis ctx: {"base_contract_sha256": "0b98f0078dd3d2756984881610df67a5a937fa1b93005ecf99fba66f6626422c", "binding_decisions_sha256": "f465275d53faad3bbb35d9da7f3431225c3f22f3a1800d49259d843a68601c84", "bound_obj
+
+crs contract 4326 ctx: [\"EPSG\",\"6326\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AUTHORITY[\"EPSG\",\"4326\"]]\n","raw_base64":"R0VPR0NTWyJXR1MgODQiLERBVFVNWyJXR1NfMTk4NCIsU1BIRVJPSURbIldHUyA4NCIsNjM3ODEzNywyOTguMjU3MjIzNTYzLEFVVEhPUklUWVsiRVBTRyIsIjcwMzAiXV0sQV
+
+approved sid present in binding ctx: True | reuse_mode: VERBATIM_FROM_APPROVED_BINDING_CONTEXT
+ obj 9b4496c9 comps: [('character_encoding_declaration', True), ('attributes', True), ('crs_declaration', True), ('additional_crs_declaration_candidate', True), ('primary_geometry', True), ('geometry_index', True)]
+ obj e601ce1a comps: [('character_encoding_declaration', True), ('attributes', True), ('crs_declaration', True), ('additional_crs_declaration_candidate', True), ('primary_geometry', True), ('geometry_index', True)]

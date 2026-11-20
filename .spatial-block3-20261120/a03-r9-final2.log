@@ -1,0 +1,8 @@
+sym sample: ['1c5c549e15e1ac82452a8d37ee8b06ff3f60058c80e655d370882ada0c05b2f4', '6f107f63e5125f4397d2f256233186024c2027bc38b1c4a9de293467df93c223']
+by members: groups 52 | gap-list 0 | sym: 52
+group ids: [('ede4d5481e114810e6b28009c3785b6dfe3404aef79b8aed42d5a83e005e18c3', ('Garrisons.zip!ming_time-te.kml',)), ('3b4687f9ff1210f13734ff724be01f587682cb73f67d631ab6d2367b8ccfc67b', ('0_KML.zip/v4_1820_pref_pts.kml',))]
+gap ids : []
+
+tab 6KU/2001_Shanghai_0_INDEX_OF_PRESENTATIONS.tab | appears in groups: ['4707253f4882'] | this group caseflag: False | block2_handoff_members: 0 | disposition: BLOCKED
+
+tab oi_10_7910/DVN/SK7KGK/GB_91_HZ_040201_UTF8.tab | appears in groups: ['60cd5f12782c'] | this group caseflag: False | block2_handoff_members: 0 | disposition: BLOCKED

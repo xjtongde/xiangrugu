@@ -784,7 +784,7 @@ for g in groups_doc["groups"]:
            "crs_resolution_approved": False,
            "dual_prj_qpj_note": "where both .prj and .qpj exist BOTH are "
                                 "retained verbatim; axis-order differences are "
-                                "annotated, never silently reconciled"}}
+                                "annotated, never silently reconciled"]}
     proposed.append(_ensure_common_fields({
         "group_id": gid, "family_candidate": fam,
         "source_object_id": sid, "candidate_table_name": nmap.target,

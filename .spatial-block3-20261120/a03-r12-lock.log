@@ -1,0 +1,31 @@
+lock entries: 0
+/opt/mydocker/xiangrugu/build-candidates/runtime-spatial-mapinfo-20261120-a/debs/libpython3-stdlib_3.11.2-1+b1_amd64.deb
+/opt/mydocker/xiangrugu/build-candidates/runtime-spatial-mapinfo-20261120-a/debs/libx265-199_3.5-2+b1_amd64.deb
+/opt/mydocker/xiangrugu/build-candidates/runtime-spatial-mapinfo-20261120-a/debs/libopenjp2-7_2.5.0-2+deb12u3_amd64.deb
+/opt/mydocker/xiangrugu/build-candidates/runtime-spatial-mapinfo-20261120-a/debs/python3.11-minimal_3.11.2-6+deb12u9_amd64.deb
+/opt/mydocker/xiangrugu/build-candidates/runtime-spatial-mapinfo-20261120-a/debs/libkmlbase1_1.3.0-10_amd64.deb
+/opt/mydocker/xiangrugu/build-candidates/runtime-spatial-mapinfo-20261120-a/debs/libkmldom1_1.3.0-10_amd64.deb
+/opt/mydocker/xiangrugu/build-candidates/runtime-spatial-mapinfo-20261120-a/debs/fonts-dejavu-core_2.37-6_all.deb
+/opt/mydocker/xiangrugu/build-candidates/runtime-spatial-mapinfo-20261120-a/debs/python3-minimal_3.11.2-1+b1_amd64.deb
+/opt/mydocker/xiangrugu/build-candidates/runtime-spatial-mapinfo-20261120-a/debs/libpython3.11-minimal_3.11.2-6+deb12u9_amd64.deb
+/opt/mydocker/xiangrugu/build-candidates/runtime-spatial-mapinfo-20261120-a/debs/libgfortran5_12.2.0-14+deb12u1_amd64.deb
+/opt/mydocker/xiangrugu/build-candidates
+/opt/mydocker/xiangrugu/build-candidates/runtime-tabular-xls-20261119-a
+/opt/mydocker/xiangrugu/build-candidates/runtime-tabular-xls-20261119-a/.tabular-block2-20261119
+/opt/mydocker/xiangrugu/build-candidates/runtime-tabular-xls-20261119-a/.tabular-probe-20261119
+/opt/mydocker/xiangrugu/build-candidates/runtime-tabular-xls-20261119-a/docs
+/opt/mydocker/xiangrugu/build-candidates/runtime-tabular-xls-20261119-a/demo
+/opt/mydocker/xiangrugu/build-candidates/runtime-tabular-xls-20261119-a/datamgmt
+/opt/mydocker/xiangrugu/build-candidates/runtime-tabular-xls-20261119-a/scripts
+/opt/mydocker/xiangrugu/build-candidates/spatial-repro-20261120
+/opt/mydocker/xiangrugu/build-candidates/spatial-repro-20261120/repo
+/opt/mydocker/xiangrugu/build-candidates/spatial-repro-20261120/out-run1
+/opt/mydocker/xiangrugu/build-candidates/spatial-repro-20261120/out-run2
+/opt/mydocker/xiangrugu/build-candidates/runtime-spatial-mapinfo-20261120-a
+/opt/mydocker/xiangrugu/build-candidates/runtime-spatial-mapinfo-20261120-a/debs
+
+Traceback (most recent call last):
+  File "<stdin>", line 13, in <module>
+  File "/usr/lib/python3.13/random.py", line 434, in sample
+    raise ValueError("Sample larger than population or is negative")
+ValueError: Sample larger than population or is negative

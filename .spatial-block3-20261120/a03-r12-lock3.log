@@ -1,0 +1,4 @@
+lock entries: 92
+files: 92 | lock∩files: 92 | files-not-in-lock: []
+spot-check 14 deb (>=5): 14/14 match | bad: []
+python3-gdal entry present: True

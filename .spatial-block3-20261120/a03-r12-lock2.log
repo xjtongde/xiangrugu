@@ -1,0 +1,5 @@
+lock entries: 0
+host deb files: 92 | lock∩files: 0 | files-not-in-lock: 92
+spot-check >=5: 0/0 match | bad: []
+
+python3-gdal lock lines: ['# acquired: 2026-11-20T17:18Z via base image python@sha256:4b4c524dc3dc… apt-get install --download-only --no-install-recommends python3-gdal=3.6.2+dfsg-1+b2', 'python3-gdal=3.6.2+dfsg-1+b2 \\']

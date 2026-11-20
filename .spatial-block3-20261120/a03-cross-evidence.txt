@@ -163,3 +163,70 @@ ROUND 11 —— 第 3/6 块复现性收尾独立复跑（特批：32 隔离目�
 判定建议：**第 3/6 块复现性子项 PASS**（生成器可复现==已验证交付态成立）；整块仍维持 PARTIAL——
 剩余缺口具体对象不变：MAP×2（GDAL/MITAB 待茶香批准 MAP-READ-PLAN）、v5 属性合同（源 dbf 确证不存在）、
 批准流程 899 提案待茶香。
+
+====================================================================
+ROUND 12 —— 第 3/6 块 MapInfo 几何核验独立复读（候选镜像授权，lead 接管构建后复验）
+记录时刻：2026-11-19T17:26:20Z。基线 HEAD=2df6e3d。a02 四连崩 lead 接管（通报在案）。
+我的隔离目录：workspace .spatial-block3-20261120/mapinfo-verify-a03-20261120/ + 32:/tmp/a03_r12_verify/
+（脚本 ogr-run*.log/final*.log/crosscheck*.log/attrcheck.log 全留存不删）。全部自写脚本，未执行 a02/lead 脚本。
+
+① 镜像与锁                                        PASS
+- docker inspect Id sha256:f1675321e33eeb95…==放行信号；labels revision=2df6e3db87068d93…（==HEAD）、
+  gdal=3.6.2+dfsg-1+b2、purpose=mapinfo-mitab-readonly-verification、created 17:19:38Z ✓。
+- requirements-apt.lock 解析 **92 条** ==32 debs/ 实物 92 个（lock∩files=92、无孤儿）；我抽核 **14 deb
+  （含 python3-gdal_3.6.2+dfsg-1+b2）sha256 14/14 match**（本地拷贝独立重算==锁值）。
+- 我的容器预检：osgeo 导入 OK、gdal.__version__ 3.6.2、GDAL 驱动列表含 **'MapInfo File'**（注：ogr
+  GetDriverByName('MITAB') 返回 None——该版本注册名即 'MapInfo File'，功能等价，如实记）。
+- 运行纪律（我自己）：docker run --rm --network none、快照卷 :ro、无凭据无 socket、非 pg32/pg32b。
+
+② 摘要对账                                        PASS
+- 两案内层 ZIP sha 69b5119f01f2b593 同字节✓；TAB c7bb2a78/DAT 3937da6c/MAP a7b44b35/ID f3956a79/
+  IND c422403b 逐件 inventory 精确链匹配 True×10；外层 V3_Data_Archive.zip 我读后仍 **4dec393bb9ff4acb
+  ==lead before/after==inventory**⇒源件零触实证。
+
+③ 独立复读两案全要素                              PASS（一处口径差异披露）
+- 我的容器内自写 ogr 脚本（从 :ro 快照现场提取临时副本再读，原件未触）：两案均 **features 1989、
+  walked 1989、空几何 0、read errors 0**、extent (106.60376,124.576195,18.160896,35.726135) 逐位==lead。
+- 属性互证：**我独立 struct DAT 全量解码 1989 行×23 字段 vs lead attributes_case_mapinfo.jsonl
+  full-field diffs = 0/1989**（stride 302=301 宽+分隔，POLYGON token 定位记录起点，gb18030/小端 int 解）。
+- X/Y 坐标统计独立复算==裁定②：X zero 1970/非零 19 range [1.0,57.0]；Y zero 1975/非零 14 含哨兵
+  999.999999——逐数一致；Guangde Jun 样本在列。
+- **口径差异（披露，非错误）**：lead polygon_ring_count_distribution {1:1418,2:37,4:1} 与我
+  GetGeometryCount 分布 {1:1418, 2:244, …, 39:1}（geom dist POLYGON 1456+MULTIPOLYGON 533）不同——
+  lead 似按「Polygon 环数」子集统计（其 1418 单环数与我完全一致），我按部件数计；两者同源文件、
+  要素总数一致，属统计口径未标注差异，建议 lead 证据补一句口径定义。
+
+④ 大小写映射与 CRS                                PASS
+- name_mapping 完整：3 件 v3_→V3_（DAT/MAP/IND）仅临时副本改名，原名映射记录在 manifest/lead 件双处；
+  TAB/ID 本已大写无需改。原件零触（②外层 sha 佐证）。
+- CRS：tab_has_coordsys False 实证（我读 TAB 全文无 Coordsys 行）；GetSpatialRef 非 None 但 WKT 为
+  GEOGCS["unnamed",DATUM["Pulkovo_1942"…]——读取器默认猜测。**按裁定①口径记：CRS UNRESOLVED、
+  不采纳不推断不转换**；lead crs_status 字段文本 "DECLARED_PRESENT" 与该裁定措辞相悖（见回报观察项）。
+
+⑤ 非回归                                          PASS
+- spatial 四产物 sha==HEAD(2df6e3d) mismatches []（lead 集成尚未落盘，届时按你集成完成信号以工作树
+  为准复核孪生面变化）；tabular 六件==HEAD 零差；entry 668900d43663 未变。
+
+结论：ROUND 12 五项 PASS。首个不一致：无阻塞级。两处如实报：(A) lead rings 分布口径未标注（1418
+单环点一致，其余为部件计数差异）；(B) crs_status="DECLARED_PRESENT" 字样与裁定①"UNRESOLVED"精神
+需统一表述（若 DECLARED_PRESENT 指"WKT 有返回但系猜测"应加注记）。
+两案准确计数：1989×2 要素、0 空、0 错、extent 逐位一致、属性 1989×23 全字段互证零差。
+判定建议：**MapInfo 几何核验子项 PASS**（工具缺口闭合：GDAL/OGR MITAB 经候选镜像只读验证成功）；
+第 3/6 块整体仍 PARTIAL——899 提案待茶香批准、v5 属性合同决策、镜像正式化（apt 锁入仓+镜像转正）
+留后续轮。
+
+---- ROUND 12 补段（lead 集成后孪生面非回归对账，17:32:55Z）----
+工作树 vs HEAD(2df6e3d) 差分恰四面复测全中：①groups 仅 baseline_git 5478271→2df6e3d、counts 相等、
+903 组 id 集与内容零变；②om **恰 2 件孪生**新增 geometry_read_status=VERIFIED_MITAB_READONLY+
+geometry_verification 块，**其余 897/897 提案对象 byte-identical 零变断言 True**；sid 唯一 901/901；
+③gaps tool_gap_report→RESOLVED_FOR_TWO_PRC_MAP_OBJECTS+resolution（镜像 Id/92deb 锁/裁定）；
+④SUMMARY MapInfo 专段。
+孪生 verification 块逐项==我 ROUND 12 容器实测：**fc 1989/walked 1989/null 0/read_errors 0/extent
+逐位/POLYGON 1456+MULTIPOLYGON 533 分布/X zero 1970 range [1.0,57.0]（==我独立 struct DAT 全量解码）/
+rename map 3 件**——两案各 8 项 match True×2。crs_status=UNRESOLVED_NO_RELIABLE_BASIS+
+reader_default_srs_wkt_NOT_ADOPTED 注记在位（披露 B 修正确认）；ring_caliber_note 在位且纯 POLYGON
+环数 {1:1418,2:37,4:1}+MULTIPOLYGON 部件分布另记（合计 3436 部件）——**披露 A 修正确认**，与我
+GetGeometryCount 实测口径互补一致。evidence_sha256 8bd3f48e…==本地文件重算 match True；
+attributes_jsonl sha f7d19c53…==本地重算 True。entry/tabular 六件零差未回归。
+ROUND 12 判定升格：**MapInfo 几何核验子项 PASS（含集成面）**；第 3/6 块维持 PARTIAL（899 提案待批准、
+v5 属性合同决策、镜像/apt 锁转正留后续）。

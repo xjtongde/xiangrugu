@@ -1,0 +1,37 @@
+objects with geometry_verification: 2
+primary_member of that obj: 
+   attribute_coords_source_state: {"X_COOR_nonzero_range": [1.0, 57.0], "X_COOR_zero_count": 1970, "Y_COOR_nonzero_range": [0.146, 999.999999], "Y_COOR_zero_count":
+   attributes_jsonl: ".mapinfo-verify-20261120/attributes_case_mapinfo.jsonl"
+   attributes_jsonl_sha256: "f7d19c53d4f1b8612fc714c1aa7c9f54c89d51c1217ad5d4ad4fcc634e98b075"
+   case_rename_map_temp_copies_only: {"v3_time_pref_pgn_PRC.DAT": "V3_time_pref_pgn_PRC.DAT", "v3_time_pref_pgn_PRC.IND": "V3_time_pref_pgn_PRC.IND", "v3_time_pref_pgn
+   centroid_vs_attr_coord: {"max_abs_dx": 122.16046718823496, "max_abs_dy": 977.2414251214393, "mean_abs_dx": 115.39822060673697, "mean_abs_dy": 28.895383757
+   component_digests_match_inventory: true
+   container_network: "none"
+   crs_ruling: "TAB has no Coordsys clause; MITAB returned GEOGCS unnamed/Pulkovo_1942 (Krassovsky) as reader default guess, NOT a source declara
+   crs_status: "UNRESOLVED_NO_RELIABLE_BASIS"
+   dat_crosscheck: {"expected_records": 1989, "feature_count_matches_dat": true, "note": "attributes read via MITAB from DAT; independent struct deco
+   evidence_file: ".mapinfo-verify-20261120/mapinfo_evidence.json"
+   evidence_sha256: "8bd3f48e8482c0c3ece6018f99d1d8ea787740d386ed8f2c606c5d55dbc67a4f"
+   extent: [106.60376, 124.576195, 18.160896, 35.726135]
+   feature_count: 1989
+   features_walked: 1989
+   gdal_version: "3.6.2+dfsg-1+b2"
+   geometry_type_distribution: {"MULTIPOLYGON": 533, "POLYGON": 1456}
+   image_id: "sha256:f1675321e33eeb95b6e43eb21410f1a48459f77e250de445f595c02caac6e595"
+   inner_zip_sha_match: true
+   layer_name: "V3_time_pref_pgn_PRC"
+   multipolygon_part_count_distribution: {"10": 17, "11": 6, "12": 11, "13": 4, "14": 8, "15": 18, "16": 5, "17": 9, "18": 5, "19": 6, "2": 207, "20": 9, "21": 1, "22": 14
+   null_geometries: 0
+   obj_type_distribution: {"POLYGON": 1989}
+   polygon_ring_count_distribution: {"1": 1418, "2": 37, "4": 1}
+   read_errors: 0
+   reader_default_srs_wkt_NOT_ADOPTED: "GEOGCS[\"unnamed\",DATUM[\"Pulkovo_1942\",SPHEROID[\"Krassovsky\",6378245,298.3]],PRIMEM[\"Greenwich\",0],UNIT[\"degree\",0.01745
+   ring_caliber_note: "polygon_ring_count_distribution counts rings of PURE POLYGON features only; MULTIPOLYGON features counted separately in multipoly
+   snapshot_mount: "ro"
+   source_untouched_before_after: true
+
+mapinfo jsonl sha local: f7d19c53d4f1b861 | declared: f7d19c53d4f1b861 match: True
+shapefiles jsonl sha local: f7d19c53d4f1b861
+
+groups byte-equal HEAD==WT: False | entry: 668900d43663 True | tabular mismatches: []
+sid unique: True 901/901

@@ -1,0 +1,17 @@
+== item2: two-case component sha independent inventory reconciliation ==
+  mapinfo/v3_time_pref_pgn_PRC.ZIP/V3_time_pref_pgn_PRC.TAB: sha=c7bb2a78 expect-prefix c7bb2a78 match:True size=715
+  mapinfo/v3_time_pref_pgn_PRC.ZIP/V3_time_pref_pgn_PRC.ID: sha=f3956a79 expect-prefix f3956a79 match:True size=7956
+  mapinfo/v3_time_pref_pgn_PRC.ZIP/v3_time_pref_pgn_PRC.IND: sha=c422403b expect-prefix c422403b match:True size=28672
+  mapinfo/v3_time_pref_pgn_PRC.ZIP/v3_time_pref_pgn_PRC.MAP: sha=a7b44b35 expect-prefix a7b44b35 match:True size=20469248
+  mapinfo/v3_time_pref_pgn_PRC.ZIP/v3_time_pref_pgn_PRC.DAT: sha=3937da6c expect-prefix 3937da6c match:True size=601448
+  inner ZIP mapinfo/v3_time_pref_pgn_PRC.ZIP: sha=69b5119f (expect 69b5119f) match:True
+  shapefiles/v3_time_pref_pgn_PRC.ZIP/V3_time_pref_pgn_PRC.TAB: sha=c7bb2a78 expect-prefix c7bb2a78 match:True size=715
+  shapefiles/v3_time_pref_pgn_PRC.ZIP/V3_time_pref_pgn_PRC.ID: sha=f3956a79 expect-prefix f3956a79 match:True size=7956
+  shapefiles/v3_time_pref_pgn_PRC.ZIP/v3_time_pref_pgn_PRC.IND: sha=c422403b expect-prefix c422403b match:True size=28672
+  shapefiles/v3_time_pref_pgn_PRC.ZIP/v3_time_pref_pgn_PRC.MAP: sha=a7b44b35 expect-prefix a7b44b35 match:True size=20469248
+  shapefiles/v3_time_pref_pgn_PRC.ZIP/v3_time_pref_pgn_PRC.DAT: sha=3937da6c expect-prefix 3937da6c match:True size=601448
+  inner ZIP shapefiles/v3_time_pref_pgn_PRC.ZIP: sha=69b5119f (expect 69b5119f) match:True
+
+== spatial products sha vs HEAD 2df6e3d ==
+mismatches: []
+entry: 668900d43663 True

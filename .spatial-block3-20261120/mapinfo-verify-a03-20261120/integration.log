@@ -1,0 +1,18 @@
+WT counts: {"approved_objects_reused_verbatim": 2, "candidate_groups_total": 903, "consistency_asserts_passed": true, "family_reconciliation": {"carrier_distribution_this_round": {"kml": 52, "mapinfo_tab": 142, "mapinfo_twin_bound": 2, "shapefile": 702, "shapefile_partial_no_dbf": 1}, "moved_objects": [{"evide
+
+om changed objects vs HEAD(2df6e3d): 2
+   2x ('geometry_read_status', 'geometry_verification')
+sid changes: 0 | identity-chain-family changes: []
+
+twin geom_verification keys: []
+   features: None | empty: None | extent: None | crs: None
+
+twin geom_verification keys: []
+   features: None | empty: None | extent: None | crs: None
+
+gaps tool_gap_report status: RESOLVED_FOR_TWO_PRC_MAP_OBJECTS | installed_this_round: True
+gaps changed keys vs HEAD: ['tool_gap_report']
+SUMMARY changed: True
+new SUMMARY MapInfo ctx: block2 2 = 903，UNASSIGNED=0——每组成员处置明确，AGENTS「不能静默遗漏」达成   ## MapInfo 几何核验（茶香授权候选镜像，本轮） - 镜像 xiangrugu:runtime-spatial-mapinfo-20261120-a Id sha256:f1675321e33eeb95b…（GDAL 3.6.2+dfsg-1+b2；92 deb 离线闭包 --network none 构建；datamgmt/requirements-apt.lock）；/usr/bin/python3 osgeo 预检+MapInf
+
+WT: groups 903 | proposed array 899 | sid unique True 901/901

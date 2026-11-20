@@ -1,0 +1,6 @@
+record count: 1989 | start deltas: [302]
+sample rows decoded:
+{"NAME_PY": "Deqing Fu", "NAME_CH": "德庆府", "NAME_FT": "德慶府", "X_COOR": 0.0, "Y_COOR": 0.0, "PRES_LOC": "139/138", "TYPE_PY": "Fu", "TYPE_CH": "府", "LEV_RANG": "3", "BEG_YR": 1369}
+{"NAME_PY": "Xin Zhou", "NAME_CH": "新州", "NAME_FT": "新州", "X_COOR": 0.0, "Y_COOR": 0.0, "PRES_LOC": "242/244", "TYPE_PY": "Zhilizhou", "TYPE_CH": "直隶州", "LEV_RANG": "3", "BEG_YR": 1368}
+{"NAME_PY": "Zhaoqing Fu", "NAME_CH": "肇庆府", "NAME_FT": "肇慶府", "X_COOR": 0.0, "Y_COOR": 0.0, "PRES_LOC": "148", "TYPE_PY": "Fu", "TYPE_CH": "府", "LEV_RANG": "3", "BEG_YR": 1577}
+  rc 0

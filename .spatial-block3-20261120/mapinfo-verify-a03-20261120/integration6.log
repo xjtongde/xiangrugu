@@ -1,0 +1,5 @@
+group id set equal: True | counts equal: True
+changed groups: 0
+Traceback (most recent call last):
+  File "<stdin>", line 18, in <module>
+IndexError: list index out of range

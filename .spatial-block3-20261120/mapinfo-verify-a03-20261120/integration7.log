@@ -1,0 +1,27 @@
+groups counts equal: True
+baseline_git HEAD: 5478271 -> WT: 2df6e3d
+
+twin objects with verification: 2
+   mapinfo features: om=1989 mine=1989 match:True
+   mapinfo walked: om=1989 mine=1989 match:True
+   mapinfo null/empty: om=0 mine=0 match:True
+   mapinfo read_errors: om=0 mine=0 match:True
+   mapinfo extent: om=[106.60376, 124.576195, 18.160896, 35.726135 mine=[106.60376, 124.576195, 18.160896, 35.726135 match:True
+   mapinfo geom types dist: om={'MULTIPOLYGON': 533, 'POLYGON': 1456} mine={'POLYGON': 1456, 'MULTIPOLYGON': 533} match:True
+   crs_status: UNRESOLVED_NO_RELIABLE_BASIS | NOT_ADOPTED note present: True
+   X zero/nonzero: 1970 [1.0, 57.0] == my DAT decode (1970,[1.0,57.0]): True
+   rename map entries: 3
+   shapefiles features: om=1989 mine=1989 match:True
+   shapefiles walked: om=1989 mine=1989 match:True
+   shapefiles null/empty: om=0 mine=0 match:True
+   shapefiles read_errors: om=0 mine=0 match:True
+   shapefiles extent: om=[106.60376, 124.576195, 18.160896, 35.726135 mine=[106.60376, 124.576195, 18.160896, 35.726135 match:True
+   shapefiles geom types dist: om={'MULTIPOLYGON': 533, 'POLYGON': 1456} mine={'POLYGON': 1456, 'MULTIPOLYGON': 533} match:True
+   crs_status: UNRESOLVED_NO_RELIABLE_BASIS | NOT_ADOPTED note present: True
+   X zero/nonzero: 1970 [1.0, 57.0] == my DAT decode (1970,[1.0,57.0]): True
+   rename map entries: 3
+
+evidence file local sha: 8bd3f48e8482c0c3 | om declared: 8bd3f48e8482c0c3 match: True
+ring_caliber_note present: True | pure-POLYGON rings: {"1": 1418, "2": 37, "4": 1} | mp parts sum: 3436
+
+non-twin proposed objects byte-identical vs HEAD: 897/897

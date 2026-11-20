@@ -1,0 +1,7 @@
+scp: stat local "/home/zky/Documents/deepseek-harness/xiangrugu/.spatial-block3-20261120/mapinfo-verify-a03-20261120/extract/mapinfo": No such file or directory
+Traceback (most recent call last):
+  File "<stdin>", line 36, in <module>
+  File "/usr/lib/python3.13/subprocess.py", line 577, in run
+    raise CalledProcessError(retcode, process.args,
+                             output=stdout, stderr=stderr)
+subprocess.CalledProcessError: Command '['scp', '-F', '/home/zky/.ssh/config', '-q', '-r', '/home/zky/Documents/deepseek-harness/xiangrugu/.spatial-block3-20261120/mapinfo-verify-a03-20261120/extract/mapinfo', '/home/zky/Documents/deepseek-harness/xiangrugu/.spatial-block3-20261120/mapinfo-verify-a03-20261120/extract/shapefiles', '32:/tmp/a03_r12_verify/']' returned non-zero exit status 255.

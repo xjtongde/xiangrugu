@@ -1,0 +1,6 @@
+cp: 对 '/opt/mydocker/xiangrugu/build-candidates/spatial-repro-20261120/../mapinfo-verify-a03-20261120/mapinfo' 调用 stat 失败: 没有那个文件或目录
+cp: 对 '/opt/mydocker/xiangrugu/build-candidates/spatial-repro-20261120/../mapinfo-verify-a03-20261120/shapefiles' 调用 stat 失败: 没有那个文件或目录
+
+re-extracted
+ 
+  rc 0

@@ -1,0 +1,6 @@
+ Traceback (most recent call last):
+  File "/s.py", line 35, in <module>
+    res[case]={'features':n,'geom_types':sorted(gt),'empty':empty,'extent':[list(ext[0]),list(ext[1])],'spatialref_none':sr is None}
+                                                                            ^^^^^^^^^^^^
+TypeError: 'float' object is not iterable
+ rc 1

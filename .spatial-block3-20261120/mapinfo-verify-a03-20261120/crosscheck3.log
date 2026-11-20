@@ -1,0 +1,24 @@
+
+== case_mapinfo ==
+ lead: fc 1989 walked 1989 null_geom 0 read_errors 0 geom_name Unknown (any) code 0
+ mine: fc 1989 empty 0 types ['MULTIPOLYGON', 'POLYGON']
+ lead crs_status: DECLARED_PRESENT | tab_has_coordsys: False | srs_wkt head: GEOGCS["unnamed",DATUM["Pulkovo_1942",SPHEROID["Krassovsky",6378245,298.3]],PRIM
+ lead objtype dist: {"POLYGON": 1989}
+ lead rings dist: {"1": 1418, "2": 37, "4": 1}
+ lead centroid_vs_attr: {"n": 1989, "max_abs_dx": 122.16046718823496, "max_abs_dy": 977.2414251214393, "mean_abs_dx": 115.39822060673697, "mean_abs_dy": 28.895383757799348, "note": "centroid of polygon vs X_COOR/Y_COOR attribute (label/seed point); relationship recorded, not assumed 
+ lead dat_crosscheck: {"expected_records": 1989, "feature_count_matches_dat": true, "walked_matches": true, "note": "attributes read via MITAB from DAT; independent struct decode reconciliation by a03"}
+ lead case_rename_map: {"v3_time_pref_pgn_PRC.DAT": "V3_time_pref_pgn_PRC.DAT", "v3_time_pref_pgn_PRC.MAP": "V3_time_pref_pgn_PRC.MAP", "v3_time_pref_pgn_PRC.IND": "V3_time_pref_pgn_PRC.IND"}
+
+== case_shapefiles ==
+ lead: fc 1989 walked 1989 null_geom 0 read_errors 0 geom_name Unknown (any) code 0
+ mine: fc 1989 empty 0 types ['MULTIPOLYGON', 'POLYGON']
+ lead crs_status: DECLARED_PRESENT | tab_has_coordsys: False | srs_wkt head: GEOGCS["unnamed",DATUM["Pulkovo_1942",SPHEROID["Krassovsky",6378245,298.3]],PRIM
+ lead objtype dist: {"POLYGON": 1989}
+ lead rings dist: {"1": 1418, "2": 37, "4": 1}
+ lead centroid_vs_attr: {"n": 1989, "max_abs_dx": 122.16046718823496, "max_abs_dy": 977.2414251214393, "mean_abs_dx": 115.39822060673697, "mean_abs_dy": 28.895383757799348, "note": "centroid of polygon vs X_COOR/Y_COOR attribute (label/seed point); relationship recorded, not assumed 
+ lead dat_crosscheck: {"expected_records": 1989, "feature_count_matches_dat": true, "walked_matches": true, "note": "attributes read via MITAB from DAT; independent struct decode reconciliation by a03"}
+ lead case_rename_map: {"v3_time_pref_pgn_PRC.DAT": "V3_time_pref_pgn_PRC.DAT", "v3_time_pref_pgn_PRC.MAP": "V3_time_pref_pgn_PRC.MAP", "v3_time_pref_pgn_PRC.IND": "V3_time_pref_pgn_PRC.IND"}
+
+my DAT decoded sample indices: [378, 381, 388, 925, 926, 953]
+lead attributes lines: 1989
+lead attr first: {"fid": 1, "attributes": {"NAME_PY": "Guangde Jun", "NAME_CH": "广德军", "NAME_FT": "廣德軍", "X_COOR": 0.0, "Y_COOR": 0.0, "PRES_LOC": "", "TYPE_PY": "Jun", "TYPE_CH": "军", "LEV_RANG": "3", "BEG_YR": 979, "BEG_RULE": "4", "END_YR": 1276, "END_RULE": "4", "NOTE_ID":

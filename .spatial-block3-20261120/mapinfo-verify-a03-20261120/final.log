@@ -1,0 +1,13 @@
+outer zip sha now: 4dec393bb9ff4acb | lead before/after 4dec393bb9ff4acb match: True
+Traceback (most recent call last):
+  File "<stdin>", line 26, in <module>
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1207, in communicate
+    self._stdin_write(input)
+    ~~~~~~~~~~~~~~~~~^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1156, in _stdin_write
+    self.stdin.write(input)
+    ~~~~~~~~~~~~~~~~^^^^^^^
+TypeError: a bytes-like object is required, not 'str'

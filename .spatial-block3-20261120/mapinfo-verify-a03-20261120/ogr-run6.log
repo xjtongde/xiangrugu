@@ -1,0 +1,5 @@
+   File "<string>", line 5
+    SNAP=/snap; OUT=/work
+         ^
+SyntaxError: invalid syntax
+ rc 1

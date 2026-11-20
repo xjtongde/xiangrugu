@@ -1,0 +1,4 @@
+  rc 0
+Traceback (most recent call last):
+  File "<stdin>", line 52, in <module>
+FileNotFoundError: [Errno 2] No such file or directory: '.spatial-block3-20261120/mapinfo-verify-a03-20261120/ogr_summary.json'

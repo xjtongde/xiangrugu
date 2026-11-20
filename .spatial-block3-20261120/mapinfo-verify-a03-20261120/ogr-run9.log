@@ -1,0 +1,4 @@
+mapinfo : {"features": 1989, "geom_types": ["MULTIPOLYGON", "POLYGON"], "empty": 0, "extent_raw": [106.60376, 124.576195, 18.160896, 35.726135], "spatialref_none": false}
+shapefiles : {"features": 1989, "geom_types": ["MULTIPOLYGON", "POLYGON"], "empty": 0, "extent_raw": [106.60376, 124.576195, 18.160896, 35.726135], "spatialref_none": false}
+DONE
+  rc 0

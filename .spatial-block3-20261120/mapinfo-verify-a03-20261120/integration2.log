@@ -1,0 +1,22 @@
+
+twin: 3_time_pref_pgn_PRC.ZIP/V3_time_pref_pgn_PRC.TAB
+   keys: []
+   features: None | empty: None | errors: None
+   extent: None | crs_status: None | srs note: None
+   obj_type dist: null
+   dat crosscheck: null
+   geometry_read_status head: None
+
+twin: 3_time_pref_pgn_PRC.ZIP/V3_time_pref_pgn_PRC.TAB
+   keys: []
+   features: None | empty: None | errors: None
+   extent: None | crs_status: None | srs note: None
+   obj_type dist: null
+   dat crosscheck: null
+   geometry_read_status head: None
+
+tool_gap_report full status block:
+{"capability_missing": "MapInfo .MAP geometry decode (MITAB)", "host_software_unchanged": true, "installed_in_candidate_image_only": true, "installed_this_round": true, "note": "inner ZIPs byte-identical (sha 69b5119f01f2...); mirror disposition deferred to block 6; DAT attributes already decoded (1989 records, structure HIGH / value MEDIUM)", "plan_document": "MAP-READ-PLAN.md", "required_tool": "GDAL/OGR MITAB driver (python3-gdal=3.6.2+dfsg-1+b2 bookworm, apt deb sha256 locked) or Chaxiang-approved derived stdlib parser", "resolution": {"apt_lock": "datamgmt/requirements-apt.lock (92 debs sha256)", "attribute_coords_ruling": "source X_COOR/Y_COOR unset/placeholder (zeros/sentinels); geome
+ S: - 候选组 **903**（kml 52 + mapinfo_candidate 146 + shapefile 705；shapefile/mapinfo 沿用 spatial-component-candidates.json，KML 52 件本轮按同一外层文件+链+stem 规则补查入组；inventory sha256=fb5e6
+ S: - 已确证组（头级只读取证全命中、sha 对账 2708/2708 匹配 0 错）：**903**
+ S: - 映射对象合计 **901** =批准逐字沿用 **2** + 提案 **899**（shapefile 702 + mapinfo_tab 142 + kml 52，均 PROPOSED_NOT_AUTHORIZED）；缺口组 **1**。组级泳道分区机器断言在码：approved 2 + proposed 899 + gap 1 +

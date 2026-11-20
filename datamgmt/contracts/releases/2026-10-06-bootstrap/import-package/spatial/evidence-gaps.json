@@ -124,5 +124,29 @@
    }
   ]
  },
- "status": "SPATIAL_EVIDENCE_GAPS"
+ "status": "SPATIAL_EVIDENCE_GAPS",
+ "tool_gap_report": {
+  "affected_objects": [
+   {
+    "case": "mapinfo/v3_time_pref_pgn_PRC.ZIP",
+    "chain": "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip!mapinfo/v3_time_pref_pgn_PRC.ZIP!v3_time_pref_pgn_PRC.MAP",
+    "member": "v3_time_pref_pgn_PRC.MAP",
+    "sha256": "a7b44b35a4123c7c8f264c9fed525f394afadd66e46b57b5aaa64c9eec2172df",
+    "size": 20469248
+   },
+   {
+    "case": "shapefiles/v3_time_pref_pgn_PRC.ZIP",
+    "chain": "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip!shapefiles/v3_time_pref_pgn_PRC.ZIP!v3_time_pref_pgn_PRC.MAP",
+    "member": "v3_time_pref_pgn_PRC.MAP",
+    "sha256": "a7b44b35a4123c7c8f264c9fed525f394afadd66e46b57b5aaa64c9eec2172df",
+    "size": 20469248
+   }
+  ],
+  "capability_missing": "MapInfo .MAP geometry decode (MITAB)",
+  "installed_this_round": false,
+  "note": "inner ZIPs byte-identical (sha 69b5119f01f2...); mirror disposition deferred to block 6; DAT attributes already decoded (1989 records, structure HIGH / value MEDIUM)",
+  "plan_document": "MAP-READ-PLAN.md",
+  "required_tool": "GDAL/OGR MITAB driver (python3-gdal=3.6.2+dfsg-1+b2 bookworm, apt deb sha256 locked) or Chaxiang-approved derived stdlib parser",
+  "status": "TOOL_GAP_NOT_INSTALLED"
+ }
 }

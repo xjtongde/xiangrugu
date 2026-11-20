@@ -167151,8 +167151,16 @@
    "attribute_order_from_dbf_header": [
     {
      "decimals": null,
-     "definition_line_verbatim": "    Source Char (10) ;",
+     "definition_line_verbatim": "    Sea_ID Smallint Index 1 ;",
      "ordinal": 1,
+     "original_name": "Sea_ID",
+     "tab_type": "Smallint",
+     "width": null
+    },
+    {
+     "decimals": null,
+     "definition_line_verbatim": "    Source Char (10) ;",
+     "ordinal": 2,
      "original_name": "Source",
      "tab_type": "Char",
      "width": "10"
@@ -167160,7 +167168,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    system_id Smallint ;",
-     "ordinal": 2,
+     "ordinal": 3,
      "original_name": "system_id",
      "tab_type": "Smallint",
      "width": null
@@ -167226,8 +167234,16 @@
    "attribute_order_from_dbf_header": [
     {
      "decimals": null,
-     "definition_line_verbatim": "    Character_name Char (20) ;",
+     "definition_line_verbatim": "    Lks_id Smallint Index 1 ;",
      "ordinal": 1,
+     "original_name": "Lks_id",
+     "tab_type": "Smallint",
+     "width": null
+    },
+    {
+     "decimals": null,
+     "definition_line_verbatim": "    Character_name Char (20) ;",
+     "ordinal": 2,
      "original_name": "Character_name",
      "tab_type": "Char",
      "width": "20"
@@ -167235,7 +167251,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    Fanti_name_2 Char (20) ;",
-     "ordinal": 2,
+     "ordinal": 3,
      "original_name": "Fanti_name_2",
      "tab_type": "Char",
      "width": "20"
@@ -167243,7 +167259,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    Pinyin_name Char (30) ;",
-     "ordinal": 3,
+     "ordinal": 4,
      "original_name": "Pinyin_name",
      "tab_type": "Char",
      "width": "30"
@@ -167251,7 +167267,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    SYSTEM_ID Smallint ;",
-     "ordinal": 4,
+     "ordinal": 5,
      "original_name": "SYSTEM_ID",
      "tab_type": "Smallint",
      "width": null
@@ -167317,8 +167333,16 @@
    "attribute_order_from_dbf_header": [
     {
      "decimals": null,
-     "definition_line_verbatim": "    Character Char (20) ;",
+     "definition_line_verbatim": "    Lks_id Smallint Index 1 ;",
      "ordinal": 1,
+     "original_name": "Lks_id",
+     "tab_type": "Smallint",
+     "width": null
+    },
+    {
+     "decimals": null,
+     "definition_line_verbatim": "    Character Char (20) ;",
+     "ordinal": 2,
      "original_name": "Character",
      "tab_type": "Char",
      "width": "20"
@@ -167326,7 +167350,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    Fanti_name Char (20) ;",
-     "ordinal": 2,
+     "ordinal": 3,
      "original_name": "Fanti_name",
      "tab_type": "Char",
      "width": "20"
@@ -167334,7 +167358,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    Pinyin_nam Char (30) ;",
-     "ordinal": 3,
+     "ordinal": 4,
      "original_name": "Pinyin_nam",
      "tab_type": "Char",
      "width": "30"
@@ -167342,7 +167366,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    SYSTEM_ID Smallint ;",
-     "ordinal": 4,
+     "ordinal": 5,
      "original_name": "SYSTEM_ID",
      "tab_type": "Smallint",
      "width": null
@@ -167416,8 +167440,16 @@
     },
     {
      "decimals": null,
-     "definition_line_verbatim": "    NAME_FT Char (30) ;",
+     "definition_line_verbatim": "    NAME_CH Char (30) Index 1 ;",
      "ordinal": 2,
+     "original_name": "NAME_CH",
+     "tab_type": "Char",
+     "width": "30"
+    },
+    {
+     "decimals": null,
+     "definition_line_verbatim": "    NAME_FT Char (30) ;",
+     "ordinal": 3,
      "original_name": "NAME_FT",
      "tab_type": "Char",
      "width": "30"
@@ -167425,7 +167457,7 @@
     {
      "decimals": "6",
      "definition_line_verbatim": "    X_COOR Decimal (10, 6) ;",
-     "ordinal": 3,
+     "ordinal": 4,
      "original_name": "X_COOR",
      "tab_type": "Decimal",
      "width": "10"
@@ -167433,7 +167465,7 @@
     {
      "decimals": "6",
      "definition_line_verbatim": "    Y_COOR Decimal (10, 6) ;",
-     "ordinal": 4,
+     "ordinal": 5,
      "original_name": "Y_COOR",
      "tab_type": "Decimal",
      "width": "10"
@@ -167441,7 +167473,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    PRES_LOC Char (40) ;",
-     "ordinal": 5,
+     "ordinal": 6,
      "original_name": "PRES_LOC",
      "tab_type": "Char",
      "width": "40"
@@ -167449,7 +167481,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    TYPR_PY Char (15) ;",
-     "ordinal": 6,
+     "ordinal": 7,
      "original_name": "TYPR_PY",
      "tab_type": "Char",
      "width": "15"
@@ -167457,7 +167489,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    TYPE_CH Char (10) ;",
-     "ordinal": 7,
+     "ordinal": 8,
      "original_name": "TYPE_CH",
      "tab_type": "Char",
      "width": "10"
@@ -167465,7 +167497,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    LEV_RANG Char (10) ;",
-     "ordinal": 8,
+     "ordinal": 9,
      "original_name": "LEV_RANG",
      "tab_type": "Char",
      "width": "10"
@@ -167473,7 +167505,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    BEG_YR Smallint ;",
-     "ordinal": 9,
+     "ordinal": 10,
      "original_name": "BEG_YR",
      "tab_type": "Smallint",
      "width": null
@@ -167481,7 +167513,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    BEG_RULE Char (1) ;",
-     "ordinal": 10,
+     "ordinal": 11,
      "original_name": "BEG_RULE",
      "tab_type": "Char",
      "width": "1"
@@ -167489,7 +167521,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    END_YR Smallint ;",
-     "ordinal": 11,
+     "ordinal": 12,
      "original_name": "END_YR",
      "tab_type": "Smallint",
      "width": null
@@ -167497,7 +167529,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    END_RULE Char (1) ;",
-     "ordinal": 12,
+     "ordinal": 13,
      "original_name": "END_RULE",
      "tab_type": "Char",
      "width": "1"
@@ -167505,7 +167537,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    DYN_PY Char (20) ;",
-     "ordinal": 13,
+     "ordinal": 14,
      "original_name": "DYN_PY",
      "tab_type": "Char",
      "width": "20"
@@ -167513,7 +167545,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    DYN_CH Char (10) ;",
-     "ordinal": 14,
+     "ordinal": 15,
      "original_name": "DYN_CH",
      "tab_type": "Char",
      "width": "10"
@@ -167521,7 +167553,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    LEV1_PY Char (30) ;",
-     "ordinal": 15,
+     "ordinal": 16,
      "original_name": "LEV1_PY",
      "tab_type": "Char",
      "width": "30"
@@ -167529,7 +167561,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    LEV1_CH Char (20) ;",
-     "ordinal": 16,
+     "ordinal": 17,
      "original_name": "LEV1_CH",
      "tab_type": "Char",
      "width": "20"
@@ -167537,7 +167569,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    LEV2_PY Char (20) ;",
-     "ordinal": 17,
+     "ordinal": 18,
      "original_name": "LEV2_PY",
      "tab_type": "Char",
      "width": "20"
@@ -167545,7 +167577,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    LEV2_CH Char (20) ;",
-     "ordinal": 18,
+     "ordinal": 19,
      "original_name": "LEV2_CH",
      "tab_type": "Char",
      "width": "20"
@@ -167553,7 +167585,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    COUN_PY Char (30) ;",
-     "ordinal": 19,
+     "ordinal": 20,
      "original_name": "COUN_PY",
      "tab_type": "Char",
      "width": "30"
@@ -167561,7 +167593,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    COUN_CH Char (20) ;",
-     "ordinal": 20,
+     "ordinal": 21,
      "original_name": "COUN_CH",
      "tab_type": "Char",
      "width": "20"
@@ -167569,7 +167601,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    NOTE_ID Integer ;",
-     "ordinal": 21,
+     "ordinal": 22,
      "original_name": "NOTE_ID",
      "tab_type": "Integer",
      "width": null
@@ -167577,7 +167609,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    OBJ_TYPE Char (7) ;",
-     "ordinal": 22,
+     "ordinal": 23,
      "original_name": "OBJ_TYPE",
      "tab_type": "Char",
      "width": "7"
@@ -167585,7 +167617,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    SYS_ID Char (16) ;",
-     "ordinal": 23,
+     "ordinal": 24,
      "original_name": "SYS_ID",
      "tab_type": "Char",
      "width": "16"
@@ -167593,7 +167625,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    GEO_ID Integer ;",
-     "ordinal": 24,
+     "ordinal": 25,
      "original_name": "GEO_ID",
      "tab_type": "Integer",
      "width": null
@@ -167601,7 +167633,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    GEO_SRC Char (10) ;",
-     "ordinal": 25,
+     "ordinal": 26,
      "original_name": "GEO_SRC",
      "tab_type": "Char",
      "width": "10"
@@ -167609,7 +167641,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    COMPILER Char (10) ;",
-     "ordinal": 26,
+     "ordinal": 27,
      "original_name": "COMPILER",
      "tab_type": "Char",
      "width": "10"
@@ -167617,7 +167649,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    GEOCOMPER Char (12) ;",
-     "ordinal": 27,
+     "ordinal": 28,
      "original_name": "GEOCOMPER",
      "tab_type": "Char",
      "width": "12"
@@ -167625,7 +167657,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    CHECKER Char (10) ;",
-     "ordinal": 28,
+     "ordinal": 29,
      "original_name": "CHECKER",
      "tab_type": "Char",
      "width": "10"
@@ -167633,7 +167665,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    ENT_DATE Char (10) ;",
-     "ordinal": 29,
+     "ordinal": 30,
      "original_name": "ENT_DATE",
      "tab_type": "Char",
      "width": "10"
@@ -168166,8 +168198,24 @@
     },
     {
      "decimals": null,
-     "definition_line_verbatim": "    GEO_SRC Char (10) ;",
+     "definition_line_verbatim": "    SYS_ID Smallint Index 1 ;",
      "ordinal": 22,
+     "original_name": "SYS_ID",
+     "tab_type": "Smallint",
+     "width": null
+    },
+    {
+     "decimals": null,
+     "definition_line_verbatim": "    GEO_ID Integer Index 2 ;",
+     "ordinal": 23,
+     "original_name": "GEO_ID",
+     "tab_type": "Integer",
+     "width": null
+    },
+    {
+     "decimals": null,
+     "definition_line_verbatim": "    GEO_SRC Char (10) ;",
+     "ordinal": 24,
      "original_name": "GEO_SRC",
      "tab_type": "Char",
      "width": "10"
@@ -168175,7 +168223,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    COMPILER Char (10) ;",
-     "ordinal": 23,
+     "ordinal": 25,
      "original_name": "COMPILER",
      "tab_type": "Char",
      "width": "10"
@@ -168183,7 +168231,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    GEOCOMPLE Char (12) ;",
-     "ordinal": 24,
+     "ordinal": 26,
      "original_name": "GEOCOMPLE",
      "tab_type": "Char",
      "width": "12"
@@ -168191,7 +168239,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    CHECKER Char (10) ;",
-     "ordinal": 25,
+     "ordinal": 27,
      "original_name": "CHECKER",
      "tab_type": "Char",
      "width": "10"
@@ -168199,7 +168247,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    ENT_DATE Char (10) ;",
-     "ordinal": 26,
+     "ordinal": 28,
      "original_name": "ENT_DATE",
      "tab_type": "Char",
      "width": "10"
@@ -169082,8 +169130,16 @@
     },
     {
      "decimals": null,
-     "definition_line_verbatim": "    NAME_FT Char (30) ;",
+     "definition_line_verbatim": "    NAME_CH Char (30) Index 1 ;",
      "ordinal": 2,
+     "original_name": "NAME_CH",
+     "tab_type": "Char",
+     "width": "30"
+    },
+    {
+     "decimals": null,
+     "definition_line_verbatim": "    NAME_FT Char (30) ;",
+     "ordinal": 3,
      "original_name": "NAME_FT",
      "tab_type": "Char",
      "width": "30"
@@ -169091,7 +169147,7 @@
     {
      "decimals": "6",
      "definition_line_verbatim": "    X_COOR Decimal (10, 6) ;",
-     "ordinal": 3,
+     "ordinal": 4,
      "original_name": "X_COOR",
      "tab_type": "Decimal",
      "width": "10"
@@ -169099,7 +169155,7 @@
     {
      "decimals": "6",
      "definition_line_verbatim": "    Y_COOR Decimal (10, 6) ;",
-     "ordinal": 4,
+     "ordinal": 5,
      "original_name": "Y_COOR",
      "tab_type": "Decimal",
      "width": "10"
@@ -169107,7 +169163,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    PRES_LOC Char (50) ;",
-     "ordinal": 5,
+     "ordinal": 6,
      "original_name": "PRES_LOC",
      "tab_type": "Char",
      "width": "50"
@@ -169115,7 +169171,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    TYPE_PY Char (30) ;",
-     "ordinal": 6,
+     "ordinal": 7,
      "original_name": "TYPE_PY",
      "tab_type": "Char",
      "width": "30"
@@ -169123,7 +169179,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    TYPE_CH Char (20) ;",
-     "ordinal": 7,
+     "ordinal": 8,
      "original_name": "TYPE_CH",
      "tab_type": "Char",
      "width": "20"
@@ -169131,7 +169187,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    LEV_RANG Char (1) ;",
-     "ordinal": 8,
+     "ordinal": 9,
      "original_name": "LEV_RANG",
      "tab_type": "Char",
      "width": "1"
@@ -169139,7 +169195,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    BEG_YR Smallint ;",
-     "ordinal": 9,
+     "ordinal": 10,
      "original_name": "BEG_YR",
      "tab_type": "Smallint",
      "width": null
@@ -169147,7 +169203,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    BEG_RULE Char (1) ;",
-     "ordinal": 10,
+     "ordinal": 11,
      "original_name": "BEG_RULE",
      "tab_type": "Char",
      "width": "1"
@@ -169155,7 +169211,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    END_YR Smallint ;",
-     "ordinal": 11,
+     "ordinal": 12,
      "original_name": "END_YR",
      "tab_type": "Smallint",
      "width": null
@@ -169163,7 +169219,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    END_RULE Char (1) ;",
-     "ordinal": 12,
+     "ordinal": 13,
      "original_name": "END_RULE",
      "tab_type": "Char",
      "width": "1"
@@ -169171,7 +169227,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    DYN_PY Char (30) ;",
-     "ordinal": 13,
+     "ordinal": 14,
      "original_name": "DYN_PY",
      "tab_type": "Char",
      "width": "30"
@@ -169179,7 +169235,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    DYN_CH Char (20) ;",
-     "ordinal": 14,
+     "ordinal": 15,
      "original_name": "DYN_CH",
      "tab_type": "Char",
      "width": "20"
@@ -169187,7 +169243,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    LEV1_PY Char (30) ;",
-     "ordinal": 15,
+     "ordinal": 16,
      "original_name": "LEV1_PY",
      "tab_type": "Char",
      "width": "30"
@@ -169195,7 +169251,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    LEV1_CH Char (20) ;",
-     "ordinal": 16,
+     "ordinal": 17,
      "original_name": "LEV1_CH",
      "tab_type": "Char",
      "width": "20"
@@ -169203,7 +169259,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    LEV2_PY Char (30) ;",
-     "ordinal": 17,
+     "ordinal": 18,
      "original_name": "LEV2_PY",
      "tab_type": "Char",
      "width": "30"
@@ -169211,7 +169267,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    LEV2_CH Char (20) ;",
-     "ordinal": 18,
+     "ordinal": 19,
      "original_name": "LEV2_CH",
      "tab_type": "Char",
      "width": "20"
@@ -169219,7 +169275,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    NOTE_ID Integer ;",
-     "ordinal": 19,
+     "ordinal": 20,
      "original_name": "NOTE_ID",
      "tab_type": "Integer",
      "width": null
@@ -169227,15 +169283,23 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    OBJ_TYPE Char (7) ;",
-     "ordinal": 20,
+     "ordinal": 21,
      "original_name": "OBJ_TYPE",
      "tab_type": "Char",
      "width": "7"
     },
     {
      "decimals": null,
+     "definition_line_verbatim": "    SYS_ID Smallint Index 2 ;",
+     "ordinal": 22,
+     "original_name": "SYS_ID",
+     "tab_type": "Smallint",
+     "width": null
+    },
+    {
+     "decimals": null,
      "definition_line_verbatim": "    GEO_ID Integer ;",
-     "ordinal": 21,
+     "ordinal": 23,
      "original_name": "GEO_ID",
      "tab_type": "Integer",
      "width": null
@@ -169243,7 +169307,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    GEO_SRC Char (10) ;",
-     "ordinal": 22,
+     "ordinal": 24,
      "original_name": "GEO_SRC",
      "tab_type": "Char",
      "width": "10"
@@ -169251,7 +169315,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    COMPILER Char (10) ;",
-     "ordinal": 23,
+     "ordinal": 25,
      "original_name": "COMPILER",
      "tab_type": "Char",
      "width": "10"
@@ -169259,7 +169323,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    GEOCOMPLE Char (10) ;",
-     "ordinal": 24,
+     "ordinal": 26,
      "original_name": "GEOCOMPLE",
      "tab_type": "Char",
      "width": "10"
@@ -169267,7 +169331,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    CHECKER Char (10) ;",
-     "ordinal": 25,
+     "ordinal": 27,
      "original_name": "CHECKER",
      "tab_type": "Char",
      "width": "10"
@@ -169275,7 +169339,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    ENT_DATE Char (10) ;",
-     "ordinal": 26,
+     "ordinal": 28,
      "original_name": "ENT_DATE",
      "tab_type": "Char",
      "width": "10"
@@ -169624,8 +169688,16 @@
    "attribute_order_from_dbf_header": [
     {
      "decimals": null,
-     "definition_line_verbatim": "    Character_name Char (20) ;",
+     "definition_line_verbatim": "    Key_ID Smallint Index 1 ;",
      "ordinal": 1,
+     "original_name": "Key_ID",
+     "tab_type": "Smallint",
+     "width": null
+    },
+    {
+     "decimals": null,
+     "definition_line_verbatim": "    Character_name Char (20) ;",
+     "ordinal": 2,
      "original_name": "Character_name",
      "tab_type": "Char",
      "width": "20"
@@ -169633,7 +169705,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    Fanti_name Char (20) ;",
-     "ordinal": 2,
+     "ordinal": 3,
      "original_name": "Fanti_name",
      "tab_type": "Char",
      "width": "20"
@@ -169641,7 +169713,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    Pinyin_name Char (30) ;",
-     "ordinal": 3,
+     "ordinal": 4,
      "original_name": "Pinyin_name",
      "tab_type": "Char",
      "width": "30"
@@ -169649,7 +169721,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    system_id Smallint ;",
-     "ordinal": 4,
+     "ordinal": 5,
      "original_name": "system_id",
      "tab_type": "Smallint",
      "width": null
@@ -169715,8 +169787,16 @@
    "attribute_order_from_dbf_header": [
     {
      "decimals": null,
-     "definition_line_verbatim": "    Pinyin_name Char (30) ;",
+     "definition_line_verbatim": "    Key_ID Smallint Index 1 ;",
      "ordinal": 1,
+     "original_name": "Key_ID",
+     "tab_type": "Smallint",
+     "width": null
+    },
+    {
+     "decimals": null,
+     "definition_line_verbatim": "    Pinyin_name Char (30) ;",
+     "ordinal": 2,
      "original_name": "Pinyin_name",
      "tab_type": "Char",
      "width": "30"
@@ -169724,7 +169804,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    hz_jianti_name Char (20) ;",
-     "ordinal": 2,
+     "ordinal": 3,
      "original_name": "hz_jianti_name",
      "tab_type": "Char",
      "width": "20"
@@ -169732,7 +169812,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    hz_fanti_name Char (20) ;",
-     "ordinal": 3,
+     "ordinal": 4,
      "original_name": "hz_fanti_name",
      "tab_type": "Char",
      "width": "20"
@@ -169740,7 +169820,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    system_id Smallint ;",
-     "ordinal": 4,
+     "ordinal": 5,
      "original_name": "system_id",
      "tab_type": "Smallint",
      "width": null
@@ -169950,8 +170030,16 @@
     },
     {
      "decimals": null,
-     "definition_line_verbatim": "    CNTY_PY Char (30) ;",
+     "definition_line_verbatim": "    LEV2_CH Char (30) Index 1 ;",
      "ordinal": 19,
+     "original_name": "LEV2_CH",
+     "tab_type": "Char",
+     "width": "30"
+    },
+    {
+     "decimals": null,
+     "definition_line_verbatim": "    CNTY_PY Char (30) ;",
+     "ordinal": 20,
      "original_name": "CNTY_PY",
      "tab_type": "Char",
      "width": "30"
@@ -169959,7 +170047,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    CNTY_CH Char (20) ;",
-     "ordinal": 20,
+     "ordinal": 21,
      "original_name": "CNTY_CH",
      "tab_type": "Char",
      "width": "20"
@@ -169967,7 +170055,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    NOTE_ID Integer ;",
-     "ordinal": 21,
+     "ordinal": 22,
      "original_name": "NOTE_ID",
      "tab_type": "Integer",
      "width": null
@@ -169975,7 +170063,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    OBJ_TYPR Char (7) ;",
-     "ordinal": 22,
+     "ordinal": 23,
      "original_name": "OBJ_TYPR",
      "tab_type": "Char",
      "width": "7"
@@ -169983,7 +170071,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    SYS_ID Integer ;",
-     "ordinal": 23,
+     "ordinal": 24,
      "original_name": "SYS_ID",
      "tab_type": "Integer",
      "width": null
@@ -169991,7 +170079,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    GEO_SRC Char (10) ;",
-     "ordinal": 24,
+     "ordinal": 25,
      "original_name": "GEO_SRC",
      "tab_type": "Char",
      "width": "10"
@@ -169999,7 +170087,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    COMPILER Char (10) ;",
-     "ordinal": 25,
+     "ordinal": 26,
      "original_name": "COMPILER",
      "tab_type": "Char",
      "width": "10"
@@ -170007,7 +170095,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    GEOCOMPLR Char (12) ;",
-     "ordinal": 26,
+     "ordinal": 27,
      "original_name": "GEOCOMPLR",
      "tab_type": "Char",
      "width": "12"
@@ -170015,7 +170103,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    CHECKER Char (10) ;",
-     "ordinal": 27,
+     "ordinal": 28,
      "original_name": "CHECKER",
      "tab_type": "Char",
      "width": "10"
@@ -170023,7 +170111,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    ENT_DATE Char (10) ;",
-     "ordinal": 28,
+     "ordinal": 29,
      "original_name": "ENT_DATE",
      "tab_type": "Char",
      "width": "10"
@@ -171440,8 +171528,16 @@
     },
     {
      "decimals": null,
-     "definition_line_verbatim": "    GEO_SRC Char (10) ;",
+     "definition_line_verbatim": "    SYS_ID Char (12) Index 1 ;",
      "ordinal": 20,
+     "original_name": "SYS_ID",
+     "tab_type": "Char",
+     "width": "12"
+    },
+    {
+     "decimals": null,
+     "definition_line_verbatim": "    GEO_SRC Char (10) ;",
+     "ordinal": 21,
      "original_name": "GEO_SRC",
      "tab_type": "Char",
      "width": "10"
@@ -171449,7 +171545,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    COMPILER Char (10) ;",
-     "ordinal": 21,
+     "ordinal": 22,
      "original_name": "COMPILER",
      "tab_type": "Char",
      "width": "10"
@@ -171457,7 +171553,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    GEOCOMP Char (10) ;",
-     "ordinal": 22,
+     "ordinal": 23,
      "original_name": "GEOCOMP",
      "tab_type": "Char",
      "width": "10"
@@ -171465,7 +171561,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    CHECKER Char (10) ;",
-     "ordinal": 23,
+     "ordinal": 24,
      "original_name": "CHECKER",
      "tab_type": "Char",
      "width": "10"
@@ -171473,7 +171569,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    ENT_DATE Char (10) ;",
-     "ordinal": 24,
+     "ordinal": 25,
      "original_name": "ENT_DATE",
      "tab_type": "Char",
      "width": "10"
@@ -171539,8 +171635,16 @@
    "attribute_order_from_dbf_header": [
     {
      "decimals": null,
-     "definition_line_verbatim": "    NAME_PY Char (22) ;",
+     "definition_line_verbatim": "    SYS_ID Char (12) Index 1 ;",
      "ordinal": 1,
+     "original_name": "SYS_ID",
+     "tab_type": "Char",
+     "width": "12"
+    },
+    {
+     "decimals": null,
+     "definition_line_verbatim": "    NAME_PY Char (22) ;",
+     "ordinal": 2,
      "original_name": "NAME_PY",
      "tab_type": "Char",
      "width": "22"
@@ -171548,7 +171652,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    NAME_CH Char (12) ;",
-     "ordinal": 2,
+     "ordinal": 3,
      "original_name": "NAME_CH",
      "tab_type": "Char",
      "width": "12"
@@ -171556,7 +171660,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    NAME_FT Char (12) ;",
-     "ordinal": 3,
+     "ordinal": 4,
      "original_name": "NAME_FT",
      "tab_type": "Char",
      "width": "12"
@@ -171564,7 +171668,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    TYPE_PY Char (7) ;",
-     "ordinal": 4,
+     "ordinal": 5,
      "original_name": "TYPE_PY",
      "tab_type": "Char",
      "width": "7"
@@ -171572,7 +171676,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    TYPE_CH Char (4) ;",
-     "ordinal": 5,
+     "ordinal": 6,
      "original_name": "TYPE_CH",
      "tab_type": "Char",
      "width": "4"
@@ -171580,7 +171684,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    LEV_RANG Char (1) ;",
-     "ordinal": 6,
+     "ordinal": 7,
      "original_name": "LEV_RANG",
      "tab_type": "Char",
      "width": "1"
@@ -171588,7 +171692,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    BEG_YR Smallint ;",
-     "ordinal": 7,
+     "ordinal": 8,
      "original_name": "BEG_YR",
      "tab_type": "Smallint",
      "width": null
@@ -171596,7 +171700,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    BEG_RULE Char (1) ;",
-     "ordinal": 8,
+     "ordinal": 9,
      "original_name": "BEG_RULE",
      "tab_type": "Char",
      "width": "1"
@@ -171604,7 +171708,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    END_YR Smallint ;",
-     "ordinal": 9,
+     "ordinal": 10,
      "original_name": "END_YR",
      "tab_type": "Smallint",
      "width": null
@@ -171612,7 +171716,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    END_RULE Char (1) ;",
-     "ordinal": 10,
+     "ordinal": 11,
      "original_name": "END_RULE",
      "tab_type": "Char",
      "width": "1"
@@ -171620,7 +171724,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    DYN_PY Char (9) ;",
-     "ordinal": 11,
+     "ordinal": 12,
      "original_name": "DYN_PY",
      "tab_type": "Char",
      "width": "9"
@@ -171628,7 +171732,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    DYN_CH Char (4) ;",
-     "ordinal": 12,
+     "ordinal": 13,
      "original_name": "DYN_CH",
      "tab_type": "Char",
      "width": "4"
@@ -171636,7 +171740,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    LEV1_PY Char (9) ;",
-     "ordinal": 13,
+     "ordinal": 14,
      "original_name": "LEV1_PY",
      "tab_type": "Char",
      "width": "9"
@@ -171644,7 +171748,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    LEV1_CH Char (4) ;",
-     "ordinal": 14,
+     "ordinal": 15,
      "original_name": "LEV1_CH",
      "tab_type": "Char",
      "width": "4"
@@ -171652,7 +171756,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    LEV2_PY Char (20) ;",
-     "ordinal": 15,
+     "ordinal": 16,
      "original_name": "LEV2_PY",
      "tab_type": "Char",
      "width": "20"
@@ -171660,7 +171764,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    LEV2_CH Char (12) ;",
-     "ordinal": 16,
+     "ordinal": 17,
      "original_name": "LEV2_CH",
      "tab_type": "Char",
      "width": "12"
@@ -171668,7 +171772,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    NOTE_ID Char (6) ;",
-     "ordinal": 17,
+     "ordinal": 18,
      "original_name": "NOTE_ID",
      "tab_type": "Char",
      "width": "6"
@@ -171676,15 +171780,23 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    OBJ_TYPE Char (7) ;",
-     "ordinal": 18,
+     "ordinal": 19,
      "original_name": "OBJ_TYPE",
      "tab_type": "Char",
      "width": "7"
     },
     {
      "decimals": null,
+     "definition_line_verbatim": "    SYS_ID_2 Char (6) Index 2 ;",
+     "ordinal": 20,
+     "original_name": "SYS_ID_2",
+     "tab_type": "Char",
+     "width": "6"
+    },
+    {
+     "decimals": null,
      "definition_line_verbatim": "    GEO_SRC Char (7) ;",
-     "ordinal": 19,
+     "ordinal": 21,
      "original_name": "GEO_SRC",
      "tab_type": "Char",
      "width": "7"
@@ -171692,7 +171804,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    COMPILER Char (6) ;",
-     "ordinal": 20,
+     "ordinal": 22,
      "original_name": "COMPILER",
      "tab_type": "Char",
      "width": "6"
@@ -171700,7 +171812,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    GEOCOMP Char (6) ;",
-     "ordinal": 21,
+     "ordinal": 23,
      "original_name": "GEOCOMP",
      "tab_type": "Char",
      "width": "6"
@@ -171708,7 +171820,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    CHECKER Char (6) ;",
-     "ordinal": 22,
+     "ordinal": 24,
      "original_name": "CHECKER",
      "tab_type": "Char",
      "width": "6"
@@ -171716,7 +171828,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    ENT_DATE Char (10) ;",
-     "ordinal": 23,
+     "ordinal": 25,
      "original_name": "ENT_DATE",
      "tab_type": "Char",
      "width": "10"
@@ -172169,8 +172281,16 @@
     },
     {
      "decimals": null,
-     "definition_line_verbatim": "    GEO_SRC Char (10) ;",
+     "definition_line_verbatim": "    SYS_ID_2 Char (6) Index 1 ;",
      "ordinal": 19,
+     "original_name": "SYS_ID_2",
+     "tab_type": "Char",
+     "width": "6"
+    },
+    {
+     "decimals": null,
+     "definition_line_verbatim": "    GEO_SRC Char (10) ;",
+     "ordinal": 20,
      "original_name": "GEO_SRC",
      "tab_type": "Char",
      "width": "10"
@@ -172178,7 +172298,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    COMPILER Char (6) ;",
-     "ordinal": 20,
+     "ordinal": 21,
      "original_name": "COMPILER",
      "tab_type": "Char",
      "width": "6"
@@ -172186,7 +172306,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    GEOCOMP Char (6) ;",
-     "ordinal": 21,
+     "ordinal": 22,
      "original_name": "GEOCOMP",
      "tab_type": "Char",
      "width": "6"
@@ -172194,7 +172314,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    CHECKER Char (6) ;",
-     "ordinal": 22,
+     "ordinal": 23,
      "original_name": "CHECKER",
      "tab_type": "Char",
      "width": "6"
@@ -172202,7 +172322,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    ENT_DATE Char (10) ;",
-     "ordinal": 23,
+     "ordinal": 24,
      "original_name": "ENT_DATE",
      "tab_type": "Char",
      "width": "10"
@@ -172679,8 +172799,16 @@
     },
     {
      "decimals": null,
-     "definition_line_verbatim": "    GEO_SRC Char (7) ;",
+     "definition_line_verbatim": "    SYS_ID_2 Char (6) Index 1 ;",
      "ordinal": 20,
+     "original_name": "SYS_ID_2",
+     "tab_type": "Char",
+     "width": "6"
+    },
+    {
+     "decimals": null,
+     "definition_line_verbatim": "    GEO_SRC Char (7) ;",
+     "ordinal": 21,
      "original_name": "GEO_SRC",
      "tab_type": "Char",
      "width": "7"
@@ -172688,7 +172816,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    COMPILER Char (6) ;",
-     "ordinal": 21,
+     "ordinal": 22,
      "original_name": "COMPILER",
      "tab_type": "Char",
      "width": "6"
@@ -172696,7 +172824,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    GEOCOMP Char (6) ;",
-     "ordinal": 22,
+     "ordinal": 23,
      "original_name": "GEOCOMP",
      "tab_type": "Char",
      "width": "6"
@@ -172704,7 +172832,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    CHECKER Char (6) ;",
-     "ordinal": 23,
+     "ordinal": 24,
      "original_name": "CHECKER",
      "tab_type": "Char",
      "width": "6"
@@ -172712,7 +172840,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    ENT_DATE Char (10) ;",
-     "ordinal": 24,
+     "ordinal": 25,
      "original_name": "ENT_DATE",
      "tab_type": "Char",
      "width": "10"
@@ -173675,8 +173803,16 @@
     },
     {
      "decimals": null,
-     "definition_line_verbatim": "    GEO_SRC Char (7) ;",
+     "definition_line_verbatim": "    SYS_ID_2 Char (6) Index 1 ;",
      "ordinal": 14,
+     "original_name": "SYS_ID_2",
+     "tab_type": "Char",
+     "width": "6"
+    },
+    {
+     "decimals": null,
+     "definition_line_verbatim": "    GEO_SRC Char (7) ;",
+     "ordinal": 15,
      "original_name": "GEO_SRC",
      "tab_type": "Char",
      "width": "7"
@@ -173684,7 +173820,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    COMPILER Char (6) ;",
-     "ordinal": 15,
+     "ordinal": 16,
      "original_name": "COMPILER",
      "tab_type": "Char",
      "width": "6"
@@ -173692,7 +173828,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    GEOCOMP Char (6) ;",
-     "ordinal": 16,
+     "ordinal": 17,
      "original_name": "GEOCOMP",
      "tab_type": "Char",
      "width": "6"
@@ -173700,7 +173836,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    CHECKER Char (6) ;",
-     "ordinal": 17,
+     "ordinal": 18,
      "original_name": "CHECKER",
      "tab_type": "Char",
      "width": "6"
@@ -173708,7 +173844,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    ENT_DATE Char (10) ;",
-     "ordinal": 18,
+     "ordinal": 19,
      "original_name": "ENT_DATE",
      "tab_type": "Char",
      "width": "10"
@@ -174161,8 +174297,16 @@
     },
     {
      "decimals": null,
-     "definition_line_verbatim": "    GEO_SRC Char (7) ;",
+     "definition_line_verbatim": "    SYS_ID_2 Char (6) Index 1 ;",
      "ordinal": 19,
+     "original_name": "SYS_ID_2",
+     "tab_type": "Char",
+     "width": "6"
+    },
+    {
+     "decimals": null,
+     "definition_line_verbatim": "    GEO_SRC Char (7) ;",
+     "ordinal": 20,
      "original_name": "GEO_SRC",
      "tab_type": "Char",
      "width": "7"
@@ -174170,7 +174314,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    COMPILER Char (6) ;",
-     "ordinal": 20,
+     "ordinal": 21,
      "original_name": "COMPILER",
      "tab_type": "Char",
      "width": "6"
@@ -174178,7 +174322,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    GEOCOMP Char (6) ;",
-     "ordinal": 21,
+     "ordinal": 22,
      "original_name": "GEOCOMP",
      "tab_type": "Char",
      "width": "6"
@@ -174186,7 +174330,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    CHECKER Char (6) ;",
-     "ordinal": 22,
+     "ordinal": 23,
      "original_name": "CHECKER",
      "tab_type": "Char",
      "width": "6"
@@ -174194,7 +174338,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    ENT_DATE Char (10) ;",
-     "ordinal": 23,
+     "ordinal": 24,
      "original_name": "ENT_DATE",
      "tab_type": "Char",
      "width": "10"
@@ -174743,8 +174887,16 @@
     },
     {
      "decimals": null,
-     "definition_line_verbatim": "    GEO_SRC Char (7) ;",
+     "definition_line_verbatim": "    SYS_ID_2 Char (6) Index 1 ;",
      "ordinal": 25,
+     "original_name": "SYS_ID_2",
+     "tab_type": "Char",
+     "width": "6"
+    },
+    {
+     "decimals": null,
+     "definition_line_verbatim": "    GEO_SRC Char (7) ;",
+     "ordinal": 26,
      "original_name": "GEO_SRC",
      "tab_type": "Char",
      "width": "7"
@@ -174752,7 +174904,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    COMPILER Char (6) ;",
-     "ordinal": 26,
+     "ordinal": 27,
      "original_name": "COMPILER",
      "tab_type": "Char",
      "width": "6"
@@ -174760,7 +174912,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    GEOCOMP Char (6) ;",
-     "ordinal": 27,
+     "ordinal": 28,
      "original_name": "GEOCOMP",
      "tab_type": "Char",
      "width": "6"
@@ -174768,7 +174920,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    CHECKER Char (6) ;",
-     "ordinal": 28,
+     "ordinal": 29,
      "original_name": "CHECKER",
      "tab_type": "Char",
      "width": "6"
@@ -174776,7 +174928,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    ENT_DATE Char (10) ;",
-     "ordinal": 29,
+     "ordinal": 30,
      "original_name": "ENT_DATE",
      "tab_type": "Char",
      "width": "10"
@@ -175221,8 +175373,16 @@
     },
     {
      "decimals": null,
-     "definition_line_verbatim": "    PREC_BY Char (5) ;",
+     "definition_line_verbatim": "    SYS_ID_2 Char (5) Index 1 ;",
      "ordinal": 17,
+     "original_name": "SYS_ID_2",
+     "tab_type": "Char",
+     "width": "5"
+    },
+    {
+     "decimals": null,
+     "definition_line_verbatim": "    PREC_BY Char (5) ;",
+     "ordinal": 18,
      "original_name": "PREC_BY",
      "tab_type": "Char",
      "width": "5"
@@ -175230,7 +175390,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    GEO_SRC Char (7) ;",
-     "ordinal": 18,
+     "ordinal": 19,
      "original_name": "GEO_SRC",
      "tab_type": "Char",
      "width": "7"
@@ -175238,7 +175398,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    COMPILER Char (6) ;",
-     "ordinal": 19,
+     "ordinal": 20,
      "original_name": "COMPILER",
      "tab_type": "Char",
      "width": "6"
@@ -175246,7 +175406,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    GEOCOMP Char (6) ;",
-     "ordinal": 20,
+     "ordinal": 21,
      "original_name": "GEOCOMP",
      "tab_type": "Char",
      "width": "6"
@@ -175254,7 +175414,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    CHECKER Char (6) ;",
-     "ordinal": 21,
+     "ordinal": 22,
      "original_name": "CHECKER",
      "tab_type": "Char",
      "width": "6"
@@ -175262,7 +175422,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    ENT_DATE Char (10) ;",
-     "ordinal": 22,
+     "ordinal": 23,
      "original_name": "ENT_DATE",
      "tab_type": "Char",
      "width": "10"
@@ -175270,7 +175430,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    BEG_CHG Char (14) ;",
-     "ordinal": 23,
+     "ordinal": 24,
      "original_name": "BEG_CHG",
      "tab_type": "Char",
      "width": "14"
@@ -175278,7 +175438,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    END_CHG Char (14) ;",
-     "ordinal": 24,
+     "ordinal": 25,
      "original_name": "END_CHG",
      "tab_type": "Char",
      "width": "14"
@@ -175464,8 +175624,16 @@
     },
     {
      "decimals": null,
-     "definition_line_verbatim": "    GEO_SRC Char (10) ;",
+     "definition_line_verbatim": "    SYS_ID Integer Index 1 ;",
      "ordinal": 16,
+     "original_name": "SYS_ID",
+     "tab_type": "Integer",
+     "width": null
+    },
+    {
+     "decimals": null,
+     "definition_line_verbatim": "    GEO_SRC Char (10) ;",
+     "ordinal": 17,
      "original_name": "GEO_SRC",
      "tab_type": "Char",
      "width": "10"
@@ -175473,7 +175641,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    COMPILER Char (14) ;",
-     "ordinal": 17,
+     "ordinal": 18,
      "original_name": "COMPILER",
      "tab_type": "Char",
      "width": "14"
@@ -175481,7 +175649,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    GEOCOMP Char (10) ;",
-     "ordinal": 18,
+     "ordinal": 19,
      "original_name": "GEOCOMP",
      "tab_type": "Char",
      "width": "10"
@@ -175489,7 +175657,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    CHECKER Char (10) ;",
-     "ordinal": 19,
+     "ordinal": 20,
      "original_name": "CHECKER",
      "tab_type": "Char",
      "width": "10"
@@ -175497,7 +175665,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    ENT_DATE Char (10) ;",
-     "ordinal": 20,
+     "ordinal": 21,
      "original_name": "ENT_DATE",
      "tab_type": "Char",
      "width": "10"
@@ -175505,7 +175673,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    BEG_CHG Char (20) ;",
-     "ordinal": 21,
+     "ordinal": 22,
      "original_name": "BEG_CHG",
      "tab_type": "Char",
      "width": "20"
@@ -175513,7 +175681,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    END_CHG Char (20) ;",
-     "ordinal": 22,
+     "ordinal": 23,
      "original_name": "END_CHG",
      "tab_type": "Char",
      "width": "20"
@@ -176052,8 +176220,16 @@
     },
     {
      "decimals": null,
-     "definition_line_verbatim": "    GEO_SRC Char (7) ;",
+     "definition_line_verbatim": "    SYS_ID_2 Char (5) Index 1 ;",
      "ordinal": 14,
+     "original_name": "SYS_ID_2",
+     "tab_type": "Char",
+     "width": "5"
+    },
+    {
+     "decimals": null,
+     "definition_line_verbatim": "    GEO_SRC Char (7) ;",
+     "ordinal": 15,
      "original_name": "GEO_SRC",
      "tab_type": "Char",
      "width": "7"
@@ -176061,7 +176237,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    COMPILER Char (6) ;",
-     "ordinal": 15,
+     "ordinal": 16,
      "original_name": "COMPILER",
      "tab_type": "Char",
      "width": "6"
@@ -176069,7 +176245,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    GEOCOMP Char (6) ;",
-     "ordinal": 16,
+     "ordinal": 17,
      "original_name": "GEOCOMP",
      "tab_type": "Char",
      "width": "6"
@@ -176077,7 +176253,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    CHECKER Char (10) ;",
-     "ordinal": 17,
+     "ordinal": 18,
      "original_name": "CHECKER",
      "tab_type": "Char",
      "width": "10"
@@ -176085,7 +176261,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    ENT_DATE Char (10) ;",
-     "ordinal": 18,
+     "ordinal": 19,
      "original_name": "ENT_DATE",
      "tab_type": "Char",
      "width": "10"
@@ -176093,7 +176269,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    BEG_CHG Char (14) ;",
-     "ordinal": 19,
+     "ordinal": 20,
      "original_name": "BEG_CHG",
      "tab_type": "Char",
      "width": "14"
@@ -176101,7 +176277,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    END_CHG Char (16) ;",
-     "ordinal": 20,
+     "ordinal": 21,
      "original_name": "END_CHG",
      "tab_type": "Char",
      "width": "16"
@@ -176546,8 +176722,16 @@
     },
     {
      "decimals": null,
-     "definition_line_verbatim": "    PREC_BY Char (5) ;",
+     "definition_line_verbatim": "    SYS_ID_2 Char (5) Index 1 ;",
      "ordinal": 17,
+     "original_name": "SYS_ID_2",
+     "tab_type": "Char",
+     "width": "5"
+    },
+    {
+     "decimals": null,
+     "definition_line_verbatim": "    PREC_BY Char (5) ;",
+     "ordinal": 18,
      "original_name": "PREC_BY",
      "tab_type": "Char",
      "width": "5"
@@ -176555,7 +176739,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    GEO_SRC Char (7) ;",
-     "ordinal": 18,
+     "ordinal": 19,
      "original_name": "GEO_SRC",
      "tab_type": "Char",
      "width": "7"
@@ -176563,7 +176747,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    COMPILER Char (6) ;",
-     "ordinal": 19,
+     "ordinal": 20,
      "original_name": "COMPILER",
      "tab_type": "Char",
      "width": "6"
@@ -176571,7 +176755,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    GEOCOMP Char (6) ;",
-     "ordinal": 20,
+     "ordinal": 21,
      "original_name": "GEOCOMP",
      "tab_type": "Char",
      "width": "6"
@@ -176579,7 +176763,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    CHECKER Char (1) ;",
-     "ordinal": 21,
+     "ordinal": 22,
      "original_name": "CHECKER",
      "tab_type": "Char",
      "width": "1"
@@ -176587,7 +176771,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    END_DATE Char (10) ;",
-     "ordinal": 22,
+     "ordinal": 23,
      "original_name": "END_DATE",
      "tab_type": "Char",
      "width": "10"
@@ -176595,7 +176779,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    BEG_CHG Char (14) ;",
-     "ordinal": 23,
+     "ordinal": 24,
      "original_name": "BEG_CHG",
      "tab_type": "Char",
      "width": "14"
@@ -176603,7 +176787,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    END_CHG Char (14) ;",
-     "ordinal": 24,
+     "ordinal": 25,
      "original_name": "END_CHG",
      "tab_type": "Char",
      "width": "14"
@@ -177745,8 +177929,16 @@
     },
     {
      "decimals": null,
-     "definition_line_verbatim": "    GEO_SRC Char (10) ;",
+     "definition_line_verbatim": "    SYS_ID Integer Index 1 ;",
      "ordinal": 16,
+     "original_name": "SYS_ID",
+     "tab_type": "Integer",
+     "width": null
+    },
+    {
+     "decimals": null,
+     "definition_line_verbatim": "    GEO_SRC Char (10) ;",
+     "ordinal": 17,
      "original_name": "GEO_SRC",
      "tab_type": "Char",
      "width": "10"
@@ -177754,7 +177946,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    COMPILER Char (14) ;",
-     "ordinal": 17,
+     "ordinal": 18,
      "original_name": "COMPILER",
      "tab_type": "Char",
      "width": "14"
@@ -177762,7 +177954,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    GEOCOMP Char (10) ;",
-     "ordinal": 18,
+     "ordinal": 19,
      "original_name": "GEOCOMP",
      "tab_type": "Char",
      "width": "10"
@@ -177770,7 +177962,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    CHECKER Char (10) ;",
-     "ordinal": 19,
+     "ordinal": 20,
      "original_name": "CHECKER",
      "tab_type": "Char",
      "width": "10"
@@ -177778,7 +177970,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    ENT_DATE Char (10) ;",
-     "ordinal": 20,
+     "ordinal": 21,
      "original_name": "ENT_DATE",
      "tab_type": "Char",
      "width": "10"
@@ -177786,7 +177978,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    BEG_CHG Char (20) ;",
-     "ordinal": 21,
+     "ordinal": 22,
      "original_name": "BEG_CHG",
      "tab_type": "Char",
      "width": "20"
@@ -177794,7 +177986,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    END_CHG Char (20) ;",
-     "ordinal": 22,
+     "ordinal": 23,
      "original_name": "END_CHG",
      "tab_type": "Char",
      "width": "20"
@@ -178688,8 +178880,16 @@
     },
     {
      "decimals": null,
-     "definition_line_verbatim": "    GEO_ID Integer ;",
+     "definition_line_verbatim": "    SYS_ID_2 Char (5) Index 1 ;",
      "ordinal": 23,
+     "original_name": "SYS_ID_2",
+     "tab_type": "Char",
+     "width": "5"
+    },
+    {
+     "decimals": null,
+     "definition_line_verbatim": "    GEO_ID Integer ;",
+     "ordinal": 24,
      "original_name": "GEO_ID",
      "tab_type": "Integer",
      "width": null
@@ -178697,7 +178897,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    GEO_SRC Char (8) ;",
-     "ordinal": 24,
+     "ordinal": 25,
      "original_name": "GEO_SRC",
      "tab_type": "Char",
      "width": "8"
@@ -178705,7 +178905,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    COMPILER Char (6) ;",
-     "ordinal": 25,
+     "ordinal": 26,
      "original_name": "COMPILER",
      "tab_type": "Char",
      "width": "6"
@@ -178713,7 +178913,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    GEOCOMPLR Char (11) ;",
-     "ordinal": 26,
+     "ordinal": 27,
      "original_name": "GEOCOMPLR",
      "tab_type": "Char",
      "width": "11"
@@ -178721,7 +178921,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    CHECKER Char (6) ;",
-     "ordinal": 27,
+     "ordinal": 28,
      "original_name": "CHECKER",
      "tab_type": "Char",
      "width": "6"
@@ -178729,7 +178929,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    ENT_DATE Char (10) ;",
-     "ordinal": 28,
+     "ordinal": 29,
      "original_name": "ENT_DATE",
      "tab_type": "Char",
      "width": "10"
@@ -179014,6 +179214,14 @@
      "original_name": "PINYIN_NAM",
      "tab_type": "Char",
      "width": "30"
+    },
+    {
+     "decimals": null,
+     "definition_line_verbatim": "    SYSTEM_ID_2 Smallint Index 1 ;",
+     "ordinal": 7,
+     "original_name": "SYSTEM_ID_2",
+     "tab_type": "Smallint",
+     "width": null
     }
    ],
    "basis": {
@@ -179084,8 +179292,16 @@
     },
     {
      "decimals": null,
-     "definition_line_verbatim": "    NAME_FT Char (30) ;",
+     "definition_line_verbatim": "    NAME_CH Char (30) Index 1 ;",
      "ordinal": 2,
+     "original_name": "NAME_CH",
+     "tab_type": "Char",
+     "width": "30"
+    },
+    {
+     "decimals": null,
+     "definition_line_verbatim": "    NAME_FT Char (30) ;",
+     "ordinal": 3,
      "original_name": "NAME_FT",
      "tab_type": "Char",
      "width": "30"
@@ -179093,7 +179309,7 @@
     {
      "decimals": "6",
      "definition_line_verbatim": "    X_COOR Decimal (10, 6) ;",
-     "ordinal": 3,
+     "ordinal": 4,
      "original_name": "X_COOR",
      "tab_type": "Decimal",
      "width": "10"
@@ -179101,7 +179317,7 @@
     {
      "decimals": "6",
      "definition_line_verbatim": "    Y_COOR Decimal (10, 6) ;",
-     "ordinal": 4,
+     "ordinal": 5,
      "original_name": "Y_COOR",
      "tab_type": "Decimal",
      "width": "10"
@@ -179109,7 +179325,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    PRES_LOC Char (40) ;",
-     "ordinal": 5,
+     "ordinal": 6,
      "original_name": "PRES_LOC",
      "tab_type": "Char",
      "width": "40"
@@ -179117,7 +179333,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    TYPR_PY Char (15) ;",
-     "ordinal": 6,
+     "ordinal": 7,
      "original_name": "TYPR_PY",
      "tab_type": "Char",
      "width": "15"
@@ -179125,7 +179341,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    TYPE_CH Char (10) ;",
-     "ordinal": 7,
+     "ordinal": 8,
      "original_name": "TYPE_CH",
      "tab_type": "Char",
      "width": "10"
@@ -179133,7 +179349,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    LEV_RANG Char (10) ;",
-     "ordinal": 8,
+     "ordinal": 9,
      "original_name": "LEV_RANG",
      "tab_type": "Char",
      "width": "10"
@@ -179141,7 +179357,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    BEG_YR Smallint ;",
-     "ordinal": 9,
+     "ordinal": 10,
      "original_name": "BEG_YR",
      "tab_type": "Smallint",
      "width": null
@@ -179149,7 +179365,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    BEG_RULE Char (1) ;",
-     "ordinal": 10,
+     "ordinal": 11,
      "original_name": "BEG_RULE",
      "tab_type": "Char",
      "width": "1"
@@ -179157,7 +179373,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    END_YR Smallint ;",
-     "ordinal": 11,
+     "ordinal": 12,
      "original_name": "END_YR",
      "tab_type": "Smallint",
      "width": null
@@ -179165,7 +179381,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    END_RULE Char (1) ;",
-     "ordinal": 12,
+     "ordinal": 13,
      "original_name": "END_RULE",
      "tab_type": "Char",
      "width": "1"
@@ -179173,7 +179389,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    DYN_PY Char (20) ;",
-     "ordinal": 13,
+     "ordinal": 14,
      "original_name": "DYN_PY",
      "tab_type": "Char",
      "width": "20"
@@ -179181,7 +179397,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    DYN_CH Char (10) ;",
-     "ordinal": 14,
+     "ordinal": 15,
      "original_name": "DYN_CH",
      "tab_type": "Char",
      "width": "10"
@@ -179189,7 +179405,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    LEV1_PY Char (30) ;",
-     "ordinal": 15,
+     "ordinal": 16,
      "original_name": "LEV1_PY",
      "tab_type": "Char",
      "width": "30"
@@ -179197,7 +179413,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    LEV1_CH Char (20) ;",
-     "ordinal": 16,
+     "ordinal": 17,
      "original_name": "LEV1_CH",
      "tab_type": "Char",
      "width": "20"
@@ -179205,7 +179421,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    LEV2_PY Char (20) ;",
-     "ordinal": 17,
+     "ordinal": 18,
      "original_name": "LEV2_PY",
      "tab_type": "Char",
      "width": "20"
@@ -179213,7 +179429,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    LEV2_CH Char (20) ;",
-     "ordinal": 18,
+     "ordinal": 19,
      "original_name": "LEV2_CH",
      "tab_type": "Char",
      "width": "20"
@@ -179221,7 +179437,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    COUN_PY Char (30) ;",
-     "ordinal": 19,
+     "ordinal": 20,
      "original_name": "COUN_PY",
      "tab_type": "Char",
      "width": "30"
@@ -179229,7 +179445,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    COUN_CH Char (20) ;",
-     "ordinal": 20,
+     "ordinal": 21,
      "original_name": "COUN_CH",
      "tab_type": "Char",
      "width": "20"
@@ -179237,7 +179453,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    NOTE_ID Integer ;",
-     "ordinal": 21,
+     "ordinal": 22,
      "original_name": "NOTE_ID",
      "tab_type": "Integer",
      "width": null
@@ -179245,7 +179461,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    OBJ_TYPE Char (7) ;",
-     "ordinal": 22,
+     "ordinal": 23,
      "original_name": "OBJ_TYPE",
      "tab_type": "Char",
      "width": "7"
@@ -179253,7 +179469,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    SYS_ID Char (16) ;",
-     "ordinal": 23,
+     "ordinal": 24,
      "original_name": "SYS_ID",
      "tab_type": "Char",
      "width": "16"
@@ -179261,7 +179477,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    GEO_ID Integer ;",
-     "ordinal": 24,
+     "ordinal": 25,
      "original_name": "GEO_ID",
      "tab_type": "Integer",
      "width": null
@@ -179269,7 +179485,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    GEO_SRC Char (10) ;",
-     "ordinal": 25,
+     "ordinal": 26,
      "original_name": "GEO_SRC",
      "tab_type": "Char",
      "width": "10"
@@ -179277,7 +179493,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    COMPILER Char (10) ;",
-     "ordinal": 26,
+     "ordinal": 27,
      "original_name": "COMPILER",
      "tab_type": "Char",
      "width": "10"
@@ -179285,7 +179501,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    GEOCOMPER Char (12) ;",
-     "ordinal": 27,
+     "ordinal": 28,
      "original_name": "GEOCOMPER",
      "tab_type": "Char",
      "width": "12"
@@ -179293,7 +179509,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    CHECKER Char (10) ;",
-     "ordinal": 28,
+     "ordinal": 29,
      "original_name": "CHECKER",
      "tab_type": "Char",
      "width": "10"
@@ -179301,7 +179517,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    ENT_DATE Char (10) ;",
-     "ordinal": 29,
+     "ordinal": 30,
      "original_name": "ENT_DATE",
      "tab_type": "Char",
      "width": "10"
@@ -180838,8 +181054,16 @@
     },
     {
      "decimals": null,
-     "definition_line_verbatim": "    NAME_FT Char (30) ;",
+     "definition_line_verbatim": "    NAME_CH Char (30) Index 1 ;",
      "ordinal": 2,
+     "original_name": "NAME_CH",
+     "tab_type": "Char",
+     "width": "30"
+    },
+    {
+     "decimals": null,
+     "definition_line_verbatim": "    NAME_FT Char (30) ;",
+     "ordinal": 3,
      "original_name": "NAME_FT",
      "tab_type": "Char",
      "width": "30"
@@ -180847,7 +181071,7 @@
     {
      "decimals": "6",
      "definition_line_verbatim": "    X_COOR Decimal (10, 6) ;",
-     "ordinal": 3,
+     "ordinal": 4,
      "original_name": "X_COOR",
      "tab_type": "Decimal",
      "width": "10"
@@ -180855,7 +181079,7 @@
     {
      "decimals": "6",
      "definition_line_verbatim": "    Y_COOR Decimal (10, 6) ;",
-     "ordinal": 4,
+     "ordinal": 5,
      "original_name": "Y_COOR",
      "tab_type": "Decimal",
      "width": "10"
@@ -180863,7 +181087,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    PRES_LOC Char (50) ;",
-     "ordinal": 5,
+     "ordinal": 6,
      "original_name": "PRES_LOC",
      "tab_type": "Char",
      "width": "50"
@@ -180871,7 +181095,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    TYPE_PY Char (30) ;",
-     "ordinal": 6,
+     "ordinal": 7,
      "original_name": "TYPE_PY",
      "tab_type": "Char",
      "width": "30"
@@ -180879,7 +181103,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    TYPE_CH Char (20) ;",
-     "ordinal": 7,
+     "ordinal": 8,
      "original_name": "TYPE_CH",
      "tab_type": "Char",
      "width": "20"
@@ -180887,7 +181111,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    LEV_RANG Char (1) ;",
-     "ordinal": 8,
+     "ordinal": 9,
      "original_name": "LEV_RANG",
      "tab_type": "Char",
      "width": "1"
@@ -180895,7 +181119,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    BEG_YR Smallint ;",
-     "ordinal": 9,
+     "ordinal": 10,
      "original_name": "BEG_YR",
      "tab_type": "Smallint",
      "width": null
@@ -180903,7 +181127,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    BEG_RULE Char (1) ;",
-     "ordinal": 10,
+     "ordinal": 11,
      "original_name": "BEG_RULE",
      "tab_type": "Char",
      "width": "1"
@@ -180911,7 +181135,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    END_YR Smallint ;",
-     "ordinal": 11,
+     "ordinal": 12,
      "original_name": "END_YR",
      "tab_type": "Smallint",
      "width": null
@@ -180919,7 +181143,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    END_RULE Char (1) ;",
-     "ordinal": 12,
+     "ordinal": 13,
      "original_name": "END_RULE",
      "tab_type": "Char",
      "width": "1"
@@ -180927,7 +181151,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    DYN_PY Char (30) ;",
-     "ordinal": 13,
+     "ordinal": 14,
      "original_name": "DYN_PY",
      "tab_type": "Char",
      "width": "30"
@@ -180935,7 +181159,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    DYN_CH Char (20) ;",
-     "ordinal": 14,
+     "ordinal": 15,
      "original_name": "DYN_CH",
      "tab_type": "Char",
      "width": "20"
@@ -180943,7 +181167,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    LEV1_PY Char (30) ;",
-     "ordinal": 15,
+     "ordinal": 16,
      "original_name": "LEV1_PY",
      "tab_type": "Char",
      "width": "30"
@@ -180951,7 +181175,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    LEV1_CH Char (20) ;",
-     "ordinal": 16,
+     "ordinal": 17,
      "original_name": "LEV1_CH",
      "tab_type": "Char",
      "width": "20"
@@ -180959,7 +181183,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    LEV2_PY Char (30) ;",
-     "ordinal": 17,
+     "ordinal": 18,
      "original_name": "LEV2_PY",
      "tab_type": "Char",
      "width": "30"
@@ -180967,7 +181191,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    LEV2_CH Char (20) ;",
-     "ordinal": 18,
+     "ordinal": 19,
      "original_name": "LEV2_CH",
      "tab_type": "Char",
      "width": "20"
@@ -180975,7 +181199,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    NOTE_ID Integer ;",
-     "ordinal": 19,
+     "ordinal": 20,
      "original_name": "NOTE_ID",
      "tab_type": "Integer",
      "width": null
@@ -180983,7 +181207,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    OBJ_TYPE Char (7) ;",
-     "ordinal": 20,
+     "ordinal": 21,
      "original_name": "OBJ_TYPE",
      "tab_type": "Char",
      "width": "7"
@@ -180991,7 +181215,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    SYS_ID Char (16) ;",
-     "ordinal": 21,
+     "ordinal": 22,
      "original_name": "SYS_ID",
      "tab_type": "Char",
      "width": "16"
@@ -180999,7 +181223,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    GEO_ID Integer ;",
-     "ordinal": 22,
+     "ordinal": 23,
      "original_name": "GEO_ID",
      "tab_type": "Integer",
      "width": null
@@ -181007,7 +181231,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    GEO_SRC Char (10) ;",
-     "ordinal": 23,
+     "ordinal": 24,
      "original_name": "GEO_SRC",
      "tab_type": "Char",
      "width": "10"
@@ -181015,7 +181239,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    COMPILER Char (10) ;",
-     "ordinal": 24,
+     "ordinal": 25,
      "original_name": "COMPILER",
      "tab_type": "Char",
      "width": "10"
@@ -181023,7 +181247,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    GEOCOMPLE Char (10) ;",
-     "ordinal": 25,
+     "ordinal": 26,
      "original_name": "GEOCOMPLE",
      "tab_type": "Char",
      "width": "10"
@@ -181031,7 +181255,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    CHECKER Char (10) ;",
-     "ordinal": 26,
+     "ordinal": 27,
      "original_name": "CHECKER",
      "tab_type": "Char",
      "width": "10"
@@ -181039,7 +181263,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    ENT_DATE Char (10) ;",
-     "ordinal": 27,
+     "ordinal": 28,
      "original_name": "ENT_DATE",
      "tab_type": "Char",
      "width": "10"
@@ -181281,8 +181505,16 @@
     },
     {
      "decimals": null,
-     "definition_line_verbatim": "    GEO_ID Integer ;",
+     "definition_line_verbatim": "    SYS_ID Char (5) Index 1 ;",
      "ordinal": 23,
+     "original_name": "SYS_ID",
+     "tab_type": "Char",
+     "width": "5"
+    },
+    {
+     "decimals": null,
+     "definition_line_verbatim": "    GEO_ID Integer ;",
+     "ordinal": 24,
      "original_name": "GEO_ID",
      "tab_type": "Integer",
      "width": null
@@ -181290,7 +181522,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    GEO_SRC Char (7) ;",
-     "ordinal": 24,
+     "ordinal": 25,
      "original_name": "GEO_SRC",
      "tab_type": "Char",
      "width": "7"
@@ -181298,7 +181530,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    COMPILER Char (6) ;",
-     "ordinal": 25,
+     "ordinal": 26,
      "original_name": "COMPILER",
      "tab_type": "Char",
      "width": "6"
@@ -181306,7 +181538,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    GEOCOMPLE Char (6) ;",
-     "ordinal": 26,
+     "ordinal": 27,
      "original_name": "GEOCOMPLE",
      "tab_type": "Char",
      "width": "6"
@@ -181314,7 +181546,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    CHECKER Char (6) ;",
-     "ordinal": 27,
+     "ordinal": 28,
      "original_name": "CHECKER",
      "tab_type": "Char",
      "width": "6"
@@ -181322,7 +181554,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    ENT_DATE Char (10) ;",
-     "ordinal": 28,
+     "ordinal": 29,
      "original_name": "ENT_DATE",
      "tab_type": "Char",
      "width": "10"
@@ -181524,6 +181756,14 @@
      "original_name": "NAME_PY",
      "tab_type": "Char",
      "width": "30"
+    },
+    {
+     "decimals": null,
+     "definition_line_verbatim": "    SYSTEM_ID Smallint Index 1 ;",
+     "ordinal": 5,
+     "original_name": "SYSTEM_ID",
+     "tab_type": "Smallint",
+     "width": null
     }
    ],
    "basis": {
@@ -181730,8 +181970,16 @@
     },
     {
      "decimals": null,
-     "definition_line_verbatim": "    CNTY_PY Char (30) ;",
+     "definition_line_verbatim": "    LEV2_CH Char (30) Index 1 ;",
      "ordinal": 19,
+     "original_name": "LEV2_CH",
+     "tab_type": "Char",
+     "width": "30"
+    },
+    {
+     "decimals": null,
+     "definition_line_verbatim": "    CNTY_PY Char (30) ;",
+     "ordinal": 20,
      "original_name": "CNTY_PY",
      "tab_type": "Char",
      "width": "30"
@@ -181739,7 +181987,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    CNTY_CH Char (20) ;",
-     "ordinal": 20,
+     "ordinal": 21,
      "original_name": "CNTY_CH",
      "tab_type": "Char",
      "width": "20"
@@ -181747,7 +181995,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    NOTE_ID Integer ;",
-     "ordinal": 21,
+     "ordinal": 22,
      "original_name": "NOTE_ID",
      "tab_type": "Integer",
      "width": null
@@ -181755,7 +182003,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    OBJ_TYPR Char (7) ;",
-     "ordinal": 22,
+     "ordinal": 23,
      "original_name": "OBJ_TYPR",
      "tab_type": "Char",
      "width": "7"
@@ -181763,7 +182011,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    SYS_ID Char (16) ;",
-     "ordinal": 23,
+     "ordinal": 24,
      "original_name": "SYS_ID",
      "tab_type": "Char",
      "width": "16"
@@ -181771,7 +182019,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    LOC_ID Integer ;",
-     "ordinal": 24,
+     "ordinal": 25,
      "original_name": "LOC_ID",
      "tab_type": "Integer",
      "width": null
@@ -181779,7 +182027,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    GEO_SRC Char (10) ;",
-     "ordinal": 25,
+     "ordinal": 26,
      "original_name": "GEO_SRC",
      "tab_type": "Char",
      "width": "10"
@@ -181787,7 +182035,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    COMPILER Char (10) ;",
-     "ordinal": 26,
+     "ordinal": 27,
      "original_name": "COMPILER",
      "tab_type": "Char",
      "width": "10"
@@ -181795,7 +182043,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    GEOCOMPLR Char (12) ;",
-     "ordinal": 27,
+     "ordinal": 28,
      "original_name": "GEOCOMPLR",
      "tab_type": "Char",
      "width": "12"
@@ -181803,7 +182051,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    CHECKER Char (10) ;",
-     "ordinal": 28,
+     "ordinal": 29,
      "original_name": "CHECKER",
      "tab_type": "Char",
      "width": "10"
@@ -181811,7 +182059,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    ENT_DATE Char (10) ;",
-     "ordinal": 29,
+     "ordinal": 30,
      "original_name": "ENT_DATE",
      "tab_type": "Char",
      "width": "10"
@@ -181877,8 +182125,16 @@
    "attribute_order_from_dbf_header": [
     {
      "decimals": null,
-     "definition_line_verbatim": "    NAME_PY Char (23) ;",
+     "definition_line_verbatim": "    SYS_ID Char (16) Index 1 ;",
      "ordinal": 1,
+     "original_name": "SYS_ID",
+     "tab_type": "Char",
+     "width": "16"
+    },
+    {
+     "decimals": null,
+     "definition_line_verbatim": "    NAME_PY Char (23) ;",
+     "ordinal": 2,
      "original_name": "NAME_PY",
      "tab_type": "Char",
      "width": "23"
@@ -181886,7 +182142,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    NAME_CH Char (22) ;",
-     "ordinal": 2,
+     "ordinal": 3,
      "original_name": "NAME_CH",
      "tab_type": "Char",
      "width": "22"
@@ -181894,7 +182150,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    NAME_FT Char (22) ;",
-     "ordinal": 3,
+     "ordinal": 4,
      "original_name": "NAME_FT",
      "tab_type": "Char",
      "width": "22"
@@ -181902,7 +182158,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    X_COOR Float ;",
-     "ordinal": 4,
+     "ordinal": 5,
      "original_name": "X_COOR",
      "tab_type": "Float",
      "width": null
@@ -181910,7 +182166,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    Y_COOR Float ;",
-     "ordinal": 5,
+     "ordinal": 6,
      "original_name": "Y_COOR",
      "tab_type": "Float",
      "width": null
@@ -181918,7 +182174,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    PRES_LOC Char (48) ;",
-     "ordinal": 6,
+     "ordinal": 7,
      "original_name": "PRES_LOC",
      "tab_type": "Char",
      "width": "48"
@@ -181926,7 +182182,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    TYPE_PY Char (7) ;",
-     "ordinal": 7,
+     "ordinal": 8,
      "original_name": "TYPE_PY",
      "tab_type": "Char",
      "width": "7"
@@ -181934,7 +182190,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    TYPE_CH Char (4) ;",
-     "ordinal": 8,
+     "ordinal": 9,
      "original_name": "TYPE_CH",
      "tab_type": "Char",
      "width": "4"
@@ -181942,7 +182198,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    LEV_RANK Char (1) ;",
-     "ordinal": 9,
+     "ordinal": 10,
      "original_name": "LEV_RANK",
      "tab_type": "Char",
      "width": "1"
@@ -181950,7 +182206,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    BEG_YR Smallint ;",
-     "ordinal": 10,
+     "ordinal": 11,
      "original_name": "BEG_YR",
      "tab_type": "Smallint",
      "width": null
@@ -181958,7 +182214,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    BEG_RULE Char (1) ;",
-     "ordinal": 11,
+     "ordinal": 12,
      "original_name": "BEG_RULE",
      "tab_type": "Char",
      "width": "1"
@@ -181966,7 +182222,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    END_YR Smallint ;",
-     "ordinal": 12,
+     "ordinal": 13,
      "original_name": "END_YR",
      "tab_type": "Smallint",
      "width": null
@@ -181974,7 +182230,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    END_RULE Char (1) ;",
-     "ordinal": 13,
+     "ordinal": 14,
      "original_name": "END_RULE",
      "tab_type": "Char",
      "width": "1"
@@ -181982,7 +182238,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    DYN_PY Char (8) ;",
-     "ordinal": 14,
+     "ordinal": 15,
      "original_name": "DYN_PY",
      "tab_type": "Char",
      "width": "8"
@@ -181990,7 +182246,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    DYN_CH Char (4) ;",
-     "ordinal": 15,
+     "ordinal": 16,
      "original_name": "DYN_CH",
      "tab_type": "Char",
      "width": "4"
@@ -181998,7 +182254,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    LEV1_PY Char (12) ;",
-     "ordinal": 16,
+     "ordinal": 17,
      "original_name": "LEV1_PY",
      "tab_type": "Char",
      "width": "12"
@@ -182006,7 +182262,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    LEV1_CH Char (10) ;",
-     "ordinal": 17,
+     "ordinal": 18,
      "original_name": "LEV1_CH",
      "tab_type": "Char",
      "width": "10"
@@ -182014,7 +182270,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    LEV2_PY Char (21) ;",
-     "ordinal": 18,
+     "ordinal": 19,
      "original_name": "LEV2_PY",
      "tab_type": "Char",
      "width": "21"
@@ -182022,7 +182278,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    LEV2_CH Char (16) ;",
-     "ordinal": 19,
+     "ordinal": 20,
      "original_name": "LEV2_CH",
      "tab_type": "Char",
      "width": "16"
@@ -182030,7 +182286,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    CNTY_PY Char (14) ;",
-     "ordinal": 20,
+     "ordinal": 21,
      "original_name": "CNTY_PY",
      "tab_type": "Char",
      "width": "14"
@@ -182038,7 +182294,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    CNTY_CH Char (6) ;",
-     "ordinal": 21,
+     "ordinal": 22,
      "original_name": "CNTY_CH",
      "tab_type": "Char",
      "width": "6"
@@ -182046,7 +182302,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    NOTE_ID Smallint ;",
-     "ordinal": 22,
+     "ordinal": 23,
      "original_name": "NOTE_ID",
      "tab_type": "Smallint",
      "width": null
@@ -182054,7 +182310,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    OBJ_TYPE Char (5) ;",
-     "ordinal": 23,
+     "ordinal": 24,
      "original_name": "OBJ_TYPE",
      "tab_type": "Char",
      "width": "5"
@@ -182062,7 +182318,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    LOC_ID Integer ;",
-     "ordinal": 24,
+     "ordinal": 25,
      "original_name": "LOC_ID",
      "tab_type": "Integer",
      "width": null
@@ -182070,7 +182326,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    GEO_SRC Char (8) ;",
-     "ordinal": 25,
+     "ordinal": 26,
      "original_name": "GEO_SRC",
      "tab_type": "Char",
      "width": "8"
@@ -182078,7 +182334,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    COMPILER Char (6) ;",
-     "ordinal": 26,
+     "ordinal": 27,
      "original_name": "COMPILER",
      "tab_type": "Char",
      "width": "6"
@@ -182086,7 +182342,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    GEOCOMP Char (11) ;",
-     "ordinal": 27,
+     "ordinal": 28,
      "original_name": "GEOCOMP",
      "tab_type": "Char",
      "width": "11"
@@ -182094,7 +182350,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    CHECKER Char (6) ;",
-     "ordinal": 28,
+     "ordinal": 29,
      "original_name": "CHECKER",
      "tab_type": "Char",
      "width": "6"
@@ -182102,7 +182358,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    ENT_DATE Char (10) ;",
-     "ordinal": 29,
+     "ordinal": 30,
      "original_name": "ENT_DATE",
      "tab_type": "Char",
      "width": "10"
@@ -182619,8 +182875,16 @@
     },
     {
      "decimals": null,
-     "definition_line_verbatim": "    GEO_SRC Char (7) ;",
+     "definition_line_verbatim": "    SYS_ID_2 Integer Index 1 ;",
      "ordinal": 23,
+     "original_name": "SYS_ID_2",
+     "tab_type": "Integer",
+     "width": null
+    },
+    {
+     "decimals": null,
+     "definition_line_verbatim": "    GEO_SRC Char (7) ;",
+     "ordinal": 24,
      "original_name": "GEO_SRC",
      "tab_type": "Char",
      "width": "7"
@@ -182628,7 +182892,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    COMPILER Char (6) ;",
-     "ordinal": 24,
+     "ordinal": 25,
      "original_name": "COMPILER",
      "tab_type": "Char",
      "width": "6"
@@ -182636,7 +182900,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    GEOCOMP Char (6) ;",
-     "ordinal": 25,
+     "ordinal": 26,
      "original_name": "GEOCOMP",
      "tab_type": "Char",
      "width": "6"
@@ -182644,7 +182908,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    CHECKER Char (6) ;",
-     "ordinal": 26,
+     "ordinal": 27,
      "original_name": "CHECKER",
      "tab_type": "Char",
      "width": "6"
@@ -182652,7 +182916,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    ENT_DATE Char (10) ;",
-     "ordinal": 27,
+     "ordinal": 28,
      "original_name": "ENT_DATE",
      "tab_type": "Char",
      "width": "10"
@@ -183751,8 +184015,16 @@
     },
     {
      "decimals": null,
-     "definition_line_verbatim": "    GEO_SRC Char (7) ;",
+     "definition_line_verbatim": "    SYS_ID_2 Integer Index 1 ;",
      "ordinal": 23,
+     "original_name": "SYS_ID_2",
+     "tab_type": "Integer",
+     "width": null
+    },
+    {
+     "decimals": null,
+     "definition_line_verbatim": "    GEO_SRC Char (7) ;",
+     "ordinal": 24,
      "original_name": "GEO_SRC",
      "tab_type": "Char",
      "width": "7"
@@ -183760,7 +184032,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    COMPILER Char (6) ;",
-     "ordinal": 24,
+     "ordinal": 25,
      "original_name": "COMPILER",
      "tab_type": "Char",
      "width": "6"
@@ -183768,7 +184040,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    GEOCOMP Char (6) ;",
-     "ordinal": 25,
+     "ordinal": 26,
      "original_name": "GEOCOMP",
      "tab_type": "Char",
      "width": "6"
@@ -183776,7 +184048,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    CHECKER Char (6) ;",
-     "ordinal": 26,
+     "ordinal": 27,
      "original_name": "CHECKER",
      "tab_type": "Char",
      "width": "6"
@@ -183784,7 +184056,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    ENT_DATE Char (10) ;",
-     "ordinal": 27,
+     "ordinal": 28,
      "original_name": "ENT_DATE",
      "tab_type": "Char",
      "width": "10"
@@ -184333,8 +184605,16 @@
     },
     {
      "decimals": null,
-     "definition_line_verbatim": "    GEO_SRC Char (7) ;",
+     "definition_line_verbatim": "    SYS_ID_2 Integer Index 1 ;",
      "ordinal": 25,
+     "original_name": "SYS_ID_2",
+     "tab_type": "Integer",
+     "width": null
+    },
+    {
+     "decimals": null,
+     "definition_line_verbatim": "    GEO_SRC Char (7) ;",
+     "ordinal": 26,
      "original_name": "GEO_SRC",
      "tab_type": "Char",
      "width": "7"
@@ -184342,7 +184622,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    COMPILER Char (6) ;",
-     "ordinal": 26,
+     "ordinal": 27,
      "original_name": "COMPILER",
      "tab_type": "Char",
      "width": "6"
@@ -184350,7 +184630,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    GEOCOMP Char (6) ;",
-     "ordinal": 27,
+     "ordinal": 28,
      "original_name": "GEOCOMP",
      "tab_type": "Char",
      "width": "6"
@@ -184358,7 +184638,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    CHECKER Char (6) ;",
-     "ordinal": 28,
+     "ordinal": 29,
      "original_name": "CHECKER",
      "tab_type": "Char",
      "width": "6"
@@ -184366,7 +184646,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    ENT_DATE Char (10) ;",
-     "ordinal": 29,
+     "ordinal": 30,
      "original_name": "ENT_DATE",
      "tab_type": "Char",
      "width": "10"
@@ -184883,8 +185163,16 @@
     },
     {
      "decimals": null,
-     "definition_line_verbatim": "    GEO_SRC Char (7) ;",
+     "definition_line_verbatim": "    SYS_ID_2 Integer Index 1 ;",
      "ordinal": 23,
+     "original_name": "SYS_ID_2",
+     "tab_type": "Integer",
+     "width": null
+    },
+    {
+     "decimals": null,
+     "definition_line_verbatim": "    GEO_SRC Char (7) ;",
+     "ordinal": 24,
      "original_name": "GEO_SRC",
      "tab_type": "Char",
      "width": "7"
@@ -184892,7 +185180,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    COMPILER Char (6) ;",
-     "ordinal": 24,
+     "ordinal": 25,
      "original_name": "COMPILER",
      "tab_type": "Char",
      "width": "6"
@@ -184900,7 +185188,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    GEOCOMP Char (6) ;",
-     "ordinal": 25,
+     "ordinal": 26,
      "original_name": "GEOCOMP",
      "tab_type": "Char",
      "width": "6"
@@ -184908,7 +185196,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    CHECKER Char (6) ;",
-     "ordinal": 26,
+     "ordinal": 27,
      "original_name": "CHECKER",
      "tab_type": "Char",
      "width": "6"
@@ -184916,7 +185204,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    ENT_DATE Char (10) ;",
-     "ordinal": 27,
+     "ordinal": 28,
      "original_name": "ENT_DATE",
      "tab_type": "Char",
      "width": "10"
@@ -185433,8 +185721,16 @@
     },
     {
      "decimals": null,
-     "definition_line_verbatim": "    GEO_SRC Char (7) ;",
+     "definition_line_verbatim": "    SYS_ID_2 Integer Index 1 ;",
      "ordinal": 23,
+     "original_name": "SYS_ID_2",
+     "tab_type": "Integer",
+     "width": null
+    },
+    {
+     "decimals": null,
+     "definition_line_verbatim": "    GEO_SRC Char (7) ;",
+     "ordinal": 24,
      "original_name": "GEO_SRC",
      "tab_type": "Char",
      "width": "7"
@@ -185442,7 +185738,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    COMPILER Char (6) ;",
-     "ordinal": 24,
+     "ordinal": 25,
      "original_name": "COMPILER",
      "tab_type": "Char",
      "width": "6"
@@ -185450,7 +185746,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    GEOCOMP Char (6) ;",
-     "ordinal": 25,
+     "ordinal": 26,
      "original_name": "GEOCOMP",
      "tab_type": "Char",
      "width": "6"
@@ -185458,7 +185754,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    CHECKER Char (6) ;",
-     "ordinal": 26,
+     "ordinal": 27,
      "original_name": "CHECKER",
      "tab_type": "Char",
      "width": "6"
@@ -185466,7 +185762,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    ENT_DATE Char (10) ;",
-     "ordinal": 27,
+     "ordinal": 28,
      "original_name": "ENT_DATE",
      "tab_type": "Char",
      "width": "10"
@@ -186015,8 +186311,16 @@
     },
     {
      "decimals": null,
-     "definition_line_verbatim": "    GEO_SRC Char (7) ;",
+     "definition_line_verbatim": "    SYS_ID_2 Integer Index 1 ;",
      "ordinal": 25,
+     "original_name": "SYS_ID_2",
+     "tab_type": "Integer",
+     "width": null
+    },
+    {
+     "decimals": null,
+     "definition_line_verbatim": "    GEO_SRC Char (7) ;",
+     "ordinal": 26,
      "original_name": "GEO_SRC",
      "tab_type": "Char",
      "width": "7"
@@ -186024,7 +186328,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    COMPILER Char (6) ;",
-     "ordinal": 26,
+     "ordinal": 27,
      "original_name": "COMPILER",
      "tab_type": "Char",
      "width": "6"
@@ -186032,7 +186336,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    GEOCOMP Char (6) ;",
-     "ordinal": 27,
+     "ordinal": 28,
      "original_name": "GEOCOMP",
      "tab_type": "Char",
      "width": "6"
@@ -186040,7 +186344,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    CHECHER Char (10) ;",
-     "ordinal": 28,
+     "ordinal": 29,
      "original_name": "CHECHER",
      "tab_type": "Char",
      "width": "10"
@@ -186048,7 +186352,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    ENT_DATE Char (10) ;",
-     "ordinal": 29,
+     "ordinal": 30,
      "original_name": "ENT_DATE",
      "tab_type": "Char",
      "width": "10"
@@ -186485,8 +186789,16 @@
     },
     {
      "decimals": null,
-     "definition_line_verbatim": "    GEO_SRC Char (7) ;",
+     "definition_line_verbatim": "    SYS_ID_2 Integer Index 1 ;",
      "ordinal": 17,
+     "original_name": "SYS_ID_2",
+     "tab_type": "Integer",
+     "width": null
+    },
+    {
+     "decimals": null,
+     "definition_line_verbatim": "    GEO_SRC Char (7) ;",
+     "ordinal": 18,
      "original_name": "GEO_SRC",
      "tab_type": "Char",
      "width": "7"
@@ -186494,7 +186806,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    COMPILER Char (6) ;",
-     "ordinal": 18,
+     "ordinal": 19,
      "original_name": "COMPILER",
      "tab_type": "Char",
      "width": "6"
@@ -186502,7 +186814,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    GEOCOMP Char (6) ;",
-     "ordinal": 19,
+     "ordinal": 20,
      "original_name": "GEOCOMP",
      "tab_type": "Char",
      "width": "6"
@@ -186510,7 +186822,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    CHECKER Char (1) ;",
-     "ordinal": 20,
+     "ordinal": 21,
      "original_name": "CHECKER",
      "tab_type": "Char",
      "width": "1"
@@ -186518,7 +186830,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    ENT_DATE Char (10) ;",
-     "ordinal": 21,
+     "ordinal": 22,
      "original_name": "ENT_DATE",
      "tab_type": "Char",
      "width": "10"
@@ -186526,7 +186838,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    BEG_CHG_TYPE Char (14) ;",
-     "ordinal": 22,
+     "ordinal": 23,
      "original_name": "BEG_CHG_TYPE",
      "tab_type": "Char",
      "width": "14"
@@ -186534,7 +186846,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    END_CHG_TYPE Char (20) ;",
-     "ordinal": 23,
+     "ordinal": 24,
      "original_name": "END_CHG_TYPE",
      "tab_type": "Char",
      "width": "20"
@@ -186947,8 +187259,16 @@
     },
     {
      "decimals": null,
-     "definition_line_verbatim": "    GEO_ID Smallint ;",
+     "definition_line_verbatim": "    SYS_ID_2 Integer Index 1 ;",
      "ordinal": 15,
+     "original_name": "SYS_ID_2",
+     "tab_type": "Integer",
+     "width": null
+    },
+    {
+     "decimals": null,
+     "definition_line_verbatim": "    GEO_ID Smallint ;",
+     "ordinal": 16,
      "original_name": "GEO_ID",
      "tab_type": "Smallint",
      "width": null
@@ -186956,7 +187276,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    GEO_SRC Char (7) ;",
-     "ordinal": 16,
+     "ordinal": 17,
      "original_name": "GEO_SRC",
      "tab_type": "Char",
      "width": "7"
@@ -186964,7 +187284,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    COMPILER Char (6) ;",
-     "ordinal": 17,
+     "ordinal": 18,
      "original_name": "COMPILER",
      "tab_type": "Char",
      "width": "6"
@@ -186972,7 +187292,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    GEOCOMP Char (6) ;",
-     "ordinal": 18,
+     "ordinal": 19,
      "original_name": "GEOCOMP",
      "tab_type": "Char",
      "width": "6"
@@ -186980,7 +187300,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    CHECKER Char (1) ;",
-     "ordinal": 19,
+     "ordinal": 20,
      "original_name": "CHECKER",
      "tab_type": "Char",
      "width": "1"
@@ -186988,7 +187308,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    ENT_DATE Char (10) ;",
-     "ordinal": 20,
+     "ordinal": 21,
      "original_name": "ENT_DATE",
      "tab_type": "Char",
      "width": "10"
@@ -186996,7 +187316,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    BEG_CHG_TYPE Char (14) ;",
-     "ordinal": 21,
+     "ordinal": 22,
      "original_name": "BEG_CHG_TYPE",
      "tab_type": "Char",
      "width": "14"
@@ -187004,7 +187324,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    END_CHG_TYPE Char (14) ;",
-     "ordinal": 22,
+     "ordinal": 23,
      "original_name": "END_CHG_TYPE",
      "tab_type": "Char",
      "width": "14"
@@ -187158,8 +187478,16 @@
     },
     {
      "decimals": null,
-     "definition_line_verbatim": "    OBJ_TYPE Char (7) ;",
+     "definition_line_verbatim": "    NOTE_ID Integer Index 1 ;",
      "ordinal": 12,
+     "original_name": "NOTE_ID",
+     "tab_type": "Integer",
+     "width": null
+    },
+    {
+     "decimals": null,
+     "definition_line_verbatim": "    OBJ_TYPE Char (7) ;",
+     "ordinal": 13,
      "original_name": "OBJ_TYPE",
      "tab_type": "Char",
      "width": "7"
@@ -187167,7 +187495,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    SYS_ID Integer ;",
-     "ordinal": 13,
+     "ordinal": 14,
      "original_name": "SYS_ID",
      "tab_type": "Integer",
      "width": null
@@ -187175,7 +187503,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    GEO_SRC Char (10) ;",
-     "ordinal": 14,
+     "ordinal": 15,
      "original_name": "GEO_SRC",
      "tab_type": "Char",
      "width": "10"
@@ -187183,7 +187511,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    COMPILER Char (14) ;",
-     "ordinal": 15,
+     "ordinal": 16,
      "original_name": "COMPILER",
      "tab_type": "Char",
      "width": "14"
@@ -187191,7 +187519,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    GEOCOMP Char (10) ;",
-     "ordinal": 16,
+     "ordinal": 17,
      "original_name": "GEOCOMP",
      "tab_type": "Char",
      "width": "10"
@@ -187199,7 +187527,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    CHECKER Char (10) ;",
-     "ordinal": 17,
+     "ordinal": 18,
      "original_name": "CHECKER",
      "tab_type": "Char",
      "width": "10"
@@ -187207,7 +187535,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    ENT_DATE Char (10) ;",
-     "ordinal": 18,
+     "ordinal": 19,
      "original_name": "ENT_DATE",
      "tab_type": "Char",
      "width": "10"
@@ -187215,7 +187543,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    BEG_CHG_TYPE Char (20) ;",
-     "ordinal": 19,
+     "ordinal": 20,
      "original_name": "BEG_CHG_TYPE",
      "tab_type": "Char",
      "width": "20"
@@ -187223,7 +187551,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    END_CHG_TYPE Char (20) ;",
-     "ordinal": 20,
+     "ordinal": 21,
      "original_name": "END_CHG_TYPE",
      "tab_type": "Char",
      "width": "20"
@@ -187401,8 +187729,16 @@
     },
     {
      "decimals": null,
-     "definition_line_verbatim": "    GEO_SRC Char (7) ;",
+     "definition_line_verbatim": "    SYS_ID_2 Integer Index 1 ;",
      "ordinal": 15,
+     "original_name": "SYS_ID_2",
+     "tab_type": "Integer",
+     "width": null
+    },
+    {
+     "decimals": null,
+     "definition_line_verbatim": "    GEO_SRC Char (7) ;",
+     "ordinal": 16,
      "original_name": "GEO_SRC",
      "tab_type": "Char",
      "width": "7"
@@ -187410,7 +187746,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    COMPILER Char (6) ;",
-     "ordinal": 16,
+     "ordinal": 17,
      "original_name": "COMPILER",
      "tab_type": "Char",
      "width": "6"
@@ -187418,7 +187754,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    GEOCOMP Char (6) ;",
-     "ordinal": 17,
+     "ordinal": 18,
      "original_name": "GEOCOMP",
      "tab_type": "Char",
      "width": "6"
@@ -187426,7 +187762,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    CHECKER Char (1) ;",
-     "ordinal": 18,
+     "ordinal": 19,
      "original_name": "CHECKER",
      "tab_type": "Char",
      "width": "1"
@@ -187434,7 +187770,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    ENT_DATE Char (10) ;",
-     "ordinal": 19,
+     "ordinal": 20,
      "original_name": "ENT_DATE",
      "tab_type": "Char",
      "width": "10"
@@ -187442,7 +187778,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    BEG_CHG_TYPE Char (14) ;",
-     "ordinal": 20,
+     "ordinal": 21,
      "original_name": "BEG_CHG_TYPE",
      "tab_type": "Char",
      "width": "14"
@@ -187450,7 +187786,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    END_CHG_TYPE Char (16) ;",
-     "ordinal": 21,
+     "ordinal": 22,
      "original_name": "END_CHG_TYPE",
      "tab_type": "Char",
      "width": "16"
@@ -187887,8 +188223,16 @@
     },
     {
      "decimals": null,
-     "definition_line_verbatim": "    GEO_SRC Char (7) ;",
+     "definition_line_verbatim": "    SYS_ID_2 Integer Index 1 ;",
      "ordinal": 17,
+     "original_name": "SYS_ID_2",
+     "tab_type": "Integer",
+     "width": null
+    },
+    {
+     "decimals": null,
+     "definition_line_verbatim": "    GEO_SRC Char (7) ;",
+     "ordinal": 18,
      "original_name": "GEO_SRC",
      "tab_type": "Char",
      "width": "7"
@@ -187896,7 +188240,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    COMPILER Char (6) ;",
-     "ordinal": 18,
+     "ordinal": 19,
      "original_name": "COMPILER",
      "tab_type": "Char",
      "width": "6"
@@ -187904,7 +188248,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    GEOCOMP Char (6) ;",
-     "ordinal": 19,
+     "ordinal": 20,
      "original_name": "GEOCOMP",
      "tab_type": "Char",
      "width": "6"
@@ -187912,7 +188256,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    CHECKER Char (1) ;",
-     "ordinal": 20,
+     "ordinal": 21,
      "original_name": "CHECKER",
      "tab_type": "Char",
      "width": "1"
@@ -187920,7 +188264,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    ENT_DATE Char (10) ;",
-     "ordinal": 21,
+     "ordinal": 22,
      "original_name": "ENT_DATE",
      "tab_type": "Char",
      "width": "10"
@@ -187928,7 +188272,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    BEG_CHG_TYPE Char (14) ;",
-     "ordinal": 22,
+     "ordinal": 23,
      "original_name": "BEG_CHG_TYPE",
      "tab_type": "Char",
      "width": "14"
@@ -187936,7 +188280,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    END_CHG_TYPE Char (14) ;",
-     "ordinal": 23,
+     "ordinal": 24,
      "original_name": "END_CHG_TYPE",
      "tab_type": "Char",
      "width": "14"
@@ -188341,8 +188685,16 @@
     },
     {
      "decimals": null,
-     "definition_line_verbatim": "    GEO_SRC Char (7) ;",
+     "definition_line_verbatim": "    SYS_ID_2 Integer Index 1 ;",
      "ordinal": 15,
+     "original_name": "SYS_ID_2",
+     "tab_type": "Integer",
+     "width": null
+    },
+    {
+     "decimals": null,
+     "definition_line_verbatim": "    GEO_SRC Char (7) ;",
+     "ordinal": 16,
      "original_name": "GEO_SRC",
      "tab_type": "Char",
      "width": "7"
@@ -188350,7 +188702,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    COMPILER Char (6) ;",
-     "ordinal": 16,
+     "ordinal": 17,
      "original_name": "COMPILER",
      "tab_type": "Char",
      "width": "6"
@@ -188358,7 +188710,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    GEOCOMP Char (6) ;",
-     "ordinal": 17,
+     "ordinal": 18,
      "original_name": "GEOCOMP",
      "tab_type": "Char",
      "width": "6"
@@ -188366,7 +188718,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    CHECKER Char (1) ;",
-     "ordinal": 18,
+     "ordinal": 19,
      "original_name": "CHECKER",
      "tab_type": "Char",
      "width": "1"
@@ -188374,7 +188726,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    ENT_DATE Char (10) ;",
-     "ordinal": 19,
+     "ordinal": 20,
      "original_name": "ENT_DATE",
      "tab_type": "Char",
      "width": "10"
@@ -188382,7 +188734,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    BEG_CHG_TYPE Char (14) ;",
-     "ordinal": 20,
+     "ordinal": 21,
      "original_name": "BEG_CHG_TYPE",
      "tab_type": "Char",
      "width": "14"
@@ -188390,7 +188742,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    END_CHG_TYPE Char (14) ;",
-     "ordinal": 21,
+     "ordinal": 22,
      "original_name": "END_CHG_TYPE",
      "tab_type": "Char",
      "width": "14"
@@ -188827,8 +189179,16 @@
     },
     {
      "decimals": null,
-     "definition_line_verbatim": "    GEO_SRC Char (7) ;",
+     "definition_line_verbatim": "    SYS_ID_2 Smallint Index 1 ;",
      "ordinal": 17,
+     "original_name": "SYS_ID_2",
+     "tab_type": "Smallint",
+     "width": null
+    },
+    {
+     "decimals": null,
+     "definition_line_verbatim": "    GEO_SRC Char (7) ;",
+     "ordinal": 18,
      "original_name": "GEO_SRC",
      "tab_type": "Char",
      "width": "7"
@@ -188836,7 +189196,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    COMPILER Char (6) ;",
-     "ordinal": 18,
+     "ordinal": 19,
      "original_name": "COMPILER",
      "tab_type": "Char",
      "width": "6"
@@ -188844,7 +189204,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    GEOCOMP Char (6) ;",
-     "ordinal": 19,
+     "ordinal": 20,
      "original_name": "GEOCOMP",
      "tab_type": "Char",
      "width": "6"
@@ -188852,7 +189212,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    CHECKER Char (1) ;",
-     "ordinal": 20,
+     "ordinal": 21,
      "original_name": "CHECKER",
      "tab_type": "Char",
      "width": "1"
@@ -188860,7 +189220,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    ENT_DATE Char (10) ;",
-     "ordinal": 21,
+     "ordinal": 22,
      "original_name": "ENT_DATE",
      "tab_type": "Char",
      "width": "10"
@@ -188868,7 +189228,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    BEG_CHG_TYPE Char (14) ;",
-     "ordinal": 22,
+     "ordinal": 23,
      "original_name": "BEG_CHG_TYPE",
      "tab_type": "Char",
      "width": "14"
@@ -188876,7 +189236,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    END_CHG_TYPE Char (14) ;",
-     "ordinal": 23,
+     "ordinal": 24,
      "original_name": "END_CHG_TYPE",
      "tab_type": "Char",
      "width": "14"
@@ -189265,8 +189625,16 @@
     },
     {
      "decimals": null,
-     "definition_line_verbatim": "    GEO_SRC Char (7) ;",
+     "definition_line_verbatim": "    SYS_ID_2 Integer Index 1 ;",
      "ordinal": 15,
+     "original_name": "SYS_ID_2",
+     "tab_type": "Integer",
+     "width": null
+    },
+    {
+     "decimals": null,
+     "definition_line_verbatim": "    GEO_SRC Char (7) ;",
+     "ordinal": 16,
      "original_name": "GEO_SRC",
      "tab_type": "Char",
      "width": "7"
@@ -189274,7 +189642,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    COMPILER Char (6) ;",
-     "ordinal": 16,
+     "ordinal": 17,
      "original_name": "COMPILER",
      "tab_type": "Char",
      "width": "6"
@@ -189282,7 +189650,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    GEOCOMP Char (6) ;",
-     "ordinal": 17,
+     "ordinal": 18,
      "original_name": "GEOCOMP",
      "tab_type": "Char",
      "width": "6"
@@ -189290,7 +189658,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    CHECKER Char (1) ;",
-     "ordinal": 18,
+     "ordinal": 19,
      "original_name": "CHECKER",
      "tab_type": "Char",
      "width": "1"
@@ -189298,7 +189666,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    ENT_DATE Char (10) ;",
-     "ordinal": 19,
+     "ordinal": 20,
      "original_name": "ENT_DATE",
      "tab_type": "Char",
      "width": "10"
@@ -189719,8 +190087,16 @@
     },
     {
      "decimals": null,
-     "definition_line_verbatim": "    GEO_SRC Char (7) ;",
+     "definition_line_verbatim": "    SYS_ID_2 Integer Index 1 ;",
      "ordinal": 17,
+     "original_name": "SYS_ID_2",
+     "tab_type": "Integer",
+     "width": null
+    },
+    {
+     "decimals": null,
+     "definition_line_verbatim": "    GEO_SRC Char (7) ;",
+     "ordinal": 18,
      "original_name": "GEO_SRC",
      "tab_type": "Char",
      "width": "7"
@@ -189728,7 +190104,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    COMPILER Char (6) ;",
-     "ordinal": 18,
+     "ordinal": 19,
      "original_name": "COMPILER",
      "tab_type": "Char",
      "width": "6"
@@ -189736,7 +190112,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    GEOCOMP Char (6) ;",
-     "ordinal": 19,
+     "ordinal": 20,
      "original_name": "GEOCOMP",
      "tab_type": "Char",
      "width": "6"
@@ -189744,7 +190120,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    CHECKER Char (1) ;",
-     "ordinal": 20,
+     "ordinal": 21,
      "original_name": "CHECKER",
      "tab_type": "Char",
      "width": "1"
@@ -189752,7 +190128,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    ENT_DATE Char (10) ;",
-     "ordinal": 21,
+     "ordinal": 22,
      "original_name": "ENT_DATE",
      "tab_type": "Char",
      "width": "10"
@@ -189818,8 +190194,16 @@
    "attribute_order_from_dbf_header": [
     {
      "decimals": null,
-     "definition_line_verbatim": "    character_name Char (50) ;",
+     "definition_line_verbatim": "    Key_id Smallint Index 1 ;",
      "ordinal": 1,
+     "original_name": "Key_id",
+     "tab_type": "Smallint",
+     "width": null
+    },
+    {
+     "decimals": null,
+     "definition_line_verbatim": "    character_name Char (50) ;",
+     "ordinal": 2,
      "original_name": "character_name",
      "tab_type": "Char",
      "width": "50"
@@ -189827,7 +190211,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    Fanti_name Char (50) ;",
-     "ordinal": 2,
+     "ordinal": 3,
      "original_name": "Fanti_name",
      "tab_type": "Char",
      "width": "50"
@@ -189835,7 +190219,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    Pinyin_name Char (50) ;",
-     "ordinal": 3,
+     "ordinal": 4,
      "original_name": "Pinyin_name",
      "tab_type": "Char",
      "width": "50"
@@ -189843,7 +190227,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    Note_id Char (10) ;",
-     "ordinal": 4,
+     "ordinal": 5,
      "original_name": "Note_id",
      "tab_type": "Char",
      "width": "10"
@@ -189851,7 +190235,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    system_id Char (20) ;",
-     "ordinal": 5,
+     "ordinal": 6,
      "original_name": "system_id",
      "tab_type": "Char",
      "width": "20"
@@ -189917,8 +190301,16 @@
    "attribute_order_from_dbf_header": [
     {
      "decimals": null,
-     "definition_line_verbatim": "    character_name Char (6) ;",
+     "definition_line_verbatim": "    Key_id Smallint Index 1 ;",
      "ordinal": 1,
+     "original_name": "Key_id",
+     "tab_type": "Smallint",
+     "width": null
+    },
+    {
+     "decimals": null,
+     "definition_line_verbatim": "    character_name Char (6) ;",
+     "ordinal": 2,
      "original_name": "character_name",
      "tab_type": "Char",
      "width": "6"
@@ -189926,7 +190318,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    Fanti_name Char (6) ;",
-     "ordinal": 2,
+     "ordinal": 3,
      "original_name": "Fanti_name",
      "tab_type": "Char",
      "width": "6"
@@ -189934,7 +190326,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    Pinyin_name Char (14) ;",
-     "ordinal": 3,
+     "ordinal": 4,
      "original_name": "Pinyin_name",
      "tab_type": "Char",
      "width": "14"
@@ -189942,7 +190334,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    Note_id Char (5) ;",
-     "ordinal": 4,
+     "ordinal": 5,
      "original_name": "Note_id",
      "tab_type": "Char",
      "width": "5"
@@ -189950,7 +190342,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    system_id Smallint ;",
-     "ordinal": 5,
+     "ordinal": 6,
      "original_name": "system_id",
      "tab_type": "Smallint",
      "width": null
@@ -190574,8 +190966,16 @@
    "attribute_order_from_dbf_header": [
     {
      "decimals": null,
-     "definition_line_verbatim": "    Source Char (10) ;",
+     "definition_line_verbatim": "    Sea_ID Smallint Index 1 ;",
      "ordinal": 1,
+     "original_name": "Sea_ID",
+     "tab_type": "Smallint",
+     "width": null
+    },
+    {
+     "decimals": null,
+     "definition_line_verbatim": "    Source Char (10) ;",
+     "ordinal": 2,
      "original_name": "Source",
      "tab_type": "Char",
      "width": "10"
@@ -190583,7 +190983,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    system_id Smallint ;",
-     "ordinal": 2,
+     "ordinal": 3,
      "original_name": "system_id",
      "tab_type": "Smallint",
      "width": null
@@ -190649,8 +191049,16 @@
    "attribute_order_from_dbf_header": [
     {
      "decimals": null,
-     "definition_line_verbatim": "    Character_name Char (20) ;",
+     "definition_line_verbatim": "    Lks_id Smallint Index 1 ;",
      "ordinal": 1,
+     "original_name": "Lks_id",
+     "tab_type": "Smallint",
+     "width": null
+    },
+    {
+     "decimals": null,
+     "definition_line_verbatim": "    Character_name Char (20) ;",
+     "ordinal": 2,
      "original_name": "Character_name",
      "tab_type": "Char",
      "width": "20"
@@ -190658,7 +191066,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    Fanti_name_2 Char (20) ;",
-     "ordinal": 2,
+     "ordinal": 3,
      "original_name": "Fanti_name_2",
      "tab_type": "Char",
      "width": "20"
@@ -190666,7 +191074,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    Pinyin_name Char (30) ;",
-     "ordinal": 3,
+     "ordinal": 4,
      "original_name": "Pinyin_name",
      "tab_type": "Char",
      "width": "30"
@@ -190674,7 +191082,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    SYSTEM_ID Smallint ;",
-     "ordinal": 4,
+     "ordinal": 5,
      "original_name": "SYSTEM_ID",
      "tab_type": "Smallint",
      "width": null
@@ -190740,8 +191148,16 @@
    "attribute_order_from_dbf_header": [
     {
      "decimals": null,
-     "definition_line_verbatim": "    Character Char (20) ;",
+     "definition_line_verbatim": "    Lks_id Smallint Index 1 ;",
      "ordinal": 1,
+     "original_name": "Lks_id",
+     "tab_type": "Smallint",
+     "width": null
+    },
+    {
+     "decimals": null,
+     "definition_line_verbatim": "    Character Char (20) ;",
+     "ordinal": 2,
      "original_name": "Character",
      "tab_type": "Char",
      "width": "20"
@@ -190749,7 +191165,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    Fanti_name Char (20) ;",
-     "ordinal": 2,
+     "ordinal": 3,
      "original_name": "Fanti_name",
      "tab_type": "Char",
      "width": "20"
@@ -190757,7 +191173,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    Pinyin_nam Char (30) ;",
-     "ordinal": 3,
+     "ordinal": 4,
      "original_name": "Pinyin_nam",
      "tab_type": "Char",
      "width": "30"
@@ -190765,7 +191181,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    SYSTEM_ID Smallint ;",
-     "ordinal": 4,
+     "ordinal": 5,
      "original_name": "SYSTEM_ID",
      "tab_type": "Smallint",
      "width": null
@@ -190839,8 +191255,16 @@
     },
     {
      "decimals": null,
-     "definition_line_verbatim": "    NAME_FT Char (30) ;",
+     "definition_line_verbatim": "    NAME_CH Char (30) Index 1 ;",
      "ordinal": 2,
+     "original_name": "NAME_CH",
+     "tab_type": "Char",
+     "width": "30"
+    },
+    {
+     "decimals": null,
+     "definition_line_verbatim": "    NAME_FT Char (30) ;",
+     "ordinal": 3,
      "original_name": "NAME_FT",
      "tab_type": "Char",
      "width": "30"
@@ -190848,7 +191272,7 @@
     {
      "decimals": "6",
      "definition_line_verbatim": "    X_COOR Decimal (10, 6) ;",
-     "ordinal": 3,
+     "ordinal": 4,
      "original_name": "X_COOR",
      "tab_type": "Decimal",
      "width": "10"
@@ -190856,7 +191280,7 @@
     {
      "decimals": "6",
      "definition_line_verbatim": "    Y_COOR Decimal (10, 6) ;",
-     "ordinal": 4,
+     "ordinal": 5,
      "original_name": "Y_COOR",
      "tab_type": "Decimal",
      "width": "10"
@@ -190864,7 +191288,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    PRES_LOC Char (40) ;",
-     "ordinal": 5,
+     "ordinal": 6,
      "original_name": "PRES_LOC",
      "tab_type": "Char",
      "width": "40"
@@ -190872,7 +191296,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    TYPR_PY Char (15) ;",
-     "ordinal": 6,
+     "ordinal": 7,
      "original_name": "TYPR_PY",
      "tab_type": "Char",
      "width": "15"
@@ -190880,7 +191304,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    TYPE_CH Char (10) ;",
-     "ordinal": 7,
+     "ordinal": 8,
      "original_name": "TYPE_CH",
      "tab_type": "Char",
      "width": "10"
@@ -190888,7 +191312,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    LEV_RANG Char (10) ;",
-     "ordinal": 8,
+     "ordinal": 9,
      "original_name": "LEV_RANG",
      "tab_type": "Char",
      "width": "10"
@@ -190896,7 +191320,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    BEG_YR Smallint ;",
-     "ordinal": 9,
+     "ordinal": 10,
      "original_name": "BEG_YR",
      "tab_type": "Smallint",
      "width": null
@@ -190904,7 +191328,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    BEG_RULE Char (1) ;",
-     "ordinal": 10,
+     "ordinal": 11,
      "original_name": "BEG_RULE",
      "tab_type": "Char",
      "width": "1"
@@ -190912,7 +191336,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    END_YR Smallint ;",
-     "ordinal": 11,
+     "ordinal": 12,
      "original_name": "END_YR",
      "tab_type": "Smallint",
      "width": null
@@ -190920,7 +191344,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    END_RULE Char (1) ;",
-     "ordinal": 12,
+     "ordinal": 13,
      "original_name": "END_RULE",
      "tab_type": "Char",
      "width": "1"
@@ -190928,7 +191352,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    DYN_PY Char (20) ;",
-     "ordinal": 13,
+     "ordinal": 14,
      "original_name": "DYN_PY",
      "tab_type": "Char",
      "width": "20"
@@ -190936,7 +191360,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    DYN_CH Char (10) ;",
-     "ordinal": 14,
+     "ordinal": 15,
      "original_name": "DYN_CH",
      "tab_type": "Char",
      "width": "10"
@@ -190944,7 +191368,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    LEV1_PY Char (30) ;",
-     "ordinal": 15,
+     "ordinal": 16,
      "original_name": "LEV1_PY",
      "tab_type": "Char",
      "width": "30"
@@ -190952,7 +191376,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    LEV1_CH Char (20) ;",
-     "ordinal": 16,
+     "ordinal": 17,
      "original_name": "LEV1_CH",
      "tab_type": "Char",
      "width": "20"
@@ -190960,7 +191384,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    LEV2_PY Char (20) ;",
-     "ordinal": 17,
+     "ordinal": 18,
      "original_name": "LEV2_PY",
      "tab_type": "Char",
      "width": "20"
@@ -190968,7 +191392,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    LEV2_CH Char (20) ;",
-     "ordinal": 18,
+     "ordinal": 19,
      "original_name": "LEV2_CH",
      "tab_type": "Char",
      "width": "20"
@@ -190976,7 +191400,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    COUN_PY Char (30) ;",
-     "ordinal": 19,
+     "ordinal": 20,
      "original_name": "COUN_PY",
      "tab_type": "Char",
      "width": "30"
@@ -190984,7 +191408,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    COUN_CH Char (20) ;",
-     "ordinal": 20,
+     "ordinal": 21,
      "original_name": "COUN_CH",
      "tab_type": "Char",
      "width": "20"
@@ -190992,7 +191416,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    NOTE_ID Integer ;",
-     "ordinal": 21,
+     "ordinal": 22,
      "original_name": "NOTE_ID",
      "tab_type": "Integer",
      "width": null
@@ -191000,7 +191424,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    OBJ_TYPE Char (7) ;",
-     "ordinal": 22,
+     "ordinal": 23,
      "original_name": "OBJ_TYPE",
      "tab_type": "Char",
      "width": "7"
@@ -191008,7 +191432,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    SYS_ID Char (16) ;",
-     "ordinal": 23,
+     "ordinal": 24,
      "original_name": "SYS_ID",
      "tab_type": "Char",
      "width": "16"
@@ -191016,7 +191440,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    GEO_ID Integer ;",
-     "ordinal": 24,
+     "ordinal": 25,
      "original_name": "GEO_ID",
      "tab_type": "Integer",
      "width": null
@@ -191024,7 +191448,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    GEO_SRC Char (10) ;",
-     "ordinal": 25,
+     "ordinal": 26,
      "original_name": "GEO_SRC",
      "tab_type": "Char",
      "width": "10"
@@ -191032,7 +191456,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    COMPILER Char (10) ;",
-     "ordinal": 26,
+     "ordinal": 27,
      "original_name": "COMPILER",
      "tab_type": "Char",
      "width": "10"
@@ -191040,7 +191464,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    GEOCOMPER Char (12) ;",
-     "ordinal": 27,
+     "ordinal": 28,
      "original_name": "GEOCOMPER",
      "tab_type": "Char",
      "width": "12"
@@ -191048,7 +191472,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    CHECKER Char (10) ;",
-     "ordinal": 28,
+     "ordinal": 29,
      "original_name": "CHECKER",
      "tab_type": "Char",
      "width": "10"
@@ -191056,7 +191480,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    ENT_DATE Char (10) ;",
-     "ordinal": 29,
+     "ordinal": 30,
      "original_name": "ENT_DATE",
      "tab_type": "Char",
      "width": "10"
@@ -191589,8 +192013,24 @@
     },
     {
      "decimals": null,
-     "definition_line_verbatim": "    GEO_SRC Char (10) ;",
+     "definition_line_verbatim": "    SYS_ID Smallint Index 1 ;",
      "ordinal": 22,
+     "original_name": "SYS_ID",
+     "tab_type": "Smallint",
+     "width": null
+    },
+    {
+     "decimals": null,
+     "definition_line_verbatim": "    GEO_ID Integer Index 2 ;",
+     "ordinal": 23,
+     "original_name": "GEO_ID",
+     "tab_type": "Integer",
+     "width": null
+    },
+    {
+     "decimals": null,
+     "definition_line_verbatim": "    GEO_SRC Char (10) ;",
+     "ordinal": 24,
      "original_name": "GEO_SRC",
      "tab_type": "Char",
      "width": "10"
@@ -191598,7 +192038,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    COMPILER Char (10) ;",
-     "ordinal": 23,
+     "ordinal": 25,
      "original_name": "COMPILER",
      "tab_type": "Char",
      "width": "10"
@@ -191606,7 +192046,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    GEOCOMPLE Char (12) ;",
-     "ordinal": 24,
+     "ordinal": 26,
      "original_name": "GEOCOMPLE",
      "tab_type": "Char",
      "width": "12"
@@ -191614,7 +192054,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    CHECKER Char (10) ;",
-     "ordinal": 25,
+     "ordinal": 27,
      "original_name": "CHECKER",
      "tab_type": "Char",
      "width": "10"
@@ -191622,7 +192062,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    ENT_DATE Char (10) ;",
-     "ordinal": 26,
+     "ordinal": 28,
      "original_name": "ENT_DATE",
      "tab_type": "Char",
      "width": "10"
@@ -192505,8 +192945,16 @@
     },
     {
      "decimals": null,
-     "definition_line_verbatim": "    NAME_FT Char (30) ;",
+     "definition_line_verbatim": "    NAME_CH Char (30) Index 1 ;",
      "ordinal": 2,
+     "original_name": "NAME_CH",
+     "tab_type": "Char",
+     "width": "30"
+    },
+    {
+     "decimals": null,
+     "definition_line_verbatim": "    NAME_FT Char (30) ;",
+     "ordinal": 3,
      "original_name": "NAME_FT",
      "tab_type": "Char",
      "width": "30"
@@ -192514,7 +192962,7 @@
     {
      "decimals": "6",
      "definition_line_verbatim": "    X_COOR Decimal (10, 6) ;",
-     "ordinal": 3,
+     "ordinal": 4,
      "original_name": "X_COOR",
      "tab_type": "Decimal",
      "width": "10"
@@ -192522,7 +192970,7 @@
     {
      "decimals": "6",
      "definition_line_verbatim": "    Y_COOR Decimal (10, 6) ;",
-     "ordinal": 4,
+     "ordinal": 5,
      "original_name": "Y_COOR",
      "tab_type": "Decimal",
      "width": "10"
@@ -192530,7 +192978,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    PRES_LOC Char (50) ;",
-     "ordinal": 5,
+     "ordinal": 6,
      "original_name": "PRES_LOC",
      "tab_type": "Char",
      "width": "50"
@@ -192538,7 +192986,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    TYPE_PY Char (30) ;",
-     "ordinal": 6,
+     "ordinal": 7,
      "original_name": "TYPE_PY",
      "tab_type": "Char",
      "width": "30"
@@ -192546,7 +192994,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    TYPE_CH Char (20) ;",
-     "ordinal": 7,
+     "ordinal": 8,
      "original_name": "TYPE_CH",
      "tab_type": "Char",
      "width": "20"
@@ -192554,7 +193002,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    LEV_RANG Char (1) ;",
-     "ordinal": 8,
+     "ordinal": 9,
      "original_name": "LEV_RANG",
      "tab_type": "Char",
      "width": "1"
@@ -192562,7 +193010,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    BEG_YR Smallint ;",
-     "ordinal": 9,
+     "ordinal": 10,
      "original_name": "BEG_YR",
      "tab_type": "Smallint",
      "width": null
@@ -192570,7 +193018,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    BEG_RULE Char (1) ;",
-     "ordinal": 10,
+     "ordinal": 11,
      "original_name": "BEG_RULE",
      "tab_type": "Char",
      "width": "1"
@@ -192578,7 +193026,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    END_YR Smallint ;",
-     "ordinal": 11,
+     "ordinal": 12,
      "original_name": "END_YR",
      "tab_type": "Smallint",
      "width": null
@@ -192586,7 +193034,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    END_RULE Char (1) ;",
-     "ordinal": 12,
+     "ordinal": 13,
      "original_name": "END_RULE",
      "tab_type": "Char",
      "width": "1"
@@ -192594,7 +193042,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    DYN_PY Char (30) ;",
-     "ordinal": 13,
+     "ordinal": 14,
      "original_name": "DYN_PY",
      "tab_type": "Char",
      "width": "30"
@@ -192602,7 +193050,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    DYN_CH Char (20) ;",
-     "ordinal": 14,
+     "ordinal": 15,
      "original_name": "DYN_CH",
      "tab_type": "Char",
      "width": "20"
@@ -192610,7 +193058,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    LEV1_PY Char (30) ;",
-     "ordinal": 15,
+     "ordinal": 16,
      "original_name": "LEV1_PY",
      "tab_type": "Char",
      "width": "30"
@@ -192618,7 +193066,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    LEV1_CH Char (20) ;",
-     "ordinal": 16,
+     "ordinal": 17,
      "original_name": "LEV1_CH",
      "tab_type": "Char",
      "width": "20"
@@ -192626,7 +193074,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    LEV2_PY Char (30) ;",
-     "ordinal": 17,
+     "ordinal": 18,
      "original_name": "LEV2_PY",
      "tab_type": "Char",
      "width": "30"
@@ -192634,7 +193082,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    LEV2_CH Char (20) ;",
-     "ordinal": 18,
+     "ordinal": 19,
      "original_name": "LEV2_CH",
      "tab_type": "Char",
      "width": "20"
@@ -192642,7 +193090,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    NOTE_ID Integer ;",
-     "ordinal": 19,
+     "ordinal": 20,
      "original_name": "NOTE_ID",
      "tab_type": "Integer",
      "width": null
@@ -192650,15 +193098,23 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    OBJ_TYPE Char (7) ;",
-     "ordinal": 20,
+     "ordinal": 21,
      "original_name": "OBJ_TYPE",
      "tab_type": "Char",
      "width": "7"
     },
     {
      "decimals": null,
+     "definition_line_verbatim": "    SYS_ID Smallint Index 2 ;",
+     "ordinal": 22,
+     "original_name": "SYS_ID",
+     "tab_type": "Smallint",
+     "width": null
+    },
+    {
+     "decimals": null,
      "definition_line_verbatim": "    GEO_ID Integer ;",
-     "ordinal": 21,
+     "ordinal": 23,
      "original_name": "GEO_ID",
      "tab_type": "Integer",
      "width": null
@@ -192666,7 +193122,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    GEO_SRC Char (10) ;",
-     "ordinal": 22,
+     "ordinal": 24,
      "original_name": "GEO_SRC",
      "tab_type": "Char",
      "width": "10"
@@ -192674,7 +193130,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    COMPILER Char (10) ;",
-     "ordinal": 23,
+     "ordinal": 25,
      "original_name": "COMPILER",
      "tab_type": "Char",
      "width": "10"
@@ -192682,7 +193138,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    GEOCOMPLE Char (10) ;",
-     "ordinal": 24,
+     "ordinal": 26,
      "original_name": "GEOCOMPLE",
      "tab_type": "Char",
      "width": "10"
@@ -192690,7 +193146,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    CHECKER Char (10) ;",
-     "ordinal": 25,
+     "ordinal": 27,
      "original_name": "CHECKER",
      "tab_type": "Char",
      "width": "10"
@@ -192698,7 +193154,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    ENT_DATE Char (10) ;",
-     "ordinal": 26,
+     "ordinal": 28,
      "original_name": "ENT_DATE",
      "tab_type": "Char",
      "width": "10"
@@ -193047,8 +193503,16 @@
    "attribute_order_from_dbf_header": [
     {
      "decimals": null,
-     "definition_line_verbatim": "    Character_name Char (20) ;",
+     "definition_line_verbatim": "    Key_ID Smallint Index 1 ;",
      "ordinal": 1,
+     "original_name": "Key_ID",
+     "tab_type": "Smallint",
+     "width": null
+    },
+    {
+     "decimals": null,
+     "definition_line_verbatim": "    Character_name Char (20) ;",
+     "ordinal": 2,
      "original_name": "Character_name",
      "tab_type": "Char",
      "width": "20"
@@ -193056,7 +193520,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    Fanti_name Char (20) ;",
-     "ordinal": 2,
+     "ordinal": 3,
      "original_name": "Fanti_name",
      "tab_type": "Char",
      "width": "20"
@@ -193064,7 +193528,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    Pinyin_name Char (30) ;",
-     "ordinal": 3,
+     "ordinal": 4,
      "original_name": "Pinyin_name",
      "tab_type": "Char",
      "width": "30"
@@ -193072,7 +193536,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    system_id Smallint ;",
-     "ordinal": 4,
+     "ordinal": 5,
      "original_name": "system_id",
      "tab_type": "Smallint",
      "width": null
@@ -193138,8 +193602,16 @@
    "attribute_order_from_dbf_header": [
     {
      "decimals": null,
-     "definition_line_verbatim": "    Pinyin_name Char (30) ;",
+     "definition_line_verbatim": "    Key_ID Smallint Index 1 ;",
      "ordinal": 1,
+     "original_name": "Key_ID",
+     "tab_type": "Smallint",
+     "width": null
+    },
+    {
+     "decimals": null,
+     "definition_line_verbatim": "    Pinyin_name Char (30) ;",
+     "ordinal": 2,
      "original_name": "Pinyin_name",
      "tab_type": "Char",
      "width": "30"
@@ -193147,7 +193619,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    hz_jianti_name Char (20) ;",
-     "ordinal": 2,
+     "ordinal": 3,
      "original_name": "hz_jianti_name",
      "tab_type": "Char",
      "width": "20"
@@ -193155,7 +193627,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    hz_fanti_name Char (20) ;",
-     "ordinal": 3,
+     "ordinal": 4,
      "original_name": "hz_fanti_name",
      "tab_type": "Char",
      "width": "20"
@@ -193163,7 +193635,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    system_id Smallint ;",
-     "ordinal": 4,
+     "ordinal": 5,
      "original_name": "system_id",
      "tab_type": "Smallint",
      "width": null
@@ -193373,8 +193845,16 @@
     },
     {
      "decimals": null,
-     "definition_line_verbatim": "    CNTY_PY Char (30) ;",
+     "definition_line_verbatim": "    LEV2_CH Char (30) Index 1 ;",
      "ordinal": 19,
+     "original_name": "LEV2_CH",
+     "tab_type": "Char",
+     "width": "30"
+    },
+    {
+     "decimals": null,
+     "definition_line_verbatim": "    CNTY_PY Char (30) ;",
+     "ordinal": 20,
      "original_name": "CNTY_PY",
      "tab_type": "Char",
      "width": "30"
@@ -193382,7 +193862,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    CNTY_CH Char (20) ;",
-     "ordinal": 20,
+     "ordinal": 21,
      "original_name": "CNTY_CH",
      "tab_type": "Char",
      "width": "20"
@@ -193390,7 +193870,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    NOTE_ID Integer ;",
-     "ordinal": 21,
+     "ordinal": 22,
      "original_name": "NOTE_ID",
      "tab_type": "Integer",
      "width": null
@@ -193398,7 +193878,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    OBJ_TYPR Char (7) ;",
-     "ordinal": 22,
+     "ordinal": 23,
      "original_name": "OBJ_TYPR",
      "tab_type": "Char",
      "width": "7"
@@ -193406,7 +193886,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    SYS_ID Integer ;",
-     "ordinal": 23,
+     "ordinal": 24,
      "original_name": "SYS_ID",
      "tab_type": "Integer",
      "width": null
@@ -193414,7 +193894,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    GEO_SRC Char (10) ;",
-     "ordinal": 24,
+     "ordinal": 25,
      "original_name": "GEO_SRC",
      "tab_type": "Char",
      "width": "10"
@@ -193422,7 +193902,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    COMPILER Char (10) ;",
-     "ordinal": 25,
+     "ordinal": 26,
      "original_name": "COMPILER",
      "tab_type": "Char",
      "width": "10"
@@ -193430,7 +193910,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    GEOCOMPLR Char (12) ;",
-     "ordinal": 26,
+     "ordinal": 27,
      "original_name": "GEOCOMPLR",
      "tab_type": "Char",
      "width": "12"
@@ -193438,7 +193918,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    CHECKER Char (10) ;",
-     "ordinal": 27,
+     "ordinal": 28,
      "original_name": "CHECKER",
      "tab_type": "Char",
      "width": "10"
@@ -193446,7 +193926,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    ENT_DATE Char (10) ;",
-     "ordinal": 28,
+     "ordinal": 29,
      "original_name": "ENT_DATE",
      "tab_type": "Char",
      "width": "10"
@@ -193811,8 +194291,16 @@
     },
     {
      "decimals": null,
-     "definition_line_verbatim": "    NAME_FT Char (30) ;",
+     "definition_line_verbatim": "    NAME_CH Char (30) Index 1 ;",
      "ordinal": 2,
+     "original_name": "NAME_CH",
+     "tab_type": "Char",
+     "width": "30"
+    },
+    {
+     "decimals": null,
+     "definition_line_verbatim": "    NAME_FT Char (30) ;",
+     "ordinal": 3,
      "original_name": "NAME_FT",
      "tab_type": "Char",
      "width": "30"
@@ -193820,7 +194308,7 @@
     {
      "decimals": "6",
      "definition_line_verbatim": "    X_COOR Decimal (10, 6) ;",
-     "ordinal": 3,
+     "ordinal": 4,
      "original_name": "X_COOR",
      "tab_type": "Decimal",
      "width": "10"
@@ -193828,7 +194316,7 @@
     {
      "decimals": "6",
      "definition_line_verbatim": "    Y_COOR Decimal (10, 6) ;",
-     "ordinal": 4,
+     "ordinal": 5,
      "original_name": "Y_COOR",
      "tab_type": "Decimal",
      "width": "10"
@@ -193836,7 +194324,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    PRES_LOC Char (40) ;",
-     "ordinal": 5,
+     "ordinal": 6,
      "original_name": "PRES_LOC",
      "tab_type": "Char",
      "width": "40"
@@ -193844,7 +194332,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    TYPE_PY Char (15) ;",
-     "ordinal": 6,
+     "ordinal": 7,
      "original_name": "TYPE_PY",
      "tab_type": "Char",
      "width": "15"
@@ -193852,7 +194340,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    TYPE_CH Char (10) ;",
-     "ordinal": 7,
+     "ordinal": 8,
      "original_name": "TYPE_CH",
      "tab_type": "Char",
      "width": "10"
@@ -193860,7 +194348,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    LEV_RANG Char (1) ;",
-     "ordinal": 8,
+     "ordinal": 9,
      "original_name": "LEV_RANG",
      "tab_type": "Char",
      "width": "1"
@@ -193868,7 +194356,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    BEG_YR Smallint ;",
-     "ordinal": 9,
+     "ordinal": 10,
      "original_name": "BEG_YR",
      "tab_type": "Smallint",
      "width": null
@@ -193876,7 +194364,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    BEG_RULE Char (1) ;",
-     "ordinal": 10,
+     "ordinal": 11,
      "original_name": "BEG_RULE",
      "tab_type": "Char",
      "width": "1"
@@ -193884,7 +194372,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    END_YR Smallint ;",
-     "ordinal": 11,
+     "ordinal": 12,
      "original_name": "END_YR",
      "tab_type": "Smallint",
      "width": null
@@ -193892,7 +194380,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    EY_RULE Char (1) ;",
-     "ordinal": 12,
+     "ordinal": 13,
      "original_name": "EY_RULE",
      "tab_type": "Char",
      "width": "1"
@@ -193900,7 +194388,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    DYN_PY Char (20) ;",
-     "ordinal": 13,
+     "ordinal": 14,
      "original_name": "DYN_PY",
      "tab_type": "Char",
      "width": "20"
@@ -193908,7 +194396,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    DYN_CH Char (10) ;",
-     "ordinal": 14,
+     "ordinal": 15,
      "original_name": "DYN_CH",
      "tab_type": "Char",
      "width": "10"
@@ -193916,15 +194404,23 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    LEV1_PY Char (30) ;",
-     "ordinal": 15,
+     "ordinal": 16,
      "original_name": "LEV1_PY",
      "tab_type": "Char",
      "width": "30"
     },
     {
      "decimals": null,
+     "definition_line_verbatim": "    LEV1_CH Char (20) Index 2 ;",
+     "ordinal": 17,
+     "original_name": "LEV1_CH",
+     "tab_type": "Char",
+     "width": "20"
+    },
+    {
+     "decimals": null,
      "definition_line_verbatim": "    LEV2_PY Char (30) ;",
-     "ordinal": 16,
+     "ordinal": 18,
      "original_name": "LEV2_PY",
      "tab_type": "Char",
      "width": "30"
@@ -193932,7 +194428,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    LEV2_CH Char (20) ;",
-     "ordinal": 17,
+     "ordinal": 19,
      "original_name": "LEV2_CH",
      "tab_type": "Char",
      "width": "20"
@@ -193940,7 +194436,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    NOTE_ID Char (16) ;",
-     "ordinal": 18,
+     "ordinal": 20,
      "original_name": "NOTE_ID",
      "tab_type": "Char",
      "width": "16"
@@ -193948,7 +194444,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    OBJ_TYPE Char (7) ;",
-     "ordinal": 19,
+     "ordinal": 21,
      "original_name": "OBJ_TYPE",
      "tab_type": "Char",
      "width": "7"
@@ -193956,7 +194452,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    SYS_ID Char (16) ;",
-     "ordinal": 20,
+     "ordinal": 22,
      "original_name": "SYS_ID",
      "tab_type": "Char",
      "width": "16"
@@ -193964,7 +194460,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    GEO_SRC Char (10) ;",
-     "ordinal": 21,
+     "ordinal": 23,
      "original_name": "GEO_SRC",
      "tab_type": "Char",
      "width": "10"
@@ -193972,7 +194468,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    COMPILER Char (10) ;",
-     "ordinal": 22,
+     "ordinal": 24,
      "original_name": "COMPILER",
      "tab_type": "Char",
      "width": "10"
@@ -193980,7 +194476,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    GECOMPER Char (10) ;",
-     "ordinal": 23,
+     "ordinal": 25,
      "original_name": "GECOMPER",
      "tab_type": "Char",
      "width": "10"
@@ -193988,7 +194484,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    CHECKER Char (10) ;",
-     "ordinal": 24,
+     "ordinal": 26,
      "original_name": "CHECKER",
      "tab_type": "Char",
      "width": "10"
@@ -193996,7 +194492,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    ENT_DATE Char (10) ;",
-     "ordinal": 25,
+     "ordinal": 27,
      "original_name": "ENT_DATE",
      "tab_type": "Char",
      "width": "10"
@@ -194927,8 +195423,16 @@
     },
     {
      "decimals": null,
-     "definition_line_verbatim": "    NAME_FT Char (30) ;",
+     "definition_line_verbatim": "    NAME_CH Char (30) Index 1 ;",
      "ordinal": 2,
+     "original_name": "NAME_CH",
+     "tab_type": "Char",
+     "width": "30"
+    },
+    {
+     "decimals": null,
+     "definition_line_verbatim": "    NAME_FT Char (30) ;",
+     "ordinal": 3,
      "original_name": "NAME_FT",
      "tab_type": "Char",
      "width": "30"
@@ -194936,7 +195440,7 @@
     {
      "decimals": "6",
      "definition_line_verbatim": "    X_COOR Decimal (10, 6) ;",
-     "ordinal": 3,
+     "ordinal": 4,
      "original_name": "X_COOR",
      "tab_type": "Decimal",
      "width": "10"
@@ -194944,7 +195448,7 @@
     {
      "decimals": "6",
      "definition_line_verbatim": "    Y_COOR Decimal (10, 6) ;",
-     "ordinal": 4,
+     "ordinal": 5,
      "original_name": "Y_COOR",
      "tab_type": "Decimal",
      "width": "10"
@@ -194952,7 +195456,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    PRES_LOC Char (40) ;",
-     "ordinal": 5,
+     "ordinal": 6,
      "original_name": "PRES_LOC",
      "tab_type": "Char",
      "width": "40"
@@ -194960,7 +195464,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    TYPE_PY Char (15) ;",
-     "ordinal": 6,
+     "ordinal": 7,
      "original_name": "TYPE_PY",
      "tab_type": "Char",
      "width": "15"
@@ -194968,7 +195472,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    TYPE_CH Char (10) ;",
-     "ordinal": 7,
+     "ordinal": 8,
      "original_name": "TYPE_CH",
      "tab_type": "Char",
      "width": "10"
@@ -194976,7 +195480,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    LEV_RANK Char (1) ;",
-     "ordinal": 8,
+     "ordinal": 9,
      "original_name": "LEV_RANK",
      "tab_type": "Char",
      "width": "1"
@@ -194984,7 +195488,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    BEG_YR Smallint ;",
-     "ordinal": 9,
+     "ordinal": 10,
      "original_name": "BEG_YR",
      "tab_type": "Smallint",
      "width": null
@@ -194992,7 +195496,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    BEG_RULE Char (1) ;",
-     "ordinal": 10,
+     "ordinal": 11,
      "original_name": "BEG_RULE",
      "tab_type": "Char",
      "width": "1"
@@ -195000,7 +195504,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    END_YR Smallint ;",
-     "ordinal": 11,
+     "ordinal": 12,
      "original_name": "END_YR",
      "tab_type": "Smallint",
      "width": null
@@ -195008,7 +195512,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    EY_RULE Char (1) ;",
-     "ordinal": 12,
+     "ordinal": 13,
      "original_name": "EY_RULE",
      "tab_type": "Char",
      "width": "1"
@@ -195016,7 +195520,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    DYN_PY Char (20) ;",
-     "ordinal": 13,
+     "ordinal": 14,
      "original_name": "DYN_PY",
      "tab_type": "Char",
      "width": "20"
@@ -195024,7 +195528,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    DYN_CH Char (10) ;",
-     "ordinal": 14,
+     "ordinal": 15,
      "original_name": "DYN_CH",
      "tab_type": "Char",
      "width": "10"
@@ -195032,7 +195536,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    LEV1_PY Char (30) ;",
-     "ordinal": 15,
+     "ordinal": 16,
      "original_name": "LEV1_PY",
      "tab_type": "Char",
      "width": "30"
@@ -195040,7 +195544,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    LEV1_CH Char (20) ;",
-     "ordinal": 16,
+     "ordinal": 17,
      "original_name": "LEV1_CH",
      "tab_type": "Char",
      "width": "20"
@@ -195048,7 +195552,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    LEV2_PY Char (30) ;",
-     "ordinal": 17,
+     "ordinal": 18,
      "original_name": "LEV2_PY",
      "tab_type": "Char",
      "width": "30"
@@ -195056,7 +195560,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    LEV2_CH Char (20) ;",
-     "ordinal": 18,
+     "ordinal": 19,
      "original_name": "LEV2_CH",
      "tab_type": "Char",
      "width": "20"
@@ -195064,7 +195568,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    NOTE_ID Char (16) ;",
-     "ordinal": 19,
+     "ordinal": 20,
      "original_name": "NOTE_ID",
      "tab_type": "Char",
      "width": "16"
@@ -195072,7 +195576,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    OBJ_TYPE Char (7) ;",
-     "ordinal": 20,
+     "ordinal": 21,
      "original_name": "OBJ_TYPE",
      "tab_type": "Char",
      "width": "7"
@@ -195080,7 +195584,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    SYS_ID Char (16) ;",
-     "ordinal": 21,
+     "ordinal": 22,
      "original_name": "SYS_ID",
      "tab_type": "Char",
      "width": "16"
@@ -195088,7 +195592,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    GEO_SRC Char (10) ;",
-     "ordinal": 22,
+     "ordinal": 23,
      "original_name": "GEO_SRC",
      "tab_type": "Char",
      "width": "10"
@@ -195096,7 +195600,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    COMPILER Char (10) ;",
-     "ordinal": 23,
+     "ordinal": 24,
      "original_name": "COMPILER",
      "tab_type": "Char",
      "width": "10"
@@ -195104,7 +195608,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    GEOCOMP Char (10) ;",
-     "ordinal": 24,
+     "ordinal": 25,
      "original_name": "GEOCOMP",
      "tab_type": "Char",
      "width": "10"
@@ -195112,7 +195616,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    CHECKER Char (10) ;",
-     "ordinal": 25,
+     "ordinal": 26,
      "original_name": "CHECKER",
      "tab_type": "Char",
      "width": "10"
@@ -195120,7 +195624,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    ENT_DATE Char (10) ;",
-     "ordinal": 26,
+     "ordinal": 27,
      "original_name": "ENT_DATE",
      "tab_type": "Char",
      "width": "10"
@@ -196051,8 +196555,16 @@
     },
     {
      "decimals": null,
-     "definition_line_verbatim": "    NAME_FT Char (30) ;",
+     "definition_line_verbatim": "    NAME_CH Char (30) Index 1 ;",
      "ordinal": 2,
+     "original_name": "NAME_CH",
+     "tab_type": "Char",
+     "width": "30"
+    },
+    {
+     "decimals": null,
+     "definition_line_verbatim": "    NAME_FT Char (30) ;",
+     "ordinal": 3,
      "original_name": "NAME_FT",
      "tab_type": "Char",
      "width": "30"
@@ -196060,7 +196572,7 @@
     {
      "decimals": "6",
      "definition_line_verbatim": "    X_COOR Decimal (10, 6) ;",
-     "ordinal": 3,
+     "ordinal": 4,
      "original_name": "X_COOR",
      "tab_type": "Decimal",
      "width": "10"
@@ -196068,7 +196580,7 @@
     {
      "decimals": "6",
      "definition_line_verbatim": "    Y_COOR Decimal (10, 6) ;",
-     "ordinal": 4,
+     "ordinal": 5,
      "original_name": "Y_COOR",
      "tab_type": "Decimal",
      "width": "10"
@@ -196076,7 +196588,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    PRES_LOC Char (40) ;",
-     "ordinal": 5,
+     "ordinal": 6,
      "original_name": "PRES_LOC",
      "tab_type": "Char",
      "width": "40"
@@ -196084,7 +196596,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    TYPE_PY Char (15) ;",
-     "ordinal": 6,
+     "ordinal": 7,
      "original_name": "TYPE_PY",
      "tab_type": "Char",
      "width": "15"
@@ -196092,7 +196604,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    TYPE_CH Char (10) ;",
-     "ordinal": 7,
+     "ordinal": 8,
      "original_name": "TYPE_CH",
      "tab_type": "Char",
      "width": "10"
@@ -196100,7 +196612,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    LEV_RANK Char (1) ;",
-     "ordinal": 8,
+     "ordinal": 9,
      "original_name": "LEV_RANK",
      "tab_type": "Char",
      "width": "1"
@@ -196108,7 +196620,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    BEG_YR Smallint ;",
-     "ordinal": 9,
+     "ordinal": 10,
      "original_name": "BEG_YR",
      "tab_type": "Smallint",
      "width": null
@@ -196116,7 +196628,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    BEG_RULE Char (1) ;",
-     "ordinal": 10,
+     "ordinal": 11,
      "original_name": "BEG_RULE",
      "tab_type": "Char",
      "width": "1"
@@ -196124,7 +196636,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    END_YR Smallint ;",
-     "ordinal": 11,
+     "ordinal": 12,
      "original_name": "END_YR",
      "tab_type": "Smallint",
      "width": null
@@ -196132,7 +196644,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    EY_RULE Char (1) ;",
-     "ordinal": 12,
+     "ordinal": 13,
      "original_name": "EY_RULE",
      "tab_type": "Char",
      "width": "1"
@@ -196140,7 +196652,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    DYN_PY Char (20) ;",
-     "ordinal": 13,
+     "ordinal": 14,
      "original_name": "DYN_PY",
      "tab_type": "Char",
      "width": "20"
@@ -196148,7 +196660,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    DYN_CH Char (10) ;",
-     "ordinal": 14,
+     "ordinal": 15,
      "original_name": "DYN_CH",
      "tab_type": "Char",
      "width": "10"
@@ -196156,7 +196668,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    LEV1_PY Char (30) ;",
-     "ordinal": 15,
+     "ordinal": 16,
      "original_name": "LEV1_PY",
      "tab_type": "Char",
      "width": "30"
@@ -196164,7 +196676,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    LEV1_CH Char (20) ;",
-     "ordinal": 16,
+     "ordinal": 17,
      "original_name": "LEV1_CH",
      "tab_type": "Char",
      "width": "20"
@@ -196172,7 +196684,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    LEV2_PY Char (30) ;",
-     "ordinal": 17,
+     "ordinal": 18,
      "original_name": "LEV2_PY",
      "tab_type": "Char",
      "width": "30"
@@ -196180,7 +196692,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    LEV2_CH Char (20) ;",
-     "ordinal": 18,
+     "ordinal": 19,
      "original_name": "LEV2_CH",
      "tab_type": "Char",
      "width": "20"
@@ -196188,7 +196700,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    NOTE_ID Char (16) ;",
-     "ordinal": 19,
+     "ordinal": 20,
      "original_name": "NOTE_ID",
      "tab_type": "Char",
      "width": "16"
@@ -196196,7 +196708,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    OBJ_TYPE Char (7) ;",
-     "ordinal": 20,
+     "ordinal": 21,
      "original_name": "OBJ_TYPE",
      "tab_type": "Char",
      "width": "7"
@@ -196204,7 +196716,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    SYS_ID Char (16) ;",
-     "ordinal": 21,
+     "ordinal": 22,
      "original_name": "SYS_ID",
      "tab_type": "Char",
      "width": "16"
@@ -196212,7 +196724,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    GEO_SRC Char (10) ;",
-     "ordinal": 22,
+     "ordinal": 23,
      "original_name": "GEO_SRC",
      "tab_type": "Char",
      "width": "10"
@@ -196220,7 +196732,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    COMPILER Char (10) ;",
-     "ordinal": 23,
+     "ordinal": 24,
      "original_name": "COMPILER",
      "tab_type": "Char",
      "width": "10"
@@ -196228,7 +196740,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    GEOCOMP Char (10) ;",
-     "ordinal": 24,
+     "ordinal": 25,
      "original_name": "GEOCOMP",
      "tab_type": "Char",
      "width": "10"
@@ -196236,7 +196748,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    CHECKER Char (10) ;",
-     "ordinal": 25,
+     "ordinal": 26,
      "original_name": "CHECKER",
      "tab_type": "Char",
      "width": "10"
@@ -196244,7 +196756,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    ENT_DATE Char (10) ;",
-     "ordinal": 26,
+     "ordinal": 27,
      "original_name": "ENT_DATE",
      "tab_type": "Char",
      "width": "10"
@@ -196593,8 +197105,16 @@
     },
     {
      "decimals": null,
-     "definition_line_verbatim": "    NAME_FT Char (30) ;",
+     "definition_line_verbatim": "    NAME_CH Char (30) Index 1 ;",
      "ordinal": 2,
+     "original_name": "NAME_CH",
+     "tab_type": "Char",
+     "width": "30"
+    },
+    {
+     "decimals": null,
+     "definition_line_verbatim": "    NAME_FT Char (30) ;",
+     "ordinal": 3,
      "original_name": "NAME_FT",
      "tab_type": "Char",
      "width": "30"
@@ -196602,7 +197122,7 @@
     {
      "decimals": "6",
      "definition_line_verbatim": "    X_COOR Decimal (10, 6) ;",
-     "ordinal": 3,
+     "ordinal": 4,
      "original_name": "X_COOR",
      "tab_type": "Decimal",
      "width": "10"
@@ -196610,7 +197130,7 @@
     {
      "decimals": "6",
      "definition_line_verbatim": "    Y_COOR Decimal (10, 6) ;",
-     "ordinal": 4,
+     "ordinal": 5,
      "original_name": "Y_COOR",
      "tab_type": "Decimal",
      "width": "10"
@@ -196618,7 +197138,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    PRES_LOC Char (40) ;",
-     "ordinal": 5,
+     "ordinal": 6,
      "original_name": "PRES_LOC",
      "tab_type": "Char",
      "width": "40"
@@ -196626,7 +197146,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    TYPE_PY Char (15) ;",
-     "ordinal": 6,
+     "ordinal": 7,
      "original_name": "TYPE_PY",
      "tab_type": "Char",
      "width": "15"
@@ -196634,7 +197154,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    TYPE_CH Char (10) ;",
-     "ordinal": 7,
+     "ordinal": 8,
      "original_name": "TYPE_CH",
      "tab_type": "Char",
      "width": "10"
@@ -196642,7 +197162,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    LEV_RANK Char (1) ;",
-     "ordinal": 8,
+     "ordinal": 9,
      "original_name": "LEV_RANK",
      "tab_type": "Char",
      "width": "1"
@@ -196650,7 +197170,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    BEG_YR Smallint ;",
-     "ordinal": 9,
+     "ordinal": 10,
      "original_name": "BEG_YR",
      "tab_type": "Smallint",
      "width": null
@@ -196658,7 +197178,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    BEG_RULE Char (1) ;",
-     "ordinal": 10,
+     "ordinal": 11,
      "original_name": "BEG_RULE",
      "tab_type": "Char",
      "width": "1"
@@ -196666,7 +197186,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    END_YR Smallint ;",
-     "ordinal": 11,
+     "ordinal": 12,
      "original_name": "END_YR",
      "tab_type": "Smallint",
      "width": null
@@ -196674,7 +197194,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    EY_RULE Char (1) ;",
-     "ordinal": 12,
+     "ordinal": 13,
      "original_name": "EY_RULE",
      "tab_type": "Char",
      "width": "1"
@@ -196682,7 +197202,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    DYN_PY Char (20) ;",
-     "ordinal": 13,
+     "ordinal": 14,
      "original_name": "DYN_PY",
      "tab_type": "Char",
      "width": "20"
@@ -196690,7 +197210,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    DYN_CH Char (10) ;",
-     "ordinal": 14,
+     "ordinal": 15,
      "original_name": "DYN_CH",
      "tab_type": "Char",
      "width": "10"
@@ -196698,7 +197218,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    LEV1_PY Char (30) ;",
-     "ordinal": 15,
+     "ordinal": 16,
      "original_name": "LEV1_PY",
      "tab_type": "Char",
      "width": "30"
@@ -196706,7 +197226,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    LEV1_CH Char (20) ;",
-     "ordinal": 16,
+     "ordinal": 17,
      "original_name": "LEV1_CH",
      "tab_type": "Char",
      "width": "20"
@@ -196714,7 +197234,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    LEV2_PY Char (30) ;",
-     "ordinal": 17,
+     "ordinal": 18,
      "original_name": "LEV2_PY",
      "tab_type": "Char",
      "width": "30"
@@ -196722,7 +197242,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    LEV2_CH Char (20) ;",
-     "ordinal": 18,
+     "ordinal": 19,
      "original_name": "LEV2_CH",
      "tab_type": "Char",
      "width": "20"
@@ -196730,7 +197250,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    NOTE_ID Char (16) ;",
-     "ordinal": 19,
+     "ordinal": 20,
      "original_name": "NOTE_ID",
      "tab_type": "Char",
      "width": "16"
@@ -196738,7 +197258,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    OBJ_TYPE Char (7) ;",
-     "ordinal": 20,
+     "ordinal": 21,
      "original_name": "OBJ_TYPE",
      "tab_type": "Char",
      "width": "7"
@@ -196746,7 +197266,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    SYS_ID Char (16) ;",
-     "ordinal": 21,
+     "ordinal": 22,
      "original_name": "SYS_ID",
      "tab_type": "Char",
      "width": "16"
@@ -196754,7 +197274,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    GEO_SRC Char (10) ;",
-     "ordinal": 22,
+     "ordinal": 23,
      "original_name": "GEO_SRC",
      "tab_type": "Char",
      "width": "10"
@@ -196762,7 +197282,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    COMPILER Char (10) ;",
-     "ordinal": 23,
+     "ordinal": 24,
      "original_name": "COMPILER",
      "tab_type": "Char",
      "width": "10"
@@ -196770,7 +197290,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    GEOCOMP Char (10) ;",
-     "ordinal": 24,
+     "ordinal": 25,
      "original_name": "GEOCOMP",
      "tab_type": "Char",
      "width": "10"
@@ -196778,7 +197298,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    CHECKER Char (10) ;",
-     "ordinal": 25,
+     "ordinal": 26,
      "original_name": "CHECKER",
      "tab_type": "Char",
      "width": "10"
@@ -196786,7 +197306,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    ENT_DATE Char (10) ;",
-     "ordinal": 26,
+     "ordinal": 27,
      "original_name": "ENT_DATE",
      "tab_type": "Char",
      "width": "10"
@@ -197271,8 +197791,16 @@
     },
     {
      "decimals": null,
-     "definition_line_verbatim": "    COUNT_PY Char (30) ;",
+     "definition_line_verbatim": "    LEV2_CH Char (20) Index 1 ;",
      "ordinal": 19,
+     "original_name": "LEV2_CH",
+     "tab_type": "Char",
+     "width": "20"
+    },
+    {
+     "decimals": null,
+     "definition_line_verbatim": "    COUNT_PY Char (30) ;",
+     "ordinal": 20,
      "original_name": "COUNT_PY",
      "tab_type": "Char",
      "width": "30"
@@ -197280,7 +197808,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    COUNT_CH Char (20) ;",
-     "ordinal": 20,
+     "ordinal": 21,
      "original_name": "COUNT_CH",
      "tab_type": "Char",
      "width": "20"
@@ -197288,7 +197816,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    NOTE_ID Char (16) ;",
-     "ordinal": 21,
+     "ordinal": 22,
      "original_name": "NOTE_ID",
      "tab_type": "Char",
      "width": "16"
@@ -197296,7 +197824,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    OBJ_TYPE Char (7) ;",
-     "ordinal": 22,
+     "ordinal": 23,
      "original_name": "OBJ_TYPE",
      "tab_type": "Char",
      "width": "7"
@@ -197304,7 +197832,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    SYS_ID Char (16) ;",
-     "ordinal": 23,
+     "ordinal": 24,
      "original_name": "SYS_ID",
      "tab_type": "Char",
      "width": "16"
@@ -197312,7 +197840,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    GEO_SRC Char (10) ;",
-     "ordinal": 24,
+     "ordinal": 25,
      "original_name": "GEO_SRC",
      "tab_type": "Char",
      "width": "10"
@@ -197320,7 +197848,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    COMPILER Char (10) ;",
-     "ordinal": 25,
+     "ordinal": 26,
      "original_name": "COMPILER",
      "tab_type": "Char",
      "width": "10"
@@ -197328,7 +197856,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    GEOCOMP Char (10) ;",
-     "ordinal": 26,
+     "ordinal": 27,
      "original_name": "GEOCOMP",
      "tab_type": "Char",
      "width": "10"
@@ -197336,7 +197864,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    CHECKER Char (10) ;",
-     "ordinal": 27,
+     "ordinal": 28,
      "original_name": "CHECKER",
      "tab_type": "Char",
      "width": "10"
@@ -197344,7 +197872,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    ENT_DATE Char (10) ;",
-     "ordinal": 28,
+     "ordinal": 29,
      "original_name": "ENT_DATE",
      "tab_type": "Char",
      "width": "10"
@@ -198163,8 +198691,16 @@
     },
     {
      "decimals": null,
-     "definition_line_verbatim": "    NAME_FT Char (30) ;",
+     "definition_line_verbatim": "    NAME_CH Char (30) Index 1 ;",
      "ordinal": 2,
+     "original_name": "NAME_CH",
+     "tab_type": "Char",
+     "width": "30"
+    },
+    {
+     "decimals": null,
+     "definition_line_verbatim": "    NAME_FT Char (30) ;",
+     "ordinal": 3,
      "original_name": "NAME_FT",
      "tab_type": "Char",
      "width": "30"
@@ -198172,7 +198708,7 @@
     {
      "decimals": "6",
      "definition_line_verbatim": "    X_COOR Decimal (10, 6) ;",
-     "ordinal": 3,
+     "ordinal": 4,
      "original_name": "X_COOR",
      "tab_type": "Decimal",
      "width": "10"
@@ -198180,7 +198716,7 @@
     {
      "decimals": "6",
      "definition_line_verbatim": "    Y_COOR Decimal (10, 6) ;",
-     "ordinal": 4,
+     "ordinal": 5,
      "original_name": "Y_COOR",
      "tab_type": "Decimal",
      "width": "10"
@@ -198188,7 +198724,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    PRES_LOC Char (40) ;",
-     "ordinal": 5,
+     "ordinal": 6,
      "original_name": "PRES_LOC",
      "tab_type": "Char",
      "width": "40"
@@ -198196,7 +198732,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    TYPE_PY Char (15) ;",
-     "ordinal": 6,
+     "ordinal": 7,
      "original_name": "TYPE_PY",
      "tab_type": "Char",
      "width": "15"
@@ -198204,7 +198740,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    TYPE_CH Char (10) ;",
-     "ordinal": 7,
+     "ordinal": 8,
      "original_name": "TYPE_CH",
      "tab_type": "Char",
      "width": "10"
@@ -198212,7 +198748,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    LEV_RANK Char (1) ;",
-     "ordinal": 8,
+     "ordinal": 9,
      "original_name": "LEV_RANK",
      "tab_type": "Char",
      "width": "1"
@@ -198220,7 +198756,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    BEG_YR Smallint ;",
-     "ordinal": 9,
+     "ordinal": 10,
      "original_name": "BEG_YR",
      "tab_type": "Smallint",
      "width": null
@@ -198228,7 +198764,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    BEG_RULE Char (1) ;",
-     "ordinal": 10,
+     "ordinal": 11,
      "original_name": "BEG_RULE",
      "tab_type": "Char",
      "width": "1"
@@ -198236,7 +198772,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    END_YR Smallint ;",
-     "ordinal": 11,
+     "ordinal": 12,
      "original_name": "END_YR",
      "tab_type": "Smallint",
      "width": null
@@ -198244,7 +198780,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    END_RULE Char (1) ;",
-     "ordinal": 12,
+     "ordinal": 13,
      "original_name": "END_RULE",
      "tab_type": "Char",
      "width": "1"
@@ -198252,7 +198788,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    NOTE_ID Char (16) ;",
-     "ordinal": 13,
+     "ordinal": 14,
      "original_name": "NOTE_ID",
      "tab_type": "Char",
      "width": "16"
@@ -198260,7 +198796,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    OBJ_TYPE Char (7) ;",
-     "ordinal": 14,
+     "ordinal": 15,
      "original_name": "OBJ_TYPE",
      "tab_type": "Char",
      "width": "7"
@@ -198268,7 +198804,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    SYS_ID Char (16) ;",
-     "ordinal": 15,
+     "ordinal": 16,
      "original_name": "SYS_ID",
      "tab_type": "Char",
      "width": "16"
@@ -198276,7 +198812,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    GEO_SRC Char (10) ;",
-     "ordinal": 16,
+     "ordinal": 17,
      "original_name": "GEO_SRC",
      "tab_type": "Char",
      "width": "10"
@@ -198284,7 +198820,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    COMPILER Char (10) ;",
-     "ordinal": 17,
+     "ordinal": 18,
      "original_name": "COMPILER",
      "tab_type": "Char",
      "width": "10"
@@ -198292,7 +198828,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    GEOCOMP Char (10) ;",
-     "ordinal": 18,
+     "ordinal": 19,
      "original_name": "GEOCOMP",
      "tab_type": "Char",
      "width": "10"
@@ -198300,7 +198836,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    CHECKER Integer ;",
-     "ordinal": 19,
+     "ordinal": 20,
      "original_name": "CHECKER",
      "tab_type": "Integer",
      "width": null
@@ -198308,7 +198844,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    ENT_DATE Char (10) ;",
-     "ordinal": 20,
+     "ordinal": 21,
      "original_name": "ENT_DATE",
      "tab_type": "Char",
      "width": "10"
@@ -199087,8 +199623,16 @@
     },
     {
      "decimals": null,
-     "definition_line_verbatim": "    NAME_FT Char (30) ;",
+     "definition_line_verbatim": "    NAME_CH Char (30) Index 1 ;",
      "ordinal": 2,
+     "original_name": "NAME_CH",
+     "tab_type": "Char",
+     "width": "30"
+    },
+    {
+     "decimals": null,
+     "definition_line_verbatim": "    NAME_FT Char (30) ;",
+     "ordinal": 3,
      "original_name": "NAME_FT",
      "tab_type": "Char",
      "width": "30"
@@ -199096,7 +199640,7 @@
     {
      "decimals": "6",
      "definition_line_verbatim": "    X_COOR Decimal (10, 6) ;",
-     "ordinal": 3,
+     "ordinal": 4,
      "original_name": "X_COOR",
      "tab_type": "Decimal",
      "width": "10"
@@ -199104,7 +199648,7 @@
     {
      "decimals": "6",
      "definition_line_verbatim": "    Y_COOR Decimal (10, 6) ;",
-     "ordinal": 4,
+     "ordinal": 5,
      "original_name": "Y_COOR",
      "tab_type": "Decimal",
      "width": "10"
@@ -199112,7 +199656,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    PRES_LOC Char (40) ;",
-     "ordinal": 5,
+     "ordinal": 6,
      "original_name": "PRES_LOC",
      "tab_type": "Char",
      "width": "40"
@@ -199120,7 +199664,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    TYPE_PY Char (15) ;",
-     "ordinal": 6,
+     "ordinal": 7,
      "original_name": "TYPE_PY",
      "tab_type": "Char",
      "width": "15"
@@ -199128,7 +199672,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    TYPE_CH Char (10) ;",
-     "ordinal": 7,
+     "ordinal": 8,
      "original_name": "TYPE_CH",
      "tab_type": "Char",
      "width": "10"
@@ -199136,7 +199680,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    LEV_RANG Char (1) ;",
-     "ordinal": 8,
+     "ordinal": 9,
      "original_name": "LEV_RANG",
      "tab_type": "Char",
      "width": "1"
@@ -199144,7 +199688,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    BEG_YR Smallint ;",
-     "ordinal": 9,
+     "ordinal": 10,
      "original_name": "BEG_YR",
      "tab_type": "Smallint",
      "width": null
@@ -199152,7 +199696,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    BEG_RULE Char (1) ;",
-     "ordinal": 10,
+     "ordinal": 11,
      "original_name": "BEG_RULE",
      "tab_type": "Char",
      "width": "1"
@@ -199160,7 +199704,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    END_YR Smallint ;",
-     "ordinal": 11,
+     "ordinal": 12,
      "original_name": "END_YR",
      "tab_type": "Smallint",
      "width": null
@@ -199168,23 +199712,39 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    END_RULE Char (1) ;",
-     "ordinal": 12,
+     "ordinal": 13,
      "original_name": "END_RULE",
      "tab_type": "Char",
      "width": "1"
     },
     {
      "decimals": null,
+     "definition_line_verbatim": "    NOTE_ID Integer Index 2 ;",
+     "ordinal": 14,
+     "original_name": "NOTE_ID",
+     "tab_type": "Integer",
+     "width": null
+    },
+    {
+     "decimals": null,
      "definition_line_verbatim": "    OBJ_TYPE Char (7) ;",
-     "ordinal": 13,
+     "ordinal": 15,
      "original_name": "OBJ_TYPE",
      "tab_type": "Char",
      "width": "7"
     },
     {
      "decimals": null,
+     "definition_line_verbatim": "    SYS_ID Integer Index 3 ;",
+     "ordinal": 16,
+     "original_name": "SYS_ID",
+     "tab_type": "Integer",
+     "width": null
+    },
+    {
+     "decimals": null,
      "definition_line_verbatim": "    GEO_ID Integer ;",
-     "ordinal": 14,
+     "ordinal": 17,
      "original_name": "GEO_ID",
      "tab_type": "Integer",
      "width": null
@@ -199192,7 +199752,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    GEO_SRC Char (10) ;",
-     "ordinal": 15,
+     "ordinal": 18,
      "original_name": "GEO_SRC",
      "tab_type": "Char",
      "width": "10"
@@ -199200,7 +199760,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    COMPILER Char (10) ;",
-     "ordinal": 16,
+     "ordinal": 19,
      "original_name": "COMPILER",
      "tab_type": "Char",
      "width": "10"
@@ -199208,7 +199768,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    GECOMPLR Char (10) ;",
-     "ordinal": 17,
+     "ordinal": 20,
      "original_name": "GECOMPLR",
      "tab_type": "Char",
      "width": "10"
@@ -199216,7 +199776,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    CHECHER Char (10) ;",
-     "ordinal": 18,
+     "ordinal": 21,
      "original_name": "CHECHER",
      "tab_type": "Char",
      "width": "10"
@@ -199224,7 +199784,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    END_DATE Char (10) ;",
-     "ordinal": 19,
+     "ordinal": 22,
      "original_name": "END_DATE",
      "tab_type": "Char",
      "width": "10"
@@ -199290,8 +199850,16 @@
    "attribute_order_from_dbf_header": [
     {
      "decimals": null,
-     "definition_line_verbatim": "    NAME_PY Char (23) ;",
+     "definition_line_verbatim": "    SYS_ID Char (16) Index 1 ;",
      "ordinal": 1,
+     "original_name": "SYS_ID",
+     "tab_type": "Char",
+     "width": "16"
+    },
+    {
+     "decimals": null,
+     "definition_line_verbatim": "    NAME_PY Char (23) ;",
+     "ordinal": 2,
      "original_name": "NAME_PY",
      "tab_type": "Char",
      "width": "23"
@@ -199299,7 +199867,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    NAME_CH Char (12) ;",
-     "ordinal": 2,
+     "ordinal": 3,
      "original_name": "NAME_CH",
      "tab_type": "Char",
      "width": "12"
@@ -199307,7 +199875,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    NAME_FT Char (12) ;",
-     "ordinal": 3,
+     "ordinal": 4,
      "original_name": "NAME_FT",
      "tab_type": "Char",
      "width": "12"
@@ -199315,7 +199883,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    X_COOR Float ;",
-     "ordinal": 4,
+     "ordinal": 5,
      "original_name": "X_COOR",
      "tab_type": "Float",
      "width": null
@@ -199323,7 +199891,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    Y_COOR Float ;",
-     "ordinal": 5,
+     "ordinal": 6,
      "original_name": "Y_COOR",
      "tab_type": "Float",
      "width": null
@@ -199331,7 +199899,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    PRES_LOC Char (31) ;",
-     "ordinal": 6,
+     "ordinal": 7,
      "original_name": "PRES_LOC",
      "tab_type": "Char",
      "width": "31"
@@ -199339,7 +199907,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    TYPE_PY Char (9) ;",
-     "ordinal": 7,
+     "ordinal": 8,
      "original_name": "TYPE_PY",
      "tab_type": "Char",
      "width": "9"
@@ -199347,7 +199915,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    TYPE_CH Char (8) ;",
-     "ordinal": 8,
+     "ordinal": 9,
      "original_name": "TYPE_CH",
      "tab_type": "Char",
      "width": "8"
@@ -199355,7 +199923,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    LEV_RANG Char (1) ;",
-     "ordinal": 9,
+     "ordinal": 10,
      "original_name": "LEV_RANG",
      "tab_type": "Char",
      "width": "1"
@@ -199363,7 +199931,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    BEG_YR Smallint ;",
-     "ordinal": 10,
+     "ordinal": 11,
      "original_name": "BEG_YR",
      "tab_type": "Smallint",
      "width": null
@@ -199371,7 +199939,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    BEG_RULE Char (1) ;",
-     "ordinal": 11,
+     "ordinal": 12,
      "original_name": "BEG_RULE",
      "tab_type": "Char",
      "width": "1"
@@ -199379,7 +199947,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    END_YR Smallint ;",
-     "ordinal": 12,
+     "ordinal": 13,
      "original_name": "END_YR",
      "tab_type": "Smallint",
      "width": null
@@ -199387,7 +199955,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    END_RULE Char (1) ;",
-     "ordinal": 13,
+     "ordinal": 14,
      "original_name": "END_RULE",
      "tab_type": "Char",
      "width": "1"
@@ -199395,7 +199963,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    NOTE_ID Char (16) ;",
-     "ordinal": 14,
+     "ordinal": 15,
      "original_name": "NOTE_ID",
      "tab_type": "Char",
      "width": "16"
@@ -199403,7 +199971,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    OBJ_TYPE Char (5) ;",
-     "ordinal": 15,
+     "ordinal": 16,
      "original_name": "OBJ_TYPE",
      "tab_type": "Char",
      "width": "5"
@@ -199411,7 +199979,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    GEO_SRC Char (7) ;",
-     "ordinal": 16,
+     "ordinal": 17,
      "original_name": "GEO_SRC",
      "tab_type": "Char",
      "width": "7"
@@ -199419,7 +199987,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    COMPILER Char (6) ;",
-     "ordinal": 17,
+     "ordinal": 18,
      "original_name": "COMPILER",
      "tab_type": "Char",
      "width": "6"
@@ -199427,7 +199995,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    GEOCOMP Char (6) ;",
-     "ordinal": 18,
+     "ordinal": 19,
      "original_name": "GEOCOMP",
      "tab_type": "Char",
      "width": "6"
@@ -199435,7 +200003,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    CHECKER Char (15) ;",
-     "ordinal": 19,
+     "ordinal": 20,
      "original_name": "CHECKER",
      "tab_type": "Char",
      "width": "15"
@@ -199443,7 +200011,7 @@
     {
      "decimals": null,
      "definition_line_verbatim": "    ENT_DATE Char (12) ;",
-     "ordinal": 20,
+     "ordinal": 21,
      "original_name": "ENT_DATE",
      "tab_type": "Char",
      "width": "12"

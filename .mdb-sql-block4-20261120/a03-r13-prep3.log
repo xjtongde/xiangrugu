@@ -1,0 +1,13 @@
+all .db leaves: 1
+   vard-full/doi_10_7910/DVN/PDGOZ0/V4_Data_Archive.zip|L.zip/V4_1911_KML_metadata/Thumbs.db size=24576 sha=c68ef43f7f
+
+cbdb object-mapping.json : False
+
+cbdb table-mapping.json : True
+
+cbdb members.json : True
+
+cbdb evidence-gaps.json : False
+Traceback (most recent call last):
+  File "<stdin>", line 18, in <module>
+IndexError: list index out of range

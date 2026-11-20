@@ -1,0 +1,8 @@
+tabular china_chron.xls: [('organized', 'xls', ['china_chron/china_chron.xls'])]
+
+cbdb members keys: ['companion_materials_note', 'format', 'generated_by', 'members', 'nested_members_under_cbdb', 'release_id', 'source_version'] | total: 3
+cbdb sqlite hits: 2
+    {"content_judgement": {"facts": {"declared_sha256": "bde1bb8eece3820d9e236c1d6b0f07d847d339669d4a85d79cd7252d58d83400", "format": "sqlite3", "generated_at_utc": "2026-09-19T19:15:36Z", "huggingface_path": "history/cbdb_2
+    {"disposition_from_ledger": "BLOCKED", "handling": "BLOCKED in ledger (full-release freeze pending); block-1 organizing target for table/field mapping below", "kind": "file", "relationship": "main source carrier: 78 tabl
+
+cbdb table-mapping type: list | count: 78

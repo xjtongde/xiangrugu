@@ -1,0 +1,26 @@
+done
+china_chron | tables 1 | inserts 677 | cols sum 20
+tgaz | tables 38 | inserts 136 | cols sum 353
+  rc 0
+
+== tgaz delivered vs mine ==
+   delivered keys: ['banner_head_verbatim', 'bom_present', 'data_carrier', 'dialect', 'dialect_evidence', 'drop_table_count', 'encoding_detected', 'execution_status', 'first_insert_samples_verbatim', 'insert_statement_count', 'lock_tables_count', 'loss_risk_note', 'member_key', 'replacement_chars_on_decode', 'row_count_estimate', 'row_count_method']
+   table_count: delivered=1 | mine=38
+   insert_statement_count: delivered=677 | mine=136
+   drop_count: delivered=None | mine=43
+   lock_count: delivered=None | mine=66
+   dialect: delivered=mysql | mine=1
+   encoding: delivered=None | mine=False
+   encoding evidence: {}
+   my bom/repl: False 5
+
+== tgaz delivered vs mine ==
+   delivered keys: ['banner_head_verbatim', 'bom_present', 'data_carrier', 'dialect', 'dialect_evidence', 'drop_table_count', 'encoding_detected', 'execution_status', 'first_insert_samples_verbatim', 'insert_statement_count', 'lock_tables_count', 'loss_risk_note', 'member_key', 'replacement_chars_on_decode', 'row_count_estimate', 'row_count_method']
+   table_count: delivered=33 | mine=38
+   insert_statement_count: delivered=136 | mine=136
+   drop_count: delivered=None | mine=43
+   lock_count: delivered=None | mine=66
+   dialect: delivered=mysql | mine=1
+   encoding: delivered=None | mine=False
+   encoding evidence: {}
+   my bom/repl: False 5

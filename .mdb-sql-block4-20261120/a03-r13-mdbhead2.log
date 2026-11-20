@@ -1,0 +1,10 @@
+delivered mdb record keys: ['carrier', 'header_probe', 'source_file_or_chain', 'source_identity', 'source_object_id', 'status', 'table_enumeration_status']
+header_probe keys: ['binary_note', 'encoding_note', 'header_hexdump_first128_verbatim', 'header_magic_hex', 'header_signature', 'isolation_recovery', 'page_size_note', 'page_size_version_derived', 'readable_surface', 'required_tool', 'sha_matches_inventory', 'table_enumeration_status', 'unreadable_reason', 'version_byte_0x14', 'version_interpretation']
+{"binary_note": "OLE/object and memo fields may carry binary payloads; requires catalog reader to enumerate — not asserted here", "encoding_note": "JET4 catalog/text typically UTF-16LE; JET3 codepage-based; exact per-column encoding requires catalog reader — not asserted here", "header_hexdump_first128_verbatim": "000100005374616e64617264204a65742044420001000000b56e03626009c255e9a96772403f009c7e9f90ff859a31c579baed30bcdfcc9d63d9e4c39f46fb8abc4e746dec37afd29cfa34c828e6e1208a60a6027b3607e4dfb1856213433d39b133c6f7795b60237c2a4ae07c99081f98fdaf166be43fe082665f95f8d08924", "header_magic_hex": "00010000", "header_signature": "Standard Jet DB", "isolation_recovery": "extract to isolated temp dir on
+
+my magic bytes check: b[:4]=00010000? sig@4..6 'St' 0x5374?
+   is_dbase.ZIP/v3_chgis_database.mdb: head32=000100005374616e64617264204a65742044420001000000b56e03626009c255
+   access_database/v4_chgis_dbase.mdb: head32=000100005374616e64617264204a65742044420001000000b56e03626009c255
+   chgis_dbase.zip/v4_chgis_dbase.mdb: head32=000100005374616e64617264204a65742044420001000000b56e03626009c255
+   chgis_dbase.zip/v4_chgis_dbase.mdb: head32=000100005374616e64617264204a65742044420001000000b56e03626009c255
+   database.ZIP/chgis_v2_database.mdb: head32=000100005374616e64617264204a65742044420001000000b56e03626009c255

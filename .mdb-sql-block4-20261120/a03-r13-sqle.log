@@ -1,0 +1,7 @@
+sample proposed obj full:
+{"carrier": "sql_table", "charset_declared": null, "collation_declared": null, "create_definition_verbatim": "CREATE TABLE china_chron (\n  pd_simp varchar(40) default NULL,\n  pd_trad varchar(40) default NULL,\n  sub_pd_simp varchar(40) default NULL,\n  sub_pd_trad varchar(40) default NULL,\n  begyr int(12) default NULL,\n  begsfx varchar(4) default NULL,\n  endyr int(12) default NULL,\n  endsfx varchar(4) default NULL,\n  miao_hao_simp varchar(40) default NULL,\n  miao_hao_trad varchar(40) default NULL,\n  xing_ming_simp varchar(40) default NULL,\n  xing_ming_trad varchar(40) default NULL,\n  nian_hao_simp varchar(40) default NULL,\n  nian_hao_trad varchar(40) default NULL,\n  alt_simp varchar(40) default NULL,\n  cap_simp varchar(40) default NULL,\n  pres_simp varchar(40) default NULL,\n  lat_x int(20) default NULL,\n  long_y int(20) default NULL,\n  pd_id int(20) NOT NULL default '0'
+
+keys: ['carrier', 'charset_declared', 'collation_declared', 'create_definition_verbatim', 'dialect', 'engine', 'field_count', 'fields', 'key_definitions_verbatim', 'source_file_or_chain', 'source_identity', 'source_object_id', 'status', 'table_name_proposal']
+
+tgaz-linked objs: 33 | china_chron-linked: 1
+name field probe: ['table_name_proposal']

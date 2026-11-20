@@ -1,0 +1,41 @@
+== related members full ==
+{"archive_chain": ["access_dbase/v3_chgis_dbase.ZIP"], "disposition": "structural_container", "note": "inner ZIP container of V3 mdb; structural only, descendant mapped separately", "relative_path": "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip", "sha256": "0df4d9a7c4463aff968dd6df6b78041 
+
+{"archive_chain": ["access_database/v4_chgis_dbase.zip"], "disposition": "structural_container", "note": "inner ZIP container of V4 mdb copy A; structural only", "relative_path": "harvard-full/doi_10_7910/DVN/PDGOZ0/V4_Data_Archive.zip", "sha256": "96bc57601d3f06630e4693d63a6e128b336e74e270728db709f 
+
+{"archive_chain": ["shapefiles/v4_chgis_dbase.zip"], "disposition": "structural_container", "note": "inner ZIP container of V4 mdb copy B (mirror of copy A, identical sha); structural only", "relative_path": "harvard-full/doi_10_7910/DVN/PDGOZ0/V4_Data_Archive.zip", "sha256": "96bc57601d3f06630e4693 
+
+{"archive_chain": ["access_dbase/chgis_v2_database.ZIP"], "disposition": "structural_container", "note": "inner ZIP container of V2 mdb; structural only", "relative_path": "harvard-full/doi_10_7910/DVN/ZZKZ6U/CHGIS_V2.zip", "sha256": "3f4572486944de89c4afd69e2192ff1c6fc3fd888ce09684e1ca0abfab21651a" 
+
+{"archive_chain": ["KML/CHGIS_v4_1911_KML.zip", "V4_1911_KML_metadata/Thumbs.db"], "disposition": "excluded_non_data_to_block5", "note": "Windows Explorer thumbnail cache (OLE signature), NOT a database; explicit exclusion, block 5 disposition", "relative_path": "harvard-full/doi_10_7910/DVN/PDGOZ0/ 
+
+{"archive_chain": [], "disposition": "owned_by_block1_exactly_once", "note": "CBDB main source carrier; block 1 import-package/cbdb/ 78 tables / 736 columns already mapped and accepted; NOT remapped here", "relative_path": "harvard/cbdb/cbdb_20260919.sqlite3", "sha256": "bde1bb8eece3820d9e236c1d6b0f 
+
+{"archive_chain": ["china_chron/china_chron.xls"], "disposition": "owned_by_block2_exactly_once", "note": "XLS sibling of china_chron.sql; block 2 tabular plane already mapped; NOT remapped here", "relative_path": "chgis-v6/China_Periods_ReignDates.zip", "sha256": "11c07a694dc8a038184b125cdc729674f8 
+
+{"archive_chain": ["china_chron/china_chron.txt"], "disposition": "documentation_note", "note": "text sibling; documentation, not a table carrier for this block", "relative_path": "chgis-v6/China_Periods_ReignDates.zip", "sha256": "4d41c5ec8239551ff72072e3a8dd614e2b0e7094cc329b311fcdcea721658ddc", " 
+
+{"archive_chain": ["china_chron/README_CHINA_CHRON.txt"], "disposition": "documentation_note", "note": "README sibling; documentation", "relative_path": "chgis-v6/China_Periods_ReignDates.zip", "sha256": "ccc67d5d4dd445127493d2613df5f28d6b365781dcb39a26386cefbbc8144204", "size": 1612} 
+
+om keys: ['baseline_git', 'counts', 'flags', 'format', 'mdb_file_objects', 'proposed_objects', 'sql_file_results']
+counts: {"core_members": 7, "enumerated_objects_total": 39, "mapped_objects_proposed": 34, "mdb_files": 5, "mdb_objects_header_confirmed": 5, "mdb_tables_enumerated": 0, "sql_files": 2, "sql_parse_anomalies": 0, "sql_tables_enumerated": 34}
+
+gaps keys: ['baseline_git', 'dependency_gaps', 'format', 'gap_count', 'gaps', 'tool_gap_report']
+{"baseline_git": "ef90b64", "dependency_gaps": 0, "format": "xiangrugu.import-package.mdb-sql.evidence-gaps.v1", "gap_count": 6, "gaps": 6, "tool_gap_report": ["affected_objects", "capability_missing", "host_software_unchanged", "installed_this_round", "required_tool", "sql_plane", "status"]}
+
+SUMMARY first 900:
+# 第 4/6 块 · MDB 与 SQL 包（SUMMARY）
+
+基线 git ef90b64；inventory sha256=fb5e6b334b898d62… 断言一致；32 宿主 python3 stdlib 流式只读；**SQL 未对任何库执行；本轮未安装依赖；源件只读零触**。
+
+## 三计数
+- 核心成员 **7**（MDB 5 + SQL 2；完整链+sha 绑定 inventory 精确对账）
+- 已枚举对象 **39** = SQL 表 **34**（全量 CREATE TABLE 解析，异常 0）+ MDB 文件级 **5**（头探针；表/字段枚举=GAP 不臆造）
+- 已映射对象（提案）**34**（SQL 表→目标类型提案，PROPOSED_NOT_AUTHORIZED/ready_for_import=false）；MDB 表映射 0（待读取器）
+
+## SQL 面
+- china_chron/china_chron.sql：方言 **mysql**（证据 {"mysql_dump_banner": 1}）；表 1；INSERT 语句 677（行估算 677，口径注记在证）；载体 INSERT statements；编码 utf-8-sig（BOM True，替换字符 0）；DROP 0/LOCK 0
+- tgaz_bak_2018.sql：方言 **mysql**（证据 {"mysql_dump_banner": 1, "backtick_identifiers": 136, "engine:InnoDB": 32, "charset:utf8": 33, "engine:MyISAM": 1}）；表 33；INSERT 语句 136（行估算 983236，口径注记在证）；载体 INSERT statements；编码 utf-8（BOM False，替换字符 5）；DROP 38/LOCK 66
+
+## MDB 面（工具缺口）
+- 5 件头级确证（JET magic/签名/版本字节/页大小版本推导/128 字节 hexdump 逐字），

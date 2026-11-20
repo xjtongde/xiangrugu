@@ -1,0 +1,82 @@
+{
+ "baseline_git": "ef90b64",
+ "dependency_gaps": [],
+ "format": "xiangrugu.import-package.mdb-sql.evidence-gaps.v1",
+ "gap_count": 6,
+ "gaps": [
+  {
+   "isolation_recovery": "extract to isolated temp dir on 32, read-only via mdb-tables/mdb-export/mdb-schema once approved; source snapshot stays :ro",
+   "kind": "tool_gap_mdb_catalog",
+   "object": "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip!access_dbase/v3_chgis_dbase.ZIP!v3_chgis_database.mdb",
+   "reason": "locked environment has no MDB catalog reader: mdbtools absent on 32 host and in existing project containers (measured); JET/ACE catalog pages require a dedicated reader; no installs authorized this round",
+   "required_tool": "mdbtools=1.0.0+dfsg-1.1 (32 apt-cache policy candidate, bookworm; locked-version proposal only, NOT installed) or Chaxiang-approved derived reader",
+   "sha256": "68853b4968f881dea0293985306c2f36ecf95b75ab39bb53c70498e4533eeca8",
+   "size": 52195328
+  },
+  {
+   "isolation_recovery": "extract to isolated temp dir on 32, read-only via mdb-tables/mdb-export/mdb-schema once approved; source snapshot stays :ro",
+   "kind": "tool_gap_mdb_catalog",
+   "object": "harvard-full/doi_10_7910/DVN/PDGOZ0/V4_Data_Archive.zip!access_database/v4_chgis_dbase.mdb",
+   "reason": "locked environment has no MDB catalog reader: mdbtools absent on 32 host and in existing project containers (measured); JET/ACE catalog pages require a dedicated reader; no installs authorized this round",
+   "required_tool": "mdbtools=1.0.0+dfsg-1.1 (32 apt-cache policy candidate, bookworm; locked-version proposal only, NOT installed) or Chaxiang-approved derived reader",
+   "sha256": "a2cc40398b73bdf1b7b612e810cca0864eacf4da42b693a79c63f2075e90319d",
+   "size": 65896448
+  },
+  {
+   "isolation_recovery": "extract to isolated temp dir on 32, read-only via mdb-tables/mdb-export/mdb-schema once approved; source snapshot stays :ro",
+   "kind": "tool_gap_mdb_catalog",
+   "object": "harvard-full/doi_10_7910/DVN/PDGOZ0/V4_Data_Archive.zip!access_database/v4_chgis_dbase.zip!v4_chgis_dbase.mdb",
+   "reason": "locked environment has no MDB catalog reader: mdbtools absent on 32 host and in existing project containers (measured); JET/ACE catalog pages require a dedicated reader; no installs authorized this round",
+   "required_tool": "mdbtools=1.0.0+dfsg-1.1 (32 apt-cache policy candidate, bookworm; locked-version proposal only, NOT installed) or Chaxiang-approved derived reader",
+   "sha256": "04be983d2f18b7c92ea0e1dfe478710cd4bdd01be9d367b32cb7da6037cab29a",
+   "size": 65896448
+  },
+  {
+   "isolation_recovery": "extract to isolated temp dir on 32, read-only via mdb-tables/mdb-export/mdb-schema once approved; source snapshot stays :ro",
+   "kind": "tool_gap_mdb_catalog",
+   "object": "harvard-full/doi_10_7910/DVN/PDGOZ0/V4_Data_Archive.zip!shapefiles/v4_chgis_dbase.zip!v4_chgis_dbase.mdb",
+   "reason": "locked environment has no MDB catalog reader: mdbtools absent on 32 host and in existing project containers (measured); JET/ACE catalog pages require a dedicated reader; no installs authorized this round",
+   "required_tool": "mdbtools=1.0.0+dfsg-1.1 (32 apt-cache policy candidate, bookworm; locked-version proposal only, NOT installed) or Chaxiang-approved derived reader",
+   "sha256": "04be983d2f18b7c92ea0e1dfe478710cd4bdd01be9d367b32cb7da6037cab29a",
+   "size": 65896448
+  },
+  {
+   "isolation_recovery": "extract to isolated temp dir on 32, read-only via mdb-tables/mdb-export/mdb-schema once approved; source snapshot stays :ro",
+   "kind": "tool_gap_mdb_catalog",
+   "object": "harvard-full/doi_10_7910/DVN/ZZKZ6U/CHGIS_V2.zip!access_dbase/chgis_v2_database.ZIP!chgis_v2_database.mdb",
+   "reason": "locked environment has no MDB catalog reader: mdbtools absent on 32 host and in existing project containers (measured); JET/ACE catalog pages require a dedicated reader; no installs authorized this round",
+   "required_tool": "mdbtools=1.0.0+dfsg-1.1 (32 apt-cache policy candidate, bookworm; locked-version proposal only, NOT installed) or Chaxiang-approved derived reader",
+   "sha256": "4a9bd1bc819b3a8e10ccef145de831954738a96fc9e0e317bf3ed6979d2c2c2f",
+   "size": 46702592
+  },
+  {
+   "kind": "encoding_loss_risk",
+   "locations": [
+    {
+     "context_verbatim": "INSERT INTO `geom` VALUES (1,26,'\\0\\0\\0\\0\u0001\u0001\\0\\0\\0�}:\u001e3�\\\\@���NyC@','HARVARD','2014-06-26 20:20:07');",
+     "count": 5,
+     "line": 326
+    }
+   ],
+   "note": "decode replacement chars > 0: value-loss risk, isolate before import",
+   "object": "harvard-full/doi_10_7910/DVN/H3OB28/tgaz_bak_2018.zip!tgaz_bak_2018.sql",
+   "recovery_note": "replacement chars localized (see locations/context_verbatim); where context shows binary payload inside string literals (e.g. geometry WKB-style raw high bytes), naive text decode loses original bytes — byte-faithful extraction required (isolation recovery); no value fabrication",
+   "replacement_chars": 5
+  }
+ ],
+ "tool_gap_report": {
+  "affected_objects": [
+   "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip!access_dbase/v3_chgis_dbase.ZIP!v3_chgis_database.mdb",
+   "harvard-full/doi_10_7910/DVN/PDGOZ0/V4_Data_Archive.zip!access_database/v4_chgis_dbase.mdb",
+   "harvard-full/doi_10_7910/DVN/PDGOZ0/V4_Data_Archive.zip!access_database/v4_chgis_dbase.zip!v4_chgis_dbase.mdb",
+   "harvard-full/doi_10_7910/DVN/PDGOZ0/V4_Data_Archive.zip!shapefiles/v4_chgis_dbase.zip!v4_chgis_dbase.mdb",
+   "harvard-full/doi_10_7910/DVN/ZZKZ6U/CHGIS_V2.zip!access_dbase/chgis_v2_database.ZIP!chgis_v2_database.mdb"
+  ],
+  "capability_missing": "JET/ACE catalog + table/field/value enumeration",
+  "host_software_unchanged": true,
+  "installed_this_round": false,
+  "required_tool": "mdbtools=1.0.0+dfsg-1.1 (bookworm apt candidate measured on 32; NOT installed; locked-version proposal awaits Chaxiang approval)",
+  "sql_plane": "fully text-identified with stdlib; no tool gap for dialect/structure/carrier",
+  "status": "MDB_CATALOG_READER_NOT_INSTALLED"
+ }
+}

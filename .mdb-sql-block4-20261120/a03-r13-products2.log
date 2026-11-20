@@ -1,0 +1,16 @@
+core_member_count: 7 | inventory_sha256: fb5e6b334b898d62
+v4_distinct_sha256: ["04be983d2f18b7c92ea0e1dfe478710cd4bdd01be9d367b32cb7da6037cab29a", "a2cc40398b73bdf1b7b612e810cca0864eacf4da42b693a79c63f2075e90319d"]
+mirror note: V4 direct member sha differs from zip-wrapped copies: TWO distinct byte versions registered separately; the two zip-wrapped copies (access_database/ and shapefiles/) share one sha = mirror pair, merge deferred to block 6
+   chgis-v6/China_Periods_ReignDates.zip|china_chron/china_chron.sql        sha=7d613d7a20 size=117824 fam=sql
+   i_10_7910/DVN/H3OB28/tgaz_bak_2018.zip|tgaz_bak_2018.sql                  sha=4c6db692b6 size=122853166 fam=sql
+   10_7910/DVN/HIMIVE/V3_Data_Archive.zip|is_dbase.ZIP/v3_chgis_database.mdb sha=68853b4968 size=52195328 fam=mdb
+   10_7910/DVN/PDGOZ0/V4_Data_Archive.zip|access_database/v4_chgis_dbase.mdb sha=a2cc40398b size=65896448 fam=mdb
+   10_7910/DVN/PDGOZ0/V4_Data_Archive.zip|chgis_dbase.zip/v4_chgis_dbase.mdb sha=04be983d2f size=65896448 fam=mdb
+   10_7910/DVN/PDGOZ0/V4_Data_Archive.zip|chgis_dbase.zip/v4_chgis_dbase.mdb sha=04be983d2f size=65896448 fam=mdb
+   ll/doi_10_7910/DVN/ZZKZ6U/CHGIS_V2.zip|database.ZIP/chgis_v2_database.mdb sha=4a9bd1bc81 size=46702592 fam=mdb
+
+related members: 9
+Counter({'structural_container': 4, 'documentation_note': 2, 'excluded_non_data_to_block5': 1, 'owned_by_block1_exactly_once': 1, 'owned_by_block2_exactly_once': 1})
+Traceback (most recent call last):
+  File "<stdin>", line 15, in <module>
+IndexError: string index out of range

@@ -1,0 +1,205 @@
+{
+ "baseline_git": "ef90b64",
+ "core_member_count": 7,
+ "core_members": [
+  {
+   "archive_chain": [
+    "china_chron/china_chron.sql"
+   ],
+   "archive_ordinals": [
+    1
+   ],
+   "family": "sql",
+   "member_key": "chgis-v6/China_Periods_ReignDates.zip!china_chron/china_chron.sql",
+   "relative_path": "chgis-v6/China_Periods_ReignDates.zip",
+   "sha256": "7d613d7a20182a1fdb46b8558b932c6c4c4c93c9a9ae3ee1e5e58fbb8a120fbe",
+   "size": 117824
+  },
+  {
+   "archive_chain": [
+    "tgaz_bak_2018.sql"
+   ],
+   "archive_ordinals": [
+    0
+   ],
+   "family": "sql",
+   "member_key": "harvard-full/doi_10_7910/DVN/H3OB28/tgaz_bak_2018.zip!tgaz_bak_2018.sql",
+   "relative_path": "harvard-full/doi_10_7910/DVN/H3OB28/tgaz_bak_2018.zip",
+   "sha256": "4c6db692b61bdafb8d4ce00e30aff2a35fc23e6d83638b50c23dadbae75c3346",
+   "size": 122853166
+  },
+  {
+   "archive_chain": [
+    "access_dbase/v3_chgis_dbase.ZIP",
+    "v3_chgis_database.mdb"
+   ],
+   "archive_ordinals": [
+    76,
+    0
+   ],
+   "family": "mdb",
+   "member_key": "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip!access_dbase/v3_chgis_dbase.ZIP!v3_chgis_database.mdb",
+   "relative_path": "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip",
+   "sha256": "68853b4968f881dea0293985306c2f36ecf95b75ab39bb53c70498e4533eeca8",
+   "size": 52195328
+  },
+  {
+   "archive_chain": [
+    "access_database/v4_chgis_dbase.mdb"
+   ],
+   "archive_ordinals": [
+    2
+   ],
+   "family": "mdb",
+   "member_key": "harvard-full/doi_10_7910/DVN/PDGOZ0/V4_Data_Archive.zip!access_database/v4_chgis_dbase.mdb",
+   "relative_path": "harvard-full/doi_10_7910/DVN/PDGOZ0/V4_Data_Archive.zip",
+   "sha256": "a2cc40398b73bdf1b7b612e810cca0864eacf4da42b693a79c63f2075e90319d",
+   "size": 65896448
+  },
+  {
+   "archive_chain": [
+    "access_database/v4_chgis_dbase.zip",
+    "v4_chgis_dbase.mdb"
+   ],
+   "archive_ordinals": [
+    3,
+    0
+   ],
+   "family": "mdb",
+   "member_key": "harvard-full/doi_10_7910/DVN/PDGOZ0/V4_Data_Archive.zip!access_database/v4_chgis_dbase.zip!v4_chgis_dbase.mdb",
+   "relative_path": "harvard-full/doi_10_7910/DVN/PDGOZ0/V4_Data_Archive.zip",
+   "sha256": "04be983d2f18b7c92ea0e1dfe478710cd4bdd01be9d367b32cb7da6037cab29a",
+   "size": 65896448
+  },
+  {
+   "archive_chain": [
+    "shapefiles/v4_chgis_dbase.zip",
+    "v4_chgis_dbase.mdb"
+   ],
+   "archive_ordinals": [
+    109,
+    0
+   ],
+   "family": "mdb",
+   "member_key": "harvard-full/doi_10_7910/DVN/PDGOZ0/V4_Data_Archive.zip!shapefiles/v4_chgis_dbase.zip!v4_chgis_dbase.mdb",
+   "relative_path": "harvard-full/doi_10_7910/DVN/PDGOZ0/V4_Data_Archive.zip",
+   "sha256": "04be983d2f18b7c92ea0e1dfe478710cd4bdd01be9d367b32cb7da6037cab29a",
+   "size": 65896448
+  },
+  {
+   "archive_chain": [
+    "access_dbase/chgis_v2_database.ZIP",
+    "chgis_v2_database.mdb"
+   ],
+   "archive_ordinals": [
+    0,
+    0
+   ],
+   "family": "mdb",
+   "member_key": "harvard-full/doi_10_7910/DVN/ZZKZ6U/CHGIS_V2.zip!access_dbase/chgis_v2_database.ZIP!chgis_v2_database.mdb",
+   "relative_path": "harvard-full/doi_10_7910/DVN/ZZKZ6U/CHGIS_V2.zip",
+   "sha256": "4a9bd1bc819b3a8e10ccef145de831954738a96fc9e0e317bf3ed6979d2c2c2f",
+   "size": 46702592
+  }
+ ],
+ "format": "xiangrugu.import-package.mdb-sql.members.v1",
+ "generated_by": "build_mdb_sql_package.py (deterministic; stdlib only; read-only; no DB execution; no installs)",
+ "inventory_sha256": "fb5e6b334b898d62dc0e5c77094fdb50e0946300e6e3009f447b2ecd1bc216db",
+ "mirror_and_version_note": "V4 direct member sha differs from zip-wrapped copies: TWO distinct byte versions registered separately; the two zip-wrapped copies (access_database/ and shapefiles/) share one sha = mirror pair, merge deferred to block 6",
+ "related_members": [
+  {
+   "archive_chain": [
+    "access_dbase/v3_chgis_dbase.ZIP"
+   ],
+   "disposition": "structural_container",
+   "note": "inner ZIP container of V3 mdb; structural only, descendant mapped separately",
+   "relative_path": "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip",
+   "sha256": "0df4d9a7c4463aff968dd6df6b7804173df36707f8f8a6f8827f58ba9b3a43ff",
+   "size": 8917243
+  },
+  {
+   "archive_chain": [
+    "access_database/v4_chgis_dbase.zip"
+   ],
+   "disposition": "structural_container",
+   "note": "inner ZIP container of V4 mdb copy A; structural only",
+   "relative_path": "harvard-full/doi_10_7910/DVN/PDGOZ0/V4_Data_Archive.zip",
+   "sha256": "96bc57601d3f06630e4693d63a6e128b336e74e270728db709f3ec9451482802",
+   "size": 12992839
+  },
+  {
+   "archive_chain": [
+    "shapefiles/v4_chgis_dbase.zip"
+   ],
+   "disposition": "structural_container",
+   "note": "inner ZIP container of V4 mdb copy B (mirror of copy A, identical sha); structural only",
+   "relative_path": "harvard-full/doi_10_7910/DVN/PDGOZ0/V4_Data_Archive.zip",
+   "sha256": "96bc57601d3f06630e4693d63a6e128b336e74e270728db709f3ec9451482802",
+   "size": 12992839
+  },
+  {
+   "archive_chain": [
+    "access_dbase/chgis_v2_database.ZIP"
+   ],
+   "disposition": "structural_container",
+   "note": "inner ZIP container of V2 mdb; structural only",
+   "relative_path": "harvard-full/doi_10_7910/DVN/ZZKZ6U/CHGIS_V2.zip",
+   "sha256": "3f4572486944de89c4afd69e2192ff1c6fc3fd888ce09684e1ca0abfab21651a",
+   "size": 8926294
+  },
+  {
+   "archive_chain": [
+    "KML/CHGIS_v4_1911_KML.zip",
+    "V4_1911_KML_metadata/Thumbs.db"
+   ],
+   "disposition": "excluded_non_data_to_block5",
+   "note": "Windows Explorer thumbnail cache (OLE signature), NOT a database; explicit exclusion, block 5 disposition",
+   "relative_path": "harvard-full/doi_10_7910/DVN/PDGOZ0/V4_Data_Archive.zip",
+   "sha256": "c68ef43f7fcccea503189bb4bd15ab9764008d7872fec4606745f61aad2bb001",
+   "size": 24576
+  },
+  {
+   "archive_chain": [],
+   "disposition": "owned_by_block1_exactly_once",
+   "note": "CBDB main source carrier; block 1 import-package/cbdb/ 78 tables / 736 columns already mapped and accepted; NOT remapped here",
+   "relative_path": "harvard/cbdb/cbdb_20260919.sqlite3",
+   "sha256": "bde1bb8eece3820d9e236c1d6b0f07d847d339669d4a85d79cd7252d58d83400",
+   "size": 586485760
+  },
+  {
+   "archive_chain": [
+    "china_chron/china_chron.xls"
+   ],
+   "disposition": "owned_by_block2_exactly_once",
+   "note": "XLS sibling of china_chron.sql; block 2 tabular plane already mapped; NOT remapped here",
+   "relative_path": "chgis-v6/China_Periods_ReignDates.zip",
+   "sha256": "11c07a694dc8a038184b125cdc729674f8830ac53d4392d48db783b88c6af5f2",
+   "size": 231424
+  },
+  {
+   "archive_chain": [
+    "china_chron/china_chron.txt"
+   ],
+   "disposition": "documentation_note",
+   "note": "text sibling; documentation, not a table carrier for this block",
+   "relative_path": "chgis-v6/China_Periods_ReignDates.zip",
+   "sha256": "4d41c5ec8239551ff72072e3a8dd614e2b0e7094cc329b311fcdcea721658ddc",
+   "size": 82206
+  },
+  {
+   "archive_chain": [
+    "china_chron/README_CHINA_CHRON.txt"
+   ],
+   "disposition": "documentation_note",
+   "note": "README sibling; documentation",
+   "relative_path": "chgis-v6/China_Periods_ReignDates.zip",
+   "sha256": "ccc67d5d4dd445127493d2613df5f28d6b365781dcb39a26386cefbbc8144204",
+   "size": 1612
+  }
+ ],
+ "scope_note": "MDB and SQL members incl. nested archives; Thumbs.db excluded non-data; cbdb sqlite3 owned by block 1 exactly-once; china_chron.xls owned by block 2 exactly-once",
+ "v4_distinct_sha256": [
+  "04be983d2f18b7c92ea0e1dfe478710cd4bdd01be9d367b32cb7da6037cab29a",
+  "a2cc40398b73bdf1b7b612e810cca0864eacf4da42b693a79c63f2075e90319d"
+ ]
+}

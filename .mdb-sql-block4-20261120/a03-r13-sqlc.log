@@ -1,0 +1,22 @@
+my tgaz tables: 38
+dups: {}
+unique: 38
+
+proposed objs: tgaz 33 | china_chron 1 | total 34
+delivered tgaz table names: 1
+in mine not delivered: ['admin_seat', 'alt_name3', 'citation_ref', 'ck1', 'data_src', 'drule', 'f2', 'ftype']
+in delivered not mine: [None]
+
+tgaz delivered facts:
+    dialect = "mysql"
+    dialect_evidence = {"backtick_identifiers": 136, "charset:utf8": 33, "engine:InnoDB": 32, "engine:MyISAM": 1, "mysql_dump_banner": 1}
+    insert_statement_count = 136
+    row_count_estimate = 983236
+    row_count_method = "approximate: count of '),( ' tuple separators + 1 per INSERT line; strings containing separators may inflate; exact count requires approved parser"
+    drop_table_count = 38
+    lock_tables_count = 66
+    encoding_detected = "utf-8"
+    bom_present = false
+    replacement_chars_on_decode = 5
+    data_carrier = "INSERT statements"
+    execution_status = "NOT_EXECUTED_READ_ONLY_TEXT_IDENTIFICATION"

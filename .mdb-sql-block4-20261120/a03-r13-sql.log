@@ -1,0 +1,9 @@
+done
+china_chron | tables 0 | inserts 677 | bom True | repl 0
+tgaz | tables 0 | inserts 136 | bom False | repl 5
+ bash: command substitution: 行 2: 未预期的记号 "\w+" 附近有语法错误
+bash: command substitution: 行 2: `?(\w+)'
+bash: command substitution: 行 2: 未预期的记号 "\w+" 附近有语法错误
+bash: command substitution: 行 2: `?(\w+)'
+bash: 行 2: ?w+: 未找到命令
+ rc 0

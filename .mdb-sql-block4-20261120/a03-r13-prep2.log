@@ -1,0 +1,30 @@
+non-vector extensions inside the 5 core containers: {'.rels': 6, 'workbook.xml.rels': 6, 'thumbnail.wmf': 6, 'chgis_tmpl_28apr.xls': 3, 'pdb2.tif': 3, 'v4_chgis_dbase.mdb': 3, 'pdb2.rrd': 2, 'pdb2.aux': 2, 'pdb2.tifw': 2, 'ne_three.rrd': 2, 'ne_three.tif': 2, 'ne_three.aux': 2}
+   chgis-v6/China_Periods_ReignDates.zip|china_chron/china_chron.sql sha=7d613d7a20 size=117824
+   chgis-v6/China_Periods_ReignDates.zip|china_chron/china_chron.xls sha=11c07a694d size=231424
+   chgis-v6/China_Periods_ReignDates.zip|china_chron/china_chron_fields.xls sha=00a3a60b37 size=16384
+   doi_10_7910/DVN/H3OB28/tgaz_bak_2018.zip|tgaz_bak_2018.sql sha=4c6db692b6 size=122853166
+   i_10_7910/DVN/HIMIVE/V3_Data_Archive.zip|is_tmpl_pts_utf.ZIP/CHGIS_TMPL_28apr.xls sha=c40743ac9c size=989184
+   i_10_7910/DVN/HIMIVE/V3_Data_Archive.zip|v3_chgis_dbase.ZIP/v3_chgis_database.mdb sha=68853b4968 size=52195328
+   i_10_7910/DVN/PDGOZ0/V4_Data_Archive.zip|access_database/v4_chgis_dbase.mdb sha=a2cc40398b size=65896448
+   i_10_7910/DVN/PDGOZ0/V4_Data_Archive.zip|se/v4_chgis_dbase.zip/v4_chgis_dbase.mdb sha=04be983d2f size=65896448
+   i_10_7910/DVN/PDGOZ0/V4_Data_Archive.zip|1_KML.zip/V4_1911_KML_metadata/Thumbs.db sha=c68ef43f7f size=24576
+   i_10_7910/DVN/PDGOZ0/V4_Data_Archive.zip|v4_buddhist_KML.zip/CHGIS_TMPL_28apr.xls sha=27db25a568 size=989184
+   i_10_7910/DVN/PDGOZ0/V4_Data_Archive.zip|L/ChinaW_KML_utf.zip/Gazetteers.Beta.xls sha=bbf2d21cf0 size=233472
+   i_10_7910/DVN/PDGOZ0/V4_Data_Archive.zip|hinaW_KML_utf.zip/ChinaW.Master.Beta.xls sha=d1ff9ecb73 size=4828160
+   i_10_7910/DVN/PDGOZ0/V4_Data_Archive.zip|s_KML.zip/MingGarrisonsSheet_29jan08.xls sha=740b18d3af size=291840
+   i_10_7910/DVN/PDGOZ0/V4_Data_Archive.zip|metadata/v4_data_dictionary.xlsx sha=04c602c6b0 size=11248
+   i_10_7910/DVN/PDGOZ0/V4_Data_Archive.zip|metadata/v4_feature_types.xlsx sha=bcb4e71203 size=12822
+   i_10_7910/DVN/PDGOZ0/V4_Data_Archive.zip|metadata/xtra_change_types.xlsx sha=c1b5583632 size=9490
+   i_10_7910/DVN/PDGOZ0/V4_Data_Archive.zip|metadata/xtra_contributors.xlsx sha=02de48eaa8 size=8860
+   i_10_7910/DVN/PDGOZ0/V4_Data_Archive.zip|metadata/xtra_date_rules.xlsx sha=b30272d97f size=9023
+   i_10_7910/DVN/PDGOZ0/V4_Data_Archive.zip|metadata/xtra_geo_source.xlsx sha=482d2ea53f size=9013
+   i_10_7910/DVN/PDGOZ0/V4_Data_Archive.zip|s/ChinaW_pts_gbk.zip/Gazetteers.Beta.xls sha=bbf2d21cf0 size=233472
+   i_10_7910/DVN/PDGOZ0/V4_Data_Archive.zip|hinaW_pts_gbk.zip/ChinaW.Master.Beta.xls sha=d1ff9ecb73 size=4828160
+   i_10_7910/DVN/PDGOZ0/V4_Data_Archive.zip|uddhist_pts_utf.zip/CHGIS_TMPL_28apr.xls sha=27db25a568 size=989184
+   i_10_7910/DVN/PDGOZ0/V4_Data_Archive.zip|es/v4_chgis_dbase.zip/v4_chgis_dbase.mdb sha=04be983d2f size=65896448
+   full/doi_10_7910/DVN/ZZKZ6U/CHGIS_V2.zip|is_v2_database.ZIP/chgis_v2_database.mdb sha=4a9bd1bc81 size=46702592
+
+.sqlite: 0 []
+.xls: 14 | china_chron present: True
+Thumbs.db: 1
+china_chron.xls in tabular members: []

@@ -1,0 +1,15 @@
+done
+  rc 0
+
+== compare my header probe vs delivered ==
+dbase/v3_chgis_dbase.ZIP!v3_chgis_database.mdb:
+   delivered: {"binary_note": "OLE/object and memo fields may carry binary payloads; requires catalog reader to enumerate — not asserted here", "encoding_note": "JET4 catalog/text typically UTF-16LE; JET3 codepage-based; exact per-column encodi
+Archive.zip!access_database/v4_chgis_dbase.mdb:
+   delivered: {"binary_note": "OLE/object and memo fields may carry binary payloads; requires catalog reader to enumerate — not asserted here", "encoding_note": "JET4 catalog/text typically UTF-16LE; JET3 codepage-based; exact per-column encodi
+   mine     : {"magic": "00010000", "sig": "0x7453", "version": 28257, "format_version_page_ver": 24932, "size_probe_head": "000100005374616e64617264204a65742044420001000000b56e03626009c255"}
+database/v4_chgis_dbase.zip!v4_chgis_dbase.mdb:
+   delivered: {"binary_note": "OLE/object and memo fields may carry binary payloads; requires catalog reader to enumerate — not asserted here", "encoding_note": "JET4 catalog/text typically UTF-16LE; JET3 codepage-based; exact per-column encodi
+apefiles/v4_chgis_dbase.zip!v4_chgis_dbase.mdb:
+   delivered: {"binary_note": "OLE/object and memo fields may carry binary payloads; requires catalog reader to enumerate — not asserted here", "encoding_note": "JET4 catalog/text typically UTF-16LE; JET3 codepage-based; exact per-column encodi
+se/chgis_v2_database.ZIP!chgis_v2_database.mdb:
+   delivered: {"binary_note": "OLE/object and memo fields may carry binary payloads; requires catalog reader to enumerate — not asserted here", "encoding_note": "JET4 catalog/text typically UTF-16LE; JET3 codepage-based; exact per-column encodi

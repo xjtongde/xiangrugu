@@ -1,0 +1,11 @@
+== my independent inventory filter ==
+.mdb files: 5
+   harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip | chain=access_dbase/v3_chgis_dbase.ZIP/v3_chgis_dat size=  52195328 sha=68853b4968
+   harvard-full/doi_10_7910/DVN/PDGOZ0/V4_Data_Archive.zip | chain=access_database/v4_chgis_dbase.mdb           size=  65896448 sha=a2cc40398b
+   harvard-full/doi_10_7910/DVN/PDGOZ0/V4_Data_Archive.zip | chain=access_database/v4_chgis_dbase.zip/v4_chgis_ size=  65896448 sha=04be983d2f
+   harvard-full/doi_10_7910/DVN/PDGOZ0/V4_Data_Archive.zip | chain=shapefiles/v4_chgis_dbase.zip/v4_chgis_dbase size=  65896448 sha=04be983d2f
+   harvard-full/doi_10_7910/DVN/ZZKZ6U/CHGIS_V2.zip | chain=access_dbase/chgis_v2_database.ZIP/chgis_v2_ size=  46702592 sha=4a9bd1bc81
+
+.sql files: 2
+   chgis-v6/China_Periods_ReignDates.zip | chain=china_chron/china_chron.sql                  size=    117824 sha=7d613d7a20
+   harvard-full/doi_10_7910/DVN/H3OB28/tgaz_bak_2018.zip | chain=tgaz_bak_2018.sql                            size= 122853166 sha=4c6db692b6

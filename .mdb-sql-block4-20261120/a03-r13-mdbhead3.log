@@ -1,0 +1,14 @@
+done
+  rc 0
+e/v3_chgis_dbase.ZIP/v3_chgis_database.mdb: hex128 match:True | ver0x14 delivered=1 mine=1 | sig delivered='Standard Jet DB' mine='Standard Jet DB'
+   page_size_version_derived: 4096 | interp: JET4 (Access 2000-2003)
+ive.zip/access_database/v4_chgis_dbase.mdb: hex128 match:True | ver0x14 delivered=1 mine=1 | sig delivered='Standard Jet DB' mine='Standard Jet DB'
+   page_size_version_derived: 4096 | interp: JET4 (Access 2000-2003)
+base/v4_chgis_dbase.zip/v4_chgis_dbase.mdb: hex128 match:True | ver0x14 delivered=1 mine=1 | sig delivered='Standard Jet DB' mine='Standard Jet DB'
+   page_size_version_derived: 4096 | interp: JET4 (Access 2000-2003)
+iles/v4_chgis_dbase.zip/v4_chgis_dbase.mdb: hex128 match:True | ver0x14 delivered=1 mine=1 | sig delivered='Standard Jet DB' mine='Standard Jet DB'
+   page_size_version_derived: 4096 | interp: JET4 (Access 2000-2003)
+hgis_v2_database.ZIP/chgis_v2_database.mdb: hex128 match:True | ver0x14 delivered=1 mine=1 | sig delivered='Standard Jet DB' mine='Standard Jet DB'
+   page_size_version_derived: 4096 | interp: JET4 (Access 2000-2003)
+
+ALL hex128 match: True

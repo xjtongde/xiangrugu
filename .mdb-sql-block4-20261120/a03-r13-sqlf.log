@@ -1,0 +1,21 @@
+delivered source table names: 34 | unique: 34
+in mine NOT delivered: ['v_children', 'v_partof', 'v_placename', 'v_precby', 'v_spelling']
+in delivered NOT mine: []
+
+column-count match (my parse == field_count == len(fields)): 33/34
+    ('geom', 6, 5, 5)
+
+china_chron: delivered 20 | mine 20 | equal:False
+   only delivered: [('nian_hao_trad', 'VARCHAR', None, 'None'), ('endyr', 'INT', None, 'None'), ('miao_hao_trad', 'VARCHAR', None, 'None')]
+   only mine: [('long_y', 'int(20)', True, None), ('sub_pd_trad', 'varchar(40)', True, None), ('xing_ming_simp', 'varchar(40)', True, None)]
+
+admin_seat: delivered 6 | mine 6 | equal:False
+   only delivered: [('end_date', 'VARCHAR', None, 'None'), ('id', 'INT', None, 'None'), ('seat_id', 'INT', None, 'None')]
+   only mine: [('begin_date', 'varchar(10)', True, None), ('note', 'varchar(1028)', True, None), ('placename_id', 'int(10)', False, None)]
+
+alt_name3: delivered 16 | mine 16 | equal:False
+   only delivered: [('name_py', 'TINYTEXT', None, 'None'), ('beg_yr', 'INT', None, 'None'), ('parent_utf', 'TINYTEXT', None, 'None')]
+   only mine: [('end_yr', 'int(8)', True, None), ('type_utf', 'varchar(40)', True, None), ('line_id', 'varchar(20)', True, None)]
+Traceback (most recent call last):
+  File "<stdin>", line 40, in <module>
+AttributeError: 'NoneType' object has no attribute 'group'

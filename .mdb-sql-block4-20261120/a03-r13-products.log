@@ -1,0 +1,5 @@
+members keys: ['baseline_git', 'core_member_count', 'core_members', 'format', 'generated_by', 'inventory_sha256', 'mirror_and_version_note', 'related_members', 'scope_note', 'v4_distinct_sha256']
+counts: null
+Traceback (most recent call last):
+  File "<stdin>", line 6, in <module>
+KeyError: 'members'

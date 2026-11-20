@@ -1,0 +1,12 @@
+v5 sid convention match: [('v5_time_pref_pts_utf__partial_no_dbf', 'shapefile')]
+
+build ctx: for _m in g["members"]: |             if _m["ext"] == ".prj" and _m.get("evidence"): |                 prj_txt = _m["evidence"].get("text_head") |         rel5 = idx[mm_["member_key"]]["relative_path"] |         ch5 = idx[mm_["member_key"]]["archive_chain"] |         objname5 = g["location"]["exact_stem"] + "__partial_no_dbf" |         ds5 = rel5.rsplit("/", 1)[0] |         sid5 = _sid(rel5, ch5, objname5, "shapefile") |         nmap5 = allocate_tables([NameInput(ds5, objname5, sid5)])[0] |         _v5rec = { |    
+
+kml objs with convention note: 52 / 52
+kml count deltas vs MY naive regex scan: 52
+    ing_Garrisons.zip!ming_time-te.kml | delivered: {"Point": 375} | mine: {"Placemark": 375, "Point": 375}
+    _1820_KML.zip/v4_1820_pref_pts.kml | delivered: {"Point": 602} | mine: {"Placemark": 602, "Point": 602}
+    _1820_KML.zip/v4_1820_prov_pgn.kml | delivered: {"LinearRing": 551, "Point": 940, "Polygon": 470} | mine: {"Placemark": 1410, "Point": 940, "LinearRing": 551, "Polygon": 470}
+    _1820_KML.zip/v4_1820_prov_pts.kml | delivered: {"Point": 48} | mine: {"Placemark": 48, "Point": 48}
+
+convention keys: ['geometry_counting_convention'] | {"geometry_counting_convention": {"LinearRing": "polygon/polyline boundary ring counted separately from its owning Polygon/LineString", "MultiGeometry": "container counted under its own key ONLY; child geometries counted independently (no double count)", "Placemark": "container — counted separately,

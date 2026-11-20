@@ -1,0 +1,4 @@
+my lane partition: {'proposed': 899, 'approved': 2, 'text_owned_by_block2': 2} | total: 903
+Traceback (most recent call last):
+  File "<stdin>", line 16, in <module>
+TypeError: list indices must be integers or slices, not str

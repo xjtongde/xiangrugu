@@ -1,0 +1,7 @@
+done 52 errors 0
+  rc 0
+deltas after convention split (geo counts vs my ET, placemark separate): 0
+
+kml objs with attr/Z-M/CRS policy statements: 52 / 52
+sample geom keys: ['coordinate_axes_seen', 'coordinate_transform', 'crs_declaration_verbatim_in_kml', 'extended_data_attributes_note', 'geometry_counting_convention', 'geometry_kind_counts_observed', 'placemarks_observed', 'recount_elementtree_matches_delivered', 'recount_full_counts_including_containers', 'srid', 'srid_note', 'xy_preserve_original_ieee754', 'z_altitude_dimension_note']
+crs: {"kml_xml_crs_clause_searched": "none found in stdlib scan", "prj_declaration_verbatim": null}

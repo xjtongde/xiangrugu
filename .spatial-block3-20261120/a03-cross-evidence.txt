@@ -62,3 +62,65 @@ counts 单列但双处文档披露。准确计数：候选 903｜确证 903｜�
 判定建议：**第 3/6 块 PARTIAL**——头级取证+映射提案面完备（PASS 质量），但 (i) KML 52 件仅几何统计证据
 无要素属性/坐标级合同（本轮范围即头级）、(ii) 全部 896 提案待茶香批准、(iii) 2 观察项待清；
 正式导入仍属块 4 之后。
+
+====================================================================
+ROUND 10 —— 第 3/6 块三缺口收尾独立复核（孪生绑定/v5 partial/KML convention 对齐）
+记录时刻：2026-11-19T16:30:10Z。基线 HEAD=75fda05；产物 mtime 实测 **16:16:48Z**（build 16:17:04Z），
+早于预估 16:23Z——按终态字节全核。日志 a03-r10-*.log。全部取证我自己脚本 SSH 32 stdlib 只读重做。
+
+① 孪生原始成员身份                                    PASS（一处引用瑕疵）
+- 我独立 inventory 枚举两内层 ZIP（mapinfo/ ord=(114,)、shapefiles/ ord=(66,)，均 sha 69b5119f… 同字节
+  双胞胎，namelist 逐名相等 True）：成员 9 条各含 **V3_time_pref_pgn_PRC.TAB 715B sha c7bb2a78…**（大写
+  前缀实存！上轮"无 TAB"确系 stem 大小写分裂伪影）、DAT 601448B/MAP 20469248B/ID 7956B/IND 28672B+txt/gif。
+- TAB 独立 32 重读：!table\r\n!version 410\r\n!charset WindowsSimpChinese…Fields 23；交付
+  attribute_order_from_dbf_header **22 项逐条 definition_line_verbatim 均为 TAB 文件原文行子集**；
+  唯一未列项='    SYS_ID Integer Index 1 ;'——但 lead 基准 23 字段序（NAME_PY…END_CHG 含 SYS_ID）与我
+  文件重读一致，交付 22 名单缺 SYS_ID ⇒ **首个不一致候选级观察：twin attr order 少 SYS_ID 一项（Index 1
+  标注或为排除理由但未在件内声明）**，其余 22 项名称/类型/宽度/序全对。
+- DAT 试解抽核：我 token 扫描 POLYGON×**1989**==交付 OBJ_TYPE distribution「all 1989 DAT records = POLYGON」✓。
+- MAP：交付明确「NOT decodable with current stdlib toolset; head bytes recorded」+受影响对象注记 ✓；
+  但引用的 **evidence-gaps.tool_gap_report 键不存在**（gaps 文件仅 5 键，grep 0 命中）——悬空引用，如实报。
+- 两案分立：sid 7dd34746…/7b6d1a52… 各自 (chain,ordinals) 精确登记（(114,0)/(66,0)，sha c7bb2a78 同值不同
+  身份）；真函数再生 object_name='V3_time_pref_pgn_PRC' carrier='mapinfo_tab' **两件 match True**；
+  镜像留块 6 不合并（moved_objects 披露 from gap→twin_bound）。
+
+② v5 partial                                          PASS
+- 我独立 shp 头 struct：file_code 9994/type 1 Point/bbox (18068955.41441956, 2033517.3846853739,
+  21138239.81524794, 5699086.106678631)/size 95552B==lead 基准==交付 bbox_observed 逐位相等；
+  SHP 记录走链 **3409**==交付 shp_records_walked/shx_record_count（注：SHX num_records 惯用偏移读法会得
+  错值 1983184896，交付取 (len−100)/16=1704? 否——交付 3409 与 SHP 走链一致，我复算亦 3409，闭合）。
+- README 独立重读首段=CHGIS V5 Prefecture Points/citation/CC BY-NC-SA——无属性 schema/伴随指针，与
+  a02 attribute_contract 引文语义一致 ✓。
+- dbf 伴随搜索：dbf_search_evidence 逐件 matches_3409 False（v6_1911 355 等）——我口径认同同名不足配对、
+  无记录数可证伴随⇒确认无。
+- fields=[] 且 fields_note「NOT an omission」、status.blocked_on=attribute source component missing、
+  identity_convention '__partial_no_dbf' 后缀防碰撞；我按 build 源码实参（objname=stem+'__partial_no_dbf',
+  carrier='shapefile'）**sid 9c0a4734… match True**；表名 allocate_tables 同源无碰撞。CRS prj verbatim
+  Xian_1980_GK_Zone_19 PROJCS 全文在位、srid=null 保持。
+
+③ KML convention 对齐                                 PASS
+- 我独立 ElementTree 全 52 件重解析（容器外 host stdlib）：按交付 geometry_counting_convention
+  （Placemark=container 单列 placemarks_observed；MultiGeometry 自键不双计；LinearRing 随 Polygon 分列）
+  拆分口径后 **geo counts 52/52 delta 0、placemarks 52/52 相等**——上轮 3 处微差系我 naive regex 口径，
+  convention 定义文本可核、recount_elementtree_matches_delivered 断言字段在位。
+- 属性/Z/M/CRS 政策 52/52 件在位（extended_data_attributes_note/z_altitude_dimension_note/
+  crs_declaration_verbatim_in_kml/kml_xml_crs_clause_searched）；srid null 递归扫描违例 0。
+
+④ 计数/非回归                                         PASS
+- 三计数终态：**候选组 903｜确证 903（pending 0，sha 对账 2708/2708 与我 member 侧计数一致）｜映射 901=2+899**
+  ==om.counts==SUMMARY；族分布 shapefile 702+mapinfo_tab 142+kml 52+twin_bound 2+partial 1（=899）
+  family_reconciliation moved_objects 3 件逐件证据可核（69b5119f 双胞胎/TAB present/dbf provably absent）。
+- text_owned_by_block2=2 单列字段在位（om.counts+groups.lane_partition）；我独立泳道分区
+  proposed 899/approved 2/text 2 +gap 组 1698cca1 现携 partial 对象（gap_groups=1 仍列其属性缺口）
+  ——UNASSIGNED 0 达成。
+- sid 全局唯一 901/901、null 0、表名碰撞 0；846 归属 exactly-once 846/missing 0/multi 0；
+  2 批准 byte-equal True；tabular 六件 sha==HEAD mismatches 0；entry 668900d43663 未变；绝对路径 0。
+- 确定性静态核通过（五产物同秒 16:16:48Z），双跑硬证留 lead。
+
+结论：ROUND 10 四项 PASS。**两处如实报**：(A) twin attr order 22 vs TAB Fields 23——SYS_ID(Index 1)
+未入列且无排除声明（建议下版补一行 reason 或列入）；(B) evidence-gaps.tool_gap_report 被 2 个 twin 对象
+的 geometry_read_gap 引用但不存在（MAP 不可解码结论本体已在对象内自足，唯引用悬空）。二者均不影响
+字节身份/计数闭合。剩余具体缺口对象：MAP×2（需 MapInfo/MGD 第三方读取器授权）、v5 属性合同（源 dbf
+确证不存在，待茶香决策是否接受几何-only 表）、SYS_ID 列处置。
+判定建议：**第 3/6 块维持 PARTIAL**——头级取证+提案面完备（质量 PASS），工具级缺口（MAP 解码）与
+批准流程未完成属结构性遗留，正式导入待块 4+ 茶香批准。

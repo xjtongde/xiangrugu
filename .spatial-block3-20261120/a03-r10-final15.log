@@ -1,0 +1,11 @@
+groups.lane_partition: {"approved": 2, "proposed": 899, "text-owned-by-block2": 2}
+om counts lane/text keys: {'approved_objects_reused_verbatim': 2, 'candidate_groups_total': 903, 'consistency_asserts_passed': True, 'gap_groups': 1, 'groups_confirmed_read_only': 903, 'groups_pending_evidence': 0, 'mapped_objects_total': 901, 'partial_no_dbf_objects': 1, 'proposed_objects': 899, 'sid_bearing_objects': 899, 'text_owned_by_block2': 2, 'twin_bound_objects': 2}
+
+gap group ids still having objects? ['1698cca1ec31']
+block3 exactly-once: 846 missing: 0 multi: 0
+
+approved byte-equal: True | tabular mismatches: [] | entry: 668900d43663 True
+sid unique: True 901/901 | table collisions: 0
+abs-path hits: {'/mnt/': 0, 'file://': 0, '/home/zky': 0, '/opt/mydocker': 0}
+
+SUMMARY lane line: 901** =批准逐字沿用 **2** + 提案 **899**（shapefile 702 + mapinfo_tab 142 + kml 52，均 PROPOSED_NOT_AUTHORIZED）；缺口组 **1**。组级泳道分区机器断言在码：approved 2 + proposed 899 + gap 1 + text-owned-by-block2 2 = 903，UNASSIGNED=0——每组成员处置明确，AGENTS「不能静默遗漏」达成  ## KML 专段（本轮补查，52 件零遗漏） KML 亦矢量成员：按同一外层文件+完整链+stem 规则**每件自成一组**（无伴随件），groups.json family_c

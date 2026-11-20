@@ -1,0 +1,5 @@
+keys: ['dependency_gaps', 'gap_group_count', 'gaps', 'known_anomalies_carried', 'status']
+{}
+DAT len: 601448
+token counts: {'POLYGON': 1989}
+  rc 0

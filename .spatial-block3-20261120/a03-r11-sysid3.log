@@ -1,0 +1,3 @@
+delivered SYS_ID entry: {"decimals": null, "definition_line_verbatim": "    SYS_ID Integer ;", "ordinal": 22, "original_name": "SYS_ID", "tab_type": "Integer", "width": null}
+FILE LINE: '    SYS_ID Integer ;'
+verbatim in file: True | case-insensitive: True

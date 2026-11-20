@@ -1,0 +1,8 @@
+gaps keys: ['dependency_gaps', 'gap_group_count', 'gaps', 'known_anomalies_carried', 'status']
+'tool_gap_report' in gaps text: False
+om references tool_gap_report: 4 | MAP-READ-PLAN refs: 0
+ctx: geometry_read_gap": "MAP decode blocked on tool gap (see evidence-gaps.tool_gap_report)",
+    "geometry_type_evidence": "OBJ_TYPE distribution across all 1989 DAT records = POLYGON (attribute-side proof); X_COOR/Y_COOR p
+
+grep hits: datamgmt/contracts/releases/2026-10-06-bootstrap/import-package/spatial/object-mapping.json:175912:    "geometry_read_gap": "MAP decode blocked on tool gap (see evidence-gaps.tool_gap_report)",
+datamgmt/contracts/releases/2026-10-06-bootstrap/import-package/spatial/object-mapping.json:175916:   "geometry_read_status": "MAP file (20469248 B) NOT decodable with current stdlib toolset; head bytes rec

@@ -1,0 +1,9 @@
+tool_gap_report present: True
+   mapinfo/v3_time_pref_pgn_PRC.ZIP | sha a7b44b35a412 size 20469248
+   shapefiles/v3_time_pref_pgn_PRC.ZIP | sha a7b44b35a412 size 20469248
+twin attr: 23 | SYS_ID verbatim: "    SYS_ID Integer Index 1 ;"
+twin attr: 23 | SYS_ID verbatim: "    SYS_ID Integer Index 1 ;"
+groups.json b655d96fdba13eb3
+object-mapping.json a16cdf77e912fae6
+evidence-gaps.json ee1314d925da6f96
+SUMMARY.md 8d8cdcb197b57693

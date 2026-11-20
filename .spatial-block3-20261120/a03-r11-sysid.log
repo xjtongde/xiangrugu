@@ -1,0 +1,13 @@
+mapinfo_tab objects: 142 | with SYS_ID row: 123
+done 8
+  rc 0
+1820_cnty_pts_prc.ZIP/v2_1820_cnty_pts_PRC.TAB: attrs 28 | all verbatim-in-TAB:True | SYS_ID obj/file:True/False
+1820_cnty_pts_usa.ZIP/v2_1820_cnty_pts_USA.TAB: attrs 27 | all verbatim-in-TAB:True | SYS_ID obj/file:True/False
+1820_pref_pgn_prc.ZIP/v2_1820_pref_pgn_PRC.TAB: attrs 30 | all verbatim-in-TAB:True | SYS_ID obj/file:True/False
+1820_pref_pgn_usa.ZIP/v2_1820_pref_pgn_USA.TAB: attrs 30 | all verbatim-in-TAB:True | SYS_ID obj/file:True/False
+1820_pref_pts_prc.ZIP/v2_1820_pref_pts_PRC.TAB: attrs 28 | all verbatim-in-TAB:True | SYS_ID obj/file:True/False
+1820_pref_pts_usa.ZIP/v2_1820_pref_pts_USA.TAB: attrs 28 | all verbatim-in-TAB:True | SYS_ID obj/file:True/False
+fo/v2_1820_cst_lin_mi.ZIP/CHGIS_V1_CST_LIN.TAB: attrs 3 | all verbatim-in-TAB:True | SYS_ID obj/file:False/False
+2_1820_lks_pgn_prc.ZIP/v2_1820_lks_pgn_prc.TAB: attrs 5 | all verbatim-in-TAB:True | SYS_ID obj/file:False/False
+
+verbatim-all: 8 / 8 | anomalies: [('nty_pts_prc.ZIP/v2_1820_cnty_pts_PRC.TAB', 'obj has SYS_ID=True file has=False'), ('nty_pts_usa.ZIP/v2_1820_cnty_pts_USA.TAB', 'obj has SYS_ID=True file has=False'), ('ref_pgn_prc.ZIP/v2_1820_pref_pgn_PRC.TAB', 'obj has SYS_ID=True file has=False'), ('ref_pgn_usa.ZIP/v2_1820_pref_pgn_USA.TAB', 'obj has SYS_ID=True file has=False'), ('ref_pts_prc.ZIP/v2_1820_pref_pts_PRC.TAB', 'obj has SYS_ID=True file has=False'), ('ref_pts_usa.ZIP/v2_1820_pref_pts_USA.TAB', 'obj has SYS_ID=True file has=False')]

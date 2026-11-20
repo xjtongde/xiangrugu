@@ -1,0 +1,5 @@
+twin object keys: ['attribute_order_from_dbf_header', 'basis', 'block2_handoff_members', 'candidate_table_name', 'carrier', 'crs', 'dataset_namespace', 'family_candidate', 'geometry_proposal', 'group_id', 'optional_components_absent', 'primary_member', 'source_object_id', 'status']
+attr count: 22 | last entry: {"decimals": null, "definition_line_verbatim": "    END_CHG Char (20) ;", "ordinal": 22, "original_name": "END_CHG", "tab_type": "Char", "width": "20"}
+
+new-pattern matches: 23 | SYS_ID line matched: True
+old-pattern matches: 22

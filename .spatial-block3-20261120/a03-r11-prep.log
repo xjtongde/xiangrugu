@@ -1,0 +1,10 @@
+== current HEAD c0d0799 state of the two observations ==
+tool_gap_report present: False | keys: ['dependency_gaps', 'gap_group_count', 'gaps', 'known_anomalies_carried', 'status']
+
+twin attr count: 22 | SYS_ID present: False | order idx: -
+
+twin attr count: 22 | SYS_ID present: False | order idx: -
+
+v5 fields: 0 | geom recs: 3409 | crs head: PROJCS["Xian_1980_GK_Zone_19",GEOGCS["GC
+
+py_compile rc: 0 

@@ -1,0 +1,9 @@
+== WT non-regression ==
+groups: 903 | confirmed: 903 | pending: 0
+counts proposed: 899 | array: 899
+sid unique: True 901/901
+block3 exactly-once: 846 missing: 0 multi: 0
+approved byte-equal: True
+v5 fields: 0 | recs: 3409 | crs head verbatim: PROJCS["Xian_1980_GK_Zone_19",GE | srid: None
+tool_gap affected sha==inventory: True | installed_this_round: False | plan doc exists: True
+entry: 668900d43663 True | tabular mismatches: []

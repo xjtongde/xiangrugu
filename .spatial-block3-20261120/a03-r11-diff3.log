@@ -1,0 +1,11 @@
+changed objects vs c0d0799: 63
+   63x ('attribute_order_from_dbf_header',)
+sid changes: 0 chain/table/member changes: 0 attr-order-only: 63
+  sample: 1820_cst_lin_mi.ZIP/CHGIS_V1_CST_LIN.TAB | attrs 2 -> 3 | added: [{"decimals": null, "definition_line_verbatim": "    Sea_ID Smallint Index 1 ;", "ordinal": 1, "original_name": "Sea_ID", "tab_type": "Smallint", "wid
+  sample: _lks_pgn_prc.ZIP/v2_1820_lks_pgn_prc.TAB | attrs 4 -> 5 | added: [{"decimals": null, "definition_line_verbatim": "    Lks_id Smallint Index 1 ;", "ordinal": 1, "original_name": "Lks_id", "tab_type": "Smallint", "wid
+  sample: _lks_pgn_usa.ZIP/v2_1820_lks_pgn_usa.TAB | attrs 4 -> 5 | added: [{"decimals": null, "definition_line_verbatim": "    Lks_id Smallint Index 1 ;", "ordinal": 1, "original_name": "Lks_id", "tab_type": "Smallint", "wid
+
+gaps added keys: {'tool_gap_report'} removed: set() value-changed: []
+tool_gap affected sha/size==inventory: False | installed_this_round: False | required_tool present: True
+groups.json byte-equal c0d0799==WT: True
+SUMMARY.md byte-equal c0d0799==WT: True

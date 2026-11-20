@@ -1,0 +1,37 @@
+tool_gap_report present: False
+twin attr count: 22 | SYS_ID: absent
+twin attr count: 22 | SYS_ID: absent
+
+build script diff stat: 10	2	datamgmt/contracts/releases/2026-10-06-bootstrap/import-package/spatial/build_spatial_package.py
+diff hunks:
+diff --git a/datamgmt/contracts/releases/2026-10-06-bootstrap/import-package/spatial/build_spatial_package.py b/datamgmt/contracts/releases/2026-10-06-bootstrap/import-package/spatial/build_spatial_package.py
+index a4a97d3..2487b4b 100644
+--- a/datamgmt/contracts/releases/2026-10-06-bootstrap/import-package/spatial/build_spatial_package.py
++++ b/datamgmt/contracts/releases/2026-10-06-bootstrap/import-package/spatial/build_spatial_package.py
+@@ -521,7 +521,14 @@ def _twin_binding(g, gid):
+ 
+ 
+ def _ensure_common_fields(rec, g):
+-    """Every proposed object must carry source identity fields explicitly."""
++    """Align with independently verified baseline (a03 ROUND 10, commit c0d0799):
++    only kml/twin/partial objects carry explicit source identity fields in the
++    verified delivery; the former setdefault enrichment drifted 844 objects
++    (shapefile 702 + mapinfo_tab 142) and is removed. Wider identity enrichment
++    is a future approved change requiring re-verification, not this round."""
++    if rec.get("carrier") not in ("kml", "mapinfo_twin_bound",
++                                  "shapefile_partial_no_dbf"):
++        return rec
+     rec.setdefault("source_file_or_chain",
+                    rec.get("primary_member")
+                    or (g["members"][0]["member_key"] if g["members"] else None))
+@@ -760,7 +767,8 @@ for g in groups_doc["groups"]:
+         attrs = []
+         for ln in (tab_def or []):
+             m_ = _re.match(r"^\s+([A-Za-z_][\w]*)\s+(Char|Decimal|Smallint|"
+-                           r"Integer|Float|Numeric)\s*(?:\(([^)]*)\))?\s*;\s*$",
++                           r"Integer|Float|Numeric)\s*(?:\(([^)]*)\))?"
++                           r"(?:\s+Index\s+\d+)?\s*;\s*$",
+                            ln)
+             if m_:
+                 wd = (m_.group(3) or "").split(",")
+

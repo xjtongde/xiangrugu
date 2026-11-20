@@ -1,0 +1,57 @@
+full diff (len 3445 ):
+diff --git a/datamgmt/contracts/releases/2026-10-06-bootstrap/import-package/spatial/build_spatial_package.py b/datamgmt/contracts/releases/2026-10-06-bootstrap/import-package/spatial/build_spatial_package.py
+index a4a97d3..57d10e2 100644
+--- a/datamgmt/contracts/releases/2026-10-06-bootstrap/import-package/spatial/build_spatial_package.py
++++ b/datamgmt/contracts/releases/2026-10-06-bootstrap/import-package/spatial/build_spatial_package.py
+@@ -521,7 +521,14 @@ def _twin_binding(g, gid):
+ 
+ 
+ def _ensure_common_fields(rec, g):
+-    """Every proposed object must carry source identity fields explicitly."""
++    """Align with independently verified baseline (a03 ROUND 10, commit c0d0799):
++    only kml/twin/partial objects carry explicit source identity fields in the
++    verified delivery; the former setdefault enrichment drifted 844 objects
++    (shapefile 702 + mapinfo_tab 142) and is removed. Wider identity enrichment
++    is a future approved change requiring re-verification, not this round."""
++    if rec.get("carrier") not in ("kml", "mapinfo_twin_bound",
++                                  "shapefile_partial_no_dbf"):
++        return rec
+     rec.setdefault("source_file_or_chain",
+                    rec.get("primary_member")
+                    or (g["members"][0]["member_key"] if g["members"] else None))
+@@ -760,7 +767,8 @@ for g in groups_doc["groups"]:
+         attrs = []
+         for ln in (tab_def or []):
+             m_ = _re.match(r"^\s+([A-Za-z_][\w]*)\s+(Char|Decimal|Smallint|"
+-                           r"Integer|Float|Numeric)\s*(?:\(([^)]*)\))?\s*;\s*$",
++                           r"Integer|Float|Numeric)\s*(?:\(([^)]*)\))?"
++                           r"(?:\s+Index\s+\d+)?\s*;\s*$",
+                            ln)
+             if m_:
+                 wd = (m_.group(3) or "").split(",")
+@@ -902,6 +910,24 @@ gaps_doc = {
+         "unassigned_related_members": cand["unassigned_related_members"],
+         "known_tsv_exclusions": cand["known_tsv_exclusions"]},
+     "dependency_gaps": [],
++    "tool_gap_report": {
++        "status": "TOOL_GAP_NOT_INSTALLED",
++        "affected_objects": [
++            {"case": "mapinfo/v3_time_pref_pgn_PRC.ZIP",
++             "member": "v3_time_pref_pgn_PRC.MAP",
++             "chain": "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip!mapinfo/v3_time_pref_pgn_PRC.ZIP!v3_time_pref_pgn_PRC.MAP",
++             "size": 20469248,
++             "sha256": "a7b44b35a4123c7c8f264c9fed525f394afadd66e46b57b5aaa64c9eec2172df"},
++            {"case": "shapefiles/v3_time_pref_pgn_PRC.ZIP",
++             "member": "v3_time_pref_pgn_PRC.MAP",
++             "chain": "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip!shapefiles/v3_time_pref_pgn_PRC.ZIP!v3_time_pref_pgn_PRC.MAP",
++             "size": 20469248,
++             "sha256": "a7b44b35a4123c7c8f264c9fed525f394afadd66e46b57b5aaa64c9eec2172df"}],
++        "capability_missing": "MapInfo .MAP geometry decode (MITAB)",
++        "required_tool": "GDAL/OGR MITAB driver (python3-gdal=3.6.2+dfsg-1+b2 bookworm, apt deb sha256 locked) or Chaxiang-approved derived stdlib parser",
++        "installed_this_round": False,
++        "plan_document": "MAP-READ-PLAN.md",
++        "note": "inner ZIPs byte-identical (sha 69b5119f01f2...); mirror disposition deferred to block 6; DAT attributes already decoded (1989 records, structure HIGH / value MEDIUM)"},
+ }
+ summary = f"""# 第 3/6 块 · 空间矢量包（SUMMARY）
+ 
+

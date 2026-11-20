@@ -1,0 +1,7 @@
+gaps doc mentions MAP: False | tool_gap_report: False | MAP-READ-PLAN: False
+ctx: -
+SUMMARY 'tool_gap': 0
+SUMMARY 'MAP-READ': 0
+SUMMARY 'SYS_ID': 0
+
+SUMMARY MAP ctx: 性合同入 gaps 注记），不含孪生无主件组；两套计数各自闭合。mapinfo 146 vs TAB 142 差额 4 已查明：2 组为 casefold 歧义孪生组（v3_time_pref_pgn_PRC/V3_…，仅 DAT/IND/MAP 无 .TAB）+2 组的 .TAB 系顶层平面件已被块2按 tab-text 整理（GB_91_HZ_040201_UTF8.tab、2001_Shanghai_0_INDEX_OF_PRESENTATIONS.tab）。  ## 缺件统计（实算） 缺 .dbf 组 1（v5_time_pref_pts_utf）、缺 .prj 组 3（tib19pdb/v2_time_cnty_pgn_utf/v2_time_cnty_pts_

@@ -1,0 +1,15 @@
+changed count: 63
+done 10
+  rc 0
+/v2_1820_cst_lin_mi.ZIP/CHGIS_V1_CST_LIN.TAB: attrs 3 | verbatim-all:True ordinals:True uniq-names:True
+1820_lks_pgn_prc.ZIP/v2_1820_lks_pgn_prc.TAB: attrs 5 | verbatim-all:True ordinals:True uniq-names:True
+1820_lks_pgn_usa.ZIP/v2_1820_lks_pgn_usa.TAB: attrs 5 | verbatim-all:True ordinals:True uniq-names:True
+20_pref_pgn_prc.ZIP/v2_1820_pref_pgn_PRC.TAB: attrs 30 | verbatim-all:True ordinals:True uniq-names:True
+20_pref_pts_prc.ZIP/v2_1820_pref_pts_PRC.TAB: attrs 28 | verbatim-all:True ordinals:True uniq-names:True
+20_prov_pts_prc.ZIP/v2_1820_prov_pts_PRC.TAB: attrs 28 | verbatim-all:True ordinals:True uniq-names:True
+1820_rvr_lin_prc.ZIP/v2_1820_rvr_lin_prc.TAB: attrs 5 | verbatim-all:True ordinals:True uniq-names:True
+1820_rvr_lin_usa.ZIP/v2_1820_rvr_lin_usa.TAB: attrs 5 | verbatim-all:True ordinals:True uniq-names:True
+me_pref_pgn_PRC.ZIP/V3_time_pref_pgn_PRC.TAB: attrs 23 | verbatim-all:True ordinals:True uniq-names:True
+me_pref_pgn_PRC.ZIP/V3_time_pref_pgn_PRC.TAB: attrs 23 | verbatim-all:True ordinals:True uniq-names:True
+
+ALL SPOT CHECKS PASS: True | checked: 10 objects

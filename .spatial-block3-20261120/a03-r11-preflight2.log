@@ -1,0 +1,6 @@
+HEAD gaps has tool_gap_report: False
+WT gaps has tool_gap_report: True
+twin attr count: 23 | SYS_ID present: True
+twin attr count: 23 | SYS_ID present: True
+WT po families: {'shapefile': 703, 'mapinfo_candidate': 142, 'mapinfo_twin_bound': 2, 'kml': 52} | len 899
+WT om counts: {"approved_objects_reused_verbatim": 2, "candidate_groups_total": 903, "consistency_asserts_passed": true, "family_reconciliation": {"carrier_distribution_this_round": {"kml": 52, "mapinfo_tab": 142, "mapinfo_twin_bound": 2, "shapefile": 702, "shapefile_partial_no_dbf": 1}, "moved_objects": [{"evidence": "inner zip sha 69b5119f… byte-identical twins; TAB present", "from_lane": "gap", "stem": "V3_time_pref_pgn_PRC", "

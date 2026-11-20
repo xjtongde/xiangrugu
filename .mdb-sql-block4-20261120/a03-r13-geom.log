@@ -1,0 +1,16 @@
+CREATE TABLE `geom` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `placename_id` int(10) unsigned NOT NULL,
+  `g` geometry NOT NULL,
+  `src` enum('FUDAN','HARVARD','DDBC','GOOGLE','BAIDU','MAP-SCAN') NOT NULL,
+  `updated_on` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  SPATIAL KEY `g` (`g`),
+  KEY `pt_pn_idx` (`placename_id`)
+)
+ 
+
+delivered geom create head: CREATE TABLE `geom` ( |   `id` int(10) unsigned NOT NULL AUTO_INCREMENT, |   `placename_id` int(10) unsigned NOT NULL, |   `g` geometry NOT NULL, |   `src` enum('FUDAN','HARVARD','DDBC','GOOGLE','BAIDU','MAP-SCAN') NOT NULL, |   `updated_on` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP, |   PRIMARY KEY (`id`), |   SPATIAL KE
+delivered field names: ['id', 'placename_id', 'g', 'src', 'updated_on']
+
+pd_id delivered: {"binary_flag": false, "default_verbatim": "'0'", "definition_rest_verbatim": "NOT NULL default '0'", "definition_verbatim": "pd_id int(20) NOT NULL default '0'", "encoding_note": "file encoding utf-8-sig; charset declared None", "null_semantics_note": "source

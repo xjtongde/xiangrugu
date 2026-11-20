@@ -1,0 +1,55 @@
+
+====================================================================
+ROUND 13 —— 第 4/6 块 MDB 与 SQL 独立核对（a02 五连崩 lead 接管交付；对象=lead 四件+生成器）
+记录时刻：2026-11-19T18:03:55Z。基线 HEAD=ef90b64 ✓。全部自写脚本（本机 heredoc + 32:/tmp/a03_r13_*.py），
+未执行 a02/lead 脚本；只读、SQL 零执行、无安装、不写库。产物 sha 我独立重算：members 9a8594205fe3d356 /
+om 820eff12ac528cf6 / gaps 016740f16a812292 / SUMMARY bca41b5055e5f2f4 —— 与放行信号四个新 sha 全一致 ✓。
+
+① 成员覆盖                                    PASS
+- 我独立从 inventory 归集：.mdb 文件级 **5**、.sql **2** ==核心 7，零遗漏零多余（链+sha 逐一绑定）。
+- V4 两版本实证：直接件 a2cc4039 ≠ 包裹件 04be983d True；镜像对 access_database/…zip 与 shapefiles/…zip
+  同 sha 04be983d True==delivered v4_distinct_sha256 集合相等 True。
+- 相关处置 exactly-once 复算 9 件：structural_container×4（3 内层 ZIP+V3 内层）、excluded_non_data_to_block5×1
+  （Thumbs.db OLE 缩略图缓存非数据库判定成立——我 grep 全 inventory .db 叶子仅此 1 件）、
+  owned_by_block1×1（cbdb_20260919.sqlite3→import-package/cbdb/table-mapping.json 存在且 78 表实证、
+  cbdb/members.json sqlite hits=2 引用正确）、owned_by_block2×1（china_chron.xls→tabular members
+  disposition=organized/category=xls 引用正确）、documentation_note×2（txt/README）。均不重映射 ✓。
+
+② SQL 逐表逐列独立解析                        PASS（一处口径披露）
+- 方言：两文件均 mysql dump banner（我正则独立命中 =dialect_evidence mysql_dump_banner:1；tgaz
+  backtick×136/InnoDB×32/MyISAM×1/charset:utf8×33 我 Counter 逐项等值）。
+- 表数权威口径（行首 CREATE TABLE）：tgaz **33**、chron **1** ==delivered；名称集合对称差 **空**。
+  （披露：我早期全文本正则误命中 38——多出的 5 个系注释/上下文内 'CREATE TABLE' 字样，行首锚定后归一，
+  以行首口径为准，与 delivered 一致。）
+- 列数：34 表中 33 表 field_count==len(fields)==我独立行解析等值；geom 表 delivered 5 列（id/placename_id/
+  g/src/updated_on）与我逐字段 verbatim 比对全部在源文件中命中 True（我计数器的 6 系把 KEY 行误计，
+  delivered 排除 PRIMARY/UNIQUE/KEY/INDEX/CONSTRAINT/FOREIGN 正确）。
+- INSERT：chron 677（单行式，multi-tuple 0⇒行估算 677 同口径）；tgaz 136 extended、我同口径行估算
+  **983236==delivered row_count_estimate**（口径注记在证，非精确值如实）。DROP tgaz 38/LOCK 66 等值；
+  chron DROP 0/LOCK 0 等值。
+- 编码面：chron utf-8-sig BOM True/替换 0；tgaz utf-8 无 BOM/**替换字符 5**，我逐行扫描独立定位
+  **line 326 单条 INSERT INTO geom VALUES (1,26,'…WKB 风格二进制载荷…','HARVARD',…)**——与 lead 更新
+  证据互证（locations.line=326 count=5 context_verbatim 头部一致）。execution_status NOT_EXECUTED ✓。
+- NULL/DEFAULT/精度语义：fields[].definition_verbatim 逐字保留（如 pd_id int(20) NOT NULL default '0'
+  default_verbatim "'0'"、int(12)/varchar(40) 源精度原样、timestamp DEFAULT CURRENT_TIMESTAMP ON UPDATE
+  保留）；charset_declared None|utf8 两值域与源声明一致；engine None(chron TYPE=MyISAM 旧语法)|InnoDB×32|
+  MyISAM×1 分布等值。
+
+③ MDB×5 头探针与隔离恢复                      PASS
+- 我独立读取 5 件前 128 字节：**hex128 verbatim 5/5 与 delivered header_hexdump_first128_verbatim 逐字
+  一致**；magic 00010000/签名 Standard Jet DB/version byte@0x14=1（JET4 Access 2000-2003）/页大小 4096
+  版本推导——我 struct 独立解出同值。sha 匹配 inventory（core 绑定即证）。
+- mdbtools 宿主/容器均无、本轮未装（tool_gap_report installed_this_round=False、status
+  MDB_CATALOG_READER_NOT_INSTALLED、affected_objects 5、required_tool mdbtools=1.0.0+dfsg-1.1 候选提案）
+  ⇒表枚举 0 不臆造 ✓；逐件 isolation_recovery note 在位。
+- 缺口计数 gap_count 6=MDB 工具×5+tgaz 编码损失×1 ✓；sid 唯一 39/39；status 单一 PROPOSED_NOT_AUTHORIZED
+  ready_for_import=false ✓。
+
+④ 非回归                                      PASS
+- spatial 四件/tabular 两件/cbdb table-mapping vs HEAD mismatches []；entry 668900d43663 ✓；
+  V4_Data_Archive.zip 宿主现读 sha==inventory（源件零触）✓。
+
+结论：ROUND 13 四项 PASS，无阻塞不一致。首个不一致：无（两处自纠口径披露在案：我早期 CREATE TABLE
+非锚定正则 38→行首 33；我列计数器误含 KEY 行→delivered 5 正确）。准确计数：成员 7｜枚举 39=SQL 表 34+
+MDB 文件级 5｜映射提案 34｜缺口 6｜解析异常 0｜相关处置 9 exactly-once。
+判定建议：**PASS**（MDB 表枚举为已声明工具缺口而非缺陷；899/镜像合并类事项不在本块范围）。

@@ -1,0 +1,21 @@
+members.json 9a8594205fe3d356
+object-mapping.json 820eff12ac528cf6
+evidence-gaps.json 016740f16a812292
+SUMMARY.md bca41b5055e5f2f4
+
+counts: {"core_members": 7, "enumerated_objects_total": 39, "mapped_objects_proposed": 34, "mdb_files": 5, "mdb_objects_header_confirmed": 5, "mdb_tables_enumerated": 0, "sql_files": 2, "sql_parse_anomalies": 0, "sql_tables_enumerated": 34}
+tgaz objs: 33 | china_chron objs: 1
+my authoritative CREATE TABLE counts: 33 1
+
+name set equal (delivered vs mine): True | sym: []
+
+geom obj: field_count 5 | len(fields) 5
+   create head: CREATE TABLE `geom` ( |   `id` int(10) unsigned NOT NULL AUTO_INCREMENT, |   `placename_id` int(10) unsigned NOT NULL, |   `g` geometry NOT NULL, |   `src` enum('FUDAN','HARVARD','DDBC','GOOGLE','BAIDU','MAP-SCAN') NOT NULL, |   `
+
+gap_count: 6
+    None | locked environment has no MDB catalog reader: mdbtools absent on 32 host and in existing p
+    None | locked environment has no MDB catalog reader: mdbtools absent on 32 host and in existing p
+    None | locked environment has no MDB catalog reader: mdbtools absent on 32 host and in existing p
+    None | locked environment has no MDB catalog reader: mdbtools absent on 32 host and in existing p
+    None | locked environment has no MDB catalog reader: mdbtools absent on 32 host and in existing p
+    None | decode replacement chars > 0: value-loss risk, isolate before import

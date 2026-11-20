@@ -1,0 +1,9 @@
+geom delivered field verbatim all-in-file: True | count 5
+delivered create def == source block (normalized): False
+key defs: ["PRIMARY KEY (`id`)", "SPATIAL KEY `g` (`g`)", "KEY `pt_pn_idx` (`placename_id`)"]
+
+delivered engines over 34 objs: {None: 1, 'InnoDB': 32, 'MyISAM': 1}
+charset declared values: {'None', 'utf8'}
+
+nonreg mismatches vs HEAD: [] | entry: 668900d43663 True
+V4 outer zip now: bbebe6b1bb667e8f == inventory: True

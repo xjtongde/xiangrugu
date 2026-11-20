@@ -1,0 +1,5 @@
+engine=None object: china_chron | its create tail: ['  PRIMARY KEY  (pd_id)', ') TYPE=MyISAM;']
+my tgaz row estimate (same caliber): 983236 
+delivered row_count_estimate: 983236
+chron row estimate: 677 | multi-tuple lines: 0
+delivered chron facts: {"insert_statement_count": 677, "row_count_estimate": 677, "replacement_chars_on_decode": 0, "bom_present": true, "encoding_detected": "utf-8-sig", "dialect_evidence": {"mysql_dump_banner": 1}}

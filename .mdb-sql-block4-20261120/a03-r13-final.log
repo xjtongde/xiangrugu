@@ -1,0 +1,9 @@
+encoding-loss gap full: {"kind": "encoding_loss_risk", "locations": [{"context_verbatim": "INSERT INTO `geom` VALUES (1,26,'\\0\\0\\0\\0\u0001\u0001\\0\\0\\0�}:\u001e3�\\\\@���NyC@','HARVARD','2014-06-26 20:20:07');", "count": 5, "line": 326}], "note": "decode replacement chars > 0: value-loss risk, isolate before import", "object": "harvard-full/doi_10_7910/DVN/H3OB28/tgaz_bak_2018.zip!tgaz_bak_2018.sql", "recovery_note": "replacement chars localized (see locations/context_verbatim); where context shows binary payload inside string liter
+
+tool_gap_report status: MDB_CATALOG_READER_NOT_INSTALLED | required_tool: mdbtools=1.0.0+dfsg-1.1 (bookworm apt candidate measured on 32; NOT installed; locked-version proposal awaits Chaxiang a | installed: False | affected: 5
+column-count mismatches (authoritative line parse vs delivered): 1 [('geom', 6, 5, 5)]
+
+chron field0: {"binary_flag": false, "default_verbatim": "NULL", "definition_rest_verbatim": "default NULL", "definition_verbatim": "pd_simp varchar(40) default NULL", "encoding_note": "file encoding utf-8-sig; charset declared None",
+pd_id NOT NULL default 0 present: False
+
+sid unique: True 39/39 | status variants: 1 {"confirmation_state": "PROPOSED_NOT_AUTHORIZED", "ready_for_import": false}

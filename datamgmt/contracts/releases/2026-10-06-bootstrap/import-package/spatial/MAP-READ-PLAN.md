@@ -1,6 +1,6 @@
-# MAP 几何只读读取方案（提案，待茶香批准）
+# MAP 几何只读读取方案（已批准并执行）
 
-日期：2026-11-20。基线 c0d0799。本轮**未安装任何依赖、未写库、未在 pg32b 服务容器内做任何读件试验**。
+日期：2026-11-20。提案基线 c0d0799；**茶香批准执行于 17:14Z 盒（基线 2df6e3d）**。执行记录见 .mapinfo-verify-20261120/lead-record.md：镜像 xiangrugu:runtime-spatial-mapinfo-20261120-a Id f1675321e33e…（GDAL 3.6.2+dfsg-1+b2，92 deb 离线闭包 --network none 构建，requirements-apt.lock）；两案 1989×2 全读（POLYGON 1456+MULTIPOLYGON 533，0 空 0 错，extent 逐位 a03 同值）；**CRS UNRESOLVED 裁定**（MITAB Pulkovo_1942 系读取器猜测不采纳）；**属性坐标源零值/哨兵裁定**（几何为权威不补造）；缺口状态 RESOLVED_FOR_TWO_PRC_MAP_OBJECTS。原提案轮未安装未写库未 pg32b 试验；执行轮仅候选镜像内装依赖、宿主零改、未进 pg32/pg32b、未写库、源件零触（前后 4dec393b… 同值）。镜像处置留第 6 块。
 
 ## 受影响对象（剩余缺口）
 

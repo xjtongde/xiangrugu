@@ -1,0 +1,27 @@
+{
+ "outer_zip_sha256": "4dec393bb9ff4acb3c61511817777f41c9215b7ef25e0d1128adc80b776f9660",
+ "inner_zip_sha256": "69b5119f01f2b5937c373dc4cbb50c37ba9f35ff25566951abd43f6c02632fb9",
+ "components": {
+  "V3_time_pref_pgn_PRC.TAB": {
+   "sha256": "c7bb2a785505bd4d8c9b0046d879b308cd93491cfef1ccb126fe80847b39e786",
+   "size": 715
+  },
+  "v3_time_pref_pgn_PRC.DAT": {
+   "sha256": "3937da6c333df757b1b1679268a6c04577913071e2b7251dd46e3de20d4c1533",
+   "size": 601448
+  },
+  "v3_time_pref_pgn_PRC.MAP": {
+   "sha256": "a7b44b35a4123c7c8f264c9fed525f394afadd66e46b57b5aaa64c9eec2172df",
+   "size": 20469248
+  },
+  "V3_time_pref_pgn_PRC.ID": {
+   "sha256": "f3956a79239f2b7c1e81bfc4e5dc31c68d081889ca9aadc79e62a3ea492dc399",
+   "size": 7956
+  },
+  "v3_time_pref_pgn_PRC.IND": {
+   "sha256": "c422403b5cd9865ea5bfecc4fa63ecd437a6ddd74861cc59d6ae7b2f285c4ef0",
+   "size": 28672
+  }
+ },
+ "image_id": "sha256:f1675321e33eeb95b6e43eb21410f1a48459f77e250de445f595c02caac6e595"
+}

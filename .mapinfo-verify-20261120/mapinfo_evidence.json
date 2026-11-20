@@ -1,0 +1,294 @@
+{
+ "snapshot_outer_sha256_before": "4dec393bb9ff4acb3c61511817777f41c9215b7ef25e0d1128adc80b776f9660",
+ "snapshot_outer_sha256_after": "4dec393bb9ff4acb3c61511817777f41c9215b7ef25e0d1128adc80b776f9660",
+ "source_untouched": true,
+ "image_id": "sha256:f1675321e33eeb95b6e43eb21410f1a48459f77e250de445f595c02caac6e595",
+ "gdal_version": true,
+ "cases": {
+  "case_mapinfo": {
+   "case": "case_mapinfo",
+   "inner_chain": "mapinfo/v3_time_pref_pgn_PRC.ZIP",
+   "errors": [],
+   "inner_zip_sha256": "69b5119f01f2b5937c373dc4cbb50c37ba9f35ff25566951abd43f6c02632fb9",
+   "inner_zip_sha_match": true,
+   "inner_zip_size": 6089146,
+   "component_digests": {
+    "V3_time_pref_pgn_PRC.TAB": {
+     "sha256": "c7bb2a785505bd4d8c9b0046d879b308cd93491cfef1ccb126fe80847b39e786",
+     "size": 715,
+     "match_inventory": true,
+     "size_match": true
+    },
+    "v3_time_pref_pgn_PRC.DAT": {
+     "sha256": "3937da6c333df757b1b1679268a6c04577913071e2b7251dd46e3de20d4c1533",
+     "size": 601448,
+     "match_inventory": true,
+     "size_match": true
+    },
+    "v3_time_pref_pgn_PRC.MAP": {
+     "sha256": "a7b44b35a4123c7c8f264c9fed525f394afadd66e46b57b5aaa64c9eec2172df",
+     "size": 20469248,
+     "match_inventory": true,
+     "size_match": true
+    },
+    "V3_time_pref_pgn_PRC.ID": {
+     "sha256": "f3956a79239f2b7c1e81bfc4e5dc31c68d081889ca9aadc79e62a3ea492dc399",
+     "size": 7956,
+     "match_inventory": true,
+     "size_match": true
+    },
+    "v3_time_pref_pgn_PRC.IND": {
+     "sha256": "c422403b5cd9865ea5bfecc4fa63ecd437a6ddd74861cc59d6ae7b2f285c4ef0",
+     "size": 28672,
+     "match_inventory": true,
+     "size_match": true
+    }
+   },
+   "case_rename_map": {
+    "v3_time_pref_pgn_PRC.DAT": "V3_time_pref_pgn_PRC.DAT",
+    "v3_time_pref_pgn_PRC.MAP": "V3_time_pref_pgn_PRC.MAP",
+    "v3_time_pref_pgn_PRC.IND": "V3_time_pref_pgn_PRC.IND"
+   },
+   "tab_text": "!table\r\n!version 410\r\n!charset WindowsSimpChinese\r\n\r\nDefinition Table\r\n  Type NATIVE Charset \"WindowsSimpChinese\"\r\n  Fields 23\r\n    NAME_PY Char (40) ;\r\n    NAME_CH Char (30) ;\r\n    NAME_FT Char (30) ;\r\n    X_COOR Decimal (10, 6) ;\r\n    Y_COOR Decimal (10, 6) ;\r\n    PRES_LOC Char (40) ;\r\n    TYPE_PY Char (15) ;\r\n    TYPE_CH Char (10) ;\r\n    LEV_RANG Char (1) ;\r\n    BEG_YR Smallint ;\r\n    BEG_RULE Char (1) ;\r\n    END_YR Smallint ;\r\n    END_RULE Char (1) ;\r\n    NOTE_ID Integer ;\r\n    OBJ_TYPE Char (7) ;\r\n    SYS_ID Integer Index 1 ;\r\n    GEO_SRC Char (10) ;\r\n    COMPILER Char (14) ;\r\n    GEOCOMP Char (10) ;\r\n    CHECKER Char (10) ;\r\n    ENT_DATE Char (10) ;\r\n    BEG_CHG Char (20) ;\r\n    END_CHG Char (20) ;\r\n",
+   "tab_has_coordsys": false,
+   "layer_name": "V3_time_pref_pgn_PRC",
+   "feature_count": 1989,
+   "geometry_type_code": 0,
+   "geometry_type_name": "Unknown (any)",
+   "extent": [
+    106.60376,
+    124.576195,
+    18.160896,
+    35.726135
+   ],
+   "srs_wkt": "GEOGCS[\"unnamed\",DATUM[\"Pulkovo_1942\",SPHEROID[\"Krassovsky\",6378245,298.3]],PRIMEM[\"Greenwich\",0],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AXIS[\"Latitude\",NORTH],AXIS[\"Longitude\",EAST]]",
+   "crs_status": "UNRESOLVED_READER_DEFAULT_NOT_ADOPTED",
+   "field_names": [
+    "NAME_PY",
+    "NAME_CH",
+    "NAME_FT",
+    "X_COOR",
+    "Y_COOR",
+    "PRES_LOC",
+    "TYPE_PY",
+    "TYPE_CH",
+    "LEV_RANG",
+    "BEG_YR",
+    "BEG_RULE",
+    "END_YR",
+    "END_RULE",
+    "NOTE_ID",
+    "OBJ_TYPE",
+    "SYS_ID",
+    "GEO_SRC",
+    "COMPILER",
+    "GEOCOMP",
+    "CHECKER",
+    "ENT_DATE",
+    "BEG_CHG",
+    "END_CHG"
+   ],
+   "features_walked": 1989,
+   "null_geometries": 0,
+   "read_errors": 0,
+   "obj_type_distribution": {
+    "POLYGON": 1989
+   },
+   "polygon_ring_count_distribution": {
+    "1": 1418,
+    "2": 37,
+    "4": 1
+   },
+   "centroid_vs_attr_coord": {
+    "n": 1989,
+    "max_abs_dx": 122.16046718823496,
+    "max_abs_dy": 977.2414251214393,
+    "mean_abs_dx": 115.39822060673697,
+    "mean_abs_dy": 28.895383757799348,
+    "note": "centroid of polygon vs X_COOR/Y_COOR attribute (label/seed point); relationship recorded, not assumed equal"
+   },
+   "dat_crosscheck": {
+    "expected_records": 1989,
+    "feature_count_matches_dat": true,
+    "walked_matches": true,
+    "note": "attributes read via MITAB from DAT; independent struct decode reconciliation by a03"
+   },
+   "attributes_jsonl": "/work/case_mapinfo/attributes.jsonl",
+   "geometry_type_distribution": {
+    "POLYGON": 1456,
+    "MULTIPOLYGON": 533
+   },
+   "multipolygon_part_count_distribution": {
+    "2": 207,
+    "3": 65,
+    "4": 64,
+    "5": 13,
+    "6": 22,
+    "7": 18,
+    "8": 17,
+    "10": 17,
+    "11": 6,
+    "12": 11,
+    "13": 4,
+    "14": 8,
+    "15": 18,
+    "16": 5,
+    "17": 9,
+    "18": 5,
+    "19": 6,
+    "20": 9,
+    "21": 1,
+    "22": 14,
+    "23": 7,
+    "24": 2,
+    "29": 4,
+    "39": 1
+   },
+   "ring_caliber_note": "polygon_ring_count_distribution counts rings of PURE POLYGON features only; MULTIPOLYGON features counted separately in multipolygon_part_count_distribution (parts); a03 ROUND 12 disclosure A caliber aligned",
+   "crs_ruling_note": "srs_wkt is MITAB reader default guess (TAB has no Coordsys); NOT a source declaration; not adopted; no inference/transformation (lead ruling, a03 ROUND 12 disclosure B label corrected)"
+  },
+  "case_shapefiles": {
+   "case": "case_shapefiles",
+   "inner_chain": "shapefiles/v3_time_pref_pgn_PRC.ZIP",
+   "errors": [],
+   "inner_zip_sha256": "69b5119f01f2b5937c373dc4cbb50c37ba9f35ff25566951abd43f6c02632fb9",
+   "inner_zip_sha_match": true,
+   "inner_zip_size": 6089146,
+   "component_digests": {
+    "V3_time_pref_pgn_PRC.TAB": {
+     "sha256": "c7bb2a785505bd4d8c9b0046d879b308cd93491cfef1ccb126fe80847b39e786",
+     "size": 715,
+     "match_inventory": true,
+     "size_match": true
+    },
+    "v3_time_pref_pgn_PRC.DAT": {
+     "sha256": "3937da6c333df757b1b1679268a6c04577913071e2b7251dd46e3de20d4c1533",
+     "size": 601448,
+     "match_inventory": true,
+     "size_match": true
+    },
+    "v3_time_pref_pgn_PRC.MAP": {
+     "sha256": "a7b44b35a4123c7c8f264c9fed525f394afadd66e46b57b5aaa64c9eec2172df",
+     "size": 20469248,
+     "match_inventory": true,
+     "size_match": true
+    },
+    "V3_time_pref_pgn_PRC.ID": {
+     "sha256": "f3956a79239f2b7c1e81bfc4e5dc31c68d081889ca9aadc79e62a3ea492dc399",
+     "size": 7956,
+     "match_inventory": true,
+     "size_match": true
+    },
+    "v3_time_pref_pgn_PRC.IND": {
+     "sha256": "c422403b5cd9865ea5bfecc4fa63ecd437a6ddd74861cc59d6ae7b2f285c4ef0",
+     "size": 28672,
+     "match_inventory": true,
+     "size_match": true
+    }
+   },
+   "case_rename_map": {
+    "v3_time_pref_pgn_PRC.DAT": "V3_time_pref_pgn_PRC.DAT",
+    "v3_time_pref_pgn_PRC.MAP": "V3_time_pref_pgn_PRC.MAP",
+    "v3_time_pref_pgn_PRC.IND": "V3_time_pref_pgn_PRC.IND"
+   },
+   "tab_text": "!table\r\n!version 410\r\n!charset WindowsSimpChinese\r\n\r\nDefinition Table\r\n  Type NATIVE Charset \"WindowsSimpChinese\"\r\n  Fields 23\r\n    NAME_PY Char (40) ;\r\n    NAME_CH Char (30) ;\r\n    NAME_FT Char (30) ;\r\n    X_COOR Decimal (10, 6) ;\r\n    Y_COOR Decimal (10, 6) ;\r\n    PRES_LOC Char (40) ;\r\n    TYPE_PY Char (15) ;\r\n    TYPE_CH Char (10) ;\r\n    LEV_RANG Char (1) ;\r\n    BEG_YR Smallint ;\r\n    BEG_RULE Char (1) ;\r\n    END_YR Smallint ;\r\n    END_RULE Char (1) ;\r\n    NOTE_ID Integer ;\r\n    OBJ_TYPE Char (7) ;\r\n    SYS_ID Integer Index 1 ;\r\n    GEO_SRC Char (10) ;\r\n    COMPILER Char (14) ;\r\n    GEOCOMP Char (10) ;\r\n    CHECKER Char (10) ;\r\n    ENT_DATE Char (10) ;\r\n    BEG_CHG Char (20) ;\r\n    END_CHG Char (20) ;\r\n",
+   "tab_has_coordsys": false,
+   "layer_name": "V3_time_pref_pgn_PRC",
+   "feature_count": 1989,
+   "geometry_type_code": 0,
+   "geometry_type_name": "Unknown (any)",
+   "extent": [
+    106.60376,
+    124.576195,
+    18.160896,
+    35.726135
+   ],
+   "srs_wkt": "GEOGCS[\"unnamed\",DATUM[\"Pulkovo_1942\",SPHEROID[\"Krassovsky\",6378245,298.3]],PRIMEM[\"Greenwich\",0],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AXIS[\"Latitude\",NORTH],AXIS[\"Longitude\",EAST]]",
+   "crs_status": "UNRESOLVED_READER_DEFAULT_NOT_ADOPTED",
+   "field_names": [
+    "NAME_PY",
+    "NAME_CH",
+    "NAME_FT",
+    "X_COOR",
+    "Y_COOR",
+    "PRES_LOC",
+    "TYPE_PY",
+    "TYPE_CH",
+    "LEV_RANG",
+    "BEG_YR",
+    "BEG_RULE",
+    "END_YR",
+    "END_RULE",
+    "NOTE_ID",
+    "OBJ_TYPE",
+    "SYS_ID",
+    "GEO_SRC",
+    "COMPILER",
+    "GEOCOMP",
+    "CHECKER",
+    "ENT_DATE",
+    "BEG_CHG",
+    "END_CHG"
+   ],
+   "features_walked": 1989,
+   "null_geometries": 0,
+   "read_errors": 0,
+   "obj_type_distribution": {
+    "POLYGON": 1989
+   },
+   "polygon_ring_count_distribution": {
+    "1": 1418,
+    "2": 37,
+    "4": 1
+   },
+   "centroid_vs_attr_coord": {
+    "n": 1989,
+    "max_abs_dx": 122.16046718823496,
+    "max_abs_dy": 977.2414251214393,
+    "mean_abs_dx": 115.39822060673697,
+    "mean_abs_dy": 28.895383757799348,
+    "note": "centroid of polygon vs X_COOR/Y_COOR attribute (label/seed point); relationship recorded, not assumed equal"
+   },
+   "dat_crosscheck": {
+    "expected_records": 1989,
+    "feature_count_matches_dat": true,
+    "walked_matches": true,
+    "note": "attributes read via MITAB from DAT; independent struct decode reconciliation by a03"
+   },
+   "attributes_jsonl": "/work/case_shapefiles/attributes.jsonl",
+   "geometry_type_distribution": {
+    "POLYGON": 1456,
+    "MULTIPOLYGON": 533
+   },
+   "multipolygon_part_count_distribution": {
+    "2": 207,
+    "3": 65,
+    "4": 64,
+    "5": 13,
+    "6": 22,
+    "7": 18,
+    "8": 17,
+    "10": 17,
+    "11": 6,
+    "12": 11,
+    "13": 4,
+    "14": 8,
+    "15": 18,
+    "16": 5,
+    "17": 9,
+    "18": 5,
+    "19": 6,
+    "20": 9,
+    "21": 1,
+    "22": 14,
+    "23": 7,
+    "24": 2,
+    "29": 4,
+    "39": 1
+   },
+   "ring_caliber_note": "polygon_ring_count_distribution counts rings of PURE POLYGON features only; MULTIPOLYGON features counted separately in multipolygon_part_count_distribution (parts); a03 ROUND 12 disclosure A caliber aligned",
+   "crs_ruling_note": "srs_wkt is MITAB reader default guess (TAB has no Coordsys); NOT a source declaration; not adopted; no inference/transformation (lead ruling, a03 ROUND 12 disclosure B label corrected)"
+  }
+ },
+ "lead_rulings_round": "2026-11-20 MapInfo verification: CRS unresolved kept; attribute coords source-zeroed/placeholder, geometry authoritative; geometry types POLYGON+MULTIPOLYGON recorded per feature"
+}

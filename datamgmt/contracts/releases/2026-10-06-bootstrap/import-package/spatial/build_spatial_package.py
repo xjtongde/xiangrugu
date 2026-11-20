@@ -20,7 +20,7 @@ PROBE_DIR = ROOT / ".spatial-probe-20261120"
 
 IMAGE_ID = ("sha256:6144346a501c7ba1299e28862a303007fddd6a9e8030c6b6e"
             "7c1ca52921b6cd3")
-VCS_REF = "5478271"
+VCS_REF = "2df6e3d"
 
 
 def sha(p):
@@ -60,6 +60,67 @@ for line in (PROBE_DIR / "spatial_evidence.jsonl").read_text().splitlines():
     ev[r["key"]] = r
 
 PROBE_DIR_B = ROOT / ".spatial-probe-20261120b"
+# MapInfo MITAB verification evidence (Chaxiang-approved candidate image, round 2026-11-20)
+MIE_DIR = ROOT / ".mapinfo-verify-20261120"
+_mie_path = MIE_DIR / "mapinfo_evidence.json"
+MIE = json.loads(_mie_path.read_text()) if _mie_path.exists() else None
+MIE_SHA = hashlib.sha256(_mie_path.read_bytes()).hexdigest() if MIE else None
+
+
+def _mie_case(chain):
+    """Evidence-driven geometry verification block for one twin case."""
+    case = ("case_mapinfo" if any("mapinfo/" in c for c in chain)
+            else "case_shapefiles")
+    r = MIE["cases"][case]
+    az = MIE_DIR / f"attributes_{case}.jsonl"
+    xs, ys = [], []
+    if az.exists():
+        for line in az.read_text().splitlines():
+            a = json.loads(line)["attributes"]
+            xs.append(float(a["X_COOR"])); ys.append(float(a["Y_COOR"]))
+    nzx = [v for v in xs if v != 0.0]; nzy = [v for v in ys if v != 0.0]
+    return {
+        "image_id": MIE["image_id"], "gdal_version": "3.6.2+dfsg-1+b2",
+        "container_network": "none", "snapshot_mount": "ro",
+        "layer_name": r["layer_name"], "feature_count": r["feature_count"],
+        "features_walked": r["features_walked"],
+        "geometry_type_distribution": r["geometry_type_distribution"],
+        "multipolygon_part_count_distribution": r.get(
+            "multipolygon_part_count_distribution"),
+        "ring_caliber_note": r.get("ring_caliber_note"),
+        "obj_type_distribution": r["obj_type_distribution"],
+        "null_geometries": r["null_geometries"],
+        "read_errors": r["read_errors"], "extent": r["extent"],
+        "polygon_ring_count_distribution": r["polygon_ring_count_distribution"],
+        "case_rename_map_temp_copies_only": r["case_rename_map"],
+        "component_digests_match_inventory": all(
+            v["match_inventory"] and v["size_match"]
+            for v in r["component_digests"].values()),
+        "inner_zip_sha_match": r["inner_zip_sha_match"],
+        "crs_status": "UNRESOLVED_NO_RELIABLE_BASIS",
+        "reader_default_srs_wkt_NOT_ADOPTED": r["srs_wkt"],
+        "crs_ruling": ("TAB has no Coordsys clause; MITAB returned GEOGCS "
+                       "unnamed/Pulkovo_1942 (Krassovsky) as reader default "
+                       "guess, NOT a source declaration; not adopted; no "
+                       "inference, no transformation"),
+        "attribute_coords_source_state": {
+            "records": len(xs),
+            "X_COOR_zero_count": sum(1 for v in xs if v == 0.0),
+            "Y_COOR_zero_count": sum(1 for v in ys if v == 0.0),
+            "X_COOR_nonzero_range": [min(nzx), max(nzx)] if nzx else None,
+            "Y_COOR_nonzero_range": [min(nzy), max(nzy)] if nzy else None,
+            "sentinel_present": "999.999999" if 999.999999 in ys else None,
+            "ruling": ("source attribute coordinates unset/placeholder; "
+                       "geometry authoritative; centroid-vs-attribute deltas "
+                       "fully explained by zeros/sentinels; no fabrication")},
+        "centroid_vs_attr_coord": r.get("centroid_vs_attr_coord"),
+        "dat_crosscheck": r["dat_crosscheck"],
+        "source_untouched_before_after": MIE["source_untouched"],
+        "evidence_file": ".mapinfo-verify-20261120/mapinfo_evidence.json",
+        "evidence_sha256": MIE_SHA,
+        "attributes_jsonl": f".mapinfo-verify-20261120/attributes_{case}.jsonl",
+        "attributes_jsonl_sha256": (hashlib.sha256(az.read_bytes()).hexdigest()
+                                    if az.exists() else None)}
 gap_ev = json.loads((PROBE_DIR_B / "gap23_evidence.json").read_text())
 dat_dec = json.loads((PROBE_DIR_B / "dat_decode.json").read_text())
 twin_ev = json.loads((PROBE_DIR_B / "gap_evidence.json").read_text())["twin"]
@@ -510,8 +571,11 @@ def _twin_binding(g, gid):
                 "contract — not asserted here."),
             "sample_records_first2": dat_dec["sample_records"][:2]},
         "geometry_read_status": (
+            "VERIFIED_MITAB_READONLY (Chaxiang-approved candidate image)"
+            if MIE else
             "MAP file (20469248 B) NOT decodable with current stdlib toolset; "
             "head bytes recorded; see tool_gap_report"),
+        **({"geometry_verification": _mie_case(chain)} if MIE else {}),
         "status": {"confirmation_state": "PROPOSED_NOT_AUTHORIZED",
                    "ready_for_import": False},
         "basis": {"image_read_only_probe": IMAGE_ID,
@@ -911,7 +975,8 @@ gaps_doc = {
         "known_tsv_exclusions": cand["known_tsv_exclusions"]},
     "dependency_gaps": [],
     "tool_gap_report": {
-        "status": "TOOL_GAP_NOT_INSTALLED",
+        "status": ("RESOLVED_FOR_TWO_PRC_MAP_OBJECTS" if MIE
+                   else "TOOL_GAP_NOT_INSTALLED"),
         "affected_objects": [
             {"case": "mapinfo/v3_time_pref_pgn_PRC.ZIP",
              "member": "v3_time_pref_pgn_PRC.MAP",
@@ -925,10 +990,29 @@ gaps_doc = {
              "sha256": "a7b44b35a4123c7c8f264c9fed525f394afadd66e46b57b5aaa64c9eec2172df"}],
         "capability_missing": "MapInfo .MAP geometry decode (MITAB)",
         "required_tool": "GDAL/OGR MITAB driver (python3-gdal=3.6.2+dfsg-1+b2 bookworm, apt deb sha256 locked) or Chaxiang-approved derived stdlib parser",
-        "installed_this_round": False,
+        "installed_this_round": bool(MIE),
+        "installed_in_candidate_image_only": bool(MIE),
+        "host_software_unchanged": True,
         "plan_document": "MAP-READ-PLAN.md",
+        "resolution": (None if not MIE else {
+            "image_id": MIE["image_id"],
+            "gdal": "3.6.2+dfsg-1+b2",
+            "apt_lock": "datamgmt/requirements-apt.lock (92 debs sha256)",
+            "evidence_sha256": MIE_SHA,
+            "both_cases_feature_count": 1989,
+            "crs_ruling": "UNRESOLVED kept; MITAB reader-default Pulkovo_1942 WKT NOT adopted (TAB has no Coordsys)",
+            "attribute_coords_ruling": "source X_COOR/Y_COOR unset/placeholder (zeros/sentinels); geometry authoritative; no fabrication",
+            "other_tab_map_objects": "out of this round's authorized scope; remain proposal-state"}),
         "note": "inner ZIPs byte-identical (sha 69b5119f01f2...); mirror disposition deferred to block 6; DAT attributes already decoded (1989 records, structure HIGH / value MEDIUM)"},
 }
+mie_summary = "" if not MIE else f"""
+## MapInfo 几何核验（茶香授权候选镜像，本轮）
+- 镜像 xiangrugu:runtime-spatial-mapinfo-20261120-a Id {MIE['image_id'][:24]}…（GDAL 3.6.2+dfsg-1+b2；92 deb 离线闭包 --network none 构建；datamgmt/requirements-apt.lock）；/usr/bin/python3 osgeo 预检+MapInfo File 驱动断言通过；容器无网络/无凭据/无 socket，快照 :ro，未进 pg32/pg32b。
+- 两案（mapinfo/ 与 shapefiles/ 精确链）只读全要素：**1989×2 == DAT 互证（a03 独立 struct 全量解码 1989×23 零差）**；几何类型 **POLYGON 1456 + MULTIPOLYGON 533**（OBJ_TYPE 属性全 POLYGON；环数口径=纯 POLYGON 环数 {{1:1418,2:37,4:1}}，MULTIPOLYGON 部件数 2–39 另记）；空几何 0、读取错误 0、extent [106.60376, 124.576195, 18.160896, 35.726135]（a03 逐位同值）；组件/内层/外层 sha 全匹配 inventory，源件前后 4dec393b… 零触；临时副本大小写统一 3 件（DAT/MAP/IND v3_→V3_）原名映射记录、原件零触。
+- **CRS 裁定**：TAB 无 Coordsys；MITAB Pulkovo_1942 WKT 系读取器默认猜测非源声明⇒**不采纳，UNRESOLVED 保留，不推断不转换**。
+- **属性坐标裁定**：X_COOR 1970/1989 零（19 非零 [1.0,57.0]）、Y_COOR 1975 零（14 非零含哨兵 999.999999）⇒源件属性坐标未填充/占位，**几何为权威，不补造**；质心-属性偏差全由零值/哨兵解释。
+- 两案分别留证（.mapinfo-verify-20261120/ mapinfo_evidence.json+attributes jsonl×2+geom_types.json，sha 入 basis）；镜像处置留第 6 块；其余 MapInfo TAB 对象 MAP 几何不在本轮授权范围。a03 ROUND 12 五项 PASS（披露 A/B 口径与标签已修正复测）。
+"""
 summary = f"""# 第 3/6 块 · 空间矢量包（SUMMARY）
 
 基线 git {VCS_REF}；只读证据容器镜像 {IMAGE_ID}（复用块2授权件，未重建）。
@@ -938,6 +1022,7 @@ summary = f"""# 第 3/6 块 · 空间矢量包（SUMMARY）
 - 已确证组（头级只读取证全命中、sha 对账 2708/2708 匹配 0 错）：**{groups_doc['counts']['groups_confirmed_read_only']}**
 - 映射对象合计 **{len(approved_out)+len(proposed)}** =批准逐字沿用 **{len(approved_out)}** + 提案 **{len(proposed)}**（shapefile {sum(1 for x in proposed if x['carrier']=='shapefile')} + mapinfo_tab {sum(1 for x in proposed if x['carrier']=='mapinfo_tab')} + kml {sum(1 for x in proposed if x['carrier']=='kml')}，均 PROPOSED_NOT_AUTHORIZED）；缺口组 **{len(gaps)}**。组级泳道分区机器断言在码：approved 2 + proposed {len(proposed)} + gap {len(gaps)} + text-owned-by-block2 2 = 903，UNASSIGNED=0——每组成员处置明确，AGENTS「不能静默遗漏」达成
 
+{mie_summary}
 ## KML 专段（本轮补查，52 件零遗漏）
 KML 亦矢量成员：按同一外层文件+完整链+stem 规则**每件自成一组**（无伴随件），groups.json family_candidate=kml 52 组、全部 CONFIRMED_READ_ONLY（xml.etree 元素统计+sha 对账匹配）。提案映射 52 对象（carrier=kml，PROPOSED_NOT_AUTHORIZED）：geometry 依据=已采集 Placemark/Point/LineString/Polygon/LinearRing/MultiGeometry 计数；**srid=null** 政策同（KML 自身规范坐标语义注记、无 EPSG 批准可推导）；属性面如实留正式读取器合同（ExtendedData 字段化未提案，attributes_note 披露）；naming/identity 真函数、basis=镜像 Id+证据 sha。52/52 全映射、0 gap。
 

@@ -1,0 +1,21 @@
+# MapInfo MITAB read-only verification candidate (block 3, round 2026-11-20)
+# Incremental lineage: independent tag ONLY, never overwrites dev/test/runtime aliases.
+# Dependency closure locked in datamgmt/requirements-apt.lock (deb sha256, bookworm/main).
+# Build with --network none to prove offline closure completeness.
+ARG PYTHON_BASE=python@sha256:4b4c524dc3dce996864e030c7bd9c6b0e517597189fee48f48e05b499442444b
+FROM ${PYTHON_BASE}
+ARG BUILD_DATE
+ARG VCS_REF
+ARG SOURCE_STATUS
+ARG VERSION
+LABEL revision="${VCS_REF}" \
+      created="${BUILD_DATE}" \
+      source.status="${SOURCE_STATUS}" \
+      version="${VERSION}" \
+      gdal="3.6.2+dfsg-1+b2" \
+      purpose="mapinfo-mitab-readonly-verification"
+COPY debs/ /tmp/debs/
+RUN dpkg -i /tmp/debs/*.deb || dpkg -i /tmp/debs/*.deb; \
+    dpkg --configure -a; \
+    rm -rf /tmp/debs /var/lib/apt/lists/*; \
+    /usr/bin/python3 -c "from osgeo import ogr, gdal; print('GDAL', gdal.VersionInfo('RELEASE_NAME')); assert any('MapInfo' in ogr.GetDriver(i).name for i in range(ogr.GetDriverCount())), 'MITAB missing'; print('MITAB OK')"

@@ -143,10 +143,22 @@
    }
   ],
   "capability_missing": "MapInfo .MAP geometry decode (MITAB)",
-  "installed_this_round": false,
+  "host_software_unchanged": true,
+  "installed_in_candidate_image_only": true,
+  "installed_this_round": true,
   "note": "inner ZIPs byte-identical (sha 69b5119f01f2...); mirror disposition deferred to block 6; DAT attributes already decoded (1989 records, structure HIGH / value MEDIUM)",
   "plan_document": "MAP-READ-PLAN.md",
   "required_tool": "GDAL/OGR MITAB driver (python3-gdal=3.6.2+dfsg-1+b2 bookworm, apt deb sha256 locked) or Chaxiang-approved derived stdlib parser",
-  "status": "TOOL_GAP_NOT_INSTALLED"
+  "resolution": {
+   "apt_lock": "datamgmt/requirements-apt.lock (92 debs sha256)",
+   "attribute_coords_ruling": "source X_COOR/Y_COOR unset/placeholder (zeros/sentinels); geometry authoritative; no fabrication",
+   "both_cases_feature_count": 1989,
+   "crs_ruling": "UNRESOLVED kept; MITAB reader-default Pulkovo_1942 WKT NOT adopted (TAB has no Coordsys)",
+   "evidence_sha256": "8bd3f48e8482c0c3ece6018f99d1d8ea787740d386ed8f2c606c5d55dbc67a4f",
+   "gdal": "3.6.2+dfsg-1+b2",
+   "image_id": "sha256:f1675321e33eeb95b6e43eb21410f1a48459f77e250de445f595c02caac6e595",
+   "other_tab_map_objects": "out of this round's authorized scope; remain proposal-state"
+  },
+  "status": "RESOLVED_FOR_TWO_PRC_MAP_OBJECTS"
  }
 }

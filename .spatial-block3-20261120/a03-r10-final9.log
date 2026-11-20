@@ -1,0 +1,15 @@
+token MAP : 76
+token DAT : 1187
+token struct : 3
+token 解码器 : 0
+token decoder : 0
+token reader contract : 144
+token 工具 : 0
+
+>> ext", "width_bytes": 20}], "geometry_proposal_extended": {"geometry_read_gap": "MAP decode blocked on tool gap (see evidence-gaps.tool_gap_report)", "geometry_type_evidence": "OBJ_TYPE distribution across all 1989 DAT records = POLYGON (attrib
+
+>>  lives in .MAP", "proposed_geometry_type": "Polygon"}, "geometry_read_status": "MAP file (20469248 B) NOT decodable with current stdlib toolset; head bytes recorded; see tool_gap_report", "group_id": "ca752f78d2b5ff45af9b42435ece787528042ddfd3
+
+>> ext", "width_bytes": 20}], "geometry_proposal_extended": {"geometry_read_gap": "MAP decode blocked on tool gap (see evidence-gaps.tool_gap_report)", "geometry_type_evidence": "OBJ_TYPE distribution across all 1989 DAT records = POLYGON (attrib
+
+>>  lives in .MAP", "proposed_geometry_type": "Polygon"}, "geometry_read_status": "MAP file (20469248 B) NOT decodable with current stdlib toolset; head bytes recorded; see tool_gap_report", "group_id": "ff9ffff7dc710cf966db047fa3dfab77c783d8666b

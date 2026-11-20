@@ -59,9 +59,19 @@ for line in (PROBE_DIR / "spatial_evidence.jsonl").read_text().splitlines():
     r = json.loads(line)
     ev[r["key"]] = r
 
+PROBE_DIR_B = ROOT / ".spatial-probe-20261120b"
+gap_ev = json.loads((PROBE_DIR_B / "gap23_evidence.json").read_text())
+dat_dec = json.loads((PROBE_DIR_B / "dat_decode.json").read_text())
+twin_ev = json.loads((PROBE_DIR_B / "gap_evidence.json").read_text())["twin"]
 probe_sha = {"spatial_evidence.jsonl": sha(PROBE_DIR / "spatial_evidence.jsonl"),
              "tasks.json": sha(PROBE_DIR / "tasks.json"),
-             "spatial_probe.py": sha(PROBE_DIR / "spatial_probe.py")}
+             "spatial_probe.py": sha(PROBE_DIR / "spatial_probe.py"),
+             "gap_evidence.json": sha(PROBE_DIR_B / "gap_evidence.json"),
+             "dat_decode.json": sha(PROBE_DIR_B / "dat_decode.json"),
+             "gap23_evidence.json": sha(PROBE_DIR_B / "gap23_evidence.json"),
+             "gap_probe.py": sha(PROBE_DIR_B / "gap_probe.py"),
+             "gap23.py": sha(PROBE_DIR_B / "gap23.py"),
+             "dat_decode.py": sha(PROBE_DIR_B / "dat_decode.py")}
 
 SHAPE_TYPE_NAME = {1: "Point", 3: "PolyLine", 5: "Polygon", 8: "MultiPoint",
                    11: "PointZ", 13: "PolygonZM-rare(13)", 21: "PointM"}
@@ -242,10 +252,13 @@ ST = {1: "Point", 3: "PolyLine", 5: "Polygon", 8: "MultiPoint",
       11: "PointZ", 13: "PolygonZM"}
 
 
+import sys as _sys
+_sys.path.insert(0, str(ROOT / "datamgmt/src"))
+from xiangrugu_datamgmt.identity import source_object_id
+from xiangrugu_datamgmt.naming import NameInput, allocate_tables
+
+
 def _sid(relpath, chain, objname, carrier):
-    import sys
-    sys.path.insert(0, str(ROOT / "datamgmt/src"))
-    from xiangrugu_datamgmt.identity import source_object_id
     return source_object_id(relative_path=relpath, archive_chain=chain,
                             object_name=objname, carrier=carrier)
 
@@ -288,6 +301,11 @@ APPROVED_PRIMARY_KEYS = {
     for ob in bc_objs for c in ob["components"]
     if c["role"] == "primary_geometry"}
 
+def ds_of(mm_):
+    en = idx[mm_["member_key"]]
+    return en["relative_path"].rsplit("/", 1)[0]
+
+
 def _kml_identity_chain(mm_):
     en = idx[mm_["member_key"]]
     return en["relative_path"], en["archive_chain"]
@@ -301,6 +319,37 @@ def _kml_object(g, mm_, _unused=None, _unused2=None):
     sid = _sid(rel, chain, objname, "kml")
     nmap = allocate_tables([NameInput(ds, objname, sid)])[0]
     els = (mm_.get("evidence") or {}).get("kml_elements") or {}
+    # ElementTree-based recount with an explicit counting convention;
+    # delivered numbers must equal the recomputation (assert below)
+    # recount keys use inventory chain spelling (no duplicated leaf); match on
+    # outer + inner path after the '!'
+    # probe keys append the leaf twice when chain already ends with it;
+    # match on outer + basename instead
+    rc = next((r for r in gap_ev["kml_recount"]["results"]
+               if r["key"].split("!")[0] == rel
+               and r["key"].rsplit("/", 1)[-1] == stem), None)
+    assert rc is not None and not rc.get("error"), mm_["member_key"]
+    conv = {
+        "Placemark": "container — counted separately, never as geometry",
+        "MultiGeometry": "container counted under its own key ONLY; child "
+                         "geometries counted independently (no double count)",
+        "LinearRing": "polygon/polyline boundary ring counted separately from "
+                      "its owning Polygon/LineString",
+        "coordinates_axis_dimension": "vertex tuple axis count observed via "
+                                      "ElementTree text scan (2=xy, 3=xyz "
+                                      "altitude dimension preserved verbatim, "
+                                      "never truncated)"
+    }
+    # geometry keys (Placemark excluded — container convention) must match
+    _GK = ("Point", "LineString", "LinearRing", "Polygon", "MultiGeometry")
+    # els = delivered record {geometry kinds..., Placemark}; rc.counts =
+    # recount {geometry kinds..., Placemark}: compare every shared key and
+    # require each side to cover the other's geometry keys
+    _dl = dict(els)          # delivered incl. placemarks_observed duplicate
+    _rc = dict(rc["counts"])
+    _shared_g = [k for k in set(_dl) | set(_rc) if k in _GK]
+    _aligned = all(_dl.get(k, 0) == _rc.get(k, 0) for k in _shared_g)
+    assert _aligned, (rc["counts"], els)
     geom_kinds = {x: els[x] for x in ("Point", "LineString", "Polygon",
                                       "LinearRing", "MultiGeometry")
                   if x in els}
@@ -317,7 +366,21 @@ def _kml_object(g, mm_, _unused=None, _unused2=None):
                          "(WGS84 lon/lat degrees per RFC-ish declaration in "
                          "file); no EPSG approval exists for these objects — "
                          "srid stays null pending formal contract",
-            "crs_declaration_verbatim_in_kml": None,
+            "geometry_counting_convention": conv,
+            "recount_elementtree_matches_delivered": True,
+            "recount_full_counts_including_containers": rc["counts"],
+            "coordinate_axes_seen": rc["coordinate_axes_seen"],
+            "z_altitude_dimension_note": (
+                "axis count 3 ⇒ third coordinate (altitude) preserved "
+                "verbatim by the original-coordinates policy; no M/Z "
+                "semantics asserted without approval"),
+            "extended_data_attributes_note": (
+                "KML <ExtendedData>/<Data>/<SimpleData> fields NOT proposed "
+                "as columns this round; attribute contract requires formal "
+                "reader decision (kept as gap note on every kml object)"),
+            "crs_declaration_verbatim_in_kml": (
+                "KML spec fixes WGS84 lon/lat degrees; no in-file CRS "
+                "declaration clause found by stdlib XML scan"),
             "xy_preserve_original_ieee754": True,
             "coordinate_transform": "NONE"},
         "attribute_order_from_dbf_header": [],
@@ -335,6 +398,146 @@ def _kml_object(g, mm_, _unused=None, _unused2=None):
                   "sha_match_snapshot": mm_.get("sha_match_snapshot")}}
 
 
+TWIN_OUTERS = {
+    "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip!"
+    "mapinfo/v3_time_pref_pgn_PRC.ZIP": "mapinfo",
+    "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip!"
+    "shapefiles/v3_time_pref_pgn_PRC.ZIP": "shapefiles",
+}
+
+
+def _twin_binding(g, gid):
+    """Per-case component binding for one twin copy."""
+    prim = next((m for m in g["members"]
+                 if m["ext"] in (".tab", ".dat", ".map", ".ind", ".id")), None)
+    outer_key = prim["member_key"] if prim else None
+    # lane = the inner-zip directory as spelled in THIS group's member path
+    lane = None
+    for k, v in TWIN_OUTERS.items():
+        inner = k.split("!")[-1]              # e.g. mapinfo/v3_….ZIP
+        if outer_key and ("/" + inner).lower() in outer_key.lower().replace(
+                "//", "/") or outer_key and inner.lower() in outer_key.lower():
+            lane = v
+            break
+    if lane is None:
+        return None
+    _want = f"{lane}/v3_time_pref_pgn_PRC.ZIP".lower()
+    _pk = [p for p in twin_ev if p.lower() == _want or p.lower().endswith(_want)]
+    if not _pk:
+        _pk = [p for p in twin_ev if _want.split("/")[0] + "/" in p.lower()
+               and p.lower().index(_want.split("/")[0] + "/") < 12]
+    tw = twin_ev[_pk[0]]
+    members_sha = {n: d["sha256"] for n, d in tw["members"].items()}
+    rel = tw["inner_zip_member"].joinpath if False else         "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip"
+    tab_name = next(n for n in tw["members"] if n.upper().endswith(".TAB"))
+    dat_name = next(n for n in tw["members"] if n.upper().endswith(".DAT"))
+    map_name = next(n for n in tw["members"] if n.upper().endswith(".MAP"))
+    ind_name = next((n for n in tw["members"] if n.upper().endswith(".IND")), None)
+    id_name = next((n for n in tw["members"] if n.upper().endswith(".ID")), None)
+    inner_zip = tw["inner_zip_member"]
+    chain = [inner_zip, tab_name]
+    sid = _sid(rel, chain, tab_name.rsplit(".", 1)[0], "mapinfo_tab")
+    ds = rel.rsplit("/", 1)[0]
+    nmap = allocate_tables([NameInput(ds, tab_name.rsplit(".", 1)[0], sid)])[0]
+    fields = [{"ordinal": i + 1, "original_name": f["name"],
+               "source_type": f["type"], "width_bytes": f["len"],
+               "decimals": f["dec"],
+               "target_type_proposal": ("text" if f["type"] == "C" else
+                                         "numeric/bigint family proposal "
+                                         "pending approved DBMS reader"),
+               "nullable": True}
+              for i, f in enumerate(dat_dec["fields"])]
+    obj = {
+        "group_id": gid, "family_candidate": "mapinfo_twin_bound",
+        "carrier": "mapinfo_twin_bound",
+        "source_object_id": sid,
+        "candidate_table_name": nmap.target,
+        "dataset_namespace": ds,
+        "source_file_or_chain": rel + "!" + "/".join(chain),
+        "identity_convention": (
+            "twin per-case binding: identity input object_name = TAB basename "
+            "stem, archive_chain = [<inner ZIP member>, <TAB leaf>] so the two "
+            "copies (mapinfo/ vs shapefiles/) get DISTINCT sids/table names "
+            "while source paths stay separate; naming via real allocate_tables"),
+        "components_exact_identity": {
+            "TAB": {"name": tab_name, **tw["members"][tab_name]},
+            "DAT": {"name": dat_name, **tw["members"][dat_name]},
+            "MAP": {"name": map_name, **tw["members"][map_name]},
+            "IND": ({"name": ind_name, **tw["members"][ind_name]} if ind_name else None),
+            "ID": ({"name": id_name, **tw["members"][id_name]} if id_name else None)},
+        "fields": fields,
+        "geometry_proposal_extended": {
+            "geometry_type_evidence": "OBJ_TYPE distribution across all 1989 "
+                                      "DAT records = POLYGON (attribute-side "
+                                      "proof); X_COOR/Y_COOR present as "
+                                      "properties; true geometry lives in .MAP",
+            "proposed_geometry_type": "Polygon",
+            "geometry_read_gap": "MAP decode blocked on tool gap (see "
+                                 "evidence-gaps.tool_gap_report)"},
+        "crs_status": "crs_unresolved — TAB carries no CoordSys clause "
+                      "(verbatim text proves absence); formal CRS resolution "
+                      "required before any SRID assignment",
+        "twin_copy_lane": lane,
+        "inner_zip_identity": {"member": tw["inner_zip_member"],
+                               "sha256": tw["inner_sha256"],
+                               "size": tw["inner_size"]},
+        "components_bound": [
+            {"name": n, "sha256": s,
+             "role": ("definition_table" if n.upper().endswith(".TAB") else
+                      "attributes_dat" if n.upper().endswith(".DAT") else
+                      "geometry_map" if n.upper().endswith(".MAP") else
+                      "index_ind" if n.upper().endswith(".IND") else
+                      "id_file" if n.upper().endswith(".ID") else
+                      "documentation")}
+            for n, s in sorted(members_sha.items())],
+        "tab_definition_verbatim": tw.get("tab_text_verbatim"),
+        "dat_trial_decode": {
+            "records": dat_dec["records"], "record_len": dat_dec["record_len"],
+            "field_widths_sum": dat_dec["field_widths_sum"],
+            "size_formula_matches": dat_dec["size_formula_matches"],
+            "bad_deletion_flags": dat_dec["bad_deletion_flags"],
+            "obj_type_distribution_all_records":
+                dat_dec["obj_type_distribution_all_records"],
+            "confidence_note": (
+                "HIGH confidence on structure: header field descriptors "
+                "reproduce TAB's 23-field schema exactly and file size "
+                "matches header+records*record_len+EOF byte with zero bad "
+                "deletion flags across all 1989 records. MEDIUM on values: "
+                "numeric fields decode as little-endian binary (Smallint/"
+                "Integer), Char fields carry embedded NUL padding after the "
+                "string (cp936 charset per TAB); formal value canonicalization "
+                "(padding/null semantics) still requires approved DBMS reader "
+                "contract — not asserted here."),
+            "sample_records_first2": dat_dec["sample_records"][:2]},
+        "geometry_read_status": (
+            "MAP file (20469248 B) NOT decodable with current stdlib toolset; "
+            "head bytes recorded; see tool_gap_report"),
+        "status": {"confirmation_state": "PROPOSED_NOT_AUTHORIZED",
+                   "ready_for_import": False},
+        "basis": {"image_read_only_probe": IMAGE_ID,
+                  "evidence_files_sha256": probe_sha}}
+    return {"objects": [obj], "lane": lane,
+            "bindings_registered": len(obj["components_bound"])}
+
+
+def _ensure_common_fields(rec, g):
+    """Every proposed object must carry source identity fields explicitly."""
+    rec.setdefault("source_file_or_chain",
+                   rec.get("primary_member")
+                   or (g["members"][0]["member_key"] if g["members"] else None))
+    prim = next((m for m in g["members"]
+                 if m["ext"] in (".shp", ".tab", ".kml")), g["members"][0])
+    en = idx[prim["member_key"]]
+    rec.setdefault("source_identity", {
+        "relative_path": en["relative_path"],
+        "archive_chain": en["archive_chain"],
+        "archive_ordinals": en.get("archive_ordinals"),
+        "sha256_inventory": en["sha256"], "size": en["size"],
+        "rule_id": prim.get("rule_id")})
+    return rec
+
+
+twin_bindings = []
 proposed = []
 gaps = []
 for g in groups_doc["groups"]:
@@ -347,12 +550,26 @@ for g in groups_doc["groups"]:
         ".tab" if fam == "mapinfo_candidate" else ".kml")
     mm_ = mems.get(main_ext)
     if mm_ is None:
+        # TWIN CORRECTION (this round, 32 read-only evidence): the previous
+        # "no .TAB" finding was a STEM-CASE SPLIT ARTIFACT of the candidate
+        # grouping (lower 'v3_…' group got DAT/IND/MAP; upper 'V3_…' group
+        # holds TAB/ID). The inner ZIPs of mapinfo/ and shapefiles/ are
+        # BYTE-IDENTICAL (sha 69b5119f01f2…, size 6089146) and DO contain
+        # V3_time_pref_pgn_PRC.TAB (715B, c7bb2a78…) with Fields 23 + full
+        # schema, plus lowercase DAT (601448B) that trial-decodes against
+        # that schema with exact size formula match. Register per-case
+        # component bindings for BOTH copies (source paths kept separate;
+        # mirror merge deferred to block 6, NOT merged this round).
+        t = _twin_binding(g, gid)
+        if t is not None:
+            proposed.extend(_ensure_common_fields(x, g) for x in t["objects"])
+            t["bindings_registered"] += 0
+            twin_bindings.append(t)
+            continue
         gaps.append({"group_id": gid, "family": fam,
                      "stem": g["location"]["exact_stem"],
                      "reason": "no primary component (.shp/.tab) present in "
-                               "group; casefold-ambiguity twin holding only "
-                               "DAT/IND/MAP — no independent reader contract "
-                               "exists; kept BLOCKED pending 茶香 ruling",
+                               "group and not a twin-correction case",
                      "missing": g["missing_core_extensions"],
                      "members": [m["member_key"] for m in g["members"]]})
         continue
@@ -403,7 +620,7 @@ for g in groups_doc["groups"]:
                                    "on",
                          "members": [m["member_key"] for m in g["members"]]})
             continue
-        proposed.append(_kml_object(g, mm_))
+        proposed.append(_ensure_common_fields(_kml_object(g, mm_), g))
         continue
     tab_text_data = False
     if fam == "mapinfo_candidate":
@@ -418,6 +635,69 @@ for g in groups_doc["groups"]:
     else:
         ok_shape = bool(shp_ev.get("shape_type") is not None)
     ok_attr = (fam == "mapinfo_candidate") or bool(_evi(mems.get(".dbf")).get("dbf"))
+    if tab_text_data:
+        continue  # owned by block 2 tab-text; excluded from spatial mapping
+    if fam == "shapefile" and not ok_attr and \
+            g["location"]["exact_stem"] == "v5_time_pref_pts_utf":
+        v5 = {"v5_geometry_scan": gap_ev["v5_geometry_scan"],
+              "same_stem_dbf_search": gap_ev["same_stem_dbf_search"]}
+        gs_ = v5["v5_geometry_scan"]
+        prj_txt = twin_prj_v5 = None
+        # .prj verbatim came from the first-round probe (prj text_head)
+        for _m in g["members"]:
+            if _m["ext"] == ".prj" and _m.get("evidence"):
+                prj_txt = _m["evidence"].get("text_head")
+        rel5 = idx[mm_["member_key"]]["relative_path"]
+        ch5 = idx[mm_["member_key"]]["archive_chain"]
+        objname5 = g["location"]["exact_stem"] + "__partial_no_dbf"
+        ds5 = rel5.rsplit("/", 1)[0]
+        sid5 = _sid(rel5, ch5, objname5, "shapefile")
+        nmap5 = allocate_tables([NameInput(ds5, objname5, sid5)])[0]
+        _v5rec = {
+            "group_id": gid, "family_candidate": "shapefile",
+            "carrier": "shapefile_partial_no_dbf",
+            "source_object_id": sid5,
+            "candidate_table_name": nmap5.target,
+            "dataset_namespace": ds5,
+            "identity_convention": (
+                "partial component set keeps DISTINCT identity by suffixing "
+                "object_name with '__partial_no_dbf' before the REAL "
+                "source_object_id/allocate_tables calls — prevents collision "
+                "with a future complete-shapefile mapping of the same stem"),
+            "fields": [],
+            "fields_note": "no attribute columns proposed: source .dbf absent "
+                           "and no provable companion exists (see "
+                           "attribute_contract); fields=[] is NOT an omission",
+            "source_file_or_chain": mm_["member_key"],
+            "primary_member": mm_["member_key"],
+            "geometry_proposal": {
+                "source_shape_type": gs_["shape_type_header"],
+                "geometry_type_observed": ST.get(gs_["shape_type_header"]),
+                "bbox_observed": gs_["bbox"],
+                "shx_record_count": gs_["shx_record_count"],
+                "shp_records_walked": gs_["shp_records_walked"],
+                "standalone_geometry_readable": True,
+                "srid": None,
+                "xy_preserve_original_ieee754": True,
+                "coordinate_transform": "NONE"},
+            "crs": {"prj_declaration_verbatim": prj_txt},
+            "attribute_contract": "SOURCE COMPONENT MISSING (.dbf absent from "
+                                  "the shipped archive; README 4555B read in "
+                                  "full — citation/license only, no attribute "
+                                  "schema or companion pointer). Exhaustive "
+                                  "content search across all 23 same-family "
+                                  "pref_pts/time dbfs in inventory found NO "
+                                  "record-count match to shx 3409 ⇒ no "
+                                  "provably-companion dbf exists. Attributes "
+                                  "NOT fabricated; geometry+CRS retained as "
+                                  "independently readable content.",
+            "dbf_search_evidence": v5["same_stem_dbf_search"],
+            "status": {"confirmation_state": "PROPOSED_NOT_AUTHORIZED",
+                       "ready_for_import": False,
+                       "blocked_on": "attribute source component missing"},
+            "basis": {"image_read_only_probe": IMAGE_ID,
+                      "evidence_files_sha256": probe_sha}}
+        proposed.append(_ensure_common_fields(_v5rec, g))
     if tab_text_data:
         continue  # owned by block 2 tab-text; excluded from spatial mapping
     if not (ok_shape and ok_attr):
@@ -504,8 +784,8 @@ for g in groups_doc["groups"]:
            "crs_resolution_approved": False,
            "dual_prj_qpj_note": "where both .prj and .qpj exist BOTH are "
                                 "retained verbatim; axis-order differences are "
-                                "annotated, never silently reconciled"}
-    proposed.append({
+                                "annotated, never silently reconciled"}}
+    proposed.append(_ensure_common_fields({
         "group_id": gid, "family_candidate": fam,
         "source_object_id": sid, "candidate_table_name": nmap.target,
         "dataset_namespace": ds, "carrier": carrier,
@@ -519,7 +799,7 @@ for g in groups_doc["groups"]:
                    "ready_for_import": False},
         "basis": {"image_read_only_probe": IMAGE_ID,
                   "evidence_files_sha256": probe_sha,
-                  "sha_match_snapshot": mm_.get("sha_match_snapshot")}})
+                  "sha_match_snapshot": mm_.get("sha_match_snapshot")}}, g))
 
 # ---- cross-file consistency assertions (stale-count defect class) --------
 assert groups_doc["counts"]["candidate_groups_total"] == len(groups_doc["groups"])
@@ -547,6 +827,20 @@ assert (_lanes["approved"] + _lanes["proposed"] + _lanes["gap"]
 
 (HERE / "groups.json").write_text(json.dumps(groups_doc, ensure_ascii=False, indent=1, sort_keys=True) + "\n")
 
+_sid_bear = sum(1 for x in proposed if x.get("source_object_id"))
+_carr = collections.Counter(x.get("carrier") for x in proposed)
+assert _sid_bear == len(proposed) == 899, (_sid_bear, len(proposed))
+_all_sids = [x["source_object_id"] for x in proposed] + \
+    [a["source_object_id"] for a in approved_out]
+assert len(set(_all_sids)) == len(_all_sids) == 901
+_APPROVED_TABLES = {
+    "harvard_u2d_full_u2f_doi_u5f_10_u5f_7910_u2f_dvn_u2f___9b4496c9",
+    "harvard_u2d_full_u2f_doi_u5f_10_u5f_7910_u2f_dvn_u2f___e601ce1a"}
+_tables = [x.get("candidate_table_name") for x in proposed]
+assert all(_tables), "null candidate_table_name present"
+assert len(set(_tables)) == len(_tables) == 899, "table-name collision"
+assert not set(_tables) & _APPROVED_TABLES
+
 obj_map = {
     "status": "SPATIAL_MAPPING_TWO_TIER",
     "ready_for_import": False,
@@ -558,6 +852,39 @@ obj_map = {
         "proposed_objects": len(proposed),
         "mapped_objects_total": len(approved_out) + len(proposed),
         "gap_groups": len(gaps),
+        "text_owned_by_block2": groups_doc["counts"]["lane_partition"].get(
+            "text-owned-by-block2", 0),
+        "twin_bound_objects": sum(1 for x in proposed
+                                  if x.get("family_candidate") == "mapinfo_twin_bound"),
+        "partial_no_dbf_objects": sum(1 for x in proposed
+                                      if x.get("carrier") == "shapefile_partial_no_dbf"),
+        "sid_bearing_objects": _sid_bear,
+        "family_reconciliation": {
+            "note": ("first-box glance said shapefile 704/mapinfo_tab 140; the "
+                     "exact ground truth (groups.json families) is shapefile "
+                     "705 + mapinfo 146 + kml 52 = 903. This round's lane "
+                     "moves: 2 twin groups left the gap lane into "
+                     "mapinfo_twin_bound, and v5_time_pref_pts_utf left the "
+                     "gap lane into shapefile_partial_no_dbf — so plain "
+                     "shapefile proposals are 702 (705 minus v5 minus the two "
+                     "1884route objects carried as approved-verbatim instead) "
+                     "and mapinfo_tab stays 142 (the other 2 mapinfo groups "
+                     "are text-owned-by-block2). No object changed family "
+                     "silently; every move is itemized."),
+            "moved_objects": [
+                {"stem": "V3_time_pref_pgn_PRC", "from_lane": "gap",
+                 "to_lane": "mapinfo_twin_bound (mapinfo copy)",
+                 "evidence": "inner zip sha 69b5119f… byte-identical twins; TAB present"},
+                {"stem": "V3_time_pref_pgn_PRC", "from_lane": "gap",
+                 "to_lane": "mapinfo_twin_bound (shapefiles copy)",
+                 "evidence": "same inner zip second registration path"},
+                {"stem": "v5_time_pref_pts_utf", "from_lane": "gap",
+                 "to_lane": "shapefile_partial_no_dbf",
+                 "evidence": "geometry standalone readable; dbf provably absent"}],
+            "carrier_distribution_this_round": dict(_carr),
+            "sum_check_shapefile_plus_partial": _carr.get("shapefile", 0)
+                + _carr.get("shapefile_partial_no_dbf", 0),
+        },
         "consistency_asserts_passed": True,
     },
     "approved_objects_verbatim": approved_out,

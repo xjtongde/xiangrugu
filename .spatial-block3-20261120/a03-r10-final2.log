@@ -1,0 +1,31 @@
+== new objects full inspection ==
+
+ 910/DVN/M7WEFY/v5_time_pref_pts_utf.zip!v5_time_pref_pts_utf.shp
+   keys: ['attribute_contract', 'basis', 'candidate_table_name', 'carrier', 'crs', 'dataset_namespace', 'dbf_search_evidence', 'family_candidate', 'fields', 'fields_note', 'geometry_proposal', 'group_id', 'identity_convention', 'primary_member', 'source_file_or_chain', 'source_identity', 'source_object_id', 'status']
+   sid: 9c0a4734980830e8dfc3e3b70b37024f5b27f84e9c89e69d9662ce62e7037551 | table: harvard_u2d_full_u2f_doi_u5f_10_u5f_7910_u2f_dvn_u2f___9c0a4734
+   fields: 0 | sample: []
+   status: {"blocked_on": "attribute source component missing", "confirmation_state": "PROPOSED_NOT_AUTHORIZED", "ready_for_import"
+   crs: {"prj_declaration_verbatim": "PROJCS[\"Xian_1980_GK_Zone_19\",GEOGCS[\"GCS_Xian_1980\",DATUM[\"D_Xian_1980\",SPHEROID[\"Xian_1980\",6378140.0,298.257]],PRIMEM[\"Greenwich\",0.0],UNIT[\"Degree\",0.0174
+   geom: {"bbox_observed": [18068955.41441956, 2033517.3846853739, 21138239.81524794, 5699086.106678631, 0.0, 0.0, 0.0, 0.0], "coordinate_transform": "NONE", "geometry_type_observed": "Point", "shp_records_walked": 3409, "shx_record_count": 3409, "source_shape_type": 1, "srid": null, "standalone_geometry_rea
+   inventory rows for chain: 1 | ordinals: [[4]] | sha: ['d474cb42fad4']
+   object raw_expected/sha fields: {}
+
+ ve.zip!mapinfo/v3_time_pref_pgn_PRC.ZIP/V3_time_pref_pgn_PRC.TAB
+   keys: ['attribute_order_from_dbf_header', 'basis', 'block2_handoff_members', 'candidate_table_name', 'carrier', 'crs', 'dataset_namespace', 'family_candidate', 'geometry_proposal', 'group_id', 'optional_components_absent', 'primary_member', 'source_object_id', 'status']
+   sid: 7dd347462de55ab8f06598b6da9730660b2b63cd9983c10c0a42202b39386a95 | table: harvard_u2d_full_u2f_doi_u5f_10_u5f_7910_u2f_dvn_u2f___7dd34746
+   fields: 0 | sample: []
+   status: {"confirmation_state": "PROPOSED_NOT_AUTHORIZED", "ready_for_import": false}
+   crs: {"crs_resolution_approved": false, "dual_prj_qpj_note": "where both .prj and .qpj exist BOTH are retained verbatim; axis-order differences are annotated, never silently reconciled", "prj_declaration_v
+   geom: {"bbox_observed": null, "coordinate_transform": "NONE (original coordinates preserved)", "geometry_type_observed": "unknown(None)", "source_shape_type": null, "srid": null, "srid_note": "SRID approval exists ONLY for the two bound 1884route objects (per-case); never auto-derived for other groups", "
+   inventory rows for chain: 1 | ordinals: [[114, 0]] | sha: ['c7bb2a785505']
+   object raw_expected/sha fields: {}
+
+ zip!shapefiles/v3_time_pref_pgn_PRC.ZIP/V3_time_pref_pgn_PRC.TAB
+   keys: ['attribute_order_from_dbf_header', 'basis', 'block2_handoff_members', 'candidate_table_name', 'carrier', 'crs', 'dataset_namespace', 'family_candidate', 'geometry_proposal', 'group_id', 'optional_components_absent', 'primary_member', 'source_object_id', 'status']
+   sid: 7b6d1a52c50b189fb1b2aa3150a9532fad5fb91073ffb61ea26369a31c2b2953 | table: harvard_u2d_full_u2f_doi_u5f_10_u5f_7910_u2f_dvn_u2f___7b6d1a52
+   fields: 0 | sample: []
+   status: {"confirmation_state": "PROPOSED_NOT_AUTHORIZED", "ready_for_import": false}
+   crs: {"crs_resolution_approved": false, "dual_prj_qpj_note": "where both .prj and .qpj exist BOTH are retained verbatim; axis-order differences are annotated, never silently reconciled", "prj_declaration_v
+   geom: {"bbox_observed": null, "coordinate_transform": "NONE (original coordinates preserved)", "geometry_type_observed": "unknown(None)", "source_shape_type": null, "srid": null, "srid_note": "SRID approval exists ONLY for the two bound 1884route objects (per-case); never auto-derived for other groups", "
+   inventory rows for chain: 1 | ordinals: [[66, 0]] | sha: ['c7bb2a785505']
+   object raw_expected/sha fields: {}

@@ -1,0 +1,451 @@
+{
+ "twin": {
+  "mapinfo/v3_time_pref_pgn_PRC.ZIP": {
+   "inner_zip_member": "mapinfo/v3_time_pref_pgn_PRC.ZIP",
+   "inner_sha256": "69b5119f01f2b5937c373dc4cbb50c37ba9f35ff25566951abd43f6c02632fb9",
+   "inner_size": 6089146,
+   "tab_text_verbatim": "!table\r\n!version 410\r\n!charset WindowsSimpChinese\r\n\r\nDefinition Table\r\n  Type NATIVE Charset \"WindowsSimpChinese\"\r\n  Fields 23\r\n    NAME_PY Char (40) ;\r\n    NAME_CH Char (30) ;\r\n    NAME_FT Char (30) ;\r\n    X_COOR Decimal (10, 6) ;\r\n    Y_COOR Decimal (10, 6) ;\r\n    PRES_LOC Char (40) ;\r\n    TYPE_PY Char (15) ;\r\n    TYPE_CH Char (10) ;\r\n    LEV_RANG Char (1) ;\r\n    BEG_YR Smallint ;\r\n    BEG_RULE Char (1) ;\r\n    END_YR Smallint ;\r\n    END_RULE Char (1) ;\r\n    NOTE_ID Integer ;\r\n    OBJ_TYPE Char (7) ;\r\n    SYS_ID Integer Index 1 ;\r\n    GEO_SRC Char (10) ;\r\n    COMPILER Char (14) ;\r\n    GEOCOMP Char (10) ;\r\n    CHECKER Char (10) ;\r\n    ENT_DATE Char (10) ;\r\n    BEG_CHG Char (20) ;\r\n    END_CHG Char (20) ;\r\n",
+   "id_head_hex": "3d160601661606018f160601b8160601e104e0000a05e0003305e0005c9fa100",
+   "ind_head_hex": "f8e8710164000002000000000100d8ff12001d61000000000000000000000000",
+   "map_head_hex": "000a0e150e161ba2a6ab1a2a2fa5a9b5a7b5d90f1723131f2b0f17234f57639c",
+   "map_size": 20469248,
+   "map_first_uints": [
+    353241600,
+    2719684110,
+    706390950,
+    3047793967,
+    265926055,
+    521347863
+   ],
+   "dat_head_hex": "03690303c507000001032e0100000000000000000000000000000000000000004e414d455f505900000000430000000028000000000000000000000000000000",
+   "dat_first_bytes_hex": "03690303c507000001032e010000000000000000000000000000000000000000",
+   "dat_magic_u16": "0x6903",
+   "dat_as_dbf": {
+    "plausible": true,
+    "records": 1989,
+    "header_len": 769,
+    "record_len": 302,
+    "fields": [
+     {
+      "name": "NAME_PY",
+      "type": "C",
+      "len": 40,
+      "dec": 0
+     },
+     {
+      "name": "NAME_CH",
+      "type": "C",
+      "len": 30,
+      "dec": 0
+     },
+     {
+      "name": "NAME_FT",
+      "type": "C",
+      "len": 30,
+      "dec": 0
+     },
+     {
+      "name": "X_COOR",
+      "type": "N",
+      "len": 10,
+      "dec": 6
+     },
+     {
+      "name": "Y_COOR",
+      "type": "N",
+      "len": 10,
+      "dec": 6
+     },
+     {
+      "name": "PRES_LOC",
+      "type": "C",
+      "len": 40,
+      "dec": 0
+     },
+     {
+      "name": "TYPE_PY",
+      "type": "C",
+      "len": 15,
+      "dec": 0
+     },
+     {
+      "name": "TYPE_CH",
+      "type": "C",
+      "len": 10,
+      "dec": 0
+     },
+     {
+      "name": "LEV_RANG",
+      "type": "C",
+      "len": 1,
+      "dec": 0
+     },
+     {
+      "name": "BEG_YR",
+      "type": "C",
+      "len": 2,
+      "dec": 0
+     },
+     {
+      "name": "BEG_RULE",
+      "type": "C",
+      "len": 1,
+      "dec": 0
+     },
+     {
+      "name": "END_YR",
+      "type": "C",
+      "len": 2,
+      "dec": 0
+     },
+     {
+      "name": "END_RULE",
+      "type": "C",
+      "len": 1,
+      "dec": 0
+     },
+     {
+      "name": "NOTE_ID",
+      "type": "C",
+      "len": 4,
+      "dec": 0
+     },
+     {
+      "name": "OBJ_TYPE",
+      "type": "C",
+      "len": 7,
+      "dec": 0
+     },
+     {
+      "name": "SYS_ID",
+      "type": "C",
+      "len": 4,
+      "dec": 0
+     },
+     {
+      "name": "GEO_SRC",
+      "type": "C",
+      "len": 10,
+      "dec": 0
+     },
+     {
+      "name": "COMPILER",
+      "type": "C",
+      "len": 14,
+      "dec": 0
+     },
+     {
+      "name": "GEOCOMP",
+      "type": "C",
+      "len": 10,
+      "dec": 0
+     },
+     {
+      "name": "CHECKER",
+      "type": "C",
+      "len": 10,
+      "dec": 0
+     },
+     {
+      "name": "ENT_DATE",
+      "type": "C",
+      "len": 10,
+      "dec": 0
+     },
+     {
+      "name": "BEG_CHG",
+      "type": "C",
+      "len": 20,
+      "dec": 0
+     },
+     {
+      "name": "END_CHG",
+      "type": "C",
+      "len": 20,
+      "dec": 0
+     }
+    ]
+   },
+   "members": {
+    "V3_time_pref_pgn_PRC.TAB": {
+     "size": 715,
+     "sha256": "c7bb2a785505bd4d8c9b0046d879b308cd93491cfef1ccb126fe80847b39e786"
+    },
+    "V3_time_pref_pgn_PRC.ID": {
+     "size": 7956,
+     "sha256": "f3956a79239f2b7c1e81bfc4e5dc31c68d081889ca9aadc79e62a3ea492dc399"
+    },
+    "v3_time_pref_pgn_PRC.IND": {
+     "size": 28672,
+     "sha256": "c422403b5cd9865ea5bfecc4fa63ecd437a6ddd74861cc59d6ae7b2f285c4ef0"
+    },
+    "v3_time_pref_pgn_PRC.MAP": {
+     "size": 20469248,
+     "sha256": "a7b44b35a4123c7c8f264c9fed525f394afadd66e46b57b5aaa64c9eec2172df"
+    },
+    "v3_time_pref_pgn_PRC.DAT": {
+     "size": 601448,
+     "sha256": "3937da6c333df757b1b1679268a6c04577913071e2b7251dd46e3de20d4c1533"
+    },
+    "ts_pref_pgn_gb.txt": {
+     "size": 336500,
+     "sha256": "5483d0fb03a900245037ae8843a1f4e4fe41d673b581082c1c5c4052b57e027d"
+    },
+    "README_CHGIS_V3.txt": {
+     "size": 835,
+     "sha256": "3613fb1f417ba365f2c51805e139fd6da43e3963a36daf7f97b136ff40c078a2"
+    },
+    "v3_time_pref_pgn.gif": {
+     "size": 6973,
+     "sha256": "cf112ded4c4ff5d4419cb3a4e5dae013a55ccded3d245fd4d57858ec9de9d599"
+    }
+   }
+  },
+  "shapefiles/v3_time_pref_pgn_PRC.ZIP": {
+   "inner_zip_member": "shapefiles/v3_time_pref_pgn_PRC.ZIP",
+   "inner_sha256": "69b5119f01f2b5937c373dc4cbb50c37ba9f35ff25566951abd43f6c02632fb9",
+   "inner_size": 6089146,
+   "tab_text_verbatim": "!table\r\n!version 410\r\n!charset WindowsSimpChinese\r\n\r\nDefinition Table\r\n  Type NATIVE Charset \"WindowsSimpChinese\"\r\n  Fields 23\r\n    NAME_PY Char (40) ;\r\n    NAME_CH Char (30) ;\r\n    NAME_FT Char (30) ;\r\n    X_COOR Decimal (10, 6) ;\r\n    Y_COOR Decimal (10, 6) ;\r\n    PRES_LOC Char (40) ;\r\n    TYPE_PY Char (15) ;\r\n    TYPE_CH Char (10) ;\r\n    LEV_RANG Char (1) ;\r\n    BEG_YR Smallint ;\r\n    BEG_RULE Char (1) ;\r\n    END_YR Smallint ;\r\n    END_RULE Char (1) ;\r\n    NOTE_ID Integer ;\r\n    OBJ_TYPE Char (7) ;\r\n    SYS_ID Integer Index 1 ;\r\n    GEO_SRC Char (10) ;\r\n    COMPILER Char (14) ;\r\n    GEOCOMP Char (10) ;\r\n    CHECKER Char (10) ;\r\n    ENT_DATE Char (10) ;\r\n    BEG_CHG Char (20) ;\r\n    END_CHG Char (20) ;\r\n",
+   "id_head_hex": "3d160601661606018f160601b8160601e104e0000a05e0003305e0005c9fa100",
+   "ind_head_hex": "f8e8710164000002000000000100d8ff12001d61000000000000000000000000",
+   "map_head_hex": "000a0e150e161ba2a6ab1a2a2fa5a9b5a7b5d90f1723131f2b0f17234f57639c",
+   "map_size": 20469248,
+   "map_first_uints": [
+    353241600,
+    2719684110,
+    706390950,
+    3047793967,
+    265926055,
+    521347863
+   ],
+   "dat_head_hex": "03690303c507000001032e0100000000000000000000000000000000000000004e414d455f505900000000430000000028000000000000000000000000000000",
+   "dat_first_bytes_hex": "03690303c507000001032e010000000000000000000000000000000000000000",
+   "dat_magic_u16": "0x6903",
+   "dat_as_dbf": {
+    "plausible": true,
+    "records": 1989,
+    "header_len": 769,
+    "record_len": 302,
+    "fields": [
+     {
+      "name": "NAME_PY",
+      "type": "C",
+      "len": 40,
+      "dec": 0
+     },
+     {
+      "name": "NAME_CH",
+      "type": "C",
+      "len": 30,
+      "dec": 0
+     },
+     {
+      "name": "NAME_FT",
+      "type": "C",
+      "len": 30,
+      "dec": 0
+     },
+     {
+      "name": "X_COOR",
+      "type": "N",
+      "len": 10,
+      "dec": 6
+     },
+     {
+      "name": "Y_COOR",
+      "type": "N",
+      "len": 10,
+      "dec": 6
+     },
+     {
+      "name": "PRES_LOC",
+      "type": "C",
+      "len": 40,
+      "dec": 0
+     },
+     {
+      "name": "TYPE_PY",
+      "type": "C",
+      "len": 15,
+      "dec": 0
+     },
+     {
+      "name": "TYPE_CH",
+      "type": "C",
+      "len": 10,
+      "dec": 0
+     },
+     {
+      "name": "LEV_RANG",
+      "type": "C",
+      "len": 1,
+      "dec": 0
+     },
+     {
+      "name": "BEG_YR",
+      "type": "C",
+      "len": 2,
+      "dec": 0
+     },
+     {
+      "name": "BEG_RULE",
+      "type": "C",
+      "len": 1,
+      "dec": 0
+     },
+     {
+      "name": "END_YR",
+      "type": "C",
+      "len": 2,
+      "dec": 0
+     },
+     {
+      "name": "END_RULE",
+      "type": "C",
+      "len": 1,
+      "dec": 0
+     },
+     {
+      "name": "NOTE_ID",
+      "type": "C",
+      "len": 4,
+      "dec": 0
+     },
+     {
+      "name": "OBJ_TYPE",
+      "type": "C",
+      "len": 7,
+      "dec": 0
+     },
+     {
+      "name": "SYS_ID",
+      "type": "C",
+      "len": 4,
+      "dec": 0
+     },
+     {
+      "name": "GEO_SRC",
+      "type": "C",
+      "len": 10,
+      "dec": 0
+     },
+     {
+      "name": "COMPILER",
+      "type": "C",
+      "len": 14,
+      "dec": 0
+     },
+     {
+      "name": "GEOCOMP",
+      "type": "C",
+      "len": 10,
+      "dec": 0
+     },
+     {
+      "name": "CHECKER",
+      "type": "C",
+      "len": 10,
+      "dec": 0
+     },
+     {
+      "name": "ENT_DATE",
+      "type": "C",
+      "len": 10,
+      "dec": 0
+     },
+     {
+      "name": "BEG_CHG",
+      "type": "C",
+      "len": 20,
+      "dec": 0
+     },
+     {
+      "name": "END_CHG",
+      "type": "C",
+      "len": 20,
+      "dec": 0
+     }
+    ]
+   },
+   "members": {
+    "V3_time_pref_pgn_PRC.TAB": {
+     "size": 715,
+     "sha256": "c7bb2a785505bd4d8c9b0046d879b308cd93491cfef1ccb126fe80847b39e786"
+    },
+    "V3_time_pref_pgn_PRC.ID": {
+     "size": 7956,
+     "sha256": "f3956a79239f2b7c1e81bfc4e5dc31c68d081889ca9aadc79e62a3ea492dc399"
+    },
+    "v3_time_pref_pgn_PRC.IND": {
+     "size": 28672,
+     "sha256": "c422403b5cd9865ea5bfecc4fa63ecd437a6ddd74861cc59d6ae7b2f285c4ef0"
+    },
+    "v3_time_pref_pgn_PRC.MAP": {
+     "size": 20469248,
+     "sha256": "a7b44b35a4123c7c8f264c9fed525f394afadd66e46b57b5aaa64c9eec2172df"
+    },
+    "v3_time_pref_pgn_PRC.DAT": {
+     "size": 601448,
+     "sha256": "3937da6c333df757b1b1679268a6c04577913071e2b7251dd46e3de20d4c1533"
+    },
+    "ts_pref_pgn_gb.txt": {
+     "size": 336500,
+     "sha256": "5483d0fb03a900245037ae8843a1f4e4fe41d673b581082c1c5c4052b57e027d"
+    },
+    "README_CHGIS_V3.txt": {
+     "size": 835,
+     "sha256": "3613fb1f417ba365f2c51805e139fd6da43e3963a36daf7f97b136ff40c078a2"
+    },
+    "v3_time_pref_pgn.gif": {
+     "size": 6973,
+     "sha256": "cf112ded4c4ff5d4419cb3a4e5dae013a55ccded3d245fd4d57858ec9de9d599"
+    }
+   }
+  }
+ },
+ "v5": {
+  "members": {
+   "v5_time_pref_pts_utf.shx": {
+    "size": 27372,
+    "sha256": "56b87c38eb3d2612e23115c1731b60885ba3dd4b7ab41ee6c0131bd3c068772c",
+    "record_count_from_shx": 3409,
+    "offsets_within_shp": false
+   },
+   "v5_time_pref_pts_utf.prj": {
+    "size": 390,
+    "sha256": "6a189a7542f5fd9cb3b608575de4abb9ae46824fc9d8cfe711c04324994d651e",
+    "text_verbatim": "PROJCS[\"Xian_1980_GK_Zone_19\",GEOGCS[\"GCS_Xian_1980\",DATUM[\"D_Xian_1980\",SPHEROID[\"Xian_1980\",6378140.0,298.257]],PRIMEM[\"Greenwich\",0.0],UNIT[\"Degree\",0.0174532925199433]],PROJECTION[\"Gauss_Kruger\"],PARAMETER[\"False_Easting\",19500000.0],PARAMETER[\"False_Northing\",0.0],PARAMETER[\"Central_Meridian\",111.0],PARAMETER[\"Scale_Factor\",1.0],PARAMETER[\"Latitude_Of_Origin\",0.0],UNIT[\"Meter\",1.0]]"
+   },
+   "v5_time_pref_pts_utf.sbn": {
+    "size": 32852,
+    "sha256": "f6a39b41efb636f56dd95e64a0d906f84012f6fbb0d9c994afd11a89c9d4c7c2"
+   },
+   "v5_time_pref_pts_utf.sbx": {
+    "size": 1524,
+    "sha256": "625e39e5f500c0dae0d5dd960cb08fe2539f09412db1aae80723b7bf6176fa72"
+   },
+   "v5_time_pref_pts_utf.shp": {
+    "size": 95552,
+    "sha256": "d474cb42fad47ce84b0d5c7401ab6d8f7c69cbd7f61c374b2503a9856f461e1c",
+    "shape_type": 1,
+    "bbox": [
+     18068955.41441956,
+     2033517.3846853739,
+     21138239.81524794,
+     5699086.106678631,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ],
+    "file_length_bytes": -3196846080
+   },
+   "v5_time_pref_pts_README.txt": {
+    "size": 4555,
+    "sha256": "f157f79c7dfbd87a1e29b2e4632a8d1d201903a1117365dd0a266703f5d7dfc5",
+    "text_verbatim": "CHGIS - V5 Prefecture Points\r\n\r\n(c) 2012 CHGIS  Fairbank Center for Chinese Studies and the Institute for Chinese Historical Geography at Fudan University\r\n\r\n------------------------------------\r\n\r\nCitation:   \"Time Series Prefecture Points, CHGIS Version 5. (2012)\"\r\n\r\n------------------------------------\r\n\r\nLicense:  Creative Commons - Attribution Non-Commerical Share Alike\r\nDetails: http://creativecommons.org/licenses/by-nc-sa/3.0/\r\nfree unlimited use for academic research.\r\nno commercial use, resale, or redistribution permitted.\r\n\r\nCONSTRAINTS:  Agreement to terms of End User License (pasted below)\r\n\r\n------------------------------------\r\n\r\nDraft Date:  August 2011\r\nPublished:  Mar 2012\r\nEditor:  Lex Berman\r\n\r\nCHGIS, Center for Geographic Analysis\r\n1737 Cambridge Street, Suite K021\r\nCambridge, MA 02138\r\nVoice: 617-496-94391\r\nEmail: chgis@fas.harvard.edu\r\n\r\n------------------------------------\r\n\r\nGIS Point Layer:  v5_time_pref_pts\r\n\r\nEncoding:  GBK, UTF8\r\n\r\nFormats:  Shapefile, KML, Mapinfo\r\n\r\nOnline Reference Page:   \r\nhttp://www.fas.harvard.edu/~chgis/data/chgis/downloads/v5/datasets/descriptions/v5_time_pref_pts.html\r\n\r\nSample Image:\r\nhttp://www.fas.harvard.edu/~chgis/data/chgis/downloads/v5/images/v5_time_pref_pts_sm.jpg\r\n\r\n\r\nEND USER LICENSE AGREEMENT:\r\n\r\nEnd User License Agreement [EULA]\r\n\r\nAs a condition of access to this data, you hereby agree to the following terms and conditions.\r\n\r\n(1) obtain official version only You, the end user, will obtain the data as stored media or by direct download only from authorized server(s) maintained by the Management Committee, the contributing institutions, or affiliated institutions approved by the Management Committee.    The contributing institutions are:\r\n\r\nCenter for Historical Geography, Fudan University (Shanghai, China)\r\nCHGIS, Harvard Yenching Institute\r\nRussian Academy of Science, Institute of Geography\r\nAustralian Center for Asian Spatial Information Network, Griffith University (Brisbane, Australia)\r\n(2) authorized distributors\r\n\r\nIf your primary residence is within the People's Republic of China, the official distribution is maintained by the\r\nInstitute for Chinese Historical Geography, Fudan University, 220 Handan Lu, Shanghai, CHINA, 200433 (tel: 86- 21-6564-2714).\r\nFor all other countries, the main point of distribution for the official CHGIS data is:\r\nwww.fas.harvard.edu/~chgis\r\n(3) terms of use Access to, and use of, these data is restricted to non-commercial use for academic research and educational purposes. Commercial use requires a separate CHGIS Commercial Data License agreement, which may be obtained only from the Management Committee. Any organization or individual that would like to develop commercial or revenue generating use of the CHGIS Datasets must first obtain a licensing agreement from CHGIS Management Committee. Acceptance of this agreement acknowledges understanding of this liability by the end-user.\r\n\r\n(4) citation Academic use of CHGIS data is allowed, and encouraged, provided that any derived data or digital images of maps give proper citation to CHGIS as stated below:\r\n\r\nMandatory Citation: \"CHGIS Version 5.\" (c) Fairbank Center for Chinese Studies and the Institute for Chinese Historical Geography at Fudan University, Jan 2012.\"\r\n\r\nYou may use portions of the CHGIS data in your research and publications, but in your publications you must:\r\n\r\nfollow normal scholarly practices and conventions for attributing the source of the CHGIS Data as specified above.\r\nclearly describe any changes you have made to the CHGIS Data that are included in your work.\r\n(5) redistribution You may not incorporate the entirety of CHGIS Data Layers in a work of your own intended for public dissemination, whether modified or not, without the express permission of the Management Committee in a separate License Agreement. No commercial use or repackaging of this dataset is allowed, in any form. Redistribution of CHGIS datasets in electronic media format, or by downloadable distribution over the Internet is not allowed, except under written agreement with CHGIS Management Committee.\r\n\r\n(6) disclaimer While every reasonable effort has been made to insure the accuracy of the data, neither the Management Committee nor any contributing institution can guarantee its accuracy or its suitability for any specific purpose. Use of the data is entirely your responsibility.\r\n\r\n(7) agreementYour download and/or use of the CHGIS Data under any circumstances implies your acceptance of this License and all of its conditions.\r\n\r\n\r\n"
+   }
+  },
+  "geometry_independently_readable": true
+ }
+}

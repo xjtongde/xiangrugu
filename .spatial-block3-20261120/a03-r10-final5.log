@@ -1,0 +1,9 @@
+'!table\r\n!version 410\r\n!charset WindowsSi'
+Fields decl: ['Fields 23']
+line: '    NOTE_ID Integer ;'
+line: '    SYS_ID Integer Index 1 ;'
+  rc 0
+
+TAB field-definition lines NOT in delivered attr order: 1
+    '    SYS_ID Integer Index 1 ;'
+delivered count: 22 | all verbatim-in-file: True

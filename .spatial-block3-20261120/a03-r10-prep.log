@@ -1,0 +1,16 @@
+== INVENTORY: V3_Data_Archive.zip member enumeration (exact case) ==
+inventory rows keyed by outer zip: 1213
+rows with archive_chain: 1212 of 1213
+pref_pgn hits: 160
+    {"relative_path": "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip", "archive_chain": ["shapefiles/citas90_pref_pgn.ZIP"], "kind": "file", "size": 3529540}
+    {"relative_path": "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip", "archive_chain": ["shapefiles/citas90_pref_pgn.ZIP", "citas90_pref_pgn.shx"], "kind": "file", "size": 2868}
+    {"relative_path": "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip", "archive_chain": ["shapefiles/citas90_pref_pgn.ZIP", "citas90_pref.xml"], "kind": "file", "size": 4748}
+    {"relative_path": "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip", "archive_chain": ["shapefiles/citas90_pref_pgn.ZIP", "citas90_pref_pgn.dbf"], "kind": "file", "size": 132808}
+
+alt rows (rp contains name): 0
+
+== exact-case members of the two twin inner zips ==
+Traceback (most recent call last):
+  File "<stdin>", line 3, in <module>
+NameError: name 'rows' is not defined
+== exact-case members of the two twin inner zips ==

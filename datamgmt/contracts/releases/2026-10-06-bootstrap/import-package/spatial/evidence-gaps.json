@@ -1,6 +1,6 @@
 {
  "dependency_gaps": [],
- "gap_group_count": 3,
+ "gap_group_count": 1,
  "gaps": [
   {
    "family": "shapefile",
@@ -14,34 +14,6 @@
    ],
    "reason": "required header evidence absent",
    "stem": "v5_time_pref_pts_utf"
-  },
-  {
-   "family": "mapinfo_candidate",
-   "group_id": "ca752f78d2b5ff45af9b42435ece787528042ddfd3af85c39b5fdd4a10783b72",
-   "members": [
-    "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip!mapinfo/v3_time_pref_pgn_PRC.ZIP/v3_time_pref_pgn_PRC.DAT",
-    "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip!mapinfo/v3_time_pref_pgn_PRC.ZIP/v3_time_pref_pgn_PRC.IND",
-    "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip!mapinfo/v3_time_pref_pgn_PRC.ZIP/v3_time_pref_pgn_PRC.MAP"
-   ],
-   "missing": [
-    ".tab"
-   ],
-   "reason": "no primary component (.shp/.tab) present in group; casefold-ambiguity twin holding only DAT/IND/MAP — no independent reader contract exists; kept BLOCKED pending 茶香 ruling",
-   "stem": "v3_time_pref_pgn_PRC"
-  },
-  {
-   "family": "mapinfo_candidate",
-   "group_id": "ff9ffff7dc710cf966db047fa3dfab77c783d8666b635889d0b54f9ace6574d4",
-   "members": [
-    "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip!shapefiles/v3_time_pref_pgn_PRC.ZIP/v3_time_pref_pgn_PRC.DAT",
-    "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip!shapefiles/v3_time_pref_pgn_PRC.ZIP/v3_time_pref_pgn_PRC.IND",
-    "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip!shapefiles/v3_time_pref_pgn_PRC.ZIP/v3_time_pref_pgn_PRC.MAP"
-   ],
-   "missing": [
-    ".tab"
-   ],
-   "reason": "no primary component (.shp/.tab) present in group; casefold-ambiguity twin holding only DAT/IND/MAP — no independent reader contract exists; kept BLOCKED pending 茶香 ruling",
-   "stem": "v3_time_pref_pgn_PRC"
   }
  ],
  "known_anomalies_carried": {

@@ -1,0 +1,15 @@
+objname=v5_time_pref_pts_utf__partial_no_dbf carrier=shp: match:False
+objname=v5_time_pref_pts_utf__partial_no_dbf carrier=tsv: match:False
+objname=v5_time_pref_pts_utf__partial_no_dbf carrier=mapinfo_tab: match:False
+objname=v5_time_pref_pts_utf.shp__partial_no_dbf carrier=shp: match:False
+objname=v5_time_pref_pts_utf.shp__partial_no_dbf carrier=tsv: match:False
+objname=v5_time_pref_pts_utf.shp__partial_no_dbf carrier=mapinfo_tab: match:False
+token MAP : 76
+token MapX : 0
+token tool : 8
+token 工具 : 0
+
+MAP-read conclusion ctx: search 'MapInfo'
+MapInfo ctx:  other groups", "tab_obj_declaration_verbatim": "  Type NATIVE Charset \"WindowsLatin1\"", "target_type_note_mapinfo": "MapInfo OBJ class kept verbatim; SHP numeric code analogy NOT applied — PostGIS geometry type left null pending formal reader contract", "target_type_proposal": null, "xy_preserve_original_ieee754": true}, "gro
+
+DAT trial ctx: not found; search '试解': -1

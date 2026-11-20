@@ -1,0 +1,22 @@
+== TAB schema location on twin objects ==
+
+ 3_time_pref_pgn_PRC.ZIP/V3_time_pref_pgn_PRC.TAB | attr order type: list
+   count: 22 | first3: [{"decimals": null, "definition_line_verbatim": "    NAME_PY Char (40) ;", "ordinal": 1, "original_name": "NAME_PY", "tab_type": "Char", "width": "40"}, {"decimals": null, "definition_line_verbatim": "    NAME_CH Char (30) ;", "ordinal": 2, "original_name": "N
+   identity_convention: -
+
+ 3_time_pref_pgn_PRC.ZIP/V3_time_pref_pgn_PRC.TAB | attr order type: list
+   count: 22 | first3: [{"decimals": null, "definition_line_verbatim": "    NAME_PY Char (40) ;", "ordinal": 1, "original_name": "NAME_PY", "tab_type": "Char", "width": "40"}, {"decimals": null, "definition_line_verbatim": "    NAME_CH Char (30) ;", "ordinal": 2, "original_name": "N
+   identity_convention: -
+
+== v5 partial object ==
+fields_note: "no attribute columns proposed: source .dbf absent and no provable companion exists (see attribute_contract); fields=[] is NOT an omission"
+attribute_contract: "SOURCE COMPONENT MISSING (.dbf absent from the shipped archive; README 4555B read in full — citation/license only, no attribute schema or companion pointer). Exhaustive content search across all 23 same-family pref_pts/time dbfs in inventory found NO record-c
+dbf_search_evidence: [{"matches_3409": false, "member": "v6_1911_pref_pts_utf.dbf", "outer": "harvard-full/doi_10_7910/DVN/HHVVHX/v6_1911_pref_pts_utf.zip", "records": 355}, {"matches_3409": false, "member": "shapefiles/v2_1820_pref_pts_gb.ZIP/v2_1820_pref_pts_gb.dbf", "outer": "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Da
+identity_convention: "partial component set keeps DISTINCT identity by suffixing object_name with '__partial_no_dbf' before the REAL source_object_id/allocate_tables calls — prevents collision with a future complete-shape
+geom shx/shp: 3409 3409 | bbox match lead: True
+Traceback (most recent call last):
+  File "<stdin>", line 37, in <module>
+  File "/home/zky/Documents/deepseek-harness/xiangrugu/datamgmt/src/xiangrugu_datamgmt/identity.py", line 35, in source_object_id
+    if not carrier or "\x00" in carrier or "\x00" in object_name:
+                                           ^^^^^^^^^^^^^^^^^^^^^
+TypeError: argument of type 'NoneType' is not iterable

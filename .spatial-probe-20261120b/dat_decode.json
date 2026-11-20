@@ -1,0 +1,204 @@
+{
+ "records": 1989,
+ "header_len": 769,
+ "record_len": 302,
+ "field_widths_sum": 301,
+ "deletion_flag_plus": 1,
+ "file_size": 601448,
+ "expected_size_formula": 601448,
+ "size_formula_matches": true,
+ "fields": [
+  {
+   "name": "NAME_PY",
+   "type": "C",
+   "len": 40,
+   "dec": 0
+  },
+  {
+   "name": "NAME_CH",
+   "type": "C",
+   "len": 30,
+   "dec": 0
+  },
+  {
+   "name": "NAME_FT",
+   "type": "C",
+   "len": 30,
+   "dec": 0
+  },
+  {
+   "name": "X_COOR",
+   "type": "N",
+   "len": 10,
+   "dec": 6
+  },
+  {
+   "name": "Y_COOR",
+   "type": "N",
+   "len": 10,
+   "dec": 6
+  },
+  {
+   "name": "PRES_LOC",
+   "type": "C",
+   "len": 40,
+   "dec": 0
+  },
+  {
+   "name": "TYPE_PY",
+   "type": "C",
+   "len": 15,
+   "dec": 0
+  },
+  {
+   "name": "TYPE_CH",
+   "type": "C",
+   "len": 10,
+   "dec": 0
+  },
+  {
+   "name": "LEV_RANG",
+   "type": "C",
+   "len": 1,
+   "dec": 0
+  },
+  {
+   "name": "BEG_YR",
+   "type": "C",
+   "len": 2,
+   "dec": 0
+  },
+  {
+   "name": "BEG_RULE",
+   "type": "C",
+   "len": 1,
+   "dec": 0
+  },
+  {
+   "name": "END_YR",
+   "type": "C",
+   "len": 2,
+   "dec": 0
+  },
+  {
+   "name": "END_RULE",
+   "type": "C",
+   "len": 1,
+   "dec": 0
+  },
+  {
+   "name": "NOTE_ID",
+   "type": "C",
+   "len": 4,
+   "dec": 0
+  },
+  {
+   "name": "OBJ_TYPE",
+   "type": "C",
+   "len": 7,
+   "dec": 0
+  },
+  {
+   "name": "SYS_ID",
+   "type": "C",
+   "len": 4,
+   "dec": 0
+  },
+  {
+   "name": "GEO_SRC",
+   "type": "C",
+   "len": 10,
+   "dec": 0
+  },
+  {
+   "name": "COMPILER",
+   "type": "C",
+   "len": 14,
+   "dec": 0
+  },
+  {
+   "name": "GEOCOMP",
+   "type": "C",
+   "len": 10,
+   "dec": 0
+  },
+  {
+   "name": "CHECKER",
+   "type": "C",
+   "len": 10,
+   "dec": 0
+  },
+  {
+   "name": "ENT_DATE",
+   "type": "C",
+   "len": 10,
+   "dec": 0
+  },
+  {
+   "name": "BEG_CHG",
+   "type": "C",
+   "len": 20,
+   "dec": 0
+  },
+  {
+   "name": "END_CHG",
+   "type": "C",
+   "len": 20,
+   "dec": 0
+  }
+ ],
+ "sample_records": [
+  {
+   "ordinal": 1,
+   "deletion_flag": " ",
+   "NAME_PY": "Guangde Jun\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+   "X_COOR": "0.000000",
+   "Y_COOR": "0.000000",
+   "BEG_YR": "�\u0003",
+   "END_YR": "�\u0004",
+   "OBJ_TYPE": "POLYGON",
+   "SYS_ID": "漚\u0001\u0000"
+  },
+  {
+   "ordinal": 2,
+   "deletion_flag": " ",
+   "NAME_PY": "Guangde Lu\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+   "X_COOR": "0.000000",
+   "Y_COOR": "0.000000",
+   "BEG_YR": "�\u0004",
+   "END_YR": "K\u0005",
+   "OBJ_TYPE": "POLYGON",
+   "SYS_ID": "瀉\u0001\u0000"
+  },
+  {
+   "ordinal": 3,
+   "deletion_flag": " ",
+   "NAME_PY": "Guangxing Fu\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+   "X_COOR": "0.000000",
+   "Y_COOR": "0.000000",
+   "BEG_YR": "L\u0005",
+   "END_YR": "Z\u0005",
+   "OBJ_TYPE": "POLYGON",
+   "SYS_ID": "焌\u0001\u0000"
+  },
+  {
+   "ordinal": 4,
+   "deletion_flag": " ",
+   "NAME_PY": "Guangde Zhou\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+   "X_COOR": "0.000000",
+   "Y_COOR": "0.000000",
+   "BEG_YR": "[\u0005",
+   "END_YR": "w\u0007",
+   "OBJ_TYPE": "POLYGON",
+   "SYS_ID": "燼\u0001\u0000"
+  }
+ ],
+ "blank_field_names_in_first4": {
+  "PRES_LOC": 4,
+  "CHECKER": 4
+ },
+ "bad_deletion_flags": 0,
+ "obj_type_distribution_all_records": {
+  "POLYGON": 1989
+ }
+}

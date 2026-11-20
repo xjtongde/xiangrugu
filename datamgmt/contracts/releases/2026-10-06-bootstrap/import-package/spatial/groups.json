@@ -1,6 +1,12 @@
 {
  "baseline_git": "5478271",
  "basis_files_sha256": {
+  "dat_decode.json": "a1cd678c23c06b8f8c5917dd5dd8cc5c5a5ecc1f9e34a945d8716cd91cc1298d",
+  "dat_decode.py": "3679bd6f9f0d689d27e98f1255c63bbdf68b8a8cd96cb235847e398bc2d388c8",
+  "gap23.py": "0b58bc87b884f5c3ebc3d1ba11be3940331dc6726e5004817b746a0b31fc55ec",
+  "gap23_evidence.json": "b1ce3b78dd2eb4b12a2810c4039395f904980c24ebdedef376ad19750b0a0875",
+  "gap_evidence.json": "418ac0dd384ab368ea9f58ecd4a76c683e0f62738c31fdc00ab8e76d9572012b",
+  "gap_probe.py": "cb8584420826081f4494385d4573b63279f143ed605e30b8f860898edee4905b",
   "spatial_evidence.jsonl": "3f347a1240918aa88cbf4e65aa978a9d6bfb01f6bd72d6c555b9dcf2b5ae669c",
   "spatial_probe.py": "8fbb8b42b204a25944b56d13241a6fe0c83f3b443ab9b37bedb36cce2e6a82f3",
   "tasks.json": "9f70cd3397c7b4b5aeb3c90e65d6d8b7b29978a29fc07da4c801cdf23446f452"
@@ -18,8 +24,7 @@
   "groups_pending_evidence": 0,
   "lane_partition": {
    "approved": 2,
-   "gap": 3,
-   "proposed": 896,
+   "proposed": 899,
    "text-owned-by-block2": 2
   }
  },

@@ -1,0 +1,15 @@
+v5 keys: ['attribute_contract', 'basis', 'candidate_table_name', 'carrier', 'crs', 'dataset_namespace', 'dbf_search_evidence', 'family_candidate', 'fields', 'fields_note', 'geometry_proposal', 'group_id', 'identity_convention', 'primary_member', 'source_file_or_chain', 'source_identity', 'source_object_id', 'status']
+source_file_or_chain: harvard-full/doi_10_7910/DVN/M7WEFY/v5_time_pref_pts_utf.zip!v5_time_pref_pts_utf.shp
+carrier: 'shapefile_partial_no_dbf' | identity_convention: "partial component set keeps DISTINCT identity by suffixing object_name with '__partial_no_dbf' before the REAL source_object_id/allocate_tables calls — prevents collision with a future complete-shapefile mapping of the same stem"
+source_identity: {"archive_chain": ["v5_time_pref_pts_utf.shp"], "archive_ordinals": [4], "relative_path": "harvard-full/doi_10_7910/DVN/M7WEFY/v5_time_pref_pts_utf.zip", "rule_id": "m004809", "sha256_inventory": "d474cb42fad47ce84b0d5c7401ab6d8f7c69cbd7f61c374b2503a9856f461e1c", "size": 95552}
+objname=v5_time_pref_pts_utf__partial_no_dbf carrier='shapefile_partial_no_dbf': match:False
+objname=v5_time_pref_pts_utf.shp__partial_no_dbf carrier='shapefile_partial_no_dbf': match:False
+
+twin si: {} | carrier: 'mapinfo_tab'
+Traceback (most recent call last):
+  File "<stdin>", line 21, in <module>
+  File "/home/zky/Documents/deepseek-harness/xiangrugu/datamgmt/src/xiangrugu_datamgmt/identity.py", line 37, in source_object_id
+    path = canonical_relative_path(relative_path)
+  File "/home/zky/Documents/deepseek-harness/xiangrugu/datamgmt/src/xiangrugu_datamgmt/identity.py", line 9, in canonical_relative_path
+    raise ValueError("A canonical POSIX relative path is required")
+ValueError: A canonical POSIX relative path is required

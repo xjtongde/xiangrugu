@@ -1,0 +1,16 @@
+== sid convention recompute (final) ==
+me_pref_pts_utf.zip!v5_time_pref_pts_utf.shp: match:False via None | conv field: "partial component set keeps DISTINCT identity by suffixing object_name with '__partial_no_dbf' before the REAL source_o
+me_pref_pgn_PRC.ZIP/V3_time_pref_pgn_PRC.TAB: match:True via ('V3_time_pref_pgn_PRC', 'mapinfo_tab') | conv field: -
+me_pref_pgn_PRC.ZIP/V3_time_pref_pgn_PRC.TAB: match:True via ('V3_time_pref_pgn_PRC', 'mapinfo_tab') | conv field: -
+
+== family_reconciliation ==
+{"carrier_distribution_this_round": {"kml": 52, "mapinfo_tab": 142, "mapinfo_twin_bound": 2, "shapefile": 702, "shapefile_partial_no_dbf": 1}, "moved_objects": [{"evidence": "inner zip sha 69b5119f… byte-identical twins; TAB present", "from_lane": "gap", "stem": "V3_time_pref_pgn_PRC", "to_lane": "mapinfo_twin_bound (mapinfo copy)"}, {"evidence": "same inner zip second registration path", "from_lane": "gap", "stem": "V3_time_pref_pgn_PRC", "to_lane": "mapinfo_twin_bound (shapefiles copy)"}, {"evidence": "geometry standalone readable; dbf provably absent", "from_lane": "gap", "stem": "v5_time_pref_pts_utf", "to_lane": "shapefile_partial_no_dbf"}], "note": "first-box glance said shapefile 704/mapinfo_tab 140; the exact ground truth (groups.json families) is shapefile 705 + mapinfo 146 + kml 52 = 903. This round's lane moves: 2 twin groups left the gap lane into mapinfo_twin_bound, and v5_t
+
+gap_group_count: 1 | gaps: 1
+    shapefile 1698cca1ec31 missing: None | reason: required header evidence absent
+
+SUMMARY text_owned ctx: NOT FOUND
+ S: ## 三计数
+ S: - 候选组 **903**（kml 52 + mapinfo_candidate 146 + shapefile 705；shapefile/mapinfo 沿用 spatial-component-candidates.json，KML 52 件本轮按同一外层文件+链+stem 规则补查入组；inventory sha256=fb5e6b334b898d6
+ S: - 已确证组（头级只读取证全命中、sha 对账 2708/2708 匹配 0 错）：**903**
+ S: - 映射对象合计 **901** =批准逐字沿用 **2** + 提案 **899**（shapefile 702 + mapinfo_tab 142 + kml 52，均 PROPOSED_NOT_AUTHORIZED）；缺口组 **1**。组级泳道分区机器断言在码：approved 2 + proposed 899 + gap 1 + text-owne

@@ -1,0 +1,60 @@
+distinct tops matching v3_time_pref_pgn*: {'shapefiles/v3_time_pref_pgn_gb.ZIP': 11, 'shapefiles/v3_time_pref_pgn_PRC.ZIP': 9, 'shapefiles/v3_time_pref_pgn_utf.ZIP': 11, 'mapinfo/v3_time_pref_pgn_PRC.ZIP': 9, 'mapinfo/v3_time_pref_pgn_USA.ZIP': 9}
+
+TOP: mapinfo/v3_time_pref_pgn_PRC.ZIP | entries: 9
+   (ZIP)                                    size=  6089146 sha=69b5119f01f2b593 ord=(114,)
+   V3_time_pref_pgn_PRC.TAB                 size=      715 sha=c7bb2a785505bd4d ord=(114, 0)
+   V3_time_pref_pgn_PRC.ID                  size=     7956 sha=f3956a79239f2b7c ord=(114, 1)
+   v3_time_pref_pgn_PRC.IND                 size=    28672 sha=c422403b5cd9865e ord=(114, 2)
+   v3_time_pref_pgn_PRC.MAP                 size= 20469248 sha=a7b44b35a4123c7c ord=(114, 3)
+   v3_time_pref_pgn_PRC.DAT                 size=   601448 sha=3937da6c333df757 ord=(114, 4)
+   ts_pref_pgn_gb.txt                       size=   336500 sha=5483d0fb03a90024 ord=(114, 5)
+   README_CHGIS_V3.txt                      size=      835 sha=3613fb1f417ba365 ord=(114, 6)
+   v3_time_pref_pgn.gif                     size=     6973 sha=cf112ded4c4ff5d4 ord=(114, 7)
+
+TOP: mapinfo/v3_time_pref_pgn_USA.ZIP | entries: 9
+   (ZIP)                                    size=  8887552 sha=a3dae2ca3427bdcc ord=(115,)
+   V3_time_pref_pgn_USA.TAB                 size=      644 sha=60deef91213626d1 ord=(115, 0)
+   V3_time_pref_pgn_USA.DAT                 size=   388561 sha=ea913f08bac253ba ord=(115, 1)
+   V3_time_pref_pgn_USA.ID                  size=     7956 sha=0ba309012abb0960 ord=(115, 2)
+   V3_time_pref_pgn_USA.IND                 size=    32256 sha=d01db7519ac02312 ord=(115, 3)
+   V3_time_pref_pgn_USA.MAP                 size= 20680704 sha=fa68928831818711 ord=(115, 4)
+   README_CHGIS_V3.txt                      size=      835 sha=3613fb1f417ba365 ord=(115, 5)
+   ts_pref_pgn_gb.txt                       size=   336500 sha=5483d0fb03a90024 ord=(115, 6)
+   v3_time_pref_pgn.gif                     size=     6973 sha=cf112ded4c4ff5d4 ord=(115, 7)
+
+TOP: shapefiles/v3_time_pref_pgn_PRC.ZIP | entries: 9
+   (ZIP)                                    size=  6089146 sha=69b5119f01f2b593 ord=(66,)
+   V3_time_pref_pgn_PRC.TAB                 size=      715 sha=c7bb2a785505bd4d ord=(66, 0)
+   V3_time_pref_pgn_PRC.ID                  size=     7956 sha=f3956a79239f2b7c ord=(66, 1)
+   v3_time_pref_pgn_PRC.IND                 size=    28672 sha=c422403b5cd9865e ord=(66, 2)
+   v3_time_pref_pgn_PRC.MAP                 size= 20469248 sha=a7b44b35a4123c7c ord=(66, 3)
+   v3_time_pref_pgn_PRC.DAT                 size=   601448 sha=3937da6c333df757 ord=(66, 4)
+   ts_pref_pgn_gb.txt                       size=   336500 sha=5483d0fb03a90024 ord=(66, 5)
+   README_CHGIS_V3.txt                      size=      835 sha=3613fb1f417ba365 ord=(66, 6)
+   v3_time_pref_pgn.gif                     size=     6973 sha=cf112ded4c4ff5d4 ord=(66, 7)
+
+TOP: shapefiles/v3_time_pref_pgn_gb.ZIP | entries: 11
+   (ZIP)                                    size= 14347000 sha=acf1d24829f13087 ord=(65,)
+   v3_time_pref_pgn_gb.shp.xml              size=    12894 sha=fabcbbb9627b4dee ord=(65, 0)
+   v3_time_pref_pgn.gif                     size=     6973 sha=cf112ded4c4ff5d4 ord=(65, 1)
+   README_CHGIS_V3.txt                      size=      835 sha=3613fb1f417ba365 ord=(65, 2)
+   ts_pref_pgn_gb.txt                       size=   336500 sha=5483d0fb03a90024 ord=(65, 3)
+   v3_time_pref_pgn_gb.shx                  size=    16228 sha=f32282f1771b6f73 ord=(65, 4)
+   v3_time_pref_pgn_gb.prj                  size=      153 sha=621c031446c37312 ord=(65, 5)
+   v3_time_pref_pgn_gb.sbn                  size=    18812 sha=833b08c4279cf617 ord=(65, 6)
+   v3_time_pref_pgn_gb.sbx                  size=      692 sha=6b0bf73af094b829 ord=(65, 7)
+   v3_time_pref_pgn_gb.shp                  size= 41427256 sha=2924621c9891ff69 ord=(65, 8)
+   v3_time_pref_pgn_gb.dbf                  size=   734658 sha=3802bc9957d26a49 ord=(65, 9)
+
+TOP: shapefiles/v3_time_pref_pgn_utf.ZIP | entries: 11
+   (ZIP)                                    size= 14347439 sha=7954a5e48240b333 ord=(67,)
+   v3_time_pref_pgn.gif                     size=     6973 sha=cf112ded4c4ff5d4 ord=(67, 0)
+   v3_time_pref_pgn_utf.shp.xml             size=    13040 sha=824f9745d4d830db ord=(67, 1)
+   README_CHGIS_V3.txt                      size=      835 sha=3613fb1f417ba365 ord=(67, 2)
+   ts_pref_pgn_utf.txt                      size=   372156 sha=4d8ed8b8529e4a23 ord=(67, 3)
+   v3_time_pref_pgn_utf.shx                 size=    16228 sha=f32282f1771b6f73 ord=(67, 4)
+   v3_time_pref_pgn_utf.prj                 size=      153 sha=621c031446c37312 ord=(67, 5)
+   v3_time_pref_pgn_utf.sbn                 size=    18812 sha=833b08c4279cf617 ord=(67, 6)
+   v3_time_pref_pgn_utf.sbx                 size=      692 sha=6b0bf73af094b829 ord=(67, 7)
+   v3_time_pref_pgn_utf.shp                 size= 41427256 sha=2924621c9891ff69 ord=(67, 8)
+   v3_time_pref_pgn_utf.dbf                 size=   724578 sha=1d67a9d3e052e8ea ord=(67, 9)

@@ -1,0 +1,4 @@
+SHX first 32 raw: [0, 0, 39, 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 53, 118, 232, 3, 0, 0]
+file_code: 0000270a | file_len_words(BE@24): 13686 =>bytes 27372 actual 27372 | version(LE@28): 1000 | shapetype(LE@32): 1 | records: 1704
+records with out-of-range offsets: 0
+  rc 0

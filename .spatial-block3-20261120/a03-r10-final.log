@@ -1,0 +1,13 @@
+== FINAL STATE (products 16:16:48Z + build 16:17:04Z) ==
+groups counts: {"block3_members_attributed_exactly_once": 846, "by_family": {"kml": 52, "mapinfo_candidate": 146, "shapefile": 705}, "candidate_groups_total": 903, "groups_confirmed_read_only": 903, "groups_pending_evidence": 0, "lane_partition": {"approved": 2, "proposed": 899, "text-owned-by-block2": 2}}
+om counts: {"approved_objects_reused_verbatim": 2, "candidate_groups_total": 903, "consistency_asserts_passed": true, "family_reconciliation": {"carrier_distribution_this_round": {"kml": 52, "mapinfo_tab": 142, "mapinfo_twin_bound": 2, "shapefile": 702, "shapefile_partial_no_dbf": 1}, "moved_objects": [{"evidence": "inner zip sha 69b5119f… byte-identical twins; TAB present", "from_lane": "gap", "stem": "V3_time_pref_pgn_PRC", "
+array proposed: 899 | fams: {'shapefile': 703, 'mapinfo_candidate': 142, 'mapinfo_twin_bound': 2, 'kml': 52}
+
+new-related objects: 4
+   M7WEFY/v5_time_pref_pts_utf.zip!v5_time_pref_pts_utf.shp | fam: shapefile | sid: 9c0a4734980830e8 | table: harvard_u2d_full_u2f_doi_u5f_10_u5f_7910 | fields: 0
+   apinfo/v3_time_pref_pgn_PRC.ZIP/V3_time_pref_pgn_PRC.TAB | fam: mapinfo_candidate | sid: 7dd347462de55ab8 | table: harvard_u2d_full_u2f_doi_u5f_10_u5f_7910 | fields: 0
+   efiles/v3_time_pref_pgn_PRC.ZIP/V3_time_pref_pgn_PRC.TAB | fam: mapinfo_candidate | sid: 7b6d1a52c50b189f | table: harvard_u2d_full_u2f_doi_u5f_10_u5f_7910 | fields: 0
+   apinfo/v2_time_pref_pgn_prc.ZIP/v2_time_pref_pgn_PRC.TAB | fam: mapinfo_candidate | sid: 0bc56ae01a7afddd | table: harvard_u2d_full_u2f_doi_u5f_10_u5f_7910 | fields: 0
+
+sid null: 0 | unique: True 901/901
+table names null: 0 | collisions: 0

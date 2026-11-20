@@ -1,0 +1,20 @@
+done
+  rc 0
+{"names": ["v5_time_pref_pts_utf.shx", "v5_time_pref_pts_utf.prj", "v5_time_pref_pts_utf.sbn", "v5_time_pref_pts_utf.sbx", "v5_time_pref_pts_utf.shp", "v5_time_pref_pts_README.txt"], "shp": {"file_code": 9994, "shape_type": 1, "bbox": [18068955.41441956, 2033517.3846853739, 21138239.81524794, 5699086.106678631, 0.0, 0.0, 0.0, 0.0], "size": 95552}, "shx": {"version": 9994, "num_records_hdr": 1983184896, "iterated": 1705, "size": 27372}}
+
+ readme_names :
+ ['v5_time_pref_pts_README.txt']
+
+ readme__pref_pts_README.txt :
+ CHGIS - V5 Prefecture Points
+
+(c) 2012 CHGIS  Fairbank Center for Chinese Studies and the Institute for Chinese Historical Geography at Fudan University
+
+------------------------------------
+
+Citation:   "Time Series Prefecture Points, CHGIS Version 5. (2012)"
+
+------------------------------------
+
+License:  Creative Commons - Attribution Non-Commerical Share Alike
+D

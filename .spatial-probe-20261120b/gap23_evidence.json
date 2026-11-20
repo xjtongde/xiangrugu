@@ -1,0 +1,678 @@
+{
+ "readme_verbatim": "CHGIS - V5 Prefecture Points\r\n\r\n(c) 2012 CHGIS  Fairbank Center for Chinese Studies and the Institute for Chinese Historical Geography at Fudan University\r\n\r\n------------------------------------\r\n\r\nCitation:   \"Time Series Prefecture Points, CHGIS Version 5. (2012)\"\r\n\r\n------------------------------------\r\n\r\nLicense:  Creative Commons - Attribution Non-Commerical Share Alike\r\nDetails: http://creativecommons.org/licenses/by-nc-sa/3.0/\r\nfree unlimited use for academic research.\r\nno commercial use, resale, or redistribution permitted.\r\n\r\nCONSTRAINTS:  Agreement to terms of End User License (pasted below)\r\n\r\n------------------------------------\r\n\r\nDraft Date:  August 2011\r\nPublished:  Mar 2012\r\nEditor:  Lex Berman\r\n\r\nCHGIS, Center for Geographic Analysis\r\n1737 Cambridge Street, Suite K021\r\nCambridge, MA 02138\r\nVoice: 617-496-94391\r\nEmail: chgis@fas.harvard.edu\r\n\r\n------------------------------------\r\n\r\nGIS Point Layer:  v5_time_pref_pts\r\n\r\nEncoding:  GBK, UTF8\r\n\r\nFormats:  Shapefile, KML, Mapinfo\r\n\r\nOnline Reference Page:   \r\nhttp://www.fas.harvard.edu/~chgis/data/chgis/downloads/v5/datasets/descriptions/v5_time_pref_pts.html\r\n\r\nSample Image:\r\nhttp://www.fas.harvard.edu/~chgis/data/chgis/downloads/v5/images/v5_time_pref_pts_sm.jpg\r\n\r\n\r\nEND USER LICENSE AGREEMENT:\r\n\r\nEnd User License Agreement [EULA]\r\n\r\nAs a condition of access to this data, you hereby agree to the following terms and conditions.\r\n\r\n(1) obtain official version only You, the end user, will obtain the data as stored media or by direct download only from authorized server(s) maintained by the Management Committee, the contributing institutions, or affiliated institutions approved by the Management Committee.    The contributing institutions are:\r\n\r\nCenter for Historical Geography, Fudan University (Shanghai, China)\r\nCHGIS, Harvard Yenching Institute\r\nRussian Academy of Science, Institute of Geography\r\nAustralian Center for Asian Spatial Information Network, Griffith University (Brisbane, Australia)\r\n(2) authorized distributors\r\n\r\nIf your primary residence is within the People's Republic of China, the official distribution is maintained by the\r\nInstitute for Chinese Historical Geography, Fudan University, 220 Handan Lu, Shanghai, CHINA, 200433 (tel: 86- 21-6564-2714).\r\nFor all other countries, the main point of distribution for the official CHGIS data is:\r\nwww.fas.harvard.edu/~chgis\r\n(3) terms of use Access to, and use of, these data is restricted to non-commercial use for academic research and educational purposes. Commercial use requires a separate CHGIS Commercial Data License agreement, which may be obtained only from the Management Committee. Any organization or individual that would like to develop commercial or revenue generating use of the CHGIS Datasets must first obtain a licensing agreement from CHGIS Management Committee. Acceptance of this agreement acknowledges understanding of this liability by the end-user.\r\n\r\n(4) citation Academic use of CHGIS data is allowed, and encouraged, provided that any derived data or digital images of maps give proper citation to CHGIS as stated below:\r\n\r\nMandatory Citation: \"CHGIS Version 5.\" (c) Fairbank Center for Chinese Studies and the Institute for Chinese Historical Geography at Fudan University, Jan 2012.\"\r\n\r\nYou may use portions of the CHGIS data in your research and publications, but in your publications you must:\r\n\r\nfollow normal scholarly practices and conventions for attributing the source of the CHGIS Data as specified above.\r\nclearly describe any changes you have made to the CHGIS Data that are included in your work.\r\n(5) redistribution You may not incorporate the entirety of CHGIS Data Layers in a work of your own intended for public dissemination, whether modified or not, without the express permission of the Management Committee in a separate License Agreement. No commercial use or repackaging of this dataset is allowed, in any form. Redistribution of CHGIS datasets in electronic media format, or by downloadable distribution over the Internet is not allowed, except under written agreement with CHGIS Management Committee.\r\n\r\n(6) disclaimer While every reasonable effort has been made to insure the accuracy of the data, neither the Management Committee nor any contributing institution can guarantee its accuracy or its suitability for any specific purpose. Use of the data is entirely your responsibility.\r\n\r\n(7) agreementYour download and/or use of the CHGIS Data under any circumstances implies your acceptance of this License and all of its conditions.\r\n\r\n\r\n",
+ "v5_geometry_scan": {
+  "shape_type_header": 1,
+  "bbox": [
+   18068955.41441956,
+   2033517.3846853739,
+   21138239.81524794,
+   5699086.106678631,
+   0.0,
+   0.0,
+   0.0,
+   0.0
+  ],
+  "shx_record_count": 3409,
+  "shp_records_walked": 3409,
+  "kinds": {
+   "1": 3409
+  },
+  "geometry_fully_readable_stdlib": true
+ },
+ "same_stem_dbf_search": [
+  {
+   "outer": "harvard-full/doi_10_7910/DVN/HHVVHX/v6_1911_pref_pts_utf.zip",
+   "member": "v6_1911_pref_pts_utf.dbf",
+   "records": 355,
+   "matches_3409": false
+  },
+  {
+   "outer": "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip",
+   "member": "shapefiles/v2_1820_pref_pts_gb.ZIP/v2_1820_pref_pts_gb.dbf",
+   "records": 301,
+   "matches_3409": false
+  },
+  {
+   "outer": "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip",
+   "member": "shapefiles/v2_1820_pref_pts_utf.ZIP/v2_1820_pref_pts_utf.dbf",
+   "records": 301,
+   "matches_3409": false
+  },
+  {
+   "outer": "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip",
+   "member": "shapefiles/v3_1911_pref_pts_gb.ZIP/v3_1911_pref_pts_gb.dbf",
+   "records": 212,
+   "matches_3409": false
+  },
+  {
+   "outer": "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip",
+   "member": "shapefiles/v3_1911_pref_pts_utf.ZIP/v3_1911_pref_pts_utf.dbf",
+   "records": 212,
+   "matches_3409": false
+  },
+  {
+   "outer": "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip",
+   "member": "shapefiles/v3_time_pref_pts_gb.ZIP/v3_time_pref_pts_gb.dbf",
+   "records": 1220,
+   "matches_3409": false
+  },
+  {
+   "outer": "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip",
+   "member": "shapefiles/v3_time_pref_pts_utf.ZIP/v3_time_pref_pts_utf.dbf",
+   "records": 1220,
+   "matches_3409": false
+  },
+  {
+   "outer": "harvard-full/doi_10_7910/DVN/M7WEFY/v5_1820_pref_pts_utf.zip",
+   "member": "v5_1820_pref_pts_utf.dbf",
+   "records": 301,
+   "matches_3409": false
+  },
+  {
+   "outer": "harvard-full/doi_10_7910/DVN/M7WEFY/v5_1911_pref_pts_utf.zip",
+   "member": "v5_1911_pref_pts_utf.dbf",
+   "records": 355,
+   "matches_3409": false
+  },
+  {
+   "outer": "harvard-full/doi_10_7910/DVN/PDGOZ0/V4_Data_Archive.zip",
+   "member": "shapefiles/v4_1820_pref_pts_gbk.zip/v4_1820_pref_pts_gbk.dbf",
+   "records": 301,
+   "matches_3409": false
+  },
+  {
+   "outer": "harvard-full/doi_10_7910/DVN/PDGOZ0/V4_Data_Archive.zip",
+   "member": "shapefiles/v4_1820_pref_pts_utf.zip/v4_1820_pref_pts_utf.dbf",
+   "records": 301,
+   "matches_3409": false
+  },
+  {
+   "outer": "harvard-full/doi_10_7910/DVN/PDGOZ0/V4_Data_Archive.zip",
+   "member": "shapefiles/v4_1911_pref_pts_gbk.zip/v4_1911_pref_pts_gbk.dbf",
+   "records": 270,
+   "matches_3409": false
+  },
+  {
+   "outer": "harvard-full/doi_10_7910/DVN/PDGOZ0/V4_Data_Archive.zip",
+   "member": "shapefiles/v4_1911_pref_pts_utf.zip/v4_1911_pref_pts_utf.dbf",
+   "records": 270,
+   "matches_3409": false
+  },
+  {
+   "outer": "harvard-full/doi_10_7910/DVN/PDGOZ0/V4_Data_Archive.zip",
+   "member": "shapefiles/v4_time_pref_pts_gbk.zip/v4_time_pref_pts_gbk.dbf",
+   "records": 1232,
+   "matches_3409": false
+  },
+  {
+   "outer": "harvard-full/doi_10_7910/DVN/PDGOZ0/V4_Data_Archive.zip",
+   "member": "shapefiles/v4_time_pref_pts_utf.zip/v4_time_pref_pts_utf.dbf",
+   "records": 1232,
+   "matches_3409": false
+  },
+  {
+   "outer": "harvard-full/doi_10_7910/DVN/ST5KKM/v6_1820_pref_pts_utf.zip",
+   "member": "v6_1820_pref_pts_utf.dbf",
+   "records": 301,
+   "matches_3409": false
+  },
+  {
+   "outer": "harvard-full/doi_10_7910/DVN/ZZKZ6U/CHGIS_V2.zip",
+   "member": "shapefiles/v2_1820_pref_pts_gb.ZIP/v2_1820_pref_pts_gb.dbf",
+   "records": 301,
+   "matches_3409": false
+  },
+  {
+   "outer": "harvard-full/doi_10_7910/DVN/ZZKZ6U/CHGIS_V2.zip",
+   "member": "shapefiles/v2_1820_pref_pts_utf.ZIP/v2_1820_pref_pts_utf.dbf",
+   "records": 301,
+   "matches_3409": false
+  },
+  {
+   "outer": "harvard-full/doi_10_7910/DVN/ZZKZ6U/CHGIS_V2.zip",
+   "member": "shapefiles/v2_1911_pref_pts_gb.ZIP/v2_1911_pref_pts.dbf",
+   "records": 137,
+   "matches_3409": false
+  },
+  {
+   "outer": "harvard-full/doi_10_7910/DVN/ZZKZ6U/CHGIS_V2.zip",
+   "member": "shapefiles/v2_1911_pref_pts_utf.ZIP/v2_1911_pref_pts_utf.dbf",
+   "records": 137,
+   "matches_3409": false
+  },
+  {
+   "outer": "harvard-full/doi_10_7910/DVN/ZZKZ6U/CHGIS_V2.zip",
+   "member": "shapefiles/v2_time_pref_pts_gb.ZIP/v2_time_pref_pts_gb.dbf",
+   "records": 285,
+   "matches_3409": false
+  },
+  {
+   "outer": "harvard-full/doi_10_7910/DVN/ZZKZ6U/CHGIS_V2.zip",
+   "member": "shapefiles/v2_time_pref_pts_utf.ZIP/v2_time_pref_pts_utf.dbf",
+   "records": 285,
+   "matches_3409": false
+  },
+  {
+   "outer": "harvard/chgis/v6_time_pref_pts_utf_wgs84.zip",
+   "member": "v6_time_pref_pts_utf_wgs84.dbf",
+   "records": 5226,
+   "matches_3409": false
+  }
+ ],
+ "kml_recount": {
+  "convention": {
+   "Placemark": "container-not-counted-as-geometry",
+   "MultiGeometry": "counted-in-own-key-only; children counted separately",
+   "LinearRing": "boundary-ring-of-Polygon/Polyline counted separately",
+   "coordinates_dimension": "raw token counts per vertex axis"
+  },
+  "results": [
+   {
+    "key": "harvard-full/doi_10_7910/DVN/5RUXK8/Ming_Garrisons.zip!ming_time-te.kml/ming_time-te.kml",
+    "counts": {
+     "Point": 375
+    },
+    "coordinate_axes_seen": [
+     3
+    ]
+   },
+   {
+    "key": "harvard-full/doi_10_7910/DVN/PDGOZ0/V4_Data_Archive.zip!KML/CHGIS_v4_1820_KML.zip/v4_1820_pref_pts.kml/v4_1820_pref_pts.kml",
+    "counts": {
+     "Point": 602
+    },
+    "coordinate_axes_seen": [
+     3
+    ]
+   },
+   {
+    "key": "harvard-full/doi_10_7910/DVN/PDGOZ0/V4_Data_Archive.zip!KML/CHGIS_v4_1820_KML.zip/v4_1820_prov_pgn.kml/v4_1820_prov_pgn.kml",
+    "counts": {
+     "Polygon": 470,
+     "LinearRing": 551,
+     "Point": 940
+    },
+    "coordinate_axes_seen": [
+     3
+    ]
+   },
+   {
+    "key": "harvard-full/doi_10_7910/DVN/PDGOZ0/V4_Data_Archive.zip!KML/CHGIS_v4_1820_KML.zip/v4_1820_prov_pts.kml/v4_1820_prov_pts.kml",
+    "counts": {
+     "Point": 48
+    },
+    "coordinate_axes_seen": [
+     3
+    ]
+   },
+   {
+    "key": "harvard-full/doi_10_7910/DVN/PDGOZ0/V4_Data_Archive.zip!KML/CHGIS_v4_1820_KML.zip/v4_1820_rvr_lin.kml/v4_1820_rvr_lin.kml",
+    "counts": {
+     "LineString": 5983,
+     "Point": 10420
+    },
+    "coordinate_axes_seen": [
+     3
+    ]
+   },
+   {
+    "key": "harvard-full/doi_10_7910/DVN/PDGOZ0/V4_Data_Archive.zip!KML/CHGIS_v4_1820_KML.zip/v4_1820_twn_pts.kml/v4_1820_twn_pts.kml",
+    "counts": {
+     "Point": 17318
+    },
+    "coordinate_axes_seen": [
+     3
+    ]
+   },
+   {
+    "key": "harvard-full/doi_10_7910/DVN/PDGOZ0/V4_Data_Archive.zip!KML/CHGIS_v4_1820_KML.zip/v4_1820_cnty_pts.kml/v4_1820_cnty_pts.kml",
+    "counts": {
+     "Point": 3718
+    },
+    "coordinate_axes_seen": [
+     3
+    ]
+   },
+   {
+    "key": "harvard-full/doi_10_7910/DVN/PDGOZ0/V4_Data_Archive.zip!KML/CHGIS_v4_1820_KML.zip/v4_1820_lks_pgn.kml/v4_1820_lks_pgn.kml",
+    "counts": {
+     "Polygon": 357,
+     "LinearRing": 638,
+     "Point": 610
+    },
+    "coordinate_axes_seen": [
+     3
+    ]
+   },
+   {
+    "key": "harvard-full/doi_10_7910/DVN/PDGOZ0/V4_Data_Archive.zip!KML/CHGIS_v4_1820_KML.zip/v4_1820_pref_pgn.kml/v4_1820_pref_pgn.kml",
+    "counts": {
+     "Polygon": 911,
+     "LinearRing": 978,
+     "Point": 1816
+    },
+    "coordinate_axes_seen": [
+     3
+    ]
+   },
+   {
+    "key": "harvard-full/doi_10_7910/DVN/PDGOZ0/V4_Data_Archive.zip!KML/CHGIS_v4_1911_KML.zip/v4_1911_pref_pgn.kml/v4_1911_pref_pgn.kml",
+    "counts": {
+     "Polygon": 343,
+     "LinearRing": 374,
+     "Point": 686
+    },
+    "coordinate_axes_seen": [
+     3
+    ]
+   },
+   {
+    "key": "harvard-full/doi_10_7910/DVN/PDGOZ0/V4_Data_Archive.zip!KML/CHGIS_v4_1911_KML.zip/v4_1911_pref_pts.kml/v4_1911_pref_pts.kml",
+    "counts": {
+     "Point": 540
+    },
+    "coordinate_axes_seen": [
+     3
+    ]
+   },
+   {
+    "key": "harvard-full/doi_10_7910/DVN/PDGOZ0/V4_Data_Archive.zip!KML/CHGIS_v4_1911_KML.zip/v4_1911_prov_islands.kml/v4_1911_prov_islands.kml",
+    "counts": {
+     "Polygon": 183,
+     "LinearRing": 183,
+     "Point": 366
+    },
+    "coordinate_axes_seen": [
+     3
+    ]
+   },
+   {
+    "key": "harvard-full/doi_10_7910/DVN/PDGOZ0/V4_Data_Archive.zip!KML/CHGIS_v4_1911_KML.zip/v4_1911_prov_pgn.kml/v4_1911_prov_pgn.kml",
+    "counts": {
+     "Polygon": 19,
+     "LinearRing": 24,
+     "Point": 38
+    },
+    "coordinate_axes_seen": [
+     3
+    ]
+   },
+   {
+    "key": "harvard-full/doi_10_7910/DVN/PDGOZ0/V4_Data_Archive.zip!KML/CHGIS_v4_1911_KML.zip/v4_1911_prov_pts.kml/v4_1911_prov_pts.kml",
+    "counts": {
+     "Point": 34
+    },
+    "coordinate_axes_seen": [
+     3
+    ]
+   },
+   {
+    "key": "harvard-full/doi_10_7910/DVN/PDGOZ0/V4_Data_Archive.zip!KML/CHGIS_v4_1911_KML.zip/v4_1911_shaanxi_twn_pts.kml/v4_1911_shaanxi_twn_pts.kml",
+    "counts": {
+     "Point": 3238
+    },
+    "coordinate_axes_seen": [
+     3
+    ]
+   },
+   {
+    "key": "harvard-full/doi_10_7910/DVN/PDGOZ0/V4_Data_Archive.zip!KML/CHGIS_v4_1911_KML.zip/v4_1911_shandong_twn_pts.kml/v4_1911_shandong_twn_pts.kml",
+    "counts": {
+     "Point": 4690
+    },
+    "coordinate_axes_seen": [
+     3
+    ]
+   },
+   {
+    "key": "harvard-full/doi_10_7910/DVN/PDGOZ0/V4_Data_Archive.zip!KML/CHGIS_v4_1911_KML.zip/v4_1911_shanxi_twn_pts.kml/v4_1911_shanxi_twn_pts.kml",
+    "counts": {
+     "Point": 6698
+    },
+    "coordinate_axes_seen": [
+     3
+    ]
+   },
+   {
+    "key": "harvard-full/doi_10_7910/DVN/PDGOZ0/V4_Data_Archive.zip!KML/CHGIS_v4_1911_KML.zip/v4_1911_yunnan_twn_pts.kml/v4_1911_yunnan_twn_pts.kml",
+    "counts": {
+     "Point": 5144
+    },
+    "coordinate_axes_seen": [
+     3
+    ]
+   },
+   {
+    "key": "harvard-full/doi_10_7910/DVN/PDGOZ0/V4_Data_Archive.zip!KML/CHGIS_v4_1911_KML.zip/v4_1911_zhejiang_twn_pts.kml/v4_1911_zhejiang_twn_pts.kml",
+    "counts": {
+     "Point": 2904
+    },
+    "coordinate_axes_seen": [
+     3
+    ]
+   },
+   {
+    "key": "harvard-full/doi_10_7910/DVN/PDGOZ0/V4_Data_Archive.zip!KML/CHGIS_v4_1911_KML.zip/v4_1911_zhili_twn_pts.kml/v4_1911_zhili_twn_pts.kml",
+    "counts": {
+     "Point": 7310
+    },
+    "coordinate_axes_seen": [
+     3
+    ]
+   },
+   {
+    "key": "harvard-full/doi_10_7910/DVN/PDGOZ0/V4_Data_Archive.zip!KML/CHGIS_v4_1911_KML.zip/v4_1911_anhui_twn_pts.kml/v4_1911_anhui_twn_pts.kml",
+    "counts": {
+     "Point": 2326
+    },
+    "coordinate_axes_seen": [
+     3
+    ]
+   },
+   {
+    "key": "harvard-full/doi_10_7910/DVN/PDGOZ0/V4_Data_Archive.zip!KML/CHGIS_v4_1911_KML.zip/v4_1911_cnty_islands.kml/v4_1911_cnty_islands.kml",
+    "counts": {
+     "Polygon": 1236,
+     "LinearRing": 1236,
+     "Point": 2472
+    },
+    "coordinate_axes_seen": [
+     3
+    ]
+   },
+   {
+    "key": "harvard-full/doi_10_7910/DVN/PDGOZ0/V4_Data_Archive.zip!KML/CHGIS_v4_1911_KML.zip/v4_1911_cnty_pgn.kml/v4_1911_cnty_pgn.kml",
+    "counts": {
+     "Polygon": 1744,
+     "LinearRing": 1787,
+     "Point": 3488
+    },
+    "coordinate_axes_seen": [
+     3
+    ]
+   },
+   {
+    "key": "harvard-full/doi_10_7910/DVN/PDGOZ0/V4_Data_Archive.zip!KML/CHGIS_v4_1911_KML.zip/v4_1911_cnty_pts.kml/v4_1911_cnty_pts.kml",
+    "counts": {
+     "Point": 2852
+    },
+    "coordinate_axes_seen": [
+     3
+    ]
+   },
+   {
+    "key": "harvard-full/doi_10_7910/DVN/PDGOZ0/V4_Data_Archive.zip!KML/CHGIS_v4_1911_KML.zip/v4_1911_fujian_twn_pts.kml/v4_1911_fujian_twn_pts.kml",
+    "counts": {
+     "Point": 3786
+    },
+    "coordinate_axes_seen": [
+     3
+    ]
+   },
+   {
+    "key": "harvard-full/doi_10_7910/DVN/PDGOZ0/V4_Data_Archive.zip!KML/CHGIS_v4_1911_KML.zip/v4_1911_gansu_twn_pts.kml/v4_1911_gansu_twn_pts.kml",
+    "counts": {
+     "Point": 4324
+    },
+    "coordinate_axes_seen": [
+     3
+    ]
+   },
+   {
+    "key": "harvard-full/doi_10_7910/DVN/PDGOZ0/V4_Data_Archive.zip!KML/CHGIS_v4_1911_KML.zip/v4_1911_guangdong_twn_pts.kml/v4_1911_guangdong_twn_pts.kml",
+    "counts": {
+     "Point": 3416
+    },
+    "coordinate_axes_seen": [
+     3
+    ]
+   },
+   {
+    "key": "harvard-full/doi_10_7910/DVN/PDGOZ0/V4_Data_Archive.zip!KML/CHGIS_v4_1911_KML.zip/v4_1911_guangxi_twn_pts.kml/v4_1911_guangxi_twn_pts.kml",
+    "counts": {
+     "Point": 4694
+    },
+    "coordinate_axes_seen": [
+     3
+    ]
+   },
+   {
+    "key": "harvard-full/doi_10_7910/DVN/PDGOZ0/V4_Data_Archive.zip!KML/CHGIS_v4_1911_KML.zip/v4_1911_guizhou_twn_pts.kml/v4_1911_guizhou_twn_pts.kml",
+    "counts": {
+     "Point": 3782
+    },
+    "coordinate_axes_seen": [
+     3
+    ]
+   },
+   {
+    "key": "harvard-full/doi_10_7910/DVN/PDGOZ0/V4_Data_Archive.zip!KML/CHGIS_v4_1911_KML.zip/v4_1911_heilongjiang_twn_pts.kml/v4_1911_heilongjiang_twn_pts.kml",
+    "counts": {
+     "Point": 504
+    },
+    "coordinate_axes_seen": [
+     3
+    ]
+   },
+   {
+    "key": "harvard-full/doi_10_7910/DVN/PDGOZ0/V4_Data_Archive.zip!KML/CHGIS_v4_1911_KML.zip/v4_1911_henan_twn_pts.kml/v4_1911_henan_twn_pts.kml",
+    "counts": {
+     "Point": 4162
+    },
+    "coordinate_axes_seen": [
+     3
+    ]
+   },
+   {
+    "key": "harvard-full/doi_10_7910/DVN/PDGOZ0/V4_Data_Archive.zip!KML/CHGIS_v4_1911_KML.zip/v4_1911_hubei_twn_pts.kml/v4_1911_hubei_twn_pts.kml",
+    "counts": {
+     "Point": 3254
+    },
+    "coordinate_axes_seen": [
+     3
+    ]
+   },
+   {
+    "key": "harvard-full/doi_10_7910/DVN/PDGOZ0/V4_Data_Archive.zip!KML/CHGIS_v4_1911_KML.zip/v4_1911_hunan_twn_pts.kml/v4_1911_hunan_twn_pts.kml",
+    "counts": {
+     "Point": 2902
+    },
+    "coordinate_axes_seen": [
+     3
+    ]
+   },
+   {
+    "key": "harvard-full/doi_10_7910/DVN/PDGOZ0/V4_Data_Archive.zip!KML/CHGIS_v4_1911_KML.zip/v4_1911_jiangsu_twn_pts.kml/v4_1911_jiangsu_twn_pts.kml",
+    "counts": {
+     "Point": 2146
+    },
+    "coordinate_axes_seen": [
+     3
+    ]
+   },
+   {
+    "key": "harvard-full/doi_10_7910/DVN/PDGOZ0/V4_Data_Archive.zip!KML/CHGIS_v4_1911_KML.zip/v4_1911_jiangxi_twn_pts.kml/v4_1911_jiangxi_twn_pts.kml",
+    "counts": {
+     "Point": 4194
+    },
+    "coordinate_axes_seen": [
+     3
+    ]
+   },
+   {
+    "key": "harvard-full/doi_10_7910/DVN/PDGOZ0/V4_Data_Archive.zip!KML/CHGIS_v4_1911_KML.zip/v4_1911_pref_islands.kml/v4_1911_pref_islands.kml",
+    "counts": {
+     "Polygon": 198,
+     "LinearRing": 198,
+     "Point": 396
+    },
+    "coordinate_axes_seen": [
+     3
+    ]
+   },
+   {
+    "key": "harvard-full/doi_10_7910/DVN/PDGOZ0/V4_Data_Archive.zip!KML/CHGIS_v4_buddhist_KML.zip/chgis_v4_buddhist_pts.kml/chgis_v4_buddhist_pts.kml",
+    "counts": {
+     "Point": 4814
+    },
+    "coordinate_axes_seen": [
+     3
+    ]
+   },
+   {
+    "key": "harvard-full/doi_10_7910/DVN/PDGOZ0/V4_Data_Archive.zip!KML/CHGIS_v4_time_cnty_pts_KML.zip/v4_time_cnty_pts.kml/v4_time_cnty_pts.kml",
+    "counts": {
+     "Point": 4886
+    },
+    "coordinate_axes_seen": [
+     2
+    ]
+   },
+   {
+    "key": "harvard-full/doi_10_7910/DVN/PDGOZ0/V4_Data_Archive.zip!KML/CHGIS_v4_time_pref_pgn_KML.zip/CHGIS_v4_time_pref_pgn.kml/CHGIS_v4_time_pref_pgn.kml",
+    "counts": {
+     "Polygon": 2282,
+     "LinearRing": 2347,
+     "Point": 2282
+    },
+    "coordinate_axes_seen": [
+     3
+    ]
+   },
+   {
+    "key": "harvard-full/doi_10_7910/DVN/PDGOZ0/V4_Data_Archive.zip!KML/CHGIS_v4_time_pref_pts_KML.zip/v4_time_pref_pts.kml/v4_time_pref_pts.kml",
+    "counts": {
+     "MultiGeometry": 1086,
+     "Point": 1086
+    },
+    "coordinate_axes_seen": [
+     2
+    ]
+   },
+   {
+    "key": "harvard-full/doi_10_7910/DVN/PDGOZ0/V4_Data_Archive.zip!KML/CHGIS_v4_time_prov_pgn_KML.zip/v4_time_prov_pgn-te.kml/v4_time_prov_pgn-te.kml",
+    "counts": {
+     "Polygon": 1693,
+     "LinearRing": 1796,
+     "Point": 1693
+    },
+    "coordinate_axes_seen": [
+     3
+    ]
+   },
+   {
+    "key": "harvard-full/doi_10_7910/DVN/PDGOZ0/V4_Data_Archive.zip!KML/CHGIS_v4_time_prov_pts_KML.zip/v4_time_prov_pts.kml/v4_time_prov_pts.kml",
+    "counts": {
+     "Point": 312
+    },
+    "coordinate_axes_seen": [
+     3
+    ]
+   },
+   {
+    "key": "harvard-full/doi_10_7910/DVN/PDGOZ0/V4_Data_Archive.zip!KML/CHGIS_v4_time_reg_pgn_KML.zip/CHGIS_v4_time_reg_pgn.kml/CHGIS_v4_time_reg_pgn.kml",
+    "counts": {
+     "Polygon": 11,
+     "LinearRing": 11,
+     "Point": 11
+    },
+    "coordinate_axes_seen": [
+     3
+    ]
+   },
+   {
+    "key": "harvard-full/doi_10_7910/DVN/PDGOZ0/V4_Data_Archive.zip!KML/CHGIS_v4_time_reg_pts_KML.zip/v4_time_reg_pts.kml/v4_time_reg_pts.kml",
+    "counts": {
+     "Point": 6
+    },
+    "coordinate_axes_seen": [
+     3
+    ]
+   },
+   {
+    "key": "harvard-full/doi_10_7910/DVN/PDGOZ0/V4_Data_Archive.zip!KML/ChinaW_KML_utf.zip/ChinaW_1820_1893.kml/ChinaW_1820_1893.kml",
+    "counts": {
+     "Point": 4806
+    },
+    "coordinate_axes_seen": [
+     3
+    ]
+   },
+   {
+    "key": "harvard-full/doi_10_7910/DVN/PDGOZ0/V4_Data_Archive.zip!KML/CITAS_1990_KML.zip/CITAS_1990_cnty_islands.kml/CITAS_1990_cnty_islands.kml",
+    "counts": {
+     "Polygon": 516,
+     "LinearRing": 516,
+     "Point": 1032
+    },
+    "coordinate_axes_seen": [
+     3
+    ]
+   },
+   {
+    "key": "harvard-full/doi_10_7910/DVN/PDGOZ0/V4_Data_Archive.zip!KML/CITAS_1990_KML.zip/CITAS_1990_cnty_pgn.kml/CITAS_1990_cnty_pgn.kml",
+    "counts": {
+     "Polygon": 4539,
+     "LinearRing": 4579,
+     "Point": 9078
+    },
+    "coordinate_axes_seen": [
+     3
+    ]
+   },
+   {
+    "key": "harvard-full/doi_10_7910/DVN/PDGOZ0/V4_Data_Archive.zip!KML/CITAS_1990_KML.zip/CITAS_1990_pref_islands.kml/CITAS_1990_pref_islands.kml",
+    "counts": {
+     "Polygon": 514,
+     "LinearRing": 514,
+     "Point": 1028
+    },
+    "coordinate_axes_seen": [
+     3
+    ]
+   },
+   {
+    "key": "harvard-full/doi_10_7910/DVN/PDGOZ0/V4_Data_Archive.zip!KML/CITAS_1990_KML.zip/CITAS_1990_pref_pgn.kml/CITAS_1990_pref_pgn.kml",
+    "counts": {
+     "Polygon": 2292,
+     "LinearRing": 2306,
+     "Point": 4584
+    },
+    "coordinate_axes_seen": [
+     3
+    ]
+   },
+   {
+    "key": "harvard-full/doi_10_7910/DVN/PDGOZ0/V4_Data_Archive.zip!KML/CITAS_1990_KML.zip/CITAS_1990_prov_islands.kml/CITAS_1990_prov_islands.kml",
+    "counts": {
+     "Polygon": 512,
+     "LinearRing": 512,
+     "Point": 1024
+    },
+    "coordinate_axes_seen": [
+     3
+    ]
+   },
+   {
+    "key": "harvard-full/doi_10_7910/DVN/PDGOZ0/V4_Data_Archive.zip!KML/CITAS_1990_KML.zip/CITAS_1990_prov_pgn.kml/CITAS_1990_prov_pgn.kml",
+    "counts": {
+     "Polygon": 33,
+     "LinearRing": 33,
+     "Point": 66
+    },
+    "coordinate_axes_seen": [
+     3
+    ]
+   },
+   {
+    "key": "harvard-full/doi_10_7910/DVN/PDGOZ0/V4_Data_Archive.zip!KML/ming_garrisons_KML.zip/ming_time-te.kml/ming_time-te.kml",
+    "counts": {
+     "Point": 375
+    },
+    "coordinate_axes_seen": [
+     3
+    ]
+   }
+  ]
+ }
+}

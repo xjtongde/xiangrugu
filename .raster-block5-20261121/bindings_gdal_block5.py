@@ -298,8 +298,8 @@ def main():
     wf_backfilled = 0
     for m in raster_targets:
         rm = m.get("raster_meta") or {}
-        if rm.get("geotransform"):
-            continue
+        # 修正：世界文件原声明一律逐字转录（不再以内部 GT 存在为跳过条件）；
+        # 与内部 geotransform 并存时由消费方按源声明面各自引用，不做取舍推断。
         idn = m["identity"]
         parent = tuple(c.lower() for c in idn["archive_chain"][:-1])
         st = stem_of(idn["leaf"])
@@ -309,6 +309,10 @@ def main():
             if wrec is None:
                 continue
             wf = read_world(wrec)
+            # 仅当世界文件六参数可解析时才登记为原声明证据；
+            # 非六参数语法（如 .jgwx XML 变体）不冒充世界文件绑定，留 sidecar 显式登记。
+            if "x_resolution" not in wf:
+                continue
             rm["world_file_declared"] = {"file": wleaf, **wf}
             wf_backfilled += 1
             break

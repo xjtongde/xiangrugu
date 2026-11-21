@@ -6688,8 +6688,8 @@
   },
   "sha_verified": true,
   "magic": "ZIP",
-  "class": "structural_container",
-  "purpose": "内层容器 ZIP（直接成员数按 inventory 登记，不解包）",
+  "class": "documentation_license",
+  "purpose": "OpenDocument 电子表格＝NGA 国家字段格式说明材料（Field Name/Description/Type/Max Field Length/Precision/RC + DSG 代码域枚举）；判定依据=同容器内层 content.xml（ord 14，sha_verified）表名 Sheet1/FULL_NAME/UFI 与逐字单元格文本；外层仍为 ZIP 容器形态但业务用途确证为说明材料，内层成员各自分类不动",
   "raster_meta": null,
   "binding": null,
   "gaps": [],
@@ -6703,7 +6703,13 @@
     }
    ]
   },
-  "size_actual": 13980
+  "size_actual": 13980,
+  "reclassification": {
+   "from": "structural_container",
+   "reason": "lead 验收补正裁定（内容证据驱动，扩展名/magic 仅线索）",
+   "basis": "inner content.xml text evidence (tables Sheet1/FULL_NAME/UFI; cells 'Field Name/Field Description/Field Type/Maximum/Field Length//Precision/RC' + DSG code enumerations)",
+   "date": "2026-11-22"
+  }
  },
  {
   "identity": {
@@ -26285,8 +26291,7 @@
   "raster_meta": null,
   "binding": null,
   "gaps": [],
-  "size_actual": 155774,
-  "member_count_direct": 8
+  "size_actual": 155774
  },
  {
   "identity": {
@@ -27051,8 +27056,7 @@
   "raster_meta": null,
   "binding": null,
   "gaps": [],
-  "size_actual": 17550917,
-  "member_count_direct": 40
+  "size_actual": 17550917
  },
  {
   "identity": {
@@ -28952,8 +28956,7 @@
   "raster_meta": null,
   "binding": null,
   "gaps": [],
-  "size_actual": 55688307,
-  "member_count_direct": 8
+  "size_actual": 55688307
  },
  {
   "identity": {
@@ -29061,8 +29064,7 @@
   "raster_meta": null,
   "binding": null,
   "gaps": [],
-  "size_actual": 80979494,
-  "member_count_direct": 2467
+  "size_actual": 80979494
  },
  {
   "identity": {
@@ -29181,8 +29183,7 @@
   "raster_meta": null,
   "binding": null,
   "gaps": [],
-  "size_actual": 332352,
-  "member_count_direct": 7
+  "size_actual": 332352
  },
  {
   "identity": {
@@ -29205,8 +29206,7 @@
   "raster_meta": null,
   "binding": null,
   "gaps": [],
-  "size_actual": 26576,
-  "member_count_direct": 7
+  "size_actual": 26576
  },
  {
   "identity": {
@@ -29229,8 +29229,7 @@
   "raster_meta": null,
   "binding": null,
   "gaps": [],
-  "size_actual": 254083,
-  "member_count_direct": 7
+  "size_actual": 254083
  },
  {
   "identity": {
@@ -29253,8 +29252,7 @@
   "raster_meta": null,
   "binding": null,
   "gaps": [],
-  "size_actual": 174468,
-  "member_count_direct": 7
+  "size_actual": 174468
  },
  {
   "identity": {
@@ -29322,8 +29320,7 @@
   "raster_meta": null,
   "binding": null,
   "gaps": [],
-  "size_actual": 352556,
-  "member_count_direct": 2
+  "size_actual": 352556
  },
  {
   "identity": {
@@ -29368,8 +29365,7 @@
   "raster_meta": null,
   "binding": null,
   "gaps": [],
-  "size_actual": 52959,
-  "member_count_direct": 10
+  "size_actual": 52959
  },
  {
   "identity": {
@@ -29538,8 +29534,7 @@
   "raster_meta": null,
   "binding": null,
   "gaps": [],
-  "size_actual": 29055296,
-  "member_count_direct": 16
+  "size_actual": 29055296
  },
  {
   "identity": {
@@ -29759,8 +29754,7 @@
   "raster_meta": null,
   "binding": null,
   "gaps": [],
-  "size_actual": 7526411,
-  "member_count_direct": 2
+  "size_actual": 7526411
  },
  {
   "identity": {
@@ -29943,8 +29937,7 @@
   "raster_meta": null,
   "binding": null,
   "gaps": [],
-  "size_actual": 22118038,
-  "member_count_direct": 9
+  "size_actual": 22118038
  },
  {
   "identity": {
@@ -30589,8 +30582,7 @@
   "raster_meta": null,
   "binding": null,
   "gaps": [],
-  "size_actual": 66891974,
-  "member_count_direct": 9
+  "size_actual": 66891974
  },
  {
   "identity": {
@@ -31175,8 +31167,7 @@
   "raster_meta": null,
   "binding": null,
   "gaps": [],
-  "size_actual": 2156327,
-  "member_count_direct": 16
+  "size_actual": 2156327
  },
  {
   "identity": {
@@ -31418,8 +31409,7 @@
   "raster_meta": null,
   "binding": null,
   "gaps": [],
-  "size_actual": 111377,
-  "member_count_direct": 8
+  "size_actual": 111377
  },
  {
   "identity": {
@@ -31442,8 +31432,7 @@
   "raster_meta": null,
   "binding": null,
   "gaps": [],
-  "size_actual": 9783050,
-  "member_count_direct": 4
+  "size_actual": 9783050
  },
  {
   "identity": {
@@ -31764,8 +31753,7 @@
   "raster_meta": null,
   "binding": null,
   "gaps": [],
-  "size_actual": 2150786,
-  "member_count_direct": 15
+  "size_actual": 2150786
  },
  {
   "identity": {
@@ -31967,8 +31955,7 @@
   "raster_meta": null,
   "binding": null,
   "gaps": [],
-  "size_actual": 21604685,
-  "member_count_direct": 1
+  "size_actual": 21604685
  },
  {
   "identity": {
@@ -32013,8 +32000,7 @@
   "raster_meta": null,
   "binding": null,
   "gaps": [],
-  "size_actual": 9641414,
-  "member_count_direct": 4
+  "size_actual": 9641414
  },
  {
   "identity": {
@@ -32248,7 +32234,17 @@
    "tiff_tags": {},
    "file_list": [
     "L0_3.bin"
-   ]
+   ],
+   "world_file_declared": {
+    "file": "Peking_1875_Bretschneider.tfw",
+    "x_resolution": 0.00051999099099355,
+    "rot_2": 0.0,
+    "rot_3": 0.0,
+    "y_resolution": -0.0005197807032760976,
+    "x_origin_upper_left": 115.10228304632693,
+    "y_origin_upper_left": 40.36766312627496,
+    "verbatim": "0.000519990990993550040\n0.0\n0.0\n-0.000519780703276097580\n115.10228304632693\n40.367663126274962"
+   }
   },
   "binding": {
    "world_files": [
@@ -32315,8 +32311,7 @@
   "raster_meta": null,
   "binding": null,
   "gaps": [],
-  "size_actual": 8659389,
-  "member_count_direct": 6
+  "size_actual": 8659389
  },
  {
   "identity": {
@@ -32339,8 +32334,7 @@
   "raster_meta": null,
   "binding": null,
   "gaps": [],
-  "size_actual": 174630,
-  "member_count_direct": 6
+  "size_actual": 174630
  },
  {
   "identity": {
@@ -32363,8 +32357,7 @@
   "raster_meta": null,
   "binding": null,
   "gaps": [],
-  "size_actual": 5696898,
-  "member_count_direct": 6
+  "size_actual": 5696898
  },
  {
   "identity": {
@@ -32387,8 +32380,7 @@
   "raster_meta": null,
   "binding": null,
   "gaps": [],
-  "size_actual": 29353,
-  "member_count_direct": 6
+  "size_actual": 29353
  },
  {
   "identity": {
@@ -32411,8 +32403,7 @@
   "raster_meta": null,
   "binding": null,
   "gaps": [],
-  "size_actual": 2386028,
-  "member_count_direct": 6
+  "size_actual": 2386028
  },
  {
   "identity": {
@@ -32435,8 +32426,7 @@
   "raster_meta": null,
   "binding": null,
   "gaps": [],
-  "size_actual": 3735,
-  "member_count_direct": 6
+  "size_actual": 3735
  },
  {
   "identity": {
@@ -32459,8 +32449,7 @@
   "raster_meta": null,
   "binding": null,
   "gaps": [],
-  "size_actual": 2904661,
-  "member_count_direct": 6
+  "size_actual": 2904661
  },
  {
   "identity": {
@@ -32528,8 +32517,7 @@
   "raster_meta": null,
   "binding": null,
   "gaps": [],
-  "size_actual": 355618602,
-  "member_count_direct": 122
+  "size_actual": 355618602
  },
  {
   "identity": {
@@ -51329,8 +51317,7 @@
   "raster_meta": null,
   "binding": null,
   "gaps": [],
-  "size_actual": 132917,
-  "member_count_direct": 4
+  "size_actual": 132917
  },
  {
   "identity": {
@@ -52450,7 +52437,7 @@
   "sha_verified": true,
   "magic": "XML",
   "class": "documentation_license",
-  "purpose": "XML 族：用途按内容判定",
+  "purpose": "ODS 内层正文＝字段格式说明表（table 名 Sheet1/FULL_NAME/UFI；单元格含 Field Name/Description/Type/Maximum Field Length/Precision/RC 与 DSG 代码域枚举）⇒ ODS 外层改判 documentation_license 的直接依据",
   "raster_meta": null,
   "binding": null,
   "gaps": [],
@@ -52470,7 +52457,8 @@
     }
    ]
   },
-  "size_actual": 49313
+  "size_actual": 49313,
+  "text_head": "<?xml version=\"1.0\" encoding=\"UTF-8\"?> <office:document-content xmlns:office=\"urn:oasis:names:tc:opendocument:xmlns:office:1.0\" xmlns:style=\"urn:oasis:names:tc:opendocument:xmlns:style:1.0\" xmlns:text=\"urn:oasis:names:tc:opendocument:xmlns:text:1.0\" xmlns:table=\"urn:oasis:names:tc:opendocument:xmlns:table:1.0\" xmlns:draw=\"urn:oasis:names:tc:opendocument:xmlns:drawing:1.0\" xmlns:fo=\"urn:oasis:names:tc:opendocument:xmlns:xsl-fo-compatible:1.0\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" xmlns:dc=\"h"
  },
  {
   "identity": {
@@ -52623,8 +52611,7 @@
   "raster_meta": null,
   "binding": null,
   "gaps": [],
-  "size_actual": 5355,
-  "member_count_direct": 2
+  "size_actual": 5355
  },
  {
   "identity": {
@@ -52669,8 +52656,7 @@
   "raster_meta": null,
   "binding": null,
   "gaps": [],
-  "size_actual": 1149193,
-  "member_count_direct": 14
+  "size_actual": 1149193
  },
  {
   "identity": {
@@ -53083,8 +53069,7 @@
   "raster_meta": null,
   "binding": null,
   "gaps": [],
-  "size_actual": 301958,
-  "member_count_direct": 6
+  "size_actual": 301958
  },
  {
   "identity": {
@@ -53149,8 +53134,7 @@
   "raster_meta": null,
   "binding": null,
   "gaps": [],
-  "size_actual": 27848,
-  "member_count_direct": 6
+  "size_actual": 27848
  },
  {
   "identity": {
@@ -53237,8 +53221,7 @@
   "raster_meta": null,
   "binding": null,
   "gaps": [],
-  "size_actual": 13236,
-  "member_count_direct": 7
+  "size_actual": 13236
  },
  {
   "identity": {
@@ -53283,8 +53266,7 @@
   "raster_meta": null,
   "binding": null,
   "gaps": [],
-  "size_actual": 48379654,
-  "member_count_direct": 16
+  "size_actual": 48379654
  },
  {
   "identity": {
@@ -53504,8 +53486,7 @@
   "raster_meta": null,
   "binding": null,
   "gaps": [],
-  "size_actual": 51506798,
-  "member_count_direct": 33
+  "size_actual": 51506798
  },
  {
   "identity": {
@@ -55796,8 +55777,7 @@
   "raster_meta": null,
   "binding": null,
   "gaps": [],
-  "size_actual": 1892500,
-  "member_count_direct": 13
+  "size_actual": 1892500
  },
  {
   "identity": {
@@ -57104,8 +57084,7 @@
   "raster_meta": null,
   "binding": null,
   "gaps": [],
-  "size_actual": 25984437,
-  "member_count_direct": 7
+  "size_actual": 25984437
  },
  {
   "identity": {
@@ -57128,8 +57107,7 @@
   "raster_meta": null,
   "binding": null,
   "gaps": [],
-  "size_actual": 31596,
-  "member_count_direct": 7
+  "size_actual": 31596
  },
  {
   "identity": {
@@ -57152,8 +57130,7 @@
   "raster_meta": null,
   "binding": null,
   "gaps": [],
-  "size_actual": 142619,
-  "member_count_direct": 7
+  "size_actual": 142619
  },
  {
   "identity": {
@@ -57176,8 +57153,7 @@
   "raster_meta": null,
   "binding": null,
   "gaps": [],
-  "size_actual": 460626,
-  "member_count_direct": 7
+  "size_actual": 460626
  },
  {
   "identity": {
@@ -57200,8 +57176,7 @@
   "raster_meta": null,
   "binding": null,
   "gaps": [],
-  "size_actual": 4712687,
-  "member_count_direct": 8
+  "size_actual": 4712687
  },
  {
   "identity": {
@@ -57224,8 +57199,7 @@
   "raster_meta": null,
   "binding": null,
   "gaps": [],
-  "size_actual": 982346,
-  "member_count_direct": 7
+  "size_actual": 982346
  },
  {
   "identity": {
@@ -57248,8 +57222,7 @@
   "raster_meta": null,
   "binding": null,
   "gaps": [],
-  "size_actual": 3510655,
-  "member_count_direct": 7
+  "size_actual": 3510655
  },
  {
   "identity": {
@@ -57272,8 +57245,7 @@
   "raster_meta": null,
   "binding": null,
   "gaps": [],
-  "size_actual": 26910,
-  "member_count_direct": 7
+  "size_actual": 26910
  },
  {
   "identity": {
@@ -57296,8 +57268,7 @@
   "raster_meta": null,
   "binding": null,
   "gaps": [],
-  "size_actual": 2005706,
-  "member_count_direct": 7
+  "size_actual": 2005706
  },
  {
   "identity": {
@@ -57320,8 +57291,7 @@
   "raster_meta": null,
   "binding": null,
   "gaps": [],
-  "size_actual": 5620,
-  "member_count_direct": 7
+  "size_actual": 5620
  },
  {
   "identity": {
@@ -57344,8 +57314,7 @@
   "raster_meta": null,
   "binding": null,
   "gaps": [],
-  "size_actual": 659297,
-  "member_count_direct": 7
+  "size_actual": 659297
  },
  {
   "identity": {
@@ -57368,8 +57337,7 @@
   "raster_meta": null,
   "binding": null,
   "gaps": [],
-  "size_actual": 8659844,
-  "member_count_direct": 7
+  "size_actual": 8659844
  },
  {
   "identity": {
@@ -57392,8 +57360,7 @@
   "raster_meta": null,
   "binding": null,
   "gaps": [],
-  "size_actual": 175085,
-  "member_count_direct": 7
+  "size_actual": 175085
  },
  {
   "identity": {
@@ -57416,8 +57383,7 @@
   "raster_meta": null,
   "binding": null,
   "gaps": [],
-  "size_actual": 5697353,
-  "member_count_direct": 7
+  "size_actual": 5697353
  },
  {
   "identity": {
@@ -57440,8 +57406,7 @@
   "raster_meta": null,
   "binding": null,
   "gaps": [],
-  "size_actual": 29808,
-  "member_count_direct": 7
+  "size_actual": 29808
  },
  {
   "identity": {
@@ -57464,8 +57429,7 @@
   "raster_meta": null,
   "binding": null,
   "gaps": [],
-  "size_actual": 2386483,
-  "member_count_direct": 7
+  "size_actual": 2386483
  },
  {
   "identity": {
@@ -57488,8 +57452,7 @@
   "raster_meta": null,
   "binding": null,
   "gaps": [],
-  "size_actual": 4190,
-  "member_count_direct": 7
+  "size_actual": 4190
  },
  {
   "identity": {
@@ -57512,8 +57475,7 @@
   "raster_meta": null,
   "binding": null,
   "gaps": [],
-  "size_actual": 2905116,
-  "member_count_direct": 7
+  "size_actual": 2905116
  },
  {
   "identity": {
@@ -57536,8 +57498,7 @@
   "raster_meta": null,
   "binding": null,
   "gaps": [],
-  "size_actual": 2931507,
-  "member_count_direct": 9
+  "size_actual": 2931507
  },
  {
   "identity": {
@@ -57722,8 +57683,7 @@
   "raster_meta": null,
   "binding": null,
   "gaps": [],
-  "size_actual": 5664766,
-  "member_count_direct": 7
+  "size_actual": 5664766
  },
  {
   "identity": {
@@ -57746,8 +57706,7 @@
   "raster_meta": null,
   "binding": null,
   "gaps": [],
-  "size_actual": 3535397,
-  "member_count_direct": 7
+  "size_actual": 3535397
  },
  {
   "identity": {
@@ -57770,8 +57729,7 @@
   "raster_meta": null,
   "binding": null,
   "gaps": [],
-  "size_actual": 1531565,
-  "member_count_direct": 8
+  "size_actual": 1531565
  },
  {
   "identity": {
@@ -57831,8 +57789,7 @@
   "raster_meta": null,
   "binding": null,
   "gaps": [],
-  "size_actual": 792058,
-  "member_count_direct": 16
+  "size_actual": 792058
  },
  {
   "identity": {
@@ -58095,8 +58052,7 @@
   "raster_meta": null,
   "binding": null,
   "gaps": [],
-  "size_actual": 296793,
-  "member_count_direct": 7
+  "size_actual": 296793
  },
  {
   "identity": {
@@ -58119,8 +58075,7 @@
   "raster_meta": null,
   "binding": null,
   "gaps": [],
-  "size_actual": 257223,
-  "member_count_direct": 7
+  "size_actual": 257223
  },
  {
   "identity": {
@@ -58143,8 +58098,7 @@
   "raster_meta": null,
   "binding": null,
   "gaps": [],
-  "size_actual": 5955005,
-  "member_count_direct": 8
+  "size_actual": 5955005
  },
  {
   "identity": {
@@ -58204,8 +58158,7 @@
   "raster_meta": null,
   "binding": null,
   "gaps": [],
-  "size_actual": 6611404,
-  "member_count_direct": 28
+  "size_actual": 6611404
  },
  {
   "identity": {
@@ -58385,8 +58338,7 @@
   "raster_meta": null,
   "binding": null,
   "gaps": [],
-  "size_actual": 998972,
-  "member_count_direct": 9
+  "size_actual": 998972
  },
  {
   "identity": {
@@ -58446,8 +58398,7 @@
   "raster_meta": null,
   "binding": null,
   "gaps": [],
-  "size_actual": 95978,
-  "member_count_direct": 9
+  "size_actual": 95978
  },
  {
   "identity": {
@@ -58507,8 +58458,7 @@
   "raster_meta": null,
   "binding": null,
   "gaps": [],
-  "size_actual": 282473,
-  "member_count_direct": 9
+  "size_actual": 282473
  },
  {
   "identity": {
@@ -58568,8 +58518,7 @@
   "raster_meta": null,
   "binding": null,
   "gaps": [],
-  "size_actual": 182990,
-  "member_count_direct": 9
+  "size_actual": 182990
  },
  {
   "identity": {
@@ -58629,8 +58578,7 @@
   "raster_meta": null,
   "binding": null,
   "gaps": [],
-  "size_actual": 351688,
-  "member_count_direct": 9
+  "size_actual": 351688
  },
  {
   "identity": {
@@ -58690,8 +58638,7 @@
   "raster_meta": null,
   "binding": null,
   "gaps": [],
-  "size_actual": 312566,
-  "member_count_direct": 9
+  "size_actual": 312566
  },
  {
   "identity": {
@@ -58751,8 +58698,7 @@
   "raster_meta": null,
   "binding": null,
   "gaps": [],
-  "size_actual": 449785,
-  "member_count_direct": 9
+  "size_actual": 449785
  },
  {
   "identity": {
@@ -58812,8 +58758,7 @@
   "raster_meta": null,
   "binding": null,
   "gaps": [],
-  "size_actual": 102280,
-  "member_count_direct": 9
+  "size_actual": 102280
  },
  {
   "identity": {
@@ -58873,8 +58818,7 @@
   "raster_meta": null,
   "binding": null,
   "gaps": [],
-  "size_actual": 570926,
-  "member_count_direct": 9
+  "size_actual": 570926
  },
  {
   "identity": {
@@ -58934,8 +58878,7 @@
   "raster_meta": null,
   "binding": null,
   "gaps": [],
-  "size_actual": 242403,
-  "member_count_direct": 9
+  "size_actual": 242403
  },
  {
   "identity": {
@@ -58995,8 +58938,7 @@
   "raster_meta": null,
   "binding": null,
   "gaps": [],
-  "size_actual": 272163,
-  "member_count_direct": 9
+  "size_actual": 272163
  },
  {
   "identity": {
@@ -59056,8 +58998,7 @@
   "raster_meta": null,
   "binding": null,
   "gaps": [],
-  "size_actual": 289510,
-  "member_count_direct": 9
+  "size_actual": 289510
  },
  {
   "identity": {
@@ -59117,8 +59058,7 @@
   "raster_meta": null,
   "binding": null,
   "gaps": [],
-  "size_actual": 265333,
-  "member_count_direct": 9
+  "size_actual": 265333
  },
  {
   "identity": {
@@ -59178,8 +59118,7 @@
   "raster_meta": null,
   "binding": null,
   "gaps": [],
-  "size_actual": 798904,
-  "member_count_direct": 9
+  "size_actual": 798904
  },
  {
   "identity": {
@@ -59239,8 +59178,7 @@
   "raster_meta": null,
   "binding": null,
   "gaps": [],
-  "size_actual": 248137,
-  "member_count_direct": 9
+  "size_actual": 248137
  },
  {
   "identity": {
@@ -59300,8 +59238,7 @@
   "raster_meta": null,
   "binding": null,
   "gaps": [],
-  "size_actual": 237245,
-  "member_count_direct": 9
+  "size_actual": 237245
  },
  {
   "identity": {
@@ -59361,8 +59298,7 @@
   "raster_meta": null,
   "binding": null,
   "gaps": [],
-  "size_actual": 253773,
-  "member_count_direct": 9
+  "size_actual": 253773
  },
  {
   "identity": {
@@ -59422,8 +59358,7 @@
   "raster_meta": null,
   "binding": null,
   "gaps": [],
-  "size_actual": 356713,
-  "member_count_direct": 9
+  "size_actual": 356713
  },
  {
   "identity": {
@@ -59483,8 +59418,7 @@
   "raster_meta": null,
   "binding": null,
   "gaps": [],
-  "size_actual": 73680,
-  "member_count_direct": 9
+  "size_actual": 73680
  },
  {
   "identity": {
@@ -59544,8 +59478,7 @@
   "raster_meta": null,
   "binding": null,
   "gaps": [],
-  "size_actual": 141624,
-  "member_count_direct": 9
+  "size_actual": 141624
  },
  {
   "identity": {
@@ -59605,8 +59538,7 @@
   "raster_meta": null,
   "binding": null,
   "gaps": [],
-  "size_actual": 449171,
-  "member_count_direct": 9
+  "size_actual": 449171
  },
  {
   "identity": {
@@ -59666,8 +59598,7 @@
   "raster_meta": null,
   "binding": null,
   "gaps": [],
-  "size_actual": 342429,
-  "member_count_direct": 9
+  "size_actual": 342429
  },
  {
   "identity": {
@@ -59727,8 +59658,7 @@
   "raster_meta": null,
   "binding": null,
   "gaps": [],
-  "size_actual": 105919,
-  "member_count_direct": 9
+  "size_actual": 105919
  },
  {
   "identity": {
@@ -59788,8 +59718,7 @@
   "raster_meta": null,
   "binding": null,
   "gaps": [],
-  "size_actual": 672898,
-  "member_count_direct": 9
+  "size_actual": 672898
  },
  {
   "identity": {
@@ -59849,8 +59778,7 @@
   "raster_meta": null,
   "binding": null,
   "gaps": [],
-  "size_actual": 416563,
-  "member_count_direct": 9
+  "size_actual": 416563
  },
  {
   "identity": {
@@ -59910,8 +59838,7 @@
   "raster_meta": null,
   "binding": null,
   "gaps": [],
-  "size_actual": 72553,
-  "member_count_direct": 9
+  "size_actual": 72553
  },
  {
   "identity": {
@@ -59971,8 +59898,7 @@
   "raster_meta": null,
   "binding": null,
   "gaps": [],
-  "size_actual": 190210,
-  "member_count_direct": 9
+  "size_actual": 190210
  },
  {
   "identity": {
@@ -60032,8 +59958,7 @@
   "raster_meta": null,
   "binding": null,
   "gaps": [],
-  "size_actual": 264074,
-  "member_count_direct": 9
+  "size_actual": 264074
  },
  {
   "identity": {
@@ -60093,8 +60018,7 @@
   "raster_meta": null,
   "binding": null,
   "gaps": [],
-  "size_actual": 242796,
-  "member_count_direct": 9
+  "size_actual": 242796
  },
  {
   "identity": {
@@ -60154,8 +60078,7 @@
   "raster_meta": null,
   "binding": null,
   "gaps": [],
-  "size_actual": 840013,
-  "member_count_direct": 9
+  "size_actual": 840013
  },
  {
   "identity": {
@@ -60215,8 +60138,7 @@
   "raster_meta": null,
   "binding": null,
   "gaps": [],
-  "size_actual": 665031,
-  "member_count_direct": 7
+  "size_actual": 665031
  },
  {
   "identity": {
@@ -60239,8 +60161,7 @@
   "raster_meta": null,
   "binding": null,
   "gaps": [],
-  "size_actual": 24543715,
-  "member_count_direct": 7
+  "size_actual": 24543715
  },
  {
   "identity": {
@@ -60342,8 +60263,7 @@
   "raster_meta": null,
   "binding": null,
   "gaps": [],
-  "size_actual": 49919,
-  "member_count_direct": 6
+  "size_actual": 49919
  },
  {
   "identity": {
@@ -60410,8 +60330,7 @@
   "raster_meta": null,
   "binding": null,
   "gaps": [],
-  "size_actual": 637693714,
-  "member_count_direct": 174
+  "size_actual": 637693714
  },
  {
   "identity": {
@@ -77079,7 +76998,9 @@
     "chgis_dem.tif"
    ]
   },
-  "gaps": [],
+  "gaps": [
+   "unknown_identity"
+  ],
   "extraction": {
    "extract_chain": [
     {
@@ -84554,8 +84475,7 @@
   "raster_meta": null,
   "binding": null,
   "gaps": [],
-  "size_actual": 127322,
-  "member_count_direct": 2
+  "size_actual": 127322
  },
  {
   "identity": {
@@ -84815,8 +84735,7 @@
   "raster_meta": null,
   "binding": null,
   "gaps": [],
-  "size_actual": 41239428,
-  "member_count_direct": 16
+  "size_actual": 41239428
  },
  {
   "identity": {
@@ -85058,8 +84977,7 @@
   "raster_meta": null,
   "binding": null,
   "gaps": [],
-  "size_actual": 33954,
-  "member_count_direct": 6
+  "size_actual": 33954
  },
  {
   "identity": {
@@ -85164,8 +85082,7 @@
   "raster_meta": null,
   "binding": null,
   "gaps": [],
-  "size_actual": 109520,
-  "member_count_direct": 5
+  "size_actual": 109520
  },
  {
   "identity": {
@@ -85297,8 +85214,7 @@
   "raster_meta": null,
   "binding": null,
   "gaps": [],
-  "size_actual": 140608,
-  "member_count_direct": 6
+  "size_actual": 140608
  },
  {
   "identity": {
@@ -85321,8 +85237,7 @@
   "raster_meta": null,
   "binding": null,
   "gaps": [],
-  "size_actual": 4710324,
-  "member_count_direct": 6
+  "size_actual": 4710324
  },
  {
   "identity": {
@@ -85345,8 +85260,7 @@
   "raster_meta": null,
   "binding": null,
   "gaps": [],
-  "size_actual": 977073,
-  "member_count_direct": 6
+  "size_actual": 977073
  },
  {
   "identity": {
@@ -85411,8 +85325,7 @@
   "raster_meta": null,
   "binding": null,
   "gaps": [],
-  "size_actual": 3508644,
-  "member_count_direct": 6
+  "size_actual": 3508644
  },
  {
   "identity": {
@@ -85435,8 +85348,7 @@
   "raster_meta": null,
   "binding": null,
   "gaps": [],
-  "size_actual": 24899,
-  "member_count_direct": 6
+  "size_actual": 24899
  },
  {
   "identity": {
@@ -85459,8 +85371,7 @@
   "raster_meta": null,
   "binding": null,
   "gaps": [],
-  "size_actual": 2003695,
-  "member_count_direct": 6
+  "size_actual": 2003695
  },
  {
   "identity": {
@@ -85483,8 +85394,7 @@
   "raster_meta": null,
   "binding": null,
   "gaps": [],
-  "size_actual": 3609,
-  "member_count_direct": 6
+  "size_actual": 3609
  },
  {
   "identity": {
@@ -85507,8 +85417,7 @@
   "raster_meta": null,
   "binding": null,
   "gaps": [],
-  "size_actual": 657286,
-  "member_count_direct": 6
+  "size_actual": 657286
  },
  {
   "identity": {
@@ -85553,8 +85462,7 @@
   "raster_meta": null,
   "binding": null,
   "gaps": [],
-  "size_actual": 5426700,
-  "member_count_direct": 5
+  "size_actual": 5426700
  },
  {
   "identity": {
@@ -85619,8 +85527,7 @@
   "raster_meta": null,
   "binding": null,
   "gaps": [],
-  "size_actual": 3532144,
-  "member_count_direct": 5
+  "size_actual": 3532144
  },
  {
   "identity": {
@@ -85685,8 +85592,7 @@
   "raster_meta": null,
   "binding": null,
   "gaps": [],
-  "size_actual": 1511800,
-  "member_count_direct": 5
+  "size_actual": 1511800
  },
  {
   "identity": {
@@ -85773,8 +85679,7 @@
   "raster_meta": null,
   "binding": null,
   "gaps": [],
-  "size_actual": 1547207,
-  "member_count_direct": 4
+  "size_actual": 1547207
  },
  {
   "identity": {
@@ -85842,8 +85747,7 @@
   "raster_meta": null,
   "binding": null,
   "gaps": [],
-  "size_actual": 2190,
-  "member_count_direct": 4
+  "size_actual": 2190
  },
  {
   "identity": {
@@ -85866,8 +85770,7 @@
   "raster_meta": null,
   "binding": null,
   "gaps": [],
-  "size_actual": 6010,
-  "member_count_direct": 4
+  "size_actual": 6010
  },
  {
   "identity": {
@@ -85890,8 +85793,7 @@
   "raster_meta": null,
   "binding": null,
   "gaps": [],
-  "size_actual": 13414,
-  "member_count_direct": 4
+  "size_actual": 13414
  },
  {
   "identity": {
@@ -85959,8 +85861,7 @@
   "raster_meta": null,
   "binding": null,
   "gaps": [],
-  "size_actual": 223468,
-  "member_count_direct": 7
+  "size_actual": 223468
  },
  {
   "identity": {
@@ -86023,8 +85924,7 @@
   "raster_meta": null,
   "binding": null,
   "gaps": [],
-  "size_actual": 223251,
-  "member_count_direct": 18
+  "size_actual": 223251
  },
  {
   "identity": {
@@ -86189,8 +86089,7 @@
   "raster_meta": null,
   "binding": null,
   "gaps": [],
-  "size_actual": 250462931,
-  "member_count_direct": 121
+  "size_actual": 250462931
  },
  {
   "identity": {
@@ -94280,7 +94179,17 @@
    "tiff_tags": {},
    "file_list": [
     "L1_4.bin"
-   ]
+   ],
+   "world_file_declared": {
+    "file": "Peking_1875_Bretschneider.tfw",
+    "x_resolution": 0.00051999099099355,
+    "rot_2": 0.0,
+    "rot_3": 0.0,
+    "y_resolution": -0.0005197807032760976,
+    "x_origin_upper_left": 115.10228304632693,
+    "y_origin_upper_left": 40.36766312627496,
+    "verbatim": "0.000519990990993550040\n0.0\n0.0\n-0.000519780703276097580\n115.10228304632693\n40.367663126274962"
+   }
   },
   "binding": {
    "world_files": [
@@ -104250,8 +104159,7 @@
   "raster_meta": null,
   "binding": null,
   "gaps": [],
-  "size_actual": 47149,
-  "member_count_direct": 6
+  "size_actual": 47149
  },
  {
   "identity": {
@@ -107009,8 +106917,7 @@
   "raster_meta": null,
   "binding": null,
   "gaps": [],
-  "size_actual": 544703,
-  "member_count_direct": 5
+  "size_actual": 544703
  },
  {
   "identity": {
@@ -107033,8 +106940,7 @@
   "raster_meta": null,
   "binding": null,
   "gaps": [],
-  "size_actual": 31098173,
-  "member_count_direct": 7
+  "size_actual": 31098173
  },
  {
   "identity": {
@@ -107099,8 +107005,7 @@
   "raster_meta": null,
   "binding": null,
   "gaps": [],
-  "size_actual": 288343,
-  "member_count_direct": 7
+  "size_actual": 288343
  },
  {
   "identity": {

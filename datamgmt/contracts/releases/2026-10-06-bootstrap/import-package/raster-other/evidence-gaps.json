@@ -1,10 +1,10 @@
 {
- "baseline_git": "5d0c9e3",
+ "baseline_git": "926ed98",
  "format": "xiangrugu.import-package.raster-other.evidence-gaps.v1",
- "gap_count": 6,
+ "gap_count": 7,
  "gaps": [
   {
-   "detail": "no internal geotransform/CRS and no same-stem world file within this container; same-named world files exist in 3 other containers; cross-container borrowing is mirror/merge semantics, deferred to block 6, not inferred this round",
+   "detail": "完整身份：harvard-full/doi_10_7910/DVN/PDGOZ0/V4_Data_Archive.zip!shapefiles/v4_ras_1904_tibet_pts.zip!pdb2.TIF（chain [\"shapefiles/v4_ras_1904_tibet_pts.zip\",\"pdb2.TIF\"]，ordinals [159,6]，size 13,967,046，sha bd56086a9967f0e12775d4de923d39dd06bf861f85e9ffb076eaf888677ed873）。无内部 geotransform/CRS 且本容器内无同 stem 世界文件。同 sha 四副本：RAS_1900_pdb2_scan.zip[2]、V3_Data_Archive.zip![13,5]、CHGIS_V2.zip![56,5]、本件[159,6]；三处同摘要副本的合并裁定留第 6 块，配准未决状态保留；跨容器借用属镜像/合并语义，本轮不推断",
    "identity": {
     "archive_chain": [
      "shapefiles/v4_ras_1904_tibet_pts.zip",
@@ -20,7 +20,69 @@
     "size": 13967046
    },
    "kind": "georeference_undeclared",
+   "same_sha_copies": [
+    {
+     "chain": [
+      "pdb2.TIF"
+     ],
+     "ordinals": [
+      2
+     ],
+     "outer": "harvard-full/doi_10_7910/DVN/ELTD3L/RAS_1900_pdb2_scan.zip"
+    },
+    {
+     "chain": [
+      "shapefiles/russ_1904_tibet_pts.ZIP",
+      "pdb2.TIF"
+     ],
+     "ordinals": [
+      13,
+      5
+     ],
+     "outer": "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip"
+    },
+    {
+     "chain": [
+      "shapefiles/russ_1904_tibet_pts.ZIP",
+      "pdb2.TIF"
+     ],
+     "ordinals": [
+      56,
+      5
+     ],
+     "outer": "harvard-full/doi_10_7910/DVN/ZZKZ6U/CHGIS_V2.zip"
+    }
+   ],
    "status": "UNRESOLVED_BLOCK6"
+  },
+  {
+   "affected_member_count": 1,
+   "casefold_proximity_observations": [
+    {
+     "tfw": "harvard-full/doi_10_7910/DVN/H4WVUP/beijing_1875.zip!Peking_1875_Bretschneider.tfw[2]",
+     "tif": "peking_1875_bretschneider.tif（同容器，stem 大小写差异）"
+    },
+    {
+     "tfw": "harvard-full/doi_10_7910/DVN/ZZKZ6U/CHGIS_V2.zip!shapefiles/v2_1875_peking_map.ZIP!Peking_1875_Bretschneider.tfw[76,3]",
+     "tif": "peking_1875_bretschneider.tif（同内层容器，stem 大小写差异）"
+    }
+   ],
+   "detail": "更正后实绩：2×Peking tfw 经世界文件逐字转录修正后已登记 raster-side 关联（25 件回填=23 件精确同 stem 确证绑定+2 件 casefold 近似关联，后者 binding_basis 显式标记PENDING_BLOCK6，非确证绑定）；真正未绑定 1 件=.jgwx（XML 变体非六参数世界文件格式），显式登记不推断。stage B 修正披露：原实现以内部 GT 存在为跳过条件致 2 件漏录，本轮改为一律转录",
+   "kind": "world_files_unbound_explicit",
+   "members": [
+    {
+     "chain": [
+      "NaturalGasLines_PetroChina_20110830.jgwx"
+     ],
+     "leaf": "NaturalGasLines_PetroChina_20110830.jgwx",
+     "note": "jgw 的 XML 变体伴随件（.jgwx≠六参数 .jgw 语法，非世界文件成员格式）；同名 .jgw 已绑定该 jpg；本件显式登记不推断绑定",
+     "ordinals": [
+      13
+     ],
+     "outer": "harvard-full/doi_10_7910/DVN/J5U79Z/ChinaGasPipelines_2013.zip"
+    }
+   ],
+   "status": "REGISTERED_NO_INFERENCE"
   },
   {
    "affected_member_count": 12,
@@ -200,7 +262,7 @@
   },
   {
    "affected_member_count": 17,
-   "detail": "large rasters (>20MB): per-band checksum method registered, execution deferred to import stage to bound this box",
+   "detail": "per-band checksum 实绩：26 件已执行、17 件仅登记方法（执行留导入阶段）；不附尺寸判据",
    "kind": "raster_checksum_deferred",
    "status": "REGISTERED_METHOD_NOT_RUN"
   },

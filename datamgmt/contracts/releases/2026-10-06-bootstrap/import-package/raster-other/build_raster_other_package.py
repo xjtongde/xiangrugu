@@ -10,7 +10,7 @@ HERE = Path(__file__).resolve().parent
 EV = HERE / "evidence"
 if not EV.exists():
     EV = HERE.parents[5] / ".raster-block5-20261121"
-VCS_REF = "5d0c9e3"
+VCS_REF = "926ed98"
 INV_SHA = "fb5e6b334b898d62dc0e5c77094fdb50e0946300e6e3009f447b2ecd1bc216db"
 
 recon = json.load(open(EV / "recon.json"))
@@ -69,6 +69,62 @@ mirror_groups = [{"sha256": s, "member_count": len(v), "members": v}
                  for s, v in sorted(bysha.items()) if len(v) > 1]
 
 gr = [m for m in members if m["class"] == "geo_raster"]
+
+# ---- S2② 世界文件绑定 enriched：同容器同目录同 stem 确定性 join（源成员身份+sha）----
+cby = {ikey(c): c for c in cands}
+assert len(cby) == len(cands)
+_wf_join_hits = 0
+for _m in gr:
+    _rm = pby[ikey(_m)]["raster_meta"]
+    _wfd = _rm.get("world_file_declared")
+    if not _wfd:
+        continue
+    _parent_chain = list(_m["identity"]["archive_chain"][:-1])
+    _stem = (_m["identity"]["archive_chain"][-1] if _m["identity"]["archive_chain"]
+             else _m["identity"]["relative_path"]).rsplit(".", 1)[0].lower()
+    _wfleaf = _wfd["file"]
+    _match = None
+    for _c in cands:
+        if _c["kind"] != "file":
+            continue
+        if _c["relative_path"] != _m["identity"]["relative_path"]:
+            continue
+        if list(_c["archive_chain"][:-1]) != _parent_chain:
+            continue
+        if _c["leaf"].lower() == _wfleaf.lower():
+            _match = _c
+            break
+    assert _match is not None, f"world file join miss: {_wfleaf} in {_m['identity']}"
+    _pk = ikey(_match)
+    _pp = pby[_pk]
+    assert _pp["sha_verified"] is True and _pp["declared"]["sha256"] == _match["sha256"], \
+        f"world file sha mismatch vs inventory/candidates: {_wfleaf}"
+    _wfd["source_member"] = {"relative_path": _match["relative_path"],
+                             "archive_chain": _match["archive_chain"],
+                             "archive_ordinals": _match["archive_ordinals"]}
+    _wfd["sha256"] = _match["sha256"]
+    # lead 补正接管（披露）：绑定依据显式分级——精确同 stem 确证绑定 vs
+    # casefold 近似关联（仅登记，语义裁定留块6，不得与确证绑定混同）
+    _tif_stem = (_m["identity"]["archive_chain"][-1] if _m["identity"]["archive_chain"]
+                 else _m["identity"]["relative_path"]).rsplit("/", 1)[-1].rsplit(".", 1)[0]
+    _wf_stem = _wfleaf.rsplit(".", 1)[0]
+    if _tif_stem == _wf_stem:
+        _wfd["binding_basis"] = "same_container_same_directory_same_stem_exact"
+    else:
+        assert _tif_stem.lower() == _wf_stem.lower(), f"unexpected stem mismatch: {_tif_stem} vs {_wf_stem}"
+        _wfd["binding_basis"] = "casefold_stem_proximity_PENDING_BLOCK6_ADJUDICATION"
+        _wfd["binding_status"] = "association_registered_not_confirmed_binding"
+    _wfd["parameter_semantics"] = {
+        "order": ["x_resolution", "rot_2", "rot_3", "y_resolution",
+                  "x_origin_upper_left", "y_origin_upper_left"],
+        "第五六参数": "左上像素中心 (upper-left pixel center)",
+        "note": "ESRI 世界文件六参数惯例逐字登记；不做单位/轴向推断"}
+    _wfd["text_provenance"] = {
+        "verbatim": _wfd["verbatim"],
+        "parsed": "由 verbatim 逐行文本解析出的六个浮点值（解析动作在本生成器，原字节未改）"}
+    _wf_join_hits += 1
+assert _wf_join_hits == 25, f"world-file enriched {_wf_join_hits} != 25"
+
 proposals = []
 for m in gr:
     p = pby[(m["identity"]["relative_path"], tuple(m["identity"]["archive_chain"]), tuple(m["identity"]["archive_ordinals"]))]
@@ -77,12 +133,17 @@ for m in gr:
     leaf = (i["archive_chain"][-1] if i["archive_chain"] else i["relative_path"]).split("/")[-1]
     carrier = "geotiff" if leaf.lower().endswith((".tif", ".tiff")) else "jpeg_with_worldfile"
     bands = rm.get("bands", [])
+    csd = rm.get("crs_source_declared") or {}
+    # S2③：reader 来源注解（WKT 逐字值不动，仅增字段）
+    csd_out = dict(csd)
+    csd_out["reader_source"] = ("osgeo GDAL 3.6.2 GetProjectionRef"
+                                "（镜像 f1675321e33eeb95…，只读探针）")
     proposals.append({
         "source_object_id": soid(i["relative_path"], i["archive_chain"], leaf, carrier),
         "identity": i, "carrier": carrier,
         "observed": {"size_px": rm.get("size_px"), "bands": bands,
                      "geotransform": rm.get("geotransform"),
-                     "crs_source_declared": rm.get("crs_source_declared"),
+                     "crs_source_declared": csd_out,
                      "world_file_declared": rm.get("world_file_declared"),
                      "gcp_count": rm.get("gcp_count"), "driver": rm.get("driver"),
                      "gdalinfo_rc": rm.get("gdalinfo_rc")},
@@ -100,7 +161,60 @@ pdb2 = [m for m in gr if not (pby[(m["identity"]["relative_path"], tuple(m["iden
 for m in pdb2:
     gaps.append({"kind": "georeference_undeclared", "status": "UNRESOLVED_BLOCK6",
                  "identity": m["identity"],
-                 "detail": "no internal geotransform/CRS and no same-stem world file within this container; same-named world files exist in 3 other containers; cross-container borrowing is mirror/merge semantics, deferred to block 6, not inferred this round"})
+                 "detail": ("完整身份：harvard-full/doi_10_7910/DVN/PDGOZ0/"
+                            "V4_Data_Archive.zip!shapefiles/v4_ras_1904_tibet_"
+                            "pts.zip!pdb2.TIF（chain [\"shapefiles/v4_ras_1904_"
+                            "tibet_pts.zip\",\"pdb2.TIF\"]，ordinals [159,6]，"
+                            "size 13,967,046，sha bd56086a9967f0e12775d4de923d"
+                            "39dd06bf861f85e9ffb076eaf888677ed873）。无内部 "
+                            "geotransform/CRS 且本容器内无同 stem 世界文件。同 "
+                            "sha 四副本：RAS_1900_pdb2_scan.zip[2]、V3_Data_"
+                            "Archive.zip![13,5]、CHGIS_V2.zip![56,5]、本件"
+                            "[159,6]；三处同摘要副本的合并裁定留第 6 块，配准"
+                            "未决状态保留；跨容器借用属镜像/合并语义，本轮不推断"),
+                 "same_sha_copies": [
+                     {"outer": "harvard-full/doi_10_7910/DVN/ELTD3L/RAS_1900_pdb2_scan.zip",
+                      "chain": ["pdb2.TIF"], "ordinals": [2]},
+                     {"outer": "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip",
+                      "chain": ["shapefiles/russ_1904_tibet_pts.ZIP", "pdb2.TIF"],
+                      "ordinals": [13, 5]},
+                     {"outer": "harvard-full/doi_10_7910/DVN/ZZKZ6U/CHGIS_V2.zip",
+                      "chain": ["shapefiles/russ_1904_tibet_pts.ZIP", "pdb2.TIF"],
+                      "ordinals": [56, 5]}]})
+# S2②补充：未绑定世界文件显式登记（不推断绑定）
+_unbound_wf = [
+    {"leaf": "NaturalGasLines_PetroChina_20110830.jgwx",
+     "outer": "harvard-full/doi_10_7910/DVN/J5U79Z/ChinaGasPipelines_2013.zip",
+     "chain": ["NaturalGasLines_PetroChina_20110830.jgwx"], "ordinals": [13],
+     "note": ("jgw 的 XML 变体伴随件（.jgwx≠六参数 .jgw 语法，非世界文件成"
+              "员格式）；同名 .jgw 已绑定该 jpg；本件显式登记不推断绑定")}]
+# 更正注记：lead 清单中的 2×Peking_1875_Bretschneider.tfw 经 stage B 修正
+# （世界文件一律逐字转录、不以内部 GT 为跳过条件）后已完成 raster-side 绑定
+# （25 件回填），其 casefold 近似对观察保留如下，绑定语义裁定仍留块6。
+_casefold_obs = [
+    {"tfw": "harvard-full/doi_10_7910/DVN/H4WVUP/beijing_1875.zip!Peking_1875_Bretschneider.tfw[2]",
+     "tif": "peking_1875_bretschneider.tif（同容器，stem 大小写差异）"},
+    {"tfw": "harvard-full/doi_10_7910/DVN/ZZKZ6U/CHGIS_V2.zip!shapefiles/v2_1875_peking_map.ZIP!Peking_1875_Bretschneider.tfw[76,3]",
+     "tif": "peking_1875_bretschneider.tif（同内层容器，stem 大小写差异）"}]
+for _u in _casefold_obs:
+    pass  # 观察注记入 gaps detail，不改成员分类
+for _u in _unbound_wf:
+    _rec = pby.get((_u["outer"], tuple(_u["chain"]), tuple(_u["ordinals"])))
+    assert _rec is not None and _rec.get("class") == "sidecar_companion", \
+        f"未绑定世界文件记录缺失或分类异常: {_u['leaf']}"
+    _rec.setdefault("binding", {})["unbound_registered"] = True
+    _rec["binding"]["block6_note"] = _u["note"]
+gaps.append({"kind": "world_files_unbound_explicit", "status": "REGISTERED_NO_INFERENCE",
+             "affected_member_count": len(_unbound_wf),
+             "members": _unbound_wf,
+             "casefold_proximity_observations": _casefold_obs,
+             "detail": ("更正后实绩：2×Peking tfw 经世界文件逐字转录修正后已登"
+                        "记 raster-side 关联（25 件回填=23 件精确同 stem 确证绑"
+                        "定+2 件 casefold 近似关联，后者 binding_basis 显式标记"
+                        "PENDING_BLOCK6，非确证绑定）；真正未绑定 1 件=.jgwx（XML"
+                        " 变体非六参数世界文件格式），显式登记不推断。stage B 修"
+                        "正披露：原实现以内部 GT 存在为跳过条件致 2 件漏录，"
+                        "本轮改为一律转录")})
 wmf = [m for m in members if ((m["identity"]["archive_chain"][-1] if m["identity"]["archive_chain"] else m["identity"]["relative_path"]).lower().endswith(".wmf"))]
 if wmf:
     gaps.append({"kind": "tool_gap_wmf_reader", "status": "AWAITING_AUTHORIZATION",
@@ -111,7 +225,8 @@ large = [m for m in gr if not pby[(m["identity"]["relative_path"], tuple(m["iden
 if large:
     gaps.append({"kind": "raster_checksum_deferred", "status": "REGISTERED_METHOD_NOT_RUN",
                  "affected_member_count": len(large),
-                 "detail": "large rasters (>20MB): per-band checksum method registered, execution deferred to import stage to bound this box"})
+                 "detail": ("per-band checksum 实绩：26 件已执行、17 件仅登记方法"
+                            "（执行留导入阶段）；不附尺寸判据")})
 nodata_null = sum(1 for p in proposals for b in p["observed"]["bands"] if b.get("noData") is None)
 gaps.append({"kind": "nodata_source_undeclared", "status": "REGISTERED_FOR_IMPORT_CONTRACT",
              "affected_band_count": nodata_null,
@@ -127,13 +242,27 @@ if crs_local:
 
 cls_counts = dict(collections.Counter(m["class"] for m in members))
 disp_counts = dict(collections.Counter(m["disposition"] for m in members))
+# ---- S2① 归属等式机器断言（recon 派生剔除 handoff 标签）----
+_prior_breakdown = {k: v for k, v in recon["owned_by_block"].items()
+                    if not k.startswith("handoff") and "handoff" not in k}
+prior_owned = sum(_prior_breakdown.values())
+handoff_in_candidates = (recon["candidate_by_source"]["handoff_block2"]
+                         + recon["candidate_by_source"]["handoff_block4"])
+assert prior_owned == 5482, f"前四块归属 {prior_owned} != 5482 (breakdown {_prior_breakdown})"
+assert handoff_in_candidates == 621, f"交接件 {handoff_in_candidates} != 621"
+assert prior_owned + len(members) == recon["inventory_entries"] == 8004, \
+    f"归属等式断裂: {prior_owned}+{len(members)} vs {recon['inventory_entries']}"
 members_doc = {"format": "xiangrugu.import-package.raster-other.members.v1",
                "baseline_git": VCS_REF, "inventory_sha256": INV_SHA,
                "candidate_total": len(members), "class_counts": cls_counts,
                "disposition_counts": disp_counts,
                "candidate_by_source": recon["candidate_by_source"],
                "ownership_reconciliation": {"inventory_entries": recon["inventory_entries"],
-                                            "owned_by_prior_blocks": recon["owned_by_block"],
+                                            "prior_blocks_owned": prior_owned,
+                                            "prior_blocks_breakdown": _prior_breakdown,
+                                            "handoff_to_block5_counted_in_candidates": handoff_in_candidates,
+                                            "equation": f"{prior_owned} + {len(members)} == {recon['inventory_entries']}",
+                                            "owned_by_prior_blocks_raw_with_handoff": recon["owned_by_block"],
                                             "unowned_scanned": recon["unowned_count"],
                                             "cross_references": recon["cross_references"],
                                             "unresolved_refs": recon["unresolved_refs"]},
@@ -145,8 +274,11 @@ mapping_doc = {"format": "xiangrugu.import-package.raster-other.raster-mapping.v
                "counts": {"geo_raster_members": len(gr), "proposals": len(proposals),
                           "internal_gt_or_crs_declared": sum(1 for p in proposals if p["observed"]["geotransform"] or (p["observed"]["crs_source_declared"] or {}).get("wkt_verbatim_from_source")),
                           "worldfile_bound": sum(1 for p in proposals if p["observed"]["world_file_declared"]),
+                          "worldfile_bound_exact_stem": sum(1 for p in proposals if (p["observed"]["world_file_declared"] or {}).get("binding_basis") == "same_container_same_directory_same_stem_exact"),
+                          "worldfile_bound_casefold_pending": sum(1 for p in proposals if (p["observed"]["world_file_declared"] or {}).get("binding_basis") == "casefold_stem_proximity_PENDING_BLOCK6_ADJUDICATION"),
                           "checksum_executed": sum(1 for p in proposals if p["per_band_verification"]["executed_this_round"])},
                "flags": {"ready_for_import": False}, "proposed_objects": proposals}
+assert mapping_doc["counts"]["worldfile_bound_exact_stem"] == 23 and mapping_doc["counts"]["worldfile_bound_casefold_pending"] == 2, mapping_doc["counts"]
 gaps_doc = {"format": "xiangrugu.import-package.raster-other.evidence-gaps.v1",
             "baseline_git": VCS_REF, "gap_count": len(gaps), "gaps": gaps}
 summary = f"""# 第 5/6 块 · 栅格及其他成员包（SUMMARY）
@@ -155,7 +287,7 @@ summary = f"""# 第 5/6 块 · 栅格及其他成员包（SUMMARY）
 
 ## 候选与归属
 - 候选 **{len(members)}** = 块2交接 {recon['candidate_by_source']['handoff_block2']} + 块4 Thumbs.db {recon['candidate_by_source']['handoff_block4']} + 无归属扫描 {recon['unowned_count']}（文件 {recon['candidate_by_kind']['file']} + 目录 {recon['candidate_by_kind']['directory']}）。
-- 全 inventory 8004 对账闭合：前四块已归属 {recon['owned_total']}（块1=3/块2=174/块3=5294/块4=11/交接面 620+1）+ 本块候选 {len(members)} = 8004；unresolved 0；跨块引用 {len(recon['cross_references'])} 件逐条在 members.json（不重复认领）。
+- 全 inventory 8004 对账闭合：**前四块实际归属 {prior_owned}**（块1=3/块2=174/块3=5294/块4=11）+ 本块候选 **{len(members)}** = 8004（首盒「6103 已归属」系把交接面 {handoff_in_candidates} 件〔620 块2+1 Thumbs.db〕误计前四块——621 已在块5候选内，更正后等式机器断言在码）；unresolved 0；跨块引用 {len(recon['cross_references'])} 件逐条在 members.json（不重复认领）。
 - sha256 全量流式重算 **{recon['candidate_by_kind']['file']}/{recon['candidate_by_kind']['file']} ==声明值，失配 0**。
 
 ## 分类计数（逐件处置，unknown 0）
@@ -166,11 +298,12 @@ summary = f"""# 第 5/6 块 · 栅格及其他成员包（SUMMARY）
 ## 地理栅格面（{len(gr)}/{len(gr)} 读通）
 - 工具：现有候选镜像 xiangrugu:runtime-spatial-mapinfo-20261120-a（Id f1675321e33e…，GDAL 3.6.2 osgeo 绑定；**镜像无 gdalinfo CLI，python3-gdal 半装态如实披露**，改用 osgeo 只读探针，--network none/无凭据/无 socket/快照:ro）。
 - 逐件：尺寸/波段(类型/色带/NoData/blocksize)/仿射/**源 CRS WKT 逐字**（无声明=null 不推导）/世界文件六参数 verbatim。
-- 内部 GT/CRS 声明 {mapping_doc['counts']['internal_gt_or_crs_declared']} 件；世界文件同 stem 绑定 {mapping_doc['counts']['worldfile_bound']} 件（绑定依据=同容器同目录同 stem，跨容器不借用）；逐波段 checksum ≤20MB 实跑 {mapping_doc['counts']['checksum_executed']} 件，大件登记方法留导入阶段。
+- 内部 GT/CRS 声明 {mapping_doc['counts']['internal_gt_or_crs_declared']} 件；世界文件关联回填 {mapping_doc['counts']['worldfile_bound']} 件=**精确同 stem 确证绑定 {mapping_doc['counts']['worldfile_bound_exact_stem']} 件**（同容器同目录同 stem，跨容器不借用）+**casefold 近似关联登记 {mapping_doc['counts']['worldfile_bound_casefold_pending']} 件**（binding_basis 显式标 PENDING_BLOCK6，非确证绑定，语义裁定留块6）；source_member/sha256/参数语义（第五六参数=左上像素中心）/文本出处（verbatim 原文 vs parsed 规整文本）enriched，join 断言 25/25 命中；逐波段 checksum **实跑 {mapping_doc['counts']['checksum_executed']} 件、仅登记方法 {len(gr) - mapping_doc['counts']['checksum_executed']} 件**（执行留导入阶段，纯实绩不附尺寸判据）。
+- ODS 改注记：CountryFilesFormat_2016-07-16.ods（ngia_dsg_codes_2017-03-15.zip!ord[2]）由 structural_container 改判 documentation_license＝字段格式说明材料（内层 content.xml 表名 Sheet1/FULL_NAME/UFI+Field Name/Type/Length/Precision/RC 单元格文本为证，text_head 已落 probe_evidence）；structural 计数随之 614。世界文件关联回填 25 件（stage B「内部 GT 即跳过」缺陷修正后一律逐字转录，GT 与世界文件并存各自引用）：23 件精确同 stem 确证绑定 + 2×Peking tfw casefold 近似关联登记（binding_basis=PENDING_BLOCK6_ADJUDICATION、binding_status=association_registered_not_confirmed_binding，非确证绑定）；真未绑定仅 1 件 .jgwx（XML 变体非六参数语法，守卫拒收）显式登记不推断。
 - NoData：源未声明波段 {nodata_null} 个如实 null（探测脚本 GetNoDataValue 传参缺陷由 lead 令 a02 定点修复后回填，修复披露在证据）。
 
 ## 缺口与批准面
-缺口 **{len(gaps)}** 组：pdb2.TIF(v4_dem_geotiff.zip) 无几何声明且本容器无世界文件（跨容器同名 tifw×3 留块6）；WMF 12 件 tool_gap 待授权；大件 checksum 方法未跑；NoData 源未声明留导入合同；inventory 历史阻断 3 项显式登记留块6；LOCAL_CS 非 EPSG 不推导。
+缺口 **{len(gaps)}** 组：pdb2.TIF（真身=V4_Data_Archive.zip!shapefiles/v4_ras_1904_tibet_pts.zip!pdb2.TIF，ordinals [159,6]，sha bd56086a…；首盒误写 v4_dem_geotiff.zip 已更正）无几何声明且本容器无世界文件（同 sha 四副本合并留块6）；WMF 12 件 tool_gap 待授权；checksum 26 实跑/17 方法登记；NoData 源未声明留导入合同；inventory 历史阻断 3 项显式登记留块6；LOCAL_CS 非 EPSG 不推导；未绑定世界文件 1 件（.jgwx）显式登记，2 件 Peking tfw casefold 近似关联待块6裁定。
 全部 {len(gr)} 栅格提案待茶香/Codex 批准；命名/装载器（PostGIS raster vs bytea）留第 6 块与导入阶段。
 
 ## 边界

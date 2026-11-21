@@ -1,5 +1,5 @@
 {
- "baseline_git": "5d0c9e3",
+ "baseline_git": "926ed98",
  "candidate_by_source": {
   "handoff_block2": 620,
   "handoff_block4": 1,
@@ -9,11 +9,11 @@
  "class_counts": {
   "cache": 1,
   "checksum_ledger": 3,
-  "documentation_license": 1445,
+  "documentation_license": 1446,
   "geo_raster": 43,
   "ordinary_image": 299,
   "sidecar_companion": 116,
-  "structural_container": 615
+  "structural_container": 614
  },
  "disposition_counts": {
   "IMPORT": 43,
@@ -4192,9 +4192,9 @@
   {
    "approval_status": "REGISTERED",
    "candidate_source": "handoff_block2",
-   "class": "structural_container",
+   "class": "documentation_license",
    "disposition": "NON_TABULAR",
-   "disposition_basis": "structural container (ZIP/directory); descendants owned by their respective blocks exactly-once",
+   "disposition_basis": "documentation/license/metadata text; original identity+sha+purpose retained",
    "identity": {
     "archive_chain": [
      "CountryFilesFormat_2016-07-16.ods"
@@ -4209,7 +4209,7 @@
    },
    "probe": {
     "magic": "ZIP",
-    "purpose": "内层容器 ZIP（直接成员数按 inventory 登记，不解包）",
+    "purpose": "OpenDocument 电子表格＝NGA 国家字段格式说明材料（Field Name/Description/Type/Max Field Length/Precision/RC + DSG 代码域枚举）；判定依据=同容器内层 content.xml（ord 14，sha_verified）表名 Sheet1/FULL_NAME/UFI 与逐字单元格文本；外层仍为 ZIP 容器形态但业务用途确证为说明材料，内层成员各自分类不动",
     "sha_verified": true,
     "size_actual": 13980
    }
@@ -33084,7 +33084,7 @@
    },
    "probe": {
     "magic": "XML",
-    "purpose": "XML 族：用途按内容判定",
+    "purpose": "ODS 内层正文＝字段格式说明表（table 名 Sheet1/FULL_NAME/UFI；单元格含 Field Name/Description/Type/Maximum Field Length/Precision/RC 与 DSG 代码域枚举）⇒ ODS 外层改判 documentation_license 的直接依据",
     "sha_verified": true,
     "size_actual": 49313
    }
@@ -33386,10 +33386,12 @@
   {
    "approval_status": "REGISTERED",
    "binding": {
+    "block6_note": "jgw 的 XML 变体伴随件（.jgwx≠六参数 .jgw 语法，非世界文件成员格式）；同名 .jgw 已绑定该 jpg；本件显式登记不推断绑定",
     "bound_rasters": [
      "NaturalGasLines_PetroChina_20110830.jpg"
     ],
-    "role": "world_file"
+    "role": "world_file",
+    "unbound_registered": true
    },
    "candidate_source": "unowned_scan",
    "class": "sidecar_companion",
@@ -48823,6 +48825,9 @@
    "class": "sidecar_companion",
    "disposition": "NON_TABULAR",
    "disposition_basis": "companion/sidecar; binding basis recorded; owner cross-referenced, not re-claimed",
+   "gaps": [
+    "unknown_identity"
+   ],
    "identity": {
     "archive_chain": [
      "shapefiles/v4_dem_geotiff.zip",
@@ -90617,8 +90622,10 @@
     ]
    }
   ],
+  "equation": "5482 + 2522 == 8004",
+  "handoff_to_block5_counted_in_candidates": 621,
   "inventory_entries": 8004,
-  "owned_by_prior_blocks": {
+  "owned_by_prior_blocks_raw_with_handoff": {
    "block1": 3,
    "block2": 174,
    "block3": 5294,
@@ -90626,6 +90633,13 @@
    "block5_handoff_via_block4": 1,
    "handoff_block5": 620
   },
+  "prior_blocks_breakdown": {
+   "block1": 3,
+   "block2": 174,
+   "block3": 5294,
+   "block4": 11
+  },
+  "prior_blocks_owned": 5482,
   "unowned_scanned": 1901,
   "unresolved_refs": []
  }

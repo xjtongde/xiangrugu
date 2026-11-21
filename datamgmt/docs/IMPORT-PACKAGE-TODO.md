@@ -1,6 +1,6 @@
 # 全量导入包与映射进度
 
-更新日期：2026-11-21。当前阶段为数据整理与映射，第 1–2/6 块（CBDB、普通表格）已获 Codex 验收，第 3/6 块空间矢量 **Codex 独立验收补正交付**（SHP 头长度 705/705 对账闭合、分区统一 903=2+899+2，待 Codex 复核收口），第 4/6 块 Access/MDB 与 SQL **Codex 整理验收通过**（收口补正提交 5d0c9e3），第 5/6 块栅格及其他成员首盒 PASS 交付（b39f8ed，待 Codex 验收）、第 6 块合并与落盘待执行。交付在本 release 的 [import-package/cbdb/](../contracts/releases/2026-10-06-bootstrap/import-package/cbdb/SUMMARY.md)、[import-package/tabular/](../contracts/releases/2026-10-06-bootstrap/import-package/tabular/SUMMARY.md)、[import-package/spatial/](../contracts/releases/2026-10-06-bootstrap/import-package/spatial/SUMMARY.md)、[import-package/mdb-sql/](../contracts/releases/2026-10-06-bootstrap/import-package/mdb-sql/SUMMARY.md) 与 [import-package/raster-other/](../contracts/releases/2026-10-06-bootstrap/import-package/raster-other/SUMMARY.md)；CBDB 10 表/235 列源侧值验证单列未决，不计入映射完成，ready_for_import=False 保持。
+更新日期：2026-11-21。当前阶段为数据整理与映射，第 1–2/6 块（CBDB、普通表格）已获 Codex 验收，第 3/6 块空间矢量 **Codex 整理验收通过**（独立验收补正提交 926ed98），第 4/6 块 Access/MDB 与 SQL **Codex 整理验收通过**（收口补正提交 5d0c9e3），第 5/6 块栅格及其他成员首盒 PASS 交付（b39f8ed）、**独立验收补正进行中**，第 6 块合并与落盘待 Codex 复核收口后派发。交付在本 release 的 [import-package/cbdb/](../contracts/releases/2026-10-06-bootstrap/import-package/cbdb/SUMMARY.md)、[import-package/tabular/](../contracts/releases/2026-10-06-bootstrap/import-package/tabular/SUMMARY.md)、[import-package/spatial/](../contracts/releases/2026-10-06-bootstrap/import-package/spatial/SUMMARY.md)、[import-package/mdb-sql/](../contracts/releases/2026-10-06-bootstrap/import-package/mdb-sql/SUMMARY.md) 与 [import-package/raster-other/](../contracts/releases/2026-10-06-bootstrap/import-package/raster-other/SUMMARY.md)；CBDB 10 表/235 列源侧值验证单列未决，不计入映射完成，ready_for_import=False 保持。
 
 本文件是当前阶段、六块待办、交付和讨论结论的唯一进度入口。设计约束见 [DESIGN.md](DESIGN.md)，执行权限见 [OPERATIONS.md](OPERATIONS.md)，原 Task 1–18 工程依赖见 [IMPLEMENTATION-PLAN.md](IMPLEMENTATION-PLAN.md)，既往运行记录见 [PROGRESS-HISTORY.md](PROGRESS-HISTORY.md)。其他入口只链接本文件，不复制当前进度。
 
@@ -31,9 +31,9 @@
 |---|---|---|---|---|
 | 1 | CBDB SQLite、JSON 及配套成员 | 已验收（入库缺口另列） | 78 表/736 列映射、全部 CBDB 成员处置、未决项及确认依据 | 对象关系、类型和命名的剩余决定 |
 | 2 | TSV/CSV/Excel、独立 DBF 等普通表格 | 已验收（Codex 2026-11-20，提交 5478271） | 文件/工作表/记录对象、编码、字段、空值及目标映射 | 编码或表格语义的未决项 |
-| 3 | Shapefile、MapInfo、KML 等空间矢量 | Codex 独立验收补正交付（SHP 头长 705/705 闭合，待复核收口） | 组件组、属性、几何、CRS 原声明及目标映射 | 组件缺失、坐标声明和异常保留 |
+| 3 | Shapefile、MapInfo、KML 等空间矢量 | **Codex 整理验收通过**（补正 926ed98，SHP 头长 705/705 闭合） | 组件组、属性、几何、CRS 原声明及目标映射 | 组件缺失、坐标声明和异常保留 |
 | 4 | Access/MDB、SQL 数据 | **Codex 整理验收通过**（收口补正 5d0c9e3；96 提案批准面留导入阶段） | 内部对象及字段清单、读取/隔离方法、目标映射及不兼容项 | 不能无损读取或表达的具体对象 |
-| 5 | 栅格、其他格式和非业务成员 | 首盒进行中（候选 2522 逐件处置，栅格 43/43 读通） | 栅格对象与入库方式；说明/图片/校验文件用途；未知件明细 | 剩余格式的处置决定 |
+| 5 | 栅格、其他格式和非业务成员 | 首盒 PASS（b39f8ed），独立验收补正进行中 | 栅格对象与入库方式；说明/图片/校验文件用途；未知件明细 | 剩余格式的处置决定 |
 | 6 | 全量合并、重复关系及 32 落盘 | 待执行 | 全部成员覆盖、唯一目标命名、包清单、执行顺序、完整性报告及绝对路径 | 全量包验收、导入准备与实际执行安排 |
 
 ### 第 1 块 CBDB
@@ -152,12 +152,24 @@
 
 #### 第 5 块首盒记录（2026-11-21，基线 5d0c9e3，待独立核与验收）
 
-- 归属对账闭合：inventory **8004** = 前四块已归属 **6103**（块1=3/块2=174/块3=5294/块4=11/交接面 620+1）+ 本块候选 **2522**（块2交接 620 + Thumbs.db 1 + 无归属扫描 1901；文件 2437 + 目录 85）；unresolved 0；跨块引用 4 件逐条登记不重复认领。
+- 归属对账闭合：inventory **8004** = 前四块实际归属 **5482**（块1=3/块2=174/块3=5294/块4=11）+ 本块候选 **2522**（块2交接 620 + Thumbs.db 1 + 无归属扫描 1901；文件 2437 + 目录 85）；unresolved 0；跨块引用 4 件逐条登记不重复认领。**更正注记**：首盒原记「已归属 6103」误将 621 交接件计入前四块——621 已在块5候选内，独立验收补正轮统一为 5482+2522=8004。
 - 逐件处置（unknown 0）：documentation_license **1445** / structural_container **615** / ordinary_image **299** / sidecar_companion **116**（世界文件 26+栅格伴随 48+GIS 侧车 42）/ geo_raster **43** / checksum_ledger **3** / cache **1**；sha256 全量流式重算 2437/2437==声明，失配 0。
 - 栅格面 **43/43 读通**（现有镜像 f1675321e33e osgeo 绑定；镜像无 gdalinfo CLI、python3-gdal 半装态如实披露，未装依赖）：尺寸/波段/像素类型/NoData/仿射/**源 CRS WKT 逐字**（内部声明 19 件，LOCAL_CS 不推导 EPSG）/世界文件六参数 verbatim 绑定 23 件（同容器同目录同 stem，跨容器不借用）；逐波段 checksum ≤20MB 实跑 26 件，17 大件登记方法留导入阶段；NoData 113 波段源均未声明如实 null（探测脚本 GetNoDataValue(True) 传参缺陷经 lead 令 a02 定点修复，错误键归零，修复件 sha a8b543f2…）。
 - 缺口 6 组：**pdb2.TIF(v4_dem_geotiff.zip) 无几何声明且本容器无世界文件**（同名 tifw 在另 3 容器，跨容器借用属镜像语义留块6）；WMF 12 件 tool_gap 待授权；大件 checksum 未跑；NoData 源未声明留导入合同；inventory 历史阻断 3 项显式登记留块6；LOCAL_CS 非 EPSG 不推导。
 - 块5范围同 sha 镜像候选组 **377**（含 map1_.TIF/Ca1884_przh_partial.TIF 疑似异名同内容，checksum 全同），合并裁定留第 6 块；43 栅格提案全 PROPOSED_NOT_AUTHORIZED，命名/装载器（PostGIS raster vs bytea）留块6与导入阶段，ready_for_import=false。
 - 交付 `import-package/raster-other/`：members.json / raster-mapping.json / evidence-gaps.json / SUMMARY.md + 确定性生成器（32 双跑 exit 0/0、stderr 0/0 字节一致）；证据 `.raster-block5-20261121/`（recon/candidates/probe_evidence/三脚本）。生成器两处缺陷（32 浅目录 parents 越界、目录件 sha 断言过严）lead 定点修复披露，修复后双跑通过。
+
+#### 第 5 块独立验收补正记录（2026-11-21，基线 926ed98，待 Codex 复核）
+
+- **归属等式更正**：前四块实际归属 **5482**（块1=3/块2=174/块3=5294/块4=11）+ 块5 **2522** = **8004**，机器断言入码；首盒「6103 已归属」系把 **621 交接件**（620 块2+1 Thumbs.db）误计前四块——621 已在块5候选内。
+- **pdb2 缺口完整身份统一**：`harvard-full/doi_10_7910/DVN/PDGOZ0/V4_Data_Archive.zip!shapefiles/v4_ras_1904_tibet_pts.zip!pdb2.TIF` ordinals **[159,6]**，sha bd56086a9967…（首盒叙述误写 v4_dem_geotiff.zip，机器身份本正确，叙述面已统一）；配准未决保留；同 sha 四副本（RAS_1900[2]/V3[13,5]/CHGIS_V2[56,5]/本件）合并留块6。
+- **世界文件证据 enriched**：source_member 三件套+sha256（==inventory 断言）+六参数语义（**第五六参数=左上像素中心**）+文本出处（verbatim 原文 vs parsed 规整文本）；GDAL WKT 增 reader_source=osgeo GDAL 3.6.2 GetProjectionRef（镜像 f1675321e33e）。
+- **a02 事实更正（stage B 缺陷）**：原「内部 GT 存在即跳过世界文件转录」致 2×Peking tfw 漏录；修正为逐字一律转录后关联回填 **25 件**（首盒 23 被实证推翻）；.jgwx 系 XML 变体非六参数语法，守卫拒收，真未绑定仅 **1 件**。
+- **lead 接管补强（披露）**：a02 件 casefold 关联与确证绑定不可区分——lead 增 **binding_basis 分级**：23 件 same_container_same_directory_same_stem_exact + 2 件 casefold_stem_proximity_**PENDING_BLOCK6_ADJUDICATION**（binding_status=association_registered_not_confirmed_binding，非确证绑定，语义裁定留块6）；counts 拆分 23/2 断言入码；32 双跑 0/0 字节一致。
+- **校验实绩**：checksum **26 件已执行、17 件仅登记方法**（纯实绩，移除不准确「≤20MB」判据——已跑最大 20,342,738 B）。
+- **ODS 改判**：CountryFilesFormat_2016-07-16.ods（ngia_dsg_codes_2017-03-15.zip![2]，sha d8adf2a3…）structural_container→**documentation_license=字段格式说明材料**（内层 content.xml 表名 Sheet1/FULL_NAME/UFI+Field Name/Type/Length/Precision/RC 文本为证）；分类计数更新 **structural 614 / doc_license 1446**，其余不变。
+- **无漂移**：43 提案 sid 对称差空，identity/尺寸/波段/geotransform/WKT 值/六参数值漂移 0；变化仅注解性增列（a03 穷举）。
+- 终态 sha：members f60dd06d… / raster-mapping bff1c039… / evidence-gaps ceb3c0b2… / SUMMARY 7376ba95… / probe_evidence 63e7102d…；缺口 7 组（新增 world_files_unbound_explicit）；a03 独立核（等式/绑定/26-17/pdb2/ODS/无漂移）。
 
 ### 第 6 块合并与落盘
 
@@ -202,3 +214,4 @@ PASS 必须覆盖本块全部范围及处置；未决项保留 PARTIAL/BLOCKED�
 - 2026-11-21：**第 4 块收口补正**——SUMMARY 文案统一（62 表实例/500 字段实例/311 列/缺口 5 RESOLVED+1 encoding）；**历史误提交更正：84386df 含 5 个 .mdb 条目合计 296,587,264 字节、4 个唯一 blob（v4_access_zip 与 v4_shapefiles_zip 共享 blob `14d21fc9…`，v4_direct 为独立 blob `5e1dcac0…`）；当前追踪 .mdb=0；历史对象仍在祖先提交，不重写（R-10），处置留茶香裁定；旧回报 bb9b2e5「~295MB」与 cd595db「296652508B」保留原文，以本行更正为准**；Codex 已独立通过 MDB 结构覆盖与 geom 字节核对，第 4 块待本次更正复核后收口；第 3 块 Codex 验收待接，第 5 块待讨论派工。
 - 2026-11-21：**第 4 块 Codex 整理验收通过**（茶香本轮派工指令记入；收口补正提交 5d0c9e3 已上 Gitea）；96 提案批准面、MDB 值/编码/NULL/二进制合同与 tgaz geom 导入合同留导入阶段裁定。**第 5/6 块首盒**（30 分钟盒，基线 5d0c9e3）：lead 对账 8004=6103 已归属+1901 无归属，候选 2522 逐件处置 unknown 0；a02 探测 sha 2437/2437 失配 0、栅格 43/43 osgeo 读通（镜像无 gdalinfo CLI 半装态披露，未装依赖）；NoData 传参缺陷 lead 令定点修复（113 波段源未声明真值态，错误键 0）；生成器两缺陷 lead 定点修复后 32 双跑 0/0 字节一致；缺口 6 组（pdb2 跨容器世界文件留块6/WMF 12 待授权/大件 checksum 方法未跑/NoData 导入合同/inventory 历史 issues 3 项留块6/LOCAL_CS 不推导）；镜像候选组 377 留块6；43 提案 PROPOSED_NOT_AUTHORIZED。a03 独立核进行中。
 - 2026-11-21：**第 3/6 块 Codex 独立验收补正**（30 分钟盒，基线 b39f8ed）：SHP 头 offset24 端序+单位双错修正（'>i' 大端、16 位字单位、×2 对账成员字节）；lead 独立锚点预核 0417b88a→68,663,434 字=137,326,868 B；a02 重探 705/705 闭合、jsonl 恰 705 行补丁（2003 行不动）；分区统一 903=批准 2+提案 899+块2归属 2（原 +gap 1 错误算术移除）；v5 缺 DBF 改判源组件缺失+属性合同未决（几何提案沿用）；孪生 2 件证据零触碰；901 对象五保护字段漂移 0（仅 basis sha 自然更新）；32 双跑 0/0 字节一致；a03 独立重算核验。S1 镜像仓缺 MIE 证据+旧版生成器经 38 同步后基线复现（披露在案）。
+- 2026-11-21：**第 3 块 Codex 整理验收通过**（茶香本轮派工指令记入；补正提交 926ed98 已上 Gitea）。**第 5/6 块独立验收补正**（30 分钟盒，基线 926ed98）：归属等式更正 5482+2522=8004（621 交接已计块5，首盒 6103 误计披露）；pdb2 真身 PDGOZ0/V4…v4_ras_1904_tibet_pts.zip!pdb2.TIF[159,6] 叙述统一；世界文件 enriched（身份/sha/五六参数=左上像素中心/规整文本标注/WKT reader_source）；a02 实证推翻首盒 23 绑定——stage B 跳过缺陷修正后 25 件关联回填、jgwx 守卫拒收真未绑定 1 件；lead 接管增 binding_basis 分级（23 确证+2 casefold PENDING_BLOCK6 非确证绑定）；checksum 纯实绩 26/17；ODS 改判字段格式说明材料（structural 614/doc 1446）；43 提案保护字段漂移 0；32 双跑 0/0 字节一致；a03 独立核。第 6 块待 Codex 复核收口后派发。

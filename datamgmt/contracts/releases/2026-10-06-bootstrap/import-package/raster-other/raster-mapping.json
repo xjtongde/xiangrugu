@@ -1,11 +1,13 @@
 {
- "baseline_git": "5d0c9e3",
+ "baseline_git": "926ed98",
  "counts": {
   "checksum_executed": 26,
   "geo_raster_members": 43,
   "internal_gt_or_crs_declared": 19,
   "proposals": 43,
-  "worldfile_bound": 23
+  "worldfile_bound": 25,
+  "worldfile_bound_casefold_pending": 2,
+  "worldfile_bound_exact_stem": 23
  },
  "flags": {
   "ready_for_import": false
@@ -64,6 +66,7 @@
     ],
     "crs_source_declared": {
      "note": "GetProjectionRef 逐字转录；无内部声明=null，不推导不转换",
+     "reader_source": "osgeo GDAL 3.6.2 GetProjectionRef（镜像 f1675321e33eeb95…，只读探针）",
      "srs_is_null": true,
      "wkt_verbatim_from_source": null
     },
@@ -76,9 +79,36 @@
      1380
     ],
     "world_file_declared": {
+     "binding_basis": "same_container_same_directory_same_stem_exact",
      "file": "1926_01.jgw",
+     "parameter_semantics": {
+      "note": "ESRI 世界文件六参数惯例逐字登记；不做单位/轴向推断",
+      "order": [
+       "x_resolution",
+       "rot_2",
+       "rot_3",
+       "y_resolution",
+       "x_origin_upper_left",
+       "y_origin_upper_left"
+      ],
+      "第五六参数": "左上像素中心 (upper-left pixel center)"
+     },
      "rot_2": -274.3726354288097,
      "rot_3": -203.9311464816814,
+     "sha256": "f070b7935f68389f4f1bcb3dadd600026db9ac311f916cd2979a82f1c71650e6",
+     "source_member": {
+      "archive_chain": [
+       "1926_01.jgw"
+      ],
+      "archive_ordinals": [
+       39
+      ],
+      "relative_path": "harvard-full/doi_10_7910/DVN/23340/1926_China_Atlas.zip"
+     },
+     "text_provenance": {
+      "parsed": "由 verbatim 逐行文本解析出的六个浮点值（解析动作在本生成器，原字节未改）",
+      "verbatim": "3072.9925610571327\n-274.3726354288097\n-203.9311464816814\n-3194.4180988167941\n16056119.508811446\n6609040.046655016"
+     },
      "verbatim": "3072.9925610571327\n-274.3726354288097\n-203.9311464816814\n-3194.4180988167941\n16056119.508811446\n6609040.046655016",
      "x_origin_upper_left": 16056119.508811446,
      "x_resolution": 3072.9925610571327,
@@ -154,6 +184,7 @@
     ],
     "crs_source_declared": {
      "note": "GetProjectionRef 逐字转录；无内部声明=null，不推导不转换",
+     "reader_source": "osgeo GDAL 3.6.2 GetProjectionRef（镜像 f1675321e33eeb95…，只读探针）",
      "srs_is_null": true,
      "wkt_verbatim_from_source": null
     },
@@ -166,9 +197,36 @@
      1332
     ],
     "world_file_declared": {
+     "binding_basis": "same_container_same_directory_same_stem_exact",
      "file": "1926_11.jgw",
+     "parameter_semantics": {
+      "note": "ESRI 世界文件六参数惯例逐字登记；不做单位/轴向推断",
+      "order": [
+       "x_resolution",
+       "rot_2",
+       "rot_3",
+       "y_resolution",
+       "x_origin_upper_left",
+       "y_origin_upper_left"
+      ],
+      "第五六参数": "左上像素中心 (upper-left pixel center)"
+     },
      "rot_2": 32.717371037742296,
      "rot_3": 38.72262258308159,
+     "sha256": "dabbc07d9a71d570c047f1d03769666703356e4fd162dcc6ebfe4a17d109de91",
+     "source_member": {
+      "archive_chain": [
+       "1926_11.jgw"
+      ],
+      "archive_ordinals": [
+       12
+      ],
+      "relative_path": "harvard-full/doi_10_7910/DVN/23340/1926_China_Atlas.zip"
+     },
+     "text_provenance": {
+      "parsed": "由 verbatim 逐行文本解析出的六个浮点值（解析动作在本生成器，原字节未改）",
+      "verbatim": "459.00891357143223\n32.717371037742296\n38.722622583081588\n-470.74852578709607\n19533771.678411521\n3305206.3052816191"
+     },
      "verbatim": "459.00891357143223\n32.717371037742296\n38.722622583081588\n-470.74852578709607\n19533771.678411521\n3305206.3052816191",
      "x_origin_upper_left": 19533771.67841152,
      "x_resolution": 459.00891357143223,
@@ -244,6 +302,7 @@
     ],
     "crs_source_declared": {
      "note": "GetProjectionRef 逐字转录；无内部声明=null，不推导不转换",
+     "reader_source": "osgeo GDAL 3.6.2 GetProjectionRef（镜像 f1675321e33eeb95…，只读探针）",
      "srs_is_null": true,
      "wkt_verbatim_from_source": null
     },
@@ -256,9 +315,36 @@
      1325
     ],
     "world_file_declared": {
+     "binding_basis": "same_container_same_directory_same_stem_exact",
      "file": "1926_13.jgw",
+     "parameter_semantics": {
+      "note": "ESRI 世界文件六参数惯例逐字登记；不做单位/轴向推断",
+      "order": [
+       "x_resolution",
+       "rot_2",
+       "rot_3",
+       "y_resolution",
+       "x_origin_upper_left",
+       "y_origin_upper_left"
+      ],
+      "第五六参数": "左上像素中心 (upper-left pixel center)"
+     },
      "rot_2": -12.993141304307652,
      "rot_3": 5.490304975033625,
+     "sha256": "537919254241a5fc4734bf6e1e903866777e531a65f10c900c46da39b24a6922",
+     "source_member": {
+      "archive_chain": [
+       "1926_13.jgw"
+      ],
+      "archive_ordinals": [
+       16
+      ],
+      "relative_path": "harvard-full/doi_10_7910/DVN/23340/1926_China_Atlas.zip"
+     },
+     "text_provenance": {
+      "parsed": "由 verbatim 逐行文本解析出的六个浮点值（解析动作在本生成器，原字节未改）",
+      "verbatim": "495.55981091379709\n-12.993141304307652\n5.4903049750336246\n-456.93726978315971\n19100914.115626626\n3346217.3863088214"
+     },
      "verbatim": "495.55981091379709\n-12.993141304307652\n5.4903049750336246\n-456.93726978315971\n19100914.115626626\n3346217.3863088214",
      "x_origin_upper_left": 19100914.115626626,
      "x_resolution": 495.5598109137971,
@@ -334,6 +420,7 @@
     ],
     "crs_source_declared": {
      "note": "GetProjectionRef 逐字转录；无内部声明=null，不推导不转换",
+     "reader_source": "osgeo GDAL 3.6.2 GetProjectionRef（镜像 f1675321e33eeb95…，只读探针）",
      "srs_is_null": true,
      "wkt_verbatim_from_source": null
     },
@@ -346,9 +433,36 @@
      2363
     ],
     "world_file_declared": {
+     "binding_basis": "same_container_same_directory_same_stem_exact",
      "file": "Ca1884_przh_partial.tifw",
+     "parameter_semantics": {
+      "note": "ESRI 世界文件六参数惯例逐字登记；不做单位/轴向推断",
+      "order": [
+       "x_resolution",
+       "rot_2",
+       "rot_3",
+       "y_resolution",
+       "x_origin_upper_left",
+       "y_origin_upper_left"
+      ],
+      "第五六参数": "左上像素中心 (upper-left pixel center)"
+     },
      "rot_2": 0.0,
      "rot_3": 0.0,
+     "sha256": "92d9511ff6cce31d631cb00325dca0f86acaf3eab0e8b30097eb02f286735eaa",
+     "source_member": {
+      "archive_chain": [
+       "Ca1884_przh_partial.tifw"
+      ],
+      "archive_ordinals": [
+       0
+      ],
+      "relative_path": "harvard-full/doi_10_7910/DVN/ABPR9F/Ca1884_przh_partial.zip"
+     },
+     "text_provenance": {
+      "parsed": "由 verbatim 逐行文本解析出的六个浮点值（解析动作在本生成器，原字节未改）",
+      "verbatim": "0.00453629128981\n0.00000000000000\n0.00000000000000\n-0.00453629128981\n90.8892\n42.5489"
+     },
      "verbatim": "0.00453629128981\n0.00000000000000\n0.00000000000000\n-0.00453629128981\n90.8892\n42.5489",
      "x_origin_upper_left": 90.8892,
      "x_resolution": 0.00453629128981,
@@ -424,6 +538,7 @@
     ],
     "crs_source_declared": {
      "note": "GetProjectionRef 逐字转录；无内部声明=null，不推导不转换",
+     "reader_source": "osgeo GDAL 3.6.2 GetProjectionRef（镜像 f1675321e33eeb95…，只读探针）",
      "srs_is_null": true,
      "wkt_verbatim_from_source": null
     },
@@ -436,9 +551,36 @@
      2278
     ],
     "world_file_declared": {
+     "binding_basis": "same_container_same_directory_same_stem_exact",
      "file": "map2_.tifw",
+     "parameter_semantics": {
+      "note": "ESRI 世界文件六参数惯例逐字登记；不做单位/轴向推断",
+      "order": [
+       "x_resolution",
+       "rot_2",
+       "rot_3",
+       "y_resolution",
+       "x_origin_upper_left",
+       "y_origin_upper_left"
+      ],
+      "第五六参数": "左上像素中心 (upper-left pixel center)"
+     },
      "rot_2": 0.0,
      "rot_3": 0.0,
+     "sha256": "5ab20003cd534e686a63ddf26dfa6efd0d4fbd9563bb1e627c2d6002ff869a45",
+     "source_member": {
+      "archive_chain": [
+       "map2_.tifw"
+      ],
+      "archive_ordinals": [
+       5
+      ],
+      "relative_path": "harvard-full/doi_10_7910/DVN/ABPR9F/Ca1884_przh_ru_images.zip"
+     },
+     "text_provenance": {
+      "parsed": "由 verbatim 逐行文本解析出的六个浮点值（解析动作在本生成器，原字节未改）",
+      "verbatim": "0.00433412066375\n0.00000000000000\n0.00000000000000\n-0.00433412066375\n81.7526\n42.6342"
+     },
      "verbatim": "0.00433412066375\n0.00000000000000\n0.00000000000000\n-0.00433412066375\n81.7526\n42.6342",
      "x_origin_upper_left": 81.7526,
      "x_resolution": 0.00433412066375,
@@ -514,6 +656,7 @@
     ],
     "crs_source_declared": {
      "note": "GetProjectionRef 逐字转录；无内部声明=null，不推导不转换",
+     "reader_source": "osgeo GDAL 3.6.2 GetProjectionRef（镜像 f1675321e33eeb95…，只读探针）",
      "srs_is_null": true,
      "wkt_verbatim_from_source": null
     },
@@ -526,9 +669,36 @@
      2363
     ],
     "world_file_declared": {
+     "binding_basis": "same_container_same_directory_same_stem_exact",
      "file": "map1_.tifw",
+     "parameter_semantics": {
+      "note": "ESRI 世界文件六参数惯例逐字登记；不做单位/轴向推断",
+      "order": [
+       "x_resolution",
+       "rot_2",
+       "rot_3",
+       "y_resolution",
+       "x_origin_upper_left",
+       "y_origin_upper_left"
+      ],
+      "第五六参数": "左上像素中心 (upper-left pixel center)"
+     },
      "rot_2": 0.0,
      "rot_3": 0.0,
+     "sha256": "92d9511ff6cce31d631cb00325dca0f86acaf3eab0e8b30097eb02f286735eaa",
+     "source_member": {
+      "archive_chain": [
+       "map1_.tifw"
+      ],
+      "archive_ordinals": [
+       2
+      ],
+      "relative_path": "harvard-full/doi_10_7910/DVN/ABPR9F/Ca1884_przh_ru_images.zip"
+     },
+     "text_provenance": {
+      "parsed": "由 verbatim 逐行文本解析出的六个浮点值（解析动作在本生成器，原字节未改）",
+      "verbatim": "0.00453629128981\n0.00000000000000\n0.00000000000000\n-0.00453629128981\n90.8892\n42.5489"
+     },
      "verbatim": "0.00453629128981\n0.00000000000000\n0.00000000000000\n-0.00453629128981\n90.8892\n42.5489",
      "x_origin_upper_left": 90.8892,
      "x_resolution": 0.00453629128981,
@@ -604,6 +774,7 @@
     ],
     "crs_source_declared": {
      "note": "GetProjectionRef 逐字转录；无内部声明=null，不推导不转换",
+     "reader_source": "osgeo GDAL 3.6.2 GetProjectionRef（镜像 f1675321e33eeb95…，只读探针）",
      "srs_is_null": true,
      "wkt_verbatim_from_source": null
     },
@@ -616,9 +787,36 @@
      2365
     ],
     "world_file_declared": {
+     "binding_basis": "same_container_same_directory_same_stem_exact",
      "file": "map3_.tifw",
+     "parameter_semantics": {
+      "note": "ESRI 世界文件六参数惯例逐字登记；不做单位/轴向推断",
+      "order": [
+       "x_resolution",
+       "rot_2",
+       "rot_3",
+       "y_resolution",
+       "x_origin_upper_left",
+       "y_origin_upper_left"
+      ],
+      "第五六参数": "左上像素中心 (upper-left pixel center)"
+     },
      "rot_2": 0.0,
      "rot_3": 0.0,
+     "sha256": "088fa7fea9adb958a5d0a70ed632a3d176ff166b927d503c87b6086d11f16082",
+     "source_member": {
+      "archive_chain": [
+       "map3_.tifw"
+      ],
+      "archive_ordinals": [
+       8
+      ],
+      "relative_path": "harvard-full/doi_10_7910/DVN/ABPR9F/Ca1884_przh_ru_images.zip"
+     },
+     "text_provenance": {
+      "parsed": "由 verbatim 逐行文本解析出的六个浮点值（解析动作在本生成器，原字节未改）",
+      "verbatim": "0.00436253126750\n0.00000000000000\n0.00000000000000\n-0.00436253126750\n77.4374\n42.7721"
+     },
      "verbatim": "0.00436253126750\n0.00000000000000\n0.00000000000000\n-0.00436253126750\n77.4374\n42.7721",
      "x_origin_upper_left": 77.4374,
      "x_resolution": 0.0043625312675,
@@ -671,6 +869,7 @@
     ],
     "crs_source_declared": {
      "note": "GetProjectionRef 逐字转录；无内部声明=null，不推导不转换",
+     "reader_source": "osgeo GDAL 3.6.2 GetProjectionRef（镜像 f1675321e33eeb95…，只读探针）",
      "srs_is_null": false,
      "wkt_verbatim_from_source": "LOCAL_CS[\"Geocoding information not available Projection Name = Xian_1980_GK_Zone_19 Units = meters GeoTIFF Unit\",UNIT[\"metre\",1,AUTHORITY[\"EPSG\",\"9001\"]],AXIS[\"Easting\",EAST],AXIS[\"Northing\",NORTH]]"
     },
@@ -736,6 +935,7 @@
     ],
     "crs_source_declared": {
      "note": "GetProjectionRef 逐字转录；无内部声明=null，不推导不转换",
+     "reader_source": "osgeo GDAL 3.6.2 GetProjectionRef（镜像 f1675321e33eeb95…，只读探针）",
      "srs_is_null": false,
      "wkt_verbatim_from_source": "LOCAL_CS[\"Geocoding information not available Projection Name = Xian_1980_GK_Zone_19 Units = meters GeoTIFF Unit\",UNIT[\"metre\",1,AUTHORITY[\"EPSG\",\"9001\"]],AXIS[\"Easting\",EAST],AXIS[\"Northing\",NORTH]]"
     },
@@ -802,6 +1002,7 @@
     ],
     "crs_source_declared": {
      "note": "GetProjectionRef 逐字转录；无内部声明=null，不推导不转换",
+     "reader_source": "osgeo GDAL 3.6.2 GetProjectionRef（镜像 f1675321e33eeb95…，只读探针）",
      "srs_is_null": true,
      "wkt_verbatim_from_source": null
     },
@@ -814,9 +1015,36 @@
      3112
     ],
     "world_file_declared": {
+     "binding_basis": "same_container_same_directory_same_stem_exact",
      "file": "pdb2.tifw",
+     "parameter_semantics": {
+      "note": "ESRI 世界文件六参数惯例逐字登记；不做单位/轴向推断",
+      "order": [
+       "x_resolution",
+       "rot_2",
+       "rot_3",
+       "y_resolution",
+       "x_origin_upper_left",
+       "y_origin_upper_left"
+      ],
+      "第五六参数": "左上像素中心 (upper-left pixel center)"
+     },
      "rot_2": 0.0,
      "rot_3": 0.0,
+     "sha256": "2904e190c8c8b2daadd11d683168c6896bd53017e9fbe760dc5676e381067f1d",
+     "source_member": {
+      "archive_chain": [
+       "pdb2.tifw"
+      ],
+      "archive_ordinals": [
+       3
+      ],
+      "relative_path": "harvard-full/doi_10_7910/DVN/ELTD3L/RAS_1900_pdb2_scan.zip"
+     },
+     "text_provenance": {
+      "parsed": "由 verbatim 逐行文本解析出的六个浮点值（解析动作在本生成器，原字节未改）",
+      "verbatim": "0.00091249660924\n0.00000000000000\n0.00000000000000\n-0.00091249660924\n87.9371\n29.7982"
+     },
      "verbatim": "0.00091249660924\n0.00000000000000\n0.00000000000000\n-0.00091249660924\n87.9371\n29.7982",
      "x_origin_upper_left": 87.9371,
      "x_resolution": 0.00091249660924,
@@ -892,6 +1120,7 @@
     ],
     "crs_source_declared": {
      "note": "GetProjectionRef 逐字转录；无内部声明=null，不推导不转换",
+     "reader_source": "osgeo GDAL 3.6.2 GetProjectionRef（镜像 f1675321e33eeb95…，只读探针）",
      "srs_is_null": false,
      "wkt_verbatim_from_source": "GEOGCS[\"WGS 84\",DATUM[\"WGS_1984\",SPHEROID[\"WGS 84\",6378137,298.257223563,AUTHORITY[\"EPSG\",\"7030\"]],AUTHORITY[\"EPSG\",\"6326\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AXIS[\"Latitude\",NORTH],AXIS[\"Longitude\",EAST],AUTHORITY[\"EPSG\",\"4326\"]]"
     },
@@ -910,7 +1139,44 @@
      3157,
      1396
     ],
-    "world_file_declared": null
+    "world_file_declared": {
+     "binding_basis": "casefold_stem_proximity_PENDING_BLOCK6_ADJUDICATION",
+     "binding_status": "association_registered_not_confirmed_binding",
+     "file": "Peking_1875_Bretschneider.tfw",
+     "parameter_semantics": {
+      "note": "ESRI 世界文件六参数惯例逐字登记；不做单位/轴向推断",
+      "order": [
+       "x_resolution",
+       "rot_2",
+       "rot_3",
+       "y_resolution",
+       "x_origin_upper_left",
+       "y_origin_upper_left"
+      ],
+      "第五六参数": "左上像素中心 (upper-left pixel center)"
+     },
+     "rot_2": 0.0,
+     "rot_3": 0.0,
+     "sha256": "bf941ce68df54eefedce56a06f99dfca3bd34e473b7a51b79faa154b2ebb8be0",
+     "source_member": {
+      "archive_chain": [
+       "Peking_1875_Bretschneider.tfw"
+      ],
+      "archive_ordinals": [
+       2
+      ],
+      "relative_path": "harvard-full/doi_10_7910/DVN/H4WVUP/beijing_1875.zip"
+     },
+     "text_provenance": {
+      "parsed": "由 verbatim 逐行文本解析出的六个浮点值（解析动作在本生成器，原字节未改）",
+      "verbatim": "0.000519990990993550040\n0.0\n0.0\n-0.000519780703276097580\n115.10228304632693\n40.367663126274962"
+     },
+     "verbatim": "0.000519990990993550040\n0.0\n0.0\n-0.000519780703276097580\n115.10228304632693\n40.367663126274962",
+     "x_origin_upper_left": 115.10228304632693,
+     "x_resolution": 0.00051999099099355,
+     "y_origin_upper_left": 40.36766312627496,
+     "y_resolution": -0.0005197807032760976
+    }
    },
    "per_band_verification": {
     "executed_this_round": true,
@@ -960,6 +1226,7 @@
     ],
     "crs_source_declared": {
      "note": "GetProjectionRef 逐字转录；无内部声明=null，不推导不转换",
+     "reader_source": "osgeo GDAL 3.6.2 GetProjectionRef（镜像 f1675321e33eeb95…，只读探针）",
      "srs_is_null": true,
      "wkt_verbatim_from_source": null
     },
@@ -972,9 +1239,38 @@
      3112
     ],
     "world_file_declared": {
+     "binding_basis": "same_container_same_directory_same_stem_exact",
      "file": "pdb2.tifw",
+     "parameter_semantics": {
+      "note": "ESRI 世界文件六参数惯例逐字登记；不做单位/轴向推断",
+      "order": [
+       "x_resolution",
+       "rot_2",
+       "rot_3",
+       "y_resolution",
+       "x_origin_upper_left",
+       "y_origin_upper_left"
+      ],
+      "第五六参数": "左上像素中心 (upper-left pixel center)"
+     },
      "rot_2": 0.0,
      "rot_3": 0.0,
+     "sha256": "2904e190c8c8b2daadd11d683168c6896bd53017e9fbe760dc5676e381067f1d",
+     "source_member": {
+      "archive_chain": [
+       "shapefiles/russ_1904_tibet_pts.ZIP",
+       "pdb2.tifw"
+      ],
+      "archive_ordinals": [
+       13,
+       6
+      ],
+      "relative_path": "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip"
+     },
+     "text_provenance": {
+      "parsed": "由 verbatim 逐行文本解析出的六个浮点值（解析动作在本生成器，原字节未改）",
+      "verbatim": "0.00091249660924\n0.00000000000000\n0.00000000000000\n-0.00091249660924\n87.9371\n29.7982"
+     },
      "verbatim": "0.00091249660924\n0.00000000000000\n0.00000000000000\n-0.00091249660924\n87.9371\n29.7982",
      "x_origin_upper_left": 87.9371,
      "x_resolution": 0.00091249660924,
@@ -1049,6 +1345,7 @@
     ],
     "crs_source_declared": {
      "note": "GetProjectionRef 逐字转录；无内部声明=null，不推导不转换",
+     "reader_source": "osgeo GDAL 3.6.2 GetProjectionRef（镜像 f1675321e33eeb95…，只读探针）",
      "srs_is_null": false,
      "wkt_verbatim_from_source": "LOCAL_CS[\"Geocoding information not available Projection Name = Unknown Units = other GeoTIFF Units = other\",UNIT[\"fathom\",1.8288,AUTHORITY[\"EPSG\",\"9014\"]],AXIS[\"Easting\",EAST],AXIS[\"Northing\",NORTH]]"
     },
@@ -1136,6 +1433,7 @@
     ],
     "crs_source_declared": {
      "note": "GetProjectionRef 逐字转录；无内部声明=null，不推导不转换",
+     "reader_source": "osgeo GDAL 3.6.2 GetProjectionRef（镜像 f1675321e33eeb95…，只读探针）",
      "srs_is_null": false,
      "wkt_verbatim_from_source": "LOCAL_CS[\"Geocoding information not available Projection Name = Unknown Units = other GeoTIFF Units = other\",UNIT[\"fathom\",1.8288,AUTHORITY[\"EPSG\",\"9014\"]],AXIS[\"Easting\",EAST],AXIS[\"Northing\",NORTH]]"
     },
@@ -1223,6 +1521,7 @@
     ],
     "crs_source_declared": {
      "note": "GetProjectionRef 逐字转录；无内部声明=null，不推导不转换",
+     "reader_source": "osgeo GDAL 3.6.2 GetProjectionRef（镜像 f1675321e33eeb95…，只读探针）",
      "srs_is_null": false,
      "wkt_verbatim_from_source": "LOCAL_CS[\"Geocoding information not available Projection Name = Unknown Units = other GeoTIFF Units = other\",UNIT[\"fathom\",1.8288,AUTHORITY[\"EPSG\",\"9014\"]],AXIS[\"Easting\",EAST],AXIS[\"Northing\",NORTH]]"
     },
@@ -1310,6 +1609,7 @@
     ],
     "crs_source_declared": {
      "note": "GetProjectionRef 逐字转录；无内部声明=null，不推导不转换",
+     "reader_source": "osgeo GDAL 3.6.2 GetProjectionRef（镜像 f1675321e33eeb95…，只读探针）",
      "srs_is_null": false,
      "wkt_verbatim_from_source": "LOCAL_CS[\"Geocoding information not available Projection Name = Unknown Units = other GeoTIFF Units = other\",UNIT[\"fathom\",1.8288,AUTHORITY[\"EPSG\",\"9014\"]],AXIS[\"Easting\",EAST],AXIS[\"Northing\",NORTH]]"
     },
@@ -1397,6 +1697,7 @@
     ],
     "crs_source_declared": {
      "note": "GetProjectionRef 逐字转录；无内部声明=null，不推导不转换",
+     "reader_source": "osgeo GDAL 3.6.2 GetProjectionRef（镜像 f1675321e33eeb95…，只读探针）",
      "srs_is_null": false,
      "wkt_verbatim_from_source": "LOCAL_CS[\"Geocoding information not available Projection Name = Unknown Units = other GeoTIFF Units = other\",UNIT[\"fathom\",1.8288,AUTHORITY[\"EPSG\",\"9014\"]],AXIS[\"Easting\",EAST],AXIS[\"Northing\",NORTH]]"
     },
@@ -1484,6 +1785,7 @@
     ],
     "crs_source_declared": {
      "note": "GetProjectionRef 逐字转录；无内部声明=null，不推导不转换",
+     "reader_source": "osgeo GDAL 3.6.2 GetProjectionRef（镜像 f1675321e33eeb95…，只读探针）",
      "srs_is_null": false,
      "wkt_verbatim_from_source": "LOCAL_CS[\"Geocoding information not available Projection Name = Unknown Units = other GeoTIFF Units = other\",UNIT[\"fathom\",1.8288,AUTHORITY[\"EPSG\",\"9014\"]],AXIS[\"Easting\",EAST],AXIS[\"Northing\",NORTH]]"
     },
@@ -1574,6 +1876,7 @@
     ],
     "crs_source_declared": {
      "note": "GetProjectionRef 逐字转录；无内部声明=null，不推导不转换",
+     "reader_source": "osgeo GDAL 3.6.2 GetProjectionRef（镜像 f1675321e33eeb95…，只读探针）",
      "srs_is_null": true,
      "wkt_verbatim_from_source": null
     },
@@ -1586,9 +1889,38 @@
      6008
     ],
     "world_file_declared": {
+     "binding_basis": "same_container_same_directory_same_stem_exact",
      "file": "DemTopo30.JGw",
+     "parameter_semantics": {
+      "note": "ESRI 世界文件六参数惯例逐字登记；不做单位/轴向推断",
+      "order": [
+       "x_resolution",
+       "rot_2",
+       "rot_3",
+       "y_resolution",
+       "x_origin_upper_left",
+       "y_origin_upper_left"
+      ],
+      "第五六参数": "左上像素中心 (upper-left pixel center)"
+     },
      "rot_2": 1.3484169515974287e-06,
      "rot_3": 5.376501945905475e-07,
+     "sha256": "033c7027db3a8d0e745d946efbdbe1e953f4ef2f8a423cc016311b617d1521c9",
+     "source_member": {
+      "archive_chain": [
+       "shapefiles/v3_dem_all.ZIP",
+       "DemTopo30.JGw"
+      ],
+      "archive_ordinals": [
+       62,
+       1
+      ],
+      "relative_path": "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip"
+     },
+     "text_provenance": {
+      "parsed": "由 verbatim 逐行文本解析出的六个浮点值（解析动作在本生成器，原字节未改）",
+      "verbatim": "0.00833600623499071260\n0.00000134841695159742870\n0.000000537650194590547470\n-0.00832345738860768010\n60.006489730096391\n59.985284007330549"
+     },
      "verbatim": "0.00833600623499071260\n0.00000134841695159742870\n0.000000537650194590547470\n-0.00832345738860768010\n60.006489730096391\n59.985284007330549",
      "x_origin_upper_left": 60.00648973009639,
      "x_resolution": 0.008336006234990713,
@@ -1664,6 +1996,7 @@
     ],
     "crs_source_declared": {
      "note": "GetProjectionRef 逐字转录；无内部声明=null，不推导不转换",
+     "reader_source": "osgeo GDAL 3.6.2 GetProjectionRef（镜像 f1675321e33eeb95…，只读探针）",
      "srs_is_null": true,
      "wkt_verbatim_from_source": null
     },
@@ -1676,9 +2009,36 @@
      747
     ],
     "world_file_declared": {
+     "binding_basis": "same_container_same_directory_same_stem_exact",
      "file": "NaturalGasLines_PetroChina_20110830.jgw",
+     "parameter_semantics": {
+      "note": "ESRI 世界文件六参数惯例逐字登记；不做单位/轴向推断",
+      "order": [
+       "x_resolution",
+       "rot_2",
+       "rot_3",
+       "y_resolution",
+       "x_origin_upper_left",
+       "y_origin_upper_left"
+      ],
+      "第五六参数": "左上像素中心 (upper-left pixel center)"
+     },
      "rot_2": -209.2564497959841,
      "rot_3": -15.61994926821616,
+     "sha256": "dc7c2b1ac7fba52aafd702491093201323d73ae4be6b7f9d6600c2b39167931e",
+     "source_member": {
+      "archive_chain": [
+       "NaturalGasLines_PetroChina_20110830.jgw"
+      ],
+      "archive_ordinals": [
+       11
+      ],
+      "relative_path": "harvard-full/doi_10_7910/DVN/J5U79Z/ChinaGasPipelines_2013.zip"
+     },
+     "text_provenance": {
+      "parsed": "由 verbatim 逐行文本解析出的六个浮点值（解析动作在本生成器，原字节未改）",
+      "verbatim": "6740.6672816011778\n-209.25644979598411\n-15.61994926821616\n-6682.7252467134831\n14733670.527201086\n6780644.2881642254"
+     },
      "verbatim": "6740.6672816011778\n-209.25644979598411\n-15.61994926821616\n-6682.7252467134831\n14733670.527201086\n6780644.2881642254",
      "x_origin_upper_left": 14733670.527201086,
      "x_resolution": 6740.667281601178,
@@ -1754,6 +2114,7 @@
     ],
     "crs_source_declared": {
      "note": "GetProjectionRef 逐字转录；无内部声明=null，不推导不转换",
+     "reader_source": "osgeo GDAL 3.6.2 GetProjectionRef（镜像 f1675321e33eeb95…，只读探针）",
      "srs_is_null": true,
      "wkt_verbatim_from_source": null
     },
@@ -1766,9 +2127,36 @@
      2177
     ],
     "world_file_declared": {
+     "binding_basis": "same_container_same_directory_same_stem_exact",
      "file": "map1_p4_.tifw",
+     "parameter_semantics": {
+      "note": "ESRI 世界文件六参数惯例逐字登记；不做单位/轴向推断",
+      "order": [
+       "x_resolution",
+       "rot_2",
+       "rot_3",
+       "y_resolution",
+       "x_origin_upper_left",
+       "y_origin_upper_left"
+      ],
+      "第五六参数": "左上像素中心 (upper-left pixel center)"
+     },
      "rot_2": 0.0,
      "rot_3": 0.0,
+     "sha256": "d7588f077a11b9d3b86a14f95dc53c8b8ce468bf67c5747d68874342e8ff24b1",
+     "source_member": {
+      "archive_chain": [
+       "map1_p4_.tifw"
+      ],
+      "archive_ordinals": [
+       2
+      ],
+      "relative_path": "harvard-full/doi_10_7910/DVN/LVYYZC/Ca1876route_przh_ru_images.zip"
+     },
+     "text_provenance": {
+      "parsed": "由 verbatim 逐行文本解析出的六个浮点值（解析动作在本生成器，原字节未改）",
+      "verbatim": "0.00268691812751\n0.00000000000000\n0.00000000000000\n-0.00268691812751\n79.3877\n45.0036"
+     },
      "verbatim": "0.00268691812751\n0.00000000000000\n0.00000000000000\n-0.00268691812751\n79.3877\n45.0036",
      "x_origin_upper_left": 79.3877,
      "x_resolution": 0.00268691812751,
@@ -1844,6 +2232,7 @@
     ],
     "crs_source_declared": {
      "note": "GetProjectionRef 逐字转录；无内部声明=null，不推导不转换",
+     "reader_source": "osgeo GDAL 3.6.2 GetProjectionRef（镜像 f1675321e33eeb95…，只读探针）",
      "srs_is_null": true,
      "wkt_verbatim_from_source": null
     },
@@ -1856,9 +2245,36 @@
      2017
     ],
     "world_file_declared": {
+     "binding_basis": "same_container_same_directory_same_stem_exact",
      "file": "map10_p4_.tifw",
+     "parameter_semantics": {
+      "note": "ESRI 世界文件六参数惯例逐字登记；不做单位/轴向推断",
+      "order": [
+       "x_resolution",
+       "rot_2",
+       "rot_3",
+       "y_resolution",
+       "x_origin_upper_left",
+       "y_origin_upper_left"
+      ],
+      "第五六参数": "左上像素中心 (upper-left pixel center)"
+     },
      "rot_2": 0.0,
      "rot_3": 0.0,
+     "sha256": "980af9006f28c46bd31bf60d77d111e6357245727f8c7fe309b914038bc5d04b",
+     "source_member": {
+      "archive_chain": [
+       "map10_p4_.tifw"
+      ],
+      "archive_ordinals": [
+       5
+      ],
+      "relative_path": "harvard-full/doi_10_7910/DVN/LVYYZC/Ca1876route_przh_ru_images.zip"
+     },
+     "text_provenance": {
+      "parsed": "由 verbatim 逐行文本解析出的六个浮点值（解析动作在本生成器，原字节未改）",
+      "verbatim": "0.00286972866928\n0.00000000000000\n0.00000000000000\n-0.00286972866928\n77.4144\n49.0653"
+     },
      "verbatim": "0.00286972866928\n0.00000000000000\n0.00000000000000\n-0.00286972866928\n77.4144\n49.0653",
      "x_origin_upper_left": 77.4144,
      "x_resolution": 0.00286972866928,
@@ -1934,6 +2350,7 @@
     ],
     "crs_source_declared": {
      "note": "GetProjectionRef 逐字转录；无内部声明=null，不推导不转换",
+     "reader_source": "osgeo GDAL 3.6.2 GetProjectionRef（镜像 f1675321e33eeb95…，只读探针）",
      "srs_is_null": true,
      "wkt_verbatim_from_source": null
     },
@@ -1946,9 +2363,36 @@
      2009
     ],
     "world_file_declared": {
+     "binding_basis": "same_container_same_directory_same_stem_exact",
      "file": "map11_p4_.tifw",
+     "parameter_semantics": {
+      "note": "ESRI 世界文件六参数惯例逐字登记；不做单位/轴向推断",
+      "order": [
+       "x_resolution",
+       "rot_2",
+       "rot_3",
+       "y_resolution",
+       "x_origin_upper_left",
+       "y_origin_upper_left"
+      ],
+      "第五六参数": "左上像素中心 (upper-left pixel center)"
+     },
      "rot_2": 0.0,
      "rot_3": 0.0,
+     "sha256": "0ed6b4f7b557e146560cd9e70fff478b4e7a1350b614ad030f302cb0dcc27713",
+     "source_member": {
+      "archive_chain": [
+       "map11_p4_.tifw"
+      ],
+      "archive_ordinals": [
+       8
+      ],
+      "relative_path": "harvard-full/doi_10_7910/DVN/LVYYZC/Ca1876route_przh_ru_images.zip"
+     },
+     "text_provenance": {
+      "parsed": "由 verbatim 逐行文本解析出的六个浮点值（解析动作在本生成器，原字节未改）",
+      "verbatim": "0.00289083727259\n0.00000000000000\n0.00000000000000\n-0.00289083727259\n80.4572\n49.5425"
+     },
      "verbatim": "0.00289083727259\n0.00000000000000\n0.00000000000000\n-0.00289083727259\n80.4572\n49.5425",
      "x_origin_upper_left": 80.4572,
      "x_resolution": 0.00289083727259,
@@ -2024,6 +2468,7 @@
     ],
     "crs_source_declared": {
      "note": "GetProjectionRef 逐字转录；无内部声明=null，不推导不转换",
+     "reader_source": "osgeo GDAL 3.6.2 GetProjectionRef（镜像 f1675321e33eeb95…，只读探针）",
      "srs_is_null": true,
      "wkt_verbatim_from_source": null
     },
@@ -2036,9 +2481,36 @@
      2182
     ],
     "world_file_declared": {
+     "binding_basis": "same_container_same_directory_same_stem_exact",
      "file": "map2_p4_.tifw",
+     "parameter_semantics": {
+      "note": "ESRI 世界文件六参数惯例逐字登记；不做单位/轴向推断",
+      "order": [
+       "x_resolution",
+       "rot_2",
+       "rot_3",
+       "y_resolution",
+       "x_origin_upper_left",
+       "y_origin_upper_left"
+      ],
+      "第五六参数": "左上像素中心 (upper-left pixel center)"
+     },
      "rot_2": 0.0,
      "rot_3": 0.0,
+     "sha256": "f0ef8407ec75eb15ee2f397cc5bb20550448982a414bd0ea15e8e1bef940fad8",
+     "source_member": {
+      "archive_chain": [
+       "map2_p4_.tifw"
+      ],
+      "archive_ordinals": [
+       11
+      ],
+      "relative_path": "harvard-full/doi_10_7910/DVN/LVYYZC/Ca1876route_przh_ru_images.zip"
+     },
+     "text_provenance": {
+      "parsed": "由 verbatim 逐行文本解析出的六个浮点值（解析动作在本生成器，原字节未改）",
+      "verbatim": "0.00251815718995\n0.00000000000000\n0.00000000000000\n-0.00251815718995\n84.4185\n45.2893"
+     },
      "verbatim": "0.00251815718995\n0.00000000000000\n0.00000000000000\n-0.00251815718995\n84.4185\n45.2893",
      "x_origin_upper_left": 84.4185,
      "x_resolution": 0.00251815718995,
@@ -2114,6 +2586,7 @@
     ],
     "crs_source_declared": {
      "note": "GetProjectionRef 逐字转录；无内部声明=null，不推导不转换",
+     "reader_source": "osgeo GDAL 3.6.2 GetProjectionRef（镜像 f1675321e33eeb95…，只读探针）",
      "srs_is_null": true,
      "wkt_verbatim_from_source": null
     },
@@ -2126,9 +2599,36 @@
      2303
     ],
     "world_file_declared": {
+     "binding_basis": "same_container_same_directory_same_stem_exact",
      "file": "map3_p4_.tifw",
+     "parameter_semantics": {
+      "note": "ESRI 世界文件六参数惯例逐字登记；不做单位/轴向推断",
+      "order": [
+       "x_resolution",
+       "rot_2",
+       "rot_3",
+       "y_resolution",
+       "x_origin_upper_left",
+       "y_origin_upper_left"
+      ],
+      "第五六参数": "左上像素中心 (upper-left pixel center)"
+     },
      "rot_2": 0.0,
      "rot_3": 0.0,
+     "sha256": "3d319835912d6ea2e8311e89938b180dcb9e3b2ae67e751b4b02b3d4b5bc39dd",
+     "source_member": {
+      "archive_chain": [
+       "map3_p4_.tifw"
+      ],
+      "archive_ordinals": [
+       14
+      ],
+      "relative_path": "harvard-full/doi_10_7910/DVN/LVYYZC/Ca1876route_przh_ru_images.zip"
+     },
+     "text_provenance": {
+      "parsed": "由 verbatim 逐行文本解析出的六个浮点值（解析动作在本生成器，原字节未改）",
+      "verbatim": "0.00232976552128\n0.00000000000000\n0.00000000000000\n-0.00232976552128\n88.8677\n45.342"
+     },
      "verbatim": "0.00232976552128\n0.00000000000000\n0.00000000000000\n-0.00232976552128\n88.8677\n45.342",
      "x_origin_upper_left": 88.8677,
      "x_resolution": 0.00232976552128,
@@ -2204,6 +2704,7 @@
     ],
     "crs_source_declared": {
      "note": "GetProjectionRef 逐字转录；无内部声明=null，不推导不转换",
+     "reader_source": "osgeo GDAL 3.6.2 GetProjectionRef（镜像 f1675321e33eeb95…，只读探针）",
      "srs_is_null": true,
      "wkt_verbatim_from_source": null
     },
@@ -2216,9 +2717,36 @@
      2274
     ],
     "world_file_declared": {
+     "binding_basis": "same_container_same_directory_same_stem_exact",
      "file": "map4_p4_.tifw",
+     "parameter_semantics": {
+      "note": "ESRI 世界文件六参数惯例逐字登记；不做单位/轴向推断",
+      "order": [
+       "x_resolution",
+       "rot_2",
+       "rot_3",
+       "y_resolution",
+       "x_origin_upper_left",
+       "y_origin_upper_left"
+      ],
+      "第五六参数": "左上像素中心 (upper-left pixel center)"
+     },
      "rot_2": 0.0,
      "rot_3": 0.0,
+     "sha256": "98773867f1849d22fd446f283b4966660cdacc384fcfcbb2ae1f467d8c00ec1c",
+     "source_member": {
+      "archive_chain": [
+       "map4_p4_.tifw"
+      ],
+      "archive_ordinals": [
+       17
+      ],
+      "relative_path": "harvard-full/doi_10_7910/DVN/LVYYZC/Ca1876route_przh_ru_images.zip"
+     },
+     "text_provenance": {
+      "parsed": "由 verbatim 逐行文本解析出的六个浮点值（解析动作在本生成器，原字节未改）",
+      "verbatim": "0.00240548497529\n0.00000000000000\n0.00000000000000\n-0.00240548497529\n90.9305\n45.714"
+     },
      "verbatim": "0.00240548497529\n0.00000000000000\n0.00000000000000\n-0.00240548497529\n90.9305\n45.714",
      "x_origin_upper_left": 90.9305,
      "x_resolution": 0.00240548497529,
@@ -2294,6 +2822,7 @@
     ],
     "crs_source_declared": {
      "note": "GetProjectionRef 逐字转录；无内部声明=null，不推导不转换",
+     "reader_source": "osgeo GDAL 3.6.2 GetProjectionRef（镜像 f1675321e33eeb95…，只读探针）",
      "srs_is_null": true,
      "wkt_verbatim_from_source": null
     },
@@ -2306,9 +2835,36 @@
      2034
     ],
     "world_file_declared": {
+     "binding_basis": "same_container_same_directory_same_stem_exact",
      "file": "map5_p4_.tifw",
+     "parameter_semantics": {
+      "note": "ESRI 世界文件六参数惯例逐字登记；不做单位/轴向推断",
+      "order": [
+       "x_resolution",
+       "rot_2",
+       "rot_3",
+       "y_resolution",
+       "x_origin_upper_left",
+       "y_origin_upper_left"
+      ],
+      "第五六参数": "左上像素中心 (upper-left pixel center)"
+     },
      "rot_2": 0.0,
      "rot_3": 0.0,
+     "sha256": "15d0a3c6ecb337cb43c1e29fa0aeb3f62a1086462c2d19da8585c6f200b41794",
+     "source_member": {
+      "archive_chain": [
+       "map5_p4_.tifw"
+      ],
+      "archive_ordinals": [
+       20
+      ],
+      "relative_path": "harvard-full/doi_10_7910/DVN/LVYYZC/Ca1876route_przh_ru_images.zip"
+     },
+     "text_provenance": {
+      "parsed": "由 verbatim 逐行文本解析出的六个浮点值（解析动作在本生成器，原字节未改）",
+      "verbatim": "0.00215132812007\n0.00000000000000\n0.00000000000000\n-0.00215132812007\n89.9993\n41.9139"
+     },
      "verbatim": "0.00215132812007\n0.00000000000000\n0.00000000000000\n-0.00215132812007\n89.9993\n41.9139",
      "x_origin_upper_left": 89.9993,
      "x_resolution": 0.00215132812007,
@@ -2384,6 +2940,7 @@
     ],
     "crs_source_declared": {
      "note": "GetProjectionRef 逐字转录；无内部声明=null，不推导不转换",
+     "reader_source": "osgeo GDAL 3.6.2 GetProjectionRef（镜像 f1675321e33eeb95…，只读探针）",
      "srs_is_null": true,
      "wkt_verbatim_from_source": null
     },
@@ -2396,9 +2953,36 @@
      2078
     ],
     "world_file_declared": {
+     "binding_basis": "same_container_same_directory_same_stem_exact",
      "file": "map6_p4_.tifw",
+     "parameter_semantics": {
+      "note": "ESRI 世界文件六参数惯例逐字登记；不做单位/轴向推断",
+      "order": [
+       "x_resolution",
+       "rot_2",
+       "rot_3",
+       "y_resolution",
+       "x_origin_upper_left",
+       "y_origin_upper_left"
+      ],
+      "第五六参数": "左上像素中心 (upper-left pixel center)"
+     },
      "rot_2": 0.0,
      "rot_3": 0.0,
+     "sha256": "1f7e04e6a8628556b19240e4cd492d4eee6f419d95c495eeda85c7b84fd935d9",
+     "source_member": {
+      "archive_chain": [
+       "map6_p4_.tifw"
+      ],
+      "archive_ordinals": [
+       23
+      ],
+      "relative_path": "harvard-full/doi_10_7910/DVN/LVYYZC/Ca1876route_przh_ru_images.zip"
+     },
+     "text_provenance": {
+      "parsed": "由 verbatim 逐行文本解析出的六个浮点值（解析动作在本生成器，原字节未改）",
+      "verbatim": "0.00262275829526\n0.00000000000000\n0.00000000000000\n-0.00262275829526\n84.5413\n49.4235"
+     },
      "verbatim": "0.00262275829526\n0.00000000000000\n0.00000000000000\n-0.00262275829526\n84.5413\n49.4235",
      "x_origin_upper_left": 84.5413,
      "x_resolution": 0.00262275829526,
@@ -2474,6 +3058,7 @@
     ],
     "crs_source_declared": {
      "note": "GetProjectionRef 逐字转录；无内部声明=null，不推导不转换",
+     "reader_source": "osgeo GDAL 3.6.2 GetProjectionRef（镜像 f1675321e33eeb95…，只读探针）",
      "srs_is_null": true,
      "wkt_verbatim_from_source": null
     },
@@ -2486,9 +3071,36 @@
      2112
     ],
     "world_file_declared": {
+     "binding_basis": "same_container_same_directory_same_stem_exact",
      "file": "map7_p4_.tifw",
+     "parameter_semantics": {
+      "note": "ESRI 世界文件六参数惯例逐字登记；不做单位/轴向推断",
+      "order": [
+       "x_resolution",
+       "rot_2",
+       "rot_3",
+       "y_resolution",
+       "x_origin_upper_left",
+       "y_origin_upper_left"
+      ],
+      "第五六参数": "左上像素中心 (upper-left pixel center)"
+     },
      "rot_2": 0.0,
      "rot_3": 0.0,
+     "sha256": "be08b22b11d84a8bd290137142524c7dc05865cffad79f95a515491fb0f563d0",
+     "source_member": {
+      "archive_chain": [
+       "map7_p4_.tifw"
+      ],
+      "archive_ordinals": [
+       26
+      ],
+      "relative_path": "harvard-full/doi_10_7910/DVN/LVYYZC/Ca1876route_przh_ru_images.zip"
+     },
+     "text_provenance": {
+      "parsed": "由 verbatim 逐行文本解析出的六个浮点值（解析动作在本生成器，原字节未改）",
+      "verbatim": "0.00242231676591\n0.00000000000000\n0.00000000000000\n-0.00242231676591\n90.4671\n49.3923"
+     },
      "verbatim": "0.00242231676591\n0.00000000000000\n0.00000000000000\n-0.00242231676591\n90.4671\n49.3923",
      "x_origin_upper_left": 90.4671,
      "x_resolution": 0.00242231676591,
@@ -2564,6 +3176,7 @@
     ],
     "crs_source_declared": {
      "note": "GetProjectionRef 逐字转录；无内部声明=null，不推导不转换",
+     "reader_source": "osgeo GDAL 3.6.2 GetProjectionRef（镜像 f1675321e33eeb95…，只读探针）",
      "srs_is_null": true,
      "wkt_verbatim_from_source": null
     },
@@ -2576,9 +3189,36 @@
      2308
     ],
     "world_file_declared": {
+     "binding_basis": "same_container_same_directory_same_stem_exact",
      "file": "map8_p4_.tifw",
+     "parameter_semantics": {
+      "note": "ESRI 世界文件六参数惯例逐字登记；不做单位/轴向推断",
+      "order": [
+       "x_resolution",
+       "rot_2",
+       "rot_3",
+       "y_resolution",
+       "x_origin_upper_left",
+       "y_origin_upper_left"
+      ],
+      "第五六参数": "左上像素中心 (upper-left pixel center)"
+     },
      "rot_2": 0.0,
      "rot_3": 0.0,
+     "sha256": "82f99dcf874350a617f177b938771dcbea7323167b928a57d3b8bf91475118f9",
+     "source_member": {
+      "archive_chain": [
+       "map8_p4_.tifw"
+      ],
+      "archive_ordinals": [
+       29
+      ],
+      "relative_path": "harvard-full/doi_10_7910/DVN/LVYYZC/Ca1876route_przh_ru_images.zip"
+     },
+     "text_provenance": {
+      "parsed": "由 verbatim 逐行文本解析出的六个浮点值（解析动作在本生成器，原字节未改）",
+      "verbatim": "0.00237168213827\n0.00000000000000\n0.00000000000000\n-0.00237168213827\n85.7382\n42.3945"
+     },
      "verbatim": "0.00237168213827\n0.00000000000000\n0.00000000000000\n-0.00237168213827\n85.7382\n42.3945",
      "x_origin_upper_left": 85.7382,
      "x_resolution": 0.00237168213827,
@@ -2654,6 +3294,7 @@
     ],
     "crs_source_declared": {
      "note": "GetProjectionRef 逐字转录；无内部声明=null，不推导不转换",
+     "reader_source": "osgeo GDAL 3.6.2 GetProjectionRef（镜像 f1675321e33eeb95…，只读探针）",
      "srs_is_null": true,
      "wkt_verbatim_from_source": null
     },
@@ -2666,9 +3307,36 @@
      2133
     ],
     "world_file_declared": {
+     "binding_basis": "same_container_same_directory_same_stem_exact",
      "file": "map9_p4_.tifw",
+     "parameter_semantics": {
+      "note": "ESRI 世界文件六参数惯例逐字登记；不做单位/轴向推断",
+      "order": [
+       "x_resolution",
+       "rot_2",
+       "rot_3",
+       "y_resolution",
+       "x_origin_upper_left",
+       "y_origin_upper_left"
+      ],
+      "第五六参数": "左上像素中心 (upper-left pixel center)"
+     },
      "rot_2": 0.0,
      "rot_3": 0.0,
+     "sha256": "bf4cd02b7206475573ba05b6323d11cc0a42e76f963f7a5c8a72b8dd47f918cc",
+     "source_member": {
+      "archive_chain": [
+       "map9_p4_.tifw"
+      ],
+      "archive_ordinals": [
+       32
+      ],
+      "relative_path": "harvard-full/doi_10_7910/DVN/LVYYZC/Ca1876route_przh_ru_images.zip"
+     },
+     "text_provenance": {
+      "parsed": "由 verbatim 逐行文本解析出的六个浮点值（解析动作在本生成器，原字节未改）",
+      "verbatim": "0.00231952323374\n0.00000000000000\n0.00000000000000\n-0.00231952323374\n80.4915\n41.3472"
+     },
      "verbatim": "0.00231952323374\n0.00000000000000\n0.00000000000000\n-0.00231952323374\n80.4915\n41.3472",
      "x_origin_upper_left": 80.4915,
      "x_resolution": 0.00231952323374,
@@ -2723,6 +3391,7 @@
     ],
     "crs_source_declared": {
      "note": "GetProjectionRef 逐字转录；无内部声明=null，不推导不转换",
+     "reader_source": "osgeo GDAL 3.6.2 GetProjectionRef（镜像 f1675321e33eeb95…，只读探针）",
      "srs_is_null": false,
      "wkt_verbatim_from_source": "LOCAL_CS[\"Geocoding information not available Projection Name = Xian_1980_GK_Zone_19 Units = meters GeoTIFF Unit\",UNIT[\"metre\",1,AUTHORITY[\"EPSG\",\"9001\"]],AXIS[\"Easting\",EAST],AXIS[\"Northing\",NORTH]]"
     },
@@ -2790,6 +3459,7 @@
     ],
     "crs_source_declared": {
      "note": "GetProjectionRef 逐字转录；无内部声明=null，不推导不转换",
+     "reader_source": "osgeo GDAL 3.6.2 GetProjectionRef（镜像 f1675321e33eeb95…，只读探针）",
      "srs_is_null": false,
      "wkt_verbatim_from_source": "LOCAL_CS[\"Geocoding information not available Projection Name = Xian_1980_GK_Zone_19 Units = meters GeoTIFF Unit\",UNIT[\"metre\",1,AUTHORITY[\"EPSG\",\"9001\"]],AXIS[\"Easting\",EAST],AXIS[\"Northing\",NORTH]]"
     },
@@ -2877,6 +3547,7 @@
     ],
     "crs_source_declared": {
      "note": "GetProjectionRef 逐字转录；无内部声明=null，不推导不转换",
+     "reader_source": "osgeo GDAL 3.6.2 GetProjectionRef（镜像 f1675321e33eeb95…，只读探针）",
      "srs_is_null": false,
      "wkt_verbatim_from_source": "LOCAL_CS[\"Geocoding information not available Projection Name = Xian_1980_GK_Zone_19 Units = meters GeoTIFF Unit\",UNIT[\"metre\",1,AUTHORITY[\"EPSG\",\"9001\"]],AXIS[\"Easting\",EAST],AXIS[\"Northing\",NORTH]]"
     },
@@ -2945,6 +3616,7 @@
     ],
     "crs_source_declared": {
      "note": "GetProjectionRef 逐字转录；无内部声明=null，不推导不转换",
+     "reader_source": "osgeo GDAL 3.6.2 GetProjectionRef（镜像 f1675321e33eeb95…，只读探针）",
      "srs_is_null": true,
      "wkt_verbatim_from_source": null
     },
@@ -3006,6 +3678,7 @@
     ],
     "crs_source_declared": {
      "note": "GetProjectionRef 逐字转录；无内部声明=null，不推导不转换",
+     "reader_source": "osgeo GDAL 3.6.2 GetProjectionRef（镜像 f1675321e33eeb95…，只读探针）",
      "srs_is_null": true,
      "wkt_verbatim_from_source": null
     },
@@ -3018,9 +3691,38 @@
      3112
     ],
     "world_file_declared": {
+     "binding_basis": "same_container_same_directory_same_stem_exact",
      "file": "pdb2.tifw",
+     "parameter_semantics": {
+      "note": "ESRI 世界文件六参数惯例逐字登记；不做单位/轴向推断",
+      "order": [
+       "x_resolution",
+       "rot_2",
+       "rot_3",
+       "y_resolution",
+       "x_origin_upper_left",
+       "y_origin_upper_left"
+      ],
+      "第五六参数": "左上像素中心 (upper-left pixel center)"
+     },
      "rot_2": 0.0,
      "rot_3": 0.0,
+     "sha256": "2904e190c8c8b2daadd11d683168c6896bd53017e9fbe760dc5676e381067f1d",
+     "source_member": {
+      "archive_chain": [
+       "shapefiles/russ_1904_tibet_pts.ZIP",
+       "pdb2.tifw"
+      ],
+      "archive_ordinals": [
+       56,
+       6
+      ],
+      "relative_path": "harvard-full/doi_10_7910/DVN/ZZKZ6U/CHGIS_V2.zip"
+     },
+     "text_provenance": {
+      "parsed": "由 verbatim 逐行文本解析出的六个浮点值（解析动作在本生成器，原字节未改）",
+      "verbatim": "0.00091249660924\n0.00000000000000\n0.00000000000000\n-0.00091249660924\n87.9371\n29.7982"
+     },
      "verbatim": "0.00091249660924\n0.00000000000000\n0.00000000000000\n-0.00091249660924\n87.9371\n29.7982",
      "x_origin_upper_left": 87.9371,
      "x_resolution": 0.00091249660924,
@@ -3098,6 +3800,7 @@
     ],
     "crs_source_declared": {
      "note": "GetProjectionRef 逐字转录；无内部声明=null，不推导不转换",
+     "reader_source": "osgeo GDAL 3.6.2 GetProjectionRef（镜像 f1675321e33eeb95…，只读探针）",
      "srs_is_null": false,
      "wkt_verbatim_from_source": "GEOGCS[\"WGS 84\",DATUM[\"WGS_1984\",SPHEROID[\"WGS 84\",6378137,298.257223563,AUTHORITY[\"EPSG\",\"7030\"]],AUTHORITY[\"EPSG\",\"6326\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AXIS[\"Latitude\",NORTH],AXIS[\"Longitude\",EAST],AUTHORITY[\"EPSG\",\"4326\"]]"
     },
@@ -3116,7 +3819,46 @@
      3157,
      1396
     ],
-    "world_file_declared": null
+    "world_file_declared": {
+     "binding_basis": "casefold_stem_proximity_PENDING_BLOCK6_ADJUDICATION",
+     "binding_status": "association_registered_not_confirmed_binding",
+     "file": "Peking_1875_Bretschneider.tfw",
+     "parameter_semantics": {
+      "note": "ESRI 世界文件六参数惯例逐字登记；不做单位/轴向推断",
+      "order": [
+       "x_resolution",
+       "rot_2",
+       "rot_3",
+       "y_resolution",
+       "x_origin_upper_left",
+       "y_origin_upper_left"
+      ],
+      "第五六参数": "左上像素中心 (upper-left pixel center)"
+     },
+     "rot_2": 0.0,
+     "rot_3": 0.0,
+     "sha256": "bf941ce68df54eefedce56a06f99dfca3bd34e473b7a51b79faa154b2ebb8be0",
+     "source_member": {
+      "archive_chain": [
+       "shapefiles/v2_1875_peking_map.ZIP",
+       "Peking_1875_Bretschneider.tfw"
+      ],
+      "archive_ordinals": [
+       76,
+       3
+      ],
+      "relative_path": "harvard-full/doi_10_7910/DVN/ZZKZ6U/CHGIS_V2.zip"
+     },
+     "text_provenance": {
+      "parsed": "由 verbatim 逐行文本解析出的六个浮点值（解析动作在本生成器，原字节未改）",
+      "verbatim": "0.000519990990993550040\n0.0\n0.0\n-0.000519780703276097580\n115.10228304632693\n40.367663126274962"
+     },
+     "verbatim": "0.000519990990993550040\n0.0\n0.0\n-0.000519780703276097580\n115.10228304632693\n40.367663126274962",
+     "x_origin_upper_left": 115.10228304632693,
+     "x_resolution": 0.00051999099099355,
+     "y_origin_upper_left": 40.36766312627496,
+     "y_resolution": -0.0005197807032760976
+    }
    },
    "per_band_verification": {
     "executed_this_round": true,
@@ -3185,6 +3927,7 @@
     ],
     "crs_source_declared": {
      "note": "GetProjectionRef 逐字转录；无内部声明=null，不推导不转换",
+     "reader_source": "osgeo GDAL 3.6.2 GetProjectionRef（镜像 f1675321e33eeb95…，只读探针）",
      "srs_is_null": false,
      "wkt_verbatim_from_source": "LOCAL_CS[\"Geocoding information not available Projection Name = Unknown Units = other GeoTIFF Units = other\",UNIT[\"fathom\",1.8288,AUTHORITY[\"EPSG\",\"9014\"]],AXIS[\"Easting\",EAST],AXIS[\"Northing\",NORTH]]"
     },
@@ -3272,6 +4015,7 @@
     ],
     "crs_source_declared": {
      "note": "GetProjectionRef 逐字转录；无内部声明=null，不推导不转换",
+     "reader_source": "osgeo GDAL 3.6.2 GetProjectionRef（镜像 f1675321e33eeb95…，只读探针）",
      "srs_is_null": false,
      "wkt_verbatim_from_source": "LOCAL_CS[\"Geocoding information not available Projection Name = Unknown Units = other GeoTIFF Units = other\",UNIT[\"fathom\",1.8288,AUTHORITY[\"EPSG\",\"9014\"]],AXIS[\"Easting\",EAST],AXIS[\"Northing\",NORTH]]"
     },
@@ -3359,6 +4103,7 @@
     ],
     "crs_source_declared": {
      "note": "GetProjectionRef 逐字转录；无内部声明=null，不推导不转换",
+     "reader_source": "osgeo GDAL 3.6.2 GetProjectionRef（镜像 f1675321e33eeb95…，只读探针）",
      "srs_is_null": false,
      "wkt_verbatim_from_source": "LOCAL_CS[\"Geocoding information not available Projection Name = Unknown Units = other GeoTIFF Units = other\",UNIT[\"fathom\",1.8288,AUTHORITY[\"EPSG\",\"9014\"]],AXIS[\"Easting\",EAST],AXIS[\"Northing\",NORTH]]"
     },
@@ -3446,6 +4191,7 @@
     ],
     "crs_source_declared": {
      "note": "GetProjectionRef 逐字转录；无内部声明=null，不推导不转换",
+     "reader_source": "osgeo GDAL 3.6.2 GetProjectionRef（镜像 f1675321e33eeb95…，只读探针）",
      "srs_is_null": false,
      "wkt_verbatim_from_source": "LOCAL_CS[\"Geocoding information not available Projection Name = Unknown Units = other GeoTIFF Units = other\",UNIT[\"fathom\",1.8288,AUTHORITY[\"EPSG\",\"9014\"]],AXIS[\"Easting\",EAST],AXIS[\"Northing\",NORTH]]"
     },
@@ -3533,6 +4279,7 @@
     ],
     "crs_source_declared": {
      "note": "GetProjectionRef 逐字转录；无内部声明=null，不推导不转换",
+     "reader_source": "osgeo GDAL 3.6.2 GetProjectionRef（镜像 f1675321e33eeb95…，只读探针）",
      "srs_is_null": false,
      "wkt_verbatim_from_source": "LOCAL_CS[\"Geocoding information not available Projection Name = Unknown Units = other GeoTIFF Units = other\",UNIT[\"fathom\",1.8288,AUTHORITY[\"EPSG\",\"9014\"]],AXIS[\"Easting\",EAST],AXIS[\"Northing\",NORTH]]"
     },
@@ -3620,6 +4367,7 @@
     ],
     "crs_source_declared": {
      "note": "GetProjectionRef 逐字转录；无内部声明=null，不推导不转换",
+     "reader_source": "osgeo GDAL 3.6.2 GetProjectionRef（镜像 f1675321e33eeb95…，只读探针）",
      "srs_is_null": false,
      "wkt_verbatim_from_source": "LOCAL_CS[\"Geocoding information not available Projection Name = Unknown Units = other GeoTIFF Units = other\",UNIT[\"fathom\",1.8288,AUTHORITY[\"EPSG\",\"9014\"]],AXIS[\"Easting\",EAST],AXIS[\"Northing\",NORTH]]"
     },

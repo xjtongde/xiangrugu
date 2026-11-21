@@ -11,3 +11,8 @@
 - 镜像候选组 377（块5范围内同 sha），含 map1_.TIF/Ca1884_przh_partial.TIF checksum 全同疑似异名同内容；合并裁定留块6，本轮不选主不丢弃。
 - 边界：快照 :ro 零触；隔离提取读后即删不入 git；未写库/未执行源 SQL/未进 pg32/pg32b；entry/rehearsal M=2 保留态未触（WT sha 668900d4…）。
 - 32 工作目录：/opt/mydocker/xiangrugu/build-candidates/raster-other-20261121/（脚本+证据+四件+stageA 中间件）；双跑隔离 /tmp/raster5-uhYO6c。
+## 更正注记（2026-11-21 独立验收补正轮，基线 926ed98）
+- 本记录首盒段「前四块已归属 6103」误计：621 交接件（620 块2+1 Thumbs.db）已在块5候选内，前四块实际归属 5482（3/174/5294/11），等式 5482+2522=8004。机器件已更正（members.json ownership_reconciliation），本历史叙述保留原文+此注记。
+- 首盒「世界文件绑定 23 件」被补正轮实证推翻：stage B「内部 GT 即跳过」缺陷致 2×Peking tfw 漏录，修正后关联回填 25 件（23 精确同 stem 确证绑定+2 casefold 近似关联登记 PENDING_BLOCK6，非确证绑定）；真未绑定仅 1 件 .jgwx。
+- 首盒缺口叙述「v4_dem_geotiff.zip」误写，真身=PDGOZ0/V4_Data_Archive.zip!shapefiles/v4_ras_1904_tibet_pts.zip!pdb2.TIF[159,6]（机器身份首盒即正确）。
+- 详见 .raster-correction5-20261121/lead-record.md。

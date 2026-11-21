@@ -1,0 +1,9 @@
+== ROUND 16/17（2026-11-21 块5首盒独立核，a03，硬停前交报）==
+① 双向对账：candidates↔members 五元组对称差 0；identity 唯一 2522 重复归属 0（(path,sha,size) 160 键多次出现系同外层 ZIP 不同链成员，正常嵌套语义）。inventory 8004 独立重算（自写脚本）：全唯一、candidates⊆inventory 越界 0、multiplicity 失配 0、inv−cand=5482；Σowned=6103+1901=8004；unresolved=[]；cross_references 4 件合理。
+② sha 链：probe_evidence.json 实物 a8b543f2c46cbfca0ce7871666f83d5850671e14fa8133e431cdf69d3918c97f==声明；2437 文件 True/85 目录 n/a；32 快照 :ro 抽 10 件（4 顶层+3 单层+3 两层嵌套）流式重算 leaf sha 10/10==inventory，顶层 4 件外层 zip sha 互证。
+③ 栅格依据：43 提案 gdalinfo_rc 全 0；镜像 f1675321e33e osgeo 独立重探 5 件（chgis_dem LOCAL_CS 6299×6170 Int16 gt 逐字/1926_01.jpg checksums 53555,28927,2546 同值/pdb2×3 案 4488×3112 checksum 35719，v4_dem_geotiff 案无绑定 gt=null 正确，余三案 wf=pdb2.tifw）；世界文件绑定 23/23 同容器同目录同 stem 无跨名借用；DEM 大件 checksum_ran False 如实。
+④ 四件 sha 64 位自算：members 829eabc6bb2d75d6686e99a990b81b8eea20e3cba2677128b23f51aaefe80145 / raster-mapping a696479e73ca4d07401a372df2f85bb1c0ecfa1d038f9706b0546407abc69b13 / gaps 0595546966b32fe9a67da78818a91eacde505da663569f1123166336d72a85dc / SUMMARY 8c815b9c9c59fe8b5ea0e415bb1338a829316196f3c10b2ea6998fc63d6e6c1d；32 候选目录四件同值，生成器两端同 aa029784…。
+⑤ 缺口 6 组实测：georeference_undeclared(pdb2 v4)/tool_gap_wmf_reader×12/raster_checksum_deferred×17/nodata_source_undeclared 113 波段（错误键 0）/inventory_historical_issues 3 项 blocking 逐字/crs_local_cs_non_epsg×17；43 全 PROPOSED_NOT_AUTHORIZED、ready_for_import=false；sid 43 唯一；mirror 组 377 仅登记；counts worldfile 23/checksum 26/internal 19 吻合。
+⑥ 范围：背靠背 porcelain/diff 一致 M=3（TODO+entry+rehearsal），新增恰 .raster-block5-20261121/+raster-other/；暂存 0；二进制入追踪 0；entry WT sha 668900d4… 未触。
+加分：32 备份 /tmp/a03-r17-bak 后单次重跑 EXIT=0 stderr 0 字节，四件 sha 逐一不变。
+ROUND 16/17 六项全 PASS + 加分 PASS，首个不一致：无。

@@ -1,0 +1,3660 @@
+{
+ "baseline_git": "5d0c9e3",
+ "counts": {
+  "checksum_executed": 26,
+  "geo_raster_members": 43,
+  "internal_gt_or_crs_declared": 19,
+  "proposals": 43,
+  "worldfile_bound": 23
+ },
+ "flags": {
+  "ready_for_import": false
+ },
+ "format": "xiangrugu.import-package.raster-other.raster-mapping.v1",
+ "proposed_objects": [
+  {
+   "carrier": "jpeg_with_worldfile",
+   "identity": {
+    "archive_chain": [
+     "1926_01.jpg"
+    ],
+    "archive_ordinals": [
+     0
+    ],
+    "kind": "file",
+    "relative_path": "harvard-full/doi_10_7910/DVN/23340/1926_China_Atlas.zip",
+    "sha256": "b7beb4b05b6e06a60167886e13e50987615c015fc43add9b432b977ddc9ffd5d",
+    "size": 621872
+   },
+   "observed": {
+    "bands": [
+     {
+      "band": 1,
+      "block_size": [
+       1868,
+       1
+      ],
+      "checksum": 53555,
+      "colorInterpretation": "Red",
+      "noData": null,
+      "type": "Byte"
+     },
+     {
+      "band": 2,
+      "block_size": [
+       1868,
+       1
+      ],
+      "checksum": 28927,
+      "colorInterpretation": "Green",
+      "noData": null,
+      "type": "Byte"
+     },
+     {
+      "band": 3,
+      "block_size": [
+       1868,
+       1
+      ],
+      "checksum": 2546,
+      "colorInterpretation": "Blue",
+      "noData": null,
+      "type": "Byte"
+     }
+    ],
+    "crs_source_declared": {
+     "note": "GetProjectionRef 逐字转录；无内部声明=null，不推导不转换",
+     "srs_is_null": true,
+     "wkt_verbatim_from_source": null
+    },
+    "driver": "JPEG",
+    "gcp_count": 0,
+    "gdalinfo_rc": 0,
+    "geotransform": null,
+    "size_px": [
+     1868,
+     1380
+    ],
+    "world_file_declared": {
+     "file": "1926_01.jgw",
+     "rot_2": -274.3726354288097,
+     "rot_3": -203.9311464816814,
+     "verbatim": "3072.9925610571327\n-274.3726354288097\n-203.9311464816814\n-3194.4180988167941\n16056119.508811446\n6609040.046655016",
+     "x_origin_upper_left": 16056119.508811446,
+     "x_resolution": 3072.9925610571327,
+     "y_origin_upper_left": 6609040.046655016,
+     "y_resolution": -3194.418098816794
+    }
+   },
+   "per_band_verification": {
+    "executed_this_round": true,
+    "method": "GDAL band checksum (osgeo Band.Checksum())",
+    "note": "large rasters: method registered, execution deferred to import stage"
+   },
+   "ready_for_import": false,
+   "source_object_id": "4efb96d4427c3f0d0e06ed64c2cf7d770188ae9ad062217ddfb7ecd9253b1b47",
+   "status": "PROPOSED_NOT_AUTHORIZED",
+   "target_proposal": {
+    "loader": "UNDECIDED (PostGIS raster vs bytea+sidecar contract at import stage)",
+    "naming_note": "full-release naming and collision allocation deferred to block 6",
+    "pixel_semantics": "preserve source pixel type/NoData/affine/CRS declaration verbatim; no reprojection, no resampling, no fill",
+    "schema": "chgis",
+    "table_name_proposal": null
+   }
+  },
+  {
+   "carrier": "jpeg_with_worldfile",
+   "identity": {
+    "archive_chain": [
+     "1926_11.jpg"
+    ],
+    "archive_ordinals": [
+     13
+    ],
+    "kind": "file",
+    "relative_path": "harvard-full/doi_10_7910/DVN/23340/1926_China_Atlas.zip",
+    "sha256": "0a238390f887cc834722ac0ee7f01baf0a190161dc68fef779822d88606af60a",
+    "size": 617492
+   },
+   "observed": {
+    "bands": [
+     {
+      "band": 1,
+      "block_size": [
+       1892,
+       1
+      ],
+      "checksum": 21095,
+      "colorInterpretation": "Red",
+      "noData": null,
+      "type": "Byte"
+     },
+     {
+      "band": 2,
+      "block_size": [
+       1892,
+       1
+      ],
+      "checksum": 22370,
+      "colorInterpretation": "Green",
+      "noData": null,
+      "type": "Byte"
+     },
+     {
+      "band": 3,
+      "block_size": [
+       1892,
+       1
+      ],
+      "checksum": 25666,
+      "colorInterpretation": "Blue",
+      "noData": null,
+      "type": "Byte"
+     }
+    ],
+    "crs_source_declared": {
+     "note": "GetProjectionRef 逐字转录；无内部声明=null，不推导不转换",
+     "srs_is_null": true,
+     "wkt_verbatim_from_source": null
+    },
+    "driver": "JPEG",
+    "gcp_count": 0,
+    "gdalinfo_rc": 0,
+    "geotransform": null,
+    "size_px": [
+     1892,
+     1332
+    ],
+    "world_file_declared": {
+     "file": "1926_11.jgw",
+     "rot_2": 32.717371037742296,
+     "rot_3": 38.72262258308159,
+     "verbatim": "459.00891357143223\n32.717371037742296\n38.722622583081588\n-470.74852578709607\n19533771.678411521\n3305206.3052816191",
+     "x_origin_upper_left": 19533771.67841152,
+     "x_resolution": 459.00891357143223,
+     "y_origin_upper_left": 3305206.305281619,
+     "y_resolution": -470.74852578709607
+    }
+   },
+   "per_band_verification": {
+    "executed_this_round": true,
+    "method": "GDAL band checksum (osgeo Band.Checksum())",
+    "note": "large rasters: method registered, execution deferred to import stage"
+   },
+   "ready_for_import": false,
+   "source_object_id": "601baeb9f1527331246f8013ecd14cddb48b8b164527fc6359f5c39a9feb41ce",
+   "status": "PROPOSED_NOT_AUTHORIZED",
+   "target_proposal": {
+    "loader": "UNDECIDED (PostGIS raster vs bytea+sidecar contract at import stage)",
+    "naming_note": "full-release naming and collision allocation deferred to block 6",
+    "pixel_semantics": "preserve source pixel type/NoData/affine/CRS declaration verbatim; no reprojection, no resampling, no fill",
+    "schema": "chgis",
+    "table_name_proposal": null
+   }
+  },
+  {
+   "carrier": "jpeg_with_worldfile",
+   "identity": {
+    "archive_chain": [
+     "1926_13.jpg"
+    ],
+    "archive_ordinals": [
+     17
+    ],
+    "kind": "file",
+    "relative_path": "harvard-full/doi_10_7910/DVN/23340/1926_China_Atlas.zip",
+    "sha256": "8546c644398fb957ec3a029aea52ea9fe8579207d0a7a4d4fb55d7863c1d9f4c",
+    "size": 674564
+   },
+   "observed": {
+    "bands": [
+     {
+      "band": 1,
+      "block_size": [
+       1805,
+       1
+      ],
+      "checksum": 22673,
+      "colorInterpretation": "Red",
+      "noData": null,
+      "type": "Byte"
+     },
+     {
+      "band": 2,
+      "block_size": [
+       1805,
+       1
+      ],
+      "checksum": 58360,
+      "colorInterpretation": "Green",
+      "noData": null,
+      "type": "Byte"
+     },
+     {
+      "band": 3,
+      "block_size": [
+       1805,
+       1
+      ],
+      "checksum": 48342,
+      "colorInterpretation": "Blue",
+      "noData": null,
+      "type": "Byte"
+     }
+    ],
+    "crs_source_declared": {
+     "note": "GetProjectionRef 逐字转录；无内部声明=null，不推导不转换",
+     "srs_is_null": true,
+     "wkt_verbatim_from_source": null
+    },
+    "driver": "JPEG",
+    "gcp_count": 0,
+    "gdalinfo_rc": 0,
+    "geotransform": null,
+    "size_px": [
+     1805,
+     1325
+    ],
+    "world_file_declared": {
+     "file": "1926_13.jgw",
+     "rot_2": -12.993141304307652,
+     "rot_3": 5.490304975033625,
+     "verbatim": "495.55981091379709\n-12.993141304307652\n5.4903049750336246\n-456.93726978315971\n19100914.115626626\n3346217.3863088214",
+     "x_origin_upper_left": 19100914.115626626,
+     "x_resolution": 495.5598109137971,
+     "y_origin_upper_left": 3346217.3863088214,
+     "y_resolution": -456.9372697831597
+    }
+   },
+   "per_band_verification": {
+    "executed_this_round": true,
+    "method": "GDAL band checksum (osgeo Band.Checksum())",
+    "note": "large rasters: method registered, execution deferred to import stage"
+   },
+   "ready_for_import": false,
+   "source_object_id": "c266fcf089383609cb36605ded23b276c972da72332e47db801a154d608144c7",
+   "status": "PROPOSED_NOT_AUTHORIZED",
+   "target_proposal": {
+    "loader": "UNDECIDED (PostGIS raster vs bytea+sidecar contract at import stage)",
+    "naming_note": "full-release naming and collision allocation deferred to block 6",
+    "pixel_semantics": "preserve source pixel type/NoData/affine/CRS declaration verbatim; no reprojection, no resampling, no fill",
+    "schema": "chgis",
+    "table_name_proposal": null
+   }
+  },
+  {
+   "carrier": "geotiff",
+   "identity": {
+    "archive_chain": [
+     "Ca1884_przh_partial.TIF"
+    ],
+    "archive_ordinals": [
+     1
+    ],
+    "kind": "file",
+    "relative_path": "harvard-full/doi_10_7910/DVN/ABPR9F/Ca1884_przh_partial.zip",
+    "sha256": "aa67a1a94d67e2348ddc58e3608aa0e8aa2e14a1482aa5ff6c07bab958c4ec45",
+    "size": 18034748
+   },
+   "observed": {
+    "bands": [
+     {
+      "band": 1,
+      "block_size": [
+       2544,
+       100
+      ],
+      "checksum": 9388,
+      "colorInterpretation": "Red",
+      "noData": null,
+      "type": "Byte"
+     },
+     {
+      "band": 2,
+      "block_size": [
+       2544,
+       100
+      ],
+      "checksum": 1834,
+      "colorInterpretation": "Green",
+      "noData": null,
+      "type": "Byte"
+     },
+     {
+      "band": 3,
+      "block_size": [
+       2544,
+       100
+      ],
+      "checksum": 5726,
+      "colorInterpretation": "Blue",
+      "noData": null,
+      "type": "Byte"
+     }
+    ],
+    "crs_source_declared": {
+     "note": "GetProjectionRef 逐字转录；无内部声明=null，不推导不转换",
+     "srs_is_null": true,
+     "wkt_verbatim_from_source": null
+    },
+    "driver": "GTiff",
+    "gcp_count": 0,
+    "gdalinfo_rc": 0,
+    "geotransform": null,
+    "size_px": [
+     2544,
+     2363
+    ],
+    "world_file_declared": {
+     "file": "Ca1884_przh_partial.tifw",
+     "rot_2": 0.0,
+     "rot_3": 0.0,
+     "verbatim": "0.00453629128981\n0.00000000000000\n0.00000000000000\n-0.00453629128981\n90.8892\n42.5489",
+     "x_origin_upper_left": 90.8892,
+     "x_resolution": 0.00453629128981,
+     "y_origin_upper_left": 42.5489,
+     "y_resolution": -0.00453629128981
+    }
+   },
+   "per_band_verification": {
+    "executed_this_round": true,
+    "method": "GDAL band checksum (osgeo Band.Checksum())",
+    "note": "large rasters: method registered, execution deferred to import stage"
+   },
+   "ready_for_import": false,
+   "source_object_id": "b5d996d18c786c95a24434c3a7d3c6bfceba200b85ac651bfea5138146dedb92",
+   "status": "PROPOSED_NOT_AUTHORIZED",
+   "target_proposal": {
+    "loader": "UNDECIDED (PostGIS raster vs bytea+sidecar contract at import stage)",
+    "naming_note": "full-release naming and collision allocation deferred to block 6",
+    "pixel_semantics": "preserve source pixel type/NoData/affine/CRS declaration verbatim; no reprojection, no resampling, no fill",
+    "schema": "chgis",
+    "table_name_proposal": null
+   }
+  },
+  {
+   "carrier": "geotiff",
+   "identity": {
+    "archive_chain": [
+     "map2_.TIF"
+    ],
+    "archive_ordinals": [
+     0
+    ],
+    "kind": "file",
+    "relative_path": "harvard-full/doi_10_7910/DVN/ABPR9F/Ca1884_przh_ru_images.zip",
+    "sha256": "01ad268f2b25bf5c80b677235c8f97df030389115df2be06d4c6df10ffa88e69",
+    "size": 17386020
+   },
+   "observed": {
+    "bands": [
+     {
+      "band": 1,
+      "block_size": [
+       2544,
+       100
+      ],
+      "checksum": 12409,
+      "colorInterpretation": "Red",
+      "noData": null,
+      "type": "Byte"
+     },
+     {
+      "band": 2,
+      "block_size": [
+       2544,
+       100
+      ],
+      "checksum": 22602,
+      "colorInterpretation": "Green",
+      "noData": null,
+      "type": "Byte"
+     },
+     {
+      "band": 3,
+      "block_size": [
+       2544,
+       100
+      ],
+      "checksum": 31438,
+      "colorInterpretation": "Blue",
+      "noData": null,
+      "type": "Byte"
+     }
+    ],
+    "crs_source_declared": {
+     "note": "GetProjectionRef 逐字转录；无内部声明=null，不推导不转换",
+     "srs_is_null": true,
+     "wkt_verbatim_from_source": null
+    },
+    "driver": "GTiff",
+    "gcp_count": 0,
+    "gdalinfo_rc": 0,
+    "geotransform": null,
+    "size_px": [
+     2544,
+     2278
+    ],
+    "world_file_declared": {
+     "file": "map2_.tifw",
+     "rot_2": 0.0,
+     "rot_3": 0.0,
+     "verbatim": "0.00433412066375\n0.00000000000000\n0.00000000000000\n-0.00433412066375\n81.7526\n42.6342",
+     "x_origin_upper_left": 81.7526,
+     "x_resolution": 0.00433412066375,
+     "y_origin_upper_left": 42.6342,
+     "y_resolution": -0.00433412066375
+    }
+   },
+   "per_band_verification": {
+    "executed_this_round": true,
+    "method": "GDAL band checksum (osgeo Band.Checksum())",
+    "note": "large rasters: method registered, execution deferred to import stage"
+   },
+   "ready_for_import": false,
+   "source_object_id": "551d240ef0a112ba7a20c2634ff6ab350dd721739db15dd0ace51ec2acda7dbf",
+   "status": "PROPOSED_NOT_AUTHORIZED",
+   "target_proposal": {
+    "loader": "UNDECIDED (PostGIS raster vs bytea+sidecar contract at import stage)",
+    "naming_note": "full-release naming and collision allocation deferred to block 6",
+    "pixel_semantics": "preserve source pixel type/NoData/affine/CRS declaration verbatim; no reprojection, no resampling, no fill",
+    "schema": "chgis",
+    "table_name_proposal": null
+   }
+  },
+  {
+   "carrier": "geotiff",
+   "identity": {
+    "archive_chain": [
+     "map1_.TIF"
+    ],
+    "archive_ordinals": [
+     1
+    ],
+    "kind": "file",
+    "relative_path": "harvard-full/doi_10_7910/DVN/ABPR9F/Ca1884_przh_ru_images.zip",
+    "sha256": "aa67a1a94d67e2348ddc58e3608aa0e8aa2e14a1482aa5ff6c07bab958c4ec45",
+    "size": 18034748
+   },
+   "observed": {
+    "bands": [
+     {
+      "band": 1,
+      "block_size": [
+       2544,
+       100
+      ],
+      "checksum": 9388,
+      "colorInterpretation": "Red",
+      "noData": null,
+      "type": "Byte"
+     },
+     {
+      "band": 2,
+      "block_size": [
+       2544,
+       100
+      ],
+      "checksum": 1834,
+      "colorInterpretation": "Green",
+      "noData": null,
+      "type": "Byte"
+     },
+     {
+      "band": 3,
+      "block_size": [
+       2544,
+       100
+      ],
+      "checksum": 5726,
+      "colorInterpretation": "Blue",
+      "noData": null,
+      "type": "Byte"
+     }
+    ],
+    "crs_source_declared": {
+     "note": "GetProjectionRef 逐字转录；无内部声明=null，不推导不转换",
+     "srs_is_null": true,
+     "wkt_verbatim_from_source": null
+    },
+    "driver": "GTiff",
+    "gcp_count": 0,
+    "gdalinfo_rc": 0,
+    "geotransform": null,
+    "size_px": [
+     2544,
+     2363
+    ],
+    "world_file_declared": {
+     "file": "map1_.tifw",
+     "rot_2": 0.0,
+     "rot_3": 0.0,
+     "verbatim": "0.00453629128981\n0.00000000000000\n0.00000000000000\n-0.00453629128981\n90.8892\n42.5489",
+     "x_origin_upper_left": 90.8892,
+     "x_resolution": 0.00453629128981,
+     "y_origin_upper_left": 42.5489,
+     "y_resolution": -0.00453629128981
+    }
+   },
+   "per_band_verification": {
+    "executed_this_round": true,
+    "method": "GDAL band checksum (osgeo Band.Checksum())",
+    "note": "large rasters: method registered, execution deferred to import stage"
+   },
+   "ready_for_import": false,
+   "source_object_id": "801c2aa91d2181f7362cfc783436c0a1096705e84d5b3784b48e9e826cb33241",
+   "status": "PROPOSED_NOT_AUTHORIZED",
+   "target_proposal": {
+    "loader": "UNDECIDED (PostGIS raster vs bytea+sidecar contract at import stage)",
+    "naming_note": "full-release naming and collision allocation deferred to block 6",
+    "pixel_semantics": "preserve source pixel type/NoData/affine/CRS declaration verbatim; no reprojection, no resampling, no fill",
+    "schema": "chgis",
+    "table_name_proposal": null
+   }
+  },
+  {
+   "carrier": "geotiff",
+   "identity": {
+    "archive_chain": [
+     "map3_.TIF"
+    ],
+    "archive_ordinals": [
+     7
+    ],
+    "kind": "file",
+    "relative_path": "harvard-full/doi_10_7910/DVN/ABPR9F/Ca1884_przh_ru_images.zip",
+    "sha256": "9aec75d759f7b2a4f3c50cbd817ac619591781e9f498f613effbd9f0cd1b6f22",
+    "size": 18050012
+   },
+   "observed": {
+    "bands": [
+     {
+      "band": 1,
+      "block_size": [
+       2544,
+       100
+      ],
+      "checksum": 1643,
+      "colorInterpretation": "Red",
+      "noData": null,
+      "type": "Byte"
+     },
+     {
+      "band": 2,
+      "block_size": [
+       2544,
+       100
+      ],
+      "checksum": 26561,
+      "colorInterpretation": "Green",
+      "noData": null,
+      "type": "Byte"
+     },
+     {
+      "band": 3,
+      "block_size": [
+       2544,
+       100
+      ],
+      "checksum": 61875,
+      "colorInterpretation": "Blue",
+      "noData": null,
+      "type": "Byte"
+     }
+    ],
+    "crs_source_declared": {
+     "note": "GetProjectionRef 逐字转录；无内部声明=null，不推导不转换",
+     "srs_is_null": true,
+     "wkt_verbatim_from_source": null
+    },
+    "driver": "GTiff",
+    "gcp_count": 0,
+    "gdalinfo_rc": 0,
+    "geotransform": null,
+    "size_px": [
+     2544,
+     2365
+    ],
+    "world_file_declared": {
+     "file": "map3_.tifw",
+     "rot_2": 0.0,
+     "rot_3": 0.0,
+     "verbatim": "0.00436253126750\n0.00000000000000\n0.00000000000000\n-0.00436253126750\n77.4374\n42.7721",
+     "x_origin_upper_left": 77.4374,
+     "x_resolution": 0.0043625312675,
+     "y_origin_upper_left": 42.7721,
+     "y_resolution": -0.0043625312675
+    }
+   },
+   "per_band_verification": {
+    "executed_this_round": true,
+    "method": "GDAL band checksum (osgeo Band.Checksum())",
+    "note": "large rasters: method registered, execution deferred to import stage"
+   },
+   "ready_for_import": false,
+   "source_object_id": "2b975bef3420d2e82fc57d8c13fb59b3461112d380f5e8f778ba4a9710fdd897",
+   "status": "PROPOSED_NOT_AUTHORIZED",
+   "target_proposal": {
+    "loader": "UNDECIDED (PostGIS raster vs bytea+sidecar contract at import stage)",
+    "naming_note": "full-release naming and collision allocation deferred to block 6",
+    "pixel_semantics": "preserve source pixel type/NoData/affine/CRS declaration verbatim; no reprojection, no resampling, no fill",
+    "schema": "chgis",
+    "table_name_proposal": null
+   }
+  },
+  {
+   "carrier": "geotiff",
+   "identity": {
+    "archive_chain": [
+     "DEM_QGIS-3_REVISED/chgis_dem.tif"
+    ],
+    "archive_ordinals": [
+     0
+    ],
+    "kind": "file",
+    "relative_path": "harvard-full/doi_10_7910/DVN/E1FHML/DEM_QGIS-3_REVISED.zip",
+    "sha256": "67d40baf06589dfb80057accbd3845f4325d6e1e8723a48b4251a5d342733635",
+    "size": 78823155
+   },
+   "observed": {
+    "bands": [
+     {
+      "band": 1,
+      "block_size": [
+       64,
+       64
+      ],
+      "colorInterpretation": "Gray",
+      "noData": null,
+      "type": "Int16"
+     }
+    ],
+    "crs_source_declared": {
+     "note": "GetProjectionRef 逐字转录；无内部声明=null，不推导不转换",
+     "srs_is_null": false,
+     "wkt_verbatim_from_source": "LOCAL_CS[\"Geocoding information not available Projection Name = Xian_1980_GK_Zone_19 Units = meters GeoTIFF Unit\",UNIT[\"metre\",1,AUTHORITY[\"EPSG\",\"9001\"]],AXIS[\"Easting\",EAST],AXIS[\"Northing\",NORTH]]"
+    },
+    "driver": "GTiff",
+    "gcp_count": 0,
+    "gdalinfo_rc": 0,
+    "geotransform": [
+     15781037.0,
+     1000.0,
+     0.0,
+     6567324.56,
+     0.0,
+     -1000.0
+    ],
+    "size_px": [
+     6299,
+     6170
+    ],
+    "world_file_declared": null
+   },
+   "per_band_verification": {
+    "executed_this_round": false,
+    "method": "GDAL band checksum (osgeo Band.Checksum())",
+    "note": "large rasters: method registered, execution deferred to import stage"
+   },
+   "ready_for_import": false,
+   "source_object_id": "ad9a6145c1cdd3b4664c637cbd3dcf76e058089dada9c4d31060b5011fbad232",
+   "status": "PROPOSED_NOT_AUTHORIZED",
+   "target_proposal": {
+    "loader": "UNDECIDED (PostGIS raster vs bytea+sidecar contract at import stage)",
+    "naming_note": "full-release naming and collision allocation deferred to block 6",
+    "pixel_semantics": "preserve source pixel type/NoData/affine/CRS declaration verbatim; no reprojection, no resampling, no fill",
+    "schema": "chgis",
+    "table_name_proposal": null
+   }
+  },
+  {
+   "carrier": "geotiff",
+   "identity": {
+    "archive_chain": [
+     "DEM_QGIS-3_REVISED/chgis_hillshade.tif"
+    ],
+    "archive_ordinals": [
+     2
+    ],
+    "kind": "file",
+    "relative_path": "harvard-full/doi_10_7910/DVN/E1FHML/DEM_QGIS-3_REVISED.zip",
+    "sha256": "3d6a4193d9552bcb14583f2aa347825168afd659b53938d18623a7253d0d778c",
+    "size": 78899897
+   },
+   "observed": {
+    "bands": [
+     {
+      "band": 1,
+      "block_size": [
+       64,
+       64
+      ],
+      "colorInterpretation": "Gray",
+      "noData": null,
+      "type": "Int16"
+     }
+    ],
+    "crs_source_declared": {
+     "note": "GetProjectionRef 逐字转录；无内部声明=null，不推导不转换",
+     "srs_is_null": false,
+     "wkt_verbatim_from_source": "LOCAL_CS[\"Geocoding information not available Projection Name = Xian_1980_GK_Zone_19 Units = meters GeoTIFF Unit\",UNIT[\"metre\",1,AUTHORITY[\"EPSG\",\"9001\"]],AXIS[\"Easting\",EAST],AXIS[\"Northing\",NORTH]]"
+    },
+    "driver": "GTiff",
+    "gcp_count": 0,
+    "gdalinfo_rc": 0,
+    "geotransform": [
+     15781036.966107804,
+     1000.0,
+     0.0,
+     6567324.558187752,
+     0.0,
+     -1000.0
+    ],
+    "size_px": [
+     6299,
+     6170
+    ],
+    "world_file_declared": null
+   },
+   "per_band_verification": {
+    "executed_this_round": false,
+    "method": "GDAL band checksum (osgeo Band.Checksum())",
+    "note": "large rasters: method registered, execution deferred to import stage"
+   },
+   "ready_for_import": false,
+   "source_object_id": "1f139db6e2a1bc6772670e01109b2ec6ac266e80211e5415fcb3c3f7927f46c7",
+   "status": "PROPOSED_NOT_AUTHORIZED",
+   "target_proposal": {
+    "loader": "UNDECIDED (PostGIS raster vs bytea+sidecar contract at import stage)",
+    "naming_note": "full-release naming and collision allocation deferred to block 6",
+    "pixel_semantics": "preserve source pixel type/NoData/affine/CRS declaration verbatim; no reprojection, no resampling, no fill",
+    "schema": "chgis",
+    "table_name_proposal": null
+   }
+  },
+  {
+   "carrier": "geotiff",
+   "identity": {
+    "archive_chain": [
+     "pdb2.TIF"
+    ],
+    "archive_ordinals": [
+     2
+    ],
+    "kind": "file",
+    "relative_path": "harvard-full/doi_10_7910/DVN/ELTD3L/RAS_1900_pdb2_scan.zip",
+    "sha256": "bd56086a9967f0e12775d4de923d39dd06bf861f85e9ffb076eaf888677ed873",
+    "size": 13967046
+   },
+   "observed": {
+    "bands": [
+     {
+      "band": 1,
+      "block_size": [
+       4488,
+       100
+      ],
+      "checksum": 35719,
+      "colorInterpretation": "Gray",
+      "noData": null,
+      "type": "Byte"
+     }
+    ],
+    "crs_source_declared": {
+     "note": "GetProjectionRef 逐字转录；无内部声明=null，不推导不转换",
+     "srs_is_null": true,
+     "wkt_verbatim_from_source": null
+    },
+    "driver": "GTiff",
+    "gcp_count": 0,
+    "gdalinfo_rc": 0,
+    "geotransform": null,
+    "size_px": [
+     4488,
+     3112
+    ],
+    "world_file_declared": {
+     "file": "pdb2.tifw",
+     "rot_2": 0.0,
+     "rot_3": 0.0,
+     "verbatim": "0.00091249660924\n0.00000000000000\n0.00000000000000\n-0.00091249660924\n87.9371\n29.7982",
+     "x_origin_upper_left": 87.9371,
+     "x_resolution": 0.00091249660924,
+     "y_origin_upper_left": 29.7982,
+     "y_resolution": -0.00091249660924
+    }
+   },
+   "per_band_verification": {
+    "executed_this_round": true,
+    "method": "GDAL band checksum (osgeo Band.Checksum())",
+    "note": "large rasters: method registered, execution deferred to import stage"
+   },
+   "ready_for_import": false,
+   "source_object_id": "1958d88b1a80d6786675913ce3d0912aead4c436eab9c129e23aae8e4a19e0a9",
+   "status": "PROPOSED_NOT_AUTHORIZED",
+   "target_proposal": {
+    "loader": "UNDECIDED (PostGIS raster vs bytea+sidecar contract at import stage)",
+    "naming_note": "full-release naming and collision allocation deferred to block 6",
+    "pixel_semantics": "preserve source pixel type/NoData/affine/CRS declaration verbatim; no reprojection, no resampling, no fill",
+    "schema": "chgis",
+    "table_name_proposal": null
+   }
+  },
+  {
+   "carrier": "geotiff",
+   "identity": {
+    "archive_chain": [
+     "peking_1875_bretschneider.tif"
+    ],
+    "archive_ordinals": [
+     3
+    ],
+    "kind": "file",
+    "relative_path": "harvard-full/doi_10_7910/DVN/H4WVUP/beijing_1875.zip",
+    "sha256": "df0ffa2bc92c094ce383aa20d6523d3885805c217fd1ee106fe72bf72096541c",
+    "size": 13227871
+   },
+   "observed": {
+    "bands": [
+     {
+      "band": 1,
+      "block_size": [
+       3157,
+       2
+      ],
+      "checksum": 26954,
+      "colorInterpretation": "Red",
+      "noData": null,
+      "type": "Byte"
+     },
+     {
+      "band": 2,
+      "block_size": [
+       3157,
+       2
+      ],
+      "checksum": 34104,
+      "colorInterpretation": "Green",
+      "noData": null,
+      "type": "Byte"
+     },
+     {
+      "band": 3,
+      "block_size": [
+       3157,
+       2
+      ],
+      "checksum": 64165,
+      "colorInterpretation": "Blue",
+      "noData": null,
+      "type": "Byte"
+     }
+    ],
+    "crs_source_declared": {
+     "note": "GetProjectionRef 逐字转录；无内部声明=null，不推导不转换",
+     "srs_is_null": false,
+     "wkt_verbatim_from_source": "GEOGCS[\"WGS 84\",DATUM[\"WGS_1984\",SPHEROID[\"WGS 84\",6378137,298.257223563,AUTHORITY[\"EPSG\",\"7030\"]],AUTHORITY[\"EPSG\",\"6326\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AXIS[\"Latitude\",NORTH],AXIS[\"Longitude\",EAST],AUTHORITY[\"EPSG\",\"4326\"]]"
+    },
+    "driver": "GTiff",
+    "gcp_count": 0,
+    "gdalinfo_rc": 0,
+    "geotransform": [
+     115.10202305083143,
+     0.00051999099099355,
+     0.0,
+     40.3679230166266,
+     0.0,
+     -0.0005197807032760976
+    ],
+    "size_px": [
+     3157,
+     1396
+    ],
+    "world_file_declared": null
+   },
+   "per_band_verification": {
+    "executed_this_round": true,
+    "method": "GDAL band checksum (osgeo Band.Checksum())",
+    "note": "large rasters: method registered, execution deferred to import stage"
+   },
+   "ready_for_import": false,
+   "source_object_id": "1efd7d4b2e19415843719a425398b12ebc2618a9f9e4578d12301c117a29c250",
+   "status": "PROPOSED_NOT_AUTHORIZED",
+   "target_proposal": {
+    "loader": "UNDECIDED (PostGIS raster vs bytea+sidecar contract at import stage)",
+    "naming_note": "full-release naming and collision allocation deferred to block 6",
+    "pixel_semantics": "preserve source pixel type/NoData/affine/CRS declaration verbatim; no reprojection, no resampling, no fill",
+    "schema": "chgis",
+    "table_name_proposal": null
+   }
+  },
+  {
+   "carrier": "geotiff",
+   "identity": {
+    "archive_chain": [
+     "shapefiles/russ_1904_tibet_pts.ZIP",
+     "pdb2.TIF"
+    ],
+    "archive_ordinals": [
+     13,
+     5
+    ],
+    "kind": "file",
+    "relative_path": "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip",
+    "sha256": "bd56086a9967f0e12775d4de923d39dd06bf861f85e9ffb076eaf888677ed873",
+    "size": 13967046
+   },
+   "observed": {
+    "bands": [
+     {
+      "band": 1,
+      "block_size": [
+       4488,
+       100
+      ],
+      "checksum": 35719,
+      "colorInterpretation": "Gray",
+      "noData": null,
+      "type": "Byte"
+     }
+    ],
+    "crs_source_declared": {
+     "note": "GetProjectionRef 逐字转录；无内部声明=null，不推导不转换",
+     "srs_is_null": true,
+     "wkt_verbatim_from_source": null
+    },
+    "driver": "GTiff",
+    "gcp_count": 0,
+    "gdalinfo_rc": 0,
+    "geotransform": null,
+    "size_px": [
+     4488,
+     3112
+    ],
+    "world_file_declared": {
+     "file": "pdb2.tifw",
+     "rot_2": 0.0,
+     "rot_3": 0.0,
+     "verbatim": "0.00091249660924\n0.00000000000000\n0.00000000000000\n-0.00091249660924\n87.9371\n29.7982",
+     "x_origin_upper_left": 87.9371,
+     "x_resolution": 0.00091249660924,
+     "y_origin_upper_left": 29.7982,
+     "y_resolution": -0.00091249660924
+    }
+   },
+   "per_band_verification": {
+    "executed_this_round": true,
+    "method": "GDAL band checksum (osgeo Band.Checksum())",
+    "note": "large rasters: method registered, execution deferred to import stage"
+   },
+   "ready_for_import": false,
+   "source_object_id": "2e521352dc83476a2f1c9c86cc9c648b474352dc5d0bc69f74dae5e88909c3f9",
+   "status": "PROPOSED_NOT_AUTHORIZED",
+   "target_proposal": {
+    "loader": "UNDECIDED (PostGIS raster vs bytea+sidecar contract at import stage)",
+    "naming_note": "full-release naming and collision allocation deferred to block 6",
+    "pixel_semantics": "preserve source pixel type/NoData/affine/CRS declaration verbatim; no reprojection, no resampling, no fill",
+    "schema": "chgis",
+    "table_name_proposal": null
+   }
+  },
+  {
+   "carrier": "geotiff",
+   "identity": {
+    "archive_chain": [
+     "shapefiles/v2_dem_ne_three.ZIP",
+     "ne_three.tif"
+    ],
+    "archive_ordinals": [
+     32,
+     2
+    ],
+    "kind": "file",
+    "relative_path": "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip",
+    "sha256": "32f1f4326a48e24e8eed32bb0a235c76ffa1ff40fcb15148b36de483ef87c499",
+    "size": 26618616
+   },
+   "observed": {
+    "bands": [
+     {
+      "band": 1,
+      "block_size": [
+       3443,
+       2
+      ],
+      "colorInterpretation": "Gray",
+      "noData": null,
+      "type": "Byte"
+     },
+     {
+      "band": 2,
+      "block_size": [
+       3443,
+       2
+      ],
+      "colorInterpretation": "Undefined",
+      "noData": null,
+      "type": "Byte"
+     },
+     {
+      "band": 3,
+      "block_size": [
+       3443,
+       2
+      ],
+      "colorInterpretation": "Undefined",
+      "noData": null,
+      "type": "Byte"
+     }
+    ],
+    "crs_source_declared": {
+     "note": "GetProjectionRef 逐字转录；无内部声明=null，不推导不转换",
+     "srs_is_null": false,
+     "wkt_verbatim_from_source": "LOCAL_CS[\"Geocoding information not available Projection Name = Unknown Units = other GeoTIFF Units = other\",UNIT[\"fathom\",1.8288,AUTHORITY[\"EPSG\",\"9014\"]],AXIS[\"Easting\",EAST],AXIS[\"Northing\",NORTH]]"
+    },
+    "driver": "GTiff",
+    "gcp_count": 0,
+    "gdalinfo_rc": 0,
+    "geotransform": [
+     123.99572863433838,
+     0.008542731323248157,
+     0.0,
+     60.004270882311616,
+     0.0,
+     -0.008542731323248157
+    ],
+    "size_px": [
+     3443,
+     2576
+    ],
+    "world_file_declared": null
+   },
+   "per_band_verification": {
+    "executed_this_round": false,
+    "method": "GDAL band checksum (osgeo Band.Checksum())",
+    "note": "large rasters: method registered, execution deferred to import stage"
+   },
+   "ready_for_import": false,
+   "source_object_id": "b2dbda65c86abdf62b2735dcc26bd3160648befbf845084f80e13d238a55ed7c",
+   "status": "PROPOSED_NOT_AUTHORIZED",
+   "target_proposal": {
+    "loader": "UNDECIDED (PostGIS raster vs bytea+sidecar contract at import stage)",
+    "naming_note": "full-release naming and collision allocation deferred to block 6",
+    "pixel_semantics": "preserve source pixel type/NoData/affine/CRS declaration verbatim; no reprojection, no resampling, no fill",
+    "schema": "chgis",
+    "table_name_proposal": null
+   }
+  },
+  {
+   "carrier": "geotiff",
+   "identity": {
+    "archive_chain": [
+     "shapefiles/v2_dem_north_two.ZIP",
+     "north_two.tif"
+    ],
+    "archive_ordinals": [
+     33,
+     2
+    ],
+    "kind": "file",
+    "relative_path": "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip",
+    "sha256": "d641b790bb51d300755d86d6bdd26bdb6bcee9507326986fb3d97ec706f502ae",
+    "size": 26255400
+   },
+   "observed": {
+    "bands": [
+     {
+      "band": 1,
+      "block_size": [
+       3396,
+       2
+      ],
+      "colorInterpretation": "Gray",
+      "noData": null,
+      "type": "Byte"
+     },
+     {
+      "band": 2,
+      "block_size": [
+       3396,
+       2
+      ],
+      "colorInterpretation": "Undefined",
+      "noData": null,
+      "type": "Byte"
+     },
+     {
+      "band": 3,
+      "block_size": [
+       3396,
+       2
+      ],
+      "colorInterpretation": "Undefined",
+      "noData": null,
+      "type": "Byte"
+     }
+    ],
+    "crs_source_declared": {
+     "note": "GetProjectionRef 逐字转录；无内部声明=null，不推导不转换",
+     "srs_is_null": false,
+     "wkt_verbatim_from_source": "LOCAL_CS[\"Geocoding information not available Projection Name = Unknown Units = other GeoTIFF Units = other\",UNIT[\"fathom\",1.8288,AUTHORITY[\"EPSG\",\"9014\"]],AXIS[\"Easting\",EAST],AXIS[\"Northing\",NORTH]]"
+    },
+    "driver": "GTiff",
+    "gcp_count": 0,
+    "gdalinfo_rc": 0,
+    "geotransform": [
+     94.99572863433838,
+     0.008542731323248157,
+     0.0,
+     60.00427136566162,
+     0.0,
+     -0.008542731323248157
+    ],
+    "size_px": [
+     3396,
+     2576
+    ],
+    "world_file_declared": null
+   },
+   "per_band_verification": {
+    "executed_this_round": false,
+    "method": "GDAL band checksum (osgeo Band.Checksum())",
+    "note": "large rasters: method registered, execution deferred to import stage"
+   },
+   "ready_for_import": false,
+   "source_object_id": "f9562137b4c6bd00b47987a4b60d376a28d2af63a1d9bfc72b2fb2db2aac6589",
+   "status": "PROPOSED_NOT_AUTHORIZED",
+   "target_proposal": {
+    "loader": "UNDECIDED (PostGIS raster vs bytea+sidecar contract at import stage)",
+    "naming_note": "full-release naming and collision allocation deferred to block 6",
+    "pixel_semantics": "preserve source pixel type/NoData/affine/CRS declaration verbatim; no reprojection, no resampling, no fill",
+    "schema": "chgis",
+    "table_name_proposal": null
+   }
+  },
+  {
+   "carrier": "geotiff",
+   "identity": {
+    "archive_chain": [
+     "shapefiles/v2_dem_nw_one.ZIP",
+     "nw_one.tif"
+    ],
+    "archive_ordinals": [
+     34,
+     0
+    ],
+    "kind": "file",
+    "relative_path": "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip",
+    "sha256": "40685c6a5c49316a614b322f8973df3356bfd3b2d7036e7c79e7627e6e6b6850",
+    "size": 31690760
+   },
+   "observed": {
+    "bands": [
+     {
+      "band": 1,
+      "block_size": [
+       4098,
+       1
+      ],
+      "colorInterpretation": "Gray",
+      "noData": null,
+      "type": "Byte"
+     },
+     {
+      "band": 2,
+      "block_size": [
+       4098,
+       1
+      ],
+      "colorInterpretation": "Undefined",
+      "noData": null,
+      "type": "Byte"
+     },
+     {
+      "band": 3,
+      "block_size": [
+       4098,
+       1
+      ],
+      "colorInterpretation": "Undefined",
+      "noData": null,
+      "type": "Byte"
+     }
+    ],
+    "crs_source_declared": {
+     "note": "GetProjectionRef 逐字转录；无内部声明=null，不推导不转换",
+     "srs_is_null": false,
+     "wkt_verbatim_from_source": "LOCAL_CS[\"Geocoding information not available Projection Name = Unknown Units = other GeoTIFF Units = other\",UNIT[\"fathom\",1.8288,AUTHORITY[\"EPSG\",\"9014\"]],AXIS[\"Easting\",EAST],AXIS[\"Northing\",NORTH]]"
+    },
+    "driver": "GTiff",
+    "gcp_count": 0,
+    "gdalinfo_rc": 0,
+    "geotransform": [
+     59.99572863433838,
+     0.008542731323248157,
+     0.0,
+     60.004270882311616,
+     0.0,
+     -0.008542731323248157
+    ],
+    "size_px": [
+     4098,
+     2576
+    ],
+    "world_file_declared": null
+   },
+   "per_band_verification": {
+    "executed_this_round": false,
+    "method": "GDAL band checksum (osgeo Band.Checksum())",
+    "note": "large rasters: method registered, execution deferred to import stage"
+   },
+   "ready_for_import": false,
+   "source_object_id": "e640378f2fb59cbf4f93602e272a4146de647750db1f91b79c28795aae5651c6",
+   "status": "PROPOSED_NOT_AUTHORIZED",
+   "target_proposal": {
+    "loader": "UNDECIDED (PostGIS raster vs bytea+sidecar contract at import stage)",
+    "naming_note": "full-release naming and collision allocation deferred to block 6",
+    "pixel_semantics": "preserve source pixel type/NoData/affine/CRS declaration verbatim; no reprojection, no resampling, no fill",
+    "schema": "chgis",
+    "table_name_proposal": null
+   }
+  },
+  {
+   "carrier": "geotiff",
+   "identity": {
+    "archive_chain": [
+     "shapefiles/v2_dem_se_four.ZIP",
+     "se_four.tif"
+    ],
+    "archive_ordinals": [
+     35,
+     2
+    ],
+    "kind": "file",
+    "relative_path": "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip",
+    "sha256": "782b74c4aee0ae6ae202a0ad3d2e0a934134a460be7a08d8f3ad5c37cf77babc",
+    "size": 33893048
+   },
+   "observed": {
+    "bands": [
+     {
+      "band": 1,
+      "block_size": [
+       3443,
+       2
+      ],
+      "colorInterpretation": "Gray",
+      "noData": null,
+      "type": "Byte"
+     },
+     {
+      "band": 2,
+      "block_size": [
+       3443,
+       2
+      ],
+      "colorInterpretation": "Undefined",
+      "noData": null,
+      "type": "Byte"
+     },
+     {
+      "band": 3,
+      "block_size": [
+       3443,
+       2
+      ],
+      "colorInterpretation": "Undefined",
+      "noData": null,
+      "type": "Byte"
+     }
+    ],
+    "crs_source_declared": {
+     "note": "GetProjectionRef 逐字转录；无内部声明=null，不推导不转换",
+     "srs_is_null": false,
+     "wkt_verbatim_from_source": "LOCAL_CS[\"Geocoding information not available Projection Name = Unknown Units = other GeoTIFF Units = other\",UNIT[\"fathom\",1.8288,AUTHORITY[\"EPSG\",\"9014\"]],AXIS[\"Easting\",EAST],AXIS[\"Northing\",NORTH]]"
+    },
+    "driver": "GTiff",
+    "gcp_count": 0,
+    "gdalinfo_rc": 0,
+    "geotransform": [
+     123.99572863433838,
+     0.008542731323248157,
+     0.0,
+     38.00427136566162,
+     0.0,
+     -0.008542731323248157
+    ],
+    "size_px": [
+     3443,
+     3279
+    ],
+    "world_file_declared": null
+   },
+   "per_band_verification": {
+    "executed_this_round": false,
+    "method": "GDAL band checksum (osgeo Band.Checksum())",
+    "note": "large rasters: method registered, execution deferred to import stage"
+   },
+   "ready_for_import": false,
+   "source_object_id": "6465eef4e04e104c59a8c9936bd2c995ca825a5f5b540b8cf131559ef8645ce9",
+   "status": "PROPOSED_NOT_AUTHORIZED",
+   "target_proposal": {
+    "loader": "UNDECIDED (PostGIS raster vs bytea+sidecar contract at import stage)",
+    "naming_note": "full-release naming and collision allocation deferred to block 6",
+    "pixel_semantics": "preserve source pixel type/NoData/affine/CRS declaration verbatim; no reprojection, no resampling, no fill",
+    "schema": "chgis",
+    "table_name_proposal": null
+   }
+  },
+  {
+   "carrier": "geotiff",
+   "identity": {
+    "archive_chain": [
+     "shapefiles/v2_dem_south_five.ZIP",
+     "south_five.tif"
+    ],
+    "archive_ordinals": [
+     36,
+     2
+    ],
+    "kind": "file",
+    "relative_path": "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip",
+    "sha256": "14ef06da4a769cc34bb415192f3a219146d46a4a6263146cbbae6efafc328148",
+    "size": 33430568
+   },
+   "observed": {
+    "bands": [
+     {
+      "band": 1,
+      "block_size": [
+       3396,
+       2
+      ],
+      "colorInterpretation": "Gray",
+      "noData": null,
+      "type": "Byte"
+     },
+     {
+      "band": 2,
+      "block_size": [
+       3396,
+       2
+      ],
+      "colorInterpretation": "Undefined",
+      "noData": null,
+      "type": "Byte"
+     },
+     {
+      "band": 3,
+      "block_size": [
+       3396,
+       2
+      ],
+      "colorInterpretation": "Undefined",
+      "noData": null,
+      "type": "Byte"
+     }
+    ],
+    "crs_source_declared": {
+     "note": "GetProjectionRef 逐字转录；无内部声明=null，不推导不转换",
+     "srs_is_null": false,
+     "wkt_verbatim_from_source": "LOCAL_CS[\"Geocoding information not available Projection Name = Unknown Units = other GeoTIFF Units = other\",UNIT[\"fathom\",1.8288,AUTHORITY[\"EPSG\",\"9014\"]],AXIS[\"Easting\",EAST],AXIS[\"Northing\",NORTH]]"
+    },
+    "driver": "GTiff",
+    "gcp_count": 0,
+    "gdalinfo_rc": 0,
+    "geotransform": [
+     94.99572863433838,
+     0.008542731323248157,
+     0.0,
+     38.00427136566162,
+     0.0,
+     -0.008542731323248157
+    ],
+    "size_px": [
+     3396,
+     3279
+    ],
+    "world_file_declared": null
+   },
+   "per_band_verification": {
+    "executed_this_round": false,
+    "method": "GDAL band checksum (osgeo Band.Checksum())",
+    "note": "large rasters: method registered, execution deferred to import stage"
+   },
+   "ready_for_import": false,
+   "source_object_id": "e124d14d31dee2cc4b6dca40bc68627c770d042532152fbab19f27c73e66e382",
+   "status": "PROPOSED_NOT_AUTHORIZED",
+   "target_proposal": {
+    "loader": "UNDECIDED (PostGIS raster vs bytea+sidecar contract at import stage)",
+    "naming_note": "full-release naming and collision allocation deferred to block 6",
+    "pixel_semantics": "preserve source pixel type/NoData/affine/CRS declaration verbatim; no reprojection, no resampling, no fill",
+    "schema": "chgis",
+    "table_name_proposal": null
+   }
+  },
+  {
+   "carrier": "geotiff",
+   "identity": {
+    "archive_chain": [
+     "shapefiles/v2_dem_sw_six.ZIP",
+     "sw_six.tif"
+    ],
+    "archive_ordinals": [
+     37,
+     2
+    ],
+    "kind": "file",
+    "relative_path": "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip",
+    "sha256": "393adaaa5cc6af8a01f70f04f604e8efca31c21a769957b2fb95ea05a20d22c0",
+    "size": 40339066
+   },
+   "observed": {
+    "bands": [
+     {
+      "band": 1,
+      "block_size": [
+       4098,
+       1
+      ],
+      "colorInterpretation": "Gray",
+      "noData": null,
+      "type": "Byte"
+     },
+     {
+      "band": 2,
+      "block_size": [
+       4098,
+       1
+      ],
+      "colorInterpretation": "Undefined",
+      "noData": null,
+      "type": "Byte"
+     },
+     {
+      "band": 3,
+      "block_size": [
+       4098,
+       1
+      ],
+      "colorInterpretation": "Undefined",
+      "noData": null,
+      "type": "Byte"
+     }
+    ],
+    "crs_source_declared": {
+     "note": "GetProjectionRef 逐字转录；无内部声明=null，不推导不转换",
+     "srs_is_null": false,
+     "wkt_verbatim_from_source": "LOCAL_CS[\"Geocoding information not available Projection Name = Unknown Units = other GeoTIFF Units = other\",UNIT[\"fathom\",1.8288,AUTHORITY[\"EPSG\",\"9014\"]],AXIS[\"Easting\",EAST],AXIS[\"Northing\",NORTH]]"
+    },
+    "driver": "GTiff",
+    "gcp_count": 0,
+    "gdalinfo_rc": 0,
+    "geotransform": [
+     59.99572863433838,
+     0.008542731323248157,
+     0.0,
+     38.00427136566162,
+     0.0,
+     -0.008542731323248157
+    ],
+    "size_px": [
+     4098,
+     3279
+    ],
+    "world_file_declared": null
+   },
+   "per_band_verification": {
+    "executed_this_round": false,
+    "method": "GDAL band checksum (osgeo Band.Checksum())",
+    "note": "large rasters: method registered, execution deferred to import stage"
+   },
+   "ready_for_import": false,
+   "source_object_id": "2350f1f5dad3c04e8a78dd9609776618839a31c13111998b97556464cbee182d",
+   "status": "PROPOSED_NOT_AUTHORIZED",
+   "target_proposal": {
+    "loader": "UNDECIDED (PostGIS raster vs bytea+sidecar contract at import stage)",
+    "naming_note": "full-release naming and collision allocation deferred to block 6",
+    "pixel_semantics": "preserve source pixel type/NoData/affine/CRS declaration verbatim; no reprojection, no resampling, no fill",
+    "schema": "chgis",
+    "table_name_proposal": null
+   }
+  },
+  {
+   "carrier": "jpeg_with_worldfile",
+   "identity": {
+    "archive_chain": [
+     "shapefiles/v3_dem_all.ZIP",
+     "DemTopo30.jpg"
+    ],
+    "archive_ordinals": [
+     62,
+     2
+    ],
+    "kind": "file",
+    "relative_path": "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip",
+    "sha256": "11b03dccec77b26be3b82e05e751a416c383ead3225d4ee4679fb9a366e896d1",
+    "size": 3681189
+   },
+   "observed": {
+    "bands": [
+     {
+      "band": 1,
+      "block_size": [
+       10690,
+       1
+      ],
+      "checksum": 64041,
+      "colorInterpretation": "Red",
+      "noData": null,
+      "type": "Byte"
+     },
+     {
+      "band": 2,
+      "block_size": [
+       10690,
+       1
+      ],
+      "checksum": 7080,
+      "colorInterpretation": "Green",
+      "noData": null,
+      "type": "Byte"
+     },
+     {
+      "band": 3,
+      "block_size": [
+       10690,
+       1
+      ],
+      "checksum": 36005,
+      "colorInterpretation": "Blue",
+      "noData": null,
+      "type": "Byte"
+     }
+    ],
+    "crs_source_declared": {
+     "note": "GetProjectionRef 逐字转录；无内部声明=null，不推导不转换",
+     "srs_is_null": true,
+     "wkt_verbatim_from_source": null
+    },
+    "driver": "JPEG",
+    "gcp_count": 0,
+    "gdalinfo_rc": 0,
+    "geotransform": null,
+    "size_px": [
+     10690,
+     6008
+    ],
+    "world_file_declared": {
+     "file": "DemTopo30.JGw",
+     "rot_2": 1.3484169515974287e-06,
+     "rot_3": 5.376501945905475e-07,
+     "verbatim": "0.00833600623499071260\n0.00000134841695159742870\n0.000000537650194590547470\n-0.00832345738860768010\n60.006489730096391\n59.985284007330549",
+     "x_origin_upper_left": 60.00648973009639,
+     "x_resolution": 0.008336006234990713,
+     "y_origin_upper_left": 59.98528400733055,
+     "y_resolution": -0.00832345738860768
+    }
+   },
+   "per_band_verification": {
+    "executed_this_round": true,
+    "method": "GDAL band checksum (osgeo Band.Checksum())",
+    "note": "large rasters: method registered, execution deferred to import stage"
+   },
+   "ready_for_import": false,
+   "source_object_id": "66689ad925a9dfe5577600d3f6f9580124f1ffc130c75b153732ca9e6c4fcf46",
+   "status": "PROPOSED_NOT_AUTHORIZED",
+   "target_proposal": {
+    "loader": "UNDECIDED (PostGIS raster vs bytea+sidecar contract at import stage)",
+    "naming_note": "full-release naming and collision allocation deferred to block 6",
+    "pixel_semantics": "preserve source pixel type/NoData/affine/CRS declaration verbatim; no reprojection, no resampling, no fill",
+    "schema": "chgis",
+    "table_name_proposal": null
+   }
+  },
+  {
+   "carrier": "jpeg_with_worldfile",
+   "identity": {
+    "archive_chain": [
+     "NaturalGasLines_PetroChina_20110830.jpg"
+    ],
+    "archive_ordinals": [
+     12
+    ],
+    "kind": "file",
+    "relative_path": "harvard-full/doi_10_7910/DVN/J5U79Z/ChinaGasPipelines_2013.zip",
+    "sha256": "453dacb1c286a8adb0125cf2a61e5106e52a2af12fa853d546409529e0c77c8a",
+    "size": 294967
+   },
+   "observed": {
+    "bands": [
+     {
+      "band": 1,
+      "block_size": [
+       1159,
+       1
+      ],
+      "checksum": 64024,
+      "colorInterpretation": "Red",
+      "noData": null,
+      "type": "Byte"
+     },
+     {
+      "band": 2,
+      "block_size": [
+       1159,
+       1
+      ],
+      "checksum": 37069,
+      "colorInterpretation": "Green",
+      "noData": null,
+      "type": "Byte"
+     },
+     {
+      "band": 3,
+      "block_size": [
+       1159,
+       1
+      ],
+      "checksum": 63035,
+      "colorInterpretation": "Blue",
+      "noData": null,
+      "type": "Byte"
+     }
+    ],
+    "crs_source_declared": {
+     "note": "GetProjectionRef 逐字转录；无内部声明=null，不推导不转换",
+     "srs_is_null": true,
+     "wkt_verbatim_from_source": null
+    },
+    "driver": "JPEG",
+    "gcp_count": 0,
+    "gdalinfo_rc": 0,
+    "geotransform": null,
+    "size_px": [
+     1159,
+     747
+    ],
+    "world_file_declared": {
+     "file": "NaturalGasLines_PetroChina_20110830.jgw",
+     "rot_2": -209.2564497959841,
+     "rot_3": -15.61994926821616,
+     "verbatim": "6740.6672816011778\n-209.25644979598411\n-15.61994926821616\n-6682.7252467134831\n14733670.527201086\n6780644.2881642254",
+     "x_origin_upper_left": 14733670.527201086,
+     "x_resolution": 6740.667281601178,
+     "y_origin_upper_left": 6780644.288164225,
+     "y_resolution": -6682.725246713483
+    }
+   },
+   "per_band_verification": {
+    "executed_this_round": true,
+    "method": "GDAL band checksum (osgeo Band.Checksum())",
+    "note": "large rasters: method registered, execution deferred to import stage"
+   },
+   "ready_for_import": false,
+   "source_object_id": "58a5a7d64e5a020c9b036ba3808133d8334e826127c795a281d7bddce52887d2",
+   "status": "PROPOSED_NOT_AUTHORIZED",
+   "target_proposal": {
+    "loader": "UNDECIDED (PostGIS raster vs bytea+sidecar contract at import stage)",
+    "naming_note": "full-release naming and collision allocation deferred to block 6",
+    "pixel_semantics": "preserve source pixel type/NoData/affine/CRS declaration verbatim; no reprojection, no resampling, no fill",
+    "schema": "chgis",
+    "table_name_proposal": null
+   }
+  },
+  {
+   "carrier": "geotiff",
+   "identity": {
+    "archive_chain": [
+     "map1_p4_.TIF"
+    ],
+    "archive_ordinals": [
+     1
+    ],
+    "kind": "file",
+    "relative_path": "harvard-full/doi_10_7910/DVN/LVYYZC/Ca1876route_przh_ru_images.zip",
+    "sha256": "64bdbb80fd82bd8bcb6971d33f55c31b2d353acec6c5aef0a310b362a357ef64",
+    "size": 16615180
+   },
+   "observed": {
+    "bands": [
+     {
+      "band": 1,
+      "block_size": [
+       2544,
+       100
+      ],
+      "checksum": 53122,
+      "colorInterpretation": "Red",
+      "noData": null,
+      "type": "Byte"
+     },
+     {
+      "band": 2,
+      "block_size": [
+       2544,
+       100
+      ],
+      "checksum": 61268,
+      "colorInterpretation": "Green",
+      "noData": null,
+      "type": "Byte"
+     },
+     {
+      "band": 3,
+      "block_size": [
+       2544,
+       100
+      ],
+      "checksum": 7356,
+      "colorInterpretation": "Blue",
+      "noData": null,
+      "type": "Byte"
+     }
+    ],
+    "crs_source_declared": {
+     "note": "GetProjectionRef 逐字转录；无内部声明=null，不推导不转换",
+     "srs_is_null": true,
+     "wkt_verbatim_from_source": null
+    },
+    "driver": "GTiff",
+    "gcp_count": 0,
+    "gdalinfo_rc": 0,
+    "geotransform": null,
+    "size_px": [
+     2544,
+     2177
+    ],
+    "world_file_declared": {
+     "file": "map1_p4_.tifw",
+     "rot_2": 0.0,
+     "rot_3": 0.0,
+     "verbatim": "0.00268691812751\n0.00000000000000\n0.00000000000000\n-0.00268691812751\n79.3877\n45.0036",
+     "x_origin_upper_left": 79.3877,
+     "x_resolution": 0.00268691812751,
+     "y_origin_upper_left": 45.0036,
+     "y_resolution": -0.00268691812751
+    }
+   },
+   "per_band_verification": {
+    "executed_this_round": true,
+    "method": "GDAL band checksum (osgeo Band.Checksum())",
+    "note": "large rasters: method registered, execution deferred to import stage"
+   },
+   "ready_for_import": false,
+   "source_object_id": "59f497a9f51b2c72dd5f80abc328240fe4e944e965083af26af99db4f6a5e1c8",
+   "status": "PROPOSED_NOT_AUTHORIZED",
+   "target_proposal": {
+    "loader": "UNDECIDED (PostGIS raster vs bytea+sidecar contract at import stage)",
+    "naming_note": "full-release naming and collision allocation deferred to block 6",
+    "pixel_semantics": "preserve source pixel type/NoData/affine/CRS declaration verbatim; no reprojection, no resampling, no fill",
+    "schema": "chgis",
+    "table_name_proposal": null
+   }
+  },
+  {
+   "carrier": "geotiff",
+   "identity": {
+    "archive_chain": [
+     "map10_p4_.TIF"
+    ],
+    "archive_ordinals": [
+     4
+    ],
+    "kind": "file",
+    "relative_path": "harvard-full/doi_10_7910/DVN/LVYYZC/Ca1876route_przh_ru_images.zip",
+    "sha256": "8f44b241783cd802e5e5ab82f281fe1ef7263a8d223886bc79b79a9394946cc5",
+    "size": 15394052
+   },
+   "observed": {
+    "bands": [
+     {
+      "band": 1,
+      "block_size": [
+       2544,
+       100
+      ],
+      "checksum": 10715,
+      "colorInterpretation": "Red",
+      "noData": null,
+      "type": "Byte"
+     },
+     {
+      "band": 2,
+      "block_size": [
+       2544,
+       100
+      ],
+      "checksum": 23324,
+      "colorInterpretation": "Green",
+      "noData": null,
+      "type": "Byte"
+     },
+     {
+      "band": 3,
+      "block_size": [
+       2544,
+       100
+      ],
+      "checksum": 59888,
+      "colorInterpretation": "Blue",
+      "noData": null,
+      "type": "Byte"
+     }
+    ],
+    "crs_source_declared": {
+     "note": "GetProjectionRef 逐字转录；无内部声明=null，不推导不转换",
+     "srs_is_null": true,
+     "wkt_verbatim_from_source": null
+    },
+    "driver": "GTiff",
+    "gcp_count": 0,
+    "gdalinfo_rc": 0,
+    "geotransform": null,
+    "size_px": [
+     2544,
+     2017
+    ],
+    "world_file_declared": {
+     "file": "map10_p4_.tifw",
+     "rot_2": 0.0,
+     "rot_3": 0.0,
+     "verbatim": "0.00286972866928\n0.00000000000000\n0.00000000000000\n-0.00286972866928\n77.4144\n49.0653",
+     "x_origin_upper_left": 77.4144,
+     "x_resolution": 0.00286972866928,
+     "y_origin_upper_left": 49.0653,
+     "y_resolution": -0.00286972866928
+    }
+   },
+   "per_band_verification": {
+    "executed_this_round": true,
+    "method": "GDAL band checksum (osgeo Band.Checksum())",
+    "note": "large rasters: method registered, execution deferred to import stage"
+   },
+   "ready_for_import": false,
+   "source_object_id": "0ffbe3620af9dc5d2dd2bdecad98262858a59d2240f8b8cb2d565d2fbead5617",
+   "status": "PROPOSED_NOT_AUTHORIZED",
+   "target_proposal": {
+    "loader": "UNDECIDED (PostGIS raster vs bytea+sidecar contract at import stage)",
+    "naming_note": "full-release naming and collision allocation deferred to block 6",
+    "pixel_semantics": "preserve source pixel type/NoData/affine/CRS declaration verbatim; no reprojection, no resampling, no fill",
+    "schema": "chgis",
+    "table_name_proposal": null
+   }
+  },
+  {
+   "carrier": "geotiff",
+   "identity": {
+    "archive_chain": [
+     "map11_p4_.TIF"
+    ],
+    "archive_ordinals": [
+     7
+    ],
+    "kind": "file",
+    "relative_path": "harvard-full/doi_10_7910/DVN/LVYYZC/Ca1876route_przh_ru_images.zip",
+    "sha256": "7096c966675aef10729462dc449c844b03b3f71470aa290d891baf1b54060f72",
+    "size": 15332996
+   },
+   "observed": {
+    "bands": [
+     {
+      "band": 1,
+      "block_size": [
+       2544,
+       100
+      ],
+      "checksum": 5055,
+      "colorInterpretation": "Red",
+      "noData": null,
+      "type": "Byte"
+     },
+     {
+      "band": 2,
+      "block_size": [
+       2544,
+       100
+      ],
+      "checksum": 59114,
+      "colorInterpretation": "Green",
+      "noData": null,
+      "type": "Byte"
+     },
+     {
+      "band": 3,
+      "block_size": [
+       2544,
+       100
+      ],
+      "checksum": 46896,
+      "colorInterpretation": "Blue",
+      "noData": null,
+      "type": "Byte"
+     }
+    ],
+    "crs_source_declared": {
+     "note": "GetProjectionRef 逐字转录；无内部声明=null，不推导不转换",
+     "srs_is_null": true,
+     "wkt_verbatim_from_source": null
+    },
+    "driver": "GTiff",
+    "gcp_count": 0,
+    "gdalinfo_rc": 0,
+    "geotransform": null,
+    "size_px": [
+     2544,
+     2009
+    ],
+    "world_file_declared": {
+     "file": "map11_p4_.tifw",
+     "rot_2": 0.0,
+     "rot_3": 0.0,
+     "verbatim": "0.00289083727259\n0.00000000000000\n0.00000000000000\n-0.00289083727259\n80.4572\n49.5425",
+     "x_origin_upper_left": 80.4572,
+     "x_resolution": 0.00289083727259,
+     "y_origin_upper_left": 49.5425,
+     "y_resolution": -0.00289083727259
+    }
+   },
+   "per_band_verification": {
+    "executed_this_round": true,
+    "method": "GDAL band checksum (osgeo Band.Checksum())",
+    "note": "large rasters: method registered, execution deferred to import stage"
+   },
+   "ready_for_import": false,
+   "source_object_id": "25a9055177af691c0a5ee38f9b7e9cdcf4ac8c55ed8fffad9ffbbbf0b69d6c08",
+   "status": "PROPOSED_NOT_AUTHORIZED",
+   "target_proposal": {
+    "loader": "UNDECIDED (PostGIS raster vs bytea+sidecar contract at import stage)",
+    "naming_note": "full-release naming and collision allocation deferred to block 6",
+    "pixel_semantics": "preserve source pixel type/NoData/affine/CRS declaration verbatim; no reprojection, no resampling, no fill",
+    "schema": "chgis",
+    "table_name_proposal": null
+   }
+  },
+  {
+   "carrier": "geotiff",
+   "identity": {
+    "archive_chain": [
+     "map2_p4_.TIF"
+    ],
+    "archive_ordinals": [
+     10
+    ],
+    "kind": "file",
+    "relative_path": "harvard-full/doi_10_7910/DVN/LVYYZC/Ca1876route_przh_ru_images.zip",
+    "sha256": "436b5327f182f82589dd85d29c5d7fec629b6c8781b658bffe1bcbcc6302bf6b",
+    "size": 16653340
+   },
+   "observed": {
+    "bands": [
+     {
+      "band": 1,
+      "block_size": [
+       2544,
+       100
+      ],
+      "checksum": 64020,
+      "colorInterpretation": "Red",
+      "noData": null,
+      "type": "Byte"
+     },
+     {
+      "band": 2,
+      "block_size": [
+       2544,
+       100
+      ],
+      "checksum": 18597,
+      "colorInterpretation": "Green",
+      "noData": null,
+      "type": "Byte"
+     },
+     {
+      "band": 3,
+      "block_size": [
+       2544,
+       100
+      ],
+      "checksum": 2633,
+      "colorInterpretation": "Blue",
+      "noData": null,
+      "type": "Byte"
+     }
+    ],
+    "crs_source_declared": {
+     "note": "GetProjectionRef 逐字转录；无内部声明=null，不推导不转换",
+     "srs_is_null": true,
+     "wkt_verbatim_from_source": null
+    },
+    "driver": "GTiff",
+    "gcp_count": 0,
+    "gdalinfo_rc": 0,
+    "geotransform": null,
+    "size_px": [
+     2544,
+     2182
+    ],
+    "world_file_declared": {
+     "file": "map2_p4_.tifw",
+     "rot_2": 0.0,
+     "rot_3": 0.0,
+     "verbatim": "0.00251815718995\n0.00000000000000\n0.00000000000000\n-0.00251815718995\n84.4185\n45.2893",
+     "x_origin_upper_left": 84.4185,
+     "x_resolution": 0.00251815718995,
+     "y_origin_upper_left": 45.2893,
+     "y_resolution": -0.00251815718995
+    }
+   },
+   "per_band_verification": {
+    "executed_this_round": true,
+    "method": "GDAL band checksum (osgeo Band.Checksum())",
+    "note": "large rasters: method registered, execution deferred to import stage"
+   },
+   "ready_for_import": false,
+   "source_object_id": "566c2c20c46001c682ee2a503a958937190afb3ee57cf4043c3c851cc32dadd0",
+   "status": "PROPOSED_NOT_AUTHORIZED",
+   "target_proposal": {
+    "loader": "UNDECIDED (PostGIS raster vs bytea+sidecar contract at import stage)",
+    "naming_note": "full-release naming and collision allocation deferred to block 6",
+    "pixel_semantics": "preserve source pixel type/NoData/affine/CRS declaration verbatim; no reprojection, no resampling, no fill",
+    "schema": "chgis",
+    "table_name_proposal": null
+   }
+  },
+  {
+   "carrier": "geotiff",
+   "identity": {
+    "archive_chain": [
+     "map3_p4_.TIF"
+    ],
+    "archive_ordinals": [
+     13
+    ],
+    "kind": "file",
+    "relative_path": "harvard-full/doi_10_7910/DVN/LVYYZC/Ca1876route_przh_ru_images.zip",
+    "sha256": "a0137a225ebfdf4987a9f5fcf5f30c57e36af9360c9119993680696232d8074f",
+    "size": 17576828
+   },
+   "observed": {
+    "bands": [
+     {
+      "band": 1,
+      "block_size": [
+       2544,
+       100
+      ],
+      "checksum": 24350,
+      "colorInterpretation": "Red",
+      "noData": null,
+      "type": "Byte"
+     },
+     {
+      "band": 2,
+      "block_size": [
+       2544,
+       100
+      ],
+      "checksum": 54049,
+      "colorInterpretation": "Green",
+      "noData": null,
+      "type": "Byte"
+     },
+     {
+      "band": 3,
+      "block_size": [
+       2544,
+       100
+      ],
+      "checksum": 8052,
+      "colorInterpretation": "Blue",
+      "noData": null,
+      "type": "Byte"
+     }
+    ],
+    "crs_source_declared": {
+     "note": "GetProjectionRef 逐字转录；无内部声明=null，不推导不转换",
+     "srs_is_null": true,
+     "wkt_verbatim_from_source": null
+    },
+    "driver": "GTiff",
+    "gcp_count": 0,
+    "gdalinfo_rc": 0,
+    "geotransform": null,
+    "size_px": [
+     2544,
+     2303
+    ],
+    "world_file_declared": {
+     "file": "map3_p4_.tifw",
+     "rot_2": 0.0,
+     "rot_3": 0.0,
+     "verbatim": "0.00232976552128\n0.00000000000000\n0.00000000000000\n-0.00232976552128\n88.8677\n45.342",
+     "x_origin_upper_left": 88.8677,
+     "x_resolution": 0.00232976552128,
+     "y_origin_upper_left": 45.342,
+     "y_resolution": -0.00232976552128
+    }
+   },
+   "per_band_verification": {
+    "executed_this_round": true,
+    "method": "GDAL band checksum (osgeo Band.Checksum())",
+    "note": "large rasters: method registered, execution deferred to import stage"
+   },
+   "ready_for_import": false,
+   "source_object_id": "121ad0fe6695e95d0d41550b4cd99b777d06d5f04dab3c11e155f98e1cc2a4f6",
+   "status": "PROPOSED_NOT_AUTHORIZED",
+   "target_proposal": {
+    "loader": "UNDECIDED (PostGIS raster vs bytea+sidecar contract at import stage)",
+    "naming_note": "full-release naming and collision allocation deferred to block 6",
+    "pixel_semantics": "preserve source pixel type/NoData/affine/CRS declaration verbatim; no reprojection, no resampling, no fill",
+    "schema": "chgis",
+    "table_name_proposal": null
+   }
+  },
+  {
+   "carrier": "geotiff",
+   "identity": {
+    "archive_chain": [
+     "map4_p4_.TIF"
+    ],
+    "archive_ordinals": [
+     16
+    ],
+    "kind": "file",
+    "relative_path": "harvard-full/doi_10_7910/DVN/LVYYZC/Ca1876route_przh_ru_images.zip",
+    "sha256": "8e5be038e1dcf2fc92a66e092b45ea70ae19ee9f2c2e8fee410250a4db73120e",
+    "size": 17355492
+   },
+   "observed": {
+    "bands": [
+     {
+      "band": 1,
+      "block_size": [
+       2544,
+       100
+      ],
+      "checksum": 23894,
+      "colorInterpretation": "Red",
+      "noData": null,
+      "type": "Byte"
+     },
+     {
+      "band": 2,
+      "block_size": [
+       2544,
+       100
+      ],
+      "checksum": 36795,
+      "colorInterpretation": "Green",
+      "noData": null,
+      "type": "Byte"
+     },
+     {
+      "band": 3,
+      "block_size": [
+       2544,
+       100
+      ],
+      "checksum": 64674,
+      "colorInterpretation": "Blue",
+      "noData": null,
+      "type": "Byte"
+     }
+    ],
+    "crs_source_declared": {
+     "note": "GetProjectionRef 逐字转录；无内部声明=null，不推导不转换",
+     "srs_is_null": true,
+     "wkt_verbatim_from_source": null
+    },
+    "driver": "GTiff",
+    "gcp_count": 0,
+    "gdalinfo_rc": 0,
+    "geotransform": null,
+    "size_px": [
+     2544,
+     2274
+    ],
+    "world_file_declared": {
+     "file": "map4_p4_.tifw",
+     "rot_2": 0.0,
+     "rot_3": 0.0,
+     "verbatim": "0.00240548497529\n0.00000000000000\n0.00000000000000\n-0.00240548497529\n90.9305\n45.714",
+     "x_origin_upper_left": 90.9305,
+     "x_resolution": 0.00240548497529,
+     "y_origin_upper_left": 45.714,
+     "y_resolution": -0.00240548497529
+    }
+   },
+   "per_band_verification": {
+    "executed_this_round": true,
+    "method": "GDAL band checksum (osgeo Band.Checksum())",
+    "note": "large rasters: method registered, execution deferred to import stage"
+   },
+   "ready_for_import": false,
+   "source_object_id": "fa7472db80310c833c774e379eaf7d70e0212462117a6d1de67cf9bbf6ec5490",
+   "status": "PROPOSED_NOT_AUTHORIZED",
+   "target_proposal": {
+    "loader": "UNDECIDED (PostGIS raster vs bytea+sidecar contract at import stage)",
+    "naming_note": "full-release naming and collision allocation deferred to block 6",
+    "pixel_semantics": "preserve source pixel type/NoData/affine/CRS declaration verbatim; no reprojection, no resampling, no fill",
+    "schema": "chgis",
+    "table_name_proposal": null
+   }
+  },
+  {
+   "carrier": "geotiff",
+   "identity": {
+    "archive_chain": [
+     "map5_p4_.TIF"
+    ],
+    "archive_ordinals": [
+     19
+    ],
+    "kind": "file",
+    "relative_path": "harvard-full/doi_10_7910/DVN/LVYYZC/Ca1876route_przh_ru_images.zip",
+    "sha256": "9ce8b2bacb45f3f8801cdb2356fea74a4df74f67154bbd514007317a1650ca85",
+    "size": 19398566
+   },
+   "observed": {
+    "bands": [
+     {
+      "band": 1,
+      "block_size": [
+       3179,
+       100
+      ],
+      "checksum": 28018,
+      "colorInterpretation": "Red",
+      "noData": null,
+      "type": "Byte"
+     },
+     {
+      "band": 2,
+      "block_size": [
+       3179,
+       100
+      ],
+      "checksum": 221,
+      "colorInterpretation": "Green",
+      "noData": null,
+      "type": "Byte"
+     },
+     {
+      "band": 3,
+      "block_size": [
+       3179,
+       100
+      ],
+      "checksum": 42793,
+      "colorInterpretation": "Blue",
+      "noData": null,
+      "type": "Byte"
+     }
+    ],
+    "crs_source_declared": {
+     "note": "GetProjectionRef 逐字转录；无内部声明=null，不推导不转换",
+     "srs_is_null": true,
+     "wkt_verbatim_from_source": null
+    },
+    "driver": "GTiff",
+    "gcp_count": 0,
+    "gdalinfo_rc": 0,
+    "geotransform": null,
+    "size_px": [
+     3179,
+     2034
+    ],
+    "world_file_declared": {
+     "file": "map5_p4_.tifw",
+     "rot_2": 0.0,
+     "rot_3": 0.0,
+     "verbatim": "0.00215132812007\n0.00000000000000\n0.00000000000000\n-0.00215132812007\n89.9993\n41.9139",
+     "x_origin_upper_left": 89.9993,
+     "x_resolution": 0.00215132812007,
+     "y_origin_upper_left": 41.9139,
+     "y_resolution": -0.00215132812007
+    }
+   },
+   "per_band_verification": {
+    "executed_this_round": true,
+    "method": "GDAL band checksum (osgeo Band.Checksum())",
+    "note": "large rasters: method registered, execution deferred to import stage"
+   },
+   "ready_for_import": false,
+   "source_object_id": "b74c8471bd015d5829611ffe92f71b4a094f99e3fcdb04b4339163f4540697fe",
+   "status": "PROPOSED_NOT_AUTHORIZED",
+   "target_proposal": {
+    "loader": "UNDECIDED (PostGIS raster vs bytea+sidecar contract at import stage)",
+    "naming_note": "full-release naming and collision allocation deferred to block 6",
+    "pixel_semantics": "preserve source pixel type/NoData/affine/CRS declaration verbatim; no reprojection, no resampling, no fill",
+    "schema": "chgis",
+    "table_name_proposal": null
+   }
+  },
+  {
+   "carrier": "geotiff",
+   "identity": {
+    "archive_chain": [
+     "map6_p4_.TIF"
+    ],
+    "archive_ordinals": [
+     22
+    ],
+    "kind": "file",
+    "relative_path": "harvard-full/doi_10_7910/DVN/LVYYZC/Ca1876route_przh_ru_images.zip",
+    "sha256": "c98724fe0590b4447e56b5d02e150714afc0e09c6a295e52403ac6d94deeb747",
+    "size": 15859604
+   },
+   "observed": {
+    "bands": [
+     {
+      "band": 1,
+      "block_size": [
+       2544,
+       100
+      ],
+      "checksum": 6164,
+      "colorInterpretation": "Red",
+      "noData": null,
+      "type": "Byte"
+     },
+     {
+      "band": 2,
+      "block_size": [
+       2544,
+       100
+      ],
+      "checksum": 19470,
+      "colorInterpretation": "Green",
+      "noData": null,
+      "type": "Byte"
+     },
+     {
+      "band": 3,
+      "block_size": [
+       2544,
+       100
+      ],
+      "checksum": 14777,
+      "colorInterpretation": "Blue",
+      "noData": null,
+      "type": "Byte"
+     }
+    ],
+    "crs_source_declared": {
+     "note": "GetProjectionRef 逐字转录；无内部声明=null，不推导不转换",
+     "srs_is_null": true,
+     "wkt_verbatim_from_source": null
+    },
+    "driver": "GTiff",
+    "gcp_count": 0,
+    "gdalinfo_rc": 0,
+    "geotransform": null,
+    "size_px": [
+     2544,
+     2078
+    ],
+    "world_file_declared": {
+     "file": "map6_p4_.tifw",
+     "rot_2": 0.0,
+     "rot_3": 0.0,
+     "verbatim": "0.00262275829526\n0.00000000000000\n0.00000000000000\n-0.00262275829526\n84.5413\n49.4235",
+     "x_origin_upper_left": 84.5413,
+     "x_resolution": 0.00262275829526,
+     "y_origin_upper_left": 49.4235,
+     "y_resolution": -0.00262275829526
+    }
+   },
+   "per_band_verification": {
+    "executed_this_round": true,
+    "method": "GDAL band checksum (osgeo Band.Checksum())",
+    "note": "large rasters: method registered, execution deferred to import stage"
+   },
+   "ready_for_import": false,
+   "source_object_id": "4c99f78574e905758c84a2b8c4872ff3777003663caf068debacd94452f54f95",
+   "status": "PROPOSED_NOT_AUTHORIZED",
+   "target_proposal": {
+    "loader": "UNDECIDED (PostGIS raster vs bytea+sidecar contract at import stage)",
+    "naming_note": "full-release naming and collision allocation deferred to block 6",
+    "pixel_semantics": "preserve source pixel type/NoData/affine/CRS declaration verbatim; no reprojection, no resampling, no fill",
+    "schema": "chgis",
+    "table_name_proposal": null
+   }
+  },
+  {
+   "carrier": "geotiff",
+   "identity": {
+    "archive_chain": [
+     "map7_p4_.TIF"
+    ],
+    "archive_ordinals": [
+     25
+    ],
+    "kind": "file",
+    "relative_path": "harvard-full/doi_10_7910/DVN/LVYYZC/Ca1876route_przh_ru_images.zip",
+    "sha256": "1274c6c911c6aa9cf7fdb52b7c77924dcbbdcd70fa6602e29d92573591f4b1a0",
+    "size": 16119100
+   },
+   "observed": {
+    "bands": [
+     {
+      "band": 1,
+      "block_size": [
+       2544,
+       100
+      ],
+      "checksum": 3044,
+      "colorInterpretation": "Red",
+      "noData": null,
+      "type": "Byte"
+     },
+     {
+      "band": 2,
+      "block_size": [
+       2544,
+       100
+      ],
+      "checksum": 46744,
+      "colorInterpretation": "Green",
+      "noData": null,
+      "type": "Byte"
+     },
+     {
+      "band": 3,
+      "block_size": [
+       2544,
+       100
+      ],
+      "checksum": 60048,
+      "colorInterpretation": "Blue",
+      "noData": null,
+      "type": "Byte"
+     }
+    ],
+    "crs_source_declared": {
+     "note": "GetProjectionRef 逐字转录；无内部声明=null，不推导不转换",
+     "srs_is_null": true,
+     "wkt_verbatim_from_source": null
+    },
+    "driver": "GTiff",
+    "gcp_count": 0,
+    "gdalinfo_rc": 0,
+    "geotransform": null,
+    "size_px": [
+     2544,
+     2112
+    ],
+    "world_file_declared": {
+     "file": "map7_p4_.tifw",
+     "rot_2": 0.0,
+     "rot_3": 0.0,
+     "verbatim": "0.00242231676591\n0.00000000000000\n0.00000000000000\n-0.00242231676591\n90.4671\n49.3923",
+     "x_origin_upper_left": 90.4671,
+     "x_resolution": 0.00242231676591,
+     "y_origin_upper_left": 49.3923,
+     "y_resolution": -0.00242231676591
+    }
+   },
+   "per_band_verification": {
+    "executed_this_round": true,
+    "method": "GDAL band checksum (osgeo Band.Checksum())",
+    "note": "large rasters: method registered, execution deferred to import stage"
+   },
+   "ready_for_import": false,
+   "source_object_id": "774394c1d4f2c0af87802e583ee9ea2488661fa4882b3d0932768e905aafb7a4",
+   "status": "PROPOSED_NOT_AUTHORIZED",
+   "target_proposal": {
+    "loader": "UNDECIDED (PostGIS raster vs bytea+sidecar contract at import stage)",
+    "naming_note": "full-release naming and collision allocation deferred to block 6",
+    "pixel_semantics": "preserve source pixel type/NoData/affine/CRS declaration verbatim; no reprojection, no resampling, no fill",
+    "schema": "chgis",
+    "table_name_proposal": null
+   }
+  },
+  {
+   "carrier": "geotiff",
+   "identity": {
+    "archive_chain": [
+     "map8_p4_.TIF"
+    ],
+    "archive_ordinals": [
+     28
+    ],
+    "kind": "file",
+    "relative_path": "harvard-full/doi_10_7910/DVN/LVYYZC/Ca1876route_przh_ru_images.zip",
+    "sha256": "5bd5336fb52bfe52de91659a8fcee30031d94ecfb57c8dd324d71d53c14faab9",
+    "size": 17614988
+   },
+   "observed": {
+    "bands": [
+     {
+      "band": 1,
+      "block_size": [
+       2544,
+       100
+      ],
+      "checksum": 39495,
+      "colorInterpretation": "Red",
+      "noData": null,
+      "type": "Byte"
+     },
+     {
+      "band": 2,
+      "block_size": [
+       2544,
+       100
+      ],
+      "checksum": 27195,
+      "colorInterpretation": "Green",
+      "noData": null,
+      "type": "Byte"
+     },
+     {
+      "band": 3,
+      "block_size": [
+       2544,
+       100
+      ],
+      "checksum": 32185,
+      "colorInterpretation": "Blue",
+      "noData": null,
+      "type": "Byte"
+     }
+    ],
+    "crs_source_declared": {
+     "note": "GetProjectionRef 逐字转录；无内部声明=null，不推导不转换",
+     "srs_is_null": true,
+     "wkt_verbatim_from_source": null
+    },
+    "driver": "GTiff",
+    "gcp_count": 0,
+    "gdalinfo_rc": 0,
+    "geotransform": null,
+    "size_px": [
+     2544,
+     2308
+    ],
+    "world_file_declared": {
+     "file": "map8_p4_.tifw",
+     "rot_2": 0.0,
+     "rot_3": 0.0,
+     "verbatim": "0.00237168213827\n0.00000000000000\n0.00000000000000\n-0.00237168213827\n85.7382\n42.3945",
+     "x_origin_upper_left": 85.7382,
+     "x_resolution": 0.00237168213827,
+     "y_origin_upper_left": 42.3945,
+     "y_resolution": -0.00237168213827
+    }
+   },
+   "per_band_verification": {
+    "executed_this_round": true,
+    "method": "GDAL band checksum (osgeo Band.Checksum())",
+    "note": "large rasters: method registered, execution deferred to import stage"
+   },
+   "ready_for_import": false,
+   "source_object_id": "cf8e2e637b3f9af24358bd03c8339fa67a52a035bd521d2dfd758d2ce6c82991",
+   "status": "PROPOSED_NOT_AUTHORIZED",
+   "target_proposal": {
+    "loader": "UNDECIDED (PostGIS raster vs bytea+sidecar contract at import stage)",
+    "naming_note": "full-release naming and collision allocation deferred to block 6",
+    "pixel_semantics": "preserve source pixel type/NoData/affine/CRS declaration verbatim; no reprojection, no resampling, no fill",
+    "schema": "chgis",
+    "table_name_proposal": null
+   }
+  },
+  {
+   "carrier": "geotiff",
+   "identity": {
+    "archive_chain": [
+     "map9_p4_.TIF"
+    ],
+    "archive_ordinals": [
+     31
+    ],
+    "kind": "file",
+    "relative_path": "harvard-full/doi_10_7910/DVN/LVYYZC/Ca1876route_przh_ru_images.zip",
+    "sha256": "063b10c35237f0b34f4be738919f69320e71fbbbaf184043ce661383d4eff853",
+    "size": 20342738
+   },
+   "observed": {
+    "bands": [
+     {
+      "band": 1,
+      "block_size": [
+       3179,
+       100
+      ],
+      "checksum": 4128,
+      "colorInterpretation": "Red",
+      "noData": null,
+      "type": "Byte"
+     },
+     {
+      "band": 2,
+      "block_size": [
+       3179,
+       100
+      ],
+      "checksum": 60231,
+      "colorInterpretation": "Green",
+      "noData": null,
+      "type": "Byte"
+     },
+     {
+      "band": 3,
+      "block_size": [
+       3179,
+       100
+      ],
+      "checksum": 49525,
+      "colorInterpretation": "Blue",
+      "noData": null,
+      "type": "Byte"
+     }
+    ],
+    "crs_source_declared": {
+     "note": "GetProjectionRef 逐字转录；无内部声明=null，不推导不转换",
+     "srs_is_null": true,
+     "wkt_verbatim_from_source": null
+    },
+    "driver": "GTiff",
+    "gcp_count": 0,
+    "gdalinfo_rc": 0,
+    "geotransform": null,
+    "size_px": [
+     3179,
+     2133
+    ],
+    "world_file_declared": {
+     "file": "map9_p4_.tifw",
+     "rot_2": 0.0,
+     "rot_3": 0.0,
+     "verbatim": "0.00231952323374\n0.00000000000000\n0.00000000000000\n-0.00231952323374\n80.4915\n41.3472",
+     "x_origin_upper_left": 80.4915,
+     "x_resolution": 0.00231952323374,
+     "y_origin_upper_left": 41.3472,
+     "y_resolution": -0.00231952323374
+    }
+   },
+   "per_band_verification": {
+    "executed_this_round": true,
+    "method": "GDAL band checksum (osgeo Band.Checksum())",
+    "note": "large rasters: method registered, execution deferred to import stage"
+   },
+   "ready_for_import": false,
+   "source_object_id": "d62a68548cb7a00cac9540befab65c6956b989a867431ad24a34c2f091de74a9",
+   "status": "PROPOSED_NOT_AUTHORIZED",
+   "target_proposal": {
+    "loader": "UNDECIDED (PostGIS raster vs bytea+sidecar contract at import stage)",
+    "naming_note": "full-release naming and collision allocation deferred to block 6",
+    "pixel_semantics": "preserve source pixel type/NoData/affine/CRS declaration verbatim; no reprojection, no resampling, no fill",
+    "schema": "chgis",
+    "table_name_proposal": null
+   }
+  },
+  {
+   "carrier": "geotiff",
+   "identity": {
+    "archive_chain": [
+     "shapefiles/v4_dem_geotiff.zip",
+     "chgis_dem.tif"
+    ],
+    "archive_ordinals": [
+     119,
+     1
+    ],
+    "kind": "file",
+    "relative_path": "harvard-full/doi_10_7910/DVN/PDGOZ0/V4_Data_Archive.zip",
+    "sha256": "67d40baf06589dfb80057accbd3845f4325d6e1e8723a48b4251a5d342733635",
+    "size": 78823155
+   },
+   "observed": {
+    "bands": [
+     {
+      "band": 1,
+      "block_size": [
+       64,
+       64
+      ],
+      "colorInterpretation": "Gray",
+      "noData": null,
+      "type": "Int16"
+     }
+    ],
+    "crs_source_declared": {
+     "note": "GetProjectionRef 逐字转录；无内部声明=null，不推导不转换",
+     "srs_is_null": false,
+     "wkt_verbatim_from_source": "LOCAL_CS[\"Geocoding information not available Projection Name = Xian_1980_GK_Zone_19 Units = meters GeoTIFF Unit\",UNIT[\"metre\",1,AUTHORITY[\"EPSG\",\"9001\"]],AXIS[\"Easting\",EAST],AXIS[\"Northing\",NORTH]]"
+    },
+    "driver": "GTiff",
+    "gcp_count": 0,
+    "gdalinfo_rc": 0,
+    "geotransform": [
+     15781037.0,
+     1000.0,
+     0.0,
+     6567324.56,
+     0.0,
+     -1000.0
+    ],
+    "size_px": [
+     6299,
+     6170
+    ],
+    "world_file_declared": null
+   },
+   "per_band_verification": {
+    "executed_this_round": false,
+    "method": "GDAL band checksum (osgeo Band.Checksum())",
+    "note": "large rasters: method registered, execution deferred to import stage"
+   },
+   "ready_for_import": false,
+   "source_object_id": "b6509e0c302e8207b1c4d5356d42aaca24b554159368968e4859485158267453",
+   "status": "PROPOSED_NOT_AUTHORIZED",
+   "target_proposal": {
+    "loader": "UNDECIDED (PostGIS raster vs bytea+sidecar contract at import stage)",
+    "naming_note": "full-release naming and collision allocation deferred to block 6",
+    "pixel_semantics": "preserve source pixel type/NoData/affine/CRS declaration verbatim; no reprojection, no resampling, no fill",
+    "schema": "chgis",
+    "table_name_proposal": null
+   }
+  },
+  {
+   "carrier": "geotiff",
+   "identity": {
+    "archive_chain": [
+     "shapefiles/v4_dem_geotiff.zip",
+     "chgis_hillshade.tif"
+    ],
+    "archive_ordinals": [
+     119,
+     4
+    ],
+    "kind": "file",
+    "relative_path": "harvard-full/doi_10_7910/DVN/PDGOZ0/V4_Data_Archive.zip",
+    "sha256": "3d6a4193d9552bcb14583f2aa347825168afd659b53938d18623a7253d0d778c",
+    "size": 78899897
+   },
+   "observed": {
+    "bands": [
+     {
+      "band": 1,
+      "block_size": [
+       64,
+       64
+      ],
+      "colorInterpretation": "Gray",
+      "noData": null,
+      "type": "Int16"
+     }
+    ],
+    "crs_source_declared": {
+     "note": "GetProjectionRef 逐字转录；无内部声明=null，不推导不转换",
+     "srs_is_null": false,
+     "wkt_verbatim_from_source": "LOCAL_CS[\"Geocoding information not available Projection Name = Xian_1980_GK_Zone_19 Units = meters GeoTIFF Unit\",UNIT[\"metre\",1,AUTHORITY[\"EPSG\",\"9001\"]],AXIS[\"Easting\",EAST],AXIS[\"Northing\",NORTH]]"
+    },
+    "driver": "GTiff",
+    "gcp_count": 0,
+    "gdalinfo_rc": 0,
+    "geotransform": [
+     15781036.966107804,
+     1000.0,
+     0.0,
+     6567324.558187752,
+     0.0,
+     -1000.0
+    ],
+    "size_px": [
+     6299,
+     6170
+    ],
+    "world_file_declared": null
+   },
+   "per_band_verification": {
+    "executed_this_round": false,
+    "method": "GDAL band checksum (osgeo Band.Checksum())",
+    "note": "large rasters: method registered, execution deferred to import stage"
+   },
+   "ready_for_import": false,
+   "source_object_id": "9d69beb435c1e0111e799644fceb3bcddcd5ec2019ce4b26cf7d4871735a2088",
+   "status": "PROPOSED_NOT_AUTHORIZED",
+   "target_proposal": {
+    "loader": "UNDECIDED (PostGIS raster vs bytea+sidecar contract at import stage)",
+    "naming_note": "full-release naming and collision allocation deferred to block 6",
+    "pixel_semantics": "preserve source pixel type/NoData/affine/CRS declaration verbatim; no reprojection, no resampling, no fill",
+    "schema": "chgis",
+    "table_name_proposal": null
+   }
+  },
+  {
+   "carrier": "geotiff",
+   "identity": {
+    "archive_chain": [
+     "shapefiles/v4_dem_gtopo30.zip",
+     "v4_dem.tif"
+    ],
+    "archive_ordinals": [
+     120,
+     1
+    ],
+    "kind": "file",
+    "relative_path": "harvard-full/doi_10_7910/DVN/PDGOZ0/V4_Data_Archive.zip",
+    "sha256": "40596f304b5151545d318ec9cf9b65fa1fe2d13dbdd5b68630446c3c0696c9c5",
+    "size": 222150475
+   },
+   "observed": {
+    "bands": [
+     {
+      "band": 1,
+      "block_size": [
+       64,
+       64
+      ],
+      "colorInterpretation": "Red",
+      "noData": null,
+      "type": "Byte"
+     },
+     {
+      "band": 2,
+      "block_size": [
+       64,
+       64
+      ],
+      "colorInterpretation": "Green",
+      "noData": null,
+      "type": "Byte"
+     },
+     {
+      "band": 3,
+      "block_size": [
+       64,
+       64
+      ],
+      "colorInterpretation": "Blue",
+      "noData": null,
+      "type": "Byte"
+     }
+    ],
+    "crs_source_declared": {
+     "note": "GetProjectionRef 逐字转录；无内部声明=null，不推导不转换",
+     "srs_is_null": false,
+     "wkt_verbatim_from_source": "LOCAL_CS[\"Geocoding information not available Projection Name = Xian_1980_GK_Zone_19 Units = meters GeoTIFF Unit\",UNIT[\"metre\",1,AUTHORITY[\"EPSG\",\"9001\"]],AXIS[\"Easting\",EAST],AXIS[\"Northing\",NORTH]]"
+    },
+    "driver": "GTiff",
+    "gcp_count": 0,
+    "gdalinfo_rc": 0,
+    "geotransform": [
+     14009663.8,
+     998.873491,
+     0.0,
+     7524083.03,
+     0.0,
+     -872.779513
+    ],
+    "size_px": [
+     10005,
+     7356
+    ],
+    "world_file_declared": null
+   },
+   "per_band_verification": {
+    "executed_this_round": false,
+    "method": "GDAL band checksum (osgeo Band.Checksum())",
+    "note": "large rasters: method registered, execution deferred to import stage"
+   },
+   "ready_for_import": false,
+   "source_object_id": "88a9a0e813e713bf9472efe970d74f3222368a5ba62374f633d97b5bfff055ef",
+   "status": "PROPOSED_NOT_AUTHORIZED",
+   "target_proposal": {
+    "loader": "UNDECIDED (PostGIS raster vs bytea+sidecar contract at import stage)",
+    "naming_note": "full-release naming and collision allocation deferred to block 6",
+    "pixel_semantics": "preserve source pixel type/NoData/affine/CRS declaration verbatim; no reprojection, no resampling, no fill",
+    "schema": "chgis",
+    "table_name_proposal": null
+   }
+  },
+  {
+   "carrier": "geotiff",
+   "identity": {
+    "archive_chain": [
+     "shapefiles/v4_ras_1904_tibet_pts.zip",
+     "pdb2.TIF"
+    ],
+    "archive_ordinals": [
+     159,
+     6
+    ],
+    "kind": "file",
+    "relative_path": "harvard-full/doi_10_7910/DVN/PDGOZ0/V4_Data_Archive.zip",
+    "sha256": "bd56086a9967f0e12775d4de923d39dd06bf861f85e9ffb076eaf888677ed873",
+    "size": 13967046
+   },
+   "observed": {
+    "bands": [
+     {
+      "band": 1,
+      "block_size": [
+       4488,
+       100
+      ],
+      "checksum": 35719,
+      "colorInterpretation": "Gray",
+      "noData": null,
+      "type": "Byte"
+     }
+    ],
+    "crs_source_declared": {
+     "note": "GetProjectionRef 逐字转录；无内部声明=null，不推导不转换",
+     "srs_is_null": true,
+     "wkt_verbatim_from_source": null
+    },
+    "driver": "GTiff",
+    "gcp_count": 0,
+    "gdalinfo_rc": 0,
+    "geotransform": null,
+    "size_px": [
+     4488,
+     3112
+    ],
+    "world_file_declared": null
+   },
+   "per_band_verification": {
+    "executed_this_round": true,
+    "method": "GDAL band checksum (osgeo Band.Checksum())",
+    "note": "large rasters: method registered, execution deferred to import stage"
+   },
+   "ready_for_import": false,
+   "source_object_id": "7908a432946d5a4054cddc6ddc3c1b9e36700d1b3036d0aadf66867c3a1be28f",
+   "status": "PROPOSED_NOT_AUTHORIZED",
+   "target_proposal": {
+    "loader": "UNDECIDED (PostGIS raster vs bytea+sidecar contract at import stage)",
+    "naming_note": "full-release naming and collision allocation deferred to block 6",
+    "pixel_semantics": "preserve source pixel type/NoData/affine/CRS declaration verbatim; no reprojection, no resampling, no fill",
+    "schema": "chgis",
+    "table_name_proposal": null
+   }
+  },
+  {
+   "carrier": "geotiff",
+   "identity": {
+    "archive_chain": [
+     "shapefiles/russ_1904_tibet_pts.ZIP",
+     "pdb2.TIF"
+    ],
+    "archive_ordinals": [
+     56,
+     5
+    ],
+    "kind": "file",
+    "relative_path": "harvard-full/doi_10_7910/DVN/ZZKZ6U/CHGIS_V2.zip",
+    "sha256": "bd56086a9967f0e12775d4de923d39dd06bf861f85e9ffb076eaf888677ed873",
+    "size": 13967046
+   },
+   "observed": {
+    "bands": [
+     {
+      "band": 1,
+      "block_size": [
+       4488,
+       100
+      ],
+      "checksum": 35719,
+      "colorInterpretation": "Gray",
+      "noData": null,
+      "type": "Byte"
+     }
+    ],
+    "crs_source_declared": {
+     "note": "GetProjectionRef 逐字转录；无内部声明=null，不推导不转换",
+     "srs_is_null": true,
+     "wkt_verbatim_from_source": null
+    },
+    "driver": "GTiff",
+    "gcp_count": 0,
+    "gdalinfo_rc": 0,
+    "geotransform": null,
+    "size_px": [
+     4488,
+     3112
+    ],
+    "world_file_declared": {
+     "file": "pdb2.tifw",
+     "rot_2": 0.0,
+     "rot_3": 0.0,
+     "verbatim": "0.00091249660924\n0.00000000000000\n0.00000000000000\n-0.00091249660924\n87.9371\n29.7982",
+     "x_origin_upper_left": 87.9371,
+     "x_resolution": 0.00091249660924,
+     "y_origin_upper_left": 29.7982,
+     "y_resolution": -0.00091249660924
+    }
+   },
+   "per_band_verification": {
+    "executed_this_round": true,
+    "method": "GDAL band checksum (osgeo Band.Checksum())",
+    "note": "large rasters: method registered, execution deferred to import stage"
+   },
+   "ready_for_import": false,
+   "source_object_id": "517079e85b9878086b2f67c2c76fc906de459e5e9c9b5720df636754cf1b0242",
+   "status": "PROPOSED_NOT_AUTHORIZED",
+   "target_proposal": {
+    "loader": "UNDECIDED (PostGIS raster vs bytea+sidecar contract at import stage)",
+    "naming_note": "full-release naming and collision allocation deferred to block 6",
+    "pixel_semantics": "preserve source pixel type/NoData/affine/CRS declaration verbatim; no reprojection, no resampling, no fill",
+    "schema": "chgis",
+    "table_name_proposal": null
+   }
+  },
+  {
+   "carrier": "geotiff",
+   "identity": {
+    "archive_chain": [
+     "shapefiles/v2_1875_peking_map.ZIP",
+     "peking_1875_bretschneider.tif"
+    ],
+    "archive_ordinals": [
+     76,
+     4
+    ],
+    "kind": "file",
+    "relative_path": "harvard-full/doi_10_7910/DVN/ZZKZ6U/CHGIS_V2.zip",
+    "sha256": "df0ffa2bc92c094ce383aa20d6523d3885805c217fd1ee106fe72bf72096541c",
+    "size": 13227871
+   },
+   "observed": {
+    "bands": [
+     {
+      "band": 1,
+      "block_size": [
+       3157,
+       2
+      ],
+      "checksum": 26954,
+      "colorInterpretation": "Red",
+      "noData": null,
+      "type": "Byte"
+     },
+     {
+      "band": 2,
+      "block_size": [
+       3157,
+       2
+      ],
+      "checksum": 34104,
+      "colorInterpretation": "Green",
+      "noData": null,
+      "type": "Byte"
+     },
+     {
+      "band": 3,
+      "block_size": [
+       3157,
+       2
+      ],
+      "checksum": 64165,
+      "colorInterpretation": "Blue",
+      "noData": null,
+      "type": "Byte"
+     }
+    ],
+    "crs_source_declared": {
+     "note": "GetProjectionRef 逐字转录；无内部声明=null，不推导不转换",
+     "srs_is_null": false,
+     "wkt_verbatim_from_source": "GEOGCS[\"WGS 84\",DATUM[\"WGS_1984\",SPHEROID[\"WGS 84\",6378137,298.257223563,AUTHORITY[\"EPSG\",\"7030\"]],AUTHORITY[\"EPSG\",\"6326\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AXIS[\"Latitude\",NORTH],AXIS[\"Longitude\",EAST],AUTHORITY[\"EPSG\",\"4326\"]]"
+    },
+    "driver": "GTiff",
+    "gcp_count": 0,
+    "gdalinfo_rc": 0,
+    "geotransform": [
+     115.10202305083143,
+     0.00051999099099355,
+     0.0,
+     40.3679230166266,
+     0.0,
+     -0.0005197807032760976
+    ],
+    "size_px": [
+     3157,
+     1396
+    ],
+    "world_file_declared": null
+   },
+   "per_band_verification": {
+    "executed_this_round": true,
+    "method": "GDAL band checksum (osgeo Band.Checksum())",
+    "note": "large rasters: method registered, execution deferred to import stage"
+   },
+   "ready_for_import": false,
+   "source_object_id": "1163ab933c5827bd419b59ad4fbc18839dbd4c611b23e5f227f0304ea7219a63",
+   "status": "PROPOSED_NOT_AUTHORIZED",
+   "target_proposal": {
+    "loader": "UNDECIDED (PostGIS raster vs bytea+sidecar contract at import stage)",
+    "naming_note": "full-release naming and collision allocation deferred to block 6",
+    "pixel_semantics": "preserve source pixel type/NoData/affine/CRS declaration verbatim; no reprojection, no resampling, no fill",
+    "schema": "chgis",
+    "table_name_proposal": null
+   }
+  },
+  {
+   "carrier": "geotiff",
+   "identity": {
+    "archive_chain": [
+     "shapefiles/v2_dem_ne_three.ZIP",
+     "ne_three.tif"
+    ],
+    "archive_ordinals": [
+     95,
+     3
+    ],
+    "kind": "file",
+    "relative_path": "harvard-full/doi_10_7910/DVN/ZZKZ6U/CHGIS_V2.zip",
+    "sha256": "32f1f4326a48e24e8eed32bb0a235c76ffa1ff40fcb15148b36de483ef87c499",
+    "size": 26618616
+   },
+   "observed": {
+    "bands": [
+     {
+      "band": 1,
+      "block_size": [
+       3443,
+       2
+      ],
+      "colorInterpretation": "Gray",
+      "noData": null,
+      "type": "Byte"
+     },
+     {
+      "band": 2,
+      "block_size": [
+       3443,
+       2
+      ],
+      "colorInterpretation": "Undefined",
+      "noData": null,
+      "type": "Byte"
+     },
+     {
+      "band": 3,
+      "block_size": [
+       3443,
+       2
+      ],
+      "colorInterpretation": "Undefined",
+      "noData": null,
+      "type": "Byte"
+     }
+    ],
+    "crs_source_declared": {
+     "note": "GetProjectionRef 逐字转录；无内部声明=null，不推导不转换",
+     "srs_is_null": false,
+     "wkt_verbatim_from_source": "LOCAL_CS[\"Geocoding information not available Projection Name = Unknown Units = other GeoTIFF Units = other\",UNIT[\"fathom\",1.8288,AUTHORITY[\"EPSG\",\"9014\"]],AXIS[\"Easting\",EAST],AXIS[\"Northing\",NORTH]]"
+    },
+    "driver": "GTiff",
+    "gcp_count": 0,
+    "gdalinfo_rc": 0,
+    "geotransform": [
+     123.99572863433838,
+     0.008542731323248157,
+     0.0,
+     60.004270882311616,
+     0.0,
+     -0.008542731323248157
+    ],
+    "size_px": [
+     3443,
+     2576
+    ],
+    "world_file_declared": null
+   },
+   "per_band_verification": {
+    "executed_this_round": false,
+    "method": "GDAL band checksum (osgeo Band.Checksum())",
+    "note": "large rasters: method registered, execution deferred to import stage"
+   },
+   "ready_for_import": false,
+   "source_object_id": "f0f6c6fb7d3bbd543dec62c2095cb1104563e2beb11664c2a6a3694ef39a058e",
+   "status": "PROPOSED_NOT_AUTHORIZED",
+   "target_proposal": {
+    "loader": "UNDECIDED (PostGIS raster vs bytea+sidecar contract at import stage)",
+    "naming_note": "full-release naming and collision allocation deferred to block 6",
+    "pixel_semantics": "preserve source pixel type/NoData/affine/CRS declaration verbatim; no reprojection, no resampling, no fill",
+    "schema": "chgis",
+    "table_name_proposal": null
+   }
+  },
+  {
+   "carrier": "geotiff",
+   "identity": {
+    "archive_chain": [
+     "shapefiles/v2_dem_north_two.ZIP",
+     "north_two.tif"
+    ],
+    "archive_ordinals": [
+     96,
+     2
+    ],
+    "kind": "file",
+    "relative_path": "harvard-full/doi_10_7910/DVN/ZZKZ6U/CHGIS_V2.zip",
+    "sha256": "d641b790bb51d300755d86d6bdd26bdb6bcee9507326986fb3d97ec706f502ae",
+    "size": 26255400
+   },
+   "observed": {
+    "bands": [
+     {
+      "band": 1,
+      "block_size": [
+       3396,
+       2
+      ],
+      "colorInterpretation": "Gray",
+      "noData": null,
+      "type": "Byte"
+     },
+     {
+      "band": 2,
+      "block_size": [
+       3396,
+       2
+      ],
+      "colorInterpretation": "Undefined",
+      "noData": null,
+      "type": "Byte"
+     },
+     {
+      "band": 3,
+      "block_size": [
+       3396,
+       2
+      ],
+      "colorInterpretation": "Undefined",
+      "noData": null,
+      "type": "Byte"
+     }
+    ],
+    "crs_source_declared": {
+     "note": "GetProjectionRef 逐字转录；无内部声明=null，不推导不转换",
+     "srs_is_null": false,
+     "wkt_verbatim_from_source": "LOCAL_CS[\"Geocoding information not available Projection Name = Unknown Units = other GeoTIFF Units = other\",UNIT[\"fathom\",1.8288,AUTHORITY[\"EPSG\",\"9014\"]],AXIS[\"Easting\",EAST],AXIS[\"Northing\",NORTH]]"
+    },
+    "driver": "GTiff",
+    "gcp_count": 0,
+    "gdalinfo_rc": 0,
+    "geotransform": [
+     94.99572863433838,
+     0.008542731323248157,
+     0.0,
+     60.00427136566162,
+     0.0,
+     -0.008542731323248157
+    ],
+    "size_px": [
+     3396,
+     2576
+    ],
+    "world_file_declared": null
+   },
+   "per_band_verification": {
+    "executed_this_round": false,
+    "method": "GDAL band checksum (osgeo Band.Checksum())",
+    "note": "large rasters: method registered, execution deferred to import stage"
+   },
+   "ready_for_import": false,
+   "source_object_id": "580c39b127e93fb16c1f24644ffcb2dce7c996da189ef7905ce81bcb82945907",
+   "status": "PROPOSED_NOT_AUTHORIZED",
+   "target_proposal": {
+    "loader": "UNDECIDED (PostGIS raster vs bytea+sidecar contract at import stage)",
+    "naming_note": "full-release naming and collision allocation deferred to block 6",
+    "pixel_semantics": "preserve source pixel type/NoData/affine/CRS declaration verbatim; no reprojection, no resampling, no fill",
+    "schema": "chgis",
+    "table_name_proposal": null
+   }
+  },
+  {
+   "carrier": "geotiff",
+   "identity": {
+    "archive_chain": [
+     "shapefiles/v2_dem_nw_one.ZIP",
+     "nw_one.tif"
+    ],
+    "archive_ordinals": [
+     97,
+     1
+    ],
+    "kind": "file",
+    "relative_path": "harvard-full/doi_10_7910/DVN/ZZKZ6U/CHGIS_V2.zip",
+    "sha256": "40685c6a5c49316a614b322f8973df3356bfd3b2d7036e7c79e7627e6e6b6850",
+    "size": 31690760
+   },
+   "observed": {
+    "bands": [
+     {
+      "band": 1,
+      "block_size": [
+       4098,
+       1
+      ],
+      "colorInterpretation": "Gray",
+      "noData": null,
+      "type": "Byte"
+     },
+     {
+      "band": 2,
+      "block_size": [
+       4098,
+       1
+      ],
+      "colorInterpretation": "Undefined",
+      "noData": null,
+      "type": "Byte"
+     },
+     {
+      "band": 3,
+      "block_size": [
+       4098,
+       1
+      ],
+      "colorInterpretation": "Undefined",
+      "noData": null,
+      "type": "Byte"
+     }
+    ],
+    "crs_source_declared": {
+     "note": "GetProjectionRef 逐字转录；无内部声明=null，不推导不转换",
+     "srs_is_null": false,
+     "wkt_verbatim_from_source": "LOCAL_CS[\"Geocoding information not available Projection Name = Unknown Units = other GeoTIFF Units = other\",UNIT[\"fathom\",1.8288,AUTHORITY[\"EPSG\",\"9014\"]],AXIS[\"Easting\",EAST],AXIS[\"Northing\",NORTH]]"
+    },
+    "driver": "GTiff",
+    "gcp_count": 0,
+    "gdalinfo_rc": 0,
+    "geotransform": [
+     59.99572863433838,
+     0.008542731323248157,
+     0.0,
+     60.004270882311616,
+     0.0,
+     -0.008542731323248157
+    ],
+    "size_px": [
+     4098,
+     2576
+    ],
+    "world_file_declared": null
+   },
+   "per_band_verification": {
+    "executed_this_round": false,
+    "method": "GDAL band checksum (osgeo Band.Checksum())",
+    "note": "large rasters: method registered, execution deferred to import stage"
+   },
+   "ready_for_import": false,
+   "source_object_id": "421d818956c484f016b44e70ebab08c11640ca35e328ec05ad6eaf527a3b3136",
+   "status": "PROPOSED_NOT_AUTHORIZED",
+   "target_proposal": {
+    "loader": "UNDECIDED (PostGIS raster vs bytea+sidecar contract at import stage)",
+    "naming_note": "full-release naming and collision allocation deferred to block 6",
+    "pixel_semantics": "preserve source pixel type/NoData/affine/CRS declaration verbatim; no reprojection, no resampling, no fill",
+    "schema": "chgis",
+    "table_name_proposal": null
+   }
+  },
+  {
+   "carrier": "geotiff",
+   "identity": {
+    "archive_chain": [
+     "shapefiles/v2_dem_se_four.ZIP",
+     "se_four.tif"
+    ],
+    "archive_ordinals": [
+     98,
+     2
+    ],
+    "kind": "file",
+    "relative_path": "harvard-full/doi_10_7910/DVN/ZZKZ6U/CHGIS_V2.zip",
+    "sha256": "782b74c4aee0ae6ae202a0ad3d2e0a934134a460be7a08d8f3ad5c37cf77babc",
+    "size": 33893048
+   },
+   "observed": {
+    "bands": [
+     {
+      "band": 1,
+      "block_size": [
+       3443,
+       2
+      ],
+      "colorInterpretation": "Gray",
+      "noData": null,
+      "type": "Byte"
+     },
+     {
+      "band": 2,
+      "block_size": [
+       3443,
+       2
+      ],
+      "colorInterpretation": "Undefined",
+      "noData": null,
+      "type": "Byte"
+     },
+     {
+      "band": 3,
+      "block_size": [
+       3443,
+       2
+      ],
+      "colorInterpretation": "Undefined",
+      "noData": null,
+      "type": "Byte"
+     }
+    ],
+    "crs_source_declared": {
+     "note": "GetProjectionRef 逐字转录；无内部声明=null，不推导不转换",
+     "srs_is_null": false,
+     "wkt_verbatim_from_source": "LOCAL_CS[\"Geocoding information not available Projection Name = Unknown Units = other GeoTIFF Units = other\",UNIT[\"fathom\",1.8288,AUTHORITY[\"EPSG\",\"9014\"]],AXIS[\"Easting\",EAST],AXIS[\"Northing\",NORTH]]"
+    },
+    "driver": "GTiff",
+    "gcp_count": 0,
+    "gdalinfo_rc": 0,
+    "geotransform": [
+     123.99572863433838,
+     0.008542731323248157,
+     0.0,
+     38.00427136566162,
+     0.0,
+     -0.008542731323248157
+    ],
+    "size_px": [
+     3443,
+     3279
+    ],
+    "world_file_declared": null
+   },
+   "per_band_verification": {
+    "executed_this_round": false,
+    "method": "GDAL band checksum (osgeo Band.Checksum())",
+    "note": "large rasters: method registered, execution deferred to import stage"
+   },
+   "ready_for_import": false,
+   "source_object_id": "004e31f7570304cf806bef4c8b6f0553c46ee52a1288be2ed77b68c6f0f5aa86",
+   "status": "PROPOSED_NOT_AUTHORIZED",
+   "target_proposal": {
+    "loader": "UNDECIDED (PostGIS raster vs bytea+sidecar contract at import stage)",
+    "naming_note": "full-release naming and collision allocation deferred to block 6",
+    "pixel_semantics": "preserve source pixel type/NoData/affine/CRS declaration verbatim; no reprojection, no resampling, no fill",
+    "schema": "chgis",
+    "table_name_proposal": null
+   }
+  },
+  {
+   "carrier": "geotiff",
+   "identity": {
+    "archive_chain": [
+     "shapefiles/v2_dem_south_five.ZIP",
+     "south_five.tif"
+    ],
+    "archive_ordinals": [
+     99,
+     3
+    ],
+    "kind": "file",
+    "relative_path": "harvard-full/doi_10_7910/DVN/ZZKZ6U/CHGIS_V2.zip",
+    "sha256": "14ef06da4a769cc34bb415192f3a219146d46a4a6263146cbbae6efafc328148",
+    "size": 33430568
+   },
+   "observed": {
+    "bands": [
+     {
+      "band": 1,
+      "block_size": [
+       3396,
+       2
+      ],
+      "colorInterpretation": "Gray",
+      "noData": null,
+      "type": "Byte"
+     },
+     {
+      "band": 2,
+      "block_size": [
+       3396,
+       2
+      ],
+      "colorInterpretation": "Undefined",
+      "noData": null,
+      "type": "Byte"
+     },
+     {
+      "band": 3,
+      "block_size": [
+       3396,
+       2
+      ],
+      "colorInterpretation": "Undefined",
+      "noData": null,
+      "type": "Byte"
+     }
+    ],
+    "crs_source_declared": {
+     "note": "GetProjectionRef 逐字转录；无内部声明=null，不推导不转换",
+     "srs_is_null": false,
+     "wkt_verbatim_from_source": "LOCAL_CS[\"Geocoding information not available Projection Name = Unknown Units = other GeoTIFF Units = other\",UNIT[\"fathom\",1.8288,AUTHORITY[\"EPSG\",\"9014\"]],AXIS[\"Easting\",EAST],AXIS[\"Northing\",NORTH]]"
+    },
+    "driver": "GTiff",
+    "gcp_count": 0,
+    "gdalinfo_rc": 0,
+    "geotransform": [
+     94.99572863433838,
+     0.008542731323248157,
+     0.0,
+     38.00427136566162,
+     0.0,
+     -0.008542731323248157
+    ],
+    "size_px": [
+     3396,
+     3279
+    ],
+    "world_file_declared": null
+   },
+   "per_band_verification": {
+    "executed_this_round": false,
+    "method": "GDAL band checksum (osgeo Band.Checksum())",
+    "note": "large rasters: method registered, execution deferred to import stage"
+   },
+   "ready_for_import": false,
+   "source_object_id": "190c62f8081ceb1089006078b84a8c65fac5fd05f98d933e86aaaefd9c7c703d",
+   "status": "PROPOSED_NOT_AUTHORIZED",
+   "target_proposal": {
+    "loader": "UNDECIDED (PostGIS raster vs bytea+sidecar contract at import stage)",
+    "naming_note": "full-release naming and collision allocation deferred to block 6",
+    "pixel_semantics": "preserve source pixel type/NoData/affine/CRS declaration verbatim; no reprojection, no resampling, no fill",
+    "schema": "chgis",
+    "table_name_proposal": null
+   }
+  },
+  {
+   "carrier": "geotiff",
+   "identity": {
+    "archive_chain": [
+     "shapefiles/v2_dem_sw_six.ZIP",
+     "sw_six.tif"
+    ],
+    "archive_ordinals": [
+     100,
+     2
+    ],
+    "kind": "file",
+    "relative_path": "harvard-full/doi_10_7910/DVN/ZZKZ6U/CHGIS_V2.zip",
+    "sha256": "393adaaa5cc6af8a01f70f04f604e8efca31c21a769957b2fb95ea05a20d22c0",
+    "size": 40339066
+   },
+   "observed": {
+    "bands": [
+     {
+      "band": 1,
+      "block_size": [
+       4098,
+       1
+      ],
+      "colorInterpretation": "Gray",
+      "noData": null,
+      "type": "Byte"
+     },
+     {
+      "band": 2,
+      "block_size": [
+       4098,
+       1
+      ],
+      "colorInterpretation": "Undefined",
+      "noData": null,
+      "type": "Byte"
+     },
+     {
+      "band": 3,
+      "block_size": [
+       4098,
+       1
+      ],
+      "colorInterpretation": "Undefined",
+      "noData": null,
+      "type": "Byte"
+     }
+    ],
+    "crs_source_declared": {
+     "note": "GetProjectionRef 逐字转录；无内部声明=null，不推导不转换",
+     "srs_is_null": false,
+     "wkt_verbatim_from_source": "LOCAL_CS[\"Geocoding information not available Projection Name = Unknown Units = other GeoTIFF Units = other\",UNIT[\"fathom\",1.8288,AUTHORITY[\"EPSG\",\"9014\"]],AXIS[\"Easting\",EAST],AXIS[\"Northing\",NORTH]]"
+    },
+    "driver": "GTiff",
+    "gcp_count": 0,
+    "gdalinfo_rc": 0,
+    "geotransform": [
+     59.99572863433838,
+     0.008542731323248157,
+     0.0,
+     38.00427136566162,
+     0.0,
+     -0.008542731323248157
+    ],
+    "size_px": [
+     4098,
+     3279
+    ],
+    "world_file_declared": null
+   },
+   "per_band_verification": {
+    "executed_this_round": false,
+    "method": "GDAL band checksum (osgeo Band.Checksum())",
+    "note": "large rasters: method registered, execution deferred to import stage"
+   },
+   "ready_for_import": false,
+   "source_object_id": "8d6dcbff85626a74650ec94a423c4cbf458de02744b075d5301f4021987930ce",
+   "status": "PROPOSED_NOT_AUTHORIZED",
+   "target_proposal": {
+    "loader": "UNDECIDED (PostGIS raster vs bytea+sidecar contract at import stage)",
+    "naming_note": "full-release naming and collision allocation deferred to block 6",
+    "pixel_semantics": "preserve source pixel type/NoData/affine/CRS declaration verbatim; no reprojection, no resampling, no fill",
+    "schema": "chgis",
+    "table_name_proposal": null
+   }
+  }
+ ]
+}

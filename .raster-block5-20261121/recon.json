@@ -1,0 +1,159 @@
+{
+ "candidate_by_kind": {
+  "directory": 85,
+  "file": 2437
+ },
+ "candidate_by_source": {
+  "handoff_block2": 620,
+  "handoff_block4": 1,
+  "unowned_scan": 1901
+ },
+ "candidate_ext_histogram": {
+  "": 91,
+  "aux": 21,
+  "cpg": 1,
+  "cst": 1,
+  "csvt": 1,
+  "db": 1,
+  "doc": 2,
+  "gif": 72,
+  "htm": 309,
+  "html": 67,
+  "jgw": 5,
+  "jgwx": 1,
+  "jpg": 205,
+  "lyr": 1,
+  "md": 3,
+  "ods": 1,
+  "ovr": 2,
+  "pdf": 20,
+  "png": 15,
+  "qgd": 1,
+  "qgs": 1,
+  "qgz": 1,
+  "qml": 2,
+  "qpj": 33,
+  "rdf": 4,
+  "rels": 26,
+  "rrd": 19,
+  "tfw": 2,
+  "tif": 38,
+  "tifw": 18,
+  "txt": 619,
+  "wmf": 12,
+  "xml": 398,
+  "zip": 529
+ },
+ "candidate_total": 2522,
+ "cross_references": [
+  {
+   "also_referenced_by": [
+    "block3",
+    "mapinfo_candidate"
+   ],
+   "key": [
+    "harvard-full/doi_10_7910/DVN/MI56KU/2001_Shanghai_0_INDEX_OF_PRESENTATIONS.tab",
+    [],
+    []
+   ],
+   "owner": [
+    "block2",
+    "tab-text"
+   ]
+  },
+  {
+   "also_referenced_by": [
+    "block3",
+    "mapinfo_candidate"
+   ],
+   "key": [
+    "harvard-full/doi_10_7910/DVN/SK7KGK/GB_91_HZ_040201_UTF8.tab",
+    [],
+    []
+   ],
+   "owner": [
+    "block2",
+    "tab-text"
+   ]
+  },
+  {
+   "also_referenced_by": [
+    "block4_doc_note",
+    "documentation"
+   ],
+   "key": [
+    "chgis-v6/China_Periods_ReignDates.zip",
+    [
+     "china_chron/china_chron.txt"
+    ],
+    [
+     2
+    ]
+   ],
+   "owner": [
+    "block2",
+    "txt"
+   ]
+  },
+  {
+   "also_referenced_by": [
+    "block4_doc_note",
+    "documentation"
+   ],
+   "key": [
+    "chgis-v6/China_Periods_ReignDates.zip",
+    [
+     "china_chron/README_CHINA_CHRON.txt"
+    ],
+    [
+     5
+    ]
+   ],
+   "owner": [
+    "handoff_block5",
+    "txt"
+   ]
+  }
+ ],
+ "inventory_complete_flag": false,
+ "inventory_entries": 8004,
+ "inventory_issues": [
+  {
+   "archive_chain": [],
+   "archive_ordinals": [],
+   "blocking": true,
+   "code": "checksum_line",
+   "detail": "line=173",
+   "relative_path": "SHA256SUMS-b2"
+  },
+  {
+   "archive_chain": [],
+   "archive_ordinals": [],
+   "blocking": true,
+   "code": "checksum_nul",
+   "detail": "count=126",
+   "relative_path": "SHA256SUMS-b2"
+  },
+  {
+   "archive_chain": [],
+   "archive_ordinals": [],
+   "blocking": true,
+   "code": "checksum_missing",
+   "detail": "line=4",
+   "relative_path": "harvard/chgis/SHA256SUMS.txt"
+  }
+ ],
+ "inventory_sha256_prefix": "fb5e6b334b898d62",
+ "owned_by_block": {
+  "block1": 3,
+  "block2": 174,
+  "block3": 5294,
+  "block4": 11,
+  "block5_handoff_via_block4": 1,
+  "handoff_block5": 620
+ },
+ "owned_total": 6103,
+ "spatial_members_resolved": 5296,
+ "unowned_count": 1901,
+ "unresolved_refs": []
+}

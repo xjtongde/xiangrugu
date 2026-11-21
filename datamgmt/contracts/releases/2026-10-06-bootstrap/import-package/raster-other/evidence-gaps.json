@@ -1,0 +1,251 @@
+{
+ "baseline_git": "5d0c9e3",
+ "format": "xiangrugu.import-package.raster-other.evidence-gaps.v1",
+ "gap_count": 6,
+ "gaps": [
+  {
+   "detail": "no internal geotransform/CRS and no same-stem world file within this container; same-named world files exist in 3 other containers; cross-container borrowing is mirror/merge semantics, deferred to block 6, not inferred this round",
+   "identity": {
+    "archive_chain": [
+     "shapefiles/v4_ras_1904_tibet_pts.zip",
+     "pdb2.TIF"
+    ],
+    "archive_ordinals": [
+     159,
+     6
+    ],
+    "kind": "file",
+    "relative_path": "harvard-full/doi_10_7910/DVN/PDGOZ0/V4_Data_Archive.zip",
+    "sha256": "bd56086a9967f0e12775d4de923d39dd06bf861f85e9ffb076eaf888677ed873",
+    "size": 13967046
+   },
+   "kind": "georeference_undeclared",
+   "status": "UNRESOLVED_BLOCK6"
+  },
+  {
+   "affected_member_count": 12,
+   "detail": "WMF metafile: magic BINARY_UNKNOWN, no confirmed read capability in existing images; capability assessment awaits separate authorization; no dependency installed this round",
+   "identities": [
+    {
+     "archive_chain": [
+      "metadata/v4_data_dictionary.xlsx",
+      "docProps/thumbnail.wmf"
+     ],
+     "archive_ordinals": [
+      64,
+      5
+     ],
+     "kind": "file",
+     "relative_path": "harvard-full/doi_10_7910/DVN/PDGOZ0/V4_Data_Archive.zip",
+     "sha256": "f782a8ce8bf728dedbe8db046eba48d20f303acf5a7964061d0c4bb14e262c68",
+     "size": 5308
+    },
+    {
+     "archive_chain": [
+      "metadata/v4_feature_types.xlsx",
+      "docProps/thumbnail.wmf"
+     ],
+     "archive_ordinals": [
+      65,
+      5
+     ],
+     "kind": "file",
+     "relative_path": "harvard-full/doi_10_7910/DVN/PDGOZ0/V4_Data_Archive.zip",
+     "sha256": "f782a8ce8bf728dedbe8db046eba48d20f303acf5a7964061d0c4bb14e262c68",
+     "size": 5308
+    },
+    {
+     "archive_chain": [
+      "metadata/xtra_change_types.xlsx",
+      "docProps/thumbnail.wmf"
+     ],
+     "archive_ordinals": [
+      66,
+      5
+     ],
+     "kind": "file",
+     "relative_path": "harvard-full/doi_10_7910/DVN/PDGOZ0/V4_Data_Archive.zip",
+     "sha256": "f782a8ce8bf728dedbe8db046eba48d20f303acf5a7964061d0c4bb14e262c68",
+     "size": 5308
+    },
+    {
+     "archive_chain": [
+      "metadata/xtra_contributors.xlsx",
+      "docProps/thumbnail.wmf"
+     ],
+     "archive_ordinals": [
+      67,
+      6
+     ],
+     "kind": "file",
+     "relative_path": "harvard-full/doi_10_7910/DVN/PDGOZ0/V4_Data_Archive.zip",
+     "sha256": "f782a8ce8bf728dedbe8db046eba48d20f303acf5a7964061d0c4bb14e262c68",
+     "size": 5308
+    },
+    {
+     "archive_chain": [
+      "metadata/xtra_date_rules.xlsx",
+      "docProps/thumbnail.wmf"
+     ],
+     "archive_ordinals": [
+      68,
+      5
+     ],
+     "kind": "file",
+     "relative_path": "harvard-full/doi_10_7910/DVN/PDGOZ0/V4_Data_Archive.zip",
+     "sha256": "f782a8ce8bf728dedbe8db046eba48d20f303acf5a7964061d0c4bb14e262c68",
+     "size": 5308
+    },
+    {
+     "archive_chain": [
+      "metadata/xtra_geo_source.xlsx",
+      "docProps/thumbnail.wmf"
+     ],
+     "archive_ordinals": [
+      69,
+      5
+     ],
+     "kind": "file",
+     "relative_path": "harvard-full/doi_10_7910/DVN/PDGOZ0/V4_Data_Archive.zip",
+     "sha256": "f782a8ce8bf728dedbe8db046eba48d20f303acf5a7964061d0c4bb14e262c68",
+     "size": 5308
+    },
+    {
+     "archive_chain": [
+      "v6_data_dictionary.xlsx",
+      "docProps/thumbnail.wmf"
+     ],
+     "archive_ordinals": [
+      0,
+      5
+     ],
+     "kind": "file",
+     "relative_path": "harvard/chgis/CHGIS_data_dictionary.zip",
+     "sha256": "f782a8ce8bf728dedbe8db046eba48d20f303acf5a7964061d0c4bb14e262c68",
+     "size": 5308
+    },
+    {
+     "archive_chain": [
+      "v6_feature_types.xlsx",
+      "docProps/thumbnail.wmf"
+     ],
+     "archive_ordinals": [
+      1,
+      5
+     ],
+     "kind": "file",
+     "relative_path": "harvard/chgis/CHGIS_data_dictionary.zip",
+     "sha256": "f782a8ce8bf728dedbe8db046eba48d20f303acf5a7964061d0c4bb14e262c68",
+     "size": 5308
+    },
+    {
+     "archive_chain": [
+      "xtra_change_types.xlsx",
+      "docProps/thumbnail.wmf"
+     ],
+     "archive_ordinals": [
+      2,
+      5
+     ],
+     "kind": "file",
+     "relative_path": "harvard/chgis/CHGIS_data_dictionary.zip",
+     "sha256": "f782a8ce8bf728dedbe8db046eba48d20f303acf5a7964061d0c4bb14e262c68",
+     "size": 5308
+    },
+    {
+     "archive_chain": [
+      "xtra_contributors.xlsx",
+      "docProps/thumbnail.wmf"
+     ],
+     "archive_ordinals": [
+      3,
+      6
+     ],
+     "kind": "file",
+     "relative_path": "harvard/chgis/CHGIS_data_dictionary.zip",
+     "sha256": "f782a8ce8bf728dedbe8db046eba48d20f303acf5a7964061d0c4bb14e262c68",
+     "size": 5308
+    },
+    {
+     "archive_chain": [
+      "xtra_date_rules.xlsx",
+      "docProps/thumbnail.wmf"
+     ],
+     "archive_ordinals": [
+      4,
+      5
+     ],
+     "kind": "file",
+     "relative_path": "harvard/chgis/CHGIS_data_dictionary.zip",
+     "sha256": "f782a8ce8bf728dedbe8db046eba48d20f303acf5a7964061d0c4bb14e262c68",
+     "size": 5308
+    },
+    {
+     "archive_chain": [
+      "xtra_geo_source.xlsx",
+      "docProps/thumbnail.wmf"
+     ],
+     "archive_ordinals": [
+      5,
+      5
+     ],
+     "kind": "file",
+     "relative_path": "harvard/chgis/CHGIS_data_dictionary.zip",
+     "sha256": "f782a8ce8bf728dedbe8db046eba48d20f303acf5a7964061d0c4bb14e262c68",
+     "size": 5308
+    }
+   ],
+   "kind": "tool_gap_wmf_reader",
+   "status": "AWAITING_AUTHORIZATION"
+  },
+  {
+   "affected_member_count": 17,
+   "detail": "large rasters (>20MB): per-band checksum method registered, execution deferred to import stage to bound this box",
+   "kind": "raster_checksum_deferred",
+   "status": "REGISTERED_METHOD_NOT_RUN"
+  },
+  {
+   "affected_band_count": 113,
+   "detail": "bands whose source declares no NoData value: recorded as null verbatim; import contract must decide representation, no fill invented",
+   "kind": "nodata_source_undeclared",
+   "status": "REGISTERED_FOR_IMPORT_CONTRACT"
+  },
+  {
+   "detail": "inventory complete=false historical blocking issues carried forward verbatim; full reconciliation belongs to block 6",
+   "issues": [
+    {
+     "archive_chain": [],
+     "archive_ordinals": [],
+     "blocking": true,
+     "code": "checksum_line",
+     "detail": "line=173",
+     "relative_path": "SHA256SUMS-b2"
+    },
+    {
+     "archive_chain": [],
+     "archive_ordinals": [],
+     "blocking": true,
+     "code": "checksum_nul",
+     "detail": "count=126",
+     "relative_path": "SHA256SUMS-b2"
+    },
+    {
+     "archive_chain": [],
+     "archive_ordinals": [],
+     "blocking": true,
+     "code": "checksum_missing",
+     "detail": "line=4",
+     "relative_path": "harvard/chgis/SHA256SUMS.txt"
+    }
+   ],
+   "kind": "inventory_historical_issues",
+   "status": "EXPLICITLY_REGISTERED_BLOCK6"
+  },
+  {
+   "affected_member_count": 17,
+   "detail": "LOCAL_CS declarations preserved verbatim; no EPSG inferred; SRID assignment awaits source-level adjudication",
+   "kind": "crs_local_cs_non_epsg",
+   "status": "UNRESOLVED_NO_INFERENCE"
+  }
+ ]
+}

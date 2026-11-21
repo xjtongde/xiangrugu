@@ -1,0 +1,2 @@
+# isolated MDB extracts stay on 32 only; never commit source binaries
+*.mdb

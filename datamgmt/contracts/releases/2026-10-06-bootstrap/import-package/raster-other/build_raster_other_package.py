@@ -10,7 +10,7 @@ HERE = Path(__file__).resolve().parent
 EV = HERE / "evidence"
 if not EV.exists():
     EV = HERE.parents[5] / ".raster-block5-20261121"
-VCS_REF = "926ed98"
+VCS_REF = "d59010b"
 INV_SHA = "fb5e6b334b898d62dc0e5c77094fdb50e0946300e6e3009f447b2ecd1bc216db"
 
 recon = json.load(open(EV / "recon.json"))
@@ -121,7 +121,11 @@ for _m in gr:
         "note": "ESRI 世界文件六参数惯例逐字登记；不做单位/轴向推断"}
     _wfd["text_provenance"] = {
         "verbatim": _wfd["verbatim"],
-        "parsed": "由 verbatim 逐行文本解析出的六个浮点值（解析动作在本生成器，原字节未改）"}
+        "verbatim_label": "原文逐字（源成员字节转录）",
+        "normalized_text": "\n".join(repr(_wfd[_k]) for _k in (
+            "x_resolution", "rot_2", "rot_3", "y_resolution",
+            "x_origin_upper_left", "y_origin_upper_left")),
+        "normalized_text_label": "规整文本（由本生成器从原文解析，非源件字节）"}
     _wf_join_hits += 1
 assert _wf_join_hits == 25, f"world-file enriched {_wf_join_hits} != 25"
 
@@ -138,6 +142,8 @@ for m in gr:
     csd_out = dict(csd)
     csd_out["reader_source"] = ("osgeo GDAL 3.6.2 GetProjectionRef"
                                 "（镜像 f1675321e33eeb95…，只读探针）")
+    csd_out["wkt_provenance"] = ("GDAL GetProjectionRef 返回值（逐字转录，"
+                                 "无内部声明=null，不推导不转换）")
     proposals.append({
         "source_object_id": soid(i["relative_path"], i["archive_chain"], leaf, carrier),
         "identity": i, "carrier": carrier,
@@ -149,7 +155,9 @@ for m in gr:
                      "gdalinfo_rc": rm.get("gdalinfo_rc")},
         "per_band_verification": {"method": "GDAL band checksum (osgeo Band.Checksum())",
                                   "executed_this_round": bool(rm.get("checksum_ran")),
-                                  "note": "large rasters: method registered, execution deferred to import stage"},
+                                  "note": ("本盒已执行逐波段 checksum（osgeo Band.Checksum()），"
+                                           "值在 bands[].checksum" if rm.get("checksum_ran")
+                                           else "仅登记方法，执行留导入阶段（大件栅格）")},
         "target_proposal": {"schema": "chgis", "table_name_proposal": None,
                             "naming_note": "full-release naming and collision allocation deferred to block 6",
                             "loader": "UNDECIDED (PostGIS raster vs bytea+sidecar contract at import stage)",
@@ -301,6 +309,7 @@ summary = f"""# 第 5/6 块 · 栅格及其他成员包（SUMMARY）
 - 内部 GT/CRS 声明 {mapping_doc['counts']['internal_gt_or_crs_declared']} 件；世界文件关联回填 {mapping_doc['counts']['worldfile_bound']} 件=**精确同 stem 确证绑定 {mapping_doc['counts']['worldfile_bound_exact_stem']} 件**（同容器同目录同 stem，跨容器不借用）+**casefold 近似关联登记 {mapping_doc['counts']['worldfile_bound_casefold_pending']} 件**（binding_basis 显式标 PENDING_BLOCK6，非确证绑定，语义裁定留块6）；source_member/sha256/参数语义（第五六参数=左上像素中心）/文本出处（verbatim 原文 vs parsed 规整文本）enriched，join 断言 25/25 命中；逐波段 checksum **实跑 {mapping_doc['counts']['checksum_executed']} 件、仅登记方法 {len(gr) - mapping_doc['counts']['checksum_executed']} 件**（执行留导入阶段，纯实绩不附尺寸判据）。
 - ODS 改注记：CountryFilesFormat_2016-07-16.ods（ngia_dsg_codes_2017-03-15.zip!ord[2]）由 structural_container 改判 documentation_license＝字段格式说明材料（内层 content.xml 表名 Sheet1/FULL_NAME/UFI+Field Name/Type/Length/Precision/RC 单元格文本为证，text_head 已落 probe_evidence）；structural 计数随之 614。世界文件关联回填 25 件（stage B「内部 GT 即跳过」缺陷修正后一律逐字转录，GT 与世界文件并存各自引用）：23 件精确同 stem 确证绑定 + 2×Peking tfw casefold 近似关联登记（binding_basis=PENDING_BLOCK6_ADJUDICATION、binding_status=association_registered_not_confirmed_binding，非确证绑定）；真未绑定仅 1 件 .jgwx（XML 变体非六参数语法，守卫拒收）显式登记不推断。
 - NoData：源未声明波段 {nodata_null} 个如实 null（探测脚本 GetNoDataValue 传参缺陷由 lead 令 a02 定点修复后回填，修复披露在证据）。
+- 证据标注分级：25 处世界文件文本=原文逐字+规整文本双标注（normalized_text 由本生成器解析、非源件字节）；WKT 统一为 GDAL GetProjectionRef 返回值表述（逐字/null 不推导）；校验说明按执行状态分支 **{mapping_doc['counts']['checksum_executed']} 已执行/{len(gr) - mapping_doc['counts']['checksum_executed']} 仅登记**。
 
 ## 缺口与批准面
 缺口 **{len(gaps)}** 组：pdb2.TIF（真身=V4_Data_Archive.zip!shapefiles/v4_ras_1904_tibet_pts.zip!pdb2.TIF，ordinals [159,6]，sha bd56086a…；首盒误写 v4_dem_geotiff.zip 已更正）无几何声明且本容器无世界文件（同 sha 四副本合并留块6）；WMF 12 件 tool_gap 待授权；checksum 26 实跑/17 方法登记；NoData 源未声明留导入合同；inventory 历史阻断 3 项显式登记留块6；LOCAL_CS 非 EPSG 不推导；未绑定世界文件 1 件（.jgwx）显式登记，2 件 Peking tfw casefold 近似关联待块6裁定。
@@ -309,6 +318,38 @@ summary = f"""# 第 5/6 块 · 栅格及其他成员包（SUMMARY）
 ## 边界
 本轮仅 32 只读读件+38 整理交付+Gitea；依赖/镜像/服务/数据库/历史对象处置均在授权外。entry/rehearsal M=2 保留态未触。
 """
+# ---- d59010b 证据标注收尾：漂移守卫断言入码 ----
+assert len({p["source_object_id"] for p in proposals}) == 43, "sid 集漂移"
+assert cls_counts == {"documentation_license": 1446, "structural_container": 614,
+                      "ordinary_image": 299, "sidecar_companion": 116,
+                      "geo_raster": 43, "checksum_ledger": 3, "cache": 1}, \
+    f"class_counts 漂移: {cls_counts}"
+assert prior_owned + len(members) == recon["inventory_entries"] == 8004, "归属等式漂移"
+assert len(gaps) == 7, f"缺口组数漂移: {len(gaps)}"
+_wfd_all = [p["observed"]["world_file_declared"] for p in proposals
+            if p["observed"].get("world_file_declared")]
+assert len(_wfd_all) == 25 and all(
+    set(("verbatim", "verbatim_label", "normalized_text", "normalized_text_label"))
+    <= set(w["text_provenance"]) for w in _wfd_all), "text_provenance 分级不全"
+assert sum(1 for w in _wfd_all
+           if w.get("binding_basis") == "same_container_same_directory_same_stem_exact") == 23, \
+    "exact 绑定计数漂移"
+assert sum(1 for w in _wfd_all
+           if str(w.get("binding_basis", "")).startswith("casefold")) == 2, "casefold 分级漂移"
+assert all(w.get("sha256") and w.get("source_member") for w in _wfd_all), "wf sha/身份漂移"
+assert all((p["observed"]["crs_source_declared"] or {}).get("wkt_provenance")
+           for p in proposals), "wkt_provenance 缺失"
+assert sum(1 for p in proposals if p["per_band_verification"]["executed_this_round"]) == 26 \
+    and sum(1 for p in proposals if not p["per_band_verification"]["executed_this_round"]) == 17, \
+    "checksum 分支计数漂移"
+for p in proposals:
+    _w = p["observed"].get("world_file_declared")
+    if _w:
+        assert [_w[k] for k in ("x_resolution", "rot_2", "rot_3", "y_resolution",
+                                "x_origin_upper_left", "y_origin_upper_left")] == \
+               [float(x) for x in _w["verbatim"].split()], \
+            f"六参数与 verbatim 失配: {p['identity']['relative_path']}"
+
 (HERE / "members.json").write_text(json.dumps(members_doc, ensure_ascii=False, indent=1, sort_keys=True) + "\n")
 (HERE / "raster-mapping.json").write_text(json.dumps(mapping_doc, ensure_ascii=False, indent=1, sort_keys=True) + "\n")
 (HERE / "evidence-gaps.json").write_text(json.dumps(gaps_doc, ensure_ascii=False, indent=1, sort_keys=True) + "\n")

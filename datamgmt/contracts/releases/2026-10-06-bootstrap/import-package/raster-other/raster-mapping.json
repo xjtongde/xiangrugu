@@ -1,5 +1,5 @@
 {
- "baseline_git": "926ed98",
+ "baseline_git": "d59010b",
  "counts": {
   "checksum_executed": 26,
   "geo_raster_members": 43,
@@ -68,6 +68,7 @@
      "note": "GetProjectionRef 逐字转录；无内部声明=null，不推导不转换",
      "reader_source": "osgeo GDAL 3.6.2 GetProjectionRef（镜像 f1675321e33eeb95…，只读探针）",
      "srs_is_null": true,
+     "wkt_provenance": "GDAL GetProjectionRef 返回值（逐字转录，无内部声明=null，不推导不转换）",
      "wkt_verbatim_from_source": null
     },
     "driver": "JPEG",
@@ -106,8 +107,10 @@
       "relative_path": "harvard-full/doi_10_7910/DVN/23340/1926_China_Atlas.zip"
      },
      "text_provenance": {
-      "parsed": "由 verbatim 逐行文本解析出的六个浮点值（解析动作在本生成器，原字节未改）",
-      "verbatim": "3072.9925610571327\n-274.3726354288097\n-203.9311464816814\n-3194.4180988167941\n16056119.508811446\n6609040.046655016"
+      "normalized_text": "3072.9925610571327\n-274.3726354288097\n-203.9311464816814\n-3194.418098816794\n16056119.508811446\n6609040.046655016",
+      "normalized_text_label": "规整文本（由本生成器从原文解析，非源件字节）",
+      "verbatim": "3072.9925610571327\n-274.3726354288097\n-203.9311464816814\n-3194.4180988167941\n16056119.508811446\n6609040.046655016",
+      "verbatim_label": "原文逐字（源成员字节转录）"
      },
      "verbatim": "3072.9925610571327\n-274.3726354288097\n-203.9311464816814\n-3194.4180988167941\n16056119.508811446\n6609040.046655016",
      "x_origin_upper_left": 16056119.508811446,
@@ -119,7 +122,7 @@
    "per_band_verification": {
     "executed_this_round": true,
     "method": "GDAL band checksum (osgeo Band.Checksum())",
-    "note": "large rasters: method registered, execution deferred to import stage"
+    "note": "本盒已执行逐波段 checksum（osgeo Band.Checksum()），值在 bands[].checksum"
    },
    "ready_for_import": false,
    "source_object_id": "4efb96d4427c3f0d0e06ed64c2cf7d770188ae9ad062217ddfb7ecd9253b1b47",
@@ -186,6 +189,7 @@
      "note": "GetProjectionRef 逐字转录；无内部声明=null，不推导不转换",
      "reader_source": "osgeo GDAL 3.6.2 GetProjectionRef（镜像 f1675321e33eeb95…，只读探针）",
      "srs_is_null": true,
+     "wkt_provenance": "GDAL GetProjectionRef 返回值（逐字转录，无内部声明=null，不推导不转换）",
      "wkt_verbatim_from_source": null
     },
     "driver": "JPEG",
@@ -224,8 +228,10 @@
       "relative_path": "harvard-full/doi_10_7910/DVN/23340/1926_China_Atlas.zip"
      },
      "text_provenance": {
-      "parsed": "由 verbatim 逐行文本解析出的六个浮点值（解析动作在本生成器，原字节未改）",
-      "verbatim": "459.00891357143223\n32.717371037742296\n38.722622583081588\n-470.74852578709607\n19533771.678411521\n3305206.3052816191"
+      "normalized_text": "459.00891357143223\n32.717371037742296\n38.72262258308159\n-470.74852578709607\n19533771.67841152\n3305206.305281619",
+      "normalized_text_label": "规整文本（由本生成器从原文解析，非源件字节）",
+      "verbatim": "459.00891357143223\n32.717371037742296\n38.722622583081588\n-470.74852578709607\n19533771.678411521\n3305206.3052816191",
+      "verbatim_label": "原文逐字（源成员字节转录）"
      },
      "verbatim": "459.00891357143223\n32.717371037742296\n38.722622583081588\n-470.74852578709607\n19533771.678411521\n3305206.3052816191",
      "x_origin_upper_left": 19533771.67841152,
@@ -237,7 +243,7 @@
    "per_band_verification": {
     "executed_this_round": true,
     "method": "GDAL band checksum (osgeo Band.Checksum())",
-    "note": "large rasters: method registered, execution deferred to import stage"
+    "note": "本盒已执行逐波段 checksum（osgeo Band.Checksum()），值在 bands[].checksum"
    },
    "ready_for_import": false,
    "source_object_id": "601baeb9f1527331246f8013ecd14cddb48b8b164527fc6359f5c39a9feb41ce",
@@ -304,6 +310,7 @@
      "note": "GetProjectionRef 逐字转录；无内部声明=null，不推导不转换",
      "reader_source": "osgeo GDAL 3.6.2 GetProjectionRef（镜像 f1675321e33eeb95…，只读探针）",
      "srs_is_null": true,
+     "wkt_provenance": "GDAL GetProjectionRef 返回值（逐字转录，无内部声明=null，不推导不转换）",
      "wkt_verbatim_from_source": null
     },
     "driver": "JPEG",
@@ -342,8 +349,10 @@
       "relative_path": "harvard-full/doi_10_7910/DVN/23340/1926_China_Atlas.zip"
      },
      "text_provenance": {
-      "parsed": "由 verbatim 逐行文本解析出的六个浮点值（解析动作在本生成器，原字节未改）",
-      "verbatim": "495.55981091379709\n-12.993141304307652\n5.4903049750336246\n-456.93726978315971\n19100914.115626626\n3346217.3863088214"
+      "normalized_text": "495.5598109137971\n-12.993141304307652\n5.490304975033625\n-456.9372697831597\n19100914.115626626\n3346217.3863088214",
+      "normalized_text_label": "规整文本（由本生成器从原文解析，非源件字节）",
+      "verbatim": "495.55981091379709\n-12.993141304307652\n5.4903049750336246\n-456.93726978315971\n19100914.115626626\n3346217.3863088214",
+      "verbatim_label": "原文逐字（源成员字节转录）"
      },
      "verbatim": "495.55981091379709\n-12.993141304307652\n5.4903049750336246\n-456.93726978315971\n19100914.115626626\n3346217.3863088214",
      "x_origin_upper_left": 19100914.115626626,
@@ -355,7 +364,7 @@
    "per_band_verification": {
     "executed_this_round": true,
     "method": "GDAL band checksum (osgeo Band.Checksum())",
-    "note": "large rasters: method registered, execution deferred to import stage"
+    "note": "本盒已执行逐波段 checksum（osgeo Band.Checksum()），值在 bands[].checksum"
    },
    "ready_for_import": false,
    "source_object_id": "c266fcf089383609cb36605ded23b276c972da72332e47db801a154d608144c7",
@@ -422,6 +431,7 @@
      "note": "GetProjectionRef 逐字转录；无内部声明=null，不推导不转换",
      "reader_source": "osgeo GDAL 3.6.2 GetProjectionRef（镜像 f1675321e33eeb95…，只读探针）",
      "srs_is_null": true,
+     "wkt_provenance": "GDAL GetProjectionRef 返回值（逐字转录，无内部声明=null，不推导不转换）",
      "wkt_verbatim_from_source": null
     },
     "driver": "GTiff",
@@ -460,8 +470,10 @@
       "relative_path": "harvard-full/doi_10_7910/DVN/ABPR9F/Ca1884_przh_partial.zip"
      },
      "text_provenance": {
-      "parsed": "由 verbatim 逐行文本解析出的六个浮点值（解析动作在本生成器，原字节未改）",
-      "verbatim": "0.00453629128981\n0.00000000000000\n0.00000000000000\n-0.00453629128981\n90.8892\n42.5489"
+      "normalized_text": "0.00453629128981\n0.0\n0.0\n-0.00453629128981\n90.8892\n42.5489",
+      "normalized_text_label": "规整文本（由本生成器从原文解析，非源件字节）",
+      "verbatim": "0.00453629128981\n0.00000000000000\n0.00000000000000\n-0.00453629128981\n90.8892\n42.5489",
+      "verbatim_label": "原文逐字（源成员字节转录）"
      },
      "verbatim": "0.00453629128981\n0.00000000000000\n0.00000000000000\n-0.00453629128981\n90.8892\n42.5489",
      "x_origin_upper_left": 90.8892,
@@ -473,7 +485,7 @@
    "per_band_verification": {
     "executed_this_round": true,
     "method": "GDAL band checksum (osgeo Band.Checksum())",
-    "note": "large rasters: method registered, execution deferred to import stage"
+    "note": "本盒已执行逐波段 checksum（osgeo Band.Checksum()），值在 bands[].checksum"
    },
    "ready_for_import": false,
    "source_object_id": "b5d996d18c786c95a24434c3a7d3c6bfceba200b85ac651bfea5138146dedb92",
@@ -540,6 +552,7 @@
      "note": "GetProjectionRef 逐字转录；无内部声明=null，不推导不转换",
      "reader_source": "osgeo GDAL 3.6.2 GetProjectionRef（镜像 f1675321e33eeb95…，只读探针）",
      "srs_is_null": true,
+     "wkt_provenance": "GDAL GetProjectionRef 返回值（逐字转录，无内部声明=null，不推导不转换）",
      "wkt_verbatim_from_source": null
     },
     "driver": "GTiff",
@@ -578,8 +591,10 @@
       "relative_path": "harvard-full/doi_10_7910/DVN/ABPR9F/Ca1884_przh_ru_images.zip"
      },
      "text_provenance": {
-      "parsed": "由 verbatim 逐行文本解析出的六个浮点值（解析动作在本生成器，原字节未改）",
-      "verbatim": "0.00433412066375\n0.00000000000000\n0.00000000000000\n-0.00433412066375\n81.7526\n42.6342"
+      "normalized_text": "0.00433412066375\n0.0\n0.0\n-0.00433412066375\n81.7526\n42.6342",
+      "normalized_text_label": "规整文本（由本生成器从原文解析，非源件字节）",
+      "verbatim": "0.00433412066375\n0.00000000000000\n0.00000000000000\n-0.00433412066375\n81.7526\n42.6342",
+      "verbatim_label": "原文逐字（源成员字节转录）"
      },
      "verbatim": "0.00433412066375\n0.00000000000000\n0.00000000000000\n-0.00433412066375\n81.7526\n42.6342",
      "x_origin_upper_left": 81.7526,
@@ -591,7 +606,7 @@
    "per_band_verification": {
     "executed_this_round": true,
     "method": "GDAL band checksum (osgeo Band.Checksum())",
-    "note": "large rasters: method registered, execution deferred to import stage"
+    "note": "本盒已执行逐波段 checksum（osgeo Band.Checksum()），值在 bands[].checksum"
    },
    "ready_for_import": false,
    "source_object_id": "551d240ef0a112ba7a20c2634ff6ab350dd721739db15dd0ace51ec2acda7dbf",
@@ -658,6 +673,7 @@
      "note": "GetProjectionRef 逐字转录；无内部声明=null，不推导不转换",
      "reader_source": "osgeo GDAL 3.6.2 GetProjectionRef（镜像 f1675321e33eeb95…，只读探针）",
      "srs_is_null": true,
+     "wkt_provenance": "GDAL GetProjectionRef 返回值（逐字转录，无内部声明=null，不推导不转换）",
      "wkt_verbatim_from_source": null
     },
     "driver": "GTiff",
@@ -696,8 +712,10 @@
       "relative_path": "harvard-full/doi_10_7910/DVN/ABPR9F/Ca1884_przh_ru_images.zip"
      },
      "text_provenance": {
-      "parsed": "由 verbatim 逐行文本解析出的六个浮点值（解析动作在本生成器，原字节未改）",
-      "verbatim": "0.00453629128981\n0.00000000000000\n0.00000000000000\n-0.00453629128981\n90.8892\n42.5489"
+      "normalized_text": "0.00453629128981\n0.0\n0.0\n-0.00453629128981\n90.8892\n42.5489",
+      "normalized_text_label": "规整文本（由本生成器从原文解析，非源件字节）",
+      "verbatim": "0.00453629128981\n0.00000000000000\n0.00000000000000\n-0.00453629128981\n90.8892\n42.5489",
+      "verbatim_label": "原文逐字（源成员字节转录）"
      },
      "verbatim": "0.00453629128981\n0.00000000000000\n0.00000000000000\n-0.00453629128981\n90.8892\n42.5489",
      "x_origin_upper_left": 90.8892,
@@ -709,7 +727,7 @@
    "per_band_verification": {
     "executed_this_round": true,
     "method": "GDAL band checksum (osgeo Band.Checksum())",
-    "note": "large rasters: method registered, execution deferred to import stage"
+    "note": "本盒已执行逐波段 checksum（osgeo Band.Checksum()），值在 bands[].checksum"
    },
    "ready_for_import": false,
    "source_object_id": "801c2aa91d2181f7362cfc783436c0a1096705e84d5b3784b48e9e826cb33241",
@@ -776,6 +794,7 @@
      "note": "GetProjectionRef 逐字转录；无内部声明=null，不推导不转换",
      "reader_source": "osgeo GDAL 3.6.2 GetProjectionRef（镜像 f1675321e33eeb95…，只读探针）",
      "srs_is_null": true,
+     "wkt_provenance": "GDAL GetProjectionRef 返回值（逐字转录，无内部声明=null，不推导不转换）",
      "wkt_verbatim_from_source": null
     },
     "driver": "GTiff",
@@ -814,8 +833,10 @@
       "relative_path": "harvard-full/doi_10_7910/DVN/ABPR9F/Ca1884_przh_ru_images.zip"
      },
      "text_provenance": {
-      "parsed": "由 verbatim 逐行文本解析出的六个浮点值（解析动作在本生成器，原字节未改）",
-      "verbatim": "0.00436253126750\n0.00000000000000\n0.00000000000000\n-0.00436253126750\n77.4374\n42.7721"
+      "normalized_text": "0.0043625312675\n0.0\n0.0\n-0.0043625312675\n77.4374\n42.7721",
+      "normalized_text_label": "规整文本（由本生成器从原文解析，非源件字节）",
+      "verbatim": "0.00436253126750\n0.00000000000000\n0.00000000000000\n-0.00436253126750\n77.4374\n42.7721",
+      "verbatim_label": "原文逐字（源成员字节转录）"
      },
      "verbatim": "0.00436253126750\n0.00000000000000\n0.00000000000000\n-0.00436253126750\n77.4374\n42.7721",
      "x_origin_upper_left": 77.4374,
@@ -827,7 +848,7 @@
    "per_band_verification": {
     "executed_this_round": true,
     "method": "GDAL band checksum (osgeo Band.Checksum())",
-    "note": "large rasters: method registered, execution deferred to import stage"
+    "note": "本盒已执行逐波段 checksum（osgeo Band.Checksum()），值在 bands[].checksum"
    },
    "ready_for_import": false,
    "source_object_id": "2b975bef3420d2e82fc57d8c13fb59b3461112d380f5e8f778ba4a9710fdd897",
@@ -871,6 +892,7 @@
      "note": "GetProjectionRef 逐字转录；无内部声明=null，不推导不转换",
      "reader_source": "osgeo GDAL 3.6.2 GetProjectionRef（镜像 f1675321e33eeb95…，只读探针）",
      "srs_is_null": false,
+     "wkt_provenance": "GDAL GetProjectionRef 返回值（逐字转录，无内部声明=null，不推导不转换）",
      "wkt_verbatim_from_source": "LOCAL_CS[\"Geocoding information not available Projection Name = Xian_1980_GK_Zone_19 Units = meters GeoTIFF Unit\",UNIT[\"metre\",1,AUTHORITY[\"EPSG\",\"9001\"]],AXIS[\"Easting\",EAST],AXIS[\"Northing\",NORTH]]"
     },
     "driver": "GTiff",
@@ -893,7 +915,7 @@
    "per_band_verification": {
     "executed_this_round": false,
     "method": "GDAL band checksum (osgeo Band.Checksum())",
-    "note": "large rasters: method registered, execution deferred to import stage"
+    "note": "仅登记方法，执行留导入阶段（大件栅格）"
    },
    "ready_for_import": false,
    "source_object_id": "ad9a6145c1cdd3b4664c637cbd3dcf76e058089dada9c4d31060b5011fbad232",
@@ -937,6 +959,7 @@
      "note": "GetProjectionRef 逐字转录；无内部声明=null，不推导不转换",
      "reader_source": "osgeo GDAL 3.6.2 GetProjectionRef（镜像 f1675321e33eeb95…，只读探针）",
      "srs_is_null": false,
+     "wkt_provenance": "GDAL GetProjectionRef 返回值（逐字转录，无内部声明=null，不推导不转换）",
      "wkt_verbatim_from_source": "LOCAL_CS[\"Geocoding information not available Projection Name = Xian_1980_GK_Zone_19 Units = meters GeoTIFF Unit\",UNIT[\"metre\",1,AUTHORITY[\"EPSG\",\"9001\"]],AXIS[\"Easting\",EAST],AXIS[\"Northing\",NORTH]]"
     },
     "driver": "GTiff",
@@ -959,7 +982,7 @@
    "per_band_verification": {
     "executed_this_round": false,
     "method": "GDAL band checksum (osgeo Band.Checksum())",
-    "note": "large rasters: method registered, execution deferred to import stage"
+    "note": "仅登记方法，执行留导入阶段（大件栅格）"
    },
    "ready_for_import": false,
    "source_object_id": "1f139db6e2a1bc6772670e01109b2ec6ac266e80211e5415fcb3c3f7927f46c7",
@@ -1004,6 +1027,7 @@
      "note": "GetProjectionRef 逐字转录；无内部声明=null，不推导不转换",
      "reader_source": "osgeo GDAL 3.6.2 GetProjectionRef（镜像 f1675321e33eeb95…，只读探针）",
      "srs_is_null": true,
+     "wkt_provenance": "GDAL GetProjectionRef 返回值（逐字转录，无内部声明=null，不推导不转换）",
      "wkt_verbatim_from_source": null
     },
     "driver": "GTiff",
@@ -1042,8 +1066,10 @@
       "relative_path": "harvard-full/doi_10_7910/DVN/ELTD3L/RAS_1900_pdb2_scan.zip"
      },
      "text_provenance": {
-      "parsed": "由 verbatim 逐行文本解析出的六个浮点值（解析动作在本生成器，原字节未改）",
-      "verbatim": "0.00091249660924\n0.00000000000000\n0.00000000000000\n-0.00091249660924\n87.9371\n29.7982"
+      "normalized_text": "0.00091249660924\n0.0\n0.0\n-0.00091249660924\n87.9371\n29.7982",
+      "normalized_text_label": "规整文本（由本生成器从原文解析，非源件字节）",
+      "verbatim": "0.00091249660924\n0.00000000000000\n0.00000000000000\n-0.00091249660924\n87.9371\n29.7982",
+      "verbatim_label": "原文逐字（源成员字节转录）"
      },
      "verbatim": "0.00091249660924\n0.00000000000000\n0.00000000000000\n-0.00091249660924\n87.9371\n29.7982",
      "x_origin_upper_left": 87.9371,
@@ -1055,7 +1081,7 @@
    "per_band_verification": {
     "executed_this_round": true,
     "method": "GDAL band checksum (osgeo Band.Checksum())",
-    "note": "large rasters: method registered, execution deferred to import stage"
+    "note": "本盒已执行逐波段 checksum（osgeo Band.Checksum()），值在 bands[].checksum"
    },
    "ready_for_import": false,
    "source_object_id": "1958d88b1a80d6786675913ce3d0912aead4c436eab9c129e23aae8e4a19e0a9",
@@ -1122,6 +1148,7 @@
      "note": "GetProjectionRef 逐字转录；无内部声明=null，不推导不转换",
      "reader_source": "osgeo GDAL 3.6.2 GetProjectionRef（镜像 f1675321e33eeb95…，只读探针）",
      "srs_is_null": false,
+     "wkt_provenance": "GDAL GetProjectionRef 返回值（逐字转录，无内部声明=null，不推导不转换）",
      "wkt_verbatim_from_source": "GEOGCS[\"WGS 84\",DATUM[\"WGS_1984\",SPHEROID[\"WGS 84\",6378137,298.257223563,AUTHORITY[\"EPSG\",\"7030\"]],AUTHORITY[\"EPSG\",\"6326\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AXIS[\"Latitude\",NORTH],AXIS[\"Longitude\",EAST],AUTHORITY[\"EPSG\",\"4326\"]]"
     },
     "driver": "GTiff",
@@ -1168,8 +1195,10 @@
       "relative_path": "harvard-full/doi_10_7910/DVN/H4WVUP/beijing_1875.zip"
      },
      "text_provenance": {
-      "parsed": "由 verbatim 逐行文本解析出的六个浮点值（解析动作在本生成器，原字节未改）",
-      "verbatim": "0.000519990990993550040\n0.0\n0.0\n-0.000519780703276097580\n115.10228304632693\n40.367663126274962"
+      "normalized_text": "0.00051999099099355\n0.0\n0.0\n-0.0005197807032760976\n115.10228304632693\n40.36766312627496",
+      "normalized_text_label": "规整文本（由本生成器从原文解析，非源件字节）",
+      "verbatim": "0.000519990990993550040\n0.0\n0.0\n-0.000519780703276097580\n115.10228304632693\n40.367663126274962",
+      "verbatim_label": "原文逐字（源成员字节转录）"
      },
      "verbatim": "0.000519990990993550040\n0.0\n0.0\n-0.000519780703276097580\n115.10228304632693\n40.367663126274962",
      "x_origin_upper_left": 115.10228304632693,
@@ -1181,7 +1210,7 @@
    "per_band_verification": {
     "executed_this_round": true,
     "method": "GDAL band checksum (osgeo Band.Checksum())",
-    "note": "large rasters: method registered, execution deferred to import stage"
+    "note": "本盒已执行逐波段 checksum（osgeo Band.Checksum()），值在 bands[].checksum"
    },
    "ready_for_import": false,
    "source_object_id": "1efd7d4b2e19415843719a425398b12ebc2618a9f9e4578d12301c117a29c250",
@@ -1228,6 +1257,7 @@
      "note": "GetProjectionRef 逐字转录；无内部声明=null，不推导不转换",
      "reader_source": "osgeo GDAL 3.6.2 GetProjectionRef（镜像 f1675321e33eeb95…，只读探针）",
      "srs_is_null": true,
+     "wkt_provenance": "GDAL GetProjectionRef 返回值（逐字转录，无内部声明=null，不推导不转换）",
      "wkt_verbatim_from_source": null
     },
     "driver": "GTiff",
@@ -1268,8 +1298,10 @@
       "relative_path": "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip"
      },
      "text_provenance": {
-      "parsed": "由 verbatim 逐行文本解析出的六个浮点值（解析动作在本生成器，原字节未改）",
-      "verbatim": "0.00091249660924\n0.00000000000000\n0.00000000000000\n-0.00091249660924\n87.9371\n29.7982"
+      "normalized_text": "0.00091249660924\n0.0\n0.0\n-0.00091249660924\n87.9371\n29.7982",
+      "normalized_text_label": "规整文本（由本生成器从原文解析，非源件字节）",
+      "verbatim": "0.00091249660924\n0.00000000000000\n0.00000000000000\n-0.00091249660924\n87.9371\n29.7982",
+      "verbatim_label": "原文逐字（源成员字节转录）"
      },
      "verbatim": "0.00091249660924\n0.00000000000000\n0.00000000000000\n-0.00091249660924\n87.9371\n29.7982",
      "x_origin_upper_left": 87.9371,
@@ -1281,7 +1313,7 @@
    "per_band_verification": {
     "executed_this_round": true,
     "method": "GDAL band checksum (osgeo Band.Checksum())",
-    "note": "large rasters: method registered, execution deferred to import stage"
+    "note": "本盒已执行逐波段 checksum（osgeo Band.Checksum()），值在 bands[].checksum"
    },
    "ready_for_import": false,
    "source_object_id": "2e521352dc83476a2f1c9c86cc9c648b474352dc5d0bc69f74dae5e88909c3f9",
@@ -1347,6 +1379,7 @@
      "note": "GetProjectionRef 逐字转录；无内部声明=null，不推导不转换",
      "reader_source": "osgeo GDAL 3.6.2 GetProjectionRef（镜像 f1675321e33eeb95…，只读探针）",
      "srs_is_null": false,
+     "wkt_provenance": "GDAL GetProjectionRef 返回值（逐字转录，无内部声明=null，不推导不转换）",
      "wkt_verbatim_from_source": "LOCAL_CS[\"Geocoding information not available Projection Name = Unknown Units = other GeoTIFF Units = other\",UNIT[\"fathom\",1.8288,AUTHORITY[\"EPSG\",\"9014\"]],AXIS[\"Easting\",EAST],AXIS[\"Northing\",NORTH]]"
     },
     "driver": "GTiff",
@@ -1369,7 +1402,7 @@
    "per_band_verification": {
     "executed_this_round": false,
     "method": "GDAL band checksum (osgeo Band.Checksum())",
-    "note": "large rasters: method registered, execution deferred to import stage"
+    "note": "仅登记方法，执行留导入阶段（大件栅格）"
    },
    "ready_for_import": false,
    "source_object_id": "b2dbda65c86abdf62b2735dcc26bd3160648befbf845084f80e13d238a55ed7c",
@@ -1435,6 +1468,7 @@
      "note": "GetProjectionRef 逐字转录；无内部声明=null，不推导不转换",
      "reader_source": "osgeo GDAL 3.6.2 GetProjectionRef（镜像 f1675321e33eeb95…，只读探针）",
      "srs_is_null": false,
+     "wkt_provenance": "GDAL GetProjectionRef 返回值（逐字转录，无内部声明=null，不推导不转换）",
      "wkt_verbatim_from_source": "LOCAL_CS[\"Geocoding information not available Projection Name = Unknown Units = other GeoTIFF Units = other\",UNIT[\"fathom\",1.8288,AUTHORITY[\"EPSG\",\"9014\"]],AXIS[\"Easting\",EAST],AXIS[\"Northing\",NORTH]]"
     },
     "driver": "GTiff",
@@ -1457,7 +1491,7 @@
    "per_band_verification": {
     "executed_this_round": false,
     "method": "GDAL band checksum (osgeo Band.Checksum())",
-    "note": "large rasters: method registered, execution deferred to import stage"
+    "note": "仅登记方法，执行留导入阶段（大件栅格）"
    },
    "ready_for_import": false,
    "source_object_id": "f9562137b4c6bd00b47987a4b60d376a28d2af63a1d9bfc72b2fb2db2aac6589",
@@ -1523,6 +1557,7 @@
      "note": "GetProjectionRef 逐字转录；无内部声明=null，不推导不转换",
      "reader_source": "osgeo GDAL 3.6.2 GetProjectionRef（镜像 f1675321e33eeb95…，只读探针）",
      "srs_is_null": false,
+     "wkt_provenance": "GDAL GetProjectionRef 返回值（逐字转录，无内部声明=null，不推导不转换）",
      "wkt_verbatim_from_source": "LOCAL_CS[\"Geocoding information not available Projection Name = Unknown Units = other GeoTIFF Units = other\",UNIT[\"fathom\",1.8288,AUTHORITY[\"EPSG\",\"9014\"]],AXIS[\"Easting\",EAST],AXIS[\"Northing\",NORTH]]"
     },
     "driver": "GTiff",
@@ -1545,7 +1580,7 @@
    "per_band_verification": {
     "executed_this_round": false,
     "method": "GDAL band checksum (osgeo Band.Checksum())",
-    "note": "large rasters: method registered, execution deferred to import stage"
+    "note": "仅登记方法，执行留导入阶段（大件栅格）"
    },
    "ready_for_import": false,
    "source_object_id": "e640378f2fb59cbf4f93602e272a4146de647750db1f91b79c28795aae5651c6",
@@ -1611,6 +1646,7 @@
      "note": "GetProjectionRef 逐字转录；无内部声明=null，不推导不转换",
      "reader_source": "osgeo GDAL 3.6.2 GetProjectionRef（镜像 f1675321e33eeb95…，只读探针）",
      "srs_is_null": false,
+     "wkt_provenance": "GDAL GetProjectionRef 返回值（逐字转录，无内部声明=null，不推导不转换）",
      "wkt_verbatim_from_source": "LOCAL_CS[\"Geocoding information not available Projection Name = Unknown Units = other GeoTIFF Units = other\",UNIT[\"fathom\",1.8288,AUTHORITY[\"EPSG\",\"9014\"]],AXIS[\"Easting\",EAST],AXIS[\"Northing\",NORTH]]"
     },
     "driver": "GTiff",
@@ -1633,7 +1669,7 @@
    "per_band_verification": {
     "executed_this_round": false,
     "method": "GDAL band checksum (osgeo Band.Checksum())",
-    "note": "large rasters: method registered, execution deferred to import stage"
+    "note": "仅登记方法，执行留导入阶段（大件栅格）"
    },
    "ready_for_import": false,
    "source_object_id": "6465eef4e04e104c59a8c9936bd2c995ca825a5f5b540b8cf131559ef8645ce9",
@@ -1699,6 +1735,7 @@
      "note": "GetProjectionRef 逐字转录；无内部声明=null，不推导不转换",
      "reader_source": "osgeo GDAL 3.6.2 GetProjectionRef（镜像 f1675321e33eeb95…，只读探针）",
      "srs_is_null": false,
+     "wkt_provenance": "GDAL GetProjectionRef 返回值（逐字转录，无内部声明=null，不推导不转换）",
      "wkt_verbatim_from_source": "LOCAL_CS[\"Geocoding information not available Projection Name = Unknown Units = other GeoTIFF Units = other\",UNIT[\"fathom\",1.8288,AUTHORITY[\"EPSG\",\"9014\"]],AXIS[\"Easting\",EAST],AXIS[\"Northing\",NORTH]]"
     },
     "driver": "GTiff",
@@ -1721,7 +1758,7 @@
    "per_band_verification": {
     "executed_this_round": false,
     "method": "GDAL band checksum (osgeo Band.Checksum())",
-    "note": "large rasters: method registered, execution deferred to import stage"
+    "note": "仅登记方法，执行留导入阶段（大件栅格）"
    },
    "ready_for_import": false,
    "source_object_id": "e124d14d31dee2cc4b6dca40bc68627c770d042532152fbab19f27c73e66e382",
@@ -1787,6 +1824,7 @@
      "note": "GetProjectionRef 逐字转录；无内部声明=null，不推导不转换",
      "reader_source": "osgeo GDAL 3.6.2 GetProjectionRef（镜像 f1675321e33eeb95…，只读探针）",
      "srs_is_null": false,
+     "wkt_provenance": "GDAL GetProjectionRef 返回值（逐字转录，无内部声明=null，不推导不转换）",
      "wkt_verbatim_from_source": "LOCAL_CS[\"Geocoding information not available Projection Name = Unknown Units = other GeoTIFF Units = other\",UNIT[\"fathom\",1.8288,AUTHORITY[\"EPSG\",\"9014\"]],AXIS[\"Easting\",EAST],AXIS[\"Northing\",NORTH]]"
     },
     "driver": "GTiff",
@@ -1809,7 +1847,7 @@
    "per_band_verification": {
     "executed_this_round": false,
     "method": "GDAL band checksum (osgeo Band.Checksum())",
-    "note": "large rasters: method registered, execution deferred to import stage"
+    "note": "仅登记方法，执行留导入阶段（大件栅格）"
    },
    "ready_for_import": false,
    "source_object_id": "2350f1f5dad3c04e8a78dd9609776618839a31c13111998b97556464cbee182d",
@@ -1878,6 +1916,7 @@
      "note": "GetProjectionRef 逐字转录；无内部声明=null，不推导不转换",
      "reader_source": "osgeo GDAL 3.6.2 GetProjectionRef（镜像 f1675321e33eeb95…，只读探针）",
      "srs_is_null": true,
+     "wkt_provenance": "GDAL GetProjectionRef 返回值（逐字转录，无内部声明=null，不推导不转换）",
      "wkt_verbatim_from_source": null
     },
     "driver": "JPEG",
@@ -1918,8 +1957,10 @@
       "relative_path": "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip"
      },
      "text_provenance": {
-      "parsed": "由 verbatim 逐行文本解析出的六个浮点值（解析动作在本生成器，原字节未改）",
-      "verbatim": "0.00833600623499071260\n0.00000134841695159742870\n0.000000537650194590547470\n-0.00832345738860768010\n60.006489730096391\n59.985284007330549"
+      "normalized_text": "0.008336006234990713\n1.3484169515974287e-06\n5.376501945905475e-07\n-0.00832345738860768\n60.00648973009639\n59.98528400733055",
+      "normalized_text_label": "规整文本（由本生成器从原文解析，非源件字节）",
+      "verbatim": "0.00833600623499071260\n0.00000134841695159742870\n0.000000537650194590547470\n-0.00832345738860768010\n60.006489730096391\n59.985284007330549",
+      "verbatim_label": "原文逐字（源成员字节转录）"
      },
      "verbatim": "0.00833600623499071260\n0.00000134841695159742870\n0.000000537650194590547470\n-0.00832345738860768010\n60.006489730096391\n59.985284007330549",
      "x_origin_upper_left": 60.00648973009639,
@@ -1931,7 +1972,7 @@
    "per_band_verification": {
     "executed_this_round": true,
     "method": "GDAL band checksum (osgeo Band.Checksum())",
-    "note": "large rasters: method registered, execution deferred to import stage"
+    "note": "本盒已执行逐波段 checksum（osgeo Band.Checksum()），值在 bands[].checksum"
    },
    "ready_for_import": false,
    "source_object_id": "66689ad925a9dfe5577600d3f6f9580124f1ffc130c75b153732ca9e6c4fcf46",
@@ -1998,6 +2039,7 @@
      "note": "GetProjectionRef 逐字转录；无内部声明=null，不推导不转换",
      "reader_source": "osgeo GDAL 3.6.2 GetProjectionRef（镜像 f1675321e33eeb95…，只读探针）",
      "srs_is_null": true,
+     "wkt_provenance": "GDAL GetProjectionRef 返回值（逐字转录，无内部声明=null，不推导不转换）",
      "wkt_verbatim_from_source": null
     },
     "driver": "JPEG",
@@ -2036,8 +2078,10 @@
       "relative_path": "harvard-full/doi_10_7910/DVN/J5U79Z/ChinaGasPipelines_2013.zip"
      },
      "text_provenance": {
-      "parsed": "由 verbatim 逐行文本解析出的六个浮点值（解析动作在本生成器，原字节未改）",
-      "verbatim": "6740.6672816011778\n-209.25644979598411\n-15.61994926821616\n-6682.7252467134831\n14733670.527201086\n6780644.2881642254"
+      "normalized_text": "6740.667281601178\n-209.2564497959841\n-15.61994926821616\n-6682.725246713483\n14733670.527201086\n6780644.288164225",
+      "normalized_text_label": "规整文本（由本生成器从原文解析，非源件字节）",
+      "verbatim": "6740.6672816011778\n-209.25644979598411\n-15.61994926821616\n-6682.7252467134831\n14733670.527201086\n6780644.2881642254",
+      "verbatim_label": "原文逐字（源成员字节转录）"
      },
      "verbatim": "6740.6672816011778\n-209.25644979598411\n-15.61994926821616\n-6682.7252467134831\n14733670.527201086\n6780644.2881642254",
      "x_origin_upper_left": 14733670.527201086,
@@ -2049,7 +2093,7 @@
    "per_band_verification": {
     "executed_this_round": true,
     "method": "GDAL band checksum (osgeo Band.Checksum())",
-    "note": "large rasters: method registered, execution deferred to import stage"
+    "note": "本盒已执行逐波段 checksum（osgeo Band.Checksum()），值在 bands[].checksum"
    },
    "ready_for_import": false,
    "source_object_id": "58a5a7d64e5a020c9b036ba3808133d8334e826127c795a281d7bddce52887d2",
@@ -2116,6 +2160,7 @@
      "note": "GetProjectionRef 逐字转录；无内部声明=null，不推导不转换",
      "reader_source": "osgeo GDAL 3.6.2 GetProjectionRef（镜像 f1675321e33eeb95…，只读探针）",
      "srs_is_null": true,
+     "wkt_provenance": "GDAL GetProjectionRef 返回值（逐字转录，无内部声明=null，不推导不转换）",
      "wkt_verbatim_from_source": null
     },
     "driver": "GTiff",
@@ -2154,8 +2199,10 @@
       "relative_path": "harvard-full/doi_10_7910/DVN/LVYYZC/Ca1876route_przh_ru_images.zip"
      },
      "text_provenance": {
-      "parsed": "由 verbatim 逐行文本解析出的六个浮点值（解析动作在本生成器，原字节未改）",
-      "verbatim": "0.00268691812751\n0.00000000000000\n0.00000000000000\n-0.00268691812751\n79.3877\n45.0036"
+      "normalized_text": "0.00268691812751\n0.0\n0.0\n-0.00268691812751\n79.3877\n45.0036",
+      "normalized_text_label": "规整文本（由本生成器从原文解析，非源件字节）",
+      "verbatim": "0.00268691812751\n0.00000000000000\n0.00000000000000\n-0.00268691812751\n79.3877\n45.0036",
+      "verbatim_label": "原文逐字（源成员字节转录）"
      },
      "verbatim": "0.00268691812751\n0.00000000000000\n0.00000000000000\n-0.00268691812751\n79.3877\n45.0036",
      "x_origin_upper_left": 79.3877,
@@ -2167,7 +2214,7 @@
    "per_band_verification": {
     "executed_this_round": true,
     "method": "GDAL band checksum (osgeo Band.Checksum())",
-    "note": "large rasters: method registered, execution deferred to import stage"
+    "note": "本盒已执行逐波段 checksum（osgeo Band.Checksum()），值在 bands[].checksum"
    },
    "ready_for_import": false,
    "source_object_id": "59f497a9f51b2c72dd5f80abc328240fe4e944e965083af26af99db4f6a5e1c8",
@@ -2234,6 +2281,7 @@
      "note": "GetProjectionRef 逐字转录；无内部声明=null，不推导不转换",
      "reader_source": "osgeo GDAL 3.6.2 GetProjectionRef（镜像 f1675321e33eeb95…，只读探针）",
      "srs_is_null": true,
+     "wkt_provenance": "GDAL GetProjectionRef 返回值（逐字转录，无内部声明=null，不推导不转换）",
      "wkt_verbatim_from_source": null
     },
     "driver": "GTiff",
@@ -2272,8 +2320,10 @@
       "relative_path": "harvard-full/doi_10_7910/DVN/LVYYZC/Ca1876route_przh_ru_images.zip"
      },
      "text_provenance": {
-      "parsed": "由 verbatim 逐行文本解析出的六个浮点值（解析动作在本生成器，原字节未改）",
-      "verbatim": "0.00286972866928\n0.00000000000000\n0.00000000000000\n-0.00286972866928\n77.4144\n49.0653"
+      "normalized_text": "0.00286972866928\n0.0\n0.0\n-0.00286972866928\n77.4144\n49.0653",
+      "normalized_text_label": "规整文本（由本生成器从原文解析，非源件字节）",
+      "verbatim": "0.00286972866928\n0.00000000000000\n0.00000000000000\n-0.00286972866928\n77.4144\n49.0653",
+      "verbatim_label": "原文逐字（源成员字节转录）"
      },
      "verbatim": "0.00286972866928\n0.00000000000000\n0.00000000000000\n-0.00286972866928\n77.4144\n49.0653",
      "x_origin_upper_left": 77.4144,
@@ -2285,7 +2335,7 @@
    "per_band_verification": {
     "executed_this_round": true,
     "method": "GDAL band checksum (osgeo Band.Checksum())",
-    "note": "large rasters: method registered, execution deferred to import stage"
+    "note": "本盒已执行逐波段 checksum（osgeo Band.Checksum()），值在 bands[].checksum"
    },
    "ready_for_import": false,
    "source_object_id": "0ffbe3620af9dc5d2dd2bdecad98262858a59d2240f8b8cb2d565d2fbead5617",
@@ -2352,6 +2402,7 @@
      "note": "GetProjectionRef 逐字转录；无内部声明=null，不推导不转换",
      "reader_source": "osgeo GDAL 3.6.2 GetProjectionRef（镜像 f1675321e33eeb95…，只读探针）",
      "srs_is_null": true,
+     "wkt_provenance": "GDAL GetProjectionRef 返回值（逐字转录，无内部声明=null，不推导不转换）",
      "wkt_verbatim_from_source": null
     },
     "driver": "GTiff",
@@ -2390,8 +2441,10 @@
       "relative_path": "harvard-full/doi_10_7910/DVN/LVYYZC/Ca1876route_przh_ru_images.zip"
      },
      "text_provenance": {
-      "parsed": "由 verbatim 逐行文本解析出的六个浮点值（解析动作在本生成器，原字节未改）",
-      "verbatim": "0.00289083727259\n0.00000000000000\n0.00000000000000\n-0.00289083727259\n80.4572\n49.5425"
+      "normalized_text": "0.00289083727259\n0.0\n0.0\n-0.00289083727259\n80.4572\n49.5425",
+      "normalized_text_label": "规整文本（由本生成器从原文解析，非源件字节）",
+      "verbatim": "0.00289083727259\n0.00000000000000\n0.00000000000000\n-0.00289083727259\n80.4572\n49.5425",
+      "verbatim_label": "原文逐字（源成员字节转录）"
      },
      "verbatim": "0.00289083727259\n0.00000000000000\n0.00000000000000\n-0.00289083727259\n80.4572\n49.5425",
      "x_origin_upper_left": 80.4572,
@@ -2403,7 +2456,7 @@
    "per_band_verification": {
     "executed_this_round": true,
     "method": "GDAL band checksum (osgeo Band.Checksum())",
-    "note": "large rasters: method registered, execution deferred to import stage"
+    "note": "本盒已执行逐波段 checksum（osgeo Band.Checksum()），值在 bands[].checksum"
    },
    "ready_for_import": false,
    "source_object_id": "25a9055177af691c0a5ee38f9b7e9cdcf4ac8c55ed8fffad9ffbbbf0b69d6c08",
@@ -2470,6 +2523,7 @@
      "note": "GetProjectionRef 逐字转录；无内部声明=null，不推导不转换",
      "reader_source": "osgeo GDAL 3.6.2 GetProjectionRef（镜像 f1675321e33eeb95…，只读探针）",
      "srs_is_null": true,
+     "wkt_provenance": "GDAL GetProjectionRef 返回值（逐字转录，无内部声明=null，不推导不转换）",
      "wkt_verbatim_from_source": null
     },
     "driver": "GTiff",
@@ -2508,8 +2562,10 @@
       "relative_path": "harvard-full/doi_10_7910/DVN/LVYYZC/Ca1876route_przh_ru_images.zip"
      },
      "text_provenance": {
-      "parsed": "由 verbatim 逐行文本解析出的六个浮点值（解析动作在本生成器，原字节未改）",
-      "verbatim": "0.00251815718995\n0.00000000000000\n0.00000000000000\n-0.00251815718995\n84.4185\n45.2893"
+      "normalized_text": "0.00251815718995\n0.0\n0.0\n-0.00251815718995\n84.4185\n45.2893",
+      "normalized_text_label": "规整文本（由本生成器从原文解析，非源件字节）",
+      "verbatim": "0.00251815718995\n0.00000000000000\n0.00000000000000\n-0.00251815718995\n84.4185\n45.2893",
+      "verbatim_label": "原文逐字（源成员字节转录）"
      },
      "verbatim": "0.00251815718995\n0.00000000000000\n0.00000000000000\n-0.00251815718995\n84.4185\n45.2893",
      "x_origin_upper_left": 84.4185,
@@ -2521,7 +2577,7 @@
    "per_band_verification": {
     "executed_this_round": true,
     "method": "GDAL band checksum (osgeo Band.Checksum())",
-    "note": "large rasters: method registered, execution deferred to import stage"
+    "note": "本盒已执行逐波段 checksum（osgeo Band.Checksum()），值在 bands[].checksum"
    },
    "ready_for_import": false,
    "source_object_id": "566c2c20c46001c682ee2a503a958937190afb3ee57cf4043c3c851cc32dadd0",
@@ -2588,6 +2644,7 @@
      "note": "GetProjectionRef 逐字转录；无内部声明=null，不推导不转换",
      "reader_source": "osgeo GDAL 3.6.2 GetProjectionRef（镜像 f1675321e33eeb95…，只读探针）",
      "srs_is_null": true,
+     "wkt_provenance": "GDAL GetProjectionRef 返回值（逐字转录，无内部声明=null，不推导不转换）",
      "wkt_verbatim_from_source": null
     },
     "driver": "GTiff",
@@ -2626,8 +2683,10 @@
       "relative_path": "harvard-full/doi_10_7910/DVN/LVYYZC/Ca1876route_przh_ru_images.zip"
      },
      "text_provenance": {
-      "parsed": "由 verbatim 逐行文本解析出的六个浮点值（解析动作在本生成器，原字节未改）",
-      "verbatim": "0.00232976552128\n0.00000000000000\n0.00000000000000\n-0.00232976552128\n88.8677\n45.342"
+      "normalized_text": "0.00232976552128\n0.0\n0.0\n-0.00232976552128\n88.8677\n45.342",
+      "normalized_text_label": "规整文本（由本生成器从原文解析，非源件字节）",
+      "verbatim": "0.00232976552128\n0.00000000000000\n0.00000000000000\n-0.00232976552128\n88.8677\n45.342",
+      "verbatim_label": "原文逐字（源成员字节转录）"
      },
      "verbatim": "0.00232976552128\n0.00000000000000\n0.00000000000000\n-0.00232976552128\n88.8677\n45.342",
      "x_origin_upper_left": 88.8677,
@@ -2639,7 +2698,7 @@
    "per_band_verification": {
     "executed_this_round": true,
     "method": "GDAL band checksum (osgeo Band.Checksum())",
-    "note": "large rasters: method registered, execution deferred to import stage"
+    "note": "本盒已执行逐波段 checksum（osgeo Band.Checksum()），值在 bands[].checksum"
    },
    "ready_for_import": false,
    "source_object_id": "121ad0fe6695e95d0d41550b4cd99b777d06d5f04dab3c11e155f98e1cc2a4f6",
@@ -2706,6 +2765,7 @@
      "note": "GetProjectionRef 逐字转录；无内部声明=null，不推导不转换",
      "reader_source": "osgeo GDAL 3.6.2 GetProjectionRef（镜像 f1675321e33eeb95…，只读探针）",
      "srs_is_null": true,
+     "wkt_provenance": "GDAL GetProjectionRef 返回值（逐字转录，无内部声明=null，不推导不转换）",
      "wkt_verbatim_from_source": null
     },
     "driver": "GTiff",
@@ -2744,8 +2804,10 @@
       "relative_path": "harvard-full/doi_10_7910/DVN/LVYYZC/Ca1876route_przh_ru_images.zip"
      },
      "text_provenance": {
-      "parsed": "由 verbatim 逐行文本解析出的六个浮点值（解析动作在本生成器，原字节未改）",
-      "verbatim": "0.00240548497529\n0.00000000000000\n0.00000000000000\n-0.00240548497529\n90.9305\n45.714"
+      "normalized_text": "0.00240548497529\n0.0\n0.0\n-0.00240548497529\n90.9305\n45.714",
+      "normalized_text_label": "规整文本（由本生成器从原文解析，非源件字节）",
+      "verbatim": "0.00240548497529\n0.00000000000000\n0.00000000000000\n-0.00240548497529\n90.9305\n45.714",
+      "verbatim_label": "原文逐字（源成员字节转录）"
      },
      "verbatim": "0.00240548497529\n0.00000000000000\n0.00000000000000\n-0.00240548497529\n90.9305\n45.714",
      "x_origin_upper_left": 90.9305,
@@ -2757,7 +2819,7 @@
    "per_band_verification": {
     "executed_this_round": true,
     "method": "GDAL band checksum (osgeo Band.Checksum())",
-    "note": "large rasters: method registered, execution deferred to import stage"
+    "note": "本盒已执行逐波段 checksum（osgeo Band.Checksum()），值在 bands[].checksum"
    },
    "ready_for_import": false,
    "source_object_id": "fa7472db80310c833c774e379eaf7d70e0212462117a6d1de67cf9bbf6ec5490",
@@ -2824,6 +2886,7 @@
      "note": "GetProjectionRef 逐字转录；无内部声明=null，不推导不转换",
      "reader_source": "osgeo GDAL 3.6.2 GetProjectionRef（镜像 f1675321e33eeb95…，只读探针）",
      "srs_is_null": true,
+     "wkt_provenance": "GDAL GetProjectionRef 返回值（逐字转录，无内部声明=null，不推导不转换）",
      "wkt_verbatim_from_source": null
     },
     "driver": "GTiff",
@@ -2862,8 +2925,10 @@
       "relative_path": "harvard-full/doi_10_7910/DVN/LVYYZC/Ca1876route_przh_ru_images.zip"
      },
      "text_provenance": {
-      "parsed": "由 verbatim 逐行文本解析出的六个浮点值（解析动作在本生成器，原字节未改）",
-      "verbatim": "0.00215132812007\n0.00000000000000\n0.00000000000000\n-0.00215132812007\n89.9993\n41.9139"
+      "normalized_text": "0.00215132812007\n0.0\n0.0\n-0.00215132812007\n89.9993\n41.9139",
+      "normalized_text_label": "规整文本（由本生成器从原文解析，非源件字节）",
+      "verbatim": "0.00215132812007\n0.00000000000000\n0.00000000000000\n-0.00215132812007\n89.9993\n41.9139",
+      "verbatim_label": "原文逐字（源成员字节转录）"
      },
      "verbatim": "0.00215132812007\n0.00000000000000\n0.00000000000000\n-0.00215132812007\n89.9993\n41.9139",
      "x_origin_upper_left": 89.9993,
@@ -2875,7 +2940,7 @@
    "per_band_verification": {
     "executed_this_round": true,
     "method": "GDAL band checksum (osgeo Band.Checksum())",
-    "note": "large rasters: method registered, execution deferred to import stage"
+    "note": "本盒已执行逐波段 checksum（osgeo Band.Checksum()），值在 bands[].checksum"
    },
    "ready_for_import": false,
    "source_object_id": "b74c8471bd015d5829611ffe92f71b4a094f99e3fcdb04b4339163f4540697fe",
@@ -2942,6 +3007,7 @@
      "note": "GetProjectionRef 逐字转录；无内部声明=null，不推导不转换",
      "reader_source": "osgeo GDAL 3.6.2 GetProjectionRef（镜像 f1675321e33eeb95…，只读探针）",
      "srs_is_null": true,
+     "wkt_provenance": "GDAL GetProjectionRef 返回值（逐字转录，无内部声明=null，不推导不转换）",
      "wkt_verbatim_from_source": null
     },
     "driver": "GTiff",
@@ -2980,8 +3046,10 @@
       "relative_path": "harvard-full/doi_10_7910/DVN/LVYYZC/Ca1876route_przh_ru_images.zip"
      },
      "text_provenance": {
-      "parsed": "由 verbatim 逐行文本解析出的六个浮点值（解析动作在本生成器，原字节未改）",
-      "verbatim": "0.00262275829526\n0.00000000000000\n0.00000000000000\n-0.00262275829526\n84.5413\n49.4235"
+      "normalized_text": "0.00262275829526\n0.0\n0.0\n-0.00262275829526\n84.5413\n49.4235",
+      "normalized_text_label": "规整文本（由本生成器从原文解析，非源件字节）",
+      "verbatim": "0.00262275829526\n0.00000000000000\n0.00000000000000\n-0.00262275829526\n84.5413\n49.4235",
+      "verbatim_label": "原文逐字（源成员字节转录）"
      },
      "verbatim": "0.00262275829526\n0.00000000000000\n0.00000000000000\n-0.00262275829526\n84.5413\n49.4235",
      "x_origin_upper_left": 84.5413,
@@ -2993,7 +3061,7 @@
    "per_band_verification": {
     "executed_this_round": true,
     "method": "GDAL band checksum (osgeo Band.Checksum())",
-    "note": "large rasters: method registered, execution deferred to import stage"
+    "note": "本盒已执行逐波段 checksum（osgeo Band.Checksum()），值在 bands[].checksum"
    },
    "ready_for_import": false,
    "source_object_id": "4c99f78574e905758c84a2b8c4872ff3777003663caf068debacd94452f54f95",
@@ -3060,6 +3128,7 @@
      "note": "GetProjectionRef 逐字转录；无内部声明=null，不推导不转换",
      "reader_source": "osgeo GDAL 3.6.2 GetProjectionRef（镜像 f1675321e33eeb95…，只读探针）",
      "srs_is_null": true,
+     "wkt_provenance": "GDAL GetProjectionRef 返回值（逐字转录，无内部声明=null，不推导不转换）",
      "wkt_verbatim_from_source": null
     },
     "driver": "GTiff",
@@ -3098,8 +3167,10 @@
       "relative_path": "harvard-full/doi_10_7910/DVN/LVYYZC/Ca1876route_przh_ru_images.zip"
      },
      "text_provenance": {
-      "parsed": "由 verbatim 逐行文本解析出的六个浮点值（解析动作在本生成器，原字节未改）",
-      "verbatim": "0.00242231676591\n0.00000000000000\n0.00000000000000\n-0.00242231676591\n90.4671\n49.3923"
+      "normalized_text": "0.00242231676591\n0.0\n0.0\n-0.00242231676591\n90.4671\n49.3923",
+      "normalized_text_label": "规整文本（由本生成器从原文解析，非源件字节）",
+      "verbatim": "0.00242231676591\n0.00000000000000\n0.00000000000000\n-0.00242231676591\n90.4671\n49.3923",
+      "verbatim_label": "原文逐字（源成员字节转录）"
      },
      "verbatim": "0.00242231676591\n0.00000000000000\n0.00000000000000\n-0.00242231676591\n90.4671\n49.3923",
      "x_origin_upper_left": 90.4671,
@@ -3111,7 +3182,7 @@
    "per_band_verification": {
     "executed_this_round": true,
     "method": "GDAL band checksum (osgeo Band.Checksum())",
-    "note": "large rasters: method registered, execution deferred to import stage"
+    "note": "本盒已执行逐波段 checksum（osgeo Band.Checksum()），值在 bands[].checksum"
    },
    "ready_for_import": false,
    "source_object_id": "774394c1d4f2c0af87802e583ee9ea2488661fa4882b3d0932768e905aafb7a4",
@@ -3178,6 +3249,7 @@
      "note": "GetProjectionRef 逐字转录；无内部声明=null，不推导不转换",
      "reader_source": "osgeo GDAL 3.6.2 GetProjectionRef（镜像 f1675321e33eeb95…，只读探针）",
      "srs_is_null": true,
+     "wkt_provenance": "GDAL GetProjectionRef 返回值（逐字转录，无内部声明=null，不推导不转换）",
      "wkt_verbatim_from_source": null
     },
     "driver": "GTiff",
@@ -3216,8 +3288,10 @@
       "relative_path": "harvard-full/doi_10_7910/DVN/LVYYZC/Ca1876route_przh_ru_images.zip"
      },
      "text_provenance": {
-      "parsed": "由 verbatim 逐行文本解析出的六个浮点值（解析动作在本生成器，原字节未改）",
-      "verbatim": "0.00237168213827\n0.00000000000000\n0.00000000000000\n-0.00237168213827\n85.7382\n42.3945"
+      "normalized_text": "0.00237168213827\n0.0\n0.0\n-0.00237168213827\n85.7382\n42.3945",
+      "normalized_text_label": "规整文本（由本生成器从原文解析，非源件字节）",
+      "verbatim": "0.00237168213827\n0.00000000000000\n0.00000000000000\n-0.00237168213827\n85.7382\n42.3945",
+      "verbatim_label": "原文逐字（源成员字节转录）"
      },
      "verbatim": "0.00237168213827\n0.00000000000000\n0.00000000000000\n-0.00237168213827\n85.7382\n42.3945",
      "x_origin_upper_left": 85.7382,
@@ -3229,7 +3303,7 @@
    "per_band_verification": {
     "executed_this_round": true,
     "method": "GDAL band checksum (osgeo Band.Checksum())",
-    "note": "large rasters: method registered, execution deferred to import stage"
+    "note": "本盒已执行逐波段 checksum（osgeo Band.Checksum()），值在 bands[].checksum"
    },
    "ready_for_import": false,
    "source_object_id": "cf8e2e637b3f9af24358bd03c8339fa67a52a035bd521d2dfd758d2ce6c82991",
@@ -3296,6 +3370,7 @@
      "note": "GetProjectionRef 逐字转录；无内部声明=null，不推导不转换",
      "reader_source": "osgeo GDAL 3.6.2 GetProjectionRef（镜像 f1675321e33eeb95…，只读探针）",
      "srs_is_null": true,
+     "wkt_provenance": "GDAL GetProjectionRef 返回值（逐字转录，无内部声明=null，不推导不转换）",
      "wkt_verbatim_from_source": null
     },
     "driver": "GTiff",
@@ -3334,8 +3409,10 @@
       "relative_path": "harvard-full/doi_10_7910/DVN/LVYYZC/Ca1876route_przh_ru_images.zip"
      },
      "text_provenance": {
-      "parsed": "由 verbatim 逐行文本解析出的六个浮点值（解析动作在本生成器，原字节未改）",
-      "verbatim": "0.00231952323374\n0.00000000000000\n0.00000000000000\n-0.00231952323374\n80.4915\n41.3472"
+      "normalized_text": "0.00231952323374\n0.0\n0.0\n-0.00231952323374\n80.4915\n41.3472",
+      "normalized_text_label": "规整文本（由本生成器从原文解析，非源件字节）",
+      "verbatim": "0.00231952323374\n0.00000000000000\n0.00000000000000\n-0.00231952323374\n80.4915\n41.3472",
+      "verbatim_label": "原文逐字（源成员字节转录）"
      },
      "verbatim": "0.00231952323374\n0.00000000000000\n0.00000000000000\n-0.00231952323374\n80.4915\n41.3472",
      "x_origin_upper_left": 80.4915,
@@ -3347,7 +3424,7 @@
    "per_band_verification": {
     "executed_this_round": true,
     "method": "GDAL band checksum (osgeo Band.Checksum())",
-    "note": "large rasters: method registered, execution deferred to import stage"
+    "note": "本盒已执行逐波段 checksum（osgeo Band.Checksum()），值在 bands[].checksum"
    },
    "ready_for_import": false,
    "source_object_id": "d62a68548cb7a00cac9540befab65c6956b989a867431ad24a34c2f091de74a9",
@@ -3393,6 +3470,7 @@
      "note": "GetProjectionRef 逐字转录；无内部声明=null，不推导不转换",
      "reader_source": "osgeo GDAL 3.6.2 GetProjectionRef（镜像 f1675321e33eeb95…，只读探针）",
      "srs_is_null": false,
+     "wkt_provenance": "GDAL GetProjectionRef 返回值（逐字转录，无内部声明=null，不推导不转换）",
      "wkt_verbatim_from_source": "LOCAL_CS[\"Geocoding information not available Projection Name = Xian_1980_GK_Zone_19 Units = meters GeoTIFF Unit\",UNIT[\"metre\",1,AUTHORITY[\"EPSG\",\"9001\"]],AXIS[\"Easting\",EAST],AXIS[\"Northing\",NORTH]]"
     },
     "driver": "GTiff",
@@ -3415,7 +3493,7 @@
    "per_band_verification": {
     "executed_this_round": false,
     "method": "GDAL band checksum (osgeo Band.Checksum())",
-    "note": "large rasters: method registered, execution deferred to import stage"
+    "note": "仅登记方法，执行留导入阶段（大件栅格）"
    },
    "ready_for_import": false,
    "source_object_id": "b6509e0c302e8207b1c4d5356d42aaca24b554159368968e4859485158267453",
@@ -3461,6 +3539,7 @@
      "note": "GetProjectionRef 逐字转录；无内部声明=null，不推导不转换",
      "reader_source": "osgeo GDAL 3.6.2 GetProjectionRef（镜像 f1675321e33eeb95…，只读探针）",
      "srs_is_null": false,
+     "wkt_provenance": "GDAL GetProjectionRef 返回值（逐字转录，无内部声明=null，不推导不转换）",
      "wkt_verbatim_from_source": "LOCAL_CS[\"Geocoding information not available Projection Name = Xian_1980_GK_Zone_19 Units = meters GeoTIFF Unit\",UNIT[\"metre\",1,AUTHORITY[\"EPSG\",\"9001\"]],AXIS[\"Easting\",EAST],AXIS[\"Northing\",NORTH]]"
     },
     "driver": "GTiff",
@@ -3483,7 +3562,7 @@
    "per_band_verification": {
     "executed_this_round": false,
     "method": "GDAL band checksum (osgeo Band.Checksum())",
-    "note": "large rasters: method registered, execution deferred to import stage"
+    "note": "仅登记方法，执行留导入阶段（大件栅格）"
    },
    "ready_for_import": false,
    "source_object_id": "9d69beb435c1e0111e799644fceb3bcddcd5ec2019ce4b26cf7d4871735a2088",
@@ -3549,6 +3628,7 @@
      "note": "GetProjectionRef 逐字转录；无内部声明=null，不推导不转换",
      "reader_source": "osgeo GDAL 3.6.2 GetProjectionRef（镜像 f1675321e33eeb95…，只读探针）",
      "srs_is_null": false,
+     "wkt_provenance": "GDAL GetProjectionRef 返回值（逐字转录，无内部声明=null，不推导不转换）",
      "wkt_verbatim_from_source": "LOCAL_CS[\"Geocoding information not available Projection Name = Xian_1980_GK_Zone_19 Units = meters GeoTIFF Unit\",UNIT[\"metre\",1,AUTHORITY[\"EPSG\",\"9001\"]],AXIS[\"Easting\",EAST],AXIS[\"Northing\",NORTH]]"
     },
     "driver": "GTiff",
@@ -3571,7 +3651,7 @@
    "per_band_verification": {
     "executed_this_round": false,
     "method": "GDAL band checksum (osgeo Band.Checksum())",
-    "note": "large rasters: method registered, execution deferred to import stage"
+    "note": "仅登记方法，执行留导入阶段（大件栅格）"
    },
    "ready_for_import": false,
    "source_object_id": "88a9a0e813e713bf9472efe970d74f3222368a5ba62374f633d97b5bfff055ef",
@@ -3618,6 +3698,7 @@
      "note": "GetProjectionRef 逐字转录；无内部声明=null，不推导不转换",
      "reader_source": "osgeo GDAL 3.6.2 GetProjectionRef（镜像 f1675321e33eeb95…，只读探针）",
      "srs_is_null": true,
+     "wkt_provenance": "GDAL GetProjectionRef 返回值（逐字转录，无内部声明=null，不推导不转换）",
      "wkt_verbatim_from_source": null
     },
     "driver": "GTiff",
@@ -3633,7 +3714,7 @@
    "per_band_verification": {
     "executed_this_round": true,
     "method": "GDAL band checksum (osgeo Band.Checksum())",
-    "note": "large rasters: method registered, execution deferred to import stage"
+    "note": "本盒已执行逐波段 checksum（osgeo Band.Checksum()），值在 bands[].checksum"
    },
    "ready_for_import": false,
    "source_object_id": "7908a432946d5a4054cddc6ddc3c1b9e36700d1b3036d0aadf66867c3a1be28f",
@@ -3680,6 +3761,7 @@
      "note": "GetProjectionRef 逐字转录；无内部声明=null，不推导不转换",
      "reader_source": "osgeo GDAL 3.6.2 GetProjectionRef（镜像 f1675321e33eeb95…，只读探针）",
      "srs_is_null": true,
+     "wkt_provenance": "GDAL GetProjectionRef 返回值（逐字转录，无内部声明=null，不推导不转换）",
      "wkt_verbatim_from_source": null
     },
     "driver": "GTiff",
@@ -3720,8 +3802,10 @@
       "relative_path": "harvard-full/doi_10_7910/DVN/ZZKZ6U/CHGIS_V2.zip"
      },
      "text_provenance": {
-      "parsed": "由 verbatim 逐行文本解析出的六个浮点值（解析动作在本生成器，原字节未改）",
-      "verbatim": "0.00091249660924\n0.00000000000000\n0.00000000000000\n-0.00091249660924\n87.9371\n29.7982"
+      "normalized_text": "0.00091249660924\n0.0\n0.0\n-0.00091249660924\n87.9371\n29.7982",
+      "normalized_text_label": "规整文本（由本生成器从原文解析，非源件字节）",
+      "verbatim": "0.00091249660924\n0.00000000000000\n0.00000000000000\n-0.00091249660924\n87.9371\n29.7982",
+      "verbatim_label": "原文逐字（源成员字节转录）"
      },
      "verbatim": "0.00091249660924\n0.00000000000000\n0.00000000000000\n-0.00091249660924\n87.9371\n29.7982",
      "x_origin_upper_left": 87.9371,
@@ -3733,7 +3817,7 @@
    "per_band_verification": {
     "executed_this_round": true,
     "method": "GDAL band checksum (osgeo Band.Checksum())",
-    "note": "large rasters: method registered, execution deferred to import stage"
+    "note": "本盒已执行逐波段 checksum（osgeo Band.Checksum()），值在 bands[].checksum"
    },
    "ready_for_import": false,
    "source_object_id": "517079e85b9878086b2f67c2c76fc906de459e5e9c9b5720df636754cf1b0242",
@@ -3802,6 +3886,7 @@
      "note": "GetProjectionRef 逐字转录；无内部声明=null，不推导不转换",
      "reader_source": "osgeo GDAL 3.6.2 GetProjectionRef（镜像 f1675321e33eeb95…，只读探针）",
      "srs_is_null": false,
+     "wkt_provenance": "GDAL GetProjectionRef 返回值（逐字转录，无内部声明=null，不推导不转换）",
      "wkt_verbatim_from_source": "GEOGCS[\"WGS 84\",DATUM[\"WGS_1984\",SPHEROID[\"WGS 84\",6378137,298.257223563,AUTHORITY[\"EPSG\",\"7030\"]],AUTHORITY[\"EPSG\",\"6326\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AXIS[\"Latitude\",NORTH],AXIS[\"Longitude\",EAST],AUTHORITY[\"EPSG\",\"4326\"]]"
     },
     "driver": "GTiff",
@@ -3850,8 +3935,10 @@
       "relative_path": "harvard-full/doi_10_7910/DVN/ZZKZ6U/CHGIS_V2.zip"
      },
      "text_provenance": {
-      "parsed": "由 verbatim 逐行文本解析出的六个浮点值（解析动作在本生成器，原字节未改）",
-      "verbatim": "0.000519990990993550040\n0.0\n0.0\n-0.000519780703276097580\n115.10228304632693\n40.367663126274962"
+      "normalized_text": "0.00051999099099355\n0.0\n0.0\n-0.0005197807032760976\n115.10228304632693\n40.36766312627496",
+      "normalized_text_label": "规整文本（由本生成器从原文解析，非源件字节）",
+      "verbatim": "0.000519990990993550040\n0.0\n0.0\n-0.000519780703276097580\n115.10228304632693\n40.367663126274962",
+      "verbatim_label": "原文逐字（源成员字节转录）"
      },
      "verbatim": "0.000519990990993550040\n0.0\n0.0\n-0.000519780703276097580\n115.10228304632693\n40.367663126274962",
      "x_origin_upper_left": 115.10228304632693,
@@ -3863,7 +3950,7 @@
    "per_band_verification": {
     "executed_this_round": true,
     "method": "GDAL band checksum (osgeo Band.Checksum())",
-    "note": "large rasters: method registered, execution deferred to import stage"
+    "note": "本盒已执行逐波段 checksum（osgeo Band.Checksum()），值在 bands[].checksum"
    },
    "ready_for_import": false,
    "source_object_id": "1163ab933c5827bd419b59ad4fbc18839dbd4c611b23e5f227f0304ea7219a63",
@@ -3929,6 +4016,7 @@
      "note": "GetProjectionRef 逐字转录；无内部声明=null，不推导不转换",
      "reader_source": "osgeo GDAL 3.6.2 GetProjectionRef（镜像 f1675321e33eeb95…，只读探针）",
      "srs_is_null": false,
+     "wkt_provenance": "GDAL GetProjectionRef 返回值（逐字转录，无内部声明=null，不推导不转换）",
      "wkt_verbatim_from_source": "LOCAL_CS[\"Geocoding information not available Projection Name = Unknown Units = other GeoTIFF Units = other\",UNIT[\"fathom\",1.8288,AUTHORITY[\"EPSG\",\"9014\"]],AXIS[\"Easting\",EAST],AXIS[\"Northing\",NORTH]]"
     },
     "driver": "GTiff",
@@ -3951,7 +4039,7 @@
    "per_band_verification": {
     "executed_this_round": false,
     "method": "GDAL band checksum (osgeo Band.Checksum())",
-    "note": "large rasters: method registered, execution deferred to import stage"
+    "note": "仅登记方法，执行留导入阶段（大件栅格）"
    },
    "ready_for_import": false,
    "source_object_id": "f0f6c6fb7d3bbd543dec62c2095cb1104563e2beb11664c2a6a3694ef39a058e",
@@ -4017,6 +4105,7 @@
      "note": "GetProjectionRef 逐字转录；无内部声明=null，不推导不转换",
      "reader_source": "osgeo GDAL 3.6.2 GetProjectionRef（镜像 f1675321e33eeb95…，只读探针）",
      "srs_is_null": false,
+     "wkt_provenance": "GDAL GetProjectionRef 返回值（逐字转录，无内部声明=null，不推导不转换）",
      "wkt_verbatim_from_source": "LOCAL_CS[\"Geocoding information not available Projection Name = Unknown Units = other GeoTIFF Units = other\",UNIT[\"fathom\",1.8288,AUTHORITY[\"EPSG\",\"9014\"]],AXIS[\"Easting\",EAST],AXIS[\"Northing\",NORTH]]"
     },
     "driver": "GTiff",
@@ -4039,7 +4128,7 @@
    "per_band_verification": {
     "executed_this_round": false,
     "method": "GDAL band checksum (osgeo Band.Checksum())",
-    "note": "large rasters: method registered, execution deferred to import stage"
+    "note": "仅登记方法，执行留导入阶段（大件栅格）"
    },
    "ready_for_import": false,
    "source_object_id": "580c39b127e93fb16c1f24644ffcb2dce7c996da189ef7905ce81bcb82945907",
@@ -4105,6 +4194,7 @@
      "note": "GetProjectionRef 逐字转录；无内部声明=null，不推导不转换",
      "reader_source": "osgeo GDAL 3.6.2 GetProjectionRef（镜像 f1675321e33eeb95…，只读探针）",
      "srs_is_null": false,
+     "wkt_provenance": "GDAL GetProjectionRef 返回值（逐字转录，无内部声明=null，不推导不转换）",
      "wkt_verbatim_from_source": "LOCAL_CS[\"Geocoding information not available Projection Name = Unknown Units = other GeoTIFF Units = other\",UNIT[\"fathom\",1.8288,AUTHORITY[\"EPSG\",\"9014\"]],AXIS[\"Easting\",EAST],AXIS[\"Northing\",NORTH]]"
     },
     "driver": "GTiff",
@@ -4127,7 +4217,7 @@
    "per_band_verification": {
     "executed_this_round": false,
     "method": "GDAL band checksum (osgeo Band.Checksum())",
-    "note": "large rasters: method registered, execution deferred to import stage"
+    "note": "仅登记方法，执行留导入阶段（大件栅格）"
    },
    "ready_for_import": false,
    "source_object_id": "421d818956c484f016b44e70ebab08c11640ca35e328ec05ad6eaf527a3b3136",
@@ -4193,6 +4283,7 @@
      "note": "GetProjectionRef 逐字转录；无内部声明=null，不推导不转换",
      "reader_source": "osgeo GDAL 3.6.2 GetProjectionRef（镜像 f1675321e33eeb95…，只读探针）",
      "srs_is_null": false,
+     "wkt_provenance": "GDAL GetProjectionRef 返回值（逐字转录，无内部声明=null，不推导不转换）",
      "wkt_verbatim_from_source": "LOCAL_CS[\"Geocoding information not available Projection Name = Unknown Units = other GeoTIFF Units = other\",UNIT[\"fathom\",1.8288,AUTHORITY[\"EPSG\",\"9014\"]],AXIS[\"Easting\",EAST],AXIS[\"Northing\",NORTH]]"
     },
     "driver": "GTiff",
@@ -4215,7 +4306,7 @@
    "per_band_verification": {
     "executed_this_round": false,
     "method": "GDAL band checksum (osgeo Band.Checksum())",
-    "note": "large rasters: method registered, execution deferred to import stage"
+    "note": "仅登记方法，执行留导入阶段（大件栅格）"
    },
    "ready_for_import": false,
    "source_object_id": "004e31f7570304cf806bef4c8b6f0553c46ee52a1288be2ed77b68c6f0f5aa86",
@@ -4281,6 +4372,7 @@
      "note": "GetProjectionRef 逐字转录；无内部声明=null，不推导不转换",
      "reader_source": "osgeo GDAL 3.6.2 GetProjectionRef（镜像 f1675321e33eeb95…，只读探针）",
      "srs_is_null": false,
+     "wkt_provenance": "GDAL GetProjectionRef 返回值（逐字转录，无内部声明=null，不推导不转换）",
      "wkt_verbatim_from_source": "LOCAL_CS[\"Geocoding information not available Projection Name = Unknown Units = other GeoTIFF Units = other\",UNIT[\"fathom\",1.8288,AUTHORITY[\"EPSG\",\"9014\"]],AXIS[\"Easting\",EAST],AXIS[\"Northing\",NORTH]]"
     },
     "driver": "GTiff",
@@ -4303,7 +4395,7 @@
    "per_band_verification": {
     "executed_this_round": false,
     "method": "GDAL band checksum (osgeo Band.Checksum())",
-    "note": "large rasters: method registered, execution deferred to import stage"
+    "note": "仅登记方法，执行留导入阶段（大件栅格）"
    },
    "ready_for_import": false,
    "source_object_id": "190c62f8081ceb1089006078b84a8c65fac5fd05f98d933e86aaaefd9c7c703d",
@@ -4369,6 +4461,7 @@
      "note": "GetProjectionRef 逐字转录；无内部声明=null，不推导不转换",
      "reader_source": "osgeo GDAL 3.6.2 GetProjectionRef（镜像 f1675321e33eeb95…，只读探针）",
      "srs_is_null": false,
+     "wkt_provenance": "GDAL GetProjectionRef 返回值（逐字转录，无内部声明=null，不推导不转换）",
      "wkt_verbatim_from_source": "LOCAL_CS[\"Geocoding information not available Projection Name = Unknown Units = other GeoTIFF Units = other\",UNIT[\"fathom\",1.8288,AUTHORITY[\"EPSG\",\"9014\"]],AXIS[\"Easting\",EAST],AXIS[\"Northing\",NORTH]]"
     },
     "driver": "GTiff",
@@ -4391,7 +4484,7 @@
    "per_band_verification": {
     "executed_this_round": false,
     "method": "GDAL band checksum (osgeo Band.Checksum())",
-    "note": "large rasters: method registered, execution deferred to import stage"
+    "note": "仅登记方法，执行留导入阶段（大件栅格）"
    },
    "ready_for_import": false,
    "source_object_id": "8d6dcbff85626a74650ec94a423c4cbf458de02744b075d5301f4021987930ce",

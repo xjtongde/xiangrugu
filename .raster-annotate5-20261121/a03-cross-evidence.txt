@@ -1,0 +1,7 @@
+== ROUND 22（2026-11-21 块5证据标注收尾·独立核，a03，硬停前交报）==
+① 25 处文本标注（程序化全量）：四键齐备 25/25；标签含「原文逐字」「规整文本」25/25；normalized_text 逐行 float==顶层六参数 25/25 全等；verbatim 逐行 float==顶层六参数 25/25 全等；binding_basis exact 23+PENDING 2 保持；六参数值/sha256/source_member/file 与基线 d59010b 逐字段漂移 0。
+② 26/17：(executed=True∧「本盒已执行」)=26、(False∧「仅登记方法」)=17、错位 0；与基线 executed 逐件同；bands[].checksum 有值件数==26；wkt_provenance×43 文案「GDAL GetProjectionRef 返回值（逐字转录，无内部声明=null，不推导不转换）」在 crs 块内。
+③ 43 无漂移：sid 对称差 0；identity/size_px/bands 核心/geotransform/WKT 逐字/target_proposal/status 漂移合计 0；counts 变更键 {}；变化穷举：对象级仅 observed×43（text_provenance 重构+wkt_provenance 新增）+per_band_verification×43（note 分支）；members 2522 条数组逐字节等值、顶层仅 baseline_git；gaps 顶层仅 baseline_git、7 组 kind 集同且逐项零 diff；SUMMARY 新增标注分级段+基线引用，计数与机器值一致。
+④ 缺口+归属账：7 组 kind/detail 零变化；equation 5482+2522==8004、prior 5482、unowned 1901、candidate 2522（620+1+1901）、class_counts {614,1446,299,116,43,3,1} 与基线及独立重算一致。
+⑤ sha 64 位自算：members c36668c158e70ca2eae30e1a97022bfc3a82c9cdf69907b8b447403ac27e6cff / mapping 79b0d917f9ccf19d0f7ec832567cce3a1a18228b05ac0be36fa79aa8deb9b411 / gaps a916e1d9cfeef05c5cb59d7492c70b10c7f634929d8bbd7f7cecd03169058e70 / SUMMARY 456adb0e9c8d96a38432457991ef8cd7848c5f3a53a6795ecc5b0228c1dd30de / 生成器 40d34664b56c6fa983c17ae49989459709aa34f7c87dc41d3706565173608756；probe_evidence 63e7102d… 未动；32 五件+probe 同值；加分重跑 EXIT=0 stderr 0 四件 sha 不变；范围 M=7（五件+M=2 保留），TODO 快照早于 lead 编辑（时间差，lead 提交前终核），暂存 0，二进制 0。
+ROUND 22 五项全 PASS + 加分 PASS，首个不一致：无。

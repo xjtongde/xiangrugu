@@ -1,0 +1,6 @@
+fields: 500 | strict mismatches with multiword types: 29
+    ('v3_chgis_database_v3_main_table', 'beg_yr', "'[beg_yr]\\t\\t\\tLong Integer'", 'Long Integer', '')
+    ('v3_chgis_database_v3_main_table', 'end_yr', "'[end_yr]\\t\\t\\tLong Integer'", 'Long Integer', '')
+    ('v3_chgis_database_v3_main_table', 'v3_mysql_id', "'[v3_mysql_id]\\t\\t\\tLong Integer'", 'Long Integer', '')
+    ('v3_chgis_database_v3_gis_info', 'order_id', "'[order_id]\\t\\t\\tLong Integer'", 'Long Integer', '')
+    ('v3_chgis_database_v3_gis_info', 'beg_yr', "'[beg_yr]\\t\\t\\tLong Integer'", 'Long Integer', '')

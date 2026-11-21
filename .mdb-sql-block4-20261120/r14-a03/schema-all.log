@@ -1,0 +1,7 @@
+v4_direct | tables mine 13 lead 13 | sets eq: True | col diffs: [] | total cols: 75
+v2_zzkz6u | tables mine 11 lead 11 | sets eq: True | col diffs: [] | total cols: 71
+Traceback (most recent call last):
+  File "<stdin>", line 16, in <module>
+  File "<stdin>", line 16, in <genexpr>
+  File "<stdin>", line 3, in cols
+FileNotFoundError: [Errno 2] No such file or directory: '.mdb-sql-block4-20261120/r14-a03/my-schema-v3_himive.txt'

@@ -1,0 +1,5 @@
+column/type/size verbatim mismatches vs MY schema runs: 46 [('v3_himive', 'v3_main_table'), ('v3_himive', 'v3_gis_info'), ('v3_himive', 'v3_part_of'), ('v3_himive', 'v3_preceded_by'), ('v3_himive', 'v3_feature_types')]
+mdb proposal union keys: ['carrier', 'create_definition_verbatim', 'field_count', 'fields', 'row_count_mdb_count', 'source_file_or_chain', 'source_identity', 'source_object_id', 'status', 'table_name_proposal']
+
+tg sql_plane type: str fully text-identified with stdlib; no tool gap for dialect/structure/carrier; geom binary literal extraction see geom-extraction evidence
+geom keys in encoding gap: ['geom_extraction_status'] | full tail: {"geom_extraction_status": "byte-faithful extraction verified this round (1/1 record; raw literal 33B vs decoded payload 25B; MySQL SRID-0 prefix + WKB LE Point; zero replacement chars used; import value contract still pending)", "kind": "encoding_loss_risk", "note": "decode replacement chars > 0: value-loss risk, isolate before import", "object": "harvard-full/doi_10_7910/DVN/H3OB28/tgaz_bak_2018.zip!tgaz_bak_2018.s

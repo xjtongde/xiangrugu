@@ -1,0 +1,13 @@
+v4_gis_info_table|61988
+v4_main_table|58399
+v4_source_notes|8920
+v4_part_of_table|60349
+v4_preceded_by_table|7692
+v4_data_dictionary|64
+v4_feature_types|62
+v4_gis_layer_field_names|30
+xtra_change_types|25
+xtra_contributors|5
+xtra_date_rules|7
+xtra_geo_source|6
+xtra_other_feature_types|1059

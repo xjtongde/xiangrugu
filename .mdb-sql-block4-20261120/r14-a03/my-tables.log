@@ -1,0 +1,80 @@
+option parsing failed: Unknown option -s
+Usage:
+  mdb-tables [OPTION…] <file> - show MDB files tables/entries
+
+Help Options:
+  -h, --help               Show help options
+
+Application Options:
+  -S, --system             Include system tables
+  -1, --single-column      One table name per line
+  -d, --delimiter=char     Table name delimiter
+  -t, --type=type          Type of entry
+  -T, --showtype           Show type
+  --version                Show mdbtools version and exit
+
+Valid types are: form table macro systable report query linkedtable module relationship dbprop any all 
+option parsing failed: Unknown option -s
+Usage:
+  mdb-tables [OPTION…] <file> - show MDB files tables/entries
+
+Help Options:
+  -h, --help               Show help options
+
+Application Options:
+  -S, --system             Include system tables
+  -1, --single-column      One table name per line
+  -d, --delimiter=char     Table name delimiter
+  -t, --type=type          Type of entry
+  -T, --showtype           Show type
+  --version                Show mdbtools version and exit
+
+Valid types are: form table macro systable report query linkedtable module relationship dbprop any all 
+option parsing failed: Unknown option -s
+Usage:
+  mdb-tables [OPTION…] <file> - show MDB files tables/entries
+
+Help Options:
+  -h, --help               Show help options
+
+Application Options:
+  -S, --system             Include system tables
+  -1, --single-column      One table name per line
+  -d, --delimiter=char     Table name delimiter
+  -t, --type=type          Type of entry
+  -T, --showtype           Show type
+  --version                Show mdbtools version and exit
+
+Valid types are: form table macro systable report query linkedtable module relationship dbprop any all 
+option parsing failed: Unknown option -s
+Usage:
+  mdb-tables [OPTION…] <file> - show MDB files tables/entries
+
+Help Options:
+  -h, --help               Show help options
+
+Application Options:
+  -S, --system             Include system tables
+  -1, --single-column      One table name per line
+  -d, --delimiter=char     Table name delimiter
+  -t, --type=type          Type of entry
+  -T, --showtype           Show type
+  --version                Show mdbtools version and exit
+
+Valid types are: form table macro systable report query linkedtable module relationship dbprop any all 
+option parsing failed: Unknown option -s
+Usage:
+  mdb-tables [OPTION…] <file> - show MDB files tables/entries
+
+Help Options:
+  -h, --help               Show help options
+
+Application Options:
+  -S, --system             Include system tables
+  -1, --single-column      One table name per line
+  -d, --delimiter=char     Table name delimiter
+  -t, --type=type          Type of entry
+  -T, --showtype           Show type
+  --version                Show mdbtools version and exit
+
+Valid types are: form table macro systable report query linkedtable module relationship dbprop any all 

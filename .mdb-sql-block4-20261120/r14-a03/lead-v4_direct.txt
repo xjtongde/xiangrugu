@@ -1,0 +1,13 @@
+v4_data_dictionary
+v4_feature_types
+v4_gis_info_table
+v4_gis_layer_field_names
+v4_main_table
+v4_part_of_table
+v4_preceded_by_table
+v4_source_notes
+xtra_change_types
+xtra_contributors
+xtra_date_rules
+xtra_geo_source
+xtra_other_feature_types

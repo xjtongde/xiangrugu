@@ -1,0 +1,12 @@
+v3_source_notes
+v3_main_table
+v3_gis_info
+v3_part_of
+v3_preceded_by
+v3_feature_types
+xtra_change_types
+xtra_contributors
+v3_data_dictionary
+xtra_date_rules
+xtra_geo_source
+xtra_other_feature_types

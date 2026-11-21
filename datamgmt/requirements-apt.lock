@@ -278,3 +278,19 @@ python3=3.11.2-1+b1 \
 unixodbc-common=2.3.11-2+deb12u1 \
     --sha256=3e212d254f50c0310406255dc71e038682b0a02b66aed06df323273be53d9123 \
     --file=unixodbc-common_2.3.11-2+deb12u1_all.deb
+# --- mdbtools closure (block 4 continuation, 2026-11-21; incremental, not global re-resolution) ---
+# source: http://ftp.us.debian.org/debian bookworm/main amd64 (32 apt-cache policy candidate 1.0.0+dfsg-1.1)
+# acquired: 2026-11-21T14:06Z via base image python@sha256:4b4c524dc3dc… apt-get install --download-only --no-install-recommends mdbtools=1.0.0+dfsg-1.1
+# install: offline dpkg -i inside candidate image build (--network none); host software untouched
+libglib2.0-0=2.74.6-2+deb12u9 \
+    --sha256=7ff85197685d89e150e342b29a59aab1beee400050ba7da73de81cd999ffee5a \
+    --file=libglib2.0-0_2.74.6-2+deb12u9_amd64.deb
+libmdb3=1.0.0+dfsg-1.1 \
+    --sha256=05ec9e6ce5326686e6422e8ad34f94e61b1a80e48823609ddecfe9714a354ebb \
+    --file=libmdb3_1.0.0+dfsg-1.1_amd64.deb
+libmdbsql3=1.0.0+dfsg-1.1 \
+    --sha256=528f7cef21d999bd3fb7e18b47ea3859a731d07aff154450ca3f2348cd55a567 \
+    --file=libmdbsql3_1.0.0+dfsg-1.1_amd64.deb
+mdbtools=1.0.0+dfsg-1.1 \
+    --sha256=fb95badaff6e4aeeafa043a322e3853ed7219619cb9c4d09cde61db02081ff9f \
+    --file=mdbtools_1.0.0+dfsg-1.1_amd64.deb

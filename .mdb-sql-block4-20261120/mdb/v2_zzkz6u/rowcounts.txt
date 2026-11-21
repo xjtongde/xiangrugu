@@ -1,0 +1,11 @@
+chgis_main_table|36529
+chgis_gisinfo_table|38179
+chgis_partof_table|31834
+chgis_source_notes_table|2524
+xtra_data_dictionary|49
+xtra_change_type|23
+xtra_feature_types|50
+xtra_contrib_table|5
+xtra_geo_source|5
+xtra_date_rule_table|7
+xtra_other_feature_types|951

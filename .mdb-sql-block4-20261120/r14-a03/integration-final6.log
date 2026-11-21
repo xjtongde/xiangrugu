@@ -1,0 +1,10 @@
+column name+type mismatches: 11 | compared 62
+    ('v3_himive', 'v3_main_table', 'name/type')
+    ('v3_himive', 'v3_gis_info', 'name/type')
+    ('v3_himive', 'v3_part_of', 'name/type')
+    ('v3_himive', 'v3_preceded_by', 'name/type')
+    ('v3_himive', 'xtra_other_feature_types', 'name/type')
+    ('v4_direct', 'v4_main_table', 'name/type')
+
+distinct (source sha, table name) pairs: 49 | delivered mdb_tables_distinct_by_source_sha: 49
+logical family sizes: {'v3': 12, 'v4': 13, 'v2': 11} sum: 36 | delivered note says 36

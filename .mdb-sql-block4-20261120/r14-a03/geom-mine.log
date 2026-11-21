@@ -1,0 +1,3 @@
+geom INSERT lines: 1 | line nos: [326]
+[{"line": 326, "id": "(1", "placename_id": "26", "raw_len": 33, "raw_sha": "9379a445f03ee3e8d80630105fc7ba3174d27c3b512a2372f9cb094cd1aa885a", "dec_len": 25, "dec_sha": "cfe2b8d492c16e82efe5176a810d9d46b9fb0f3805ebf92c5adbf340e54bd65b", "srid_le": 257}]
+  rc 0

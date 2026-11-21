@@ -1,0 +1,3 @@
+name_rom,beg_chg_eng,end_chg_eng,type_py,type_id,type_eng,lev_rank,beg_year,end_year,bou_note,pt_note,bou_id,pt_id,line_id,data_src,name_utf,name_utf_alt,pres_loc,beg_chg_type,end_chg_type,type_utf
+"Wulipai","time slice","time slice","Cunzhen","907","villages and small towns","7",1911,1911,,"120008",,"139724",,"CHGIS","五里牌","五里牌","浙江宁波市五里牌","年份","年份","村镇"
+"Zhuangshizhen","time slice","time slice","Cunzhen","907","villages and small towns","7",1911,1911,,"120008",,"139725",,"CHGIS","庄市镇","莊市鎮","浙江宁波市庄市镇","年份","年份","村镇"

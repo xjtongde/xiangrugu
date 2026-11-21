@@ -1,0 +1,12 @@
+members.json 9a8594205fe3d356
+object-mapping.json b56889f17f183b0e
+evidence-gaps.json a6ed3537db5855e7
+SUMMARY.md e818e3d9d9e106ab
+
+counts: {"core_members": 7, "enumerated_objects_total": 96, "mapped_objects_proposed": 96, "mdb_files": 5, "mdb_files_read_through": 5, "mdb_objects_header_confirmed": 5, "mdb_table_proposals": 62, "mdb_tables_distinct_by_source_sha": 49, "mdb_tables_distinct_note": "4 distinct source shas (V3/V4-direct/V4-zip-wrapped/V2); V4 direct vs zip-wrapped differ in bytes but mdb-schema/tables/rowcounts outputs are IDENTICAL (differe
+
+SQL proposals retained byte-identical: 34 / 34
+new MDB objects added: 62 | total proposed: 96
+sid unique: True 101/101
+
+distinct note: 4 distinct source shas (V3/V4-direct/V4-zip-wrapped/V2); V4 direct vs zip-wrapped differ in bytes but mdb-schema/tables/rowcounts outputs are IDENTICAL (difference in non-schema pages); logical schema families = v3(12)+v4(13)+v2(11)=36; mirror merge deferred t

@@ -1,0 +1,11 @@
+my 5 rows:
+   DVN/HIMIVE/V3_Data_Archive.zip|access_dbase/v3_chgis_dbase.ZIP/v3_chgis_database.mdb|[76, 0] sha=68853b49 size=52195328
+   DVN/PDGOZ0/V4_Data_Archive.zip|access_database/v4_chgis_dbase.mdb|[2] sha=a2cc4039 size=65896448
+   DVN/PDGOZ0/V4_Data_Archive.zip|access_database/v4_chgis_dbase.zip/v4_chgis_dbase.mdb|[3, 0] sha=04be983d size=65896448
+   DVN/PDGOZ0/V4_Data_Archive.zip|shapefiles/v4_chgis_dbase.zip/v4_chgis_dbase.mdb|[109, 0] sha=04be983d size=65896448
+   0_7910/DVN/ZZKZ6U/CHGIS_V2.zip|access_dbase/chgis_v2_database.ZIP/chgis_v2_database.mdb|[0, 0] sha=4a9bd1bc size=46702592
+mirror byte compare: True 04be983d2f18b7c9 equal bytes: True
+ 
+Traceback (most recent call last):
+  File "<stdin>", line 35, in <module>
+KeyError: 'source_identity'

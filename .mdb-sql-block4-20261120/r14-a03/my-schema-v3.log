@@ -1,0 +1,6 @@
+v3 tables mine: 12 | lead: 12
+table sets equal: True
+per-table column/type/size diffs: []
+total columns: 84
+    v3_source_notes : [('compiler', 'Text', '8'), ('note_id', 'Text', '50'), ('name_py', 'Text', '40'), ('name_ch', 'Text', '30')]
+    v3_main_table : [('name_py', 'Text', '255'), ('name_utf', 'Text', '255'), ('name_utf_alt', 'Text', '255'), ('pres_loc', 'Text', '255')]

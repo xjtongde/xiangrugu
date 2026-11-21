@@ -1,0 +1,15 @@
+v3_himive | tables 12 | my rowsum 170479
+v4_direct | tables 13 | my rowsum 198606
+v4_access_zip | tables 13 | my rowsum 198606
+v4_shapefiles_zip | tables 13 | my rowsum 198606
+v2_zzkz6u | tables 11 | my rowsum 110156
+TOTAL rows mine: 876453
+
+lead per-dir row sums:
+v3_himive 170479
+v4_direct 198606
+v4_access_zip 198606
+v4_shapefiles_zip 198606
+v2_zzkz6u 110156
+
+my table instances: 62 (expect 62)

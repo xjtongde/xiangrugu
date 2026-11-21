@@ -1,0 +1,101 @@
+{
+ "source_identity": {
+  "relative_path": "harvard-full/doi_10_7910/DVN/H3OB28/tgaz_bak_2018.zip",
+  "member": "tgaz_bak_2018.sql",
+  "sha256_inventory": "4c6db692b61bdafb8d4ce00e30aff2a35fc23e6d83638b50c23dadbae75c3346"
+ },
+ "total_sql_lines": 1432,
+ "create_table_geom_ddl_verbatim": "CREATE TABLE `geom` (\n  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,\n  `placename_id` int(10) unsigned NOT NULL,\n  `g` geometry NOT NULL,\n  `src` enum('FUDAN','HARVARD','DDBC','GOOGLE','BAIDU','MAP-SCAN') NOT NULL,\n  `updated_on` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,\n  PRIMARY KEY (`id`),\n  SPATIAL KEY `g` (`g`),\n  KEY `pt_pn_idx` (`placename_id`)\n) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;",
+ "geom_insert_statements": 1,
+ "geom_rows": 1,
+ "rows_verified": 1,
+ "rows_invalid": 0,
+ "rows_no_geom_literal": 0,
+ "first_unverifiable_position": null,
+ "mysql_escape_rules_applied": {
+  "mapped_single_char": [
+   "\\0",
+   "\\'",
+   "\\\"",
+   "\\b",
+   "\\n",
+   "\\r",
+   "\\t",
+   "\\Z",
+   "\\\\"
+  ],
+  "kept_both_chars": [
+   "\\%",
+   "\\_"
+  ],
+  "other_backslash_x": "\\x -> x",
+  "escape_chars_actually_observed": [
+   "0",
+   "\\"
+  ]
+ },
+ "no_replacement_chars_used": true,
+ "sql_not_executed": true,
+ "payload_never_text_decoded": true,
+ "rows": [
+  {
+   "sql_line": 326,
+   "field_count": 5,
+   "fields": [
+    {
+     "kind": "raw",
+     "raw_len": 1,
+     "decoded_len": 1,
+     "ascii_token": "1"
+    },
+    {
+     "kind": "raw",
+     "raw_len": 2,
+     "decoded_len": 2,
+     "ascii_token": "26"
+    },
+    {
+     "kind": "str",
+     "raw_len": 33,
+     "decoded_len": 25,
+     "ascii_token": null
+    },
+    {
+     "kind": "str",
+     "raw_len": 7,
+     "decoded_len": 7,
+     "ascii_token": null
+    },
+    {
+     "kind": "str",
+     "raw_len": 19,
+     "decoded_len": 19,
+     "ascii_token": null
+    }
+   ],
+   "raw_literal_sha256": "9379a445f03ee3e8d80630105fc7ba3174d27c3b512a2372f9cb094cd1aa885a",
+   "raw_literal_len": 33,
+   "decoded_sha256": "cfe2b8d492c16e82efe5176a810d9d46b9fb0f3805ebf92c5adbf340e54bd65b",
+   "decoded_len": 25,
+   "escapes_found_in_geom_literal": [
+    "0",
+    "\\"
+   ],
+   "geometry_validation": {
+    "decoded_len": 25,
+    "srid_prefix_le": 0,
+    "wkb_byte_order": "LE",
+    "geom_type_code": 1,
+    "geom_type": "Point",
+    "coords_sample": [
+     [
+      115.31562,
+      38.94772
+     ]
+    ],
+    "consumed_bytes": 25,
+    "valid": true
+   }
+  }
+ ]
+}

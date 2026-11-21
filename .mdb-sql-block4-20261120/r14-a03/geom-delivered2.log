@@ -1,0 +1,38 @@
+keys: ['source_identity', 'total_sql_lines', 'create_table_geom_ddl_verbatim', 'geom_insert_statements', 'geom_rows', 'rows_verified', 'rows_invalid', 'rows_no_geom_literal', 'first_unverifiable_position', 'mysql_escape_rules_applied', 'no_replacement_chars_used', 'sql_not_executed', 'payload_never_text_decoded', 'rows']
+   source_identity: {"relative_path": "harvard-full/doi_10_7910/DVN/H3OB28/tgaz_bak_2018.zip", "member": "tgaz_bak_2018.sql", "sha256_inventory": "4c6db692b61bdafb8d4ce00e30aff2a35fc23e6d83638b50c23da
+   total_sql_lines: 1432
+   create_table_geom_ddl_verbatim: "CREATE TABLE `geom` (\n  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,\n  `placename_id` int(10) unsigned NOT NULL,\n  `g` geometry NOT NULL,\n  `src` enum('FUDAN','HARVARD','DDB
+   geom_insert_statements: 1
+   geom_rows: 1
+   rows_verified: 1
+   rows_invalid: 0
+   rows_no_geom_literal: 0
+   first_unverifiable_position: null
+   mysql_escape_rules_applied: {"mapped_single_char": ["\\0", "\\'", "\\\"", "\\b", "\\n", "\\r", "\\t", "\\Z", "\\\\"], "kept_both_chars": ["\\%", "\\_"], "other_backslash_x": "\\x -> x", "escape_chars_actually
+
+deliverable-summary:
+{
+ "source": "harvard-full/doi_10_7910/DVN/H3OB28/tgaz_bak_2018.zip!tgaz_bak_2018.sql",
+ "sha256_inventory_match_asserted": true,
+ "geom_insert_statements": 1,
+ "geom_rows": 1,
+ "rows_verified": 1,
+ "rows_invalid": 0,
+ "first_unverifiable_position": null,
+ "crosscheck_independent_line_scan": {
+  "lines_total": 1432,
+  "insert_stmts_all_tables": 136,
+  "tables_with_inserts": 27,
+  "geom_prefix_insert_starts": 1
+ },
+ "geometry_format": "MySQL internal: 4-byte LE SRID prefix (observed 0) + WKB LE Point(115.31562, 38.94772)",
+ "escape_rules_observed": [
+  "\\0 -> 0x00",
+  "\\\\ -> backslash"
+ ],
+ "notes": [
+  "AUTO_INCREMENT=2 in DDL independently corroborates exactly one geom row",
+  "raw literal 33 bytes vs decoded payload 25 bytes — two evidence layers kept",
+  "payload never text-decoded; no replacement chars; SQL not executed"
+ ]
+}

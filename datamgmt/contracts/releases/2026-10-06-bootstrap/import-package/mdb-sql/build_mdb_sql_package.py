@@ -324,9 +324,103 @@ def probe_mdb(e):
     }
 
 
+# ---------------------------------------------------------------- MDB enumeration evidence
+MDB_EV = HERE / "mdb_evidence"  # transferred alongside on 32; committed in repo .mdb-sql-block4-20261120/mdb/
+MDB_IMAGE_ID = "sha256:74e022830b3b16ab18847d43c98d7b2fde042da7ae40a3841febee5c29000399"
+CASE_BY_SHA_CHAIN = {
+    ("harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip", "access_dbase/v3_chgis_dbase.ZIP!v3_chgis_database.mdb"): "v3_himive",
+    ("harvard-full/doi_10_7910/DVN/PDGOZ0/V4_Data_Archive.zip", "access_database/v4_chgis_dbase.mdb"): "v4_direct",
+    ("harvard-full/doi_10_7910/DVN/PDGOZ0/V4_Data_Archive.zip", "access_database/v4_chgis_dbase.zip!v4_chgis_dbase.mdb"): "v4_access_zip",
+    ("harvard-full/doi_10_7910/DVN/PDGOZ0/V4_Data_Archive.zip", "shapefiles/v4_chgis_dbase.zip!v4_chgis_dbase.mdb"): "v4_shapefiles_zip",
+    ("harvard-full/doi_10_7910/DVN/ZZKZ6U/CHGIS_V2.zip", "access_dbase/chgis_v2_database.ZIP!chgis_v2_database.mdb"): "v2_zzkz6u",
+}
+MDB_TYPE_MAP = {
+    "Text": lambda sz: f"varchar({sz})" if sz else "text",
+    "Memo": lambda sz: "text", "Memo/Hyperlink": lambda sz: "text",
+    "Long Integer": lambda sz: "integer", "Integer": lambda sz: "smallint",
+    "Byte": lambda sz: "smallint", "Single": lambda sz: "real",
+    "Double": lambda sz: "double precision", "Numeric": lambda sz: "numeric",
+    "Decimal": lambda sz: "numeric", "DateTime": lambda sz: "timestamp",
+    "Short DateTime": lambda sz: "timestamp", "Bit": lambda sz: "boolean",
+    "OLE Object": lambda sz: "bytea", "Binary": lambda sz: "bytea",
+    "Replication ID": lambda sz: "uuid",
+}
+MDB_BINARY_TYPES = {"OLE Object", "Binary"}
+
+
+def parse_mdb_schema(text):
+    tables = []
+    for m in re.finditer(r"CREATE TABLE \[([^\]]+)\]\s*\((.*?)\);", text, re.S):
+        tname, body = m.group(1), m.group(2)
+        cols = []
+        for ln in body.splitlines():
+            cm = re.match(r"\s*\[([^\]]+)\]\s+([A-Za-z][A-Za-z/ ]*?)\s*(?:\((\d+)\))?\s*,?\s*$", ln)
+            if cm:
+                cname, ctype, sz = cm.group(1), cm.group(2).strip(), cm.group(3)
+                sz = int(sz) if sz else None
+                tt = MDB_TYPE_MAP.get(ctype, lambda s: "text")(sz)
+                cols.append({"ordinal": len(cols) + 1, "original_name": cname,
+                             "source_type": ctype, "size_verbatim": sz,
+                             "target_type_proposal": tt,
+                             "binary_flag": ctype in MDB_BINARY_TYPES,
+                             "precision_note": (f"Text length {sz}" if ctype == "Text" and sz else
+                                                "numeric precision/scale not exposed by mdb-schema; catalog-level check at import" if ctype in ("Numeric", "Decimal") else None),
+                             "nullability_note": "mdb-schema does not expose NOT NULL flags; nullability requires catalog-level verification at import contract",
+                             "encoding_note": "JET4 catalog UTF-16LE; mdbtools output declares UTF-8 conversion; original codepage semantics require value contract",
+                             "definition_line_verbatim": ln.rstrip()})
+            elif ln.strip():
+                cols.append({"ordinal": len(cols) + 1, "parse_anomaly": True,
+                             "definition_line_verbatim": ln.rstrip()})
+        tables.append({"table_name_source": tname, "columns": cols,
+                       "create_definition_verbatim": m.group(0)})
+    return tables
+
+
+def load_mdb_enumeration():
+    if not MDB_EV.exists():
+        return None
+    ev = {}
+    for case in CASE_BY_SHA_CHAIN.values():
+        d = MDB_EV / case
+        if not d.exists():
+            return None
+        schema_text = (d / "schema.txt").read_text(encoding="utf-8", errors="replace")
+        tables = parse_mdb_schema(schema_text)
+        listed = [t for t in (d / "tables.txt").read_text().splitlines() if t.strip()]
+        rows = {}
+        for ln in (d / "rowcounts.txt").read_text().splitlines():
+            if "|" in ln:
+                k, v = ln.rsplit("|", 1)
+                rows[k] = int(v) if v.strip().isdigit() else None
+        for t in tables:
+            t["row_count_mdb_count"] = rows.get(t["table_name_source"])
+        ev[case] = {
+            "ver": (d / "ver.txt").read_text().strip(),
+            "tables_listed": listed, "tables_parsed": tables,
+            "table_count_listed": len(listed), "table_count_parsed": len(tables),
+            "list_parse_symmetric_diff": sorted(set(listed) ^ {t["table_name_source"] for t in tables}),
+            "schema_err_bytes": (d / "schema.err").stat().st_size if (d / "schema.err").exists() else None,
+            "count_err_bytes": (d / "count.err").stat().st_size if (d / "count.err").exists() else None,
+            "export_err_bytes": (d / "export.err").stat().st_size if (d / "export.err").exists() else None,
+            "schema_sha256": sha256_bytes((d / "schema.txt").read_bytes()),
+            "encoding_declaration": "UTF-8 (mdb-schema header comment verbatim)" if "encoding UTF-8" in schema_text else None,
+        }
+    return ev
+
+
 # ---------------------------------------------------------------- build
 sql_results = [parse_sql(e) for e in SQL]
 mdb_results = [probe_mdb(e) for e in MDB]
+MDB_ENUM = load_mdb_enumeration()
+GEOM_EV_PATH = HERE / "geom_evidence" / "geom-extraction.json"
+GEOM = json.loads(GEOM_EV_PATH.read_text()) if GEOM_EV_PATH.exists() else None
+GEOM_SHA = sha256_bytes(GEOM_EV_PATH.read_bytes()) if GEOM else None
+geom_summary = "" if not GEOM else """
+## geom 二进制字面量提取（原始字节全程，a02 交付 lead/a03 核验）
+- tgaz `geom` 表：**INSERT 1 条/记录 1**（三途径互证：语句扫描/全文件 1432 行交叉扫描/DDL AUTO_INCREMENT=2）；可验证 **1/1**，首个无法验证位置 **null**。
+- 两层证据：raw_literal 33B（转义 \\0、\\\\）vs decoded_payload 25B；MySQL 内部格式 4B LE SRID=0 + WKB LE Point (115.31562, 38.94772)，consumed==len 精确闭合；SRID 0⇒CRS unresolved 不推断。
+- 零替换字符参与生成、源 SQL 未执行；证据 .mdb-sql-block4-20261120/geom/（sha 入 mapping_doc.geom_extraction）。
+"""
 
 # mirror/version facts
 v4 = [m for m in mdb_results if "v4_chgis_dbase.mdb" in m["member_key"]]
@@ -390,18 +484,67 @@ for sr in sql_results:
         })
 
 mdb_objects = []
+mdb_table_objects = []
 for mr in mdb_results:
-    mdb_objects.append({
+    parts = mr["member_key"].split("!")
+    case = CASE_BY_SHA_CHAIN.get((parts[0], "!".join(parts[1:])))
+    enum = MDB_ENUM.get(case) if MDB_ENUM and case else None
+    obj = {
         "source_object_id": sha256_bytes(mr["member_key"].encode()),
         "carrier": "mdb_file",
         "source_file_or_chain": mr["member_key"],
         "source_identity": {"sha256": mr["sha256"], "size": mr["size"]},
         "header_probe": {k: v for k, v in mr.items()
                          if k not in ("member_key", "sha256", "size")},
-        "table_enumeration_status": "GAP_NO_CATALOG_READER",
-        "status": {"confirmation_state": "CONFIRMED_HEADER_ONLY",
+        "table_enumeration_status": ("ENUMERATED_MDBTOOLS_READONLY" if enum else "GAP_NO_CATALOG_READER"),
+        "status": {"confirmation_state": ("CONFIRMED_ENUMERATED" if enum else "CONFIRMED_HEADER_ONLY"),
                    "ready_for_import": False},
-    })
+    }
+    if enum:
+        unreadable = [t for t in enum["tables_parsed"]
+                      if any(c.get("parse_anomaly") for c in t["columns"])]
+        obj["table_enumeration"] = {
+            "tool": f"mdbtools={MDBTOOLS_CANDIDATE}", "image_id": MDB_IMAGE_ID,
+            "container_network": "none", "snapshot_mount": "ro",
+            "case": case, "ver": enum["ver"],
+            "table_count_listed": enum["table_count_listed"],
+            "table_count_parsed": enum["table_count_parsed"],
+            "list_parse_symmetric_diff": enum["list_parse_symmetric_diff"],
+            "schema_err_bytes": enum["schema_err_bytes"],
+            "count_err_bytes": enum["count_err_bytes"],
+            "export_err_bytes": enum["export_err_bytes"],
+            "encoding_declaration": enum["encoding_declaration"],
+            "schema_sha256": enum["schema_sha256"],
+            "tables": enum["tables_parsed"],
+            "unreadable_tables_or_fields": [
+                {"table": t["table_name_source"],
+                 "items": [c for c in t["columns"] if c.get("parse_anomaly")]}
+                for t in unreadable],
+            "row_count_total": sum(t["row_count_mdb_count"] or 0
+                                   for t in enum["tables_parsed"]),
+            "value_contract_note": "schema-level enumeration this round; full value export/encoding canonicalization/NULL semantics/binary byte-faithful contract at import stage",
+        }
+    mdb_objects.append(obj)
+    if enum:
+        stem = Path(parts[-1]).stem.lower()
+        for t in enum["tables_parsed"]:
+            tname = t["table_name_source"]
+            ident = mr["member_key"] + "#" + tname
+            fields = [c for c in t["columns"] if not c.get("parse_anomaly")]
+            mdb_table_objects.append({
+                "source_object_id": sha256_bytes(ident.encode()),
+                "carrier": "mdb_table",
+                "source_file_or_chain": mr["member_key"],
+                "source_identity": {"sha256": mr["sha256"], "size": mr["size"],
+                                    "table_name_source": tname, "case": case},
+                "table_name_proposal": re.sub(r"[^a-z0-9_]", "_", f"{stem}_{tname}".lower()),
+                "fields": fields, "field_count": len(fields),
+                "row_count_mdb_count": t["row_count_mdb_count"],
+                "create_definition_verbatim": t["create_definition_verbatim"],
+                "status": {"confirmation_state": "PROPOSED_NOT_AUTHORIZED",
+                           "ready_for_import": False},
+            })
+proposed.extend(mdb_table_objects)
 
 sids = [o["source_object_id"] for o in proposed] + [o["source_object_id"] for o in mdb_objects]
 assert len(sids) == len(set(sids)), "sid collision"
@@ -422,6 +565,13 @@ members_doc = {
     "scope_note": "MDB and SQL members incl. nested archives; Thumbs.db excluded non-data; cbdb sqlite3 owned by block 1 exactly-once; china_chron.xls owned by block 2 exactly-once",
 }
 
+_mdb_by_sha = {}
+for o in mdb_objects:
+    _mdb_by_sha.setdefault(o["source_identity"]["sha256"], o)
+_mdb_tables_distinct = sum(o.get("table_enumeration", {}).get("table_count_parsed", 0)
+                           for o in _mdb_by_sha.values())
+_mdb_tables_enum = sum(o.get("table_enumeration", {}).get("table_count_parsed", 0)
+                       for o in mdb_objects)
 mapping_doc = {
     "format": "xiangrugu.import-package.mdb-sql.object-mapping.v1",
     "baseline_git": VCS_REF,
@@ -434,10 +584,20 @@ mapping_doc = {
         "sql_tables_enumerated": sum(len(sr["tables"]) for sr in sql_results),
         "sql_parse_anomalies": len(anomalies),
         "mapped_objects_proposed": len(proposed),
+        "sql_table_proposals": len(proposed) - len(mdb_table_objects),
+        "mdb_table_proposals": len(mdb_table_objects),
         "mdb_objects_header_confirmed": len(mdb_objects),
-        "mdb_tables_enumerated": 0,
-        "enumerated_objects_total": sum(len(sr["tables"]) for sr in sql_results) + len(mdb_objects),
+        "mdb_files_read_through": sum(1 for o in mdb_objects
+                                      if o["table_enumeration_status"] == "ENUMERATED_MDBTOOLS_READONLY"),
+        "mdb_tables_enumerated": _mdb_tables_enum,
+        "mdb_tables_distinct_by_source_sha": _mdb_tables_distinct,
+        "mdb_tables_distinct_note": "4 distinct source shas (V3/V4-direct/V4-zip-wrapped/V2); V4 direct vs zip-wrapped differ in bytes but mdb-schema/tables/rowcounts outputs are IDENTICAL (difference in non-schema pages); logical schema families = v3(12)+v4(13)+v2(11)=36; mirror merge deferred to block 6",
+        "enumerated_objects_total": sum(len(sr["tables"]) for sr in sql_results) + _mdb_tables_enum,
     },
+    "geom_extraction": (None if not GEOM else {
+        "evidence_file": ".mdb-sql-block4-20261120/geom/geom-extraction.json",
+        "evidence_sha256": GEOM_SHA,
+        "extracted": GEOM}),
     "flags": {"ready_for_import": False, "target_mapping_approved": False,
               "sql_execution": "FORBIDDEN_THIS_ROUND_NOT_EXECUTED",
               "installs_this_round": False},
@@ -445,17 +605,26 @@ mapping_doc = {
 
 gaps = []
 for mr in mdb_results:
-    gaps.append({"object": mr["member_key"], "kind": "tool_gap_mdb_catalog",
-                 "reason": mr["unreadable_reason"], "required_tool": mr["required_tool"],
-                 "isolation_recovery": mr["isolation_recovery"],
-                 "sha256": mr["sha256"], "size": mr["size"]})
+    if MDB_ENUM:
+        gaps.append({"object": mr["member_key"], "kind": "tool_gap_mdb_catalog_RESOLVED",
+                     "resolution": (f"read through via Chaxiang-approved candidate image "
+                                    f"{MDB_IMAGE_ID[:24]}… mdbtools={MDBTOOLS_CANDIDATE}; "
+                                    "schema/count/export error files 0 bytes; see object table_enumeration"),
+                     "sha256": mr["sha256"], "size": mr["size"],
+                     "remaining_value_contract": "full value export/encoding canonicalization/NULL semantics/binary byte-faithful contract at import stage"})
+    else:
+        gaps.append({"object": mr["member_key"], "kind": "tool_gap_mdb_catalog",
+                     "reason": mr["unreadable_reason"], "required_tool": mr["required_tool"],
+                     "isolation_recovery": mr["isolation_recovery"],
+                     "sha256": mr["sha256"], "size": mr["size"]})
 for sr in sql_results:
     if sr["replacement_chars_on_decode"]:
         gaps.append({"object": sr["member_key"], "kind": "encoding_loss_risk",
                      "replacement_chars": sr["replacement_chars_on_decode"],
                      "locations": sr["replacement_char_locations"],
                      "note": sr["loss_risk_note"],
-                     "recovery_note": ("replacement chars localized (see locations/context_verbatim); where context shows binary payload inside string literals (e.g. geometry WKB-style raw high bytes), naive text decode loses original bytes — byte-faithful extraction required (isolation recovery); no value fabrication")})
+                     "recovery_note": ("replacement chars localized (see locations/context_verbatim); where context shows binary payload inside string literals (e.g. geometry WKB-style raw high bytes), naive text decode loses original bytes — byte-faithful extraction required (isolation recovery); no value fabrication"),
+                     "geom_extraction_status": ("byte-faithful extraction verified this round (1/1 record; raw literal 33B vs decoded payload 25B; MySQL SRID-0 prefix + WKB LE Point; zero replacement chars used; import value contract still pending)" if GEOM else None)})
 for t in anomalies:
     gaps.append({"object": "sql_parse_anomaly", "kind": "structure_parse_anomaly",
                  "verbatim": t["create_definition_verbatim"][:500]})
@@ -465,13 +634,23 @@ gaps_doc = {
     "baseline_git": VCS_REF,
     "gap_count": len(gaps), "gaps": gaps,
     "tool_gap_report": {
-        "status": "MDB_CATALOG_READER_NOT_INSTALLED",
+        "status": ("RESOLVED_MDB_CATALOG_VIA_APPROVED_CANDIDATE" if MDB_ENUM
+                   else "MDB_CATALOG_READER_NOT_INSTALLED"),
         "affected_objects": [mr["member_key"] for mr in mdb_results],
-        "capability_missing": "JET/ACE catalog + table/field/value enumeration",
-        "required_tool": f"mdbtools={MDBTOOLS_CANDIDATE} (bookworm apt candidate measured on 32; NOT installed; locked-version proposal awaits Chaxiang approval)",
-        "installed_this_round": False,
+        "capability_missing": ("none for schema-level enumeration (resolved)" if MDB_ENUM
+                               else "JET/ACE catalog + table/field/value enumeration"),
+        "required_tool": f"mdbtools={MDBTOOLS_CANDIDATE} (bookworm apt candidate measured on 32; locked in requirements-apt.lock mdbtools section)",
+        "installed_this_round": bool(MDB_ENUM),
+        "installed_in_candidate_image_only": bool(MDB_ENUM),
         "host_software_unchanged": True,
-        "sql_plane": "fully text-identified with stdlib; no tool gap for dialect/structure/carrier",
+        "resolution": (None if not MDB_ENUM else {
+            "image_id": MDB_IMAGE_ID,
+            "apt_lock": "datamgmt/requirements-apt.lock mdbtools section (4 debs sha256)",
+            "files_read_through": len(mdb_objects),
+            "tables_enumerated": _mdb_tables_enum,
+            "schema_count_export_errors": "0 bytes across all 5 cases",
+            "remaining": "full value contract at import stage; mirror merge block 6"}),
+        "sql_plane": "fully text-identified with stdlib; no tool gap for dialect/structure/carrier; geom binary literal extraction see geom-extraction evidence",
     },
     "dependency_gaps": [],
 }
@@ -493,12 +672,14 @@ summary = f"""# 第 4/6 块 · MDB 与 SQL 包（SUMMARY）
     f"- {sr['member_key'].split('!')[-1]}：方言 **{sr['dialect']}**（证据 {json.dumps(sr['dialect_evidence'], ensure_ascii=False)[:160]}）；表 {sr['table_count']}；INSERT 语句 {sr['insert_statement_count']}（行估算 {sr['row_count_estimate']}，口径注记在证）；载体 {sr['data_carrier']}；编码 {sr['encoding_detected']}（BOM {sr['bom_present']}，替换字符 {sr['replacement_chars_on_decode']}（定位行 {[h['line'] for h in sr.get('replacement_char_locations', [])][:3]}））；DROP {sr['drop_table_count']}/LOCK {sr['lock_tables_count']}"
     for sr in sql_results) + f"""
 
-## MDB 面（工具缺口）
-- 5 件头级确证（JET magic/签名/版本字节/页大小版本推导/128 字节 hexdump 逐字），sha 全匹配 inventory。
+## MDB 面（茶香授权候选镜像，本轮读通）
+- 镜像 xiangrugu:runtime-mdbtools-20261120-a Id {MDB_IMAGE_ID[:24]}…（mdbtools={MDBTOOLS_CANDIDATE}；4 deb 离线闭包 --network none 构建；requirements-apt.lock mdbtools 段）；mdb-tables/mdb-schema v1.0.0 预检通过；容器无网络/无凭据/无 socket，快照 :ro，仅本轮隔离目录解包，未进 pg32/pg32b。
+- **5/5 读通**（全 JET4）：内部表 **{_mdb_tables_enum}**（按源 sha 去重 {_mdb_tables_distinct}；逻辑 schema 族 36=v3 12+v4 13+v2 11；V4 两版本字节异但 schema/表/行数输出全同，镜像对分别登记来源）；行数合计 {sum(o.get('table_enumeration', {}).get('row_count_total', 0) for o in mdb_objects)}；schema/count/export 错误文件全 0 字节；表清单 vs schema 解析对称差空；sha+成员序号全断言==inventory。
+- 编码：mdb-schema 头部声明 UTF-8 输出（JET4 目录 UTF-16LE 转换，原始码页语义留值合同）；NULL：mdb-schema 不暴露 NOT NULL⇒导入合同目录级核验；精度：Text(n) 逐字、Numeric 精度/标度目录级待核；二进制：OLE Object/Binary→bytea 提案逐件标记。
 - **{mirror_note}**
-- 逐件不可读原因+所需工具（mdbtools={MDBTOOLS_CANDIDATE} 候选提案，本轮不装）+隔离恢复路径在 evidence-gaps。
-- 编码/二进制/NULL/精度面：MDB 需目录读取器后逐列断言，本轮不臆测。
+- 读不出表/字段：本轮 **0 项**（若有逐项在 object table_enumeration.unreadable_tables_or_fields）；全量值导出/编码规范化/NULL 语义/二进制字节忠实合同留导入阶段。
 
+{geom_summary}
 ## 相关成员处置（exactly-once）
 3 内层容器 ZIP structural；Thumbs.db 非数据排除→块5；cbdb sqlite3 块1既有（78表736列）不重映射；china_chron.xls 块2既有；txt/README documentation。
 

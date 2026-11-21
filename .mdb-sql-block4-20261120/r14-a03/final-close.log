@@ -1,0 +1,8 @@
+SQL proposals (HEAD set) byte-identical retained: 34 / 34 | new objects: 62
+spatial/tabular/cbdb mismatches vs HEAD: []
+entry WT: 668900d43663 | HEAD blob: 6f5987f6037d | disclosure C still open: True
+
+gap kinds: {'tool_gap_mdb_catalog_RESOLVED': 5, 'encoding_loss_risk': 1} | gap_count: 6
+tool_gap_report status: RESOLVED_MDB_CATALOG_VIA_APPROVED_CANDIDATE | installed_this_round: True | image ref: sha256:74e022830b3b16ab18847d43c98d7b2fde042da7ae40a3841febee5c29000399
+
+SUMMARY counts ctx: 只读零触**。 |  | ## 三计数 | - 核心成员 **7**（MDB 5 + SQL 2；完整链+sha 绑定 inventory 精确对账） | - 已枚举对象 **96** = SQL 表 **34**（全量 CREATE TABLE 解析，异常 0）+ MDB 文件级 **5**（头探针；表/字段枚举=GAP 不臆造） | - 已映射对象（提案）**96**（SQL 表→目标类型提案

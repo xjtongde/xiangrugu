@@ -1,0 +1,138 @@
+-- ----------------------------------------------------------
+-- MDB Tools - A library for reading MS Access database files
+-- Copyright (C) 2000-2011 Brian Bruns and others.
+-- Files in libmdb are licensed under LGPL and the utilities under
+-- the GPL, see COPYING.LIB and COPYING files respectively.
+-- Check out http://mdbtools.sourceforge.net
+-- ----------------------------------------------------------
+
+-- That file uses encoding UTF-8
+
+CREATE TABLE [chgis_main_table]
+ (
+	[name_rom]			Text (255), 
+	[beg_chg_eng]			Text (255), 
+	[end_chg_eng]			Text (255), 
+	[type_py]			Text (255), 
+	[type_id]			Text (255), 
+	[type_eng]			Text (255), 
+	[lev_rank]			Text (255), 
+	[beg_year]			Double, 
+	[end_year]			Double, 
+	[bou_note]			Text (255), 
+	[pt_note]			Text (255), 
+	[bou_id]			Text (255), 
+	[pt_id]			Text (255), 
+	[line_id]			Text (255), 
+	[data_src]			Text (255), 
+	[name_utf]			Text (255), 
+	[name_utf_alt]			Text (255), 
+	[pres_loc]			Text (255), 
+	[beg_chg_type]			Text (255), 
+	[end_chg_type]			Text (255), 
+	[type_utf]			Text (255)
+);
+
+CREATE TABLE [chgis_gisinfo_table]
+ (
+	[name_py]			Text (255), 
+	[sys_id]			Text (255), 
+	[x_y_type]			Text (255), 
+	[x_coord]			Double, 
+	[y_coord]			Double, 
+	[beg_yr]			Double, 
+	[beg_rule]			Text (255), 
+	[end_yr]			Double, 
+	[end_rule]			Text (255), 
+	[obj_type]			Text (255), 
+	[geo_src]			Text (255), 
+	[entry_date]			Text (255), 
+	[filename]			Text (255), 
+	[src]			Text (255), 
+	[name_utf]			Text (255), 
+	[name_utf_alt]			Text (255), 
+	[pres_loc]			Text (255), 
+	[compiler]			Text (255), 
+	[geocompiler]			Text (255)
+);
+
+CREATE TABLE [chgis_partof_table]
+ (
+	[child_id]			Text (255), 
+	[child_nmft]			Text (255), 
+	[beg_yr]			Double, 
+	[end_yr]			Double, 
+	[parent_nmpy]			Text (255), 
+	[parent_id]			Text (255), 
+	[child_nmpy]			Text (255), 
+	[child_nmch]			Text (255), 
+	[parent_nmch]			Text (255)
+);
+
+CREATE TABLE [chgis_source_notes_table]
+ (
+	[name_py]			Text (255), 
+	[source_note]			Memo/Hyperlink (255), 
+	[compiler]			Text (255), 
+	[note_id]			Text (50), 
+	[name_ch]			Text (255), 
+	[name_ft]			Text (255)
+);
+
+CREATE TABLE [xtra_data_dictionary]
+ (
+	[field]			Text (255), 
+	[filename]			Text (255), 
+	[description]			Text (255)
+);
+
+CREATE TABLE [xtra_change_type]
+ (
+	[change_type_english]			Text (255), 
+	[usage_status]			Text (255), 
+	[change_type_chinese]			Text (255)
+);
+
+CREATE TABLE [xtra_feature_types]
+ (
+	[sequence]			Double, 
+	[feat_pinyin]			Text (255), 
+	[usage period]			Text (255), 
+	[english gloss]			Text (255), 
+	[usage_status]			Text (255), 
+	[source]			Text (255), 
+	[feat_chinese]			Text (255), 
+	[feat_type_id]			Text (50)
+);
+
+CREATE TABLE [xtra_contrib_table]
+ (
+	[contrib]			Text (255), 
+	[organization]			Text (255), 
+	[contact]			Text (255)
+);
+
+CREATE TABLE [xtra_geo_source]
+ (
+	[geo_src]			Text (255), 
+	[description]			Text (255), 
+	[contact]			Text (255)
+);
+
+CREATE TABLE [xtra_date_rule_table]
+ (
+	[rule_number]			Double, 
+	[rule_short_name]			Text (255), 
+	[rule_eng]			Text (255)
+);
+
+CREATE TABLE [xtra_other_feature_types]
+ (
+	[feat_id]			Text (255), 
+	[feat_type_eng]			Text (255), 
+	[feat_type_rom]			Text (255), 
+	[feat_type_utf]			Text (255), 
+	[adl_class]			Text (255)
+);
+
+

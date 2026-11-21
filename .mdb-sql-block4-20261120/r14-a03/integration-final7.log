@@ -1,0 +1,3 @@
+delivered CREATE blocks that are EXACT substrings of MY schema output: 62 /62 | bad: []
+field self-consistency (verbatim line vs name/type/size): 29 issues [('v3_chgis_database_v3_main_table', 'beg_yr', 'unparsed'), ('v3_chgis_database_v3_main_table', 'end_yr', 'unparsed'), ('v3_chgis_database_v3_main_table', 'v3_mysql_id', 'unparsed'), ('v3_chgis_database_v3_gis_info', 'order_id', 'unparsed')]
+total column instances across 62 tables: 500

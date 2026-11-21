@@ -1,0 +1,3 @@
+name_py,name_utf,name_utf_alt,pres_loc,beg_chg_type,beg_chg_eng,end_chg_type,end_chg_eng,type_py,type_utf,type_id,type_eng,lev_rank,beg_yr,end_yr,pgn_note_id,pt_note_id,pgn_id,pt_id,line_id,data_src,v3_mysql_id
+"Fujian Jinglueshi","福建经略使","福建經略使","福建省福州市老城","新建","newly established","辖区缩小","jurisdiction area reduced","Fangzhen","方镇","1054","defense command","1",725,733,"98021","30011","98021","30011",,"CHGIS",105678
+"Fujian Jinglueshi","福建经略使","福建經略使","福建省福州市老城","辖区缩小","jurisdiction area reduced","辖区扩大","jurisdiction area increased","Fangzhen","方镇","1054","defense command","1",734,739,"98023","30011","98023","30011",,"CHGIS",105679

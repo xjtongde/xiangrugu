@@ -1,0 +1,3 @@
+field,filename,description
+"name_rom","main_table","placename of this instance in romanized form"
+"name_utf","main_table","placename of this instance in vernacular script [Simplified Chinese characters or Cyrillic]"

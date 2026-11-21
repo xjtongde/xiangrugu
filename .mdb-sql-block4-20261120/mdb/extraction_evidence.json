@@ -1,0 +1,75 @@
+{
+ "v3_himive": {
+  "relative_path": "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip",
+  "archive_chain": [
+   "access_dbase/v3_chgis_dbase.ZIP",
+   "v3_chgis_database.mdb"
+  ],
+  "archive_ordinals": [
+   76,
+   0
+  ],
+  "sha256": "68853b4968f881dea0293985306c2f36ecf95b75ab39bb53c70498e4533eeca8",
+  "size": 52195328,
+  "matches_inventory": true,
+  "extracted_to": "/opt/mydocker/xiangrugu/mdb-verify-20261120/v3_himive/v3_chgis_database.mdb"
+ },
+ "v4_direct": {
+  "relative_path": "harvard-full/doi_10_7910/DVN/PDGOZ0/V4_Data_Archive.zip",
+  "archive_chain": [
+   "access_database/v4_chgis_dbase.mdb"
+  ],
+  "archive_ordinals": [
+   2
+  ],
+  "sha256": "a2cc40398b73bdf1b7b612e810cca0864eacf4da42b693a79c63f2075e90319d",
+  "size": 65896448,
+  "matches_inventory": true,
+  "extracted_to": "/opt/mydocker/xiangrugu/mdb-verify-20261120/v4_direct/v4_chgis_dbase.mdb"
+ },
+ "v4_access_zip": {
+  "relative_path": "harvard-full/doi_10_7910/DVN/PDGOZ0/V4_Data_Archive.zip",
+  "archive_chain": [
+   "access_database/v4_chgis_dbase.zip",
+   "v4_chgis_dbase.mdb"
+  ],
+  "archive_ordinals": [
+   3,
+   0
+  ],
+  "sha256": "04be983d2f18b7c92ea0e1dfe478710cd4bdd01be9d367b32cb7da6037cab29a",
+  "size": 65896448,
+  "matches_inventory": true,
+  "extracted_to": "/opt/mydocker/xiangrugu/mdb-verify-20261120/v4_access_zip/v4_chgis_dbase.mdb"
+ },
+ "v4_shapefiles_zip": {
+  "relative_path": "harvard-full/doi_10_7910/DVN/PDGOZ0/V4_Data_Archive.zip",
+  "archive_chain": [
+   "shapefiles/v4_chgis_dbase.zip",
+   "v4_chgis_dbase.mdb"
+  ],
+  "archive_ordinals": [
+   109,
+   0
+  ],
+  "sha256": "04be983d2f18b7c92ea0e1dfe478710cd4bdd01be9d367b32cb7da6037cab29a",
+  "size": 65896448,
+  "matches_inventory": true,
+  "extracted_to": "/opt/mydocker/xiangrugu/mdb-verify-20261120/v4_shapefiles_zip/v4_chgis_dbase.mdb"
+ },
+ "v2_zzkz6u": {
+  "relative_path": "harvard-full/doi_10_7910/DVN/ZZKZ6U/CHGIS_V2.zip",
+  "archive_chain": [
+   "access_dbase/chgis_v2_database.ZIP",
+   "chgis_v2_database.mdb"
+  ],
+  "archive_ordinals": [
+   0,
+   0
+  ],
+  "sha256": "4a9bd1bc819b3a8e10ccef145de831954738a96fc9e0e317bf3ed6979d2c2c2f",
+  "size": 46702592,
+  "matches_inventory": true,
+  "extracted_to": "/opt/mydocker/xiangrugu/mdb-verify-20261120/v2_zzkz6u/chgis_v2_database.mdb"
+ }
+}

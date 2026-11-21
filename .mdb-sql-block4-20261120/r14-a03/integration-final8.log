@@ -1,0 +1,9 @@
+fields checked: 500 | mismatches: 29
+    ('beg_yr', 'Long', '', None, "'Integer'")
+    ('end_yr', 'Long', '', None, "'Integer'")
+    ('v3_mysql_id', 'Long', '', None, "'Integer'")
+    ('order_id', 'Long', '', None, "'Integer'")
+    ('beg_yr', 'Long', '', None, "'Integer'")
+    ('end_yr', 'Long', '', None, "'Integer'")
+
+beg_yr field full: {"binary_flag": false, "definition_line_verbatim": "\t[beg_yr]\t\t\tLong Integer,", "encoding_note": "JET4 catalog UTF-16LE; mdbtools output declares UTF-8 conversion; original codepage semantics require value contract", "nullability_note": "mdb-schema does not expose NOT NULL flags; nullability req

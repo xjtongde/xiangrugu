@@ -1,0 +1,5 @@
+MY geom record: line 326 raw_len 33 raw_sha 9379a445f03ee3e8
+                     dec_len  25 dec_sha cfe2b8d492c16e82
+
+candidate files: ['.mdb-sql-block4-20261120/mdb/extraction_evidence.json', '.mdb-sql-block4-20261120/geom/deliverable-summary.json', '.mdb-sql-block4-20261120/geom/geom-extraction.json', '.mapinfo-verify-20261120/geom_types.json', 'datamgmt/recon/degenerate_geometry.json', 'datamgmt/contracts/releases/2026-10-06-bootstrap/spatial-geometry-decisions.draft.yaml', 'datamgmt/contracts/releases/2026-10-06-bootstrap/artifact-hashes-spatial-geometry-approved.json', 'datamgmt/contracts/releases/2026-10-06-bootstrap/spatial-geometry-approved.draft.yaml']
+host geom dirs:  

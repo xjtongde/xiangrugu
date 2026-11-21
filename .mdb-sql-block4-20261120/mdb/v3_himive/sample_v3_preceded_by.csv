@@ -1,0 +1,3 @@
+sub_id,sub_name_py,sub_name_utf,sub_name_utf_alt,sub_lev_rank,sub_beg_type,sub_eng_type,sub_beg_yr,sub_end_yr,sub_obj_type,prec_id,prec_name_py,prec_name_utf,prec_name_alt,order_id
+"40163","Dongye Xian","东冶县","東冶縣",6,"新建","撤销",-222,-111,"POINT","0",,,,1
+"40164","Ye Xian","冶县","冶縣",6,"新建","更名",-85,29,"POINT","0",,,,2

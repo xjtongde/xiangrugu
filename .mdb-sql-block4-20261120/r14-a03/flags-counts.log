@@ -1,0 +1,17 @@
+distinct mdb 3 files (V4 mirror dedup): tables 36 columns 230
+binary/memo columns: 3 | sample: [('v3_himive', 'v3_source_notes', 'source_note', 'Memo/Hyperlink'), ('v4_direct', 'v4_source_notes', 'source_note', 'Memo/Hyperlink'), ('v2_zzkz6u', 'chgis_source_notes_table', 'source_note', 'Memo/Hyperlink')]
+decimal/single/double cols: 0 | sample: []
+NOT NULL occurrences: 0 => mdb-schema does not emit nullability; NULL语义以导出样本佐证
+
+lead rowcounts head:
+v3_source_notes|6716
+v3_main_table|49255
+v3_gis_info|52465
+v3_part_of|53122
+v3_preceded_by|7692
+v3_feature_types|62
+xtra_change_types|25
+xtra_contributors|5
+---
+
+my v3_feature_types export lines (incl header): 63

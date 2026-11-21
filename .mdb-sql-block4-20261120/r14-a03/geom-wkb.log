@@ -1,0 +1,4 @@
+SRID: 0 | byte_order: 1 | wkb type: 1 (1=Point)
+x: 115.31562 y: 38.94772
+x in [106.60376,124.576195]: True | y in [18.160896,35.726135]: False
+length exact 4+1+4+16 == True

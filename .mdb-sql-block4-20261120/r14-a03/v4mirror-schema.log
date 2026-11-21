@@ -1,0 +1,9 @@
+v3_himive | tables 12 | cols 84 | mine==lead: True
+v4_direct | tables 13 | cols 75 | mine==lead: True
+v4_access_zip | tables 13 | cols 75 | mine==lead: True
+v4_shapefiles_zip | tables 13 | cols 75 | mine==lead: True
+v2_zzkz6u | tables 11 | cols 71 | mine==lead: True
+
+ALL 5 schema column/type/size equal mine vs lead: True | total column instances: 380
+v4 three copies identical schemas: True
+instances: tables 62 (expect 62)

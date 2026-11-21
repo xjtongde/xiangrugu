@@ -1,0 +1,11 @@
+chgis_gisinfo_table
+chgis_main_table
+chgis_partof_table
+chgis_source_notes_table
+xtra_change_type
+xtra_contrib_table
+xtra_data_dictionary
+xtra_date_rule_table
+xtra_feature_types
+xtra_geo_source
+xtra_other_feature_types

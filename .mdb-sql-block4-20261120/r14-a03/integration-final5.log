@@ -1,0 +1,4 @@
+instances: 62 | column verbatim mismatches: 36 [('v3_himive', 'v3_main_table', 19, 22, 22), ('v3_himive', 'v3_gis_info', 15, 20, 20), ('v3_himive', 'v3_part_of', 8, 11, 11), ('v3_himive', 'v3_preceded_by', 11, 15, 15)]
+delivered row_count_mdb_count total: 876453 == my 876453: True | per-table diffs vs lead rowcounts file: 0
+
+distinct (source-sha-prefix, table) pairs computed by me: 36 | delivered counts says 49

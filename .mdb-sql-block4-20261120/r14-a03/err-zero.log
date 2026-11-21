@@ -1,0 +1,9 @@
+lead err files sizes all zero: True | 15 files
+lead ver: 'JET4' | my image --version: 'mdbtools v1.0.0'
+v3_himive | chain row found: True | ordinals+sha == inventory: True
+v4_direct | chain row found: True | ordinals+sha == inventory: True
+v4_access_zip | chain row found: True | ordinals+sha == inventory: True
+v4_shapefiles_zip | chain row found: True | ordinals+sha == inventory: True
+v2_zzkz6u | chain row found: True | ordinals+sha == inventory: True
+
+ALL extraction identities == inventory: True

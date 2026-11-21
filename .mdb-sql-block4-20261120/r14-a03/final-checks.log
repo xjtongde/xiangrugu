@@ -1,0 +1,11 @@
+decoded_sha256 delivered: cfe2b8d492c16e82 | mine: cfe2b8d492c16e82 | match: True
+geometry_validation delivered: {"decoded_len": 25, "srid_prefix_le": 0, "wkb_byte_order": "LE", "geom_type_code": 1, "geom_type": "Point", "coords_sample": [[115.31562, 38.94772]], "consumed_bytes": 25, "valid": true}
+escapes_found: ["0", "\\"]
+
+lead schema byte cmp: direct-vs-access: 0
+access-vs-shapefiles: 0
+my mirror-pair table sets equal: True | 13 13
+
+source outer zips now == inventory: True 5 files
+
+SQL 34 proposed objects byte-equal vs HEAD: True | count 34

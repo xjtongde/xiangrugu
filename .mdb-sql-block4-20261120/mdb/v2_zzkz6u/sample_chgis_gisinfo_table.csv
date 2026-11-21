@@ -1,0 +1,3 @@
+name_py,sys_id,x_y_type,x_coord,y_coord,beg_yr,beg_rule,end_yr,end_rule,obj_type,geo_src,entry_date,filename,src,name_utf,name_utf_alt,pres_loc,compiler,geocompiler
+"Akesu","1791","centroid",80.6742,41.2743,1820,"9",1820,"9","polygon","FROM_TAN",,"v2_1820_pref_pgn","CHGIS","阿克苏","阿克蘇",,,"傅林祥/余慰"
+"Alashan'elute Qi","2099","centroid",104.07029,39.73602,1820,"9",1820,"9","polygon","FROM_TAN",,"v2_1820_pref_pgn","CHGIS","阿拉善厄鲁特旗","阿拉善厄魯特旗",,,"傅林祥/余慰"

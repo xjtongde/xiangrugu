@@ -1,0 +1,71 @@
+carriers: mdb_table 62 | other(sql) 34
+   MISMATCH: v3_himive v3_chgis_database_v3_source_notes 6 6 0
+   MISMATCH: v3_himive v3_chgis_database_v3_main_table 22 22 0
+   MISMATCH: v3_himive v3_chgis_database_v3_gis_info 20 20 0
+   MISMATCH: v3_himive v3_chgis_database_v3_part_of 11 11 0
+   MISMATCH: v3_himive v3_chgis_database_v3_preceded_by 15 15 0
+   MISMATCH: v3_himive v3_chgis_database_v3_feature_types 8 8 0
+   MISMATCH: v3_himive v3_chgis_database_xtra_change_types 3 3 0
+   MISMATCH: v3_himive v3_chgis_database_xtra_contributors 3 3 0
+   MISMATCH: v3_himive v3_chgis_database_v3_data_dictionary 3 3 0
+   MISMATCH: v3_himive v3_chgis_database_xtra_date_rules 3 3 0
+   MISMATCH: v3_himive v3_chgis_database_xtra_geo_source 3 3 0
+   MISMATCH: v3_himive v3_chgis_database_xtra_other_feature_types 8 8 0
+   MISMATCH: v4_direct v4_chgis_dbase_v4_gis_info_table 25 25 0
+   MISMATCH: v4_direct v4_chgis_dbase_v4_main_table 17 17 0
+   MISMATCH: v4_direct v4_chgis_dbase_v4_source_notes 6 6 0
+   MISMATCH: v4_direct v4_chgis_dbase_v4_part_of_table 9 9 0
+   MISMATCH: v4_direct v4_chgis_dbase_v4_preceded_by_table 14 14 0
+   MISMATCH: v4_direct v4_chgis_dbase_v4_data_dictionary 3 3 0
+   MISMATCH: v4_direct v4_chgis_dbase_v4_feature_types 8 8 0
+   MISMATCH: v4_direct v4_chgis_dbase_v4_gis_layer_field_names 2 2 0
+   MISMATCH: v4_direct v4_chgis_dbase_xtra_change_types 3 3 0
+   MISMATCH: v4_direct v4_chgis_dbase_xtra_contributors 3 3 0
+   MISMATCH: v4_direct v4_chgis_dbase_xtra_date_rules 3 3 0
+   MISMATCH: v4_direct v4_chgis_dbase_xtra_geo_source 3 3 0
+   MISMATCH: v4_direct v4_chgis_dbase_xtra_other_feature_types 8 8 0
+   MISMATCH: v4_direct v4_chgis_dbase_v4_gis_info_table 25 25 0
+   MISMATCH: v4_direct v4_chgis_dbase_v4_main_table 17 17 0
+   MISMATCH: v4_direct v4_chgis_dbase_v4_source_notes 6 6 0
+   MISMATCH: v4_direct v4_chgis_dbase_v4_part_of_table 9 9 0
+   MISMATCH: v4_direct v4_chgis_dbase_v4_preceded_by_table 14 14 0
+   MISMATCH: v4_direct v4_chgis_dbase_v4_data_dictionary 3 3 0
+   MISMATCH: v4_direct v4_chgis_dbase_v4_feature_types 8 8 0
+   MISMATCH: v4_direct v4_chgis_dbase_v4_gis_layer_field_names 2 2 0
+   MISMATCH: v4_direct v4_chgis_dbase_xtra_change_types 3 3 0
+   MISMATCH: v4_direct v4_chgis_dbase_xtra_contributors 3 3 0
+   MISMATCH: v4_direct v4_chgis_dbase_xtra_date_rules 3 3 0
+   MISMATCH: v4_direct v4_chgis_dbase_xtra_geo_source 3 3 0
+   MISMATCH: v4_direct v4_chgis_dbase_xtra_other_feature_types 8 8 0
+   MISMATCH: v4_direct v4_chgis_dbase_v4_gis_info_table 25 25 0
+   MISMATCH: v4_direct v4_chgis_dbase_v4_main_table 17 17 0
+   MISMATCH: v4_direct v4_chgis_dbase_v4_source_notes 6 6 0
+   MISMATCH: v4_direct v4_chgis_dbase_v4_part_of_table 9 9 0
+   MISMATCH: v4_direct v4_chgis_dbase_v4_preceded_by_table 14 14 0
+   MISMATCH: v4_direct v4_chgis_dbase_v4_data_dictionary 3 3 0
+   MISMATCH: v4_direct v4_chgis_dbase_v4_feature_types 8 8 0
+   MISMATCH: v4_direct v4_chgis_dbase_v4_gis_layer_field_names 2 2 0
+   MISMATCH: v4_direct v4_chgis_dbase_xtra_change_types 3 3 0
+   MISMATCH: v4_direct v4_chgis_dbase_xtra_contributors 3 3 0
+   MISMATCH: v4_direct v4_chgis_dbase_xtra_date_rules 3 3 0
+   MISMATCH: v4_direct v4_chgis_dbase_xtra_geo_source 3 3 0
+   MISMATCH: v4_direct v4_chgis_dbase_xtra_other_feature_types 8 8 0
+   MISMATCH: v2_zzkz6u chgis_v2_database_chgis_main_table 21 21 0
+   MISMATCH: v2_zzkz6u chgis_v2_database_chgis_gisinfo_table 19 19 0
+   MISMATCH: v2_zzkz6u chgis_v2_database_chgis_partof_table 9 9 0
+   MISMATCH: v2_zzkz6u chgis_v2_database_chgis_source_notes_table 6 6 0
+   MISMATCH: v2_zzkz6u chgis_v2_database_xtra_data_dictionary 3 3 0
+   MISMATCH: v2_zzkz6u chgis_v2_database_xtra_change_type 3 3 0
+   MISMATCH: v2_zzkz6u chgis_v2_database_xtra_feature_types 8 8 0
+   MISMATCH: v2_zzkz6u chgis_v2_database_xtra_contrib_table 3 3 0
+   MISMATCH: v2_zzkz6u chgis_v2_database_xtra_geo_source 3 3 0
+   MISMATCH: v2_zzkz6u chgis_v2_database_xtra_date_rule_table 3 3 0
+   MISMATCH: v2_zzkz6u chgis_v2_database_xtra_other_feature_types 5 5 0
+my schema-vs-delivered column reconciliation: 62 objects, all match:False
+objects with row_count: 0 | sample: -
+delivered total rows across 62: 0 == my 876453: False
+
+gap_count: 6
+kinds: {'tool_gap_mdb_catalog_RESOLVED': 5, 'encoding_loss_risk': 1}
+tool_gap_report status: RESOLVED_MDB_CATALOG_VIA_APPROVED_CANDIDATE | installed_this_round: True | sql_plane keys: ['f', 'u', 'l', 'l', 'y', ' ']
+geom_extraction_status note present in encoding gap: False

@@ -1,0 +1,3 @@
+order_id,name_py,name_utf,name_utf_alt,sys_id,xy_type,x_coord,y_coord,pres_loc,beg_yr,beg_rule,end_yr,end_rule,object_type,geo_src,compiler,geocompiler,entry_date,filename,src
+36381,"Ailakenao'er","艾拉克淖尔","艾拉克淖爾","2203","centroid",85.78,45.93,"新疆",1820,"4",1820,"4","polygon","FROM_FD",,,,"v2_1820_lks_pgn","CHGIS"
+36382,"Alake Bo","阿拉克泊","阿拉克泊","2367","centroid",94.44,45.14,"蒙古",1820,"4",1820,"4","polygon","FROM_FD",,,,"v2_1820_lks_pgn","CHGIS"

@@ -1,0 +1,164 @@
+-- ----------------------------------------------------------
+-- MDB Tools - A library for reading MS Access database files
+-- Copyright (C) 2000-2011 Brian Bruns and others.
+-- Files in libmdb are licensed under LGPL and the utilities under
+-- the GPL, see COPYING.LIB and COPYING files respectively.
+-- Check out http://mdbtools.sourceforge.net
+-- ----------------------------------------------------------
+
+-- That file uses encoding UTF-8
+
+CREATE TABLE [v3_source_notes]
+ (
+	[compiler]			Text (8), 
+	[note_id]			Text (50), 
+	[name_py]			Text (40), 
+	[name_ch]			Text (30), 
+	[name_ft]			Text (30), 
+	[source_note]			Memo/Hyperlink (255)
+);
+
+CREATE TABLE [v3_main_table]
+ (
+	[name_py]			Text (255), 
+	[name_utf]			Text (255), 
+	[name_utf_alt]			Text (255), 
+	[pres_loc]			Text (255), 
+	[beg_chg_type]			Text (255), 
+	[beg_chg_eng]			Text (255), 
+	[end_chg_type]			Text (255), 
+	[end_chg_eng]			Text (255), 
+	[type_py]			Text (255), 
+	[type_utf]			Text (255), 
+	[type_id]			Text (50), 
+	[type_eng]			Text (255), 
+	[lev_rank]			Text (50), 
+	[beg_yr]			Long Integer, 
+	[end_yr]			Long Integer, 
+	[pgn_note_id]			Text (50), 
+	[pt_note_id]			Text (50), 
+	[pgn_id]			Text (50), 
+	[pt_id]			Text (50), 
+	[line_id]			Text (255), 
+	[data_src]			Text (255), 
+	[v3_mysql_id]			Long Integer
+);
+
+CREATE TABLE [v3_gis_info]
+ (
+	[order_id]			Long Integer, 
+	[name_py]			Text (255), 
+	[name_utf]			Text (255), 
+	[name_utf_alt]			Text (255), 
+	[sys_id]			Text (255), 
+	[xy_type]			Text (255), 
+	[x_coord]			Double, 
+	[y_coord]			Double, 
+	[pres_loc]			Text (255), 
+	[beg_yr]			Long Integer, 
+	[beg_rule]			Text (50), 
+	[end_yr]			Long Integer, 
+	[end_rule]			Text (50), 
+	[object_type]			Text (255), 
+	[geo_src]			Text (255), 
+	[compiler]			Text (255), 
+	[geocompiler]			Text (255), 
+	[entry_date]			Text (255), 
+	[filename]			Text (255), 
+	[src]			Text (255)
+);
+
+CREATE TABLE [v3_part_of]
+ (
+	[child_id]			Text (255), 
+	[child_py]			Text (255), 
+	[child_utf]			Text (255), 
+	[child_utf_alt]			Text (255), 
+	[beg_yr]			Long Integer, 
+	[end_yr]			Long Integer, 
+	[parent_py]			Text (255), 
+	[parent_utf]			Text (255), 
+	[parent_id]			Text (50), 
+	[data_src]			Text (255), 
+	[order_id]			Long Integer
+);
+
+CREATE TABLE [v3_preceded_by]
+ (
+	[sub_id]			Text (50), 
+	[sub_name_py]			Text (255), 
+	[sub_name_utf]			Text (255), 
+	[sub_name_utf_alt]			Text (255), 
+	[sub_lev_rank]			Long Integer, 
+	[sub_beg_type]			Text (255), 
+	[sub_eng_type]			Text (255), 
+	[sub_beg_yr]			Long Integer, 
+	[sub_end_yr]			Long Integer, 
+	[sub_obj_type]			Text (255), 
+	[prec_id]			Text (50), 
+	[prec_name_py]			Text (255), 
+	[prec_name_utf]			Text (255), 
+	[prec_name_alt]			Text (255), 
+	[order_id]			Long Integer
+);
+
+CREATE TABLE [v3_feature_types]
+ (
+	[order]			Double, 
+	[feat_pinyin]			Text (255), 
+	[feat_chinese]			Text (255), 
+	[usage period]			Text (255), 
+	[English gloss]			Text (255), 
+	[ID#]			Text (50), 
+	[usage_status]			Text (255), 
+	[source]			Text (255)
+);
+
+CREATE TABLE [xtra_change_types]
+ (
+	[change_type_english]			Text (255), 
+	[usage_status]			Text (255), 
+	[change_type_chinese]			Text (255)
+);
+
+CREATE TABLE [xtra_contributors]
+ (
+	[contrib]			Text (255), 
+	[organization]			Text (255), 
+	[contact]			Text (255)
+);
+
+CREATE TABLE [v3_data_dictionary]
+ (
+	[field]			Text (255), 
+	[filename]			Text (255), 
+	[description]			Text (255)
+);
+
+CREATE TABLE [xtra_date_rules]
+ (
+	[rule_number]			Double, 
+	[rule_short_name]			Text (255), 
+	[rule_eng]			Text (255)
+);
+
+CREATE TABLE [xtra_geo_source]
+ (
+	[geo_src]			Text (255), 
+	[description]			Text (255), 
+	[contact]			Text (255)
+);
+
+CREATE TABLE [xtra_other_feature_types]
+ (
+	[order]			Long Integer, 
+	[hv_ft_py]			Text (255), 
+	[hv_ft_ch]			Text (255), 
+	[hv_ft_id]			Text (255), 
+	[hv_ft_eng]			Text (255), 
+	[is_current]			Text (255), 
+	[adl_class]			Text (255), 
+	[note]			Text (255)
+);
+
+

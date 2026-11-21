@@ -1,0 +1,167 @@
+-- ----------------------------------------------------------
+-- MDB Tools - A library for reading MS Access database files
+-- Copyright (C) 2000-2011 Brian Bruns and others.
+-- Files in libmdb are licensed under LGPL and the utilities under
+-- the GPL, see COPYING.LIB and COPYING files respectively.
+-- Check out http://mdbtools.sourceforge.net
+-- ----------------------------------------------------------
+
+-- That file uses encoding UTF-8
+
+CREATE TABLE [v4_gis_info_table]
+ (
+	[SYS_ID]			Double, 
+	[NAME_PY]			Text (38), 
+	[X_COOR]			Double, 
+	[Y_COOR]			Double, 
+	[TYPE_PY]			Text (17), 
+	[LEV_RANK]			Text (1), 
+	[BEG_YR]			Double, 
+	[BEG_RULE]			Text (1), 
+	[BEG_CHG_TY]			Text (24), 
+	[END_YR]			Double, 
+	[END_RULE]			Text (1), 
+	[END_CHG_TY]			Text (24), 
+	[NOTE_ID]			Double, 
+	[OBJ_TYPE]			Text (7), 
+	[GEO_SRC]			Text (10), 
+	[ENT_DATE]			Text (10), 
+	[FILENAME]			Text (28), 
+	[X_Y_TYPE]			Text (8), 
+	[NAME_CH]			Text (22), 
+	[NAME_FT]			Text (22), 
+	[PRES_LOC]			Text (100), 
+	[TYPE_CH]			Text (10), 
+	[COMPILER]			Text (12), 
+	[GEOCOMP]			Text (28), 
+	[CHECKER]			Text (50)
+);
+
+CREATE TABLE [v4_main_table]
+ (
+	[NAME_PY]			Text (40), 
+	[TYPE_PY]			Text (20), 
+	[LEV_RANK]			Text (1), 
+	[BEG_YR]			Integer, 
+	[END_YR]			Integer, 
+	[BOU_NOTE_ID]			Long Integer, 
+	[PT_NOTE_ID]			Long Integer, 
+	[BOU_ID]			Long Integer, 
+	[PT_ID]			Long Integer, 
+	[X_Coor]			Single, 
+	[Y_Coor]			Single, 
+	[NAME_CH]			Text (30), 
+	[NAME_FT]			Text (30), 
+	[PRES_LOC]			Text (40), 
+	[BEG_CHG_TY]			Text (30), 
+	[END_CHG_TY]			Text (30), 
+	[TYPE_CH]			Text (10)
+);
+
+CREATE TABLE [v4_source_notes]
+ (
+	[compiler]			Text (8), 
+	[note_id]			Long Integer, 
+	[name_py]			Text (40), 
+	[name_ch]			Text (30), 
+	[name_ft]			Text (30), 
+	[source_note]			Memo/Hyperlink (255)
+);
+
+CREATE TABLE [v4_part_of_table]
+ (
+	[CHILD_ID]			Double, 
+	[CHILD_NMPY]			Text (40), 
+	[BEG_YR]			Double, 
+	[END_YR]			Double, 
+	[PRT_NMPY]			Text (40), 
+	[PRT_ID]			Double, 
+	[CHILD_NMCH]			Text (30), 
+	[CHILD_NMFT]			Text (30), 
+	[PRT_NMCH]			Text (30)
+);
+
+CREATE TABLE [v4_preceded_by_table]
+ (
+	[PRO_ID]			Double, 
+	[PRO_NMPY]			Text (28), 
+	[LEV_RANK]			Text (1), 
+	[BEG_YR]			Double, 
+	[END_YR]			Double, 
+	[OBJ_TYPE]			Text (10), 
+	[PROBY_ID]			Double, 
+	[PROBY_NMPY]			Text (28), 
+	[PROBY_NMFT]			Text (18), 
+	[PRO_NMCH]			Text (18), 
+	[PRO_NMFT]			Text (18), 
+	[BEG_CHG_TY]			Text (14), 
+	[END_CHG_TY]			Text (14), 
+	[PROBY_NMCH]			Text (18)
+);
+
+CREATE TABLE [v4_data_dictionary]
+ (
+	[field]			Text (255), 
+	[filename]			Text (255), 
+	[description]			Text (255)
+);
+
+CREATE TABLE [v4_feature_types]
+ (
+	[order]			Double, 
+	[feat_pinyin]			Text (255), 
+	[usage period]			Text (255), 
+	[English gloss]			Text (255), 
+	[ft_id_num]			Double, 
+	[usage_status]			Text (255), 
+	[source]			Text (255), 
+	[feat_chinese]			Text (255)
+);
+
+CREATE TABLE [v4_gis_layer_field_names]
+ (
+	[field]			Text (255), 
+	[description]			Text (255)
+);
+
+CREATE TABLE [xtra_change_types]
+ (
+	[change_type_english]			Text (255), 
+	[usage_status]			Text (255), 
+	[change_type_chinese]			Text (255)
+);
+
+CREATE TABLE [xtra_contributors]
+ (
+	[contrib]			Text (255), 
+	[organization]			Text (255), 
+	[contact]			Text (255)
+);
+
+CREATE TABLE [xtra_date_rules]
+ (
+	[rule_number]			Double, 
+	[rule_short_name]			Text (255), 
+	[rule_eng]			Text (255)
+);
+
+CREATE TABLE [xtra_geo_source]
+ (
+	[geo_src]			Text (255), 
+	[description]			Text (255), 
+	[contact]			Text (255)
+);
+
+CREATE TABLE [xtra_other_feature_types]
+ (
+	[order]			Double, 
+	[hv_ft_py]			Text (255), 
+	[hv_ft_id]			Text (255), 
+	[hv_ft_eng]			Text (255), 
+	[is_current]			Text (255), 
+	[adl_class]			Text (255), 
+	[note]			Text (255), 
+	[hv_ft_ch]			Text (255)
+);
+
+

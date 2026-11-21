@@ -1,0 +1,5 @@
+core member keys: ['archive_chain', 'archive_ordinals', 'family', 'member_key', 'relative_path', 'sha256', 'size']
+{"archive_chain": ["access_dbase/v3_chgis_dbase.ZIP", "v3_chgis_database.mdb"], "archive_ordinals": [76, 0], "family": "mdb", "member_key": "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip!access_dbase/v3_chgis_dbase.ZIP!v3_chgis_database.mdb", "relative_path": "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip", "sha256": "68853b4968f881dea0293985306c2f36ecf95b75ab39bb53c70498e4533e
+
+delivered mdb 4-tuple identities == mine: True 5
+sha_matches_inventory all: True

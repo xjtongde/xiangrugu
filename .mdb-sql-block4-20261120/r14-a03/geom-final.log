@@ -1,0 +1,11 @@
+delivered row keys: ['decoded_len', 'decoded_sha256', 'escapes_found_in_geom_literal', 'field_count', 'fields', 'geometry_validation', 'raw_literal_len', 'raw_literal_sha256', 'sql_line']
+{"sql_line": 326, "field_count": 5, "fields": [{"kind": "raw", "raw_len": 1, "decoded_len": 1, "ascii_token": "1"}, {"kind": "raw", "raw_len": 2, "decoded_len": 2, "ascii_token": "26"}, {"kind": "str", "raw_len": 33, "decoded_len": 25, "ascii_token": null}, {"kind": "str", "raw_len": 7, "decoded_len": 7, "ascii_token": null}, {"kind": "str", "raw_len": 19, "decoded_len": 19, "ascii_token": null}], "raw_literal_sha256": "9379a445f03ee3e8d80630105fc7ba3174d27c3b512a2372f9cb094cd1aa885a", "raw_literal_len": 33, "decoded_sha256": "cfe2b8d492c16e82efe5176a810d9d46b9fb0f3805ebf92c5adbf340e54bd65b", 
+
+raw_literal_sha256: delivered=9379a445f03ee3e8d806 mine=9379a445f03ee3e8d806 match:True
+
+decoded_payload_sha256: delivered=None mine=cfe2b8d492c16e82efe5 match:False
+
+lens: raw delivered 33 mine 33 | dec delivered 25 mine 25
+line: delivered None mine 326
+no_replacement_chars_used: True | sql_not_executed: True | payload_never_text_decoded: True
+AUTO_INCREMENT corroboration check in DDL: True

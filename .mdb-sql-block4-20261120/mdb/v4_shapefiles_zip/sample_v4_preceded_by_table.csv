@@ -1,0 +1,3 @@
+PRO_ID,PRO_NMPY,LEV_RANK,BEG_YR,END_YR,OBJ_TYPE,PROBY_ID,PROBY_NMPY,PROBY_NMFT,PRO_NMCH,PRO_NMFT,BEG_CHG_TY,END_CHG_TY,PROBY_NMCH
+40164,"Ye Xian","6",-85,29,"POINT",0,,,"冶县","冶縣","新建","更名",
+40165,"Dongbuhouguan Xian","6",30,259,"POINT",40164,"Ye Xian","冶縣","东部侯官县","東部侯官縣","更名","更名","冶县"

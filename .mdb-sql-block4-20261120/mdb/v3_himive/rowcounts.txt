@@ -1,0 +1,12 @@
+v3_source_notes|6716
+v3_main_table|49255
+v3_gis_info|52465
+v3_part_of|53122
+v3_preceded_by|7692
+v3_feature_types|62
+xtra_change_types|25
+xtra_contributors|5
+v3_data_dictionary|64
+xtra_date_rules|7
+xtra_geo_source|6
+xtra_other_feature_types|1060

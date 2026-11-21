@@ -5,51 +5,47 @@
  "gap_count": 6,
  "gaps": [
   {
-   "isolation_recovery": "extract to isolated temp dir on 32, read-only via mdb-tables/mdb-export/mdb-schema once approved; source snapshot stays :ro",
-   "kind": "tool_gap_mdb_catalog",
+   "kind": "tool_gap_mdb_catalog_RESOLVED",
    "object": "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip!access_dbase/v3_chgis_dbase.ZIP!v3_chgis_database.mdb",
-   "reason": "locked environment has no MDB catalog reader: mdbtools absent on 32 host and in existing project containers (measured); JET/ACE catalog pages require a dedicated reader; no installs authorized this round",
-   "required_tool": "mdbtools=1.0.0+dfsg-1.1 (32 apt-cache policy candidate, bookworm; locked-version proposal only, NOT installed) or Chaxiang-approved derived reader",
+   "remaining_value_contract": "full value export/encoding canonicalization/NULL semantics/binary byte-faithful contract at import stage",
+   "resolution": "read through via Chaxiang-approved candidate image sha256:74e022830b3b16ab1… mdbtools=1.0.0+dfsg-1.1; schema/count/export error files 0 bytes; see object table_enumeration",
    "sha256": "68853b4968f881dea0293985306c2f36ecf95b75ab39bb53c70498e4533eeca8",
    "size": 52195328
   },
   {
-   "isolation_recovery": "extract to isolated temp dir on 32, read-only via mdb-tables/mdb-export/mdb-schema once approved; source snapshot stays :ro",
-   "kind": "tool_gap_mdb_catalog",
+   "kind": "tool_gap_mdb_catalog_RESOLVED",
    "object": "harvard-full/doi_10_7910/DVN/PDGOZ0/V4_Data_Archive.zip!access_database/v4_chgis_dbase.mdb",
-   "reason": "locked environment has no MDB catalog reader: mdbtools absent on 32 host and in existing project containers (measured); JET/ACE catalog pages require a dedicated reader; no installs authorized this round",
-   "required_tool": "mdbtools=1.0.0+dfsg-1.1 (32 apt-cache policy candidate, bookworm; locked-version proposal only, NOT installed) or Chaxiang-approved derived reader",
+   "remaining_value_contract": "full value export/encoding canonicalization/NULL semantics/binary byte-faithful contract at import stage",
+   "resolution": "read through via Chaxiang-approved candidate image sha256:74e022830b3b16ab1… mdbtools=1.0.0+dfsg-1.1; schema/count/export error files 0 bytes; see object table_enumeration",
    "sha256": "a2cc40398b73bdf1b7b612e810cca0864eacf4da42b693a79c63f2075e90319d",
    "size": 65896448
   },
   {
-   "isolation_recovery": "extract to isolated temp dir on 32, read-only via mdb-tables/mdb-export/mdb-schema once approved; source snapshot stays :ro",
-   "kind": "tool_gap_mdb_catalog",
+   "kind": "tool_gap_mdb_catalog_RESOLVED",
    "object": "harvard-full/doi_10_7910/DVN/PDGOZ0/V4_Data_Archive.zip!access_database/v4_chgis_dbase.zip!v4_chgis_dbase.mdb",
-   "reason": "locked environment has no MDB catalog reader: mdbtools absent on 32 host and in existing project containers (measured); JET/ACE catalog pages require a dedicated reader; no installs authorized this round",
-   "required_tool": "mdbtools=1.0.0+dfsg-1.1 (32 apt-cache policy candidate, bookworm; locked-version proposal only, NOT installed) or Chaxiang-approved derived reader",
+   "remaining_value_contract": "full value export/encoding canonicalization/NULL semantics/binary byte-faithful contract at import stage",
+   "resolution": "read through via Chaxiang-approved candidate image sha256:74e022830b3b16ab1… mdbtools=1.0.0+dfsg-1.1; schema/count/export error files 0 bytes; see object table_enumeration",
    "sha256": "04be983d2f18b7c92ea0e1dfe478710cd4bdd01be9d367b32cb7da6037cab29a",
    "size": 65896448
   },
   {
-   "isolation_recovery": "extract to isolated temp dir on 32, read-only via mdb-tables/mdb-export/mdb-schema once approved; source snapshot stays :ro",
-   "kind": "tool_gap_mdb_catalog",
+   "kind": "tool_gap_mdb_catalog_RESOLVED",
    "object": "harvard-full/doi_10_7910/DVN/PDGOZ0/V4_Data_Archive.zip!shapefiles/v4_chgis_dbase.zip!v4_chgis_dbase.mdb",
-   "reason": "locked environment has no MDB catalog reader: mdbtools absent on 32 host and in existing project containers (measured); JET/ACE catalog pages require a dedicated reader; no installs authorized this round",
-   "required_tool": "mdbtools=1.0.0+dfsg-1.1 (32 apt-cache policy candidate, bookworm; locked-version proposal only, NOT installed) or Chaxiang-approved derived reader",
+   "remaining_value_contract": "full value export/encoding canonicalization/NULL semantics/binary byte-faithful contract at import stage",
+   "resolution": "read through via Chaxiang-approved candidate image sha256:74e022830b3b16ab1… mdbtools=1.0.0+dfsg-1.1; schema/count/export error files 0 bytes; see object table_enumeration",
    "sha256": "04be983d2f18b7c92ea0e1dfe478710cd4bdd01be9d367b32cb7da6037cab29a",
    "size": 65896448
   },
   {
-   "isolation_recovery": "extract to isolated temp dir on 32, read-only via mdb-tables/mdb-export/mdb-schema once approved; source snapshot stays :ro",
-   "kind": "tool_gap_mdb_catalog",
+   "kind": "tool_gap_mdb_catalog_RESOLVED",
    "object": "harvard-full/doi_10_7910/DVN/ZZKZ6U/CHGIS_V2.zip!access_dbase/chgis_v2_database.ZIP!chgis_v2_database.mdb",
-   "reason": "locked environment has no MDB catalog reader: mdbtools absent on 32 host and in existing project containers (measured); JET/ACE catalog pages require a dedicated reader; no installs authorized this round",
-   "required_tool": "mdbtools=1.0.0+dfsg-1.1 (32 apt-cache policy candidate, bookworm; locked-version proposal only, NOT installed) or Chaxiang-approved derived reader",
+   "remaining_value_contract": "full value export/encoding canonicalization/NULL semantics/binary byte-faithful contract at import stage",
+   "resolution": "read through via Chaxiang-approved candidate image sha256:74e022830b3b16ab1… mdbtools=1.0.0+dfsg-1.1; schema/count/export error files 0 bytes; see object table_enumeration",
    "sha256": "4a9bd1bc819b3a8e10ccef145de831954738a96fc9e0e317bf3ed6979d2c2c2f",
    "size": 46702592
   },
   {
+   "geom_extraction_status": "byte-faithful extraction verified this round (1/1 record; raw literal 33B vs decoded payload 25B; MySQL SRID-0 prefix + WKB LE Point; zero replacement chars used; import value contract still pending)",
    "kind": "encoding_loss_risk",
    "locations": [
     {
@@ -72,11 +68,20 @@
    "harvard-full/doi_10_7910/DVN/PDGOZ0/V4_Data_Archive.zip!shapefiles/v4_chgis_dbase.zip!v4_chgis_dbase.mdb",
    "harvard-full/doi_10_7910/DVN/ZZKZ6U/CHGIS_V2.zip!access_dbase/chgis_v2_database.ZIP!chgis_v2_database.mdb"
   ],
-  "capability_missing": "JET/ACE catalog + table/field/value enumeration",
+  "capability_missing": "none for schema-level enumeration (resolved)",
   "host_software_unchanged": true,
-  "installed_this_round": false,
-  "required_tool": "mdbtools=1.0.0+dfsg-1.1 (bookworm apt candidate measured on 32; NOT installed; locked-version proposal awaits Chaxiang approval)",
-  "sql_plane": "fully text-identified with stdlib; no tool gap for dialect/structure/carrier",
-  "status": "MDB_CATALOG_READER_NOT_INSTALLED"
+  "installed_in_candidate_image_only": true,
+  "installed_this_round": true,
+  "required_tool": "mdbtools=1.0.0+dfsg-1.1 (bookworm apt candidate measured on 32; locked in requirements-apt.lock mdbtools section)",
+  "resolution": {
+   "apt_lock": "datamgmt/requirements-apt.lock mdbtools section (4 debs sha256)",
+   "files_read_through": 5,
+   "image_id": "sha256:74e022830b3b16ab18847d43c98d7b2fde042da7ae40a3841febee5c29000399",
+   "remaining": "full value contract at import stage; mirror merge block 6",
+   "schema_count_export_errors": "0 bytes across all 5 cases",
+   "tables_enumerated": 62
+  },
+  "sql_plane": "fully text-identified with stdlib; no tool gap for dialect/structure/carrier; geom binary literal extraction see geom-extraction evidence",
+  "status": "RESOLVED_MDB_CATALOG_VIA_APPROVED_CANDIDATE"
  }
 }

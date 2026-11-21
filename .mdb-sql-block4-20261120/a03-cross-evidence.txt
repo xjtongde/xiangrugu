@@ -53,3 +53,82 @@ om 820eff12ac528cf6 / gaps 016740f16a812292 / SUMMARY bca41b5055e5f2f4 —— �
 非锚定正则 38→行首 33；我列计数器误含 KEY 行→delivered 5 正确）。准确计数：成员 7｜枚举 39=SQL 表 34+
 MDB 文件级 5｜映射提案 34｜缺口 6｜解析异常 0｜相关处置 9 exactly-once。
 判定建议：**PASS**（MDB 表枚举为已声明工具缺口而非缺陷；899/镜像合并类事项不在本块范围）。
+
+====================================================================
+ROUND 14 —— 第 4/6 块续盒：MDBTools 读通 + geom 原始字节独立复核（茶香已授权候选镜像）
+记录时刻：2026-11-21T14:16:50Z。基线 HEAD=8b58466 ✓。全部自写脚本（32:/tmp/a03_r14_*.py + 本目录
+r14-a03/*），未执行 a02/lead 件；只读、SQL 零执行、宿主零安装（复用 lead 候选镜像）、不进 pg32/pg32b。
+
+① MDB 成员覆盖                              PASS
+- 我独立 inventory 归集 5 行完整链+序号+sha：ordinals [76,0]/[2]/[3,0]/[109,0]/[0,0]，
+  delivered core 4-tuple (rp,chain,ordinals,sha) 集合 == 我集合 True。
+- 镜像对内容相同实证：两包裹件字节级 sha 同 04be983d…、我逐字节 compare equal bytes True；
+  直接件 a2cc4039 ≠ 04be983d（两版本分别注册）。
+- 隔离解包 5 副本 sha 我独立重算==inventory 5/5；源外层 5 zip 现读 sha==inventory（原件零触）。
+- extraction_evidence.json 逐件 chain 唯一命中+ordinals+sha==inventory True×5。
+
+② 内部表覆盖（同镜像我自跑）                 PASS
+- 镜像 inspect Id sha256:74e022830b3b16ab…、labels revision=8b584660…✓/mdbtools=1.0.0+dfsg-1.1/
+  purpose=mdb-readonly-inventory；锁件 mdbtools 段 4 deb（libglib2.0-0/libmdb3/libmdbsql3/mdbtools）
+  sha256 我 host 实测==requirements-apt.lock WT 段 4/4（92→96 条目增量恰此 4 件）。
+- 我的容器预检：mdb-tables/mdb-schema --version = mdbtools v1.0.0（--network none）。
+- 我独立 mdb-tables -1 五文件：**12/13/13/13/11 = 62 实例**（去重 36）==lead；表名集合三代表文件
+  diff 空、镜像对 13 表集合相等 True。
+- 我独立 mdb-schema 全 5 文件 vs lead schema.txt：**逐表列名/类型/尺寸三元组全等 True×5**
+  （84/75/75/75/71 列实例，总 380）；V4 三副本 schema 文本我侧亦全等。
+- 行数：我逐表 mdb-count 求和 **170479/198606×3/110156 总计 876453 == lead rowcounts 逐档一致**；
+  抽验 v3_feature_types 我导出 63 行（含表头）==62 数据行==lead。
+- lead count/export/schema err 15 个文件全 0 字节 ✓；ver.txt 'JET4' 与头探针一致。
+- 编码/NULL/精度/二进制注记对源：schema 声明 "uses encoding UTF-8"；NOT NULL 出现 0 次⇒
+  mdb-schema 不输出可空性（如实记，NULL 语义以导出样本佐证）；Decimal/Single/Double 列 0；
+  Memo/Hyperlink 二进制列 3（各库 source_notes.source_note）——binary_flag 关注点成立。
+- 读不出表/字段：本轮无（62/62 枚举成功，异常 0）。
+
+③ geom 原始字节复核                          PASS
+- 我独立字节级解析（转义感知扫描+自实现 MySQL unescape）：geom INSERT **1 条 line 326**；
+  raw_literal 33B sha **9379a445f03ee3e8…**==delivered match True；decoded 25B sha
+  **cfe2b8d492c16e82…**==delivered decoded_sha256 match True。
+- WKB 我独立解：SRID_le=0 + byte_order=1(LE) + type=1(Point) + (115.31562, 38.94772)，
+  consumed 25==len 闭合 ✓（x 在面 extent [106.60,124.58] 内 True；y 38.94772 略超面 bbox 上界
+  35.726135——如实记：该点属 placename_id=26 标注坐标非面几何，bbox 为 PRC 面域，不构成矛盾）。
+- 三途径互证复算：DDL AUTO_INCREMENT=2 我在 create_definition_verbatim 命中 True；
+  全文件 1432 行/136 INSERT/geom 前缀 1 与我 R13 独立计数一致；rows_verified 1/1、
+  first_unverifiable_position null。零替换字符参与（payload_never_text_decoded/no_replacement_chars_used
+  True，且我全程字节操作）、SQL 未执行 ✓。
+
+④ 非回归                                    PASS（一处工作树状态披露）
+- mdb-sql 四产物 WT==HEAD（820eff12/9a859420/016740f1/bca41b50 SAME×4）——lead 集成尚未落盘，
+  待终态 sha 信号后我复核孪生枚举面。
+- SQL 34 提案对象序列化逐条 ==HEAD True；spatial/tabular/cbdb 全包 vs HEAD 扫描 DIFF 0；
+  entry WT sha head 668900d43663 == 我 R1-R13 历轮锚点 ✓。
+- **披露 C（工作树状态，非本轮改动）**：git status 显示 entry 文件相对 HEAD blob 有 291+/145- 差异
+  （HEAD blob sha 6f5987f6…），mtime 2026-11-19 02:07 早于近三日提交——即 HEAD 提交的 entry 内容
+  与工作树既有内容不一致（疑历史提交时未包含本地更新版）；我锚点连续性（668900d4 全程不变）成立，
+  但「entry==HEAD」断言当前为 False，建议 lead 确认该文件应提交哪一版。rehearsal-evidence.json
+  同类 M 状态（8+/7-）。requirements-apt.lock 的 16 行增量=Dockerfile.mdbtools-candidate 未跟踪
+  属你本轮在建事项，不计回归。
+
+结论：ROUND 14 四项 PASS，首个不一致：无阻塞项；披露 C（entry HEAD-vs-WT 版本分叉）需 lead 裁定。
+准确计数：MDB 读通文件 **5/5**｜内部表实例 **62**（去重 36）｜列实例 **380**｜行数合计 **876,453**
+（170479/198606×3/110156）｜geom INSERT **1**、可验证记录 **1/1**、首个无法验证位置 null。
+判定建议：**PASS**（待 lead 集成终态后我对 om/gaps/SUMMARY 增量做非回归补账）。
+
+---- ROUND 14 补段（lead 集成终态对账，14:20:35Z）----
+终态四 sha 我独立重算全一致：members 9a859420…（不变）/om b56889f17f183b0e/gaps a6ed3537db5855e7/
+SUMMARY e818e3d9d9e106ab ✓。计数复算：**成员 7｜枚举 96｜提案 96**——SQL 34 条逐 source_object_id
+byte-identical 保留 **34/34 True**；新增 MDB 表对象恰 **62**；sid 唯一 **101/101** True。
+62 个 mdb_table 提案：delivered create_definition_verbatim **62/62 为我自跑 mdb-schema 输出的精确
+子串**（逐字节包含）；fields[] 500 列实例自洽（name/type/size==verbatim 行；披露：我首轮解析器把
+多词类型 'Long Integer' 误拆致 29 处假阳性，修正分词后全部归一——lead 数据正确，我口径自纠）。
+row_count_mdb_count 合计 **876,453==我逐表 mdb-count 实测**，且逐表 vs lead rowcounts.txt diff 0。
+distinct 口径正名独立复算：(源sha,表名) 去重 **49**（V3 12+V4直接 13+V4包裹 13→与直接同名不重复计、
+V2 11 按 4-sha 组合口径==49 True）；逻辑 schema 族 v3(12)+v4(13)+v2(11)=**36** True；
+counts.mdb_tables_distinct_note 在证；"V4 两版本字节异但 schema/tables/rowcounts 输出全同"与我
+schema byte-cmp（direct vs wrapped cmp 0）互证。
+gaps：kind 分布 tool_gap_mdb_catalog_RESOLVED×5+encoding_loss_risk×1==gap_count 6 ✓；
+tool_gap_report status RESOLVED_MDB_CATALOG_VIA_APPROVED_CANDIDATE、installed_this_round=True、
+resolution.image_id==镜像实测 Id 74e022830b3b16ab… ✓；encoding gap geom_extraction_status 注记在位
+（1/1、raw33B/decoded25B、SRID0+WKB LE Point、零替换字符、值合同待定——与我独立实测逐项一致）。
+非回归：spatial/tabular/cbdb vs HEAD mismatches []；**披露 C 仍未决**（entry WT 668900d4≠HEAD blob
+6f5987f6，等你裁定提交版）。
+ROUND 14 判定维持：**PASS**（含集成终态面）。

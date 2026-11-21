@@ -1,0 +1,3 @@
+SYS_ID,NAME_PY,X_COOR,Y_COOR,TYPE_PY,LEV_RANK,BEG_YR,BEG_RULE,BEG_CHG_TY,END_YR,END_RULE,END_CHG_TY,NOTE_ID,OBJ_TYPE,GEO_SRC,ENT_DATE,FILENAME,X_Y_TYPE,NAME_CH,NAME_FT,PRES_LOC,TYPE_CH,COMPILER,GEOCOMP,CHECKER
+40164,"Ye Xian",119.321577,26.073954,"Xian","6",-85,"4","新建",29,"4","更名",40164,"POINT","FROM_FD","2002/07/10","County_Point","2","冶县","冶縣","福建省福州市","县","张修桂","满志敏",
+40165,"Dongbuhouguan Xian",119.321577,26.073954,"Xian","6",30,"4","更名",259,"4","更名",40165,"POINT","FROM_FD","2002/07/10","County_Point","3","东部侯官县","東部侯官縣","福建省福州市","县","张修桂","满志敏",

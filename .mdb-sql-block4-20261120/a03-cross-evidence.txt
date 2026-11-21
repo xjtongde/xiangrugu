@@ -144,3 +144,26 @@ ROUND 14 判定维持：**PASS**（含集成终态面）。
    就近目录级规则），HEAD 全仓 '*.mdb' 在追 0。
 ③ 列数口径正名确认：MDB 500==双方实测、SQL 311。
 ROUND 14 全链闭合：**PASS**。本盒无需再跑。
+
+== ROUND 15（2026-11-21 收口补正独立核，a03，硬停前交报）==
+① 历史误提交重算：git ls-tree -r -l 84386df | grep '\.mdb$' → 5 条目 / 296,587,264B / 4 唯一 blob
+   （1f90a2cb… 46,702,592 v2；7c6ce426… 52,195,328 v3；14d21fc9… 65,896,448 ×2 v4_access_zip+v4_shapefiles_zip 共享；
+   5e1dcac0… 65,896,448 v4_direct 独立）；git ls-files '*.mdb'=0。
+   **更正注记：上文 ROUND 14 收口段「296,652,508B」为当时回报原文，保留不改写；以本轮实测 296,587,264B 为准**
+   （差 65,244B 系旧回报口径误；bb9b2e5「~295MB」为约数同保留）。详见 history-correction-20261121.md。
+② 四产物 sha256 全 64 位三方比对（38 工作树 / HEAD blob 互证 / 32 候选目录）：
+   members 9a8594205fe3d35650f92a2890d13dcd82de1de9c4892a834b5b87b9fd86c394 ==基线
+   om      b56889f17f183b0ee149b901e1820ac6f3692d19ff16c6c49c4516348fa70c88 ==基线
+   gaps    a6ed3537db5855e7374910fe5c530392414048a46d3ca4b03aecd170cb45055c ==基线
+   SUMMARY 22873f9e5e61e9175fe69b94287c87782f39018d0440220799b6efcce71d42ff（新，32 双跑 exit 0/0 stderr 0/0 字节一致，
+   lead 证据 run11-12-correction-doublerun.log / 32 /tmp/mdbfix-uHyoQd）；生成器两端同 sha 00b4d740…。
+③ 机器件一致性（从 om/gaps 实物重算）：核心 7/枚举 96=SQL34+MDB62/提案 96=34+62/MDB 字段实例 500/SQL 列 311/
+   行数 876,453（文件级 Σ 与表级 Σ 双重闭合）/gaps 6=5×RESOLVED+1×encoding_loss_risk/geom 1/1 raw33B decoded25B
+   （geom-extraction.json 重算 sha 791c923c…==om 声明）/96 全 PROPOSED_NOT_AUTHORIZED/ready_for_import=false/sid 101 唯一 dup=0。
+   SUMMARY 与 TODO 第 4 块完成记录逐项对照零失配。
+④ history-correction-20261121.md 表格逐字一致，3 条重算命令原样可执行结果吻合。
+⑤ 变更范围：背靠背 porcelain/diff 一致恰 M=5（生成器+6/−4、TODO+17/−5、SUMMARY+4/−4、entry py/rehearsal 保留态未触，
+   entry WT sha256 仍 668900d4…306e0）；暂存区 0；无 .mdb 入追踪。
+⑥ 加分项：32 候选目录备份（/tmp/a03-r15-bak）后单次重跑 EXIT=0、stderr 0 字节（分文件捕获未吞），
+   重跑后四件 sha 逐一不变——生成器确定性实证，交付态可从实物复现。
+ROUND 15 六项全 PASS，首个差异：无。

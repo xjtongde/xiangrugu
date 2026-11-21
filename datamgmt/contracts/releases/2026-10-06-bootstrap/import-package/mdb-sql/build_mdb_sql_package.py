@@ -656,16 +656,18 @@ gaps_doc = {
 }
 
 c = mapping_doc["counts"]
+_mdb_field_instances = sum(len(o["fields"]) for o in mapping_doc["proposed_objects"] if o["carrier"] == "mdb_table")
+_sql_column_instances = sum(len(o["fields"]) for o in mapping_doc["proposed_objects"] if o["carrier"] == "sql_table")
 gap_kind_note = (("；编码损失风险" if any(g["kind"] == "encoding_loss_risk" for g in gaps) else "")
                  + ("；结构解析异常" if anomalies else ""))
 summary = f"""# 第 4/6 块 · MDB 与 SQL 包（SUMMARY）
 
-基线 git {VCS_REF}；inventory sha256={INV_SHA_EXPECTED[:16]}… 断言一致；32 宿主 python3 stdlib 流式只读；**SQL 未对任何库执行；本轮未安装依赖；源件只读零触**。
+基线 git {VCS_REF}；inventory sha256={INV_SHA_EXPECTED[:16]}… 断言一致；32 宿主 python3 stdlib 流式只读；**SQL 未对任何库执行；依赖仅入候选镜像（mdbtools 4 deb 离线闭包），宿主零安装；源件只读零触**。
 
 ## 三计数
 - 核心成员 **{c['core_members']}**（MDB {c['mdb_files']} + SQL {c['sql_files']}；完整链+sha 绑定 inventory 精确对账）
-- 已枚举对象 **{c['enumerated_objects_total']}** = SQL 表 **{c['sql_tables_enumerated']}**（全量 CREATE TABLE 解析，异常 {c['sql_parse_anomalies']}）+ MDB 文件级 **{c['mdb_objects_header_confirmed']}**（头探针；表/字段枚举=GAP 不臆造）
-- 已映射对象（提案）**{c['mapped_objects_proposed']}**（SQL 表→目标类型提案，PROPOSED_NOT_AUTHORIZED/ready_for_import=false）；MDB 表映射 0（待读取器）
+- 已枚举对象 **{c['enumerated_objects_total']}** = SQL 表 **{c['sql_tables_enumerated']}**（全量 CREATE TABLE 解析，异常 {c['sql_parse_anomalies']}；列 {_sql_column_instances}）+ MDB 表实例 **{c['mdb_tables_enumerated']}**（5/5 读通；字段实例 {_mdb_field_instances}）
+- 已映射对象（提案）**{c['mapped_objects_proposed']}** = SQL 表提案 {c['sql_table_proposals']} + MDB 表提案 {c['mdb_table_proposals']}（PROPOSED_NOT_AUTHORIZED/ready_for_import=false，全部待批准）
 
 ## SQL 面
 """ + "\n".join(
@@ -684,7 +686,7 @@ summary = f"""# 第 4/6 块 · MDB 与 SQL 包（SUMMARY）
 3 内层容器 ZIP structural；Thumbs.db 非数据排除→块5；cbdb sqlite3 块1既有（78表736列）不重映射；china_chron.xls 块2既有；txt/README documentation。
 
 ## 缺口与批准面
-缺口 **{len(gaps)}**（MDB 工具缺口×5{gap_kind_note}）；全部提案待茶香/Codex 批准；MDB 读取器安装需另批。
+缺口 **{len(gaps)}** = MDB 读取器缺口×5 **已解决**（茶香授权候选镜像 runtime-mdbtools-20261120-a，仅入镜像不装宿主）+ SQL 编码记录×1（encoding_loss_risk：保留 geom 字节忠实提取结果 raw 33B/decoded 25B，导入合同待定）；96 提案仍待茶香/Codex 批准，ready_for_import=false。
 """
 
 (HERE / "members.json").write_text(json.dumps(members_doc, ensure_ascii=False, indent=1, sort_keys=True) + "\n")

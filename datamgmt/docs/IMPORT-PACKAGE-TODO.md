@@ -1,6 +1,6 @@
 # 全量导入包与映射进度
 
-更新日期：2026-11-20。当前阶段为数据整理与映射，第 1–2/6 块（CBDB、普通表格）已获 Codex 验收，第 3/6 块空间矢量进行中，第 4–6 块待执行。交付在本 release 的 [import-package/cbdb/](../contracts/releases/2026-10-06-bootstrap/import-package/cbdb/SUMMARY.md)、[import-package/tabular/](../contracts/releases/2026-10-06-bootstrap/import-package/tabular/SUMMARY.md) 与 [import-package/spatial/](../contracts/releases/2026-10-06-bootstrap/import-package/spatial/SUMMARY.md)；CBDB 10 表/235 列源侧值验证单列未决，不计入映射完成，ready_for_import=False 保持。
+更新日期：2026-11-21。当前阶段为数据整理与映射，第 1–2/6 块（CBDB、普通表格）已获 Codex 验收，第 3/6 块空间矢量团队核验全 PASS、**Codex 独立验收仍待接**，第 4/6 块 Access/MDB 与 SQL 首盒+续盒 PASS、**Codex 已独立通过 MDB 结构覆盖与 geom 字节核对，待本次更正复核后收口**，第 5 块栅格及其他成员待收口讨论后派工、第 6 块合并与落盘待执行。交付在本 release 的 [import-package/cbdb/](../contracts/releases/2026-10-06-bootstrap/import-package/cbdb/SUMMARY.md)、[import-package/tabular/](../contracts/releases/2026-10-06-bootstrap/import-package/tabular/SUMMARY.md)、[import-package/spatial/](../contracts/releases/2026-10-06-bootstrap/import-package/spatial/SUMMARY.md) 与 [import-package/mdb-sql/](../contracts/releases/2026-10-06-bootstrap/import-package/mdb-sql/SUMMARY.md)；CBDB 10 表/235 列源侧值验证单列未决，不计入映射完成，ready_for_import=False 保持。
 
 本文件是当前阶段、六块待办、交付和讨论结论的唯一进度入口。设计约束见 [DESIGN.md](DESIGN.md)，执行权限见 [OPERATIONS.md](OPERATIONS.md)，原 Task 1–18 工程依赖见 [IMPLEMENTATION-PLAN.md](IMPLEMENTATION-PLAN.md)，既往运行记录见 [PROGRESS-HISTORY.md](PROGRESS-HISTORY.md)。其他入口只链接本文件，不复制当前进度。
 
@@ -31,8 +31,8 @@
 |---|---|---|---|---|
 | 1 | CBDB SQLite、JSON 及配套成员 | 已验收（入库缺口另列） | 78 表/736 列映射、全部 CBDB 成员处置、未决项及确认依据 | 对象关系、类型和命名的剩余决定 |
 | 2 | TSV/CSV/Excel、独立 DBF 等普通表格 | 已验收（Codex 2026-11-20，提交 5478271） | 文件/工作表/记录对象、编码、字段、空值及目标映射 | 编码或表格语义的未决项 |
-| 3 | Shapefile、MapInfo、KML 等空间矢量 | 进行中（首个 30 分钟盒） | 组件组、属性、几何、CRS 原声明及目标映射 | 组件缺失、坐标声明和异常保留 |
-| 4 | Access/MDB、SQL 数据 | 待执行 | 内部对象及字段清单、读取/隔离方法、目标映射及不兼容项 | 不能无损读取或表达的具体对象 |
+| 3 | Shapefile、MapInfo、KML 等空间矢量 | 团队核验全 PASS，Codex 独立验收待接 | 组件组、属性、几何、CRS 原声明及目标映射 | 组件缺失、坐标声明和异常保留 |
+| 4 | Access/MDB、SQL 数据 | 首盒+续盒 PASS，收口补正中（Codex 结构/geom 核对已通过） | 内部对象及字段清单、读取/隔离方法、目标映射及不兼容项 | 不能无损读取或表达的具体对象 |
 | 5 | 栅格、其他格式和非业务成员 | 待执行 | 栅格对象与入库方式；说明/图片/校验文件用途；未知件明细 | 剩余格式的处置决定 |
 | 6 | 全量合并、重复关系及 32 落盘 | 待执行 | 全部成员覆盖、唯一目标命名、包清单、执行顺序、完整性报告及绝对路径 | 全量包验收、导入准备与实际执行安排 |
 
@@ -118,10 +118,21 @@
 
 ### 第 4 块 MDB 与 SQL
 
-- [ ] 清点所有内部表、字段、对象和重复副本关系。
-- [ ] 给出 MDB 的读取和独立验证路径；SQL 采用受限解析或隔离恢复，禁止直接执行源 SQL 到目标库。
+- [x] 清点所有内部表、字段、对象和重复副本关系。
+- [x] 给出 MDB 的读取和独立验证路径；SQL 采用受限解析或隔离恢复，禁止直接执行源 SQL 到目标库。
 - [ ] 明确精度、二进制、编码及目标类型，不能无损表达的项目单列。
 - [ ] 输出完整映射与读取依赖，验收并讨论。
+
+#### 第 4 块完成记录（2026-11-21，首盒+续盒，待更正复核收口）
+
+- 核心成员 **7** = MDB ×5 + SQL ×2；完整链 sha 绑定 inventory 精确对账。
+- 已枚举对象 **96** = SQL 表 **34**（全量 CREATE TABLE 解析，异常 0）**311 列** + MDB 表实例 **62**（5/5 读通，全 JET4）**500 字段实例**；行数合计 **876,453**，schema/count/export 错误 **0**，读不出项 **0**。
+- 映射提案 **96** 全部 `PROPOSED_NOT_AUTHORIZED`、`ready_for_import=false`；sid **101** 全局唯一；SQL 34 提案 byte-identical 保留；生成器真双跑 exit 0/0 字节一致。
+- geom 字节忠实提取 **1/1**：raw 33B（sha `9379a445…`）→ decoded 25B（sha `cfe2b8d4…`），MySQL 4B LE SRID=0 + WKB LE Point，consumed==len 闭合；首个无法验证项 null。
+- 缺口 **6** = MDB 读取器缺口 ×5 **RESOLVED**（茶香授权候选镜像 `runtime-mdbtools-20261120-a`，仅入镜像不装宿主）+ SQL 编码记录 ×1（`encoding_loss_risk`：含 geom 提取结果与待定导入合同）。
+- 四产物 sha：members `9a859420…` / object-mapping `b56889f1…` / evidence-gaps `a6ed3537…` / SUMMARY `22873f9e…`（本轮 32 双跑 exit 0/0、stderr 0/0 字节重生成，三 JSON 字节==基线）。
+- **V4 的 13 个同名目标各对应三个来源实例（direct + 两 zip 镜像）**，命名与镜像处置登记第 6 块。
+- 工具面：镜像 `74e022830b3b…`，mdbtools=`1.0.0+dfsg-1.1`（4 deb 离线闭包），仅候选镜像，宿主零安装。
 
 ### 第 5 块栅格及其他成员
 
@@ -170,3 +181,4 @@ PASS 必须覆盖本块全部范围及处置；未决项保留 PARTIAL/BLOCKED�
 - 2026-11-20：**第 4/6 块 MDB 与 SQL 启动**（首个 30 分钟盒，基线 ef90b64）。范围（lead 侦察）：核心 **7 成员**=MDB×5（V3 68853b49…/V4 直接 a2cc4039…/V4 zip 包裹 04be983d…×2 镜像对/**V4 直接件与包裹件字节不同两版本分别注册**/V2 4a9bd1bc…）+SQL×2（china_chron.sql 117824B/tgaz_bak_2018.sql 122853166B）；相关处置：3 内层容器 ZIP structural、Thumbs.db Windows 缓存非数据库排除→块5、**cbdb_20260919.sqlite3 块1既有（78 表 736 列）exactly-once 不重映射**、china_chron.xls 块2既有、txt/README documentation。**MDB 工具缺口**：32 宿主与现有容器均无 mdbtools（实测），本轮不装⇒头级探针+逐件原因/所需工具；SQL 只读方言/结构/载体识别**禁执行**。a02 生成器+四件（members/object-mapping/evidence-gaps/SUMMARY）分段落地；a03 ROUND 13 独立覆盖/映射/损失原值/隔离恢复核对；lead 交付+TODO+Gitea。
 - 2026-11-20：第 4/6 块首盒结果（lead 接管，**a02 第五次早退披露**）：REL/import-package/mdb-sql/ 四件+确定性生成器落盘，**32 真双跑 exit 0/0 字节一致**（定位证据补全后再双跑，差分恰增量面）。**计数：核心成员 7（MDB5+SQL2）/已枚举对象 39（SQL 表 34 全量解析异常 0+MDB 文件级 5 头探针）/已映射提案 34（PROPOSED_NOT_AUTHORIZED）/缺口 6**。SQL：china_chron=mysql 1 表 20 列 677 行 utf-8-sig BOM 0 替换；tgaz=mysql **33 表**（InnoDB32+MyISAM1）136 extended INSERT ~983236 行估算（口径注记）utf-8 **5 替换字符全定位 line 326 `geom` 表二进制几何载荷（WKB 风格原始高位字节）⇒字节忠实提取隔离恢复对象**。MDB×5 全 **JET4**（magic 00010000/Standard Jet DB/ver1/page4096 推导/hexdump128），sha 流式复验全匹配；**V4 直接件 a2cc4039≠包裹件 04be983d×2 镜像（两版本分别注册，镜像合并块6）**；逐件原因=锁定环境无目录读取器（mdbtools 宿主容器均无实测），所需工具 **mdbtools=1.0.0+dfsg-1.1 候选提案未装待批**。相关 exactly-once：sqlite3 块1（78表736列）/xls 块2/Thumbs.db 排除→块5/3ZIP structural/txt README doc。**首个阻塞=MDB 目录读取器工具缺口（5 件表/字段/值枚举）**。SQL 未执行、未装依赖、源件零触。产物 sha：members 9a859420…/om 820eff12…/gaps 016740f1…/SUMMARY bca41b50…；证据 .mdb-sql-block4-20261120/（lead-record+run1-4 日志+sha）。a03 ROUND 13 独立核对中。
 - 2026-11-21：**第 4/6 块续盒（MDBTools 茶香授权，30 分钟，基线 8b58466）**：lead 锁定 **mdbtools=1.0.0+dfsg-1.1 闭包 4 deb**（requirements-apt.lock mdbtools 段增量，sha fb95bada…）→独立候选镜像 **xiangrugu:runtime-mdbtools-20261120-a Id 74e022830b3b16ab…**（--network none 离线构建，别名零触宿主零改）→mdb-tables/mdb-schema v1.0.0 预检过→5 MDB 隔离解包（完整链+序号 sha 全断言）→**5/5 读通全 JET4：内部表 62 实例（按源 sha 去重 49=4 版本；V4 直接 vs 包裹字节异但 schema/表/行数输出全同——差异在非 schema 页；逻辑族 36）、**500 列实例**（a03 首轮 380 系其解析器多词类型分词假阳性，补段自纠 500==lead 实测；SQL 面 311 列）、行数 876453、schema/count/export 错误全 0、读不出项 0**；镜像对分别登记合并留块6。**a02 本轮存活完成 geom 原始字节提取**：tgaz geom 表 INSERT 1/记录 1（三途径互证含 AUTO_INCREMENT=2；全文件 1432 行），raw 33B（\0/\\ 转义）→decoded 25B sha cfe2b8d4…，MySQL 4B LE SRID=0+WKB LE Point(115.31562,38.94772) consumed==len 闭合，**可验证 1/1 首个无法验证 null**，零替换字符 SQL 未执行（a03 独立双 sha 9379a445/cfe2b8d4 互证；y 超 PRC 面 bbox 系属性标注点非面几何，观察注记）。集成：生成器证据驱动（MDB_EV+schema 解析+类型映射+62 提案+GEOM 引用+缺口 RESOLVED），**SQL 34 提案 byte-identical 保留**，sid 101 唯一，真双跑 0/0（首跑 f-string `{{}}` TypeError 缺陷修正披露 run5-10 日志在证）。**a03 ROUND 14 四项 PASS**（62/380/876453 逐档同值、锁 4 deb 实测、非回归全绿）。**披露 C 裁定：entry/rehearsal M=2 系块轮前既有保留工作树态（mtime 11-19，锚点 668900d4 R1-R14 连续，HEAD blob 6f5987f6 为早前提交变体）——非本轮回归，本轮不提交不回转（R-10），留茶香/Codex 专项裁定正典版**。终态 sha：members 9a859420…/om **b56889f1…**/gaps **a6ed3537…**/SUMMARY **e818e3d9…**；计数成员 7/枚举 96/映射 96/缺口 6（5 RESOLVED+1 encoding 含 geom 状态）。剩余：MDB 全量值/编码规范化/NULL 目录级/二进制字节忠实合同留导入阶段；96 提案批准面；tgaz geom 导入合同；镜像/apt 锁转正+V4 合并块6。证据 .mdb-sql-block4-20261120/（mdb/ 五案+geom/+lead-record-continuation+run5-10）。
+- 2026-11-21：**第 4 块收口补正**——SUMMARY 文案统一（62 表实例/500 字段实例/311 列/缺口 5 RESOLVED+1 encoding）；**历史误提交更正：84386df 含 5 个 .mdb 条目合计 296,587,264 字节、4 个唯一 blob（v4_access_zip 与 v4_shapefiles_zip 共享 blob `14d21fc9…`，v4_direct 为独立 blob `5e1dcac0…`）；当前追踪 .mdb=0；历史对象仍在祖先提交，不重写（R-10），处置留茶香裁定；旧回报 bb9b2e5「~295MB」与 cd595db「296652508B」保留原文，以本行更正为准**；Codex 已独立通过 MDB 结构覆盖与 geom 字节核对，第 4 块待本次更正复核后收口；第 3 块 Codex 验收待接，第 5 块待讨论派工。

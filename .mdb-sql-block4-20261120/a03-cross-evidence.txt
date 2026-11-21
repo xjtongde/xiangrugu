@@ -132,3 +132,15 @@ resolution.image_id==镜像实测 Id 74e022830b3b16ab… ✓；encoding gap geom
 非回归：spatial/tabular/cbdb vs HEAD mismatches []；**披露 C 仍未决**（entry WT 668900d4≠HEAD blob
 6f5987f6，等你裁定提交版）。
 ROUND 14 判定维持：**PASS**（含集成终态面）。
+
+---- ROUND 14 收口补记（lead 终局通报核验，14:24Z）----
+① 披露 C 裁定接受：entry/rehearsal M=2 为块轮前既有保留工作树态（非本轮回归；R-10 不回转；正典版
+   留茶香/Codex 专项裁定）——我 R1-R14 锚点连续性记录与 mtime 证据支持该裁定。
+② lead 自查纠偏核验：**bb9b2e5 树中 mdb-sql 四产物 sha 不变** members 9a859420…/om b56889f1…/
+   gaps a6ed3537…/SUMMARY e818e3d9… 全部重算 match True×4；.mdb 二进制在追 **0**（git ls-files
+   '*.mdb' 空）；对照 84386df 该目录曾跟踪 103 文件含 5 份 .mdb（blob 合计 296,652,508B≈297MB，
+   与通报 ~295MB 同量级），bb9b2e5 移除后余 98 文本证据件——git rm --cached 生效实证。历史 blob
+   留存不重写符合 R-10。防复发：.gitignore 落位实证于 .mdb-sql-block4-20261120/.gitignore（bb9b2e5 diff +2 行，
+   就近目录级规则），HEAD 全仓 '*.mdb' 在追 0。
+③ 列数口径正名确认：MDB 500==双方实测、SQL 311。
+ROUND 14 全链闭合：**PASS**。本盒无需再跑。

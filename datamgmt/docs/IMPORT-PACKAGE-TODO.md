@@ -173,7 +173,7 @@
 
 #### 第 5 块证据标注收尾记录（2026-11-21，15 分钟盒，基线 d59010b，待 Codex 复核）
 
-- **25 处世界文件文本出处显式分级**：text_provenance 四键（verbatim 原文逐字〔源成员字节转录〕+ normalized_text **规整文本**〔由生成器从原文解析的六浮点值，非源件字节〕）；normalized_text↔顶层六参数全等校验 0 失配；23 确证绑定 + 2 casefold 待裁定关联分级保持；六参数值/sha256/source_member 逐字不动。
+- **25 处世界文件文本出处显式分级**：text_provenance（probe_text 探测文本〔换行及末尾空白已规整，非源件字节转录〕+ normalized_text **规整文本**〔由六个浮点值重新序列化，非源件字节〕+ original_locator〔原件以 source_member 三件套+SHA-256 定位〕）；normalized_text↔顶层六参数全等校验 0 失配；23 确证绑定 + 2 casefold 待裁定关联分级保持；六参数值/sha256/source_member 零改动。（措辞经 2026-11-22 定点更正轮统一，见下）
 - **WKT 统一表述**：wkt_provenance×43=「GDAL GetProjectionRef 返回值（逐字转录，无内部声明=null，不推导不转换）」；WKT 值/reader_source 不动。
 - **校验说明按 executed_this_round 分支生成**：26 件「本盒已执行逐波段 checksum，值在 bands[].checksum」/ 17 件「仅登记方法，执行留导入阶段（大件栅格）」，逐项与执行状态一致。
 - **无漂移**：43 身份/映射值/六参数/WKT 值、7 组缺口、8004 归属账（5482+2522）、分类计数与基线一致（守卫断言入码，a03 逐项核）；probe_evidence 未动（63e7102d…）。
@@ -224,3 +224,5 @@ PASS 必须覆盖本块全部范围及处置；未决项保留 PARTIAL/BLOCKED�
 - 2026-11-21：**第 3/6 块 Codex 独立验收补正**（30 分钟盒，基线 b39f8ed）：SHP 头 offset24 端序+单位双错修正（'>i' 大端、16 位字单位、×2 对账成员字节）；lead 独立锚点预核 0417b88a→68,663,434 字=137,326,868 B；a02 重探 705/705 闭合、jsonl 恰 705 行补丁（2003 行不动）；分区统一 903=批准 2+提案 899+块2归属 2（原 +gap 1 错误算术移除）；v5 缺 DBF 改判源组件缺失+属性合同未决（几何提案沿用）；孪生 2 件证据零触碰；901 对象五保护字段漂移 0（仅 basis sha 自然更新）；32 双跑 0/0 字节一致；a03 独立重算核验。S1 镜像仓缺 MIE 证据+旧版生成器经 38 同步后基线复现（披露在案）。
 - 2026-11-21：**第 3 块 Codex 整理验收通过**（茶香本轮派工指令记入；补正提交 926ed98 已上 Gitea）。**第 5/6 块独立验收补正**（30 分钟盒，基线 926ed98）：归属等式更正 5482+2522=8004（621 交接已计块5，首盒 6103 误计披露）；pdb2 真身 PDGOZ0/V4…v4_ras_1904_tibet_pts.zip!pdb2.TIF[159,6] 叙述统一；世界文件 enriched（身份/sha/五六参数=左上像素中心/规整文本标注/WKT reader_source）；a02 实证推翻首盒 23 绑定——stage B 跳过缺陷修正后 25 件关联回填、jgwx 守卫拒收真未绑定 1 件；lead 接管增 binding_basis 分级（23 确证+2 casefold PENDING_BLOCK6 非确证绑定）；checksum 纯实绩 26/17；ODS 改判字段格式说明材料（structural 614/doc 1446）；43 提案保护字段漂移 0；32 双跑 0/0 字节一致；a03 独立核。第 6 块待 Codex 复核收口后派发。
 - 2026-11-21：**第 5/6 块证据标注收尾**（15 分钟盒，基线 d59010b）：25 处世界文件文本=原文逐字+规整文本双标注（normalized_text↔六参数全等 0 失配，23 确证+2 待裁分级保持）；WKT 统一「GDAL GetProjectionRef 返回值」表述×43；校验说明按 executed_this_round 分支 26 已执行/17 仅登记逐项一致；43 身份/映射值/六参数/WKT、7 缺口、8004 归属账与基线无漂移（守卫断言入码）；probe_evidence 未动；32 双跑 0/0 字节一致；a03 逐项独立核。终态 members c36668c1/mapping 79b0d917/gaps a916e1d9/SUMMARY 456adb0e/生成器 40d34664。第 6 块待 Codex 复核后派发。
+
+- 2026-11-22：**世界文件文本出处定点更正**（10 分钟盒，基线 c2ef3ca）：lead 实证 1926_01.jgw 原件含 6 CRLF 而交付文本为 LF——原「verbatim/源成员字节转录」声明不实。修正：probe_evidence.json 25 处 world_file_declared.verbatim **改名 probe_text（文本值逐字节零动）**；生成器 text_provenance 重构为 probe_text〔探测文本，换行及末尾空白已规整〕+normalized_text〔六浮点重序列化〕+original_locator〔source_member+SHA-256 定位〕，删除全部「原文逐字/源成员字节转录」声明（SUMMARY/TODO 同步清措辞）；守卫断言 probe_text==d59010b 基线 verbatim 25/25、六浮点/sha256/source_member/23+2 分级/26-17/sid/identity/等式 5482+2522=8004/class_counts/7 缺口零漂移。**数值、绑定与归属账无变化**；32 双跑 exit 0/0 stderr 空四件一致。

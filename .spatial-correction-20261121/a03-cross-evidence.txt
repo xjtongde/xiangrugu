@@ -1,0 +1,9 @@
+== ROUND 19（2026-11-21 块3独立验收补正·独立核，a03，硬停前交报）==
+① 705 件头长独立重算：32 快照 :ro 隔离提取 705 件 .shp 头 100B，'>i' offset24 字值×2==inventory size 705/705；与 jsonl file_length_words/length_match 逐件 705/705 一致 0 失配（同名多链歧义 0）；锚点 asia_contour 68,663,434 字/137,326,868 B；probe diff 仅 L97 单行，bbox/shape_type 小端未误改。
+② jsonl 补丁范围：基线 b39f8ed vs 现件恰 705 行变更全 .shp，2003 行逐字段等值，2708 行行序不变；变更行内仅 {file_length_words,file_length_bytes,length_match} 三字段，无夹带。
+③ 846 交接唯一归属：groups 断言 846；handoffs 846（dbf704+tab142）identity 唯一 dup 0；Σblock2_handoff_members=846；5296 组成员 member_key 全局唯一跨组重复 0；469 件精确 join 命中唯一组 sha/size 互证，余 377 件内层嵌套经 location 语义核验闭合。
+④ 901 无漂移：sid 集合对称差 0 唯一 901；五保护字段漂移 0；批准 2 件逐字节等值。变化字段穷举：对象级仅 basis.evidence_files_sha256×899；counts 变更键 0；顶层非对象键变更 0；groups 非 members 字段变更 0、成员身份/顺序变更 0、成员内仅 evidence.file_length_words×705；gaps 仅 reason 文案充实；SUMMARY 两行（基线引用+泳道措辞）；孪生 2 件除 basis 外全字段等值。
+⑤ 分区：lane_partition {approved 2,proposed 899,text-owned-by-block2 2} 和 903 UNASSIGNED 0；SUMMARY 文案与机器值一致；v5 源组件缺失+属性合同未决措辞在证。
+⑥ sha 64 位全值自算：groups 050b258310168f7f9ed462350376c35b7291e89ca860cd6e91b7cd8984a4fe8b / om f94cf3e0d73d1b1da6bbf9c2441ecdbb6109d4d6b78e0fb261eecdec9aa707a3 / gaps eba8e4646b9b678316fdb82924f70acd75161d2d34ceab954f7e176facef6cab / SUMMARY 7d60f70414e40a474f6255c72e66481b3f423c99c11e91dec8d2e678adfb3a82 / 生成器 7f98e1168e6f147707c1d79973468a36d1de433a048de8d2cd05633d51b644f3 / jsonl 225ef334df725e8501ea0ef0ec06aaa23fce62f80355a49e769203fd3567a010 / probe 5e178a115fa2cdcc9967945bbac16b10b1499e4cb07d2e52cedf738a4c41e41c；32 镜像仓同值；加分重跑 EXIT=0 stderr 0 四件 sha 不变。
+⑦ 范围：M=9（本轮 7+entry/rehearsal 保留 2）；untracked 恰 lead 证据目录+s2 脚本；entry WT 668900d4… 未触；块5 a8b543f2… 未触；暂存 0；二进制 0。注：a03 范围快照早于 lead TODO 编辑（时间差，非冲突），lead 提交前终核 porcelain/diff 确认 TODO 在变更面。
+ROUND 19 七项全 PASS + 加分 PASS，首个不一致：无。

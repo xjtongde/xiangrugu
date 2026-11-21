@@ -1,5 +1,5 @@
 {
- "baseline_git": "2df6e3d",
+ "baseline_git": "b39f8ed",
  "basis_files_sha256": {
   "dat_decode.json": "a1cd678c23c06b8f8c5917dd5dd8cc5c5a5ecc1f9e34a945d8716cd91cc1298d",
   "dat_decode.py": "3679bd6f9f0d689d27e98f1255c63bbdf68b8a8cd96cb235847e398bc2d388c8",
@@ -7,8 +7,8 @@
   "gap23_evidence.json": "b1ce3b78dd2eb4b12a2810c4039395f904980c24ebdedef376ad19750b0a0875",
   "gap_evidence.json": "418ac0dd384ab368ea9f58ecd4a76c683e0f62738c31fdc00ab8e76d9572012b",
   "gap_probe.py": "cb8584420826081f4494385d4573b63279f143ed605e30b8f860898edee4905b",
-  "spatial_evidence.jsonl": "3f347a1240918aa88cbf4e65aa978a9d6bfb01f6bd72d6c555b9dcf2b5ae669c",
-  "spatial_probe.py": "8fbb8b42b204a25944b56d13241a6fe0c83f3b443ab9b37bedb36cce2e6a82f3",
+  "spatial_evidence.jsonl": "225ef334df725e8501ea0ef0ec06aaa23fce62f80355a49e769203fd3567a010",
+  "spatial_probe.py": "5e178a115fa2cdcc9967945bbac16b10b1499e4cb07d2e52cedf738a4c41e41c",
   "tasks.json": "9f70cd3397c7b4b5aeb3c90e65d6d8b7b29978a29fc07da4c801cdf23446f452"
  },
  "casefold_auto_merge": false,
@@ -26,7 +26,8 @@
    "approved": 2,
    "proposed": 899,
    "text-owned-by-block2": 2
-  }
+  },
+  "shp_header_length_reconciled": 705
  },
  "cross_container_matching": false,
  "generated_by": "build_spatial_package.py (block 3/6)",
@@ -153,7 +154,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -3935293944,
+      "file_length_words": 68663434,
       "shape_type": 3
      },
      "ext": ".shp",
@@ -444,7 +445,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 85609472,
+      "file_length_words": 2526466,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -671,7 +672,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 2149199872,
+      "file_length_words": 1576256,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -868,7 +869,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 217448448,
+      "file_length_words": 31494,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -1053,7 +1054,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 2153513472,
+      "file_length_words": 77376,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -1250,7 +1251,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 2894331904,
+      "file_length_words": 16982,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -1435,7 +1436,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 3578658816,
+      "file_length_words": 42858,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -1632,7 +1633,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -2540044288,
+      "file_length_words": 19892,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -1829,7 +1830,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 472122368,
+      "file_length_words": 135694,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -2026,7 +2027,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -3474587648,
+      "file_length_words": 29592,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -2223,7 +2224,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 1832649216,
+      "file_length_words": 106038,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -2420,7 +2421,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 4249616384,
+      "file_length_words": 42622,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -2617,7 +2618,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -2870083584,
+      "file_length_words": 30634,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -2928,7 +2929,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -520616960,
+      "file_length_words": 163056,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -3239,7 +3240,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -1002436608,
+      "file_length_words": 270562,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -3550,7 +3551,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 3653370368,
+      "file_length_words": 123244,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -3861,7 +3862,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -4066900480,
+      "file_length_words": 248966,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -4172,7 +4173,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -908984320,
+      "file_length_words": 59876,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -4483,7 +4484,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 1026429440,
+      "file_length_words": 628510,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -4794,7 +4795,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -1510996480,
+      "file_length_words": 260306,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -5105,7 +5106,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 342362624,
+      "file_length_words": 341002,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -5416,7 +5417,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -2727083520,
+      "file_length_words": 113326,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -5727,7 +5728,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -974125568,
+      "file_length_words": 260322,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -5954,7 +5955,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -1402208256,
+      "file_length_words": 14038,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -6265,7 +6266,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -1402208256,
+      "file_length_words": 14038,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -6492,7 +6493,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -4087480320,
+      "file_length_words": 12166,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -6803,7 +6804,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -4087480320,
+      "file_length_words": 12166,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -7030,7 +7031,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -4073062400,
+      "file_length_words": 40326,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -7341,7 +7342,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -4073062400,
+      "file_length_words": 40326,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -7568,7 +7569,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 2367816192,
+      "file_length_words": 102726,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -7795,7 +7796,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -973995008,
+      "file_length_words": 195042,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -8022,7 +8023,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 3517186048,
+      "file_length_words": 53864,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -8249,7 +8250,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -4294573056,
+      "file_length_words": 131968,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -8476,7 +8477,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 1763442688,
+      "file_length_words": 36404,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -8703,7 +8704,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 1641155072,
+      "file_length_words": 387376,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -8930,7 +8931,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 3495691264,
+      "file_length_words": 142952,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -9157,7 +9158,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 2438727168,
+      "file_length_words": 241224,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -9384,7 +9385,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -1800273408,
+      "file_length_words": 88522,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -9611,7 +9612,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -1846017536,
+      "file_length_words": 130248,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -9904,7 +9905,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 2221689856,
+      "file_length_words": 2504258,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -10089,7 +10090,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -3817990144,
+      "file_length_words": 800654,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -10304,7 +10305,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -2932330496,
+      "file_length_words": 1612968,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -10453,7 +10454,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -4019716096,
+      "file_length_words": 13448,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -10638,7 +10639,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -3013738496,
+      "file_length_words": 12198,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -10823,7 +10824,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 2977824768,
+      "file_length_words": 48984,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -11008,7 +11009,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -1718616064,
+      "file_length_words": 51404,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -11193,7 +11194,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 3116105728,
+      "file_length_words": 56924,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -11378,7 +11379,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -3550740480,
+      "file_length_words": 11926,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -11563,7 +11564,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 2891579392,
+      "file_length_words": 11606,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -11748,7 +11749,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 476577792,
+      "file_length_words": 13326,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -11933,7 +11934,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 2828664832,
+      "file_length_words": 19796,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -12118,7 +12119,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -2075262976,
+      "file_length_words": 10178,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -12303,7 +12304,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -2735996928,
+      "file_length_words": 30382,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -12488,7 +12489,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -2679373824,
+      "file_length_words": 9904,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -12673,7 +12674,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -2065432576,
+      "file_length_words": 29378,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -12858,7 +12859,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -797179904,
+      "file_length_words": 16104,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -13043,7 +13044,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -333185024,
+      "file_length_words": 4854,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -13228,7 +13229,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -2476867584,
+      "file_length_words": 12214,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -13413,7 +13414,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -2475819008,
+      "file_length_words": 14262,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -13598,7 +13599,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -3952607232,
+      "file_length_words": 13450,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -13783,7 +13784,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 1685061632,
+      "file_length_words": 14386,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -13968,7 +13969,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 3437101056,
+      "file_length_words": 28518,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -14153,7 +14154,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 4032561152,
+      "file_length_words": 11896,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -14344,7 +14345,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -4133355520,
+      "file_length_words": 53636,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -14529,7 +14530,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -2208169984,
+      "file_length_words": 12734,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -14714,7 +14715,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 477233152,
+      "file_length_words": 14606,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -14899,7 +14900,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -3009150976,
+      "file_length_words": 21158,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -15192,7 +15193,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -737279488,
+      "file_length_words": 67562,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -15485,7 +15486,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 1095107072,
+      "file_length_words": 107296,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -15778,7 +15779,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -3263430144,
+      "file_length_words": 114334,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -16071,7 +16072,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 1431962624,
+      "file_length_words": 175402,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -16364,7 +16365,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -239599616,
+      "file_length_words": 56568,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -16657,7 +16658,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 3450863616,
+      "file_length_words": 55398,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -16950,7 +16951,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 1823474176,
+      "file_length_words": 88118,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -17243,7 +17244,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -505413632,
+      "file_length_words": 61680,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -17536,7 +17537,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 2176843776,
+      "file_length_words": 57408,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -17829,7 +17830,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -732036608,
+      "file_length_words": 77802,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -18122,7 +18123,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 2102657024,
+      "file_length_words": 43582,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -18415,7 +18416,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -2124283392,
+      "file_length_words": 111040,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -18708,7 +18709,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 2622882304,
+      "file_length_words": 76622,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -19001,7 +19002,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -4219076608,
+      "file_length_words": 17282,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -19294,7 +19295,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -1542585856,
+      "file_length_words": 67538,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -19587,7 +19588,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 1948910080,
+      "file_length_words": 70970,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -19880,7 +19881,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -3795320832,
+      "file_length_words": 58510,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -20173,7 +20174,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -3928096768,
+      "file_length_words": 61322,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -20466,7 +20467,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -3149396992,
+      "file_length_words": 140450,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -20759,7 +20760,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -3397779456,
+      "file_length_words": 48538,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -21046,7 +21047,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -4206623744,
+      "file_length_words": 172674,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -21339,7 +21340,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -2858287104,
+      "file_length_words": 53674,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -21632,7 +21633,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -2806775296,
+      "file_length_words": 88748,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -21925,7 +21926,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -1732509184,
+      "file_length_words": 89804,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -22218,7 +22219,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 1345060864,
+      "file_length_words": 5672,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -22511,7 +22512,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 2632974336,
+      "file_length_words": 30798,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -22804,7 +22805,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 7602176,
+      "file_length_words": 14848,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -23097,7 +23098,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -599261184,
+      "file_length_words": 9454,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -23282,7 +23283,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 3020424192,
+      "file_length_words": 132186,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -23497,7 +23498,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 3020424192,
+      "file_length_words": 132186,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -23712,7 +23713,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -3344824320,
+      "file_length_words": 283036,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -23897,7 +23898,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -4087480320,
+      "file_length_words": 12166,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -24112,7 +24113,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -4087480320,
+      "file_length_words": 12166,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -24411,7 +24412,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -4087480320,
+      "file_length_words": 12166,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -24704,7 +24705,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 490340352,
+      "file_length_words": 40206,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -25003,7 +25004,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -3014262784,
+      "file_length_words": 11174,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -25296,7 +25297,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 3701342208,
+      "file_length_words": 20334,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -25589,7 +25590,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -1245838336,
+      "file_length_words": 188378,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -25768,7 +25769,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -104202240,
+      "file_length_words": 58876,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -25983,7 +25984,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 1486357504,
+      "file_length_words": 150572,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -26168,7 +26169,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -333053952,
+      "file_length_words": 5110,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -26461,7 +26462,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -333053952,
+      "file_length_words": 5110,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -26676,7 +26677,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -333053952,
+      "file_length_words": 5110,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -26969,7 +26970,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -107872256,
+      "file_length_words": 51708,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -27160,7 +27161,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 140378112,
+      "file_length_words": 12036,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -27363,7 +27364,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 3161456640,
+      "file_length_words": 14430,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -27674,7 +27675,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 524800,
+      "file_length_words": 66560,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -27865,7 +27866,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 823656448,
+      "file_length_words": 35864,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -28080,7 +28081,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 501874688,
+      "file_length_words": 62734,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -28373,7 +28374,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -2785148928,
+      "file_length_words": 65452,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -28666,7 +28667,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 3716546560,
+      "file_length_words": 50030,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -28857,7 +28858,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 1415839744,
+      "file_length_words": 12842,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -29060,7 +29061,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 3102605312,
+      "file_length_words": 30556,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -29353,7 +29354,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -852885504,
+      "file_length_words": 38374,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -29544,7 +29545,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 475922432,
+      "file_length_words": 12046,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -29759,7 +29760,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -2808479744,
+      "file_length_words": 19884,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -29956,7 +29957,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 556662784,
+      "file_length_words": 38672,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -30153,7 +30154,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -3352821248,
+      "file_length_words": 70812,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -30350,7 +30351,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 2426536448,
+      "file_length_words": 86344,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -30547,7 +30548,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 1678246912,
+      "file_length_words": 132146,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -30744,7 +30745,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 487718912,
+      "file_length_words": 35086,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -30941,7 +30942,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -3407478784,
+      "file_length_words": 29594,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -31138,7 +31139,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 3178627072,
+      "file_length_words": 47966,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -31335,7 +31336,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 3509190656,
+      "file_length_words": 38248,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -31532,7 +31533,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 2432303104,
+      "file_length_words": 32072,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -31729,7 +31730,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -2457337856,
+      "file_length_words": 50358,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -31926,7 +31927,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -3344433152,
+      "file_length_words": 21660,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -32123,7 +32124,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -1511784448,
+      "file_length_words": 62162,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -32320,7 +32321,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 2504261632,
+      "file_length_words": 41546,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -32517,7 +32518,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -333185024,
+      "file_length_words": 4854,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -32714,7 +32715,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -988545024,
+      "file_length_words": 35554,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -32911,7 +32912,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -4144365568,
+      "file_length_words": 32132,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -33108,7 +33109,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -3408134144,
+      "file_length_words": 28314,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -33305,7 +33306,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -2866806784,
+      "file_length_words": 37034,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -33502,7 +33503,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -1130757632,
+      "file_length_words": 85470,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -33699,7 +33700,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -2870738944,
+      "file_length_words": 29354,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -33914,7 +33915,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 3644850688,
+      "file_length_words": 106604,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -34111,7 +34112,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 3979083776,
+      "file_length_words": 38518,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -34308,7 +34309,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -3955359744,
+      "file_length_words": 8074,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -34505,7 +34506,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 2038693888,
+      "file_length_words": 49724,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -34702,7 +34703,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -2657484800,
+      "file_length_words": 52656,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -35013,7 +35014,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 3047181312,
+      "file_length_words": 2543706,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -35198,7 +35199,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 2427328512,
+      "file_length_words": 808776,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -35425,7 +35426,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -3725185024,
+      "file_length_words": 1637264,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -35736,7 +35737,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -1272708608,
+      "file_length_words": 70362,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -36047,7 +36048,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 1901986304,
+      "file_length_words": 110392,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -36358,7 +36359,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 2640708096,
+      "file_length_words": 111438,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -36669,7 +36670,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 1708131328,
+      "file_length_words": 190514,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -36980,7 +36981,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -3602776064,
+      "file_length_words": 41364,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -37291,7 +37292,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -976879616,
+      "file_length_words": 58338,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -37602,7 +37603,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -2254306816,
+      "file_length_words": 119228,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -37913,7 +37914,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 3834118656,
+      "file_length_words": 83058,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -38224,7 +38225,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -4060872704,
+      "file_length_words": 64134,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -38535,7 +38536,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 2824471040,
+      "file_length_words": 77140,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -38846,7 +38847,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 3574988800,
+      "file_length_words": 35690,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -39157,7 +39158,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 3834774528,
+      "file_length_words": 149874,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -39468,7 +39469,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -3143892480,
+      "file_length_words": 85666,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -39779,7 +39780,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 4045013504,
+      "file_length_words": 101752,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -40090,7 +40091,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 296092160,
+      "file_length_words": 119560,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -40401,7 +40402,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 2580021248,
+      "file_length_words": 58444,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -40712,7 +40713,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 2632974336,
+      "file_length_words": 30798,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -40897,7 +40898,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 2632974336,
+      "file_length_words": 30798,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -41124,7 +41125,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 2632974336,
+      "file_length_words": 30798,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -41435,7 +41436,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -4087480320,
+      "file_length_words": 12166,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -41620,7 +41621,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -4087480320,
+      "file_length_words": 12166,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -41847,7 +41848,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -4087480320,
+      "file_length_words": 12166,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -42158,7 +42159,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -1401552896,
+      "file_length_words": 15318,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -42343,7 +42344,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -1401552896,
+      "file_length_words": 15318,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -42570,7 +42571,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -1401552896,
+      "file_length_words": 15318,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -42881,7 +42882,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 2364407808,
+      "file_length_words": 30534,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -43066,7 +43067,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 2364407808,
+      "file_length_words": 30534,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -43293,7 +43294,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 2364407808,
+      "file_length_words": 30534,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -43604,7 +43605,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 88211456,
+      "file_length_words": 41218,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -43789,7 +43790,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 88211456,
+      "file_length_words": 41218,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -44016,7 +44017,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 88211456,
+      "file_length_words": 41218,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -44327,7 +44328,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 4172808192,
+      "file_length_words": 23676,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -44512,7 +44513,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 4172808192,
+      "file_length_words": 23676,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -44739,7 +44740,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 4172808192,
+      "file_length_words": 23676,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -45050,7 +45051,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -866647552,
+      "file_length_words": 77030,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -45361,7 +45362,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 3784310784,
+      "file_length_words": 51312,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -45672,7 +45673,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -327942144,
+      "file_length_words": 15094,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -45983,7 +45984,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -3944480768,
+      "file_length_words": 29322,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -46294,7 +46295,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 2090598400,
+      "file_length_words": 20030,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -46605,7 +46606,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 3841720320,
+      "file_length_words": 32370,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -46916,7 +46917,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 430047232,
+      "file_length_words": 53516,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -47227,7 +47228,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 3712876544,
+      "file_length_words": 42862,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -47538,7 +47539,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 2782789632,
+      "file_length_words": 61266,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -47849,7 +47850,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -3536191488,
+      "file_length_words": 40342,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -48160,7 +48161,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 77201408,
+      "file_length_words": 19714,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -48471,7 +48472,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -1448082944,
+      "file_length_words": 121044,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -48782,7 +48783,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -2405826560,
+      "file_length_words": 19896,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -49093,7 +49094,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -1598029312,
+      "file_length_words": 90320,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -49404,7 +49405,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 2908618752,
+      "file_length_words": 44886,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -49715,7 +49716,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -2140012032,
+      "file_length_words": 80320,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -50026,7 +50027,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -1919549440,
+      "file_length_words": 52166,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -50337,7 +50338,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -3686006784,
+      "file_length_words": 9874,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -50648,7 +50649,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 1841168384,
+      "file_length_words": 57142,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -50833,7 +50834,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 4240048128,
+      "file_length_words": 23934,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -51018,7 +51019,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -1933312000,
+      "file_length_words": 25286,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -51203,7 +51204,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 3424780288,
+      "file_length_words": 4454,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -51388,7 +51389,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -1941962752,
+      "file_length_words": 8390,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -51573,7 +51574,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 3694788608,
+      "file_length_words": 7534,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -51758,7 +51759,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -1136656384,
+      "file_length_words": 8414,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -51943,7 +51944,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -2209611776,
+      "file_length_words": 9918,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -52128,7 +52129,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -2746744832,
+      "file_length_words": 9390,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -52313,7 +52314,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 2353659904,
+      "file_length_words": 9542,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -52498,7 +52499,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -3283746816,
+      "file_length_words": 9118,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -52683,7 +52684,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 2352087040,
+      "file_length_words": 6470,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -52868,7 +52869,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -1936326656,
+      "file_length_words": 19398,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -53053,7 +53054,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -1406795776,
+      "file_length_words": 5078,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -53238,7 +53239,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 1693450240,
+      "file_length_words": 30770,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -53465,7 +53466,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 1282015232,
+      "file_length_words": 13606,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -53650,7 +53651,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -2464546816,
+      "file_length_words": 36278,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -53835,7 +53836,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -2410020864,
+      "file_length_words": 11704,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -54020,7 +54021,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -601882624,
+      "file_length_words": 4334,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -54205,7 +54206,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 4099801088,
+      "file_length_words": 12154,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -54390,7 +54391,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -2407528448,
+      "file_length_words": 278712,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -54617,7 +54618,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 2647261184,
+      "file_length_words": 58702,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -54844,7 +54845,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -2595487744,
+      "file_length_words": 42674,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -55071,7 +55072,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -3351379968,
+      "file_length_words": 8092,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -55298,7 +55299,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 2021654528,
+      "file_length_words": 16444,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -55525,7 +55526,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -2610298880,
+      "file_length_words": 13746,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -55752,7 +55753,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -1131937792,
+      "file_length_words": 17630,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -55979,7 +55980,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 349044736,
+      "file_length_words": 26378,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -56206,7 +56207,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -3275489280,
+      "file_length_words": 25246,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -56433,7 +56434,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -992215040,
+      "file_length_words": 28386,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -56660,7 +56661,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 3971219456,
+      "file_length_words": 23158,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -56887,7 +56888,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 477626368,
+      "file_length_words": 15374,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -57114,7 +57115,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 3387949056,
+      "file_length_words": 63588,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -57341,7 +57342,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 2488664064,
+      "file_length_words": 11082,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -57568,7 +57569,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 1370488832,
+      "file_length_words": 55336,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -57795,7 +57796,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 2026242048,
+      "file_length_words": 25404,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -58022,7 +58023,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 3093168640,
+      "file_length_words": 77660,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -58249,7 +58250,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 691011584,
+      "file_length_words": 38932,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -58476,7 +58477,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 1680474112,
+      "file_length_words": 5426,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -58703,7 +58704,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -519307264,
+      "file_length_words": 34544,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -58930,7 +58931,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 3778805760,
+      "file_length_words": 40560,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -59157,7 +59158,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -4158127616,
+      "file_length_words": 70788,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -59384,7 +59385,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -1870921216,
+      "file_length_words": 81608,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -59611,7 +59612,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -3286629376,
+      "file_length_words": 134558,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -59838,7 +59839,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 1023148032,
+      "file_length_words": 32286,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -60065,7 +60066,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 1291714560,
+      "file_length_words": 32550,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -60292,7 +60293,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 270008832,
+      "file_length_words": 68616,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -60519,7 +60520,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -2863267840,
+      "file_length_words": 43946,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -60746,7 +60747,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 1560543232,
+      "file_length_words": 33326,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -60973,7 +60974,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -1861484544,
+      "file_length_words": 34504,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -61200,7 +61201,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -792330240,
+      "file_length_words": 25576,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -61427,7 +61428,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 684720640,
+      "file_length_words": 92180,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -61654,7 +61655,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -2928017408,
+      "file_length_words": 48552,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -61881,7 +61882,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 3718643712,
+      "file_length_words": 54126,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -62108,7 +62109,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -2679111168,
+      "file_length_words": 75952,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -62335,7 +62336,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 1492254720,
+      "file_length_words": 31020,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -62658,7 +62659,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 3520483328,
+      "file_length_words": 2681704,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -62897,7 +62898,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -1474286080,
+      "file_length_words": 1511636,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -63064,7 +63065,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -3809865216,
+      "file_length_words": 619918,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -63303,7 +63304,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 1276248064,
+      "file_length_words": 2342,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -63542,7 +63543,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -2739798016,
+      "file_length_words": 22958,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -63781,7 +63782,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -251920384,
+      "file_length_words": 32504,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -64020,7 +64021,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 471597056,
+      "file_length_words": 3598,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -64259,7 +64260,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 3157000192,
+      "file_length_words": 5726,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -64498,7 +64499,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -1266415616,
+      "file_length_words": 279258,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -64737,7 +64738,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 1978008064,
+      "file_length_words": 127802,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -64976,7 +64977,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -1315307008,
+      "file_length_words": 118232,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -65215,7 +65216,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 343410176,
+      "file_length_words": 211978,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -65454,7 +65455,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 3031040000,
+      "file_length_words": 21850,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -65693,7 +65694,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -1258159616,
+      "file_length_words": 98778,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -65932,7 +65933,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -3139304960,
+      "file_length_words": 94626,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -66171,7 +66172,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 2840461824,
+      "file_length_words": 108372,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -66410,7 +66411,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -4087480320,
+      "file_length_words": 12166,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -66649,7 +66650,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 2168324096,
+      "file_length_words": 40768,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -66888,7 +66889,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -1176632832,
+      "file_length_words": 126940,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -67127,7 +67128,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -197392896,
+      "file_length_words": 204538,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -67450,7 +67451,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 1276248064,
+      "file_length_words": 2342,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -67773,7 +67774,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -2739798016,
+      "file_length_words": 22958,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -68096,7 +68097,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -3470655488,
+      "file_length_words": 37272,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -68419,7 +68420,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 471597056,
+      "file_length_words": 3598,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -68742,7 +68743,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 3157000192,
+      "file_length_words": 5726,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -69065,7 +69066,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 2358775296,
+      "file_length_words": 478278,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -69388,7 +69389,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 221906944,
+      "file_length_words": 302342,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -69711,7 +69712,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -1112144896,
+      "file_length_words": 187358,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -70034,7 +70035,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 3774351872,
+      "file_length_words": 359536,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -70357,7 +70358,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 3031040000,
+      "file_length_words": 21850,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -70680,7 +70681,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -3058695680,
+      "file_length_words": 120996,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -71003,7 +71004,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -1269824000,
+      "file_length_words": 207066,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -71326,7 +71327,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -2250374144,
+      "file_length_words": 192444,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -71649,7 +71650,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -4087480320,
+      "file_length_words": 12166,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -71972,7 +71973,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 2168324096,
+      "file_length_words": 40768,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -72295,7 +72296,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 1145177600,
+      "file_length_words": 205090,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -72618,7 +72619,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -3410358784,
+      "file_length_words": 482714,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -72797,7 +72798,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 1276248064,
+      "file_length_words": 2342,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -72976,7 +72977,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -2739798016,
+      "file_length_words": 22958,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -73155,7 +73156,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -4085252096,
+      "file_length_words": 16518,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -73334,7 +73335,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 471597056,
+      "file_length_words": 3598,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -73513,7 +73514,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 3157000192,
+      "file_length_words": 5726,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -73692,7 +73693,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 1487143424,
+      "file_length_words": 86572,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -73871,7 +73872,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 1831075840,
+      "file_length_words": 37430,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -74050,7 +74051,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -1245577216,
+      "file_length_words": 57818,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -74229,7 +74230,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -2469658112,
+      "file_length_words": 91830,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -74408,7 +74409,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -2606628864,
+      "file_length_words": 20914,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -74587,7 +74588,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -3862036480,
+      "file_length_words": 59276,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -74766,7 +74767,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 3370385408,
+      "file_length_words": 29284,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -74945,7 +74946,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 219414528,
+      "file_length_words": 35334,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -75124,7 +75125,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -4087480320,
+      "file_length_words": 12166,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -75303,7 +75304,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 2168324096,
+      "file_length_words": 40768,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -75482,7 +75483,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 489422848,
+      "file_length_words": 38414,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -75649,7 +75650,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 4124180480,
+      "file_length_words": 59770,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -75972,7 +75973,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -2139073024,
+      "file_length_words": 2834624,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -76211,7 +76212,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 222703104,
+      "file_length_words": 1549062,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -76408,7 +76409,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 2953451008,
+      "file_length_words": 722264,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -76731,7 +76732,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -1115028992,
+      "file_length_words": 116190,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -77054,7 +77055,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 1100481536,
+      "file_length_words": 183328,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -77377,7 +77378,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -1045299200,
+      "file_length_words": 55776,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -77700,7 +77701,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 1015940096,
+      "file_length_words": 149278,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -78023,7 +78024,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 2354053120,
+      "file_length_words": 10310,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -78346,7 +78347,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -3214277120,
+      "file_length_words": 210336,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -78669,7 +78670,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -1069939712,
+      "file_length_words": 138720,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -78992,7 +78993,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 3722314240,
+      "file_length_words": 126830,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -79315,7 +79316,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -782105600,
+      "file_length_words": 176616,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -79638,7 +79639,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -1673265152,
+      "file_length_words": 8910,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -79877,7 +79878,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 2365063168,
+      "file_length_words": 31814,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -80116,7 +80117,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 3434086400,
+      "file_length_words": 22630,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -80355,7 +80356,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -326107136,
+      "file_length_words": 18678,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -80594,7 +80595,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -4158127616,
+      "file_length_words": 70788,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -80833,7 +80834,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -2793274880,
+      "file_length_words": 115116,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -81072,7 +81073,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 3366060544,
+      "file_length_words": 86372,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -81311,7 +81312,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 4100325888,
+      "file_length_words": 78714,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -81550,7 +81551,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 3383624192,
+      "file_length_words": 120676,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -81789,7 +81790,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 1360003072,
+      "file_length_words": 34856,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -82028,7 +82029,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -1982332928,
+      "file_length_words": 60612,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -82267,7 +82268,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -3200122880,
+      "file_length_words": 41376,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -82506,7 +82507,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -1045299200,
+      "file_length_words": 55776,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -82745,7 +82746,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 1015940096,
+      "file_length_words": 149278,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -82984,7 +82985,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -2748841984,
+      "file_length_words": 5294,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -83223,7 +83224,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -1530002944,
+      "file_length_words": 92114,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -83462,7 +83463,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -2859991040,
+      "file_length_words": 50346,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -83701,7 +83702,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 2083259392,
+      "file_length_words": 136766,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -83940,7 +83941,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 2571894784,
+      "file_length_words": 42572,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -84179,7 +84180,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 3155820544,
+      "file_length_words": 3422,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -84418,7 +84419,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -4087480320,
+      "file_length_words": 12166,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -84657,7 +84658,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 4239523840,
+      "file_length_words": 22910,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -84896,7 +84897,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -3148087296,
+      "file_length_words": 11938,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -85135,7 +85136,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -722468352,
+      "file_length_words": 96490,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -85374,7 +85375,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -3815374336,
+      "file_length_words": 84878,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -85613,7 +85614,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 2565603840,
+      "file_length_words": 95820,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -85852,7 +85853,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -1673265152,
+      "file_length_words": 8910,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -86037,7 +86038,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -722178560,
+      "file_length_words": 3635946,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -86334,7 +86335,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 2221689856,
+      "file_length_words": 2504258,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -86523,7 +86524,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -3817990144,
+      "file_length_words": 800654,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -86742,7 +86743,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -2932330496,
+      "file_length_words": 1612968,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -87057,7 +87058,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 3047181312,
+      "file_length_words": 2543706,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -87246,7 +87247,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 2427328512,
+      "file_length_words": 808776,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -87477,7 +87478,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -3725185024,
+      "file_length_words": 1637264,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -87686,7 +87687,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 1165755904,
+      "file_length_words": 245282,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -87887,7 +87888,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 3960864768,
+      "file_length_words": 2934,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -88064,7 +88065,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 4248830976,
+      "file_length_words": 172158,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -88235,7 +88236,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -2815949312,
+      "file_length_words": 201900,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -88396,7 +88397,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -2547515392,
+      "file_length_words": 5300,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -88557,7 +88558,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -3017277440,
+      "file_length_words": 5286,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -88718,7 +88719,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -3017277440,
+      "file_length_words": 5286,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -88886,7 +88887,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 3624271872,
+      "file_length_words": 876,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -89054,7 +89055,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 3624271872,
+      "file_length_words": 876,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -89261,7 +89262,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -3888381952,
+      "file_length_words": 7820,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -89424,7 +89425,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -1996488704,
+      "file_length_words": 32964,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -89585,7 +89586,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -1996488704,
+      "file_length_words": 32964,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -89852,7 +89853,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -3078832128,
+      "file_length_words": 6307492,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -90125,7 +90126,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -51773440,
+      "file_length_words": 30206,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -90392,7 +90393,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 901148672,
+      "file_length_words": 3726106,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -90653,7 +90654,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -3352952832,
+      "file_length_words": 5020,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -90896,7 +90897,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -1926878208,
+      "file_length_words": 1479622,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -91145,7 +91146,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -4227727360,
+      "file_length_words": 386,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -91430,7 +91431,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -1793585152,
+      "file_length_words": 560330,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -91677,7 +91678,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -1459224576,
+      "file_length_words": 33748,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -91848,7 +91849,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 2286066688,
+      "file_length_words": 5120324,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -93157,7 +93158,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -1778623488,
+      "file_length_words": 3079882,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -94466,7 +94467,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -1778623488,
+      "file_length_words": 3079882,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -95775,7 +95776,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -1778623488,
+      "file_length_words": 3079882,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -95926,7 +95927,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 3024635392,
+      "file_length_words": 2303066,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -96047,7 +96048,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 3187546624,
+      "file_length_words": 917342,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -96222,7 +96223,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -2817523712,
+      "file_length_words": 2220,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -96397,7 +96398,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 2282487808,
+      "file_length_words": 1604,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -96572,7 +96573,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -3017277440,
+      "file_length_words": 5286,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -96747,7 +96748,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 3624271872,
+      "file_length_words": 876,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -96922,7 +96923,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -1996488704,
+      "file_length_words": 32964,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -97097,7 +97098,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -2212757504,
+      "file_length_words": 3774,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -97272,7 +97273,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -3888381952,
+      "file_length_words": 7820,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -97543,7 +97544,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -1194721280,
+      "file_length_words": 26076,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -97814,7 +97815,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -1194721280,
+      "file_length_words": 26076,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -97935,7 +97936,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -1331820544,
+      "file_length_words": 282584,
       "shape_type": 3
      },
      "ext": ".shp",
@@ -98074,7 +98075,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -1738141184,
+      "file_length_words": 603084,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -98225,7 +98226,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -1738141184,
+      "file_length_words": 603084,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -98508,7 +98509,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -3945773568,
+      "file_length_words": 2320522,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -98803,7 +98804,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -3945773568,
+      "file_length_words": 2320522,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -99074,7 +99075,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -2950692864,
+      "file_length_words": 4264,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -99345,7 +99346,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -2950692864,
+      "file_length_words": 4264,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -99628,7 +99629,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 162538496,
+      "file_length_words": 1234948,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -99923,7 +99924,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 162538496,
+      "file_length_words": 1234948,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -100194,7 +100195,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -4227727360,
+      "file_length_words": 386,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -100465,7 +100466,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -4227727360,
+      "file_length_words": 386,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -100604,7 +100605,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 4126039552,
+      "file_length_words": 3143546,
       "shape_type": 3
      },
      "ext": ".shp",
@@ -100755,7 +100756,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 4126039552,
+      "file_length_words": 3143546,
       "shape_type": 3
      },
      "ext": ".shp",
@@ -101038,7 +101039,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -2253258240,
+      "file_length_words": 121276,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -101321,7 +101322,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -2253258240,
+      "file_length_words": 121276,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -101484,7 +101485,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 1424228352,
+      "file_length_words": 29226,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -101647,7 +101648,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 214695936,
+      "file_length_words": 26118,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -101870,7 +101871,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -4277401600,
+      "file_length_words": 296576,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -102105,7 +102106,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -4277401600,
+      "file_length_words": 296576,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -102340,7 +102341,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -3623878656,
+      "file_length_words": 148,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -102575,7 +102576,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -3623878656,
+      "file_length_words": 148,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -102876,7 +102877,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -3945773568,
+      "file_length_words": 2320522,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -103185,7 +103186,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -3945773568,
+      "file_length_words": 2320522,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -103410,7 +103411,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 162538496,
+      "file_length_words": 1234948,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -103623,7 +103624,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 162538496,
+      "file_length_words": 1234948,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -103908,7 +103909,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 1906206720,
+      "file_length_words": 3460920,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -104193,7 +104194,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 1906206720,
+      "file_length_words": 3460920,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -104442,7 +104443,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 2289827840,
+      "file_length_words": 15940,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -104691,7 +104692,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 2289827840,
+      "file_length_words": 15940,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -104964,7 +104965,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -332515840,
+      "file_length_words": 1775606,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -105237,7 +105238,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -332515840,
+      "file_length_words": 1775606,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -105486,7 +105487,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -1810497536,
+      "file_length_words": 3018,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -105747,7 +105748,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -1810497536,
+      "file_length_words": 3018,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -105996,7 +105997,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 3428193280,
+      "file_length_words": 666470,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -106245,7 +106246,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 3428193280,
+      "file_length_words": 666470,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -106494,7 +106495,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -335544320,
+      "file_length_words": 246,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -106743,7 +106744,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -335544320,
+      "file_length_words": 246,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -107028,7 +107029,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -441054720,
+      "file_length_words": 383986,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -107313,7 +107314,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -441054720,
+      "file_length_words": 383986,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -107568,7 +107569,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 1630404608,
+      "file_length_words": 38704,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -107823,7 +107824,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 1630404608,
+      "file_length_words": 38704,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -108084,7 +108085,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -3353315326,
+      "file_length_words": 20713628,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -108345,7 +108346,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -3353315326,
+      "file_length_words": 20713628,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -108594,7 +108595,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -729546752,
+      "file_length_words": 17130,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -108849,7 +108850,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -729546752,
+      "file_length_words": 17130,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -109110,7 +109111,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 2963538434,
+      "file_length_words": 16863832,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -109371,7 +109372,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 2963538434,
+      "file_length_words": 16863832,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -109620,7 +109621,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 2216820736,
+      "file_length_words": 4418,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -109869,7 +109870,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 2216820736,
+      "file_length_words": 4418,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -110002,7 +110003,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -2077356032,
+      "file_length_words": 530370,
       "shape_type": 3
      },
      "ext": ".shp",
@@ -110091,7 +110092,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -3891134464,
+      "file_length_words": 2444,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -110222,7 +110223,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -3082024960,
+      "file_length_words": 272036,
       "shape_type": 13
      },
      "ext": ".shp",
@@ -110347,7 +110348,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -1805123584,
+      "file_length_words": 13514,
       "shape_type": 11
      },
      "ext": ".shp",
@@ -110482,7 +110483,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 3828613120,
+      "file_length_words": 6770,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -110643,7 +110644,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 2282487808,
+      "file_length_words": 1604,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -110804,7 +110805,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 2282487808,
+      "file_length_words": 1604,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -110953,7 +110954,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 1411383296,
+      "file_length_words": 4138,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -111202,7 +111203,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -854719998,
+      "file_length_words": 16877542,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -111453,7 +111454,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 1682833408,
+      "file_length_words": 10034,
       "shape_type": 8
      },
      "ext": ".shp",
@@ -111728,7 +111729,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -1194721280,
+      "file_length_words": 26076,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -111845,7 +111846,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -1331820544,
+      "file_length_words": 282584,
       "shape_type": 3
      },
      "ext": ".shp",
@@ -112040,7 +112041,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 3714733056,
+      "file_length_words": 2798958,
       "shape_type": 3
      },
      "ext": ".shp",
@@ -112181,7 +112182,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -1738141184,
+      "file_length_words": 603084,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -112436,7 +112437,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -3945773568,
+      "file_length_words": 2320522,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -112703,7 +112704,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -2950692864,
+      "file_length_words": 4264,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -112886,7 +112887,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 162538496,
+      "file_length_words": 1234948,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -113129,7 +113130,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -4227727360,
+      "file_length_words": 386,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -113408,7 +113409,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -2253258240,
+      "file_length_words": 121276,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -113675,7 +113676,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -3078832128,
+      "file_length_words": 6307492,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -113948,7 +113949,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -51773440,
+      "file_length_words": 30206,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -114215,7 +114216,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 901148672,
+      "file_length_words": 3726106,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -114476,7 +114477,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -3352952832,
+      "file_length_words": 5020,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -114719,7 +114720,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -1926878208,
+      "file_length_words": 1479622,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -114968,7 +114969,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -4227727360,
+      "file_length_words": 386,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -115253,7 +115254,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -1793585152,
+      "file_length_words": 560330,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -115420,7 +115421,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 2164272128,
+      "file_length_words": 1474624,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -116713,7 +116714,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 889084928,
+      "file_length_words": 3047194,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -116860,7 +116861,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 3024635392,
+      "file_length_words": 2303066,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -116977,7 +116978,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -730719232,
+      "file_length_words": 932330,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -117078,7 +117079,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 1885732864,
+      "file_length_words": 13112,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -117257,7 +117258,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 1885732864,
+      "file_length_words": 13112,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -118316,7 +118317,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -3338272768,
+      "file_length_words": 33692,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -118439,7 +118440,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -190839808,
+      "file_length_words": 151802,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -118574,7 +118575,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -190839808,
+      "file_length_words": 151802,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -118845,7 +118846,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 901148672,
+      "file_length_words": 3726106,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -118980,7 +118981,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 3713803264,
+      "file_length_words": 1224302,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -119115,7 +119116,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 3713803264,
+      "file_length_words": 1224302,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -119238,7 +119239,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 951455744,
+      "file_length_words": 547612,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -119345,7 +119346,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 951455744,
+      "file_length_words": 547612,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -119636,7 +119637,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 3377988608,
+      "file_length_words": 175204,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -119921,7 +119922,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -2542010368,
+      "file_length_words": 16052,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -120206,7 +120207,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 630718464,
+      "file_length_words": 52242,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -120491,7 +120492,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 2029912064,
+      "file_length_words": 32572,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -120776,7 +120777,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -871497216,
+      "file_length_words": 67558,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -121061,7 +121062,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 3116367872,
+      "file_length_words": 57436,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -121346,7 +121347,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -2881879552,
+      "file_length_words": 73130,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -121631,7 +121632,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 3969122304,
+      "file_length_words": 19062,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -121916,7 +121917,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -3671719424,
+      "file_length_words": 103314,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -122201,7 +122202,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -581697536,
+      "file_length_words": 43758,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -122486,7 +122487,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -982122496,
+      "file_length_words": 48098,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -122771,7 +122772,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -309854208,
+      "file_length_words": 50422,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -123056,7 +123057,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 1299316736,
+      "file_length_words": 47398,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -123341,7 +123342,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 1885602816,
+      "file_length_words": 143928,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -123626,7 +123627,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 2171338752,
+      "file_length_words": 46656,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -123911,7 +123912,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 625213440,
+      "file_length_words": 41490,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -124196,7 +124197,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -2259156992,
+      "file_length_words": 44220,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -124481,7 +124482,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -1108869120,
+      "file_length_words": 62686,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -124766,7 +124767,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -3684958208,
+      "file_length_words": 11922,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -125051,7 +125052,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 3301441536,
+      "file_length_words": 25698,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -125336,7 +125337,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -3613392384,
+      "file_length_words": 86164,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -125621,7 +125622,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 1439825920,
+      "file_length_words": 59690,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -125906,7 +125907,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 1150550016,
+      "file_length_words": 18978,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -126191,7 +126192,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 1441137152,
+      "file_length_words": 127786,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -126476,7 +126477,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -330563072,
+      "file_length_words": 75510,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -126761,7 +126762,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -2409758720,
+      "file_length_words": 12216,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -127046,7 +127047,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 487456768,
+      "file_length_words": 34574,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -127331,7 +127332,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -3932028928,
+      "file_length_words": 53642,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -127616,7 +127617,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 3109945344,
+      "file_length_words": 44892,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -127901,7 +127902,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -3746167808,
+      "file_length_words": 154512,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -128150,7 +128151,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -1736702976,
+      "file_length_words": 147148,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -128389,7 +128390,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 4253107202,
+      "file_length_words": 27443326,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -128666,7 +128667,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -51773440,
+      "file_length_words": 30206,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -128747,7 +128748,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -3196846080,
+      "file_length_words": 47776,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -129806,7 +129807,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -3338272768,
+      "file_length_words": 33692,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -129921,7 +129922,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 3429499904,
+      "file_length_words": 144742,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -130200,7 +130201,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -1194721280,
+      "file_length_words": 26076,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -130479,7 +130480,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -1194721280,
+      "file_length_words": 26076,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -130600,7 +130601,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -1331820544,
+      "file_length_words": 282584,
       "shape_type": 3
      },
      "ext": ".shp",
@@ -130799,7 +130800,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 3714733056,
+      "file_length_words": 2798958,
       "shape_type": 3
      },
      "ext": ".shp",
@@ -130944,7 +130945,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -1738141184,
+      "file_length_words": 603084,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -131089,7 +131090,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -1738141184,
+      "file_length_words": 603084,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -131348,7 +131349,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -3945773568,
+      "file_length_words": 2320522,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -131615,7 +131616,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -3945773568,
+      "file_length_words": 2320522,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -131894,7 +131895,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -2950692864,
+      "file_length_words": 4264,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -132165,7 +132166,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -2950692864,
+      "file_length_words": 4264,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -132364,7 +132365,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 162538496,
+      "file_length_words": 1234948,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -132551,7 +132552,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 162538496,
+      "file_length_words": 1234948,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -132798,7 +132799,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -4227727360,
+      "file_length_words": 386,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -133045,7 +133046,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -4227727360,
+      "file_length_words": 386,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -133196,7 +133197,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 4126039552,
+      "file_length_words": 3143546,
       "shape_type": 3
      },
      "ext": ".shp",
@@ -133347,7 +133348,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 4126039552,
+      "file_length_words": 3143546,
       "shape_type": 3
      },
      "ext": ".shp",
@@ -133630,7 +133631,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -2253258240,
+      "file_length_words": 121276,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -133913,7 +133914,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -2253258240,
+      "file_length_words": 121276,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -134190,7 +134191,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 1553629696,
+      "file_length_words": 4279598,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -134467,7 +134468,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 1553629696,
+      "file_length_words": 4279598,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -134750,7 +134751,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 3848536064,
+      "file_length_words": 45682,
       "shape_type": 8
      },
      "ext": ".shp",
@@ -135027,7 +135028,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 3848536064,
+      "file_length_words": 45682,
       "shape_type": 8
      },
      "ext": ".shp",
@@ -135304,7 +135305,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -664648704,
+      "file_length_words": 2241004,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -135581,7 +135582,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -664648704,
+      "file_length_words": 2241004,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -135864,7 +135865,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -465436672,
+      "file_length_words": 8690,
       "shape_type": 8
      },
      "ext": ".shp",
@@ -136147,7 +136148,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -465436672,
+      "file_length_words": 8690,
       "shape_type": 8
      },
      "ext": ".shp",
@@ -136424,7 +136425,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 1083316736,
+      "file_length_words": 870688,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -136701,7 +136702,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 1083316736,
+      "file_length_words": 870688,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -136972,7 +136973,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 2751725568,
+      "file_length_words": 594,
       "shape_type": 8
      },
      "ext": ".shp",
@@ -137243,7 +137244,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 2751725568,
+      "file_length_words": 594,
       "shape_type": 8
      },
      "ext": ".shp",
@@ -137526,7 +137527,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 632431616,
+      "file_length_words": 1235218,
       "shape_type": 8
      },
      "ext": ".shp",
@@ -137809,7 +137810,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 632431616,
+      "file_length_words": 1235218,
       "shape_type": 8
      },
      "ext": ".shp",
@@ -137930,7 +137931,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -730719232,
+      "file_length_words": 932330,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -138051,7 +138052,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -730719232,
+      "file_length_words": 932330,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -138298,7 +138299,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -1459224576,
+      "file_length_words": 33748,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -139615,7 +139616,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -1778623488,
+      "file_length_words": 3079882,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -140924,7 +140925,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -1778623488,
+      "file_length_words": 3079882,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -142233,7 +142234,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -1778623488,
+      "file_length_words": 3079882,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -142384,7 +142385,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 3024635392,
+      "file_length_words": 2303066,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -142505,7 +142506,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 3187546624,
+      "file_length_words": 917342,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -142656,7 +142657,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -4196577278,
+      "file_length_words": 27848322,
       "shape_type": 3
      },
      "ext": ".shp",
@@ -142813,7 +142814,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 1705774592,
+      "file_length_words": 513586,
       "shape_type": 3
      },
      "ext": ".shp",
@@ -142970,7 +142971,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -3401423360,
+      "file_length_words": 3383706,
       "shape_type": 3
      },
      "ext": ".shp",
@@ -143121,7 +143122,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -2607857150,
+      "file_length_words": 27346866,
       "shape_type": 3
      },
      "ext": ".shp",
@@ -143416,7 +143417,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 3377988608,
+      "file_length_words": 175204,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -143705,7 +143706,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -2542010368,
+      "file_length_words": 16052,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -143994,7 +143995,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 630718464,
+      "file_length_words": 52242,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -144283,7 +144284,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 2029912064,
+      "file_length_words": 32572,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -144572,7 +144573,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -871497216,
+      "file_length_words": 67558,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -144861,7 +144862,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 3116367872,
+      "file_length_words": 57436,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -145150,7 +145151,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -2881879552,
+      "file_length_words": 73130,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -145439,7 +145440,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 3969122304,
+      "file_length_words": 19062,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -145728,7 +145729,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -3671719424,
+      "file_length_words": 103314,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -146017,7 +146018,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -581697536,
+      "file_length_words": 43758,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -146306,7 +146307,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -982122496,
+      "file_length_words": 48098,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -146595,7 +146596,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -309854208,
+      "file_length_words": 50422,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -146884,7 +146885,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 1299316736,
+      "file_length_words": 47398,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -147173,7 +147174,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 1885602816,
+      "file_length_words": 143928,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -147462,7 +147463,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 2171338752,
+      "file_length_words": 46656,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -147751,7 +147752,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 625213440,
+      "file_length_words": 41490,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -148040,7 +148041,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -2259156992,
+      "file_length_words": 44220,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -148329,7 +148330,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -1108869120,
+      "file_length_words": 62686,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -148618,7 +148619,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -3684958208,
+      "file_length_words": 11922,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -148907,7 +148908,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 3301441536,
+      "file_length_words": 25698,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -149196,7 +149197,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -3613392384,
+      "file_length_words": 86164,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -149485,7 +149486,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 1439825920,
+      "file_length_words": 59690,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -149774,7 +149775,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 1150550016,
+      "file_length_words": 18978,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -150063,7 +150064,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 1441137152,
+      "file_length_words": 127786,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -150352,7 +150353,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -330563072,
+      "file_length_words": 75510,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -150641,7 +150642,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -2409758720,
+      "file_length_words": 12216,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -150930,7 +150931,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 487456768,
+      "file_length_words": 34574,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -151219,7 +151220,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -3932028928,
+      "file_length_words": 53642,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -151508,7 +151509,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 3109945344,
+      "file_length_words": 44892,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -151797,7 +151798,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -3746167808,
+      "file_length_words": 154512,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -151960,7 +151961,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 1424228352,
+      "file_length_words": 29226,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -152123,7 +152124,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 214695936,
+      "file_length_words": 26118,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -152306,7 +152307,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -2817523712,
+      "file_length_words": 2220,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -152481,7 +152482,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 2282487808,
+      "file_length_words": 1604,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -152656,7 +152657,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -3017277440,
+      "file_length_words": 5286,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -152831,7 +152832,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 3624271872,
+      "file_length_words": 876,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -153006,7 +153007,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -1996488704,
+      "file_length_words": 32964,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -153181,7 +153182,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -2212757504,
+      "file_length_words": 3774,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -153364,7 +153365,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -3888381952,
+      "file_length_words": 7820,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -153611,7 +153612,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -3678010368,
+      "file_length_words": 156562,
       "shape_type": 8
      },
      "ext": ".shp",
@@ -153858,7 +153859,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -3678010368,
+      "file_length_words": 156562,
       "shape_type": 8
      },
      "ext": ".shp",
@@ -154119,7 +154120,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -400525310,
+      "file_length_words": 20713716,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -154372,7 +154373,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -400525310,
+      "file_length_words": 20713716,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -154627,7 +154628,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 1697906688,
+      "file_length_words": 39474,
       "shape_type": 8
      },
      "ext": ".shp",
@@ -154874,7 +154875,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 1697906688,
+      "file_length_words": 39474,
       "shape_type": 8
      },
      "ext": ".shp",
@@ -155135,7 +155136,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -854719998,
+      "file_length_words": 16877542,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -155388,7 +155389,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -854719998,
+      "file_length_words": 16877542,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -155643,7 +155644,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 1682833408,
+      "file_length_words": 10034,
       "shape_type": 8
      },
      "ext": ".shp",
@@ -155890,7 +155891,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 1682833408,
+      "file_length_words": 10034,
       "shape_type": 8
      },
      "ext": ".shp",
@@ -156139,7 +156140,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -4277401600,
+      "file_length_words": 296576,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -156380,7 +156381,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -4277401600,
+      "file_length_words": 296576,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -156623,7 +156624,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -469762048,
+      "file_length_words": 242,
       "shape_type": 8
      },
      "ext": ".shp",
@@ -156858,7 +156859,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -469762048,
+      "file_length_words": 242,
       "shape_type": 8
      },
      "ext": ".shp",
@@ -156981,7 +156982,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -3017277440,
+      "file_length_words": 5286,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -157104,7 +157105,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -3017277440,
+      "file_length_words": 5286,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -157273,7 +157274,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -2817523712,
+      "file_length_words": 2220,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -157434,7 +157435,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -2817523712,
+      "file_length_words": 2220,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -157529,7 +157530,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 2976251904,
+      "file_length_words": 45912,
       "shape_type": 3
      },
      "ext": ".shp",
@@ -157720,7 +157721,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -999555072,
+      "file_length_words": 14050,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -157987,7 +157988,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -1194721280,
+      "file_length_words": 26076,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -158182,7 +158183,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 3714733056,
+      "file_length_words": 2798958,
       "shape_type": 3
      },
      "ext": ".shp",
@@ -158319,7 +158320,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -732032512,
+      "file_length_words": 602090,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -158574,7 +158575,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -3945773568,
+      "file_length_words": 2320522,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -158841,7 +158842,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -2950692864,
+      "file_length_words": 4264,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -159024,7 +159025,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 162538496,
+      "file_length_words": 1234948,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -159267,7 +159268,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -4227727360,
+      "file_length_words": 386,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -159546,7 +159547,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -2253258240,
+      "file_length_words": 121276,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -160853,7 +160854,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 889084928,
+      "file_length_words": 3047194,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -160984,7 +160985,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 3024635392,
+      "file_length_words": 2303066,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -161085,7 +161086,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 3187546624,
+      "file_length_words": 917342,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -161414,7 +161415,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -1139406848,
+      "file_length_words": 265182,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -161533,7 +161534,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 738590720,
+      "file_length_words": 790,
       "shape_type": 3
      },
      "ext": ".shp",
@@ -161652,7 +161653,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -333971456,
+      "file_length_words": 3318,
       "shape_type": 3
      },
      "ext": ".shp",
@@ -161771,7 +161772,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -1810497536,
+      "file_length_words": 3018,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -161968,7 +161969,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 1832910848,
+      "file_length_words": 41014,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -162105,7 +162106,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -2883190784,
+      "file_length_words": 5034,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -162242,7 +162243,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 3574202368,
+      "file_length_words": 34154,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -162379,7 +162380,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 3021340672,
+      "file_length_words": 2906,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -162554,7 +162555,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -2817523712,
+      "file_length_words": 2220,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -162729,7 +162730,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 2282487808,
+      "file_length_words": 1604,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -162904,7 +162905,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -3017277440,
+      "file_length_words": 5286,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -163079,7 +163080,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 3624271872,
+      "file_length_words": 876,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -163254,7 +163255,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -1996488704,
+      "file_length_words": 32964,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -163429,7 +163430,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -2212757504,
+      "file_length_words": 3774,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -163604,7 +163605,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -3888381952,
+      "file_length_words": 7820,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -163767,7 +163768,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -3748789248,
+      "file_length_words": 149392,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -163918,7 +163919,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -3748789248,
+      "file_length_words": 149392,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -164189,7 +164190,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -1194721280,
+      "file_length_words": 26076,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -164460,7 +164461,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -1194721280,
+      "file_length_words": 26076,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -164581,7 +164582,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -1331820544,
+      "file_length_words": 282584,
       "shape_type": 3
      },
      "ext": ".shp",
@@ -164720,7 +164721,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -1738141184,
+      "file_length_words": 603084,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -164871,7 +164872,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -1738141184,
+      "file_length_words": 603084,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -165154,7 +165155,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -3945773568,
+      "file_length_words": 2320522,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -165449,7 +165450,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -3945773568,
+      "file_length_words": 2320522,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -165720,7 +165721,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -2950692864,
+      "file_length_words": 4264,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -165991,7 +165992,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -2950692864,
+      "file_length_words": 4264,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -166274,7 +166275,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 162538496,
+      "file_length_words": 1234948,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -166569,7 +166570,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 162538496,
+      "file_length_words": 1234948,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -166840,7 +166841,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -4227727360,
+      "file_length_words": 386,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -167111,7 +167112,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -4227727360,
+      "file_length_words": 386,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -167250,7 +167251,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 4126039552,
+      "file_length_words": 3143546,
       "shape_type": 3
      },
      "ext": ".shp",
@@ -167401,7 +167402,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 4126039552,
+      "file_length_words": 3143546,
       "shape_type": 3
      },
      "ext": ".shp",
@@ -167684,7 +167685,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -2253258240,
+      "file_length_words": 121276,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -167967,7 +167968,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -2253258240,
+      "file_length_words": 121276,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -168232,7 +168233,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 3565045760,
+      "file_length_words": 2375530,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -168497,7 +168498,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 3565045760,
+      "file_length_words": 2375530,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -168774,7 +168775,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -1739325440,
+      "file_length_words": 10956,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -169051,7 +169052,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -1739325440,
+      "file_length_words": 10956,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -169316,7 +169317,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 3496748032,
+      "file_length_words": 1193576,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -169581,7 +169582,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 3496748032,
+      "file_length_words": 1193576,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -169858,7 +169859,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -2683437056,
+      "file_length_words": 1968,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -170135,7 +170136,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -2683437056,
+      "file_length_words": 1968,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -170400,7 +170401,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 3959426560,
+      "file_length_words": 458870,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -170673,7 +170674,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 3959426560,
+      "file_length_words": 458870,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -170946,7 +170947,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -2214592512,
+      "file_length_words": 190,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -171211,7 +171212,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -2214592512,
+      "file_length_words": 190,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -171488,7 +171489,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 3178628608,
+      "file_length_words": 244574,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -171765,7 +171766,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 3178628608,
+      "file_length_words": 244574,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -171904,7 +171905,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 3828613120,
+      "file_length_words": 6770,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -172055,7 +172056,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -4196577278,
+      "file_length_words": 27848322,
       "shape_type": 3
      },
      "ext": ".shp",
@@ -172212,7 +172213,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -3401423360,
+      "file_length_words": 3383706,
       "shape_type": 3
      },
      "ext": ".shp",
@@ -172375,7 +172376,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 1424228352,
+      "file_length_words": 29226,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -172538,7 +172539,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 214695936,
+      "file_length_words": 26118,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -172773,7 +172774,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -394657280,
+      "file_length_words": 81396,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -173020,7 +173021,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -394657280,
+      "file_length_words": 81396,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -173257,7 +173258,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -2410676224,
+      "file_length_words": 10424,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -173492,7 +173493,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -2410676224,
+      "file_length_words": 10424,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -173723,7 +173724,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 763666944,
+      "file_length_words": 5358102,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -173964,7 +173965,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 763666944,
+      "file_length_words": 5358102,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -174199,7 +174200,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -1877082112,
+      "file_length_words": 4040,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -174434,7 +174435,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -1877082112,
+      "file_length_words": 4040,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -174669,7 +174670,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -1451452416,
+      "file_length_words": 5029588,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -174916,7 +174917,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -1451452416,
+      "file_length_words": 5029588,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -175151,7 +175152,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 3691773952,
+      "file_length_words": 1646,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -175386,7 +175387,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": 3691773952,
+      "file_length_words": 1646,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -175609,7 +175610,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -4277401600,
+      "file_length_words": 296576,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -175844,7 +175845,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -4277401600,
+      "file_length_words": 296576,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -176079,7 +176080,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -3623878656,
+      "file_length_words": 148,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -176314,7 +176315,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -3623878656,
+      "file_length_words": 148,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -176547,7 +176548,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -3280075776,
+      "file_length_words": 147358,
       "shape_type": 1
      },
      "ext": ".shp",
@@ -176780,7 +176781,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -1736822780,
+      "file_length_words": 35143116,
       "shape_type": 5
      },
      "ext": ".shp",
@@ -177013,7 +177014,7 @@
        0.0,
        0.0
       ],
-      "file_length_words": -63307264,
+      "file_length_words": 73214,
       "shape_type": 1
      },
      "ext": ".shp",

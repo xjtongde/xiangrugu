@@ -1,11 +1,11 @@
 # 第 3/6 块 · 空间矢量包（SUMMARY）
 
-基线 git 2df6e3d；只读证据容器镜像 sha256:6144346a501c7ba1299e28862a303007fddd6a9e8030c6b6e7c1ca52921b6cd3（复用块2授权件，未重建）。
+基线 git b39f8ed；只读证据容器镜像 sha256:6144346a501c7ba1299e28862a303007fddd6a9e8030c6b6e7c1ca52921b6cd3（复用块2授权件，未重建）。
 
 ## 三计数
 - 候选组 **903**（kml 52 + mapinfo_candidate 146 + shapefile 705；shapefile/mapinfo 沿用 spatial-component-candidates.json，KML 52 件本轮按同一外层文件+链+stem 规则补查入组；inventory sha256=fb5e6b334b898d62… 核验一致后直接复用）
 - 已确证组（头级只读取证全命中、sha 对账 2708/2708 匹配 0 错）：**903**
-- 映射对象合计 **901** =批准逐字沿用 **2** + 提案 **899**（shapefile 702 + mapinfo_tab 142 + kml 52，均 PROPOSED_NOT_AUTHORIZED）；缺口组 **1**。组级泳道分区机器断言在码：approved 2 + proposed 899 + gap 1 + text-owned-by-block2 2 = 903，UNASSIGNED=0——每组成员处置明确，AGENTS「不能静默遗漏」达成
+- 映射对象合计 **901** =批准逐字沿用 **2** + 提案 **899**（shapefile 702 + mapinfo_tab 142 + kml 52，均 PROPOSED_NOT_AUTHORIZED）；缺口组 **1**。组级泳道分区机器断言在码：**903 = 批准 2 + 提案 899 + 块2归属 2**，UNASSIGNED=0（v5 缺 DBF 组计入提案泳道，其属性缺口在 evidence-gaps 单列，不参与分区加法）——每组成员处置明确，AGENTS「不能静默遗漏」达成
 
 
 ## MapInfo 几何核验（茶香授权候选镜像，本轮）

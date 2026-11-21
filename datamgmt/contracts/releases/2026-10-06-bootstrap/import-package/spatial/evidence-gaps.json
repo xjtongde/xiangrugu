@@ -12,7 +12,7 @@
     "harvard-full/doi_10_7910/DVN/M7WEFY/v5_time_pref_pts_utf.zip!v5_time_pref_pts_utf.shp",
     "harvard-full/doi_10_7910/DVN/M7WEFY/v5_time_pref_pts_utf.zip!v5_time_pref_pts_utf.shx"
    ],
-   "reason": "required header evidence absent",
+   "reason": "源组件缺失（.dbf 在源容器内不存在，穷尽同族 23 dbf 记录数对账 0 吻合）＋属性合同未决；几何面已独立提案（shapefile_partial_no_dbf），本缺口仅属性面——待茶香/Codex 裁定属性合同。",
    "stem": "v5_time_pref_pts_utf"
   }
  ],

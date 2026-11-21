@@ -94,7 +94,7 @@ def check(outer, chain, leaf, sha, ext):
             bb = struct.unpack_from("<8d", blob, 36)
             rec["shape_type"] = code
             rec["bbox"] = bb
-            rec["file_length_words"] = struct.unpack_from("<i", blob, 24)[0] * 2
+            rec["file_length_words"] = struct.unpack_from(">i", blob, 24)[0]
         elif ext == ".dbf":
             nrec, = struct.unpack_from("<I", blob, 4)
             hlen, rlen = struct.unpack_from("<HH", blob, 8)

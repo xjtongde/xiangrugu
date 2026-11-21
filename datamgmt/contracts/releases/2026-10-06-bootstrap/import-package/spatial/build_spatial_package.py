@@ -20,7 +20,7 @@ PROBE_DIR = ROOT / ".spatial-probe-20261120"
 
 IMAGE_ID = ("sha256:6144346a501c7ba1299e28862a303007fddd6a9e8030c6b6e"
             "7c1ca52921b6cd3")
-VCS_REF = "2df6e3d"
+VCS_REF = "b39f8ed"
 
 
 def sha(p):
@@ -264,6 +264,22 @@ for e in kml_members:
         "disposition_retained": "BLOCKED",
     })
 
+# ---- S2 修正复核断言：全部 705 件 .shp 有头证据且 words×2 == 成员 size ----
+_shp_ev_all = [r for r in ev.values() if r.get("ext") == ".shp"]
+assert len(_shp_ev_all) == 705, f"shp evidence records {len(_shp_ev_all)} != 705"
+_recon = 0
+for _r in _shp_ev_all:
+    assert _r.get("sha_match") is True, f"shp sha_match not true: {_r['key']}"
+    _w = _r.get("file_length_words")
+    assert isinstance(_w, int) and _w > 0, f"missing/invalid file_length_words: {_r['key']}"
+    # 兼容两种证据形态：S2 补丁前 jsonl（size==bytes）与补丁后（length_match/bytes）
+    _b = _r.get("file_length_bytes", _r.get("size"))
+    if "file_length_bytes" in _r or "length_match" in _r:
+        assert _r.get("length_match") is True, \
+            f"length_match False: {_r['key']} words*2={_w * 2} size={_r.get('size')}"
+    assert _w * 2 == _b, f"words*2 != member bytes: {_r['key']} {_w * 2} vs {_b}"
+    _recon += 1
+
 groups_doc = {
     "status": "SPATIAL_GROUP_INVENTORY_AND_READ_ONLY_EVIDENCE",
     "ready_for_import": False,
@@ -281,6 +297,8 @@ groups_doc = {
         "groups_confirmed_read_only": sum(1 for x in groups if x["evidence_state"] == "CONFIRMED_READ_ONLY"),
         "groups_pending_evidence": sum(1 for x in groups if x["evidence_state"] == "PENDING_EVIDENCE"),
         "block3_members_attributed_exactly_once": len(attributed),
+        # S2 修正复核：shp 头长度（大端字）×2 与成员 size 对账件数，断言在码
+        "shp_header_length_reconciled": _recon,
     },
     "known_anomalies": {
         "casefold_ambiguities": casefold_stems,
@@ -639,8 +657,15 @@ for g in groups_doc["groups"]:
             continue
         gaps.append({"group_id": gid, "family": fam,
                      "stem": g["location"]["exact_stem"],
-                     "reason": "no primary component (.shp/.tab) present in "
-                               "group and not a twin-correction case",
+                     "reason": ("源组件缺失（.dbf 在源容器内不存在，穷尽检索无"
+                                "可证实伴随）＋属性合同未决；几何提案已独立登记于 "
+                                "proposed（shapefile_partial_no_dbf），本组缺口"
+                                "仅指属性面——非头证据缺失。"
+                                if (fam == "shapefile" and not ok_attr
+                                    and g["location"]["exact_stem"] == "v5_time_pref_pts_utf")
+                                else
+                                "no primary component (.shp/.tab) present in "
+                                "group and not a twin-correction case"),
                      "missing": g["missing_core_extensions"],
                      "members": [m["member_key"] for m in g["members"]]})
         continue
@@ -777,7 +802,12 @@ for g in groups_doc["groups"]:
                "tab-text (disposition kept there; spatial group retained as "
                "structural inventory only)"
                if fam == "mapinfo_candidate" and mems.get(".tab") else
-               "required header evidence absent")
+               ("源组件缺失（.dbf 在源容器内不存在，穷尽同族 23 dbf 记录数对账 "
+                "0 吻合）＋属性合同未决；几何面已独立提案（shapefile_partial_"
+                "no_dbf），本缺口仅属性面——待茶香/Codex 裁定属性合同。"
+                if (fam == "shapefile" and not ok_attr
+                    and g["location"]["exact_stem"] == "v5_time_pref_pts_utf")
+                   else "required header evidence absent"))
         gaps.append({"group_id": gid, "family": fam,
                      "stem": g["location"]["exact_stem"],
                      "reason": why,
@@ -878,12 +908,14 @@ assert groups_doc["counts"]["candidate_groups_total"] == len(groups_doc["groups"
 assert (groups_doc["counts"]["groups_confirmed_read_only"]
         + groups_doc["counts"]["groups_pending_evidence"]
         == groups_doc["counts"]["candidate_groups_total"])
-# every candidate group lands in exactly one lane: approved / proposed / gap
+# every candidate group lands in exactly one lane: approved / proposed / text-owned-by-block2
+# （分区口径与 groups.json lane_partition 机器值一致：903 = 2 已批准 + 899 提案 + 2 块2归属；
+#   v5 缺 DBF 组在提案泳道，其属性缺口另在 evidence-gaps 登记，不参与分区加法）
 _lanes = collections.Counter(
     ("approved" if g.get("mapping_lane") == "approved_verbatim" else
      "proposed" if g["group_id"] in {x["group_id"] for x in proposed} else
-     "gap" if g["group_id"] in {x["group_id"] for x in gaps} else
      "text-owned-by-block2" if g["family_candidate"] == "mapinfo_candidate"
+     and any(_m["ext"] == ".tab" for _m in g["members"])
      and not any(
          x.strip().upper().startswith(("DEFINITION TABLE", "TYPE NATIVE"))
          for _m in g["members"]
@@ -894,7 +926,7 @@ _lanes = collections.Counter(
     for g in groups_doc["groups"])
 assert _lanes.get("UNASSIGNED", 0) == 0, _lanes
 groups_doc["counts"]["lane_partition"] = dict(_lanes)
-assert (_lanes["approved"] + _lanes["proposed"] + _lanes["gap"]
+assert (_lanes["approved"] + _lanes["proposed"]
         + _lanes["text-owned-by-block2"] == len(groups_doc["groups"]))
 
 (HERE / "groups.json").write_text(json.dumps(groups_doc, ensure_ascii=False, indent=1, sort_keys=True) + "\n")
@@ -1020,7 +1052,7 @@ summary = f"""# 第 3/6 块 · 空间矢量包（SUMMARY）
 ## 三计数
 - 候选组 **{len(groups_doc['groups'])}**（{ ' + '.join(f"{k} {v}" for k,v in sorted(groups_doc['counts']['by_family'].items())) }；shapefile/mapinfo 沿用 spatial-component-candidates.json，KML {groups_doc['counts']['by_family']['kml']} 件本轮按同一外层文件+链+stem 规则补查入组；inventory sha256={inv_sha[:16]}… 核验一致后直接复用）
 - 已确证组（头级只读取证全命中、sha 对账 2708/2708 匹配 0 错）：**{groups_doc['counts']['groups_confirmed_read_only']}**
-- 映射对象合计 **{len(approved_out)+len(proposed)}** =批准逐字沿用 **{len(approved_out)}** + 提案 **{len(proposed)}**（shapefile {sum(1 for x in proposed if x['carrier']=='shapefile')} + mapinfo_tab {sum(1 for x in proposed if x['carrier']=='mapinfo_tab')} + kml {sum(1 for x in proposed if x['carrier']=='kml')}，均 PROPOSED_NOT_AUTHORIZED）；缺口组 **{len(gaps)}**。组级泳道分区机器断言在码：approved 2 + proposed {len(proposed)} + gap {len(gaps)} + text-owned-by-block2 2 = 903，UNASSIGNED=0——每组成员处置明确，AGENTS「不能静默遗漏」达成
+- 映射对象合计 **{len(approved_out)+len(proposed)}** =批准逐字沿用 **{len(approved_out)}** + 提案 **{len(proposed)}**（shapefile {sum(1 for x in proposed if x['carrier']=='shapefile')} + mapinfo_tab {sum(1 for x in proposed if x['carrier']=='mapinfo_tab')} + kml {sum(1 for x in proposed if x['carrier']=='kml')}，均 PROPOSED_NOT_AUTHORIZED）；缺口组 **{len(gaps)}**。组级泳道分区机器断言在码：**903 = 批准 {len(approved_out)} + 提案 {len(proposed)} + 块2归属 {groups_doc["counts"]["lane_partition"].get("text-owned-by-block2", 0)}**，UNASSIGNED=0（v5 缺 DBF 组计入提案泳道，其属性缺口在 evidence-gaps 单列，不参与分区加法）——每组成员处置明确，AGENTS「不能静默遗漏」达成
 
 {mie_summary}
 ## KML 专段（本轮补查，52 件零遗漏）

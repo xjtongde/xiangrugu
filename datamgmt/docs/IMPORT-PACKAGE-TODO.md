@@ -1,6 +1,6 @@
 # 全量导入包与映射进度
 
-更新日期：2026-11-21。当前阶段为数据整理与映射，第 1–2/6 块（CBDB、普通表格）已获 Codex 验收，第 3/6 块空间矢量 **Codex 整理验收通过**（独立验收补正提交 926ed98），第 4/6 块 Access/MDB 与 SQL **Codex 整理验收通过**（收口补正提交 5d0c9e3），第 5/6 块栅格及其他成员首盒+独立验收补正+证据标注收尾交付（b39f8ed→d59010b→本轮），**待 Codex 复核**，第 6 块合并与落盘待 Codex 复核收口后派发。交付在本 release 的 [import-package/cbdb/](../contracts/releases/2026-10-06-bootstrap/import-package/cbdb/SUMMARY.md)、[import-package/tabular/](../contracts/releases/2026-10-06-bootstrap/import-package/tabular/SUMMARY.md)、[import-package/spatial/](../contracts/releases/2026-10-06-bootstrap/import-package/spatial/SUMMARY.md)、[import-package/mdb-sql/](../contracts/releases/2026-10-06-bootstrap/import-package/mdb-sql/SUMMARY.md) 与 [import-package/raster-other/](../contracts/releases/2026-10-06-bootstrap/import-package/raster-other/SUMMARY.md)；CBDB 10 表/235 列源侧值验证单列未决，不计入映射完成，ready_for_import=False 保持。
+更新日期：2026-11-21。当前阶段为数据整理与映射，第 1–2/6 块（CBDB、普通表格）已获 Codex 验收，第 3/6 块空间矢量 **Codex 整理验收通过**（独立验收补正提交 926ed98），第 4/6 块 Access/MDB 与 SQL **Codex 整理验收通过**（收口补正提交 5d0c9e3），第 5/6 块栅格及其他成员 **Codex 验收通过**（首盒+补正+标注收尾+文本出处更正交付链 b39f8ed→d59010b→c2ef3ca→c8b8fe8），第 6/6 块全量汇总与落盘**首盒进行中**（基线 c8b8fe8，只读核查+整理+Gitea，正式落盘须另授权）。交付在本 release 的 [import-package/cbdb/](../contracts/releases/2026-10-06-bootstrap/import-package/cbdb/SUMMARY.md)、[import-package/tabular/](../contracts/releases/2026-10-06-bootstrap/import-package/tabular/SUMMARY.md)、[import-package/spatial/](../contracts/releases/2026-10-06-bootstrap/import-package/spatial/SUMMARY.md)、[import-package/mdb-sql/](../contracts/releases/2026-10-06-bootstrap/import-package/mdb-sql/SUMMARY.md) 与 [import-package/raster-other/](../contracts/releases/2026-10-06-bootstrap/import-package/raster-other/SUMMARY.md)；CBDB 10 表/235 列源侧值验证单列未决，不计入映射完成，ready_for_import=False 保持。
 
 本文件是当前阶段、六块待办、交付和讨论结论的唯一进度入口。设计约束见 [DESIGN.md](DESIGN.md)，执行权限见 [OPERATIONS.md](OPERATIONS.md)，原 Task 1–18 工程依赖见 [IMPLEMENTATION-PLAN.md](IMPLEMENTATION-PLAN.md)，既往运行记录见 [PROGRESS-HISTORY.md](PROGRESS-HISTORY.md)。其他入口只链接本文件，不复制当前进度。
 
@@ -33,8 +33,8 @@
 | 2 | TSV/CSV/Excel、独立 DBF 等普通表格 | 已验收（Codex 2026-11-20，提交 5478271） | 文件/工作表/记录对象、编码、字段、空值及目标映射 | 编码或表格语义的未决项 |
 | 3 | Shapefile、MapInfo、KML 等空间矢量 | **Codex 整理验收通过**（补正 926ed98，SHP 头长 705/705 闭合） | 组件组、属性、几何、CRS 原声明及目标映射 | 组件缺失、坐标声明和异常保留 |
 | 4 | Access/MDB、SQL 数据 | **Codex 整理验收通过**（收口补正 5d0c9e3；96 提案批准面留导入阶段） | 内部对象及字段清单、读取/隔离方法、目标映射及不兼容项 | 不能无损读取或表达的具体对象 |
-| 5 | 栅格、其他格式和非业务成员 | 首盒+补正+标注收尾 PASS，待 Codex 复核 | 栅格对象与入库方式；说明/图片/校验文件用途；未知件明细 | 剩余格式的处置决定 |
-| 6 | 全量合并、重复关系及 32 落盘 | 待执行 | 全部成员覆盖、唯一目标命名、包清单、执行顺序、完整性报告及绝对路径 | 全量包验收、导入准备与实际执行安排 |
+| 5 | 栅格、其他格式和非业务成员 | **Codex 验收通过**（交付链 b39f8ed→d59010b→c2ef3ca→c8b8fe8） | 栅格对象与入库方式；说明/图片/校验文件用途；未知件明细 | 剩余格式的处置决定 |
+| 6 | 全量合并、重复关系及 32 落盘 | 首盒进行中（基线 c8b8fe8，只读+整理+Gitea） | 全部成员覆盖、唯一目标命名、包清单、执行顺序、完整性报告及绝对路径 | 全量包验收、导入准备与实际执行安排 |
 
 ### 第 1 块 CBDB
 
@@ -181,6 +181,13 @@
 
 ### 第 6 块合并与落盘
 
+#### 首盒进度（2026-11-21，30 分钟盒，基线 c8b8fe8，只读核查+整理+Gitea；正式落盘须另授权）
+
+- **lead 三阻断预核突破**（详 `.rollup-block6-20261121/lead-precheck.md`）：SHA256SUMS-b2 末 126 字节（offset 21945–22070）全 NUL=第 173 行被覆盖；172 有效行 lead/a03 双独立重算 172/172 OK。**README-b2.md §四 173 件逐件表 − ledger 172 差集恰 1 件=harvard-full/doi_10_7910/DVN/PAGGQS/CBDB_20240208_sqlite.db（837.2MB，sha16 5207eacebbe82ec6）**；字节闭合 2,764,772,927−1,886,910,015=877,862,912；**该件缺席当前快照**（全盘 size/路径/sha 前缀三路搜索 0 命中；快照 CBDB 为另版本 cbdb_20260919.sqlite3 bde1bb8e…）→ 身份可唯一重构、全 sha256 不可恢复、本体无法重算核销（UNRESOLVED_DECLARED_MEMBER_ABSENT）；**源枚举差异单列**（README 声明 173 vs 快照 172，移除时点/授权待茶香/Codex 裁定）。chgis/SHA256SUMS.txt line4=7452ae6c… China_Periods_ReignDates.zip 经唯一 sha 关联 chgis-v6/ 同名件可核销（ASSOCIATED_BY_SHA_PATH_MISMATCH，布局成因 README 明载）。inventory issues 与 complete=false 原样保留。
+- **归属口径裁定**：块4=11=core_members 7（MDB5+SQL2）+structural_container 4（内层容器 ZIP，related_members 标 structural_container）；rollup 用 primary_owner_block+sub_lane 显式；等式 3+174+5294+11+2522=8004，两两交集 0、指纹失配 0（a03 ROUND 24 全量独立证）。
+- **32 版本化落盘拟案**（仅提案）：`/opt/mydocker/xiangrugu/releases/2026-10-06-bootstrap/rollup/<full-git-commit>/`，预期 rollup 八件+inventory 副本+manifest.sha256；逐件 sha256+manifest+git 锚+双跑字节一致；落盘后 sha256sum -c 全 OK 方认接收。
+- a02 rollup 生成器+八件产物、a03 二期交叉核进行中；本盒交付=全量账草案+冲突待裁清单+阻断复核证据+SUMMARY。
+
 - [ ] 合并前五块并重新统计；核销历史清点 issue、未知件和所有未决语义。
 - [ ] 全局检查源成员覆盖、组件交叉归属、目标名称冲突及镜像主从关系；用双向检查发现漏项和多余项。
 - [ ] 确定 32 的版本化导入包目录，保留现有快照，不覆盖同名包；复用一致的本地源字节，差异明确留证。
@@ -226,3 +233,5 @@ PASS 必须覆盖本块全部范围及处置；未决项保留 PARTIAL/BLOCKED�
 - 2026-11-21：**第 5/6 块证据标注收尾**（15 分钟盒，基线 d59010b）：25 处世界文件文本=原文逐字+规整文本双标注（normalized_text↔六参数全等 0 失配，23 确证+2 待裁分级保持）；WKT 统一「GDAL GetProjectionRef 返回值」表述×43；校验说明按 executed_this_round 分支 26 已执行/17 仅登记逐项一致；43 身份/映射值/六参数/WKT、7 缺口、8004 归属账与基线无漂移（守卫断言入码）；probe_evidence 未动；32 双跑 0/0 字节一致；a03 逐项独立核。终态 members c36668c1/mapping 79b0d917/gaps a916e1d9/SUMMARY 456adb0e/生成器 40d34664。第 6 块待 Codex 复核后派发。
 
 - 2026-11-22：**世界文件文本出处定点更正**（10 分钟盒，基线 c2ef3ca）：lead 实证 1926_01.jgw 原件含 6 CRLF 而交付文本为 LF——原「verbatim/源成员字节转录」声明不实。修正：probe_evidence.json 25 处 world_file_declared.verbatim **改名 probe_text（文本值逐字节零动）**；生成器 text_provenance 重构为 probe_text〔探测文本，换行及末尾空白已规整〕+normalized_text〔六浮点重序列化〕+original_locator〔source_member+SHA-256 定位〕，删除全部「原文逐字/源成员字节转录」声明（SUMMARY/TODO 同步清措辞）；守卫断言 probe_text==d59010b 基线 verbatim 25/25、六浮点/sha256/source_member/23+2 分级/26-17/sid/identity/等式 5482+2522=8004/class_counts/7 缺口零漂移。**数值、绑定与归属账无变化**；32 双跑 exit 0/0 stderr 空四件一致。
+- 2026-11-21：**第 5 块 Codex 验收通过**（本轮派工指令记入；交付链 b39f8ed→d59010b→c2ef3ca→c8b8fe8 已上 Gitea）。**第 6/6 块首盒启动**（30 分钟盒，基线 c8b8fe8）：lead 预核查清三历史阻断——SHA256SUMS-b2 第 173 行被 126 NUL 覆盖，经 README-b2 §四 173 件表差集+字节闭合唯一重构为 PAGGQS/CBDB_20240208_sqlite.db（837.2MB sha16 5207eace），该件缺席快照（源枚举差异单列待裁）；chgis 账 line4 经唯一 sha 关联 chgis-v6 件可核销（路径不符注记）；归属口径裁定块4=core7+structural4=11；32 落盘拟案 releases/2026-10-06-bootstrap/rollup/<commit>/（仅提案）。a02 rollup+a03 独立复算进行中。
+- 2026-11-21（块6首盒续）：a02 rollup 八件交付（对账漏0/余0/重复0/失配0，等式断言入码；三阻断 32 逐步独立复核；mirror 381 组/name 13 碰撞组跨块0/pending 14 类；set 迭代序缺陷修复披露；双跑0/0字节一致）；a03 ROUND 24 一期+二期全 PASS（五块 symdiff 0、refs 613 全真、32 全量 8004 失配0、三阻断独立复现、381/13/14 核实、重跑确定性）。**lead 口径裁定**：distinct_proposed_names 974 直算确证（mdb70+spatial899+tabular objects 5），a03 1144 系 tabular 取数面差（175 vs 5），核心断言不受影响，登记待 Codex 复核。首个无法验证位置=PAGGQS/CBDB_20240208_sqlite.db 本体及其全 sha256。

@@ -1,0 +1,91 @@
+{
+ "baseline_git": "c8b8fe8",
+ "format": "xiangrugu.import-package.rollup.pending-items.v1",
+ "item_kinds": 14,
+ "items": [
+  {
+   "count": 12,
+   "detail": "WMF 12 件 tool_gap 待授权（MAP-READ-PLAN 平行案）",
+   "evidence_ref": "raster-other/evidence-gaps.json#tool_gap_wmf_reader",
+   "kind": "wmf_reader_tool_gap"
+  },
+  {
+   "count": 1,
+   "detail": "v5_time_pref_pts_utf 缺 DBF，属性零补造",
+   "evidence_ref": "spatial groups family=shapefile_partial_no_dbf",
+   "kind": "v5_missing_dbf"
+  },
+  {
+   "count": 899,
+   "detail": "spatial 提案 899 待茶香/Codex 批准",
+   "evidence_ref": "spatial/object-mapping.json",
+   "kind": "unapproved_mappings_spatial"
+  },
+  {
+   "count": 96,
+   "detail": "mdb-sql 提案批准面留导入阶段",
+   "evidence_ref": "mdb-sql/object-mapping.json",
+   "kind": "unapproved_mappings_mdb"
+  },
+  {
+   "count": 43,
+   "detail": "栅格 43 提案 PROPOSED_NOT_AUTHORIZED",
+   "evidence_ref": "raster-other/raster-mapping.json",
+   "kind": "unapproved_mappings_raster"
+  },
+  {
+   "count": 789,
+   "detail": "tabular pending_review 面",
+   "evidence_ref": "tabular/members.json",
+   "kind": "tabular_pending_review"
+  },
+  {
+   "count": 43,
+   "detail": "PostGIS raster vs bytea+sidecar 装载合同未决",
+   "evidence_ref": "raster-other proposals",
+   "kind": "loader_contract_undecided"
+  },
+  {
+   "count": 17,
+   "detail": "逐波段 checksum 17 件仅登记方法",
+   "evidence_ref": "raster-other/evidence-gaps.json",
+   "kind": "checksum_deferred"
+  },
+  {
+   "count": 113,
+   "detail": "NoData 源未声明波段留导入合同",
+   "evidence_ref": "raster-other",
+   "kind": "nodata_source_undeclared_bands"
+  },
+  {
+   "count": 3,
+   "detail": "inventory issues 3 项（本盒复核结论草案见 historical-blockers.json，原账不动）",
+   "evidence_ref": "inventory.json",
+   "kind": "inventory_historical_issues"
+  },
+  {
+   "count": 2,
+   "detail": "Peking tfw casefold 关联绑定裁定",
+   "evidence_ref": "raster-other",
+   "kind": "casefold_binding_adjudication"
+  },
+  {
+   "count": 1,
+   "detail": "pdb2.TIF 无几何声明，四副本合并+配准取舍留本裁定面",
+   "evidence_ref": "raster-other/evidence-gaps.json",
+   "kind": "pdb2_georeference"
+  },
+  {
+   "count": null,
+   "detail": "LOCAL_CS 非 EPSG 不推导，SRID 分配待源级裁定",
+   "evidence_ref": "raster-other/spatial gaps",
+   "kind": "crs_local_cs_non_epsg"
+  },
+  {
+   "count": 13,
+   "detail": "跨块目标表名碰撞分配（本盒扫描结果见 name-conflicts.json）",
+   "evidence_ref": "rollup/name-conflicts.json",
+   "kind": "shapename_collision_allocation"
+  }
+ ]
+}

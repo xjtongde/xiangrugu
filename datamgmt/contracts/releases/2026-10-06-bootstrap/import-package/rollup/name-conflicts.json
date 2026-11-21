@@ -1,0 +1,230 @@
+{
+ "baseline_git": "c8b8fe8",
+ "collision_groups": 13,
+ "collisions": {
+  "chgis|v4_chgis_dbase_v4_data_dictionary": [
+   {
+    "block": 4,
+    "carrier": "mdb_table",
+    "sid": "1ef369c5af1565a20fe740f39a1c8f13eb1faf19d643fe91b4797799750772c4"
+   },
+   {
+    "block": 4,
+    "carrier": "mdb_table",
+    "sid": "e4a10e8dce635aac1f30a1fe6fc22cebc0f5736302c73aca7afbd985bbbfcfe2"
+   },
+   {
+    "block": 4,
+    "carrier": "mdb_table",
+    "sid": "8a42c9057db446e3d1df7a4a0dea4944a28eebb84ed4d1f2796bc026daf89f9e"
+   }
+  ],
+  "chgis|v4_chgis_dbase_v4_feature_types": [
+   {
+    "block": 4,
+    "carrier": "mdb_table",
+    "sid": "c447f95eee798aa912c15b0017565902dd485f25cd561e450000b64f6183dd66"
+   },
+   {
+    "block": 4,
+    "carrier": "mdb_table",
+    "sid": "482768bd812533bed1913cd759234c2abac81de197cfea48664e3f7048fe48b6"
+   },
+   {
+    "block": 4,
+    "carrier": "mdb_table",
+    "sid": "08adf9e0d31b1b7b92959bfbdd527c1d556611cd3f7ea275e6a56e182da95b02"
+   }
+  ],
+  "chgis|v4_chgis_dbase_v4_gis_info_table": [
+   {
+    "block": 4,
+    "carrier": "mdb_table",
+    "sid": "fdf2a82d660729c6f89faedc0235f617a5ea916c5fe54cb05a418e9fabea7155"
+   },
+   {
+    "block": 4,
+    "carrier": "mdb_table",
+    "sid": "a6f3db713fc9b6553c5d4a3696a9754312a4f80c946b6c4d1b7719e8f95b9304"
+   },
+   {
+    "block": 4,
+    "carrier": "mdb_table",
+    "sid": "55c3f85ff700568f367a4e986059799cab07ffff89c9f89f20bc68d6799293cd"
+   }
+  ],
+  "chgis|v4_chgis_dbase_v4_gis_layer_field_names": [
+   {
+    "block": 4,
+    "carrier": "mdb_table",
+    "sid": "f80a6d1063b0b5f837994dc0044561c9c5f10459b16e50cf56ed9973015f5379"
+   },
+   {
+    "block": 4,
+    "carrier": "mdb_table",
+    "sid": "964556b0ffbd54c8e3437027a8b8a3f4cda85f7afd0c3288207835fbb478c2d4"
+   },
+   {
+    "block": 4,
+    "carrier": "mdb_table",
+    "sid": "e72e5cbd41075af9b35222ddff7e9ea0a70a00cc7814b69a8d0d7b4d99ed5bd1"
+   }
+  ],
+  "chgis|v4_chgis_dbase_v4_main_table": [
+   {
+    "block": 4,
+    "carrier": "mdb_table",
+    "sid": "b66af36193be0a0f62ed1b20facd007e27e2cddf696a291c3d15077fa1aec672"
+   },
+   {
+    "block": 4,
+    "carrier": "mdb_table",
+    "sid": "7df02cbea5383deeca867e95b9fa4b7b5c405a96fc889a9ec66784826e803d0a"
+   },
+   {
+    "block": 4,
+    "carrier": "mdb_table",
+    "sid": "d07ec78b9d5264293cbea3c12c649a303ff58c4ffed69d28600ba3eb636d7722"
+   }
+  ],
+  "chgis|v4_chgis_dbase_v4_part_of_table": [
+   {
+    "block": 4,
+    "carrier": "mdb_table",
+    "sid": "e7c8a9582a1c38f693c6def18aed1172871d9d141ea69b967f36a0a361e948c0"
+   },
+   {
+    "block": 4,
+    "carrier": "mdb_table",
+    "sid": "2d7611862a783aefa0e75fab73109b28ffe03c4f9da2ea6453e209af8df62108"
+   },
+   {
+    "block": 4,
+    "carrier": "mdb_table",
+    "sid": "7ef142dc61c8f6780a223e50497d0bb9a97cbda32784b82ca95d032fdd6d48e2"
+   }
+  ],
+  "chgis|v4_chgis_dbase_v4_preceded_by_table": [
+   {
+    "block": 4,
+    "carrier": "mdb_table",
+    "sid": "aa74ccb64738a0ebb211ae797bab36d365718898eb7d10c260262f469f30bb51"
+   },
+   {
+    "block": 4,
+    "carrier": "mdb_table",
+    "sid": "a98843083ca1542ab5743e8823bc669714217fa2df460ab1ee94ae53d9d0ce8c"
+   },
+   {
+    "block": 4,
+    "carrier": "mdb_table",
+    "sid": "35b42e619eed4ada54c58070716042e4a8792ee1294f1f573c1015127b3dd052"
+   }
+  ],
+  "chgis|v4_chgis_dbase_v4_source_notes": [
+   {
+    "block": 4,
+    "carrier": "mdb_table",
+    "sid": "2f9864af120a9f272c2ead11c560e1e4a83fafdf2a283e641b1c0b1c05f87ae5"
+   },
+   {
+    "block": 4,
+    "carrier": "mdb_table",
+    "sid": "412b58b7c2fe5e2521fbf5ebe2249177618e837c10b44a57e1ebdb2be1fe8ee7"
+   },
+   {
+    "block": 4,
+    "carrier": "mdb_table",
+    "sid": "25d19ce73a023de07f6a3a1962148bf857062495f4aaf6e1ef2e552346d73d72"
+   }
+  ],
+  "chgis|v4_chgis_dbase_xtra_change_types": [
+   {
+    "block": 4,
+    "carrier": "mdb_table",
+    "sid": "4146927ddeeaee7d54d71588d1f8dd3f6f89aea57895ce05c28810cb91f98834"
+   },
+   {
+    "block": 4,
+    "carrier": "mdb_table",
+    "sid": "a66a590661a1b973a839c9d17540bb70a1b29f215927c48c34b6da8226213a44"
+   },
+   {
+    "block": 4,
+    "carrier": "mdb_table",
+    "sid": "59a34e2a9ff0e40c16fa89f545fd0ff5f62c2a9d760f7c18872f5ed709df22b8"
+   }
+  ],
+  "chgis|v4_chgis_dbase_xtra_contributors": [
+   {
+    "block": 4,
+    "carrier": "mdb_table",
+    "sid": "757938161af70e3c9478adf8652a25d31118af9efea58580b28ad329a1d12bbc"
+   },
+   {
+    "block": 4,
+    "carrier": "mdb_table",
+    "sid": "0effb5abead5377b93c6d075484754c36b411eddc2f38580c4affac0d0643175"
+   },
+   {
+    "block": 4,
+    "carrier": "mdb_table",
+    "sid": "1911e12b7b2ea1de570416052c83a9477e0a5f89cfb2867bebfc0c53078240dc"
+   }
+  ],
+  "chgis|v4_chgis_dbase_xtra_date_rules": [
+   {
+    "block": 4,
+    "carrier": "mdb_table",
+    "sid": "46c367eab4c63966b92286b0c14bd64a34dd25c6c60aa2d9ac89709d4dcdadfc"
+   },
+   {
+    "block": 4,
+    "carrier": "mdb_table",
+    "sid": "6c4e17757a92dfd44f62b45d3e64b1de6b5c830c21726a94162cfb6f4e282544"
+   },
+   {
+    "block": 4,
+    "carrier": "mdb_table",
+    "sid": "9613d0af062891fcff353ee1b2940db77355666a2130ae242a5c6410a230cc38"
+   }
+  ],
+  "chgis|v4_chgis_dbase_xtra_geo_source": [
+   {
+    "block": 4,
+    "carrier": "mdb_table",
+    "sid": "add15709275e25d546cb602a207b3020b70e940a9bb4183e34b1a297cdc69d3b"
+   },
+   {
+    "block": 4,
+    "carrier": "mdb_table",
+    "sid": "c9c39ca6d40039cd8a45283aadd0ec0885dcae54fbdbef7b74d577986e9d419b"
+   },
+   {
+    "block": 4,
+    "carrier": "mdb_table",
+    "sid": "8fec0ec28500d9b08ca496115c1bb93e7547fd96f29e6f7a9bfbfb431696cd55"
+   }
+  ],
+  "chgis|v4_chgis_dbase_xtra_other_feature_types": [
+   {
+    "block": 4,
+    "carrier": "mdb_table",
+    "sid": "bfe14d19b1247925679799a195edd183fb0de200090757a2a0d1e67be1655f12"
+   },
+   {
+    "block": 4,
+    "carrier": "mdb_table",
+    "sid": "946394d50e1b6f3943eb5ae3b0d007c9e6b8e1ac8fdfe33168745b922fe9fd77"
+   },
+   {
+    "block": 4,
+    "carrier": "mdb_table",
+    "sid": "42539d9759598787423b56d528baec8ff1694265200260f72ba9a6f91301511f"
+   }
+  ]
+ },
+ "distinct_proposed_names": 974,
+ "format": "xiangrugu.import-package.rollup.name-conflicts.v1",
+ "method": "五块 object-mapping 提案名集 (schema,name) 分组计数；raster 提案名留块6 命名（table_name_proposal=null 不计入）"
+}

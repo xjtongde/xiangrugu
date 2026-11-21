@@ -1,0 +1,159 @@
+{
+ "baseline_git": "c8b8fe8",
+ "block4_composition_ruling": {
+  "basis": "lead-ruling team-message-3ffcfc67：块4归属=core 7(MDB5+SQL2)+related structural_container 4；a03 口径观察：core 键仅 7、4 容器在 related_members 标 structural_container（descendant mapped separately）",
+  "core_data": 7,
+  "structural_container_wrappers": 4,
+  "total": 11,
+  "wrappers": [
+   [
+    "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip",
+    [
+     "access_dbase/v3_chgis_dbase.ZIP"
+    ],
+    [
+     76
+    ]
+   ],
+   [
+    "harvard-full/doi_10_7910/DVN/PDGOZ0/V4_Data_Archive.zip",
+    [
+     "access_database/v4_chgis_dbase.zip"
+    ],
+    [
+     3
+    ]
+   ],
+   [
+    "harvard-full/doi_10_7910/DVN/PDGOZ0/V4_Data_Archive.zip",
+    [
+     "shapefiles/v4_chgis_dbase.zip"
+    ],
+    [
+     109
+    ]
+   ],
+   [
+    "harvard-full/doi_10_7910/DVN/ZZKZ6U/CHGIS_V2.zip",
+    [
+     "access_dbase/chgis_v2_database.ZIP"
+    ],
+    [
+     0
+    ]
+   ]
+  ]
+ },
+ "block_counts": {
+  "1": 3,
+  "2": 174,
+  "3": 5294,
+  "4": 11,
+  "5": 2522
+ },
+ "cross_references": [
+  {
+   "also_referenced_by": [
+    "block3",
+    "mapinfo_candidate"
+   ],
+   "key": [
+    "harvard-full/doi_10_7910/DVN/MI56KU/2001_Shanghai_0_INDEX_OF_PRESENTATIONS.tab",
+    [],
+    []
+   ],
+   "owner": [
+    "block2",
+    "tab-text"
+   ]
+  },
+  {
+   "also_referenced_by": [
+    "block3",
+    "mapinfo_candidate"
+   ],
+   "key": [
+    "harvard-full/doi_10_7910/DVN/SK7KGK/GB_91_HZ_040201_UTF8.tab",
+    [],
+    []
+   ],
+   "owner": [
+    "block2",
+    "tab-text"
+   ]
+  },
+  {
+   "also_referenced_by": [
+    "block4_doc_note",
+    "documentation"
+   ],
+   "key": [
+    "chgis-v6/China_Periods_ReignDates.zip",
+    [
+     "china_chron/china_chron.txt"
+    ],
+    [
+     2
+    ]
+   ],
+   "owner": [
+    "block2",
+    "txt"
+   ]
+  },
+  {
+   "also_referenced_by": [
+    "block4_doc_note",
+    "documentation"
+   ],
+   "key": [
+    "chgis-v6/China_Periods_ReignDates.zip",
+    [
+     "china_chron/README_CHINA_CHRON.txt"
+    ],
+    [
+     5
+    ]
+   ],
+   "owner": [
+    "handoff_block5",
+    "txt"
+   ]
+  }
+ ],
+ "directional_checks": {
+  "inventory_to_union_missing": 0,
+  "object_mapping_refs_members": 524,
+  "pairwise_overlaps_empty": true,
+  "sha_all_match_inventory": true,
+  "union_to_inventory_extra": 0
+ },
+ "equation": "3 + 174 + 5294 + 11 + 2522 == 8004",
+ "format": "xiangrugu.import-package.rollup.reconciliation.v1",
+ "handoff_lanes": {
+  "block2_handoff_block3": 846,
+  "block2_handoff_block5": 620,
+  "note": "交接面成员按最终归属块计 primary_owner_block exactly-once（846 面→块3 组内件、620→块5），不重复认领"
+ },
+ "inventory_sha256": "fb5e6b334b898d62dc0e5c77094fdb50e0946300e6e3009f447b2ecd1bc216db",
+ "source_enumeration_discrepancies": [
+  {
+   "absent_member": "harvard-full/doi_10_7910/DVN/PAGGQS/CBDB_20240208_sqlite.db",
+   "byte_closure": "2,764,772,927 − 1,886,910,015（172 件实测和）= 877,862,912 == 837.2MiB",
+   "declared_in": "README-b2.md §二/§四（173 件 / 2,764,772,927B）",
+   "declared_sha16": "5207eacebbe82ec6",
+   "declared_size_mb": 837.2,
+   "history_note": "2026-09-28 账称 173/173 verified；2026-10-07 快照已无该件——何时何因移除待茶香/Codex 裁定，登记不臆断",
+   "snapshot_state": "不在 2026-10-07 快照：find PAGGQS/CBDB_20240208 空、无 size-877862912 件、inventory 无 sha-5207eace 前缀件（本盒 32 独立复核）",
+   "status": "REGISTERED_DISCREPANCY_NOT_ADJUDICATED"
+  }
+ ],
+ "source_enumeration_freshness": {
+  "inventory_ledger_scope_files": 172,
+  "live_outer_files": 172,
+  "method": "32 快照只读顶层枚举（harvard-full/doi_10_7910/DVN/* 与 chgis-v6/* 外层文件）vs inventory 同范围外层件差集；嵌套全量重枚举不在本盒",
+  "note": "顶层新鲜度==inventory；README-b2 声明面差异（173 vs 172）见 source_enumeration_discrepancies",
+  "only_in_inventory": 0,
+  "only_in_live": 0
+ }
+}

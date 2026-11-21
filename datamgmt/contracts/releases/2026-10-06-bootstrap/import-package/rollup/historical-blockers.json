@@ -1,0 +1,100 @@
+{
+ "baseline_git": "c8b8fe8",
+ "format": "xiangrugu.import-package.rollup.historical-blockers.v1",
+ "inventory_complete_flag_preserved": false,
+ "inventory_issues_preserved_verbatim": [
+  {
+   "archive_chain": [],
+   "archive_ordinals": [],
+   "blocking": true,
+   "code": "checksum_line",
+   "detail": "line=173",
+   "relative_path": "SHA256SUMS-b2"
+  },
+  {
+   "archive_chain": [],
+   "archive_ordinals": [],
+   "blocking": true,
+   "code": "checksum_nul",
+   "detail": "count=126",
+   "relative_path": "SHA256SUMS-b2"
+  },
+  {
+   "archive_chain": [],
+   "archive_ordinals": [],
+   "blocking": true,
+   "code": "checksum_missing",
+   "detail": "line=4",
+   "relative_path": "harvard/chgis/SHA256SUMS.txt"
+  }
+ ],
+ "items": [
+  {
+   "carrier": {
+    "relative_path": "SHA256SUMS-b2",
+    "sha256": "900d98c69cf9b72f20313aa562b8da5e18e9c3e3def423fa6f618b4b1bafb3cb",
+    "size": 22071
+   },
+   "independent_recompute": {
+    "line173_membership_uniqueness": "唯一重构成立（表路径+大小+sha16 三重锚定）",
+    "line173_reconstruction": "README-b2 §二声明 173 件/2,764,772,927B；§四 173 行逐件表 vs ledger 差集恰 1 件=PAGGQS/CBDB_20240208_sqlite.db 837.2MB sha16 5207eacebbe82ec6；字节闭合 2,764,772,927−1,886,910,015=877,862,912",
+    "lines_1_172": "lead 32 逐行独立重算 172/172 sha OK；本盒复核其行数构成 172==inventory 外层 172（171+1）",
+    "snapshot_absence_verified_this_box": "find PAGGQS/CBDB_20240208 空、无 size-877862912 件、inventory 无 sha-5207eace 件"
+   },
+   "issue_codes": [
+    "checksum_line line=173",
+    "checksum_nul count=126"
+   ],
+   "raw_byte_evidence": {
+    "file_size": 22071,
+    "line173_raw": "126×0x00（offset 21945–22070，即被覆盖的第 173 行区域；前行以 .txt\\n 完整结束）",
+    "nul_count": 126,
+    "nul_offset_range": [
+     21945,
+     22070
+    ],
+    "nul_runs": [
+     [
+      21945,
+      22070,
+      126
+     ]
+    ],
+    "valid_line_composition": "171 harvard-full DVN 外层 + 1 chgis-v6",
+    "valid_lines": 172
+   },
+   "remaining_reasons": [
+    "声明成员本体缺席当前快照（无法重算核销）",
+    "全 sha256 不可恢复（README 仅 16 位前缀，全值在被覆盖行内）",
+    "NUL 区原始字节不可恢复（第 173 行内容已被覆盖）"
+   ],
+   "status": "UNRESOLVED_DECLARED_MEMBER_ABSENT"
+  },
+  {
+   "association": {
+    "declared_hash": "7452ae6c…c355e",
+    "independent_recompute_this_box": "32 流式 sha256sum 原件 == line4 声明值（逐字全等）",
+    "layout_cause": "README-b2 明载：chgis-v6 五随附账首批收 harvard/chgis/，数据 zip 本批收 chgis-v6/，发布方总账随附账走",
+    "matched_member": "chgis-v6/China_Periods_ReignDates.zip",
+    "matched_member_sha256": "7452ae6cf8d7dedbd0b06ea4e0e8343be9bac4075069ca8eb89e8ff0451c355e"
+   },
+   "carrier": {
+    "relative_path": "harvard/chgis/SHA256SUMS.txt",
+    "sha256": "694c101f04e636012e752c87958c8065c8e6926633c8b542e89978d8f8451a60",
+    "size": 551
+   },
+   "issue_codes": [
+    "checksum_missing line=4"
+   ],
+   "raw_byte_evidence": {
+    "harvard_chgis_dir_listing": "8 件（CHGIS_data_dictionary.zip/CHGIS_V6_EULA.txt/CHGIS_V6_README.txt/SHA256SUMS.txt/v6_time_cnty_pts_utf_wgs84.zip/v6_time_pref_pgn_utf_wgs84.zip/v6_time_pref_pts_utf_wgs84.zip/VERIFICATION.md），无 China_Periods_ReignDates.zip",
+    "line4_verbatim": "7452ae6cf8d7dedbd0b06ea4e0e8343be9bac4075069ca8eb89e8ff0451c355e  China_Periods_ReignDates.zip"
+   },
+   "remaining_reasons": [
+    "内容可核销；路径指称与快照布局不符（历史布局成因在账），原 issue 事实保留"
+   ],
+   "status": "ASSOCIATED_BY_SHA_PATH_MISMATCH"
+  }
+ ],
+ "note": "原账不动；本文件为复核结论草案（status 供 Codex/茶香裁定）"
+}

@@ -73,6 +73,7 @@ class DispositionLedger:
             closed = 0
             if exception_run_inputs is not None:
                 closed = sum(checksum_reader.nul_exception_closed(exc, contract, manifest, exception_run_inputs)
+                             or checksum_reader.path_exception_closed(exc, contract, manifest, exception_run_inputs)
                              for exc in contract.exceptions)
             if closed != len(contract.exceptions):
                 issues.append(LedgerIssue("exception_not_implemented"))

@@ -1,0 +1,12 @@
+============================= test session starts ==============================
+platform linux -- Python 3.11.16, pytest-9.1.1, pluggy-1.6.0
+rootdir: /tmp/task6c
+collected 130 items
+
+tests/unit/test_disposition.py .........................                 [ 19%]
+tests/unit/test_contracts.py ........................................... [ 52%]
+.......                                                                  [ 57%]
+tests/unit/test_checksum_candidates.py ............................      [ 79%]
+tests/unit/test_checksum_reader.py ...........................           [100%]
+
+============================= 130 passed in 28.03s =============================

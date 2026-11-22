@@ -1,0 +1,73 @@
+{
+ "four_state": {
+  "both_coexist_codes": [
+   "incomplete_inventory",
+   "unmatched_member"
+  ],
+  "both_ready": false,
+  "either_mismatch_codes": [
+   "exception_not_implemented",
+   "incomplete_inventory",
+   "unmatched_member"
+  ],
+  "either_ready": false
+ },
+ "inventory_complete": false,
+ "negative_cases": [
+  {
+   "error": "fixed path-binding exception requires an approved frozen contract",
+   "id": "unapproved_draft",
+   "rejected": true
+  },
+  {
+   "error": "input inventory digest differs from the contract binding",
+   "id": "inventory_binding",
+   "rejected": true
+  },
+  {
+   "error": "raw ledger bytes or inventory assertions differ",
+   "id": "source_digest",
+   "rejected": true
+  },
+  {
+   "error": "declared target exists; binding cannot mask it",
+   "id": "declared_exists",
+   "rejected": true
+  },
+  {
+   "error": "explicit resolved target size or digest differs",
+   "id": "target_size",
+   "rejected": true
+  },
+  {
+   "error": "explicit resolved target size or digest differs",
+   "id": "target_sha",
+   "rejected": true
+  }
+ ],
+ "positive_evidence": {
+  "contract_sha256": "656e1522f8cae30c346d3a702f69384f7ec1f4019b43430fb0c2b05742ccda95",
+  "declared_target": "harvard/chgis/China_Periods_ReignDates.zip",
+  "exception_code": "checksum_path_binding",
+  "exception_rule_id": "r-chgis-sha256sums",
+  "expected_sha256": "7452ae6cf8d7dedbd0b06ea4e0e8343be9bac4075069ca8eb89e8ff0451c355e",
+  "expected_size": 155774,
+  "inventory_sha256": "fb5e6b334b898d62dc0e5c77094fdb50e0946300e6e3009f447b2ecd1bc216db",
+  "ledger": "harvard/chgis/SHA256SUMS.txt",
+  "line": 4,
+  "raw_name": "China_Periods_ReignDates.zip",
+  "raw_sha256": "694c101f04e636012e752c87958c8065c8e6926633c8b542e89978d8f8451a60",
+  "raw_size": 551,
+  "ready_for_import": false,
+  "resolved_target": "chgis-v6/China_Periods_ReignDates.zip",
+  "status": "RUN_EVIDENCE_FIXED_EXCEPTION",
+  "strict_assertion_matched": false,
+  "strict_inventory_complete": false,
+  "version": 1
+ },
+ "positive_ledger_issue_codes": [
+  "incomplete_inventory",
+  "unmatched_member"
+ ],
+ "positive_ready_for_import": false
+}

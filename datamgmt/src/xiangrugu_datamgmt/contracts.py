@@ -146,7 +146,7 @@ class ContractReview(ContractRecord):
 
 class ContractException(ContractRecord):
     rule_id: Token
-    code: Literal["checksum_nul"]
+    code: Literal["checksum_nul", "checksum_path_binding"]
     raw_sha256: Digest
     reason: Text
 

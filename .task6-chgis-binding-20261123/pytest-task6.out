@@ -1,0 +1,8 @@
+============================= test session starts ==============================
+platform linux -- Python 3.11.16, pytest-9.1.1, pluggy-1.6.0
+rootdir: /tmp/task6c
+collected 27 items
+
+tests/unit/test_checksum_reader.py ...........................           [100%]
+
+============================= 27 passed in 30.67s ==============================

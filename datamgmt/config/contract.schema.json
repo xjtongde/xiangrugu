@@ -40,7 +40,10 @@
       "additionalProperties": false,
       "properties": {
         "code": {
-          "const": "checksum_nul",
+          "enum": [
+            "checksum_nul",
+            "checksum_path_binding"
+          ],
           "title": "Code",
           "type": "string"
         },

@@ -10,13 +10,15 @@ contracts/releases/2026-10-06-bootstrap/inventory.json.
 """
 import base64
 import json
+from dataclasses import replace
 from pathlib import Path
 
 import pytest
 from pydantic import ValidationError
 
 from xiangrugu_datamgmt import checksum_reader
-from xiangrugu_datamgmt.checksum_candidates import (ChecksumCandidates, TrailingNulCandidate,
+from xiangrugu_datamgmt.checksum_candidates import (ChecksumCandidates, PathBindingCandidate,
+                                                    TrailingNulCandidate,
                                                     preview_checksum_candidates)
 from xiangrugu_datamgmt.contracts import (ContractException, ContractReview, DispositionRule,
                                           MemberExpectation, MemberSelector, ReleaseContract)
@@ -242,3 +244,190 @@ def test_negative_rule_expectation_mismatch():
         checksum_reader.run_fixed_nul_exception(manifest, contract2, {"SHA256SUMS-b2": _raw()})
     ledger = DispositionLedger.evaluate(manifest, contract, {"SHA256SUMS-b2": _raw()})
     assert "exception_not_implemented" in _codes(ledger)
+
+
+CHGIS_SHA = "694c101f04e636012e752c87958c8065c8e6926633c8b542e89978d8f8451a60"
+TARGET_SHA = "7452ae6cf8d7dedbd0b06ea4e0e8343be9bac4075069ca8eb89e8ff0451c355e"
+CHGIS_LEDGER = "harvard/chgis/SHA256SUMS.txt"
+
+
+def _chgis_raw():
+    return base64.b64decode((ROOT / "tests/fixtures/sha256sums-chgis.b64").read_text())
+
+
+def _b2_rule():
+    return DispositionRule(
+        rule_id="r-sha256sums-b2", selector=MemberSelector(relative_path="SHA256SUMS-b2"),
+        expected=MemberExpectation(kind="file", sha256=FIXED_SHA, size=22071, signature="unknown"),
+        disposition=Disposition.NON_TABULAR, reason="checksum ledger retained as evidence",
+        format_family="checksum_ledger", encodings=(), targets=(), validator="none")
+
+
+def _chgis_rule():
+    return DispositionRule(
+        rule_id="r-chgis-sha256sums", selector=MemberSelector(relative_path=CHGIS_LEDGER),
+        expected=MemberExpectation(kind="file", sha256=CHGIS_SHA, size=551, signature="unknown"),
+        disposition=Disposition.NON_TABULAR, reason="checksum ledger retained as evidence",
+        format_family="checksum_ledger", encodings=(), targets=(), validator="none")
+
+
+def _chgis_exception():
+    return ContractException(rule_id="r-chgis-sha256sums", code="checksum_path_binding",
+                             raw_sha256=CHGIS_SHA,
+                             reason="line 4 declared path absent; resolved by fixed sha to chgis-v6 member")
+
+
+def _chgis_contract(manifest, status="frozen", exceptions=None, rules=None):
+    return ReleaseContract(
+        version=1, release_id="2026-10-06-bootstrap", source_version="usedata-2026-10-07",
+        inventory_sha256=manifest.sha256, status=status,
+        review=ContractReview(approved_by="chaxiang", approved_at="2026-11-22T19:20:00Z",
+                              approval_ref="task6-chgis-binding-isolated-box") if status == "frozen" else None,
+        exceptions=tuple(exceptions if exceptions is not None else (_chgis_exception(),)),
+        rules=tuple(rules if rules is not None else (_chgis_rule(),)))
+
+
+def test_chgis_fixture_identity():
+    raw = _chgis_raw()
+    assert len(raw) == 551
+    assert __import__("hashlib").sha256(raw).hexdigest() == CHGIS_SHA
+    assert raw.split(b"\n")[3] == (TARGET_SHA + "  China_Periods_ReignDates.zip").encode()
+
+
+def test_chgis_positive_evidence_keeps_declaration_and_binding():
+    manifest = _inventory()
+    contract = _chgis_contract(manifest)
+    evidence = checksum_reader.run_fixed_path_binding_exception(
+        manifest, contract, {CHGIS_LEDGER: _chgis_raw()})
+    assert evidence["contract_sha256"] == contract.sha256
+    assert evidence["inventory_sha256"] == manifest.sha256
+    assert evidence["line"] == 4
+    assert evidence["raw_name"] == "China_Periods_ReignDates.zip"
+    assert evidence["declared_target"] == "harvard/chgis/China_Periods_ReignDates.zip"
+    assert evidence["resolved_target"] == "chgis-v6/China_Periods_ReignDates.zip"
+    assert evidence["expected_sha256"] == TARGET_SHA
+    assert evidence["expected_size"] == 155774
+    assert evidence["strict_assertion_matched"] is False
+    ledger = DispositionLedger.evaluate(manifest, contract, {CHGIS_LEDGER: _chgis_raw()})
+    assert "exception_not_implemented" not in _codes(ledger)
+    assert "incomplete_inventory" in _codes(ledger)
+    assert ledger.ready_for_import is False
+
+
+def test_chgis_negative_unapproved():
+    manifest = _inventory()
+    contract = _chgis_contract(manifest, status="draft")
+    with pytest.raises(ValueError):
+        checksum_reader.run_fixed_path_binding_exception(manifest, contract, {CHGIS_LEDGER: _chgis_raw()})
+    ledger = DispositionLedger.evaluate(manifest, contract, {CHGIS_LEDGER: _chgis_raw()})
+    assert "exception_not_implemented" in _codes(ledger)
+
+
+def test_chgis_negative_inventory_binding():
+    manifest = _inventory()
+    contract = _chgis_contract(manifest).model_copy(update={"inventory_sha256": "0" * 64})
+    with pytest.raises(ValueError):
+        checksum_reader.run_fixed_path_binding_exception(manifest, contract, {CHGIS_LEDGER: _chgis_raw()})
+    ledger = DispositionLedger.evaluate(manifest, contract, {CHGIS_LEDGER: _chgis_raw()})
+    assert "exception_not_implemented" in _codes(ledger)
+
+
+def test_chgis_negative_source_tamper():
+    manifest = _inventory()
+    contract = _chgis_contract(manifest)
+    bad = bytearray(_chgis_raw())
+    bad[10] ^= 0xFF
+    with pytest.raises(ValueError):
+        checksum_reader.run_fixed_path_binding_exception(manifest, contract, {CHGIS_LEDGER: bytes(bad)})
+    assert checksum_reader.path_exception_closed(contract.exceptions[0], contract, manifest,
+                                                 {CHGIS_LEDGER: bytes(bad)}) is False
+
+
+def test_chgis_negative_declaration_mismatch():
+    manifest = _inventory()
+    base = dict(rule_id="r-chgis-sha256sums", ledger=CHGIS_LEDGER, raw_sha256=CHGIS_SHA,
+                raw_size=551, reason="probe", kind="exact_path_binding", line=4,
+                raw_name="China_Periods_ReignDates.zip",
+                declared_target="harvard/chgis/China_Periods_ReignDates.zip",
+                resolved_target="chgis-v6/China_Periods_ReignDates.zip",
+                expected_sha256=TARGET_SHA, expected_size=155774)
+    for mutation in ({"raw_name": "Other.zip"}, {"line": 3}):
+        candidate = PathBindingCandidate(**(base | mutation))
+        candidates = ChecksumCandidates(version=1, status="draft", release_id="2026-10-06-bootstrap",
+                                        source_version="usedata-2026-10-07",
+                                        inventory_sha256=manifest.sha256, rules=(candidate,))
+        with pytest.raises(ValueError):
+            preview_checksum_candidates(manifest, candidates, {CHGIS_LEDGER: _chgis_raw()})
+
+
+def test_chgis_negative_declared_location_exists():
+    manifest = _inventory()
+    fake = InventoryEntry(relative_path="harvard/chgis/China_Periods_ReignDates.zip",
+                          kind="file", size=1, sha256="0" * 64, signature="unknown")
+    variant = replace(manifest, entries=manifest.entries + (fake,))
+    contract = _chgis_contract(variant)
+    with pytest.raises(ValueError):
+        checksum_reader.run_fixed_path_binding_exception(variant, contract, {CHGIS_LEDGER: _chgis_raw()})
+    ledger = DispositionLedger.evaluate(variant, contract, {CHGIS_LEDGER: _chgis_raw()})
+    assert "exception_not_implemented" in _codes(ledger)
+
+
+def test_chgis_negative_target_size_mismatch():
+    manifest = _inventory()
+    entries = tuple(replace(e, size=155775)
+                    if (e.relative_path == "chgis-v6/China_Periods_ReignDates.zip" and not e.archive_chain)
+                    else e for e in manifest.entries)
+    variant = replace(manifest, entries=entries)
+    contract = _chgis_contract(variant)
+    with pytest.raises(ValueError):
+        checksum_reader.run_fixed_path_binding_exception(variant, contract, {CHGIS_LEDGER: _chgis_raw()})
+
+
+def test_chgis_negative_target_sha_mismatch():
+    manifest = _inventory()
+    entries = tuple(replace(e, sha256="0" * 64)
+                    if (e.relative_path == "chgis-v6/China_Periods_ReignDates.zip" and not e.archive_chain)
+                    else e for e in manifest.entries)
+    variant = replace(manifest, entries=entries)
+    contract = _chgis_contract(variant)
+    with pytest.raises(ValueError):
+        checksum_reader.run_fixed_path_binding_exception(variant, contract, {CHGIS_LEDGER: _chgis_raw()})
+
+
+def test_chgis_negative_archived_selector_and_expectation():
+    manifest = _inventory()
+    doc = _chgis_contract(manifest).model_dump(by_alias=True)
+    doc["rules"][0]["selector"]["archive_chain"] = ["x.zip"]
+    doc["rules"][0]["selector"]["archive_ordinals"] = [0]
+    contract = ReleaseContract.model_validate(doc)
+    with pytest.raises(ValueError):
+        checksum_reader.run_fixed_path_binding_exception(manifest, contract, {CHGIS_LEDGER: _chgis_raw()})
+    doc["rules"][0]["selector"]["archive_chain"] = []
+    doc["rules"][0]["selector"]["archive_ordinals"] = []
+    doc["rules"][0]["expected"]["size"] = 552
+    contract2 = ReleaseContract.model_validate(doc)
+    with pytest.raises(ValueError):
+        checksum_reader.run_fixed_path_binding_exception(manifest, contract2, {CHGIS_LEDGER: _chgis_raw()})
+
+
+def test_regression_both_exceptions_coexist():
+    manifest = _inventory()
+    contract = _chgis_contract(manifest, exceptions=(_exception(), _chgis_exception()),
+                               rules=(_b2_rule(), _chgis_rule()))
+    inputs = {"SHA256SUMS-b2": _raw(), CHGIS_LEDGER: _chgis_raw()}
+    ledger = DispositionLedger.evaluate(manifest, contract, inputs)
+    assert "exception_not_implemented" not in _codes(ledger)
+    assert "incomplete_inventory" in _codes(ledger)
+    assert ledger.ready_for_import is False
+
+
+def test_regression_either_mismatch_keeps_block():
+    manifest = _inventory()
+    contract = _chgis_contract(manifest, exceptions=(_exception(), _chgis_exception()),
+                               rules=(_b2_rule(), _chgis_rule()))
+    bad = bytearray(_chgis_raw())
+    bad[10] ^= 0xFF
+    inputs = {"SHA256SUMS-b2": _raw(), CHGIS_LEDGER: bytes(bad)}
+    ledger = DispositionLedger.evaluate(manifest, contract, inputs)
+    assert "exception_not_implemented" in _codes(ledger)
+    assert ledger.ready_for_import is False

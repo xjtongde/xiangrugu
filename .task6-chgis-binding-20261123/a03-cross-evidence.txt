@@ -1,0 +1,12 @@
+== ROUND 35 一期（a03）==
+固定身份三面独立核 PASS：32 实物 694c101f/551B/line4 双空格 cat -A 证；面 A line4 matched=false（1T2T3T4F5T6T）；面 B 声明 entries 0；面 C 外层 chain[]/ords[] file/155774/7452ae6c 恰 1（带链 25 不计）。门位矩阵：M1 checksum_path_binding 现版 ValidationError 拒（枚举唯一卡点）/M2 checksum_nul 控制组 accepted；PathBinding 预览五条件逐条（含 strict 要求 unmatched 与 NUL 相反）。零漂移 PASS。
+
+== ROUND 35b 二期（a03，自写驱动 chgisdrive.py）==
+正例双字段证据（declared+resolved/155774/line4/matched=False）+双 sha 绑定+接线后门消失；七类反例全 rejected（未审批/源账摘要/matched=True/声明已存在 cannot-mask/目标缺失/size-1/清单绑定/链式选择器）；四态：NUL 单独不回退/CHGIS 单独闭/并存双闭/任一失配聚合阻断；真实保留态 incomplete_inventory+ready false；27 passed T6_EXIT=0；合跑 1 failed 129 passed——**★首个不一致：schema 再生未落盘（发布件 grep 计数 0）**，修复命令级。范围核 PASS（除 schema）。
+
+== ROUND 35c 终核（a03，硬停内）==
+①schema==contract_schema() 独立核 PASS：fresh 暂存（contracts.py d0da7b28）published==regenerated True；enum 恰两值；格式 raw==json.dumps(indent=2,sort_keys=True)+尾NL True/9475B；test_contracts 50 passed TC_EXIT=0。
+②130 回归 fresh 复跑 PASS：四套 130 passed REG_EXIT=0（R35b 预期全绿达成，schema 失败消除）。
+③改动面终核 PASS：M 集恰宣布面（config schema+src 三件：contracts 仅一行枚举/disposition 仅一行 or path_closed/reader+测试+TODO+证据目录）；fixture decode==551B/694c101f/line4 双空格==32 实物；machine-evidence 键齐；rollup 19 件 vs 99ff362 diff 空；五块+model/inventory/checksum_candidates diff 空；M=2（668900d4）/staged0/8004 零漂移。
+首个剩余缺口：模型源码两行面受控发布转正（commit→Gitea→32 受控接收）→exceptions 两条入正式合同+frozen+review 审批事件→真实清单恒门残留[incomplete_inventory] ready false 直至冻结收口；首批 7 table_names/target_mapping 第一优先。
+ROUND 35c 三项全 PASS，无新不一致。

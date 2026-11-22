@@ -19,6 +19,7 @@ if EV.exists():
         def __init__(self, block): self.block = block
         def __truediv__(self, fname): return _ev(self.block, fname)
     cbdb_p, tab_p, sp_p, mdb_p, ras_p = (_P(b) for b in ("cbdb","tabular","spatial","mdb-sql","raster-other"))
+    PKG = None
 else:
     PKG = HERE.parent
     cbdb_p = PKG / "cbdb"; tab_p = PKG / "tabular"; sp_p = PKG / "spatial"
@@ -875,6 +876,173 @@ naming_draft = {"format": "xiangrugu.import-package.rollup.naming-draft.v1",
                 "v4_mdb_conflict_resolutions": conflict_resolutions,
                 "joint_scan_new_collisions": new_collisions}
 
+# ---------------- S1 manifest-draft (合同草案·四分类处置) ----------------
+import os as _os
+def _sha_file(path): return hashlib.sha256(path.read_bytes()).hexdigest()
+pkg_artifacts = {}
+for _b in ("cbdb", "tabular", "spatial", "mdb-sql", "raster-other"):
+    if PKG is not None and (PKG / _b).exists():
+        for _f in sorted((PKG / _b).iterdir()):
+            if _f.suffix in (".json", ".md") and not _f.name.startswith("build"):
+                pkg_artifacts[f"import-package/{_b}/{_f.name}"] = _sha_file(_f)
+    elif EV.exists():   # 32 flat layout：evidence/<block>__<file> 同字节镜像入表并注记
+        for _f in sorted(EV.glob(f"{_b}__*")):
+            if _f.suffix in (".json", ".md"):
+                pkg_artifacts["import-package/" + _b + "/" + _f.name.split("__", 1)[1]] = _sha_file(_f)
+# manifest 自指排除：manifest-draft.json 不入表；本盒新增三件（manifest/mrd/load-blockers）中
+# mrd/lb 于其生成前写盘不可得——统一策略：artifact_sha256 收录**除 manifest-draft 外全部已存在
+# rollup 产物**，manifest 自身与同轮新件由下轮冻结补录（note 明示）。
+_SELF_EXCLUDE = {"manifest-draft.json"}
+rollup_artifacts = {}
+for _f in sorted(HERE.iterdir()):
+    if (_f.suffix in (".json", ".md") and not _f.name.startswith("build")
+            and _f.name not in _SELF_EXCLUDE):
+        rollup_artifacts[f"import-package/rollup/{_f.name}"] = _sha_file(_f)
+assert len(rollup_artifacts) >= 10, len(rollup_artifacts)
+
+NODATA_MEMBERS = 113   # 块5 raster 证据面：源未声明 NoData 的波段所属成员数（前盒账沿用，evidence-gaps 引用）
+def manifest_class(k):
+    """四分类派生（语义按块处置账）：
+    retain=结构容器/文档执照/缓存等非数据件；proposed_import=进入拟装载面的载体与数据成员
+    （CBDB sqlite3、tabular organized、spatial 组成员含孪生全组件、MDB core+structural_container
+    包裹链、栅格 geo_raster 及其同链世界文件/伴随数据件）；evidence_only=仅佐证（json 元数据/
+    sidecar/checksum 账）；pending_contract=ordinary_image/doc_license 等需合同定性面。"""
+    e = im[k]; sig = e.get("signature"); kind = e["kind"]; b = owner[k]
+    if kind == "directory":
+        return "retain"
+    if b == 1:
+        m = next(x for x in cbdb["members"] if key(x) == k)
+        if m.get("disposition_from_ledger") == "NON_TABULAR":
+            return "retain"
+        return "evidence_only" if k[0].endswith(".json") else "proposed_import"
+    if b == 2:
+        m = next(x for x in tab_m["members"] if key(x["source_identity"]) == k)
+        return "proposed_import" if m["disposition"] == "organized" else \
+            ("pending_contract" if m["disposition"] == "handoff-block3" else "evidence_only")
+    if b == 3:
+        return "proposed_import"
+    if b == 4:
+        return "proposed_import" if lane.get(k) == "core_data" else "retain"
+    mm = next(x for x in ras_m["members"] if key(x["identity"]) == k)
+    cls5 = mm["class"]
+    if cls5 == "geo_raster":
+        return "proposed_import"
+    if cls5 == "sidecar_companion":
+        return "proposed_import"   # 空间伴随件类整体入拟装载合同面（43 提案+其伴生账）
+    if cls5 == "checksum_ledger":
+        return "evidence_only"
+    if cls5 in ("structural_container", "cache"):
+        return "retain"
+    if cls5 == "documentation_license":
+        return "retain"            # 块5 账 NON_TABULAR：文档执照保留不导入
+    if cls5 == "ordinary_image":
+        return "pending_contract"
+    return "pending_contract"
+
+member_classes = {k: manifest_class(k) for k in im}
+mc_counts = collections.Counter(member_classes.values())
+mc_by_block = {str(b): dict(collections.Counter(member_classes[k] for k in im if owner[k] == b))
+               for b in (1, 2, 3, 4, 5)}
+assert sum(mc_counts.values()) == 8004
+assert set(member_classes) == set(owner)   # 归属零漂移：键集不变
+manifest_doc = {"format": "xiangrugu.import-package.rollup.manifest-draft.v1",
+                "baseline_git": VCS_REF, "status": "DRAFT_NOT_APPROVED",
+                "landing_path_PROPOSED_NOT_LANDED": "releases/2026-10-06-bootstrap/rollup/<commit>/（正式目录拟案，冻结与落盘另行授权）",
+                "bindings": {"inventory_sha256": INV_SHA, "members": 8004, "objects": 1293,
+                             "object_bindings_total": 1311,
+                             "members_with_mapped_objects": sum(1 for r in all_members if "mapped_objects" in r),
+                             "members_with_object_mapping_refs": refs_count},
+                "artifact_sha256": {**pkg_artifacts, **rollup_artifacts,
+                                    "inventory.json": INV_SHA},
+                "artifact_sha_note": ("逐件 SHA-256 可独立复算（重跑本生成器或 sha256sum 即得）；"
+                                      "五块交付件仅引用不改写；rollup 十件含本 manifest 之外的九件+"
+                                      "既有产物——manifest 自身 sha 不入本表（自指排除），下轮冻结时补"),
+                "member_dispositions": {"classes": ["retain", "proposed_import", "evidence_only", "pending_contract"],
+                                        "counts": dict(mc_counts),
+                                        "by_owner_block": mc_by_block},
+                "naming_reference": {"file": "import-package/rollup/naming-draft.json",
+                                     "sha256_this_box_computed": _sha_file(HERE / "naming-draft.json") if (HERE / "naming-draft.json").exists() else None,
+                                     "expected_sha_prefix": "b963ed2f",
+                                     "composition": {"retained_named": 83, "draft_regular": 1208,
+                                                     "approved_spatial_special": 2, "v4_unified_sid_rows": 39},
+                                     "approval_state": "批准状态原样保留，草案不预决"},
+                }
+
+# ---------------- S2 mirror-registration-dispositions ----------------
+mrd = {"format": "xiangrugu.import-package.rollup.mirror-registration-dispositions.v1",
+       "baseline_git": VCS_REF, "status": "DRAFT_NOT_APPROVED",
+       "default_scheme": {
+           "byte_identical_groups": {"count": 379, "disposition": "共享存储字节 + 保留来源身份与逻辑对象（每组全部源身份+组件链在本文件保留）"},
+           "v4_mdb_two_byte_versions": {"direct_member_a2cc4039": "独立版本保留",
+                                         "wrapped_04be983d_pair": "两同摘要包裹副本共享存储、各自来源身份保留",
+                                         "note": "两字节版本分立，不合并"},
+           "mapinfo_terminology": {"cases": 2, "component_role_pairs": 5, "member_records": 10,
+                                   "unified_terms": "两案/五对组件/十条成员记录"},
+           "peking": {"scheme": "六参数互证 + 沿用现有内部 GT（tfw 为佐证材料）",
+                       "formal_binding": "留茶香裁定"},
+           "pdb2": {"local_bindings_retained": 3, "v4_copy": "[159,6] UNRESOLVED_PENDING 继续"}},
+       "groups": [{"family": g["family"], "sha256": g.get("sha256"),
+                   "group_id": g.get("group_id"), "cases": g.get("cases"),
+                   "identities": g.get("identities") or g.get("members") or [[i[0], i[1], i[2]] for i in []],
+                   "per_case": g.get("per_case"),
+                   "registration_or_merge_status": "PENDING_ADJUDICATION"}
+                  for g in mirror_groups],
+       "logical_table_merge_option_IF_EVER_PROPOSED": {
+           "status": "单列节·不预决（存储复用与逻辑合并分离）",
+           "would_reduce_target_tables": [],
+           "traceability_plan": "若提出合表：逐目标表列明被减表名；每来源以 inventory_key→共享对象映射行保留追溯（源身份→共享对象多对一显式账）",
+           "note": "本盒无合表提案入节；任何后续提案在此登记后方生效"}}
+
+# ---------------- S3 load-blockers ----------------
+lb_items = [
+ {"id": "nul126_compat_contract", "level": "blocks_package_freeze",
+  "detail": "SHA256SUMS-b2 账尾 126 NUL 兼容解析需冻结合同批准（固定摘要 900d98c6…）",
+  "closure_condition": "冻结合同文件批准兼容解析规则（授权事件）+ 解析器检测报告异常写入证据（机器可验）"},
+ {"id": "cbdb_value_verification", "level": "blocks_load",
+  "detail": "CBDB 78 表 736 列映射全覆盖；68/78 值验证覆盖，剩 10 表/235 列大组值验证未决（1GiB scratch 超 64MiB 范围）；36 declaration-only 列",
+  "closure_condition": "大组读取单独授权（raised scratch）+ 独立验证器逐表 value_verified=true（机器可验）"},
+ {"id": "tabular_proposed_170", "level": "blocks_load",
+  "detail": "tabular 映射提案 approved 5 + proposed 170 待批",
+  "correction_789": {"old_entry": "tabular_pending_review 789（口径混用，纠正）",
+                      "true_origin": "类目选择面 txt751+csv7+ods4+xlsx13+xls14=789（纯表格类目成员选择面，非待审数）",
+                      "current_accounts": {"member_dispositions": {"organized": 174, "handoff_block5": 620, "handoff_block3": 846, "pending_evidence": 0, "sum": 1640},
+                                            "mapping_proposals": {"approved": 5, "proposed": 170}}},
+  "closure_condition": "茶香/Codex 对 170 件提案逐件批复（授权事件）"},
+ {"id": "mdb_sql_96", "level": "blocks_load",
+  "detail": "MDB/SQL 96 提案批准面 + 值与 geom 合同未定",
+  "closure_condition": "提案批复 + 装载合同冻结（授权事件+机器可验合同文件）"},
+ {"id": "spatial_899_srid", "level": "blocks_load",
+  "detail": "spatial 899 提案 + SRID 政策未决（approved 2 除外）",
+  "closure_condition": "提案批复 + srid_policy 冻结（授权事件）"},
+ {"id": "raster_loader_nodata", "level": "blocks_load",
+  "detail": "raster 43 装载合同（PostGIS raster vs bytea+sidecar）未决 + NoData 源未声明波段 113",
+  "closure_condition": "装载合同二选一批准 + NoData 处理规则入合同（授权事件+合同文件）"},
+ {"id": "checksum_deferred_17", "level": "blocks_load",
+  "detail": "逐波段 checksum 17 件 deferred（方法已登记）",
+  "closure_condition": "导入时按登记方法逐件重算并等值（机器可验）"},
+ {"id": "wmf_reader_gap", "level": "blocks_load",
+  "detail": "WMF 12 件 tool_gap 读取工具缺口",
+  "closure_condition": "工具授权安装 + 12 件读取成功出证据（机器可验）"},
+ {"id": "v5_missing_dbf", "level": "explanation_only",
+  "detail": "v5_time_pref_pts_utf 缺 DBF——源事实带账，属性零补造",
+  "closure_condition": "无（源事实；装载面按 groups missing_core_extensions 账处理）"},
+ {"id": "inventory_issues_3", "level": "explanation_only",
+  "detail": "inventory issues 3 项已裁定面引 historical-blockers.json",
+  "closure_condition": "historical-blockers 结论获最终批准（授权事件）"},
+ {"id": "adjudication_pending_set", "level": "blocks_package_freeze",
+  "detail": "casefold 2/pdb2 V4 1/LOCAL_CS 非 EPSG/collision 13 组待裁面引 mirror/naming 草案",
+  "closure_condition": "茶香对四案逐项裁定（授权事件）后对应草案转正式"}]
+lvl = collections.Counter(x["level"] for x in lb_items)
+assert lvl["blocks_package_freeze"] == 2 and lvl["blocks_load"] == 7 and lvl["explanation_only"] == 2 and len(lb_items) == 11
+lb_doc = {"format": "xiangrugu.import-package.rollup.load-blockers.v1", "baseline_git": VCS_REF,
+          "status": "DRAFT_NOT_APPROVED",
+          "levels": {"definitions": {"blocks_package_freeze": "不关闭则合同不得冻结",
+                                      "blocks_load": "不关闭则不能入库装载",
+                                      "explanation_only": "仅需说明/带账，不阻断"},
+                      "counts": dict(lvl)},
+          "items": lb_items}
+
+
 pend = []
 def pend_add(kind, count, detail, ref):
     pend.append({"kind": kind, "count": count, "detail": detail, "evidence_ref": ref})
@@ -912,7 +1080,11 @@ summary = f"""# 第 6/6 块 · 全量汇总与落盘首盒（SUMMARY）
 - harvard/chgis/SHA256SUMS.txt（551B sha 694c101f…）line4：本盒 32 独立流式重算 chgis-v6/China_Periods_ReignDates.zip == 声明值逐字全等 ⇒ **ASSOCIATED_BY_SHA_PATH_MISMATCH**（内容可核销，路径指称与布局不符，成因 README 明载）。
 - 源枚举差异单列：README-b2 声明 173 外层件 vs 快照 172（PAGGQS 件缺席；2026-09-28 账 173/173 verified→2026-10-07 快照已无，移除时因待裁定，登记不臆断）。
 
-## 本盒增量三（统一镜像与命名裁定草案，基线 2b37abd）
+## 本盒增量四（导入包合同草案，基线 f54dd96）
+- **manifest-draft.json**：绑定 8004 成员+1293 对象+1311 对象绑定+产物 sha256 全集（五块 23 件引用+rollup 已存件+inventory；manifest 自指排除、同轮新件下轮补录注记）。四分类派生入码：**retain 2066 / proposed_import 5635 / evidence_only 4 / pending_contract 299 = 8004**（断言合计+归属键集零漂移）；目标名引 naming-draft b963ed2f（83 保留+1208 草案+2 批准+39 统一，批准状态原样）；正式目录拟案 releases/2026-10-06-bootstrap/rollup/<commit>/ PROPOSED_NOT_LANDED。
+- **mirror-registration-dispositions.json**：默认方案五节（379 组共享存储字节+保留来源与逻辑对象/V4 两字节版本分立 a2cc4039 直接件·04be983d 包裹对/MapInfo 术语统一 两案·五对组件·十条成员记录/Peking 六参数互证+沿用现有 GT·正式绑定留茶香/pdb2 三处本地绑定保留+V4 [159,6] UNRESOLVED_PENDING）；381 组源身份+组件链全保留；合表提案单列节（本盒空，追溯方案预登记：逐表名列被减项+inventory_key→共享对象多对一映射行）。
+- **load-blockers.json**：11 项三级——**blocks_package_freeze 2**（NUL126 兼容合同/CASEFOLD-PDB2-LOCAL_CS-COLLISION 待裁面）+ **blocks_load 7**（CBDB 10 表 235 列值验证·68/78 覆盖/tabular 170 提案/MDB 96/spatial 899+SRID/raster 装载合同+NoData113/checksum 17/WMF 12）+ **explanation_only 2**（v5 缺 DBF/inventory 3 已裁定面）；每项 closure_condition 机器可验或授权事件明确。**789 纠正节**：旧条「tabular_pending_review 789」系口径混用——789=类目选择面 txt751+csv7+ods4+xlsx13+xls14（独立复核吻合），当前账分列 members（organized 174/handoff_block5 620/handoff_block3 846/pending_evidence 0）=1640 与 proposals（approved 5/proposed 170）。
+
 - **孪生草案更正**：groups-derived 旧式字符串 identities×2 由 SID 结构化案组取代——真实 PROPOSED SID（f13db8a5…/5039b37a…）引用、五对同角色组件逐对完整归档链+序号+size+SHA-256、两内层 ZIP inventory 成员 sha 一致（69b5119f…/6,089,146B 机器核得）；counts 显式 **案数 2/镜像对数 10/候选记录数 10**；evidence_ref 更正为 proposed_objects[].components_exact_identity。**组账 381 保持**（377+1+孪生 1+Peking 按件 2；前盒 Peking 合 1 条系计数口径不一，披露）。
 - **V4 命名统一**：主命名表 draft_entries 与冲突表同源派生，**13 组 39 SID 逐条对账全等断言入码**；直接件与包裹件两字节版本分别保留、两同摘要包裹副本各留来源身份。批准空间 2 件改 **.shp 主件词干派生**+显式 schema=chgis（object_name/批准范围不动）。**1293 全量联查新碰撞 0**（name≤63 断言；最长 schema.name 69 如实登记）。
 - **配准证据入草案**：Peking 两案世界文件像素中心→角点换算 GT=[C−A/2,A,D,F−E/2,B,E] 与内部 GeoTransform **六项 repr 级全等**（本盒独立复算），升级建议附证据、最终确认留茶香；pdb2 三份 exact-stem tifw 绑定各自保留、**V4 [159,6] 标配准 UNRESOLVED_PENDING**；存储复用方案与逻辑表合并单列分离（policy 注）。
@@ -925,6 +1097,10 @@ summary = f"""# 第 6/6 块 · 全量汇总与落盘首盒（SUMMARY）
 - 对象索引：**1293** 对象（78+175+901+96+43；派工文「1393」系笔误——其分解式和即 1293，以机器断言为准），绑定解析失败 **{len(unresolved)}** 项逐项登记（禁静默丢弃）；成员→对象反查入 all-members.mapped_objects。
 - 命名扫描 v2：三分类 已命名 **{nc_doc['three_class_counts']['named_schema_and_name']}** / schema 未定 **{nc_doc['three_class_counts']['schema_undecided']}** / 名称未定 **{nc_doc['three_class_counts']['name_undecided']}**（已批准空间 2 单列）；对照值 1144 复算==预期（spatial899+tabular175+mdb distinct bare-name 70）；对键碰撞组 **{nc_doc['collision_groups_pair_key']}**（V4 MDB 同名 13 保留、tabular proposed 170 面补齐后无新增跨块碰撞；明细 naming-scan.json）。
 - 未决带账 {len(pend)} 类：WMF 12/v5 缺 DBF/批准面 899+96+43/装载合同/checksum 17/NoData 113/inventory 3/casefold 2/pdb2 配准/命名分配等。
+
+机械对账注记（防复核误读）：dispositions↔mirror-draft 字面 identities 对称差 10 系表示法迁移
+（孪生 inventory_key dict↔legacy 串、peking 挂载位不同）；规范化口径 1532↔1532 symdiff 0
+（a03 ROUND 29b 独立验证），语义账完整。
 
 ## 边界
 本轮仅只读核查+DSH clone 整理+Gitea 交付；正式落盘、依赖、服务、历史对象处置、数据库写入均在授权外；entry/rehearsal M=2 未触；五块已提交交付不改写（rollup 只引用）。
@@ -954,5 +1130,8 @@ summary = f"""# 第 6/6 块 · 全量汇总与落盘首盒（SUMMARY）
 (HERE / "pending-items.json").write_text(json.dumps(pend_doc, ensure_ascii=False, indent=1, sort_keys=True) + "\n")
 (HERE / "mirror-adjudication-draft.json").write_text(json.dumps(mirror_draft, ensure_ascii=False, indent=1, sort_keys=True) + "\n")
 (HERE / "naming-draft.json").write_text(json.dumps(naming_draft, ensure_ascii=False, indent=1, sort_keys=True) + "\n")
+(HERE / "manifest-draft.json").write_text(json.dumps(manifest_doc, ensure_ascii=False, indent=1, sort_keys=True) + "\n")
+(HERE / "mirror-registration-dispositions.json").write_text(json.dumps(mrd, ensure_ascii=False, indent=1, sort_keys=True) + "\n")
+(HERE / "load-blockers.json").write_text(json.dumps(lb_doc, ensure_ascii=False, indent=1, sort_keys=True) + "\n")
 (HERE / "SUMMARY.md").write_text(summary)
 print(f"built OK: members 8004 objects {len(object_index)} unresolved {len(unresolved)} refs {refs_count} mirrors {len(mirror_groups)} collisions {nc_doc['collision_groups_pair_key']} pending {len(pend)}")

@@ -1,0 +1,102 @@
+{
+ "artifact_sha256": {
+  "import-package/cbdb/SUMMARY.md": "bd1bb0815ab417cbbb07d96898deed3a6b94c85aa085036f46d4f3d48490a0b6",
+  "import-package/cbdb/field-mapping.json": "8a8fe4f37f23682eb55d0ec145a12cfddad2cb9337593cc3da07704620de8645",
+  "import-package/cbdb/members.json": "c141c3b2fab096fb3aea0acca1d2158413daa450bcbcb46492e026977e45f412",
+  "import-package/cbdb/remaining-value-verification.json": "2e8c1d409943685f29966cd8d1d2265efdcf60c011b273fa3731d40aaaa349cf",
+  "import-package/cbdb/table-mapping.json": "6f655982b20bd84d727949fca6ef49d1217681292aa58decfc0122620e7da796",
+  "import-package/mdb-sql/SUMMARY.md": "22873f9e5e61e9175fe69b94287c87782f39018d0440220799b6efcce71d42ff",
+  "import-package/mdb-sql/evidence-gaps.json": "a6ed3537db5855e7374910fe5c530392414048a46d3ca4b03aecd170cb45055c",
+  "import-package/mdb-sql/members.json": "9a8594205fe3d35650f92a2890d13dcd82de1de9c4892a834b5b87b9fd86c394",
+  "import-package/mdb-sql/object-mapping.json": "b56889f17f183b0ee149b901e1820ac6f3692d19ff16c6c49c4516348fa70c88",
+  "import-package/raster-other/SUMMARY.md": "1e032c853ee903279be069b36d3f812fcf85aa2873487773d4f16384ab2fb80d",
+  "import-package/raster-other/evidence-gaps.json": "6556dc4efd3453ca5709d62d5ad815601ab7d96146d0aae6fdbe96e7c1a2b3b0",
+  "import-package/raster-other/members.json": "045a5ea95a8c6f2d52430c7c092b48ff63b72023cda3da342b96bcb0145da9a6",
+  "import-package/raster-other/raster-mapping.json": "21f19ffa7b678af9a144763a0237e8ac1a84cc4647cca324782c714af6ad0080",
+  "import-package/rollup/SUMMARY.md": "448f625ec6e91f0ea4ab1ea7672270eba44a85b4b67652bdc4a017a25494772a",
+  "import-package/rollup/all-members.json": "df61d3da3d39c41953ccd046b6de7b2ca86ce2ce12ccac8f7d56014e3c455b33",
+  "import-package/rollup/historical-blockers.json": "1e2cc636eda323461d65a361dd653492f9fffe05683a2d5e6e0340ccf8ad2db3",
+  "import-package/rollup/load-blockers.json": "e3dd22d92c815c97fb03f6569116fff57d9a2f603fafb45a97d90fcab995f8f1",
+  "import-package/rollup/mirror-adjudication-draft.json": "f5a78d0dad56da43789402699196a9c14ab14854a084de106876f7fdc74b93c4",
+  "import-package/rollup/mirror-adjudication.json": "ef56c9d4e18567e725d6699cc73e96e7b8b0093cab7b9ba6024b72b1ec9277eb",
+  "import-package/rollup/mirror-registration-dispositions.json": "a409d571dabae7e51ac521667ac6ff744697de65fd12bb47cc4f4816e53d1bfb",
+  "import-package/rollup/naming-draft.json": "b963ed2f901435cad834c9f1a7f46cf4974365af0b7cf711653c9c0d936c855c",
+  "import-package/rollup/naming-scan.json": "2e06c99e77f449fd7e61310ab2719ca96bedc48bbf6764d8221d6d42c93c3eea",
+  "import-package/rollup/object-index.json": "e0581a05e6f0ad423a5b93f3b37003b89bd85005f92e0dbb983bee42b316fa6a",
+  "import-package/rollup/pending-items.json": "390b8754d4a1c28db153886083fa6fe7e1de9255cdab54e448b17c22abc4897f",
+  "import-package/rollup/reconciliation.json": "3001b7d151c4296fffc6f7b21a54ea6d7ef5884846230221b7cc8ec90b7e0071",
+  "import-package/spatial/MAP-READ-PLAN.md": "afccd1cf844ed93cd38250f4d43c5bbbca0ea580ee994546b8b0d141a2827272",
+  "import-package/spatial/SUMMARY.md": "7d60f70414e40a474f6255c72e66481b3f423c99c11e91dec8d2e678adfb3a82",
+  "import-package/spatial/evidence-gaps.json": "eba8e4646b9b678316fdb82924f70acd75161d2d34ceab954f7e176facef6cab",
+  "import-package/spatial/groups.json": "050b258310168f7f9ed462350376c35b7291e89ca860cd6e91b7cd8984a4fe8b",
+  "import-package/spatial/object-mapping.json": "f94cf3e0d73d1b1da6bbf9c2441ecdbb6109d4d6b78e0fb261eecdec9aa707a3",
+  "import-package/tabular/SUMMARY.md": "4d65123760a0976a3c9d407166e444aa6cb80f1611f0edffd751be8799c21718",
+  "import-package/tabular/evidence-gaps.json": "f16f09a27df1aa8bc911ccf2d82e7cdecd2f4c999600bd0f84cacbeb72278cb9",
+  "import-package/tabular/handoffs.json": "8b95f1bcde90c55507c7e0188c7e1470d368845b2055a8225b76b7437b00060a",
+  "import-package/tabular/members.json": "341333eb96ba815ac79dead8c6b1eb920e6eaeefac6d9dc6dc1929b71ed26de2",
+  "import-package/tabular/object-mapping.json": "9538bfe92f6a523a85cbc902cf1c962b8be76f6b2d483b9715584b0306cfb2a9",
+  "inventory.json": "fb5e6b334b898d62dc0e5c77094fdb50e0946300e6e3009f447b2ecd1bc216db"
+ },
+ "artifact_sha_note": "逐件 SHA-256 可独立复算（重跑本生成器或 sha256sum 即得）；五块交付件仅引用不改写；rollup 十件含本 manifest 之外的九件+既有产物——manifest 自身 sha 不入本表（自指排除），下轮冻结时补",
+ "baseline_git": "2b37abd",
+ "bindings": {
+  "inventory_sha256": "fb5e6b334b898d62dc0e5c77094fdb50e0946300e6e3009f447b2ecd1bc216db",
+  "members": 8004,
+  "members_with_mapped_objects": 1142,
+  "members_with_object_mapping_refs": 524,
+  "object_bindings_total": 1311,
+  "objects": 1293
+ },
+ "format": "xiangrugu.import-package.rollup.manifest-draft.v1",
+ "landing_path_PROPOSED_NOT_LANDED": "releases/2026-10-06-bootstrap/rollup/<commit>/（正式目录拟案，冻结与落盘另行授权）",
+ "member_dispositions": {
+  "by_owner_block": {
+   "1": {
+    "evidence_only": 1,
+    "proposed_import": 1,
+    "retain": 1
+   },
+   "2": {
+    "proposed_import": 174
+   },
+   "3": {
+    "proposed_import": 5294
+   },
+   "4": {
+    "proposed_import": 7,
+    "retain": 4
+   },
+   "5": {
+    "evidence_only": 3,
+    "pending_contract": 299,
+    "proposed_import": 159,
+    "retain": 2061
+   }
+  },
+  "classes": [
+   "retain",
+   "proposed_import",
+   "evidence_only",
+   "pending_contract"
+  ],
+  "counts": {
+   "evidence_only": 4,
+   "pending_contract": 299,
+   "proposed_import": 5635,
+   "retain": 2066
+  }
+ },
+ "naming_reference": {
+  "approval_state": "批准状态原样保留，草案不预决",
+  "composition": {
+   "approved_spatial_special": 2,
+   "draft_regular": 1208,
+   "retained_named": 83,
+   "v4_unified_sid_rows": 39
+  },
+  "expected_sha_prefix": "b963ed2f",
+  "file": "import-package/rollup/naming-draft.json",
+  "sha256_this_box_computed": "b963ed2f901435cad834c9f1a7f46cf4974365af0b7cf711653c9c0d936c855c"
+ },
+ "status": "DRAFT_NOT_APPROVED"
+}

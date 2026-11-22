@@ -1,0 +1,102 @@
+{
+ "baseline_git": "2b37abd",
+ "format": "xiangrugu.import-package.rollup.load-blockers.v1",
+ "items": [
+  {
+   "closure_condition": "冻结合同文件批准兼容解析规则（授权事件）+ 解析器检测报告异常写入证据（机器可验）",
+   "detail": "SHA256SUMS-b2 账尾 126 NUL 兼容解析需冻结合同批准（固定摘要 900d98c6…）",
+   "id": "nul126_compat_contract",
+   "level": "blocks_package_freeze"
+  },
+  {
+   "closure_condition": "大组读取单独授权（raised scratch）+ 独立验证器逐表 value_verified=true（机器可验）",
+   "detail": "CBDB 78 表 736 列映射全覆盖；68/78 值验证覆盖，剩 10 表/235 列大组值验证未决（1GiB scratch 超 64MiB 范围）；36 declaration-only 列",
+   "id": "cbdb_value_verification",
+   "level": "blocks_load"
+  },
+  {
+   "closure_condition": "茶香/Codex 对 170 件提案逐件批复（授权事件）",
+   "correction_789": {
+    "current_accounts": {
+     "mapping_proposals": {
+      "approved": 5,
+      "proposed": 170
+     },
+     "member_dispositions": {
+      "handoff_block3": 846,
+      "handoff_block5": 620,
+      "organized": 174,
+      "pending_evidence": 0,
+      "sum": 1640
+     }
+    },
+    "old_entry": "tabular_pending_review 789（口径混用，纠正）",
+    "true_origin": "类目选择面 txt751+csv7+ods4+xlsx13+xls14=789（纯表格类目成员选择面，非待审数）"
+   },
+   "detail": "tabular 映射提案 approved 5 + proposed 170 待批",
+   "id": "tabular_proposed_170",
+   "level": "blocks_load"
+  },
+  {
+   "closure_condition": "提案批复 + 装载合同冻结（授权事件+机器可验合同文件）",
+   "detail": "MDB/SQL 96 提案批准面 + 值与 geom 合同未定",
+   "id": "mdb_sql_96",
+   "level": "blocks_load"
+  },
+  {
+   "closure_condition": "提案批复 + srid_policy 冻结（授权事件）",
+   "detail": "spatial 899 提案 + SRID 政策未决（approved 2 除外）",
+   "id": "spatial_899_srid",
+   "level": "blocks_load"
+  },
+  {
+   "closure_condition": "装载合同二选一批准 + NoData 处理规则入合同（授权事件+合同文件）",
+   "detail": "raster 43 装载合同（PostGIS raster vs bytea+sidecar）未决 + NoData 源未声明波段 113",
+   "id": "raster_loader_nodata",
+   "level": "blocks_load"
+  },
+  {
+   "closure_condition": "导入时按登记方法逐件重算并等值（机器可验）",
+   "detail": "逐波段 checksum 17 件 deferred（方法已登记）",
+   "id": "checksum_deferred_17",
+   "level": "blocks_load"
+  },
+  {
+   "closure_condition": "工具授权安装 + 12 件读取成功出证据（机器可验）",
+   "detail": "WMF 12 件 tool_gap 读取工具缺口",
+   "id": "wmf_reader_gap",
+   "level": "blocks_load"
+  },
+  {
+   "closure_condition": "无（源事实；装载面按 groups missing_core_extensions 账处理）",
+   "detail": "v5_time_pref_pts_utf 缺 DBF——源事实带账，属性零补造",
+   "id": "v5_missing_dbf",
+   "level": "explanation_only"
+  },
+  {
+   "closure_condition": "historical-blockers 结论获最终批准（授权事件）",
+   "detail": "inventory issues 3 项已裁定面引 historical-blockers.json",
+   "id": "inventory_issues_3",
+   "level": "explanation_only"
+  },
+  {
+   "closure_condition": "茶香对四案逐项裁定（授权事件）后对应草案转正式",
+   "detail": "casefold 2/pdb2 V4 1/LOCAL_CS 非 EPSG/collision 13 组待裁面引 mirror/naming 草案",
+   "id": "adjudication_pending_set",
+   "level": "blocks_package_freeze"
+  }
+ ],
+ "levels": {
+  "counts": {
+   "blocks_load": 7,
+   "blocks_package_freeze": 2,
+   "explanation_only": 2
+  },
+  "definitions": {
+   "blocks_load": "不关闭则不能入库装载",
+   "blocks_package_freeze": "不关闭则合同不得冻结",
+   "explanation_only": "仅需说明/带账，不阻断"
+  }
+ },
+ "status": "DRAFT_NOT_APPROVED"
+}

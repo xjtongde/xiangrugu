@@ -13,7 +13,11 @@
 - harvard/chgis/SHA256SUMS.txt（551B sha 694c101f…）line4：本盒 32 独立流式重算 chgis-v6/China_Periods_ReignDates.zip == 声明值逐字全等 ⇒ **ASSOCIATED_BY_SHA_PATH_MISMATCH**（内容可核销，路径指称与布局不符，成因 README 明载）。
 - 源枚举差异单列：README-b2 声明 173 外层件 vs 快照 172（PAGGQS 件缺席；2026-09-28 账 173/173 verified→2026-10-07 快照已无，移除时因待裁定，登记不臆断）。
 
-## 本盒增量三（统一镜像与命名裁定草案，基线 2b37abd）
+## 本盒增量四（导入包合同草案，基线 f54dd96）
+- **manifest-draft.json**：绑定 8004 成员+1293 对象+1311 对象绑定+产物 sha256 全集（五块 23 件引用+rollup 已存件+inventory；manifest 自指排除、同轮新件下轮补录注记）。四分类派生入码：**retain 2066 / proposed_import 5635 / evidence_only 4 / pending_contract 299 = 8004**（断言合计+归属键集零漂移）；目标名引 naming-draft b963ed2f（83 保留+1208 草案+2 批准+39 统一，批准状态原样）；正式目录拟案 releases/2026-10-06-bootstrap/rollup/<commit>/ PROPOSED_NOT_LANDED。
+- **mirror-registration-dispositions.json**：默认方案五节（379 组共享存储字节+保留来源与逻辑对象/V4 两字节版本分立 a2cc4039 直接件·04be983d 包裹对/MapInfo 术语统一 两案·五对组件·十条成员记录/Peking 六参数互证+沿用现有 GT·正式绑定留茶香/pdb2 三处本地绑定保留+V4 [159,6] UNRESOLVED_PENDING）；381 组源身份+组件链全保留；合表提案单列节（本盒空，追溯方案预登记：逐表名列被减项+inventory_key→共享对象多对一映射行）。
+- **load-blockers.json**：11 项三级——**blocks_package_freeze 2**（NUL126 兼容合同/CASEFOLD-PDB2-LOCAL_CS-COLLISION 待裁面）+ **blocks_load 7**（CBDB 10 表 235 列值验证·68/78 覆盖/tabular 170 提案/MDB 96/spatial 899+SRID/raster 装载合同+NoData113/checksum 17/WMF 12）+ **explanation_only 2**（v5 缺 DBF/inventory 3 已裁定面）；每项 closure_condition 机器可验或授权事件明确。**789 纠正节**：旧条「tabular_pending_review 789」系口径混用——789=类目选择面 txt751+csv7+ods4+xlsx13+xls14（独立复核吻合），当前账分列 members（organized 174/handoff_block5 620/handoff_block3 846/pending_evidence 0）=1640 与 proposals（approved 5/proposed 170）。
+
 - **孪生草案更正**：groups-derived 旧式字符串 identities×2 由 SID 结构化案组取代——真实 PROPOSED SID（f13db8a5…/5039b37a…）引用、五对同角色组件逐对完整归档链+序号+size+SHA-256、两内层 ZIP inventory 成员 sha 一致（69b5119f…/6,089,146B 机器核得）；counts 显式 **案数 2/镜像对数 10/候选记录数 10**；evidence_ref 更正为 proposed_objects[].components_exact_identity。**组账 381 保持**（377+1+孪生 1+Peking 按件 2；前盒 Peking 合 1 条系计数口径不一，披露）。
 - **V4 命名统一**：主命名表 draft_entries 与冲突表同源派生，**13 组 39 SID 逐条对账全等断言入码**；直接件与包裹件两字节版本分别保留、两同摘要包裹副本各留来源身份。批准空间 2 件改 **.shp 主件词干派生**+显式 schema=chgis（object_name/批准范围不动）。**1293 全量联查新碰撞 0**（name≤63 断言；最长 schema.name 69 如实登记）。
 - **配准证据入草案**：Peking 两案世界文件像素中心→角点换算 GT=[C−A/2,A,D,F−E/2,B,E] 与内部 GeoTransform **六项 repr 级全等**（本盒独立复算），升级建议附证据、最终确认留茶香；pdb2 三份 exact-stem tifw 绑定各自保留、**V4 [159,6] 标配准 UNRESOLVED_PENDING**；存储复用方案与逻辑表合并单列分离（policy 注）。
@@ -26,6 +30,10 @@
 - 对象索引：**1293** 对象（78+175+901+96+43；派工文「1393」系笔误——其分解式和即 1293，以机器断言为准），绑定解析失败 **0** 项逐项登记（禁静默丢弃）；成员→对象反查入 all-members.mapped_objects。
 - 命名扫描 v2：三分类 已命名 **83** / schema 未定 **1165** / 名称未定 **43**（已批准空间 2 单列）；对照值 1144 复算==预期（spatial899+tabular175+mdb distinct bare-name 70）；对键碰撞组 **13**（V4 MDB 同名 13 保留、tabular proposed 170 面补齐后无新增跨块碰撞；明细 naming-scan.json）。
 - 未决带账 14 类：WMF 12/v5 缺 DBF/批准面 899+96+43/装载合同/checksum 17/NoData 113/inventory 3/casefold 2/pdb2 配准/命名分配等。
+
+机械对账注记（防复核误读）：dispositions↔mirror-draft 字面 identities 对称差 10 系表示法迁移
+（孪生 inventory_key dict↔legacy 串、peking 挂载位不同）；规范化口径 1532↔1532 symdiff 0
+（a03 ROUND 29b 独立验证），语义账完整。
 
 ## 边界
 本轮仅只读核查+DSH clone 整理+Gitea 交付；正式落盘、依赖、服务、历史对象处置、数据库写入均在授权外；entry/rehearsal M=2 未触；五块已提交交付不改写（rollup 只引用）。

@@ -1,0 +1,97 @@
+{
+ "assertion": "sum==8004；零 RETAIN（枚举无此项）",
+ "baseline_git": "ea40c1f",
+ "byte_identity_projection": {
+  "distinct_file_byte_identities": 4968,
+  "duplicated_identities": 1172,
+  "forced_MIRROR_or_NON_TABULAR_or_BLOCKED_copies": 2950,
+  "primary_rule_candidates_ONE_IMPORT_per_identity": 4968,
+  "rule": "每 (sha256,size) 恰一 IMPORT 主件（首序 relative_path,chain,ordinals），其余同字节件只能 MIRROR(须 mirror_of+同字节 evidence)/NON_TABULAR/BLOCKED"
+ },
+ "disposition_projection_counts": {
+  "BLOCKED": 5635,
+  "IMPORT": 0,
+  "NON_TABULAR": 2369
+ },
+ "format": "xiangrugu.import-package.rollup.contract-projection-draft.v1",
+ "model_facts_verbatim": [
+  "Disposition 枚举仅 IMPORT/MIRROR/NON_TABULAR/BLOCKED（model.py L14-18，无 RETAIN）",
+  "每成员 location 恰一规则，否则 unmatched_member/multiple_matches（disposition.py evaluate）",
+  "IMPORT 按 (sha256,size) 唯一，同字节第二件 IMPORT 触发 mirror_required（primary_bytes 账）",
+  "MIRROR 须 mirror_of 指向 IMPORT 且同 (sha256,size)+mirror_evidence_sha256；invalid_mirror 门（L93）",
+  "Only IMPORT can have business targets——MIRROR/NON_TABULAR/BLOCKED 带 targets 直接构造失败（contracts.py consistent_action）",
+  "(schema,table) 全局唯一 target_collision",
+  "exceptions code 仅 Literal['checksum_nul']（contracts.py L149）；任何 exceptions → exception_not_implemented（Task 6 reader 未实现）",
+  "manifest.complete=false → incomplete_inventory 恒触发（evaluate L58-59）→ ready_for_import 永假",
+  "frozen 须 review+全 targets expected_count/expected_sha256 非空（L178）",
+  "ObjectTarget.schema∈{cbdb,chgis,harv}、table ^[a-z][a-z0-9_]{0,62}$（L87-88）",
+  "signature∈{unknown,zip,sqlite,ole,tiff,pdf}（L62）——inventory 实测值域恰在此内",
+  "symlink/special kinds 必须 BLOCKED；file 可读须 raw byte assertions"
+ ],
+ "projection_algorithm_pseudocode": [
+  "1. 读 manifest-draft.member_classes（或按 docstring 重派生）",
+  "2. retain|evidence_only → Disposition.NON_TABULAR",
+  "3. pending_contract → Disposition.BLOCKED",
+  "4. proposed_import → 若其对象获 table_names_approved+target_mapping_approved 则 IMPORT（targets=ObjectTarget(schema,table,candidate 名转正)），否则 BLOCKED 照录 disposition_retained",
+  "5. 同 (sha256,size) 第 2..n 件 → MIRROR(mirror_of=主 rule_id, mirror_evidence_sha256=同摘要) 或 NON_TABULAR",
+  "6. 每成员 selector.location=(relative_path,archive_chain,archive_ordinals) 恰一规则",
+  "7. ready_for_import = status=='frozen' and coverage.conforms —— 现恒假（incomplete_inventory）"
+ ],
+ "recalc_instruction_for_a03": "用 xiangrugu_datamgmt.{contracts,disposition,model} 只读构造上述选择器/规则即可复算投影计数与三案门位；本件不含可执行调用。",
+ "status": "DRAFT_NOT_APPROVED",
+ "three_case_expressibility": {
+  "mapinfo_twin": {
+   "blocking_gates": [
+    "contracts.consistent_action targets-on-MIRROR",
+    "disposition.invalid_mirror 需主件同字节"
+   ],
+   "expressible": "两案五对十记录的字节层：主案 lane IMPORT（其一）+副案同字节件 MIRROR（5 对组件各自 mirror_of）",
+   "not_expressible": "副案独立逻辑对象目标——MIRROR 无 targets（'Only IMPORT can have business targets'）",
+   "retention_plan": "副案逻辑对象身份保留于 rollup mirror-adjudication-draft per_case 组件链+object-index mapped_objects 引用"
+  },
+  "pdb2_four_copies": {
+   "blocking_gates": [
+    "模型字段缺失（非违规，属不可表达）"
+   ],
+   "expressible": "4 TIF 同字节 bd56086a…：1 IMPORT + 3 MIRROR 字节层可表达",
+   "not_expressible": "tif↔tifw 配准关联关系——ReleaseContract 模型无字段承载（无 georeference association）",
+   "retention_plan": "三处 exact-stem tifw 绑定+V4 [159,6] UNRESOLVED_PENDING 保留于 mirror-registration-dispositions/mirror-adjudication-draft 证据面"
+  },
+  "v4_mdb_two_versions": {
+   "blocking_gates": [
+    "Only IMPORT can have business targets",
+    "target_collision (schema,table) 全局唯一——三副本同名表互撞"
+   ],
+   "expressible": "直接件 a2cc4039（chain access_database/v4_chgis_dbase.mdb [2]）IMPORT + 包裹件 04be983d×2 一 IMPORT 一 MIRROR（两字节版本分立保持）",
+   "not_expressible": "三副本各 13 表名中，MIRROR 副本的 13 个逻辑表名不可表达为 targets",
+   "retention_plan": "39 SID 统一命名行在 naming-draft.json（v4_sid_reconciliation_rows=39）原样保留引用"
+  }
+ },
+ "unexpressible_relations_register": [
+  {
+   "gate": "target_collision：(schema,table) 全局唯一 + 每成员恰一规则 ⇒ 多源共表不可表达",
+   "retention": "mirror-registration-dispositions 单列节预登记追溯方案",
+   "rule_id_pattern": "合表多源→一目标"
+  },
+  {
+   "gate": "Only IMPORT can have business targets",
+   "retention": "draft 组件链+object_index 引用",
+   "rule_id_pattern": "MIRROR 逻辑对象目标"
+  },
+  {
+   "gate": "模型无 georeference 字段",
+   "retention": "affine_reconciliation_this_box 证据面",
+   "rule_id_pattern": "配准关联（tif↔tifw/wf）"
+  },
+  {
+   "gate": "inventory complete=false 保留态 → issue 恒触发 → ready_for_import 永假",
+   "retention": "非缺陷：如实照录，冻结前需单独授权完成盘点",
+   "rule_id_pattern": "incomplete_inventory 恒门"
+  },
+  {
+   "gate": "任何 exceptions 声明即触发（Task 6 reader 未实现）",
+   "retention": "见 checksum-exceptions-candidates.json 三账分离",
+   "rule_id_pattern": "exception_not_implemented"
+  }
+ ]
+}

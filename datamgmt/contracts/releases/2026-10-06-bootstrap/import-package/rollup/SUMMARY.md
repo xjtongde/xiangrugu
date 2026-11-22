@@ -1,6 +1,6 @@
 # 第 6/6 块 · 全量汇总与落盘首盒（SUMMARY）
 
-基线 git 2b37abd；inventory sha256=fb5e6b334b898d62…；**只读引用五块已交付包，五块文件零改写；未正式落盘/未装依赖/未动服务与库**。
+基线 git ea40c1f；inventory sha256=fb5e6b334b898d62…；**只读引用五块已交付包，五块文件零改写；未正式落盘/未装依赖/未动服务与库**。
 
 ## 对账闭合（机器断言在码）
 - **3 + 174 + 5294 + 11 + 2522 == 8004**（primary_owner_block exactly-once；两两交集空；inventory↔并集双向 missing 0 / extra 0；逐件 sha==inventory）。
@@ -14,7 +14,7 @@
 - 源枚举差异单列：README-b2 声明 173 外层件 vs 快照 172（PAGGQS 件缺席；2026-09-28 账 173/173 verified→2026-10-07 快照已无，移除时因待裁定，登记不臆断）。
 
 ## 本盒增量四（导入包合同草案，基线 f54dd96）
-- **manifest-draft.json**：绑定 8004 成员+1293 对象+1311 对象绑定+产物 sha256 全集（五块 23 件引用+rollup 已存件+inventory；manifest 自指排除、同轮新件下轮补录注记）。四分类派生入码：**retain 2066 / proposed_import 5635 / evidence_only 4 / pending_contract 299 = 8004**（断言合计+归属键集零漂移）；目标名引 naming-draft b963ed2f（83 保留+1208 草案+2 批准+39 统一，批准状态原样）；正式目录拟案 releases/2026-10-06-bootstrap/rollup/<commit>/ PROPOSED_NOT_LANDED。
+- **manifest-draft.json**：绑定 8004 成员+1293 对象+1311 对象绑定+产物 sha256 全集（五块 23 件引用+rollup 已存件+inventory；manifest 自指排除、同轮新件下轮补录注记）。四分类派生入码：**retain 2066 / proposed_import 5635 / evidence_only 303 / pending_contract 0 = 8004**（断言合计+归属键集零漂移；续盒五注：ordinary_image 归 evidence_only 对齐块5 NON_TABULAR 账，pending_contract 现由 block2 handoff-block3 空面继承）；目标名引 naming-draft b963ed2f（83 保留+1208 草案+2 批准+39 统一，批准状态原样）；正式目录拟案 releases/2026-10-06-bootstrap/rollup/<commit>/ PROPOSED_NOT_LANDED。
 - **mirror-registration-dispositions.json**：默认方案五节（379 组共享存储字节+保留来源与逻辑对象/V4 两字节版本分立 a2cc4039 直接件·04be983d 包裹对/MapInfo 术语统一 两案·五对组件·十条成员记录/Peking 六参数互证+沿用现有 GT·正式绑定留茶香/pdb2 三处本地绑定保留+V4 [159,6] UNRESOLVED_PENDING）；381 组源身份+组件链全保留；合表提案单列节（本盒空，追溯方案预登记：逐表名列被减项+inventory_key→共享对象多对一映射行）。
 - **load-blockers.json**：11 项三级——**blocks_package_freeze 2**（NUL126 兼容合同/CASEFOLD-PDB2-LOCAL_CS-COLLISION 待裁面）+ **blocks_load 7**（CBDB 10 表 235 列值验证·68/78 覆盖/tabular 170 提案/MDB 96/spatial 899+SRID/raster 装载合同+NoData113/checksum 17/WMF 12）+ **explanation_only 2**（v5 缺 DBF/inventory 3 已裁定面）；每项 closure_condition 机器可验或授权事件明确。**789 纠正节**：旧条「tabular_pending_review 789」系口径混用——789=类目选择面 txt751+csv7+ods4+xlsx13+xls14（独立复核吻合），当前账分列 members（organized 174/handoff_block5 620/handoff_block3 846/pending_evidence 0）=1640 与 proposals（approved 5/proposed 170）。
 
@@ -34,6 +34,13 @@
 机械对账注记（防复核误读）：dispositions↔mirror-draft 字面 identities 对称差 10 系表示法迁移
 （孪生 inventory_key dict↔legacy 串、peking 挂载位不同）；规范化口径 1532↔1532 symdiff 0
 （a03 ROUND 29b 独立验证），语义账完整。
+
+## 本盒增量五（对齐现行合同门，基线 ea40c1f）
+- **contract-projection-draft.json**：以 ReleaseContract/DispositionLedger 为准的可复算投影——模型事实 12 条 verbatim；处置投影计数 NON_TABULAR 2070/BLOCKED 5934/IMPORT 0（首批目标名与 target_mapping 未批→IMPORT 恒 0 为当前合同门的忠实投影，批准前不虚构）；同字节账 distinct 4968/dup 1172/强制 MIRROR-or-other 副本 2950。三案可表达性：孪生字节层可表、副案逻辑目标不可表（MIRROR 无 targets）；V4 两版本 IMPORT+MIRROR 可表、MIRROR 副本 13 表名不可表；pdb2 1+3 可表、tif↔tifw 配准关联模型无字段不可表——不可表达关系五项 register 逐条 rule_id 级规则+阻断+保留方案；a03 复算指引入件。
+- **checksum-exceptions-candidates.json**：两候选分列三账分离——NUL126@固定摘要 900d98c6 code=checksum_nul 模型可表达但运行门缺口 Task 6 reader（exception_not_implemented）；CHGIS 第 4 行 7452ae6c==chgis-v6 成员 155,774B **code 枚举无此项=不可表达**，授权路径=枚举扩展另行批准。
+- **first-batch-preload-table.json**：5 文本逐项（status 七字段照录 table_names_approved=False/target_mapping_approved=False/disposition_retained=BLOCKED/CANDIDATE）+空间 2（各 6 组件 component_binding_approved=True）；回读条件改独立全量结构+规范值+重复次数对账（expected_count/expected_sha256 缺口逐项，text_values sidecar 不可替代）；GDAL Band.Checksum 另账 executed 26+deferred 17==43 断言。
+- **wmf-thumbnail-record.json**：12 件 WMF NON_TABULAR+原件 sha/size 逐件记录；解码器需求条件说明（缩略图展示/图像检索交付才需）。
+- manifest 双锚 input_baseline_git=f54dd96/generation_head=ea40c1f；正式包应验清单见下节（sha256sum -c 口径）。
 
 ## 边界
 本轮仅只读核查+DSH clone 整理+Gitea 交付；正式落盘、依赖、服务、历史对象处置、数据库写入均在授权外；entry/rehearsal M=2 未触；五块已提交交付不改写（rollup 只引用）。

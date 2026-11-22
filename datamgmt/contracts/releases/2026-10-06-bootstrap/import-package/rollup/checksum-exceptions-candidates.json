@@ -1,0 +1,50 @@
+{
+ "baseline_git": "ea40c1f",
+ "candidates": [
+  {
+   "authorization_ledger": "逐案授权=茶香批准固定摘要下兼容解析（blocks_package_freeze，load-blockers id nul126_compat_contract）",
+   "completion_scope": [
+    "reader 实现+测试",
+    "预览→运行升级证据（126 NUL 行逐案解析报告）",
+    "exceptions 入合同后 ledger 复跑无 exception_not_implemented"
+   ],
+   "id": "nul126_under_fixed_digest_172",
+   "model_expressibility": {
+    "code": "checksum_nul",
+    "expressible": true,
+    "field_map": "ContractException(rule_id, code='checksum_nul', raw_sha256, reason)"
+   },
+   "preview_evidence_ledger": [
+    "roots.yaml format_anomaly 条目 verbatim",
+    "historical-blockers.json FORMAT_ANOMALY_UNDER_FIXED_DIGEST",
+    "SHA256SUMS-b2 172 行全 sha 验证在案（前盒 freshness 172v172）"
+   ],
+   "raw_sha256": "900d98c6",
+   "raw_sha256_full_note": "固定摘要账见 historical-blockers.json verbatim",
+   "runtime_gate_ledger": "缺口：Task 6 窄域兼容 reader 未实现 → 任何 exceptions 声明触发 exception_not_implemented（disposition.evaluate L63-64）"
+  },
+  {
+   "authorization_ledger": "授权路径：模型扩展 code 枚举另行批准（不新造候选，沿用现有）",
+   "completion_scope": [
+    "核验器实现",
+    "或模型枚举扩展批准事件"
+   ],
+   "id": "chgis_line4_associated_by_sha_path",
+   "model_expressibility": {
+    "blocking_field": "contracts.py L149 Literal['checksum_nul']",
+    "expressible": false,
+    "reason": "ContractException.code 枚举仅 checksum_nul——本项非 NUL 异常，无 code 可用（不可表达）"
+   },
+   "preview_evidence_ledger": [
+    "块5 ASSOCIATED_BY_SHA_PATH_MISMATCH 裁定记录",
+    "6/6 行验证"
+   ],
+   "raw_sha256": "7452ae6c",
+   "raw_sha256_full_note": "China_Periods_ReignDates.zip==chgis-v6 成员 155,774B；6/6 行验证在案",
+   "runtime_gate_ledger": "缺口：checksum ledger 核验器实现（关联证明自动化）"
+  }
+ ],
+ "discipline": "预览证据/运行门/审批三账分离；不新造候选；两候选分列不合并",
+ "format": "xiangrugu.import-package.rollup.checksum-exceptions-candidates.v1",
+ "status": "DRAFT_NOT_APPROVED"
+}

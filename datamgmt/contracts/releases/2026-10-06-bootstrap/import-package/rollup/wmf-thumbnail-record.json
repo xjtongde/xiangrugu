@@ -1,0 +1,213 @@
+{
+ "baseline_git": "ea40c1f",
+ "format": "xiangrugu.import-package.rollup.wmf-thumbnail-record.v1",
+ "items": [
+  {
+   "disposition_projected": "NON_TABULAR",
+   "handling": "按原件字节保留，不解码",
+   "member_key": [
+    "harvard-full/doi_10_7910/DVN/PDGOZ0/V4_Data_Archive.zip",
+    [
+     "metadata/v4_data_dictionary.xlsx",
+     "docProps/thumbnail.wmf"
+    ],
+    [
+     64,
+     5
+    ]
+   ],
+   "sha256": "f782a8ce8bf728dedbe8db046eba48d20f303acf5a7964061d0c4bb14e262c68",
+   "size": 5308
+  },
+  {
+   "disposition_projected": "NON_TABULAR",
+   "handling": "按原件字节保留，不解码",
+   "member_key": [
+    "harvard-full/doi_10_7910/DVN/PDGOZ0/V4_Data_Archive.zip",
+    [
+     "metadata/v4_feature_types.xlsx",
+     "docProps/thumbnail.wmf"
+    ],
+    [
+     65,
+     5
+    ]
+   ],
+   "sha256": "f782a8ce8bf728dedbe8db046eba48d20f303acf5a7964061d0c4bb14e262c68",
+   "size": 5308
+  },
+  {
+   "disposition_projected": "NON_TABULAR",
+   "handling": "按原件字节保留，不解码",
+   "member_key": [
+    "harvard-full/doi_10_7910/DVN/PDGOZ0/V4_Data_Archive.zip",
+    [
+     "metadata/xtra_change_types.xlsx",
+     "docProps/thumbnail.wmf"
+    ],
+    [
+     66,
+     5
+    ]
+   ],
+   "sha256": "f782a8ce8bf728dedbe8db046eba48d20f303acf5a7964061d0c4bb14e262c68",
+   "size": 5308
+  },
+  {
+   "disposition_projected": "NON_TABULAR",
+   "handling": "按原件字节保留，不解码",
+   "member_key": [
+    "harvard-full/doi_10_7910/DVN/PDGOZ0/V4_Data_Archive.zip",
+    [
+     "metadata/xtra_contributors.xlsx",
+     "docProps/thumbnail.wmf"
+    ],
+    [
+     67,
+     6
+    ]
+   ],
+   "sha256": "f782a8ce8bf728dedbe8db046eba48d20f303acf5a7964061d0c4bb14e262c68",
+   "size": 5308
+  },
+  {
+   "disposition_projected": "NON_TABULAR",
+   "handling": "按原件字节保留，不解码",
+   "member_key": [
+    "harvard-full/doi_10_7910/DVN/PDGOZ0/V4_Data_Archive.zip",
+    [
+     "metadata/xtra_date_rules.xlsx",
+     "docProps/thumbnail.wmf"
+    ],
+    [
+     68,
+     5
+    ]
+   ],
+   "sha256": "f782a8ce8bf728dedbe8db046eba48d20f303acf5a7964061d0c4bb14e262c68",
+   "size": 5308
+  },
+  {
+   "disposition_projected": "NON_TABULAR",
+   "handling": "按原件字节保留，不解码",
+   "member_key": [
+    "harvard-full/doi_10_7910/DVN/PDGOZ0/V4_Data_Archive.zip",
+    [
+     "metadata/xtra_geo_source.xlsx",
+     "docProps/thumbnail.wmf"
+    ],
+    [
+     69,
+     5
+    ]
+   ],
+   "sha256": "f782a8ce8bf728dedbe8db046eba48d20f303acf5a7964061d0c4bb14e262c68",
+   "size": 5308
+  },
+  {
+   "disposition_projected": "NON_TABULAR",
+   "handling": "按原件字节保留，不解码",
+   "member_key": [
+    "harvard/chgis/CHGIS_data_dictionary.zip",
+    [
+     "v6_data_dictionary.xlsx",
+     "docProps/thumbnail.wmf"
+    ],
+    [
+     0,
+     5
+    ]
+   ],
+   "sha256": "f782a8ce8bf728dedbe8db046eba48d20f303acf5a7964061d0c4bb14e262c68",
+   "size": 5308
+  },
+  {
+   "disposition_projected": "NON_TABULAR",
+   "handling": "按原件字节保留，不解码",
+   "member_key": [
+    "harvard/chgis/CHGIS_data_dictionary.zip",
+    [
+     "v6_feature_types.xlsx",
+     "docProps/thumbnail.wmf"
+    ],
+    [
+     1,
+     5
+    ]
+   ],
+   "sha256": "f782a8ce8bf728dedbe8db046eba48d20f303acf5a7964061d0c4bb14e262c68",
+   "size": 5308
+  },
+  {
+   "disposition_projected": "NON_TABULAR",
+   "handling": "按原件字节保留，不解码",
+   "member_key": [
+    "harvard/chgis/CHGIS_data_dictionary.zip",
+    [
+     "xtra_change_types.xlsx",
+     "docProps/thumbnail.wmf"
+    ],
+    [
+     2,
+     5
+    ]
+   ],
+   "sha256": "f782a8ce8bf728dedbe8db046eba48d20f303acf5a7964061d0c4bb14e262c68",
+   "size": 5308
+  },
+  {
+   "disposition_projected": "NON_TABULAR",
+   "handling": "按原件字节保留，不解码",
+   "member_key": [
+    "harvard/chgis/CHGIS_data_dictionary.zip",
+    [
+     "xtra_contributors.xlsx",
+     "docProps/thumbnail.wmf"
+    ],
+    [
+     3,
+     6
+    ]
+   ],
+   "sha256": "f782a8ce8bf728dedbe8db046eba48d20f303acf5a7964061d0c4bb14e262c68",
+   "size": 5308
+  },
+  {
+   "disposition_projected": "NON_TABULAR",
+   "handling": "按原件字节保留，不解码",
+   "member_key": [
+    "harvard/chgis/CHGIS_data_dictionary.zip",
+    [
+     "xtra_date_rules.xlsx",
+     "docProps/thumbnail.wmf"
+    ],
+    [
+     4,
+     5
+    ]
+   ],
+   "sha256": "f782a8ce8bf728dedbe8db046eba48d20f303acf5a7964061d0c4bb14e262c68",
+   "size": 5308
+  },
+  {
+   "disposition_projected": "NON_TABULAR",
+   "handling": "按原件字节保留，不解码",
+   "member_key": [
+    "harvard/chgis/CHGIS_data_dictionary.zip",
+    [
+     "xtra_geo_source.xlsx",
+     "docProps/thumbnail.wmf"
+    ],
+    [
+     5,
+     5
+    ]
+   ],
+   "sha256": "f782a8ce8bf728dedbe8db046eba48d20f303acf5a7964061d0c4bb14e262c68",
+   "size": 5308
+  }
+ ],
+ "policy": "12 件 WMF 缩略图 NON_TABULAR 处置+原件 sha/size 记录；当前装载批次无需 WMF 解码",
+ "status": "DRAFT_NOT_APPROVED",
+ "when_decoder_needed": "仅当具体交付要求缩略图展示/图像检索等消费 WMF 内容时才需解码器（届时另立工具授权）"
+}

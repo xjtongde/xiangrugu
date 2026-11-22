@@ -1,0 +1,154 @@
+{
+ "band_checksum_separate_ledger": {
+  "assertion_executed_plus_deferred_equals_43": true,
+  "deferred_closure": "导入时按登记方法逐件 Band.Checksum() 重算并等值（机器可验）",
+  "deferred_objects": 17,
+  "executed_objects": 26,
+  "note": "GDAL Band.Checksum() 面与源件 SHA-256 分账",
+  "total_geo_raster": 43
+ },
+ "baseline_git": "ea40c1f",
+ "first_batch_scope": "首批批准=5 文本（4 harv+1 chgis schema）+空间批准 2（Ca1884route_przh_1251/utf8 各 6 组件 component_binding_approved）",
+ "format": "xiangrugu.import-package.rollup.first-batch-preload-table.v1",
+ "gaps_itemized": [
+  "运行门 loader 未实现（GAP 字样照录 load_method）",
+  "table_names/target_mapping 未批",
+  "expected_count/expected_sha256 未生成（frozen 门 L178 要求非空）"
+ ],
+ "readback_condition_REREAD_DEFINED": "回读条件=独立全量结构对账（列名/类型/序）+规范值对账+重复次数对账：expected_count 含重复行计数、expected_sha256=规范值投影摘要（非原始字节 sha）；text_values.py 自述 non-executable sidecar projection not ReleaseContract validation——预览证据面不可替代",
+ "reusable_evidence": [
+  "块2 预览（ordered_strings 等）",
+  "text_values sidecar",
+  "块3 组件绑定 6/6×2"
+ ],
+ "spatial_items": [
+  {
+   "component_binding_approved": true,
+   "components": 6,
+   "object_name": "Ca1884route_przh_1251"
+  },
+  {
+   "component_binding_approved": true,
+   "components": 6,
+   "object_name": "Ca1884route_przh_utf8"
+  }
+ ],
+ "status": "DRAFT_NOT_APPROVED",
+ "text_items": [
+  {
+   "approvals_present": {
+    "derived_rownum_mapping_approved": true,
+    "disposition_retained": "BLOCKED",
+    "global_name_allocation_complete": false,
+    "ready_for_import": false,
+    "schema_approved": true,
+    "source_column_mapping_approved": true,
+    "table_names_approved": false,
+    "target_mapping_approved": false
+   },
+   "canonical_value_gap": {
+    "expected_count": "MISSING（装载侧行数含重复计数未生成）",
+    "expected_sha256": "MISSING（规范值投影摘要未生成；预览 ordered_strings_sha256_including_header 存在≠合同字段）",
+    "raw_expected_present": true
+   },
+   "loader": "GAP: production PostgreSQL loader not implemented; importer/load.py is a staging prototype requiring revision; nothing r",
+   "name_status": "CANDIDATE（table_names_approved=False/target_mapping_approved=False 照录）",
+   "object_name": "harvard_u2f_tab__academy_u5f_data_u2e_tab",
+   "read_method_rules_present": true,
+   "rule_id": "m008002",
+   "schema": "harv"
+  },
+  {
+   "approvals_present": {
+    "derived_rownum_mapping_approved": true,
+    "disposition_retained": "BLOCKED",
+    "global_name_allocation_complete": false,
+    "ready_for_import": false,
+    "schema_approved": true,
+    "source_column_mapping_approved": true,
+    "table_names_approved": false,
+    "target_mapping_approved": false
+   },
+   "canonical_value_gap": {
+    "expected_count": "MISSING（装载侧行数含重复计数未生成）",
+    "expected_sha256": "MISSING（规范值投影摘要未生成；预览 ordered_strings_sha256_including_header 存在≠合同字段）",
+    "raw_expected_present": true
+   },
+   "loader": "GAP: production PostgreSQL loader not implemented; importer/load.py is a staging prototype requiring revision; nothing r",
+   "name_status": "CANDIDATE（table_names_approved=False/target_mapping_approved=False 照录）",
+   "object_name": "harvard_u2f_tab__index_u5f_of_u5f_the_u5f_complete_u5__300c7027",
+   "read_method_rules_present": true,
+   "rule_id": "m008003",
+   "schema": "harv"
+  },
+  {
+   "approvals_present": {
+    "derived_rownum_mapping_approved": true,
+    "disposition_retained": "BLOCKED",
+    "global_name_allocation_complete": false,
+    "ready_for_import": false,
+    "schema_approved": true,
+    "source_column_mapping_approved": true,
+    "table_names_approved": false,
+    "target_mapping_approved": false
+   },
+   "canonical_value_gap": {
+    "expected_count": "MISSING（装载侧行数含重复计数未生成）",
+    "expected_sha256": "MISSING（规范值投影摘要未生成；预览 ordered_strings_sha256_including_header 存在≠合同字段）",
+    "raw_expected_present": true
+   },
+   "loader": "GAP: production PostgreSQL loader not implemented; importer/load.py is a staging prototype requiring revision; nothing r",
+   "name_status": "CANDIDATE（table_names_approved=False/target_mapping_approved=False 照录）",
+   "object_name": "harvard_u2f_tab__writings_u20_of_u20_the_u20_19c_u20___7866bf2d",
+   "read_method_rules_present": true,
+   "rule_id": "m008004",
+   "schema": "harv"
+  },
+  {
+   "approvals_present": {
+    "derived_rownum_mapping_approved": true,
+    "disposition_retained": "BLOCKED",
+    "global_name_allocation_complete": false,
+    "ready_for_import": false,
+    "schema_approved": true,
+    "source_column_mapping_approved": true,
+    "table_names_approved": false,
+    "target_mapping_approved": false
+   },
+   "canonical_value_gap": {
+    "expected_count": "MISSING（装载侧行数含重复计数未生成）",
+    "expected_sha256": "MISSING（规范值投影摘要未生成；预览 ordered_strings_sha256_including_header 存在≠合同字段）",
+    "raw_expected_present": true
+   },
+   "loader": "GAP: production PostgreSQL loader not implemented; importer/load.py is a staging prototype requiring revision; nothing r",
+   "name_status": "CANDIDATE（table_names_approved=False/target_mapping_approved=False 照录）",
+   "object_name": "harvard_u2d_full_u2f_doi_u5f_10_u5f_7910_u2f_dvn_u2f___1334a175",
+   "read_method_rules_present": true,
+   "rule_id": "m004812",
+   "schema": "harv"
+  },
+  {
+   "approvals_present": {
+    "derived_rownum_mapping_approved": true,
+    "disposition_retained": "BLOCKED",
+    "global_name_allocation_complete": false,
+    "ready_for_import": false,
+    "schema_approved": true,
+    "source_column_mapping_approved": true,
+    "table_names_approved": false,
+    "target_mapping_approved": false
+   },
+   "canonical_value_gap": {
+    "expected_count": "MISSING（装载侧行数含重复计数未生成）",
+    "expected_sha256": "MISSING（规范值投影摘要未生成；预览 ordered_strings_sha256_including_header 存在≠合同字段）",
+    "raw_expected_present": true
+   },
+   "loader": "GAP: production PostgreSQL loader not implemented; importer/load.py is a staging prototype requiring revision; nothing r",
+   "name_status": "CANDIDATE（table_names_approved=False/target_mapping_approved=False 照录）",
+   "object_name": "harvard_u2d_full_u2f_doi_u5f_10_u5f_7910_u2f_dvn_u2f___9784b044",
+   "read_method_rules_present": true,
+   "rule_id": "m006642",
+   "schema": "chgis"
+  }
+ ]
+}

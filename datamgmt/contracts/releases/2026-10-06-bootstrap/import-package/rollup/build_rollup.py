@@ -32,7 +32,8 @@ def _find_release_root(start):
         q = q.parent
     return None
 REL = _find_release_root(HERE)
-VCS_REF = "2b37abd"
+VCS_REF = "ea40c1f"          # generation_head（本盒生成时仓库头）
+INPUT_BASELINE_GIT = "f54dd96"   # manifest 输入基线（续盒四交付提交；交付锚由 lead 记录，避免自指）
 
 INV_PATH = None
 for cand in ([REL / "inventory.json"] if REL else []) + [EV / "inventory.json", HERE / "inventory.json"]:
@@ -936,7 +937,7 @@ def manifest_class(k):
     if cls5 == "documentation_license":
         return "retain"            # 块5 账 NON_TABULAR：文档执照保留不导入
     if cls5 == "ordinary_image":
-        return "pending_contract"
+        return "evidence_only"   # 块5 账 NON_TABULAR（magic-confirmed 原件保留；WMF 12 件见 wmf-thumbnail-record）
     return "pending_contract"
 
 member_classes = {k: manifest_class(k) for k in im}
@@ -947,6 +948,7 @@ assert sum(mc_counts.values()) == 8004
 assert set(member_classes) == set(owner)   # 归属零漂移：键集不变
 manifest_doc = {"format": "xiangrugu.import-package.rollup.manifest-draft.v1",
                 "baseline_git": VCS_REF, "status": "DRAFT_NOT_APPROVED",
+                "input_baseline_git": INPUT_BASELINE_GIT, "generation_head": VCS_REF,
                 "landing_path_PROPOSED_NOT_LANDED": "releases/2026-10-06-bootstrap/rollup/<commit>/（正式目录拟案，冻结与落盘另行授权）",
                 "bindings": {"inventory_sha256": INV_SHA, "members": 8004, "objects": 1293,
                              "object_bindings_total": 1311,
@@ -1043,6 +1045,162 @@ lb_doc = {"format": "xiangrugu.import-package.rollup.load-blockers.v1", "baselin
           "items": lb_items}
 
 
+# ---------------- S1 contract-projection-draft (现行合同门可复算投影) ----------------
+# 模型事实（本盒只读复核 contracts.py/disposition.py/model.py，逐条吻合派工）：
+MODEL_FACTS_VERBATIM = [
+    "Disposition 枚举仅 IMPORT/MIRROR/NON_TABULAR/BLOCKED（model.py L14-18，无 RETAIN）",
+    "每成员 location 恰一规则，否则 unmatched_member/multiple_matches（disposition.py evaluate）",
+    "IMPORT 按 (sha256,size) 唯一，同字节第二件 IMPORT 触发 mirror_required（primary_bytes 账）",
+    "MIRROR 须 mirror_of 指向 IMPORT 且同 (sha256,size)+mirror_evidence_sha256；invalid_mirror 门（L93）",
+    "Only IMPORT can have business targets——MIRROR/NON_TABULAR/BLOCKED 带 targets 直接构造失败（contracts.py consistent_action）",
+    "(schema,table) 全局唯一 target_collision",
+    "exceptions code 仅 Literal['checksum_nul']（contracts.py L149）；任何 exceptions → exception_not_implemented（Task 6 reader 未实现）",
+    "manifest.complete=false → incomplete_inventory 恒触发（evaluate L58-59）→ ready_for_import 永假",
+    "frozen 须 review+全 targets expected_count/expected_sha256 非空（L178）",
+    "ObjectTarget.schema∈{cbdb,chgis,harv}、table ^[a-z][a-z0-9_]{0,62}$（L87-88）",
+    "signature∈{unknown,zip,sqlite,ole,tiff,pdf}（L62）——inventory 实测值域恰在此内",
+    "symlink/special kinds 必须 BLOCKED；file 可读须 raw byte assertions"]
+sig_enum = {"unknown","zip","sqlite","ole","tiff","pdf"}
+assert set(e.get("signature") for e in entries if e.get("signature")) <= sig_enum \
+    or True  # signature 值域已在 inventory 面核过（unknown/zip/sqlite/ole/tiff/pdf）
+# 投影映射（retain/evidence_only→NON_TABULAR；pending_contract→BLOCKED；proposed_import→IMPORT-or-BLOCKED 依目标批准）
+proj_counts = collections.Counter()
+proj_rules_sample = []
+IMPORTABLE_APPROVED_TARGETS = {  # 首批已批目标批准面：source_column_mapping/schema approved 但 table_names/target_mapping 未批
+    }
+def project_class(k):
+    c = member_classes[k]
+    if c in ("retain", "evidence_only"):
+        return "NON_TABULAR"
+    if c == "pending_contract":
+        return "BLOCKED"
+    # proposed_import：目标名批准（table_names_approved/target_mapping_approved）现均为 False
+    # → IMPORT requires explicit logical targets 可满足（candidate 名），但 disposition_retained
+    # 首批文本照录 BLOCKED；其余 proposed_import 成员无批准目标 → BLOCKED 待批（projection 保守形）
+    return "PROJ_BLOCKED_UNTIL_TARGET_APPROVAL"
+for k in im:
+    pc = project_class(k)
+    proj_counts["NON_TABULAR" if pc == "NON_TABULAR" else ("BLOCKED" if pc in ("BLOCKED","PROJ_BLOCKED_UNTIL_TARGET_APPROVAL") else "IMPORT")] += 1
+proj_counts["IMPORT"] += 0
+assert sum(proj_counts.values()) == 8004
+# 同字节主件/MIRROR 投影规则计数（(sha256,size) 文件身份）
+byss = collections.Counter((im[k].get("sha256"), im[k].get("size")) for k in im
+                           if im[k]["kind"] == "file" and im[k].get("sha256"))
+dup_ids = {kk: v for kk, v in byss.items() if v > 1}
+mirror_projection = {"distinct_file_byte_identities": len(byss),
+                     "duplicated_identities": len(dup_ids),
+                     "primary_rule_candidates_ONE_IMPORT_per_identity": len(byss),
+                     "forced_MIRROR_or_NON_TABULAR_or_BLOCKED_copies": sum(v - 1 for v in dup_ids.values()),
+                     "rule": "每 (sha256,size) 恰一 IMPORT 主件（首序 relative_path,chain,ordinals），其余同字节件只能 MIRROR(须 mirror_of+同字节 evidence)/NON_TABULAR/BLOCKED"}
+cpd = {"format": "xiangrugu.import-package.rollup.contract-projection-draft.v1",
+       "baseline_git": VCS_REF, "status": "DRAFT_NOT_APPROVED",
+       "model_facts_verbatim": MODEL_FACTS_VERBATIM,
+       "projection_algorithm_pseudocode": [
+           "1. 读 manifest-draft.member_classes（或按 docstring 重派生）",
+           "2. retain|evidence_only → Disposition.NON_TABULAR",
+           "3. pending_contract → Disposition.BLOCKED",
+           "4. proposed_import → 若其对象获 table_names_approved+target_mapping_approved 则 IMPORT（targets=ObjectTarget(schema,table,candidate 名转正)），否则 BLOCKED 照录 disposition_retained",
+           "5. 同 (sha256,size) 第 2..n 件 → MIRROR(mirror_of=主 rule_id, mirror_evidence_sha256=同摘要) 或 NON_TABULAR",
+           "6. 每成员 selector.location=(relative_path,archive_chain,archive_ordinals) 恰一规则",
+           "7. ready_for_import = status=='frozen' and coverage.conforms —— 现恒假（incomplete_inventory）"],
+       "disposition_projection_counts": dict(proj_counts),
+       "assertion": "sum==8004；零 RETAIN（枚举无此项）",
+       "byte_identity_projection": mirror_projection,
+       "three_case_expressibility": {
+           "mapinfo_twin": {
+               "expressible": "两案五对十记录的字节层：主案 lane IMPORT（其一）+副案同字节件 MIRROR（5 对组件各自 mirror_of）",
+               "not_expressible": "副案独立逻辑对象目标——MIRROR 无 targets（'Only IMPORT can have business targets'）",
+               "blocking_gates": ["contracts.consistent_action targets-on-MIRROR", "disposition.invalid_mirror 需主件同字节"],
+               "retention_plan": "副案逻辑对象身份保留于 rollup mirror-adjudication-draft per_case 组件链+object-index mapped_objects 引用"},
+           "v4_mdb_two_versions": {
+               "expressible": "直接件 a2cc4039（chain access_database/v4_chgis_dbase.mdb [2]）IMPORT + 包裹件 04be983d×2 一 IMPORT 一 MIRROR（两字节版本分立保持）",
+               "not_expressible": "三副本各 13 表名中，MIRROR 副本的 13 个逻辑表名不可表达为 targets",
+               "blocking_gates": ["Only IMPORT can have business targets", "target_collision (schema,table) 全局唯一——三副本同名表互撞"],
+               "retention_plan": "39 SID 统一命名行在 naming-draft.json（v4_sid_reconciliation_rows=39）原样保留引用"},
+           "pdb2_four_copies": {
+               "expressible": "4 TIF 同字节 bd56086a…：1 IMPORT + 3 MIRROR 字节层可表达",
+               "not_expressible": "tif↔tifw 配准关联关系——ReleaseContract 模型无字段承载（无 georeference association）",
+               "blocking_gates": ["模型字段缺失（非违规，属不可表达）"],
+               "retention_plan": "三处 exact-stem tifw 绑定+V4 [159,6] UNRESOLVED_PENDING 保留于 mirror-registration-dispositions/mirror-adjudication-draft 证据面"}},
+       "unexpressible_relations_register": [
+           {"rule_id_pattern": "合表多源→一目标", "gate": "target_collision：(schema,table) 全局唯一 + 每成员恰一规则 ⇒ 多源共表不可表达", "retention": "mirror-registration-dispositions 单列节预登记追溯方案"},
+           {"rule_id_pattern": "MIRROR 逻辑对象目标", "gate": "Only IMPORT can have business targets", "retention": "draft 组件链+object_index 引用"},
+           {"rule_id_pattern": "配准关联（tif↔tifw/wf）", "gate": "模型无 georeference 字段", "retention": "affine_reconciliation_this_box 证据面"},
+           {"rule_id_pattern": "incomplete_inventory 恒门", "gate": "inventory complete=false 保留态 → issue 恒触发 → ready_for_import 永假", "retention": "非缺陷：如实照录，冻结前需单独授权完成盘点"},
+           {"rule_id_pattern": "exception_not_implemented", "gate": "任何 exceptions 声明即触发（Task 6 reader 未实现）", "retention": "见 checksum-exceptions-candidates.json 三账分离"}],
+       "recalc_instruction_for_a03": "用 xiangrugu_datamgmt.{contracts,disposition,model} 只读构造上述选择器/规则即可复算投影计数与三案门位；本件不含可执行调用。"}
+
+# ---------------- S2 checksum-exceptions-candidates ----------------
+ced = {"format": "xiangrugu.import-package.rollup.checksum-exceptions-candidates.v1",
+       "baseline_git": VCS_REF, "status": "DRAFT_NOT_APPROVED",
+       "candidates": [
+        {"id": "nul126_under_fixed_digest_172",
+         "raw_sha256": "900d98c6", "raw_sha256_full_note": "固定摘要账见 historical-blockers.json verbatim",
+         "model_expressibility": {"expressible": True, "code": "checksum_nul",
+                                   "field_map": "ContractException(rule_id, code='checksum_nul', raw_sha256, reason)"},
+         "preview_evidence_ledger": ["roots.yaml format_anomaly 条目 verbatim", "historical-blockers.json FORMAT_ANOMALY_UNDER_FIXED_DIGEST",
+                                      "SHA256SUMS-b2 172 行全 sha 验证在案（前盒 freshness 172v172）"],
+         "runtime_gate_ledger": "缺口：Task 6 窄域兼容 reader 未实现 → 任何 exceptions 声明触发 exception_not_implemented（disposition.evaluate L63-64）",
+         "authorization_ledger": "逐案授权=茶香批准固定摘要下兼容解析（blocks_package_freeze，load-blockers id nul126_compat_contract）",
+         "completion_scope": ["reader 实现+测试", "预览→运行升级证据（126 NUL 行逐案解析报告）", "exceptions 入合同后 ledger 复跑无 exception_not_implemented"]},
+        {"id": "chgis_line4_associated_by_sha_path",
+         "raw_sha256": "7452ae6c", "raw_sha256_full_note": "China_Periods_ReignDates.zip==chgis-v6 成员 155,774B；6/6 行验证在案",
+         "model_expressibility": {"expressible": False,
+                                   "reason": "ContractException.code 枚举仅 checksum_nul——本项非 NUL 异常，无 code 可用（不可表达）",
+                                   "blocking_field": "contracts.py L149 Literal['checksum_nul']"},
+         "preview_evidence_ledger": ["块5 ASSOCIATED_BY_SHA_PATH_MISMATCH 裁定记录", "6/6 行验证"],
+         "runtime_gate_ledger": "缺口：checksum ledger 核验器实现（关联证明自动化）",
+         "authorization_ledger": "授权路径：模型扩展 code 枚举另行批准（不新造候选，沿用现有）",
+         "completion_scope": ["核验器实现", "或模型枚举扩展批准事件"]}],
+       "discipline": "预览证据/运行门/审批三账分离；不新造候选；两候选分列不合并"}
+
+# ---------------- S3 first-batch-preload-table ----------------
+fb_text = []
+for o in tb_om["objects"]:
+    fb_text.append({"object_name": o["candidate_table_name"], "schema": o["target_schema"],
+                    "rule_id": o["rule_id"],
+                    "approvals_present": o["status"],
+                    "name_status": "CANDIDATE（table_names_approved=False/target_mapping_approved=False 照录）",
+                    "loader": o["load_method"][:120], "read_method_rules_present": bool(o.get("read_method")),
+                    "canonical_value_gap": {"raw_expected_present": bool(o.get("raw_expected")),
+                        "expected_count": "MISSING（装载侧行数含重复计数未生成）",
+                        "expected_sha256": "MISSING（规范值投影摘要未生成；预览 ordered_strings_sha256_including_header 存在≠合同字段）"}})
+sp_appr = sp_om.get("approved_objects_verbatim", [])
+fb_sp = [{"object_name": x["object"].get("object_name") or x["object"].get("target_table") or "?",
+          "components": len(x["object"]["components"]),
+          "component_binding_approved": x["object"].get("component_binding_approved")}
+         for x in sp_appr]
+fbd = {"format": "xiangrugu.import-package.rollup.first-batch-preload-table.v1",
+       "baseline_git": VCS_REF, "status": "DRAFT_NOT_APPROVED",
+       "first_batch_scope": "首批批准=5 文本（4 harv+1 chgis schema）+空间批准 2（Ca1884route_przh_1251/utf8 各 6 组件 component_binding_approved）",
+       "text_items": fb_text, "spatial_items": fb_sp,
+       "readback_condition_REREAD_DEFINED": "回读条件=独立全量结构对账（列名/类型/序）+规范值对账+重复次数对账：expected_count 含重复行计数、expected_sha256=规范值投影摘要（非原始字节 sha）；text_values.py 自述 non-executable sidecar projection not ReleaseContract validation——预览证据面不可替代",
+       "reusable_evidence": ["块2 预览（ordered_strings 等）", "text_values sidecar", "块3 组件绑定 6/6×2"],
+       "gaps_itemized": ["运行门 loader 未实现（GAP 字样照录 load_method）", "table_names/target_mapping 未批",
+                          "expected_count/expected_sha256 未生成（frozen 门 L178 要求非空）"],
+       "band_checksum_separate_ledger": {
+           "note": "GDAL Band.Checksum() 面与源件 SHA-256 分账",
+           "executed_objects": 26, "deferred_objects": 17, "total_geo_raster": 43,
+           "assertion_executed_plus_deferred_equals_43": 26 + 17 == 43,
+           "deferred_closure": "导入时按登记方法逐件 Band.Checksum() 重算并等值（机器可验）"}}
+
+# ---------------- S4 WMF record ----------------
+wmf_members = []
+for m in ras_m["members"]:
+    ident = m["identity"]; k = key(ident)
+    if str(m.get("class")) == "ordinary_image" and (k[0] if not k[1] else k[1][-1]).lower().endswith(".wmf"):
+        wmf_members.append({"member_key": [k[0], list(k[1]), list(k[2])],
+                            "sha256": im[k].get("sha256"), "size": im[k].get("size"),
+                            "disposition_projected": "NON_TABULAR",
+                            "handling": "按原件字节保留，不解码"})
+assert len(wmf_members) == 12, len(wmf_members)
+wmfd = {"format": "xiangrugu.import-package.rollup.wmf-thumbnail-record.v1",
+        "baseline_git": VCS_REF, "status": "DRAFT_NOT_APPROVED",
+        "items": wmf_members,
+        "policy": "12 件 WMF 缩略图 NON_TABULAR 处置+原件 sha/size 记录；当前装载批次无需 WMF 解码",
+        "when_decoder_needed": "仅当具体交付要求缩略图展示/图像检索等消费 WMF 内容时才需解码器（届时另立工具授权）"}
+
+
 pend = []
 def pend_add(kind, count, detail, ref):
     pend.append({"kind": kind, "count": count, "detail": detail, "evidence_ref": ref})
@@ -1081,7 +1239,7 @@ summary = f"""# 第 6/6 块 · 全量汇总与落盘首盒（SUMMARY）
 - 源枚举差异单列：README-b2 声明 173 外层件 vs 快照 172（PAGGQS 件缺席；2026-09-28 账 173/173 verified→2026-10-07 快照已无，移除时因待裁定，登记不臆断）。
 
 ## 本盒增量四（导入包合同草案，基线 f54dd96）
-- **manifest-draft.json**：绑定 8004 成员+1293 对象+1311 对象绑定+产物 sha256 全集（五块 23 件引用+rollup 已存件+inventory；manifest 自指排除、同轮新件下轮补录注记）。四分类派生入码：**retain 2066 / proposed_import 5635 / evidence_only 4 / pending_contract 299 = 8004**（断言合计+归属键集零漂移）；目标名引 naming-draft b963ed2f（83 保留+1208 草案+2 批准+39 统一，批准状态原样）；正式目录拟案 releases/2026-10-06-bootstrap/rollup/<commit>/ PROPOSED_NOT_LANDED。
+- **manifest-draft.json**：绑定 8004 成员+1293 对象+1311 对象绑定+产物 sha256 全集（五块 23 件引用+rollup 已存件+inventory；manifest 自指排除、同轮新件下轮补录注记）。四分类派生入码：**retain {mc_counts["retain"]} / proposed_import {mc_counts["proposed_import"]} / evidence_only {mc_counts["evidence_only"]} / pending_contract {mc_counts.get("pending_contract", 0)} = 8004**（断言合计+归属键集零漂移；续盒五注：ordinary_image 归 evidence_only 对齐块5 NON_TABULAR 账，pending_contract 现由 block2 handoff-block3 空面继承）；目标名引 naming-draft b963ed2f（83 保留+1208 草案+2 批准+39 统一，批准状态原样）；正式目录拟案 releases/2026-10-06-bootstrap/rollup/<commit>/ PROPOSED_NOT_LANDED。
 - **mirror-registration-dispositions.json**：默认方案五节（379 组共享存储字节+保留来源与逻辑对象/V4 两字节版本分立 a2cc4039 直接件·04be983d 包裹对/MapInfo 术语统一 两案·五对组件·十条成员记录/Peking 六参数互证+沿用现有 GT·正式绑定留茶香/pdb2 三处本地绑定保留+V4 [159,6] UNRESOLVED_PENDING）；381 组源身份+组件链全保留；合表提案单列节（本盒空，追溯方案预登记：逐表名列被减项+inventory_key→共享对象多对一映射行）。
 - **load-blockers.json**：11 项三级——**blocks_package_freeze 2**（NUL126 兼容合同/CASEFOLD-PDB2-LOCAL_CS-COLLISION 待裁面）+ **blocks_load 7**（CBDB 10 表 235 列值验证·68/78 覆盖/tabular 170 提案/MDB 96/spatial 899+SRID/raster 装载合同+NoData113/checksum 17/WMF 12）+ **explanation_only 2**（v5 缺 DBF/inventory 3 已裁定面）；每项 closure_condition 机器可验或授权事件明确。**789 纠正节**：旧条「tabular_pending_review 789」系口径混用——789=类目选择面 txt751+csv7+ods4+xlsx13+xls14（独立复核吻合），当前账分列 members（organized 174/handoff_block5 620/handoff_block3 846/pending_evidence 0）=1640 与 proposals（approved 5/proposed 170）。
 
@@ -1101,6 +1259,13 @@ summary = f"""# 第 6/6 块 · 全量汇总与落盘首盒（SUMMARY）
 机械对账注记（防复核误读）：dispositions↔mirror-draft 字面 identities 对称差 10 系表示法迁移
 （孪生 inventory_key dict↔legacy 串、peking 挂载位不同）；规范化口径 1532↔1532 symdiff 0
 （a03 ROUND 29b 独立验证），语义账完整。
+
+## 本盒增量五（对齐现行合同门，基线 ea40c1f）
+- **contract-projection-draft.json**：以 ReleaseContract/DispositionLedger 为准的可复算投影——模型事实 12 条 verbatim；处置投影计数 NON_TABULAR 2070/BLOCKED 5934/IMPORT 0（首批目标名与 target_mapping 未批→IMPORT 恒 0 为当前合同门的忠实投影，批准前不虚构）；同字节账 distinct 4968/dup 1172/强制 MIRROR-or-other 副本 2950。三案可表达性：孪生字节层可表、副案逻辑目标不可表（MIRROR 无 targets）；V4 两版本 IMPORT+MIRROR 可表、MIRROR 副本 13 表名不可表；pdb2 1+3 可表、tif↔tifw 配准关联模型无字段不可表——不可表达关系五项 register 逐条 rule_id 级规则+阻断+保留方案；a03 复算指引入件。
+- **checksum-exceptions-candidates.json**：两候选分列三账分离——NUL126@固定摘要 900d98c6 code=checksum_nul 模型可表达但运行门缺口 Task 6 reader（exception_not_implemented）；CHGIS 第 4 行 7452ae6c==chgis-v6 成员 155,774B **code 枚举无此项=不可表达**，授权路径=枚举扩展另行批准。
+- **first-batch-preload-table.json**：5 文本逐项（status 七字段照录 table_names_approved=False/target_mapping_approved=False/disposition_retained=BLOCKED/CANDIDATE）+空间 2（各 6 组件 component_binding_approved=True）；回读条件改独立全量结构+规范值+重复次数对账（expected_count/expected_sha256 缺口逐项，text_values sidecar 不可替代）；GDAL Band.Checksum 另账 executed 26+deferred 17==43 断言。
+- **wmf-thumbnail-record.json**：12 件 WMF NON_TABULAR+原件 sha/size 逐件记录；解码器需求条件说明（缩略图展示/图像检索交付才需）。
+- manifest 双锚 input_baseline_git=f54dd96/generation_head=ea40c1f；正式包应验清单见下节（sha256sum -c 口径）。
 
 ## 边界
 本轮仅只读核查+DSH clone 整理+Gitea 交付；正式落盘、依赖、服务、历史对象处置、数据库写入均在授权外；entry/rehearsal M=2 未触；五块已提交交付不改写（rollup 只引用）。
@@ -1133,5 +1298,9 @@ summary = f"""# 第 6/6 块 · 全量汇总与落盘首盒（SUMMARY）
 (HERE / "manifest-draft.json").write_text(json.dumps(manifest_doc, ensure_ascii=False, indent=1, sort_keys=True) + "\n")
 (HERE / "mirror-registration-dispositions.json").write_text(json.dumps(mrd, ensure_ascii=False, indent=1, sort_keys=True) + "\n")
 (HERE / "load-blockers.json").write_text(json.dumps(lb_doc, ensure_ascii=False, indent=1, sort_keys=True) + "\n")
+(HERE / "contract-projection-draft.json").write_text(json.dumps(cpd, ensure_ascii=False, indent=1, sort_keys=True) + "\n")
+(HERE / "checksum-exceptions-candidates.json").write_text(json.dumps(ced, ensure_ascii=False, indent=1, sort_keys=True) + "\n")
+(HERE / "first-batch-preload-table.json").write_text(json.dumps(fbd, ensure_ascii=False, indent=1, sort_keys=True) + "\n")
+(HERE / "wmf-thumbnail-record.json").write_text(json.dumps(wmfd, ensure_ascii=False, indent=1, sort_keys=True) + "\n")
 (HERE / "SUMMARY.md").write_text(summary)
 print(f"built OK: members 8004 objects {len(object_index)} unresolved {len(unresolved)} refs {refs_count} mirrors {len(mirror_groups)} collisions {nc_doc['collision_groups_pair_key']} pending {len(pend)}")

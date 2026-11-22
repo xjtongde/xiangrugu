@@ -1,5 +1,5 @@
 {
- "baseline_git": "c8b8fe8",
+ "baseline_git": "2273529",
  "block4_composition_ruling": {
   "basis": "lead-ruling team-message-3ffcfc67：块4归属=core 7(MDB5+SQL2)+related structural_container 4；a03 口径观察：core 键仅 7、4 容器在 related_members 标 structural_container（descendant mapped separately）",
   "core_data": 7,
@@ -136,6 +136,18 @@
   "note": "交接面成员按最终归属块计 primary_owner_block exactly-once（846 面→块3 组内件、620→块5），不重复认领"
  },
  "inventory_sha256": "fb5e6b334b898d62dc0e5c77094fdb50e0946300e6e3009f447b2ecd1bc216db",
+ "members_mapped_to_objects": 1140,
+ "members_without_objects_note": "无对象成员按处置登记（NON_TABULAR/structural/cache 等），非解析失败",
+ "object_binding_unresolved": 0,
+ "object_coverage_control_totals": {
+  "block1_tables": 78,
+  "block2_tabular_objects": 175,
+  "block3_spatial_objects": 901,
+  "block4_mdb_sql_objects": 96,
+  "block5_raster_proposals": 43,
+  "note": "派工文'1393'系笔误：其分解 78+175+901+96+43=1293，本盒以机器断言实测 1293 为准",
+  "total": 1293
+ },
  "source_enumeration_discrepancies": [
   {
    "absent_member": "harvard-full/doi_10_7910/DVN/PAGGQS/CBDB_20240208_sqlite.db",
@@ -143,9 +155,10 @@
    "declared_in": "README-b2.md §二/§四（173 件 / 2,764,772,927B）",
    "declared_sha16": "5207eacebbe82ec6",
    "declared_size_mb": 837.2,
-   "history_note": "2026-09-28 账称 173/173 verified；2026-10-07 快照已无该件——何时何因移除待茶香/Codex 裁定，登记不臆断",
+   "history_note": "2026-09-28 账称 173/173 verified；2026-10-02 用户令清出旧版 CBDB（decision-resolved，非不明移除——引文见 historical-blockers items[0].decision_citations_verbatim）",
+   "resolution_note": "README-b2 173 系清理前文档（R-04 不回改）；2026-10-02 用户令清出旧版 CBDB，SHA256SUMS-b2 重写 172 行有账（roots.yaml L52/L79、log.md L299）；快照 172 与账一致",
    "snapshot_state": "不在 2026-10-07 快照：find PAGGQS/CBDB_20240208 空、无 size-877862912 件、inventory 无 sha-5207eace 前缀件（本盒 32 独立复核）",
-   "status": "REGISTERED_DISCREPANCY_NOT_ADJUDICATED"
+   "status": "RESOLVED_BY_DECISION_2026-10-02"
   }
  ],
  "source_enumeration_freshness": {

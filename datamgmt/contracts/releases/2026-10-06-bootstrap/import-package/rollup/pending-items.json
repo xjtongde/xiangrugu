@@ -1,5 +1,5 @@
 {
- "baseline_git": "c8b8fe8",
+ "baseline_git": "2273529",
  "format": "xiangrugu.import-package.rollup.pending-items.v1",
  "item_kinds": 14,
  "items": [
@@ -83,8 +83,8 @@
   },
   {
    "count": 13,
-   "detail": "跨块目标表名碰撞分配（本盒扫描结果见 name-conflicts.json）",
-   "evidence_ref": "rollup/name-conflicts.json",
+   "detail": "跨块目标表名碰撞分配（本盒 v2 扫描：V4 MDB 同名 13 组保留+tabular proposed 面纳入对键扫描；结果见 naming-scan.json）",
+   "evidence_ref": "rollup/naming-scan.json",
    "kind": "shapename_collision_allocation"
   }
  ]

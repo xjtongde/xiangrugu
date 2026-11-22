@@ -1,8 +1,8 @@
 {
- "baseline_git": "c8b8fe8",
- "collision_groups": 13,
- "collisions": {
-  "chgis|v4_chgis_dbase_v4_data_dictionary": [
+ "baseline_git": "2273529",
+ "collision_groups_pair_key": 13,
+ "collisions_pair_key": {
+  "?|v4_chgis_dbase_v4_data_dictionary": [
    {
     "block": 4,
     "carrier": "mdb_table",
@@ -19,7 +19,7 @@
     "sid": "8a42c9057db446e3d1df7a4a0dea4944a28eebb84ed4d1f2796bc026daf89f9e"
    }
   ],
-  "chgis|v4_chgis_dbase_v4_feature_types": [
+  "?|v4_chgis_dbase_v4_feature_types": [
    {
     "block": 4,
     "carrier": "mdb_table",
@@ -36,7 +36,7 @@
     "sid": "08adf9e0d31b1b7b92959bfbdd527c1d556611cd3f7ea275e6a56e182da95b02"
    }
   ],
-  "chgis|v4_chgis_dbase_v4_gis_info_table": [
+  "?|v4_chgis_dbase_v4_gis_info_table": [
    {
     "block": 4,
     "carrier": "mdb_table",
@@ -53,7 +53,7 @@
     "sid": "55c3f85ff700568f367a4e986059799cab07ffff89c9f89f20bc68d6799293cd"
    }
   ],
-  "chgis|v4_chgis_dbase_v4_gis_layer_field_names": [
+  "?|v4_chgis_dbase_v4_gis_layer_field_names": [
    {
     "block": 4,
     "carrier": "mdb_table",
@@ -70,7 +70,7 @@
     "sid": "e72e5cbd41075af9b35222ddff7e9ea0a70a00cc7814b69a8d0d7b4d99ed5bd1"
    }
   ],
-  "chgis|v4_chgis_dbase_v4_main_table": [
+  "?|v4_chgis_dbase_v4_main_table": [
    {
     "block": 4,
     "carrier": "mdb_table",
@@ -87,7 +87,7 @@
     "sid": "d07ec78b9d5264293cbea3c12c649a303ff58c4ffed69d28600ba3eb636d7722"
    }
   ],
-  "chgis|v4_chgis_dbase_v4_part_of_table": [
+  "?|v4_chgis_dbase_v4_part_of_table": [
    {
     "block": 4,
     "carrier": "mdb_table",
@@ -104,7 +104,7 @@
     "sid": "7ef142dc61c8f6780a223e50497d0bb9a97cbda32784b82ca95d032fdd6d48e2"
    }
   ],
-  "chgis|v4_chgis_dbase_v4_preceded_by_table": [
+  "?|v4_chgis_dbase_v4_preceded_by_table": [
    {
     "block": 4,
     "carrier": "mdb_table",
@@ -121,7 +121,7 @@
     "sid": "35b42e619eed4ada54c58070716042e4a8792ee1294f1f573c1015127b3dd052"
    }
   ],
-  "chgis|v4_chgis_dbase_v4_source_notes": [
+  "?|v4_chgis_dbase_v4_source_notes": [
    {
     "block": 4,
     "carrier": "mdb_table",
@@ -138,7 +138,7 @@
     "sid": "25d19ce73a023de07f6a3a1962148bf857062495f4aaf6e1ef2e552346d73d72"
    }
   ],
-  "chgis|v4_chgis_dbase_xtra_change_types": [
+  "?|v4_chgis_dbase_xtra_change_types": [
    {
     "block": 4,
     "carrier": "mdb_table",
@@ -155,7 +155,7 @@
     "sid": "59a34e2a9ff0e40c16fa89f545fd0ff5f62c2a9d760f7c18872f5ed709df22b8"
    }
   ],
-  "chgis|v4_chgis_dbase_xtra_contributors": [
+  "?|v4_chgis_dbase_xtra_contributors": [
    {
     "block": 4,
     "carrier": "mdb_table",
@@ -172,7 +172,7 @@
     "sid": "1911e12b7b2ea1de570416052c83a9477e0a5f89cfb2867bebfc0c53078240dc"
    }
   ],
-  "chgis|v4_chgis_dbase_xtra_date_rules": [
+  "?|v4_chgis_dbase_xtra_date_rules": [
    {
     "block": 4,
     "carrier": "mdb_table",
@@ -189,7 +189,7 @@
     "sid": "9613d0af062891fcff353ee1b2940db77355666a2130ae242a5c6410a230cc38"
    }
   ],
-  "chgis|v4_chgis_dbase_xtra_geo_source": [
+  "?|v4_chgis_dbase_xtra_geo_source": [
    {
     "block": 4,
     "carrier": "mdb_table",
@@ -206,7 +206,7 @@
     "sid": "8fec0ec28500d9b08ca496115c1bb93e7547fd96f29e6f7a9bfbfb431696cd55"
    }
   ],
-  "chgis|v4_chgis_dbase_xtra_other_feature_types": [
+  "?|v4_chgis_dbase_xtra_other_feature_types": [
    {
     "block": 4,
     "carrier": "mdb_table",
@@ -224,7 +224,32 @@
    }
   ]
  },
- "distinct_proposed_names": 974,
- "format": "xiangrugu.import-package.rollup.name-conflicts.v1",
- "method": "五块 object-mapping 提案名集 (schema,name) 分组计数；raster 提案名留块6 命名（table_name_proposal=null 不计入）"
+ "control_total_check": {
+  "computed": 1144,
+  "expected": 1144
+ },
+ "distinct_bare_names": 1144,
+ "format": "xiangrugu.import-package.rollup.naming-scan.v2",
+ "method": "口径定义：bare-name=候选名去重计数（跨 schema 同名计 1）；对键=(schema,name) 组合去重。扫描面=spatial proposed 899+spatial approved 2+tabular objects/proposed 175+mdb/sql proposed 96+cbdb tables 78+raster 43（后者名称未定不入名集）。对照值 1144=spatial 899+tabular 175+mdb distinct bare-name 70（96 提案含 V4 三副本×13 表同名，去重 26）",
+ "single_list_actual_naming": {
+  "cbdb": {
+   "objects": 78,
+   "state": "全部已命名（schema=cbdb + target_table 定）"
+  },
+  "raster": {
+   "objects": 43,
+   "state": "table_name_proposal=null，命名与碰撞分配留块6"
+  },
+  "spatial_approved": {
+   "objects": 2,
+   "state": "绑定上下文已批准；表名分配留块6命名面"
+  }
+ },
+ "three_class_counts": {
+  "approved_spatial_special": 2,
+  "name_undecided": 43,
+  "named_schema_and_name": 83,
+  "schema_undecided": 1165
+ },
+ "v4_mdb_same_name_groups_retained": 13
 }

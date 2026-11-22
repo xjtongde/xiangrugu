@@ -1,5 +1,5 @@
 {
- "baseline_git": "c8b8fe8",
+ "baseline_git": "2273529",
  "format": "xiangrugu.import-package.rollup.historical-blockers.v1",
  "inventory_complete_flag_preserved": false,
  "inventory_issues_preserved_verbatim": [
@@ -31,44 +31,55 @@
  "items": [
   {
    "carrier": {
+    "raw_sha256": "900d98c69cf9b72f20313aa562b8da5e18e9c3e3def423fa6f618b4b1bafb3cb",
     "relative_path": "SHA256SUMS-b2",
-    "sha256": "900d98c69cf9b72f20313aa562b8da5e18e9c3e3def423fa6f618b4b1bafb3cb",
     "size": 22071
    },
-   "independent_recompute": {
-    "line173_membership_uniqueness": "唯一重构成立（表路径+大小+sha16 三重锚定）",
-    "line173_reconstruction": "README-b2 §二声明 173 件/2,764,772,927B；§四 173 行逐件表 vs ledger 差集恰 1 件=PAGGQS/CBDB_20240208_sqlite.db 837.2MB sha16 5207eacebbe82ec6；字节闭合 2,764,772,927−1,886,910,015=877,862,912",
-    "lines_1_172": "lead 32 逐行独立重算 172/172 sha OK；本盒复核其行数构成 172==inventory 外层 172（171+1）",
-    "snapshot_absence_verified_this_box": "find PAGGQS/CBDB_20240208 空、无 size-877862912 件、inventory 无 sha-5207eace 件"
+   "decision_citations_verbatim": {
+    "docs/log.md L299": "2026-10-02 | 清出 usedata 旧版 CBDB：删 harvard-full/DOI/PAGGQS/CBDB_20240208_sqlite.db(877MB)与空目录；重写 SHA256SUMS-b2 173→172 行；roots.yaml/holdings.md 件数 190→189、172→171；闸0 复验 172/172 | 源根清理 | 用户令「usedata 只含本项目使用件，不使用的清出」；定为 20260919 唯一 CBDB",
+    "roots.yaml L27 usage_policy": "2026-10-02 用户令：usedata 只含【本项目使用】件——使用件保留并记用途，不使用件清出（不判断源数据对错，仅按项目是否使用）",
+    "roots.yaml L49 harvard-full content": "2026-10-02 已清出旧版 CBDB_20240208_sqlite.db（PAGGQS 空目录随之删）",
+    "roots.yaml L52 SHA256SUMS-b2": "172 行，二批校验账，2026-10-02 清出旧版后重写",
+    "roots.yaml L73 as_of": "2026-10-02",
+    "roots.yaml L79 removal_note": "2026-10-02 用户令清出 harvard-full/DOI/PAGGQS/CBDB_20240208_sqlite.db（旧版），本账重写为 172 行。"
    },
+   "face": "declared_member_PAGGQS",
    "issue_codes": [
-    "checksum_line line=173",
+    "checksum_line line=173（第 173 行所指成员）"
+   ],
+   "retrospective_evidence": {
+    "byte_closure": "2,764,772,927 − 1,886,910,015 = 877,862,912（==837.2MiB 声明）",
+    "full_sha256_independent_recompute_this_box": "5207eacebbe82ec6c16014b404f4bef0770fb639778b5062cb289bf051fb9a7f",
+    "historical_original_path": "/mnt/wd61workmetadata/xiangrugudata/harvard-full/doi_10_7910/DVN/PAGGQS/CBDB_20240208_sqlite.db（下载备份区，只读）",
+    "historical_use_note": "git show 75ecd77:docs/data-sources.md L44：ADDR_XY 桥→public.addr_xy 19,249 行（旧案已被 2026-10-02 决定取代）",
+    "sha16_matches_readme_table": "5207eacebbe82ec6 == README-b2 §四声明前缀（合）",
+    "size_bytes": 877862912
+   },
+   "status": "EXCLUDED_BY_DECISION_2026-10-02"
+  },
+  {
+   "carrier": {
+    "raw_sha256": "900d98c69cf9b72f20313aa562b8da5e18e9c3e3def423fa6f618b4b1bafb3cb",
+    "relative_path": "SHA256SUMS-b2"
+   },
+   "face": "ledger_tail_anomaly",
+   "issue_codes": [
     "checksum_nul count=126"
    ],
+   "note": "兼容解析路径留冻结合同审批，**不自动核销**；raw_sha256 900d98c6… 固定值在案",
    "raw_byte_evidence": {
     "file_size": 22071,
-    "line173_raw": "126×0x00（offset 21945–22070，即被覆盖的第 173 行区域；前行以 .txt\\n 完整结束）",
     "nul_count": 126,
     "nul_offset_range": [
      21945,
      22070
     ],
-    "nul_runs": [
-     [
-      21945,
-      22070,
-      126
-     ]
-    ],
+    "nul_runs_single_contiguous": true,
     "valid_line_composition": "171 harvard-full DVN 外层 + 1 chgis-v6",
     "valid_lines": 172
    },
-   "remaining_reasons": [
-    "声明成员本体缺席当前快照（无法重算核销）",
-    "全 sha256 不可恢复（README 仅 16 位前缀，全值在被覆盖行内）",
-    "NUL 区原始字节不可恢复（第 173 行内容已被覆盖）"
-   ],
-   "status": "UNRESOLVED_DECLARED_MEMBER_ABSENT"
+   "roots_yaml_format_anomaly_verbatim": "172 条有效记录后有 126 个 NUL 字节（2026-10-07 同摘要快照逐字节核验，更正原 1,101 计数）；严格解析报告 1 行格式错误。源件不修，解析器必须检测并把该异常写入证据；仅当前固定摘要可由冻结合同批准兼容解析。",
+   "status": "FORMAT_ANOMALY_UNDER_FIXED_DIGEST"
   },
   {
    "association": {

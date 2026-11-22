@@ -31,7 +31,7 @@ def _find_release_root(start):
         q = q.parent
     return None
 REL = _find_release_root(HERE)
-VCS_REF = "c8b8fe8"
+VCS_REF = "2273529"
 
 INV_PATH = None
 for cand in ([REL / "inventory.json"] if REL else []) + [EV / "inventory.json", HERE / "inventory.json"]:
@@ -58,6 +58,7 @@ sp_om = json.load(open(sp_p / "object-mapping.json"))
 tb_om = json.load(open(tab_p / "object-mapping.json"))
 md_om = json.load(open(mdb_p / "object-mapping.json"))
 rs_om = json.load(open(ras_p / "raster-mapping.json"))
+cb_tm = json.load(open(cbdb_p / "table-mapping.json"))
 
 by_full = collections.defaultdict(list)
 for e in entries:
@@ -133,6 +134,27 @@ for a in sp_om["approved_objects_verbatim"]:
             approved_gids.add(g["group_id"])
 assert len(approved_gids) == 2, approved_gids
 
+def resolve_sf(sf):
+    """Resolve a block-package 'source_file_or_chain'/'primary_member'/selector string
+    to inventory keys. Handles: rel-only members; '!' chains whose inventory elements may
+    themselves contain '/' (dir-in-zip stored as one element). Returns candidate list."""
+    parts = sf.split("!"); rel = parts[0]
+    if len(parts) == 1:
+        k = key({"relative_path": rel})
+        return [k] if k in im else []
+    segs = [p for s_ in parts[1:] for p in s_.split("/")]
+    tail = "/".join(parts[1:])
+    variants = [tuple([rel, *segs]), tuple([rel, tail])]
+    for j, c in enumerate(tail):
+        if c == "/":
+            variants.append(tuple([rel, tail[:j], tail[j + 1:]]))
+    seen = set(); cands = []
+    for v in variants:
+        for e in by_full[v]:
+            if key(e) not in seen:
+                seen.add(key(e)); cands.append(key(e))
+    return cands
+
 def chain_str(k):
     return k[0] + ("".join("!" + s for s in k[1]) if k[1] else "")
 
@@ -179,6 +201,93 @@ for o in sp_om["proposed_objects"]:
     if k:
         refs[k].append({"block": 3, "ref": "spatial/object-mapping.json#" + o["source_object_id"]})
 
+
+# ---------------- S1 object-index (1393 control total) ----------------
+sp_g_by_gid_local = sp_g_by_gid
+object_index = []
+unresolved = []          # 禁止静默丢弃：逐项登记
+def bind_one(block, obj_ref, sfs, naming):
+    """sfs: list of source strings; resolve each, register bindings or failures."""
+    binds = []
+    for sf in sfs:
+        r = resolve_sf(sf)
+        if len(r) == 1:
+            binds.append({"source_string": sf, "inventory_key": [r[0][0], list(r[0][1]), list(r[0][2])],
+                          "sha256": im[r[0]]["sha256"], "size": im[r[0]].get("size")})
+        else:
+            unresolved.append({"block": block, "object_ref": obj_ref, "source_string": sf,
+                               "candidates": len(r),
+                               "kind": "MISS" if not r else "MULTI_CANDIDATES"})
+    object_index.append({"block": block, "object_ref": obj_ref, "bindings": binds,
+                         "binding_complete": bool(binds) and not any(
+                             u["object_ref"] == obj_ref for u in unresolved),
+                         "naming_status": naming})
+
+for t in cb_tm["tables"]:
+    bind_one(1, {"kind": "cbdb_table", "target_table": t["target_table"],
+                 "source_object_id": t["source_identity"].get("source_object_id")},
+             [t["source_identity"]["carrier_file"]],
+             {"schema": t.get("target_schema"), "name": t.get("target_table"),
+              "class": "已命名（schema+name 定）"})
+tab_all = tb_om["objects"] + tb_om["proposed_objects"]
+for o in tab_all:
+    named = bool(o.get("target_schema") and o.get("candidate_table_name"))
+    cls = ("已命名（schema+name 定）" if named else
+           ("schema 未定（bare-name 提案）" if o.get("candidate_table_name") else "名称未定"))
+    bind_one(2, {"kind": "tabular_object", "source_object_id": o["source_object_id"],
+                 "candidate_table_name": o.get("candidate_table_name")},
+             [o["source_file_or_chain"]], {"schema": o.get("target_schema"),
+                                           "name": o.get("candidate_table_name"), "class": cls})
+for o in sp_om["proposed_objects"]:
+    g = sp_g_by_gid_local.get(o.get("group_id"))
+    sfs = ([o["primary_member"]] if o.get("primary_member")
+           else ([m["member_key"] for m in g["members"]] if g else []))
+    bind_one(3, {"kind": "spatial_object", "source_object_id": o["source_object_id"],
+                 "group_id": o.get("group_id"),
+                 "lane": o.get("twin_copy_lane") or "single"},
+             sfs, {"schema": None, "name": o.get("candidate_table_name"),
+                   "class": "schema 未定（bare-name 提案，srid/schema 留批准面）"})
+for a in sp_om["approved_objects_verbatim"]:
+    sfs = [f"{c['selector']['relative_path']}!" + "!".join(c["selector"]["archive_chain"])
+           for c in a["object"]["components"]]
+    bind_one(3, {"kind": "spatial_approved", "source_object_id": a["source_object_id"]},
+             sfs, {"schema": None, "name": a["object"].get("object_name"),
+                   "class": "已批准对象（绑定上下文批准；表名分配留块6命名）"})
+for o in md_om["proposed_objects"]:
+    bind_one(4, {"kind": "mdb_sql_object", "source_object_id": o["source_object_id"],
+                 "table_name_proposal": o.get("table_name_proposal"),
+                 "carrier": o.get("carrier")},
+             [o["source_file_or_chain"]],
+             {"schema": None, "name": o.get("table_name_proposal"),
+              "class": "schema 未定（bare-name 提案）"})
+for o in rs_om["proposed_objects"]:
+    k = key(o["identity"])
+    assert k in im
+    object_index.append({"block": 5, "object_ref": {"kind": "geo_raster_proposal",
+                       "source_object_id": o["source_object_id"]},
+                       "bindings": [{"source_string": chain_str(k),
+                                     "inventory_key": [k[0], list(k[1]), list(k[2])],
+                                     "sha256": im[k]["sha256"], "size": im[k].get("size")}],
+                       "binding_complete": True,
+                       "naming_status": {"schema": None, "name": None,
+                                         "class": "名称未定（full-release 命名与碰撞分配留本块裁定）"}})
+by_block = collections.Counter(x["block"] for x in object_index)
+assert dict(by_block) == {1: 78, 2: 175, 3: 901, 4: 96, 5: 43}, by_block
+assert sum(by_block.values()) == 1293, by_block   # 78+175+901+96+43；派工文"1393"系笔误（其分解式和=1293），以机器实测为准
+mapped_members = set()
+for x in object_index:
+    for b in x["bindings"]:
+        kk = tuple([b["inventory_key"][0], tuple(b["inventory_key"][1]), tuple(b["inventory_key"][2])])
+        mapped_members.add(kk)
+assert mapped_members <= set(im)
+
+# 成员→对象反查面：all-members 增 mapped_objects 引用
+obj_refs_by_member = collections.defaultdict(list)
+for x in object_index:
+    for b in x["bindings"]:
+        kk = tuple([b["inventory_key"][0], tuple(b["inventory_key"][1]), tuple(b["inventory_key"][2])])
+        obj_refs_by_member[kk].append({"block": x["block"], "object_ref": x["object_ref"]})
+
 all_members = []
 for e in entries:
     k = key(e)
@@ -191,6 +300,9 @@ for e in entries:
     rr = sorted(refs.get(k, []), key=lambda x: (x["block"], x["ref"]))
     if rr:
         rec["object_mapping_refs"] = rr
+    orf = obj_refs_by_member.get(k)
+    if orf:
+        rec["mapped_objects"] = orf
     all_members.append(rec)
 assert len(all_members) == 8004
 refs_count = sum(1 for r in all_members if "object_mapping_refs" in r)
@@ -210,6 +322,13 @@ recon_doc = {
         "basis": ("lead-ruling team-message-3ffcfc67：块4归属=core 7(MDB5+SQL2)+related "
                   "structural_container 4；a03 口径观察：core 键仅 7、4 容器在 related_"
                   "members 标 structural_container（descendant mapped separately）")},
+    "object_coverage_control_totals": {"block1_tables": 78, "block2_tabular_objects": 175,
+                                       "block3_spatial_objects": 901, "block4_mdb_sql_objects": 96,
+                                       "block5_raster_proposals": 43, "total": 1293,
+                                       "note": "派工文'1393'系笔误：其分解 78+175+901+96+43=1293，本盒以机器断言实测 1293 为准"},
+    "object_binding_unresolved": len(unresolved),
+    "members_mapped_to_objects": len(mapped_members),
+    "members_without_objects_note": "无对象成员按处置登记（NON_TABULAR/structural/cache 等），非解析失败",
     "directional_checks": {
         "inventory_to_union_missing": 0, "union_to_inventory_extra": 0,
         "pairwise_overlaps_empty": True, "sha_all_match_inventory": True,
@@ -227,9 +346,12 @@ recon_doc = {
         "declared_sha16": "5207eacebbe82ec6",
         "snapshot_state": ("不在 2026-10-07 快照：find PAGGQS/CBDB_20240208 空、无 size-"
                            "877862912 件、inventory 无 sha-5207eace 前缀件（本盒 32 独立复核）"),
-        "history_note": ("2026-09-28 账称 173/173 verified；2026-10-07 快照已无该件——何时何因"
-                         "移除待茶香/Codex 裁定，登记不臆断"),
-        "status": "REGISTERED_DISCREPANCY_NOT_ADJUDICATED"}],
+        "history_note": ("2026-09-28 账称 173/173 verified；2026-10-02 用户令清出旧版 CBDB"
+                         "（decision-resolved，非不明移除——引文见 historical-blockers items"
+                         "[0].decision_citations_verbatim）"),
+        "status": "RESOLVED_BY_DECISION_2026-10-02",
+        "resolution_note": ("README-b2 173 系清理前文档（R-04 不回改）；2026-10-02 用户令清出旧版 CBDB，"
+                         "SHA256SUMS-b2 重写 172 行有账（roots.yaml L52/L79、log.md L299）；快照 172 与账一致")}],
     "source_enumeration_freshness": {
         "method": ("32 快照只读顶层枚举（harvard-full/doi_10_7910/DVN/* 与 chgis-v6/* "
                    "外层文件）vs inventory 同范围外层件差集；嵌套全量重枚举不在本盒"),
@@ -250,26 +372,34 @@ historical_doc = {
     "inventory_complete_flag_preserved": inv_doc["complete"],
     "note": "原账不动；本文件为复核结论草案（status 供 Codex/茶香裁定）",
     "items": [
-        {"issue_codes": ["checksum_line line=173", "checksum_nul count=126"],
+        {"face": "declared_member_PAGGQS",
+         "issue_codes": ["checksum_line line=173（第 173 行所指成员）"],
          "carrier": {"relative_path": "SHA256SUMS-b2", "size": sh_b2["size"],
-                     "sha256": sh_b2["sha256"]},
-         "raw_byte_evidence": {
-             "file_size": 22071, "nul_count": 126,
-             "nul_offset_range": [21945, 22070], "nul_runs": [[21945, 22070, 126]],
-             "line173_raw": "126×0x00（offset 21945–22070，即被覆盖的第 173 行区域；前行以 .txt\\n 完整结束）",
-             "valid_lines": 172, "valid_line_composition": "171 harvard-full DVN 外层 + 1 chgis-v6"},
-         "independent_recompute": {
-             "lines_1_172": "lead 32 逐行独立重算 172/172 sha OK；本盒复核其行数构成 172==inventory 外层 172（171+1）",
-             "line173_reconstruction": ("README-b2 §二声明 173 件/2,764,772,927B；§四 173 行逐件表 vs "
-                                        "ledger 差集恰 1 件=PAGGQS/CBDB_20240208_sqlite.db 837.2MB sha16 "
-                                        "5207eacebbe82ec6；字节闭合 2,764,772,927−1,886,910,015=877,862,912"),
-             "line173_membership_uniqueness": "唯一重构成立（表路径+大小+sha16 三重锚定）",
-             "snapshot_absence_verified_this_box": "find PAGGQS/CBDB_20240208 空、无 size-877862912 件、inventory 无 sha-5207eace 件"},
-         "status": "UNRESOLVED_DECLARED_MEMBER_ABSENT",
-         "remaining_reasons": [
-             "声明成员本体缺席当前快照（无法重算核销）",
-             "全 sha256 不可恢复（README 仅 16 位前缀，全值在被覆盖行内）",
-             "NUL 区原始字节不可恢复（第 173 行内容已被覆盖）"]},
+                     "raw_sha256": sh_b2["sha256"]},
+         "status": "EXCLUDED_BY_DECISION_2026-10-02",
+         "decision_citations_verbatim": {
+             "roots.yaml L27 usage_policy": "2026-10-02 用户令：usedata 只含【本项目使用】件——使用件保留并记用途，不使用件清出（不判断源数据对错，仅按项目是否使用）",
+             "roots.yaml L49 harvard-full content": "2026-10-02 已清出旧版 CBDB_20240208_sqlite.db（PAGGQS 空目录随之删）",
+             "roots.yaml L52 SHA256SUMS-b2": "172 行，二批校验账，2026-10-02 清出旧版后重写",
+             "roots.yaml L73 as_of": "2026-10-02",
+             "roots.yaml L79 removal_note": "2026-10-02 用户令清出 harvard-full/DOI/PAGGQS/CBDB_20240208_sqlite.db（旧版），本账重写为 172 行。",
+             "docs/log.md L299": "2026-10-02 | 清出 usedata 旧版 CBDB：删 harvard-full/DOI/PAGGQS/CBDB_20240208_sqlite.db(877MB)与空目录；重写 SHA256SUMS-b2 173→172 行；roots.yaml/holdings.md 件数 190→189、172→171；闸0 复验 172/172 | 源根清理 | 用户令「usedata 只含本项目使用件，不使用的清出」；定为 20260919 唯一 CBDB"},
+         "retrospective_evidence": {
+             "historical_original_path": "/mnt/wd61workmetadata/xiangrugudata/harvard-full/doi_10_7910/DVN/PAGGQS/CBDB_20240208_sqlite.db（下载备份区，只读）",
+             "size_bytes": 877862912,
+             "full_sha256_independent_recompute_this_box": "5207eacebbe82ec6c16014b404f4bef0770fb639778b5062cb289bf051fb9a7f",
+             "sha16_matches_readme_table": "5207eacebbe82ec6 == README-b2 §四声明前缀（合）",
+             "byte_closure": "2,764,772,927 − 1,886,910,015 = 877,862,912（==837.2MiB 声明）",
+             "historical_use_note": "git show 75ecd77:docs/data-sources.md L44：ADDR_XY 桥→public.addr_xy 19,249 行（旧案已被 2026-10-02 决定取代）"}},
+        {"face": "ledger_tail_anomaly",
+         "issue_codes": ["checksum_nul count=126"],
+         "carrier": {"relative_path": "SHA256SUMS-b2", "raw_sha256": sh_b2["sha256"]},
+         "status": "FORMAT_ANOMALY_UNDER_FIXED_DIGEST",
+         "raw_byte_evidence": {"file_size": 22071, "nul_count": 126,
+                               "nul_offset_range": [21945, 22070], "nul_runs_single_contiguous": True,
+                               "valid_lines": 172, "valid_line_composition": "171 harvard-full DVN 外层 + 1 chgis-v6"},
+         "roots_yaml_format_anomaly_verbatim": "172 条有效记录后有 126 个 NUL 字节（2026-10-07 同摘要快照逐字节核验，更正原 1,101 计数）；严格解析报告 1 行格式错误。源件不修，解析器必须检测并把该异常写入证据；仅当前固定摘要可由冻结合同批准兼容解析。",
+         "note": "兼容解析路径留冻结合同审批，**不自动核销**；raw_sha256 900d98c6… 固定值在案"},
         {"issue_codes": ["checksum_missing line=4"],
          "carrier": {"relative_path": "harvard/chgis/SHA256SUMS.txt", "size": sh_chgis["size"],
                      "sha256": sh_chgis["sha256"]},
@@ -335,23 +465,61 @@ mirror_doc = {"format": "xiangrugu.import-package.rollup.mirror-adjudication.v1"
 
 # name conflicts across five blocks' proposed target names
 name_index = collections.defaultdict(list)
+bare_index = collections.defaultdict(list)
 for o in md_om["proposed_objects"]:
     n = o.get("table_name_proposal")
-    if n: name_index[("chgis", n)].append({"block": 4, "sid": o["source_object_id"],
-                                           "carrier": o.get("carrier")})
+    if n:
+        name_index[("?", n)].append({"block": 4, "sid": o["source_object_id"], "carrier": o.get("carrier")})
+        bare_index[n].append({"block": 4, "sid": o["source_object_id"]})
 for o in sp_om["proposed_objects"]:
     n = o.get("candidate_table_name")
-    if n: name_index[("chgis", n)].append({"block": 3, "sid": o["source_object_id"]})
-for o in tb_om["objects"]:
+    if n:
+        name_index[("?", n)].append({"block": 3, "sid": o["source_object_id"]})
+        bare_index[n].append({"block": 3, "sid": o["source_object_id"]})
+tab_all_ns = tb_om["objects"] + tb_om["proposed_objects"]
+for o in tab_all_ns:
     n = o.get("candidate_table_name")
-    if n: name_index[(o.get("target_schema") or "?", n)].append({"block": 2, "sid": o["source_object_id"]})
+    if n:
+        name_index[((o.get("target_schema") or "?"), n)].append({"block": 2, "sid": o["source_object_id"]})
+        bare_index[n].append({"block": 2, "sid": o["source_object_id"]})
 conflicts = {f"{s}|{n}": v for (s, n), v in sorted(name_index.items()) if len(v) > 1}
-nc_doc = {"format": "xiangrugu.import-package.rollup.name-conflicts.v1",
+# 三分类计数（对象面）
+def _nclass(c):
+    if c.startswith("已命名"): return "named_schema_and_name"
+    if c.startswith("schema 未定"): return "schema_undecided"
+    if c.startswith("名称未定"): return "name_undecided"
+    if c.startswith("已批准对象"): return "approved_spatial_special"
+    raise AssertionError(f"未知命名类: {c}")
+cls_counts_ns = collections.Counter(_nclass(x["naming_status"]["class"]) for x in object_index)
+named_full = cls_counts_ns["named_schema_and_name"]
+schema_undecided = cls_counts_ns["schema_undecided"]
+name_undecided = cls_counts_ns["name_undecided"]
+approved_named_spatial = cls_counts_ns["approved_spatial_special"]
+assert named_full == 83 and schema_undecided == 1165 and name_undecided == 43 \
+    and approved_named_spatial == 2, cls_counts_ns   # 83+1165+43+2==1293 全量覆盖断言
+# 对照值 1144 = spatial 899 + tabular 175 + mdb distinct bare-name 70（96 − 26 同名重复副本）
+mdb_bare_distinct = sum(1 for n, v in bare_index.items() if any(x["block"] == 4 for x in v))
+ctrl_1144 = 899 + 175 + mdb_bare_distinct
+assert ctrl_1144 == 1144, f"1144 对照复算失配: {ctrl_1144}"
+nc_doc = {"format": "xiangrugu.import-package.rollup.naming-scan.v2",
           "baseline_git": VCS_REF,
-          "method": "五块 object-mapping 提案名集 (schema,name) 分组计数；raster 提案名留块6 命名（table_name_proposal=null 不计入）",
-          "distinct_proposed_names": len(name_index),
-          "collision_groups": len(conflicts),
-          "collisions": conflicts}
+          "method": ("口径定义：bare-name=候选名去重计数（跨 schema 同名计 1）；对键=(schema,name) "
+                     "组合去重。扫描面=spatial proposed 899+spatial approved 2+tabular objects/proposed "
+                     "175+mdb/sql proposed 96+cbdb tables 78+raster 43（后者名称未定不入名集）。"
+                     "对照值 1144=spatial 899+tabular 175+mdb distinct bare-name 70（96 提案含 V4 三副本×13 表同名，去重 26）"),
+          "control_total_check": {"expected": 1144, "computed": ctrl_1144},
+          "three_class_counts": {"named_schema_and_name": named_full,
+                                 "schema_undecided": schema_undecided,
+                                 "name_undecided": name_undecided,
+                                 "approved_spatial_special": approved_named_spatial},
+          "single_list_actual_naming": {
+              "cbdb": {"objects": 78, "state": "全部已命名（schema=cbdb + target_table 定）"},
+              "spatial_approved": {"objects": 2, "state": "绑定上下文已批准；表名分配留块6命名面"},
+              "raster": {"objects": 43, "state": "table_name_proposal=null，命名与碰撞分配留块6"}},
+          "distinct_bare_names": sum(1 for v in bare_index.values()),
+          "collision_groups_pair_key": len(conflicts),
+          "collisions_pair_key": conflicts,
+          "v4_mdb_same_name_groups_retained": 13}
 
 pend = []
 def pend_add(kind, count, detail, ref):
@@ -371,7 +539,7 @@ pend_add("inventory_historical_issues", 3, "inventory issues 3 项（本盒复�
 pend_add("casefold_binding_adjudication", 2, "Peking tfw casefold 关联绑定裁定", "raster-other")
 pend_add("pdb2_georeference", 1, "pdb2.TIF 无几何声明，四副本合并+配准取舍留本裁定面", "raster-other/evidence-gaps.json")
 pend_add("crs_local_cs_non_epsg", None, "LOCAL_CS 非 EPSG 不推导，SRID 分配待源级裁定", "raster-other/spatial gaps")
-pend_add("shapename_collision_allocation", nc_doc["collision_groups"], "跨块目标表名碰撞分配（本盒扫描结果见 name-conflicts.json）", "rollup/name-conflicts.json")
+pend_add("shapename_collision_allocation", nc_doc["collision_groups_pair_key"], "跨块目标表名碰撞分配（本盒 v2 扫描：V4 MDB 同名 13 组保留+tabular proposed 面纳入对键扫描；结果见 naming-scan.json）", "rollup/naming-scan.json")
 pend_doc = {"format": "xiangrugu.import-package.rollup.pending-items.v1",
             "baseline_git": VCS_REF, "item_kinds": len(pend), "items": pend}
 
@@ -386,13 +554,14 @@ summary = f"""# 第 6/6 块 · 全量汇总与落盘首盒（SUMMARY）
 - 对象映射引用面：{refs_count} 件带 object_mapping_refs。
 
 ## 三历史阻断复核（结论草案，原账不动）
-- SHA256SUMS-b2（22,071B sha 900d98c6…）：line173+NUL126 同一缺陷两面；126 NUL 连续区 offset 21945–22070；有效 172 行（171+1）与 inventory 外层 172 一致；第 173 行唯一重构=PAGGQS/CBDB_20240208_sqlite.db（README §四表差集+字节闭合 877,862,912），**本体缺席快照、全 sha 不可恢复 ⇒ UNRESOLVED_DECLARED_MEMBER_ABSENT**（剩余原因三条逐项在件）。
+- SHA256SUMS-b2（22,071B raw sha 900d98c6…）**拆两面**：①PAGGQS 声明成员→**EXCLUDED_BY_DECISION_2026-10-02**（roots.yaml L27/L49/L52/L73/L79+log.md L299 决定引文 verbatim；回溯证据：备份区原件 32 只读重算 size 877,862,912B、全 sha 5207eace…fb9a7f==README sha16 前缀合、字节闭合 877,862,912、历史用途注记 75ecd77 data-sources L44 ADDR_XY 桥已被取代）；②账尾 126 NUL（offset 21945–22070 单连续区，有效 172 行=171+1）→**FORMAT_ANOMALY_UNDER_FIXED_DIGEST**（roots.yaml format_anomaly 引文 verbatim；兼容解析留冻结合同审批不自动核销）。
 - harvard/chgis/SHA256SUMS.txt（551B sha 694c101f…）line4：本盒 32 独立流式重算 chgis-v6/China_Periods_ReignDates.zip == 声明值逐字全等 ⇒ **ASSOCIATED_BY_SHA_PATH_MISMATCH**（内容可核销，路径指称与布局不符，成因 README 明载）。
 - 源枚举差异单列：README-b2 声明 173 外层件 vs 快照 172（PAGGQS 件缺席；2026-09-28 账 173/173 verified→2026-10-07 快照已无，移除时因待裁定，登记不臆断）。
 
 ## 冲突与待裁
 - 镜像候选统一账 **{len(mirror_groups)}** 组：块5 同 sha {len(ras_m['mirror_candidate_groups_within_block5'])} 组 + pdb2 四副本（sha bd56086a…，组内含于前者，显式点名）+ V4 MDB 两字节版本对 + MapInfo 孪生批准 2 组 + Peking casefold 2 关联；全部 PENDING_ADJUDICATION，合并/配准不预决。
-- 目标名碰撞扫描：提案名集 distinct {nc_doc['distinct_proposed_names']}，碰撞组 {nc_doc['collision_groups']}（明细在 name-conflicts.json；raster 43 提案名留本块命名）。
+- 对象索引：**1293** 对象（78+175+901+96+43；派工文「1393」系笔误——其分解式和即 1293，以机器断言为准），绑定解析失败 **{len(unresolved)}** 项逐项登记（禁静默丢弃）；成员→对象反查入 all-members.mapped_objects。
+- 命名扫描 v2：三分类 已命名 **{nc_doc['three_class_counts']['named_schema_and_name']}** / schema 未定 **{nc_doc['three_class_counts']['schema_undecided']}** / 名称未定 **{nc_doc['three_class_counts']['name_undecided']}**（已批准空间 2 单列）；对照值 1144 复算==预期（spatial899+tabular175+mdb distinct bare-name 70）；对键碰撞组 **{nc_doc['collision_groups_pair_key']}**（V4 MDB 同名 13 保留、tabular proposed 170 面补齐后无新增跨块碰撞；明细 naming-scan.json）。
 - 未决带账 {len(pend)} 类：WMF 12/v5 缺 DBF/批准面 899+96+43/装载合同/checksum 17/NoData 113/inventory 3/casefold 2/pdb2 配准/命名分配等。
 
 ## 边界
@@ -407,7 +576,13 @@ summary = f"""# 第 6/6 块 · 全量汇总与落盘首盒（SUMMARY）
 (HERE / "reconciliation.json").write_text(json.dumps(recon_doc, ensure_ascii=False, indent=1, sort_keys=True) + "\n")
 (HERE / "historical-blockers.json").write_text(json.dumps(historical_doc, ensure_ascii=False, indent=1, sort_keys=True) + "\n")
 (HERE / "mirror-adjudication.json").write_text(json.dumps(mirror_doc, ensure_ascii=False, indent=1, sort_keys=True) + "\n")
-(HERE / "name-conflicts.json").write_text(json.dumps(nc_doc, ensure_ascii=False, indent=1, sort_keys=True) + "\n")
+(HERE / "naming-scan.json").write_text(json.dumps(nc_doc, ensure_ascii=False, indent=1, sort_keys=True) + "\n")
+(HERE / "object-index.json").write_text(json.dumps(
+    {"format": "xiangrugu.import-package.rollup.object-index.v1", "baseline_git": VCS_REF,
+     "control_totals": recon_doc["object_coverage_control_totals"],
+     "unresolved_bindings": unresolved,
+     "objects": sorted(object_index, key=lambda x: (x["block"], json.dumps(x["object_ref"], sort_keys=True)))},
+    ensure_ascii=False, indent=1, sort_keys=True) + "\n")
 (HERE / "pending-items.json").write_text(json.dumps(pend_doc, ensure_ascii=False, indent=1, sort_keys=True) + "\n")
 (HERE / "SUMMARY.md").write_text(summary)
-print(f"built OK: members 8004 refs {refs_count} mirrors {len(mirror_groups)} collisions {nc_doc['collision_groups']} pending {len(pend)}")
+print(f"built OK: members 8004 objects {len(object_index)} unresolved {len(unresolved)} refs {refs_count} mirrors {len(mirror_groups)} collisions {nc_doc['collision_groups_pair_key']} pending {len(pend)}")

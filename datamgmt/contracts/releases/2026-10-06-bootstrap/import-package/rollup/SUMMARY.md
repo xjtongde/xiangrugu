@@ -1,6 +1,6 @@
 # 第 6/6 块 · 全量汇总与落盘首盒（SUMMARY）
 
-基线 git 17097e8；inventory sha256=fb5e6b334b898d62…；**只读引用五块已交付包，五块文件零改写；未正式落盘/未装依赖/未动服务与库**。
+基线 git 2b37abd；inventory sha256=fb5e6b334b898d62…；**只读引用五块已交付包，五块文件零改写；未正式落盘/未装依赖/未动服务与库**。
 
 ## 对账闭合（机器断言在码）
 - **3 + 174 + 5294 + 11 + 2522 == 8004**（primary_owner_block exactly-once；两两交集空；inventory↔并集双向 missing 0 / extra 0；逐件 sha==inventory）。
@@ -13,7 +13,11 @@
 - harvard/chgis/SHA256SUMS.txt（551B sha 694c101f…）line4：本盒 32 独立流式重算 chgis-v6/China_Periods_ReignDates.zip == 声明值逐字全等 ⇒ **ASSOCIATED_BY_SHA_PATH_MISMATCH**（内容可核销，路径指称与布局不符，成因 README 明载）。
 - 源枚举差异单列：README-b2 声明 173 外层件 vs 快照 172（PAGGQS 件缺席；2026-09-28 账 173/173 verified→2026-10-07 快照已无，移除时因待裁定，登记不臆断）。
 
-## 本盒增量（组件引用+裁定草案，基线 17097e8）
+## 本盒增量三（统一镜像与命名裁定草案，基线 2b37abd）
+- **孪生草案更正**：groups-derived 旧式字符串 identities×2 由 SID 结构化案组取代——真实 PROPOSED SID（f13db8a5…/5039b37a…）引用、五对同角色组件逐对完整归档链+序号+size+SHA-256、两内层 ZIP inventory 成员 sha 一致（69b5119f…/6,089,146B 机器核得）；counts 显式 **案数 2/镜像对数 10/候选记录数 10**；evidence_ref 更正为 proposed_objects[].components_exact_identity。**组账 381 保持**（377+1+孪生 1+Peking 按件 2；前盒 Peking 合 1 条系计数口径不一，披露）。
+- **V4 命名统一**：主命名表 draft_entries 与冲突表同源派生，**13 组 39 SID 逐条对账全等断言入码**；直接件与包裹件两字节版本分别保留、两同摘要包裹副本各留来源身份。批准空间 2 件改 **.shp 主件词干派生**+显式 schema=chgis（object_name/批准范围不动）。**1293 全量联查新碰撞 0**（name≤63 断言；最长 schema.name 69 如实登记）。
+- **配准证据入草案**：Peking 两案世界文件像素中心→角点换算 GT=[C−A/2,A,D,F−E/2,B,E] 与内部 GeoTransform **六项 repr 级全等**（本盒独立复算），升级建议附证据、最终确认留茶香；pdb2 三份 exact-stem tifw 绑定各自保留、**V4 [159,6] 标配准 UNRESOLVED_PENDING**；存储复用方案与逻辑表合并单列分离（policy 注）。
+
 - **S1 孪生补链**：MapInfo 2 案按 components_exact_identity 全组件四元绑定（完整归档链+成员序号+sha256+size 唯一命中断言），每案 3→**5** 条、合计新增 **4** 条（TAB/ID×2 案）；根因实证=组内清单缺大写词干 V3_…（大小写敏感结构差异）。反向索引同步：孪生成员 mapped_objects 10 件全命中。coverage_semantics 节入 object-index v2（普通/组/孪生显式/批准六组件/容器五面覆盖语义）。归属账零漂移断言在码（3/174/5294/11/2522 五块计数+七字段+8004）。
 - **S2 mirror-adjudication-draft.json**：381 组三分类草案——byte_identical_content_reuse **379** / mixed(V4 MDB 版本对)**1** / association_pending_sidecar_or_casefold **1**。四案详证：①V4 MDB 三载体 sha 实测=access_database 直接件独立版本 + zip-wrapped 两副本字节相同对（同 sha 子对机器核得）；②孪生 2 组 5 组件全等补链后证据；③pdb2 四副本独立核对：内部 GT=null/GCP=0/CRS null 一致，三份伴 pdb2.tifw(exact-stem)、V4 副本无世界文件——原读值照录；④Peking 2 件独立核对：**tif 均有内部 GT 且 CRS 非 null**，tfw casefold binding_basis/status/probe_text 原文保留——pdb2 与 Peking 分别核对不共享结论。DRAFT 不预决合并。
 - **S3 naming-draft.json**：83 已命名 RETAIN_UNCHANGED；**1208 常规逐件可复算候选名**（derive_candidate 函数：leaf stem/ext slug+对象标识前 8+源身份 sha256 前 8）+2 批准空间单列；13 组 V4 同名冲突=_x+sha256(载体完整归档链)[:8] 恒长 10 后缀区分（三副本三名唯一断言）；全量 1293 联查新碰撞 **0**。DRAFT_NOT_APPROVED。

@@ -1,12 +1,14 @@
 {
- "baseline_git": "17097e8",
+ "baseline_git": "2b37abd",
  "counts": {
   "draft_approved_spatial": 2,
   "draft_regular": 1208,
+  "joint_scan_max_schema_dot_name_len": 69,
   "new_collisions_in_joint_scan": 0,
   "retained_named": 83,
   "total_objects": 1293,
-  "v4_conflict_groups_resolved": 13
+  "v4_conflict_groups_resolved": 13,
+  "v4_sid_reconciliation_rows": 39
  },
  "draft_entries": [
   {
@@ -13742,23 +13744,27 @@
   },
   {
    "block": 3,
-   "candidate_table_name_draft": "ca1884route_przh_1251_cpg_u5f_9b44_58762c5f",
+   "candidate_table_name_draft": "ca1884route_przh_1251",
+   "derivation": ".shp 主件词干可复算派生（shp_b source_string）",
    "lane": "approved_spatial_special",
    "object_ref": {
     "kind": "spatial_approved",
     "source_object_id": "9b4496c93de442c447b58adf9be56303ab5fd4897d68bbf0bad99069d12d44dc"
    },
-   "status": "DRAFT_NOT_APPROVED（既有批准状态保留于绑定上下文，表名分配本草案）"
+   "schema_draft": "chgis",
+   "status": "DRAFT_NOT_APPROVED（既有批准范围/object_name 保留不动，仅表名+显式 schema 草案）"
   },
   {
    "block": 3,
-   "candidate_table_name_draft": "ca1884route_przh_utf8_cpg_e601ce1a_f4e0c9bf",
+   "candidate_table_name_draft": "ca1884route_przh_utf8",
+   "derivation": ".shp 主件词干可复算派生（shp_b source_string）",
    "lane": "approved_spatial_special",
    "object_ref": {
     "kind": "spatial_approved",
     "source_object_id": "e601ce1a7667c8286abce0d09c5b81d3dc809265ed219dd6e4e1dd3c5cfc9ace"
    },
-   "status": "DRAFT_NOT_APPROVED（既有批准状态保留于绑定上下文，表名分配本草案）"
+   "schema_draft": "chgis",
+   "status": "DRAFT_NOT_APPROVED（既有批准范围/object_name 保留不动，仅表名+显式 schema 草案）"
   },
   {
    "block": 4,
@@ -14360,8 +14366,9 @@
   },
   {
    "block": 4,
-   "candidate_table_name_draft": "v4_chgis_dbase_mdb_fdf2a82d_5fc88508",
+   "candidate_table_name_draft": "v4_chgis_dbase_v4_gis_info_table_xaa642b89",
    "lane": "regular_allocation",
+   "name_source": "unified_with_conflict_table",
    "object_ref": {
     "carrier": "mdb_table",
     "kind": "mdb_sql_object",
@@ -14373,8 +14380,9 @@
   },
   {
    "block": 4,
-   "candidate_table_name_draft": "v4_chgis_dbase_mdb_b66af361_4718f0c7",
+   "candidate_table_name_draft": "v4_chgis_dbase_v4_main_table_xaa642b89",
    "lane": "regular_allocation",
+   "name_source": "unified_with_conflict_table",
    "object_ref": {
     "carrier": "mdb_table",
     "kind": "mdb_sql_object",
@@ -14386,8 +14394,9 @@
   },
   {
    "block": 4,
-   "candidate_table_name_draft": "v4_chgis_dbase_mdb_u5f_2f98_ca1a01f3",
+   "candidate_table_name_draft": "v4_chgis_dbase_v4_source_notes_xaa642b89",
    "lane": "regular_allocation",
+   "name_source": "unified_with_conflict_table",
    "object_ref": {
     "carrier": "mdb_table",
     "kind": "mdb_sql_object",
@@ -14399,8 +14408,9 @@
   },
   {
    "block": 4,
-   "candidate_table_name_draft": "v4_chgis_dbase_mdb_e7c8a958_e5987fff",
+   "candidate_table_name_draft": "v4_chgis_dbase_v4_part_of_table_xaa642b89",
    "lane": "regular_allocation",
+   "name_source": "unified_with_conflict_table",
    "object_ref": {
     "carrier": "mdb_table",
     "kind": "mdb_sql_object",
@@ -14412,8 +14422,9 @@
   },
   {
    "block": 4,
-   "candidate_table_name_draft": "v4_chgis_dbase_mdb_aa74ccb6_c39720ab",
+   "candidate_table_name_draft": "v4_chgis_dbase_v4_preceded_by_table_xaa642b89",
    "lane": "regular_allocation",
+   "name_source": "unified_with_conflict_table",
    "object_ref": {
     "carrier": "mdb_table",
     "kind": "mdb_sql_object",
@@ -14425,8 +14436,9 @@
   },
   {
    "block": 4,
-   "candidate_table_name_draft": "v4_chgis_dbase_mdb_u5f_1ef3_a1a9f63c",
+   "candidate_table_name_draft": "v4_chgis_dbase_v4_data_dictionary_xaa642b89",
    "lane": "regular_allocation",
+   "name_source": "unified_with_conflict_table",
    "object_ref": {
     "carrier": "mdb_table",
     "kind": "mdb_sql_object",
@@ -14438,8 +14450,9 @@
   },
   {
    "block": 4,
-   "candidate_table_name_draft": "v4_chgis_dbase_mdb_c447f95e_dddabf69",
+   "candidate_table_name_draft": "v4_chgis_dbase_v4_feature_types_xaa642b89",
    "lane": "regular_allocation",
+   "name_source": "unified_with_conflict_table",
    "object_ref": {
     "carrier": "mdb_table",
     "kind": "mdb_sql_object",
@@ -14451,8 +14464,9 @@
   },
   {
    "block": 4,
-   "candidate_table_name_draft": "v4_chgis_dbase_mdb_f80a6d10_9bcaa773",
+   "candidate_table_name_draft": "v4_chgis_dbase_v4_gis_layer_field_names_xaa642b89",
    "lane": "regular_allocation",
+   "name_source": "unified_with_conflict_table",
    "object_ref": {
     "carrier": "mdb_table",
     "kind": "mdb_sql_object",
@@ -14464,8 +14478,9 @@
   },
   {
    "block": 4,
-   "candidate_table_name_draft": "v4_chgis_dbase_mdb_u5f_4146_288bd0e4",
+   "candidate_table_name_draft": "v4_chgis_dbase_xtra_change_types_xaa642b89",
    "lane": "regular_allocation",
+   "name_source": "unified_with_conflict_table",
    "object_ref": {
     "carrier": "mdb_table",
     "kind": "mdb_sql_object",
@@ -14477,8 +14492,9 @@
   },
   {
    "block": 4,
-   "candidate_table_name_draft": "v4_chgis_dbase_mdb_u5f_7579_edb366fc",
+   "candidate_table_name_draft": "v4_chgis_dbase_xtra_contributors_xaa642b89",
    "lane": "regular_allocation",
+   "name_source": "unified_with_conflict_table",
    "object_ref": {
     "carrier": "mdb_table",
     "kind": "mdb_sql_object",
@@ -14490,8 +14506,9 @@
   },
   {
    "block": 4,
-   "candidate_table_name_draft": "v4_chgis_dbase_mdb_u5f_46c3_6db91749",
+   "candidate_table_name_draft": "v4_chgis_dbase_xtra_date_rules_xaa642b89",
    "lane": "regular_allocation",
+   "name_source": "unified_with_conflict_table",
    "object_ref": {
     "carrier": "mdb_table",
     "kind": "mdb_sql_object",
@@ -14503,8 +14520,9 @@
   },
   {
    "block": 4,
-   "candidate_table_name_draft": "v4_chgis_dbase_mdb_add15709_2c7f2ecd",
+   "candidate_table_name_draft": "v4_chgis_dbase_xtra_geo_source_xaa642b89",
    "lane": "regular_allocation",
+   "name_source": "unified_with_conflict_table",
    "object_ref": {
     "carrier": "mdb_table",
     "kind": "mdb_sql_object",
@@ -14516,8 +14534,9 @@
   },
   {
    "block": 4,
-   "candidate_table_name_draft": "v4_chgis_dbase_mdb_bfe14d19_b3061ed9",
+   "candidate_table_name_draft": "v4_chgis_dbase_xtra_other_feature_types_xaa642b89",
    "lane": "regular_allocation",
+   "name_source": "unified_with_conflict_table",
    "object_ref": {
     "carrier": "mdb_table",
     "kind": "mdb_sql_object",
@@ -14529,8 +14548,9 @@
   },
   {
    "block": 4,
-   "candidate_table_name_draft": "v4_chgis_dbase_mdb_a6f3db71_98be60cd",
+   "candidate_table_name_draft": "v4_chgis_dbase_v4_gis_info_table_x4143afe1",
    "lane": "regular_allocation",
+   "name_source": "unified_with_conflict_table",
    "object_ref": {
     "carrier": "mdb_table",
     "kind": "mdb_sql_object",
@@ -14542,8 +14562,9 @@
   },
   {
    "block": 4,
-   "candidate_table_name_draft": "v4_chgis_dbase_mdb_u5f_7df0_dfd27f74",
+   "candidate_table_name_draft": "v4_chgis_dbase_v4_main_table_x4143afe1",
    "lane": "regular_allocation",
+   "name_source": "unified_with_conflict_table",
    "object_ref": {
     "carrier": "mdb_table",
     "kind": "mdb_sql_object",
@@ -14555,8 +14576,9 @@
   },
   {
    "block": 4,
-   "candidate_table_name_draft": "v4_chgis_dbase_mdb_u5f_412b_b908bd76",
+   "candidate_table_name_draft": "v4_chgis_dbase_v4_source_notes_x4143afe1",
    "lane": "regular_allocation",
+   "name_source": "unified_with_conflict_table",
    "object_ref": {
     "carrier": "mdb_table",
     "kind": "mdb_sql_object",
@@ -14568,8 +14590,9 @@
   },
   {
    "block": 4,
-   "candidate_table_name_draft": "v4_chgis_dbase_mdb_u5f_2d76_57bc7b00",
+   "candidate_table_name_draft": "v4_chgis_dbase_v4_part_of_table_x4143afe1",
    "lane": "regular_allocation",
+   "name_source": "unified_with_conflict_table",
    "object_ref": {
     "carrier": "mdb_table",
     "kind": "mdb_sql_object",
@@ -14581,8 +14604,9 @@
   },
   {
    "block": 4,
-   "candidate_table_name_draft": "v4_chgis_dbase_mdb_a9884308_94e61ebd",
+   "candidate_table_name_draft": "v4_chgis_dbase_v4_preceded_by_table_x4143afe1",
    "lane": "regular_allocation",
+   "name_source": "unified_with_conflict_table",
    "object_ref": {
     "carrier": "mdb_table",
     "kind": "mdb_sql_object",
@@ -14594,8 +14618,9 @@
   },
   {
    "block": 4,
-   "candidate_table_name_draft": "v4_chgis_dbase_mdb_e4a10e8d_39be2f46",
+   "candidate_table_name_draft": "v4_chgis_dbase_v4_data_dictionary_x4143afe1",
    "lane": "regular_allocation",
+   "name_source": "unified_with_conflict_table",
    "object_ref": {
     "carrier": "mdb_table",
     "kind": "mdb_sql_object",
@@ -14607,8 +14632,9 @@
   },
   {
    "block": 4,
-   "candidate_table_name_draft": "v4_chgis_dbase_mdb_u5f_4827_c9bcea0a",
+   "candidate_table_name_draft": "v4_chgis_dbase_v4_feature_types_x4143afe1",
    "lane": "regular_allocation",
+   "name_source": "unified_with_conflict_table",
    "object_ref": {
     "carrier": "mdb_table",
     "kind": "mdb_sql_object",
@@ -14620,8 +14646,9 @@
   },
   {
    "block": 4,
-   "candidate_table_name_draft": "v4_chgis_dbase_mdb_u5f_9645_604b980b",
+   "candidate_table_name_draft": "v4_chgis_dbase_v4_gis_layer_field_names_x4143afe1",
    "lane": "regular_allocation",
+   "name_source": "unified_with_conflict_table",
    "object_ref": {
     "carrier": "mdb_table",
     "kind": "mdb_sql_object",
@@ -14633,8 +14660,9 @@
   },
   {
    "block": 4,
-   "candidate_table_name_draft": "v4_chgis_dbase_mdb_a66a5906_55b24d2f",
+   "candidate_table_name_draft": "v4_chgis_dbase_xtra_change_types_x4143afe1",
    "lane": "regular_allocation",
+   "name_source": "unified_with_conflict_table",
    "object_ref": {
     "carrier": "mdb_table",
     "kind": "mdb_sql_object",
@@ -14646,8 +14674,9 @@
   },
   {
    "block": 4,
-   "candidate_table_name_draft": "v4_chgis_dbase_mdb_u5f_0eff_76302dc2",
+   "candidate_table_name_draft": "v4_chgis_dbase_xtra_contributors_x4143afe1",
    "lane": "regular_allocation",
+   "name_source": "unified_with_conflict_table",
    "object_ref": {
     "carrier": "mdb_table",
     "kind": "mdb_sql_object",
@@ -14659,8 +14688,9 @@
   },
   {
    "block": 4,
-   "candidate_table_name_draft": "v4_chgis_dbase_mdb_u5f_6c4e_c5aeef88",
+   "candidate_table_name_draft": "v4_chgis_dbase_xtra_date_rules_x4143afe1",
    "lane": "regular_allocation",
+   "name_source": "unified_with_conflict_table",
    "object_ref": {
     "carrier": "mdb_table",
     "kind": "mdb_sql_object",
@@ -14672,8 +14702,9 @@
   },
   {
    "block": 4,
-   "candidate_table_name_draft": "v4_chgis_dbase_mdb_c9c39ca6_a9b86d13",
+   "candidate_table_name_draft": "v4_chgis_dbase_xtra_geo_source_x4143afe1",
    "lane": "regular_allocation",
+   "name_source": "unified_with_conflict_table",
    "object_ref": {
     "carrier": "mdb_table",
     "kind": "mdb_sql_object",
@@ -14685,8 +14716,9 @@
   },
   {
    "block": 4,
-   "candidate_table_name_draft": "v4_chgis_dbase_mdb_u5f_9463_07d6e989",
+   "candidate_table_name_draft": "v4_chgis_dbase_xtra_other_feature_types_x4143afe1",
    "lane": "regular_allocation",
+   "name_source": "unified_with_conflict_table",
    "object_ref": {
     "carrier": "mdb_table",
     "kind": "mdb_sql_object",
@@ -14698,8 +14730,9 @@
   },
   {
    "block": 4,
-   "candidate_table_name_draft": "v4_chgis_dbase_mdb_u5f_55c3_caae08d8",
+   "candidate_table_name_draft": "v4_chgis_dbase_v4_gis_info_table_x58b4c5f7",
    "lane": "regular_allocation",
+   "name_source": "unified_with_conflict_table",
    "object_ref": {
     "carrier": "mdb_table",
     "kind": "mdb_sql_object",
@@ -14711,8 +14744,9 @@
   },
   {
    "block": 4,
-   "candidate_table_name_draft": "v4_chgis_dbase_mdb_d07ec78b_ebbb6546",
+   "candidate_table_name_draft": "v4_chgis_dbase_v4_main_table_x58b4c5f7",
    "lane": "regular_allocation",
+   "name_source": "unified_with_conflict_table",
    "object_ref": {
     "carrier": "mdb_table",
     "kind": "mdb_sql_object",
@@ -14724,8 +14758,9 @@
   },
   {
    "block": 4,
-   "candidate_table_name_draft": "v4_chgis_dbase_mdb_u5f_25d1_f636a42e",
+   "candidate_table_name_draft": "v4_chgis_dbase_v4_source_notes_x58b4c5f7",
    "lane": "regular_allocation",
+   "name_source": "unified_with_conflict_table",
    "object_ref": {
     "carrier": "mdb_table",
     "kind": "mdb_sql_object",
@@ -14737,8 +14772,9 @@
   },
   {
    "block": 4,
-   "candidate_table_name_draft": "v4_chgis_dbase_mdb_u5f_7ef1_b05a1951",
+   "candidate_table_name_draft": "v4_chgis_dbase_v4_part_of_table_x58b4c5f7",
    "lane": "regular_allocation",
+   "name_source": "unified_with_conflict_table",
    "object_ref": {
     "carrier": "mdb_table",
     "kind": "mdb_sql_object",
@@ -14750,8 +14786,9 @@
   },
   {
    "block": 4,
-   "candidate_table_name_draft": "v4_chgis_dbase_mdb_u5f_35b4_34a2a2fa",
+   "candidate_table_name_draft": "v4_chgis_dbase_v4_preceded_by_table_x58b4c5f7",
    "lane": "regular_allocation",
+   "name_source": "unified_with_conflict_table",
    "object_ref": {
     "carrier": "mdb_table",
     "kind": "mdb_sql_object",
@@ -14763,8 +14800,9 @@
   },
   {
    "block": 4,
-   "candidate_table_name_draft": "v4_chgis_dbase_mdb_u5f_8a42_0a5a7282",
+   "candidate_table_name_draft": "v4_chgis_dbase_v4_data_dictionary_x58b4c5f7",
    "lane": "regular_allocation",
+   "name_source": "unified_with_conflict_table",
    "object_ref": {
     "carrier": "mdb_table",
     "kind": "mdb_sql_object",
@@ -14776,8 +14814,9 @@
   },
   {
    "block": 4,
-   "candidate_table_name_draft": "v4_chgis_dbase_mdb_u5f_08ad_4571b3f0",
+   "candidate_table_name_draft": "v4_chgis_dbase_v4_feature_types_x58b4c5f7",
    "lane": "regular_allocation",
+   "name_source": "unified_with_conflict_table",
    "object_ref": {
     "carrier": "mdb_table",
     "kind": "mdb_sql_object",
@@ -14789,8 +14828,9 @@
   },
   {
    "block": 4,
-   "candidate_table_name_draft": "v4_chgis_dbase_mdb_e72e5cbd_7273e860",
+   "candidate_table_name_draft": "v4_chgis_dbase_v4_gis_layer_field_names_x58b4c5f7",
    "lane": "regular_allocation",
+   "name_source": "unified_with_conflict_table",
    "object_ref": {
     "carrier": "mdb_table",
     "kind": "mdb_sql_object",
@@ -14802,8 +14842,9 @@
   },
   {
    "block": 4,
-   "candidate_table_name_draft": "v4_chgis_dbase_mdb_u5f_59a3_e9510a25",
+   "candidate_table_name_draft": "v4_chgis_dbase_xtra_change_types_x58b4c5f7",
    "lane": "regular_allocation",
+   "name_source": "unified_with_conflict_table",
    "object_ref": {
     "carrier": "mdb_table",
     "kind": "mdb_sql_object",
@@ -14815,8 +14856,9 @@
   },
   {
    "block": 4,
-   "candidate_table_name_draft": "v4_chgis_dbase_mdb_u5f_1911_4ca59ed6",
+   "candidate_table_name_draft": "v4_chgis_dbase_xtra_contributors_x58b4c5f7",
    "lane": "regular_allocation",
+   "name_source": "unified_with_conflict_table",
    "object_ref": {
     "carrier": "mdb_table",
     "kind": "mdb_sql_object",
@@ -14828,8 +14870,9 @@
   },
   {
    "block": 4,
-   "candidate_table_name_draft": "v4_chgis_dbase_mdb_u5f_9613_940d3c0c",
+   "candidate_table_name_draft": "v4_chgis_dbase_xtra_date_rules_x58b4c5f7",
    "lane": "regular_allocation",
+   "name_source": "unified_with_conflict_table",
    "object_ref": {
     "carrier": "mdb_table",
     "kind": "mdb_sql_object",
@@ -14841,8 +14884,9 @@
   },
   {
    "block": 4,
-   "candidate_table_name_draft": "v4_chgis_dbase_mdb_u5f_8fec_3614830f",
+   "candidate_table_name_draft": "v4_chgis_dbase_xtra_geo_source_x58b4c5f7",
    "lane": "regular_allocation",
+   "name_source": "unified_with_conflict_table",
    "object_ref": {
     "carrier": "mdb_table",
     "kind": "mdb_sql_object",
@@ -14854,8 +14898,9 @@
   },
   {
    "block": 4,
-   "candidate_table_name_draft": "v4_chgis_dbase_mdb_u5f_4253_ceba3305",
+   "candidate_table_name_draft": "v4_chgis_dbase_xtra_other_feature_types_x58b4c5f7",
    "lane": "regular_allocation",
+   "name_source": "unified_with_conflict_table",
    "object_ref": {
     "carrier": "mdb_table",
     "kind": "mdb_sql_object",
@@ -16364,7 +16409,7 @@
  "v4_mdb_conflict_resolutions": [
   {
    "collision_name": "v4_chgis_dbase_v4_data_dictionary",
-   "derivation": "原名 + _x+sha256(载体完整归档链串)[:8]（恒长 10 后缀，源身份派生；同名三副本获三不同候选名）",
+   "derivation": "原名 + _x+sha256(载体完整归档链串)[:8]（恒长 10，源身份派生；同名三副本获三不同候选名）",
    "distinct_candidates": [
     "v4_chgis_dbase_v4_data_dictionary_x4143afe1",
     "v4_chgis_dbase_v4_data_dictionary_x58b4c5f7",
@@ -16372,11 +16417,16 @@
    ],
    "length_check_max": 43,
    "length_note": "最长候选 49 ≤ 63 无需截断",
+   "per_sid_candidates": {
+    "1ef369c5af1565a20fe740f39a1c8f13eb1faf19d643fe91b4797799750772c4": "v4_chgis_dbase_v4_data_dictionary_xaa642b89",
+    "8a42c9057db446e3d1df7a4a0dea4944a28eebb84ed4d1f2796bc026daf89f9e": "v4_chgis_dbase_v4_data_dictionary_x58b4c5f7",
+    "e4a10e8dce635aac1f30a1fe6fc22cebc0f5736302c73aca7afbd985bbbfcfe2": "v4_chgis_dbase_v4_data_dictionary_x4143afe1"
+   },
    "status": "DRAFT_NOT_APPROVED"
   },
   {
    "collision_name": "v4_chgis_dbase_v4_feature_types",
-   "derivation": "原名 + _x+sha256(载体完整归档链串)[:8]（恒长 10 后缀，源身份派生；同名三副本获三不同候选名）",
+   "derivation": "原名 + _x+sha256(载体完整归档链串)[:8]（恒长 10，源身份派生；同名三副本获三不同候选名）",
    "distinct_candidates": [
     "v4_chgis_dbase_v4_feature_types_x4143afe1",
     "v4_chgis_dbase_v4_feature_types_x58b4c5f7",
@@ -16384,11 +16434,16 @@
    ],
    "length_check_max": 41,
    "length_note": "最长候选 49 ≤ 63 无需截断",
+   "per_sid_candidates": {
+    "08adf9e0d31b1b7b92959bfbdd527c1d556611cd3f7ea275e6a56e182da95b02": "v4_chgis_dbase_v4_feature_types_x58b4c5f7",
+    "482768bd812533bed1913cd759234c2abac81de197cfea48664e3f7048fe48b6": "v4_chgis_dbase_v4_feature_types_x4143afe1",
+    "c447f95eee798aa912c15b0017565902dd485f25cd561e450000b64f6183dd66": "v4_chgis_dbase_v4_feature_types_xaa642b89"
+   },
    "status": "DRAFT_NOT_APPROVED"
   },
   {
    "collision_name": "v4_chgis_dbase_v4_gis_info_table",
-   "derivation": "原名 + _x+sha256(载体完整归档链串)[:8]（恒长 10 后缀，源身份派生；同名三副本获三不同候选名）",
+   "derivation": "原名 + _x+sha256(载体完整归档链串)[:8]（恒长 10，源身份派生；同名三副本获三不同候选名）",
    "distinct_candidates": [
     "v4_chgis_dbase_v4_gis_info_table_x4143afe1",
     "v4_chgis_dbase_v4_gis_info_table_x58b4c5f7",
@@ -16396,11 +16451,16 @@
    ],
    "length_check_max": 42,
    "length_note": "最长候选 49 ≤ 63 无需截断",
+   "per_sid_candidates": {
+    "55c3f85ff700568f367a4e986059799cab07ffff89c9f89f20bc68d6799293cd": "v4_chgis_dbase_v4_gis_info_table_x58b4c5f7",
+    "a6f3db713fc9b6553c5d4a3696a9754312a4f80c946b6c4d1b7719e8f95b9304": "v4_chgis_dbase_v4_gis_info_table_x4143afe1",
+    "fdf2a82d660729c6f89faedc0235f617a5ea916c5fe54cb05a418e9fabea7155": "v4_chgis_dbase_v4_gis_info_table_xaa642b89"
+   },
    "status": "DRAFT_NOT_APPROVED"
   },
   {
    "collision_name": "v4_chgis_dbase_v4_gis_layer_field_names",
-   "derivation": "原名 + _x+sha256(载体完整归档链串)[:8]（恒长 10 后缀，源身份派生；同名三副本获三不同候选名）",
+   "derivation": "原名 + _x+sha256(载体完整归档链串)[:8]（恒长 10，源身份派生；同名三副本获三不同候选名）",
    "distinct_candidates": [
     "v4_chgis_dbase_v4_gis_layer_field_names_x4143afe1",
     "v4_chgis_dbase_v4_gis_layer_field_names_x58b4c5f7",
@@ -16408,11 +16468,16 @@
    ],
    "length_check_max": 49,
    "length_note": "最长候选 49 ≤ 63 无需截断",
+   "per_sid_candidates": {
+    "964556b0ffbd54c8e3437027a8b8a3f4cda85f7afd0c3288207835fbb478c2d4": "v4_chgis_dbase_v4_gis_layer_field_names_x4143afe1",
+    "e72e5cbd41075af9b35222ddff7e9ea0a70a00cc7814b69a8d0d7b4d99ed5bd1": "v4_chgis_dbase_v4_gis_layer_field_names_x58b4c5f7",
+    "f80a6d1063b0b5f837994dc0044561c9c5f10459b16e50cf56ed9973015f5379": "v4_chgis_dbase_v4_gis_layer_field_names_xaa642b89"
+   },
    "status": "DRAFT_NOT_APPROVED"
   },
   {
    "collision_name": "v4_chgis_dbase_v4_main_table",
-   "derivation": "原名 + _x+sha256(载体完整归档链串)[:8]（恒长 10 后缀，源身份派生；同名三副本获三不同候选名）",
+   "derivation": "原名 + _x+sha256(载体完整归档链串)[:8]（恒长 10，源身份派生；同名三副本获三不同候选名）",
    "distinct_candidates": [
     "v4_chgis_dbase_v4_main_table_x4143afe1",
     "v4_chgis_dbase_v4_main_table_x58b4c5f7",
@@ -16420,11 +16485,16 @@
    ],
    "length_check_max": 38,
    "length_note": "最长候选 49 ≤ 63 无需截断",
+   "per_sid_candidates": {
+    "7df02cbea5383deeca867e95b9fa4b7b5c405a96fc889a9ec66784826e803d0a": "v4_chgis_dbase_v4_main_table_x4143afe1",
+    "b66af36193be0a0f62ed1b20facd007e27e2cddf696a291c3d15077fa1aec672": "v4_chgis_dbase_v4_main_table_xaa642b89",
+    "d07ec78b9d5264293cbea3c12c649a303ff58c4ffed69d28600ba3eb636d7722": "v4_chgis_dbase_v4_main_table_x58b4c5f7"
+   },
    "status": "DRAFT_NOT_APPROVED"
   },
   {
    "collision_name": "v4_chgis_dbase_v4_part_of_table",
-   "derivation": "原名 + _x+sha256(载体完整归档链串)[:8]（恒长 10 后缀，源身份派生；同名三副本获三不同候选名）",
+   "derivation": "原名 + _x+sha256(载体完整归档链串)[:8]（恒长 10，源身份派生；同名三副本获三不同候选名）",
    "distinct_candidates": [
     "v4_chgis_dbase_v4_part_of_table_x4143afe1",
     "v4_chgis_dbase_v4_part_of_table_x58b4c5f7",
@@ -16432,11 +16502,16 @@
    ],
    "length_check_max": 41,
    "length_note": "最长候选 49 ≤ 63 无需截断",
+   "per_sid_candidates": {
+    "2d7611862a783aefa0e75fab73109b28ffe03c4f9da2ea6453e209af8df62108": "v4_chgis_dbase_v4_part_of_table_x4143afe1",
+    "7ef142dc61c8f6780a223e50497d0bb9a97cbda32784b82ca95d032fdd6d48e2": "v4_chgis_dbase_v4_part_of_table_x58b4c5f7",
+    "e7c8a9582a1c38f693c6def18aed1172871d9d141ea69b967f36a0a361e948c0": "v4_chgis_dbase_v4_part_of_table_xaa642b89"
+   },
    "status": "DRAFT_NOT_APPROVED"
   },
   {
    "collision_name": "v4_chgis_dbase_v4_preceded_by_table",
-   "derivation": "原名 + _x+sha256(载体完整归档链串)[:8]（恒长 10 后缀，源身份派生；同名三副本获三不同候选名）",
+   "derivation": "原名 + _x+sha256(载体完整归档链串)[:8]（恒长 10，源身份派生；同名三副本获三不同候选名）",
    "distinct_candidates": [
     "v4_chgis_dbase_v4_preceded_by_table_x4143afe1",
     "v4_chgis_dbase_v4_preceded_by_table_x58b4c5f7",
@@ -16444,11 +16519,16 @@
    ],
    "length_check_max": 45,
    "length_note": "最长候选 49 ≤ 63 无需截断",
+   "per_sid_candidates": {
+    "35b42e619eed4ada54c58070716042e4a8792ee1294f1f573c1015127b3dd052": "v4_chgis_dbase_v4_preceded_by_table_x58b4c5f7",
+    "a98843083ca1542ab5743e8823bc669714217fa2df460ab1ee94ae53d9d0ce8c": "v4_chgis_dbase_v4_preceded_by_table_x4143afe1",
+    "aa74ccb64738a0ebb211ae797bab36d365718898eb7d10c260262f469f30bb51": "v4_chgis_dbase_v4_preceded_by_table_xaa642b89"
+   },
    "status": "DRAFT_NOT_APPROVED"
   },
   {
    "collision_name": "v4_chgis_dbase_v4_source_notes",
-   "derivation": "原名 + _x+sha256(载体完整归档链串)[:8]（恒长 10 后缀，源身份派生；同名三副本获三不同候选名）",
+   "derivation": "原名 + _x+sha256(载体完整归档链串)[:8]（恒长 10，源身份派生；同名三副本获三不同候选名）",
    "distinct_candidates": [
     "v4_chgis_dbase_v4_source_notes_x4143afe1",
     "v4_chgis_dbase_v4_source_notes_x58b4c5f7",
@@ -16456,11 +16536,16 @@
    ],
    "length_check_max": 40,
    "length_note": "最长候选 49 ≤ 63 无需截断",
+   "per_sid_candidates": {
+    "25d19ce73a023de07f6a3a1962148bf857062495f4aaf6e1ef2e552346d73d72": "v4_chgis_dbase_v4_source_notes_x58b4c5f7",
+    "2f9864af120a9f272c2ead11c560e1e4a83fafdf2a283e641b1c0b1c05f87ae5": "v4_chgis_dbase_v4_source_notes_xaa642b89",
+    "412b58b7c2fe5e2521fbf5ebe2249177618e837c10b44a57e1ebdb2be1fe8ee7": "v4_chgis_dbase_v4_source_notes_x4143afe1"
+   },
    "status": "DRAFT_NOT_APPROVED"
   },
   {
    "collision_name": "v4_chgis_dbase_xtra_change_types",
-   "derivation": "原名 + _x+sha256(载体完整归档链串)[:8]（恒长 10 后缀，源身份派生；同名三副本获三不同候选名）",
+   "derivation": "原名 + _x+sha256(载体完整归档链串)[:8]（恒长 10，源身份派生；同名三副本获三不同候选名）",
    "distinct_candidates": [
     "v4_chgis_dbase_xtra_change_types_x4143afe1",
     "v4_chgis_dbase_xtra_change_types_x58b4c5f7",
@@ -16468,11 +16553,16 @@
    ],
    "length_check_max": 42,
    "length_note": "最长候选 49 ≤ 63 无需截断",
+   "per_sid_candidates": {
+    "4146927ddeeaee7d54d71588d1f8dd3f6f89aea57895ce05c28810cb91f98834": "v4_chgis_dbase_xtra_change_types_xaa642b89",
+    "59a34e2a9ff0e40c16fa89f545fd0ff5f62c2a9d760f7c18872f5ed709df22b8": "v4_chgis_dbase_xtra_change_types_x58b4c5f7",
+    "a66a590661a1b973a839c9d17540bb70a1b29f215927c48c34b6da8226213a44": "v4_chgis_dbase_xtra_change_types_x4143afe1"
+   },
    "status": "DRAFT_NOT_APPROVED"
   },
   {
    "collision_name": "v4_chgis_dbase_xtra_contributors",
-   "derivation": "原名 + _x+sha256(载体完整归档链串)[:8]（恒长 10 后缀，源身份派生；同名三副本获三不同候选名）",
+   "derivation": "原名 + _x+sha256(载体完整归档链串)[:8]（恒长 10，源身份派生；同名三副本获三不同候选名）",
    "distinct_candidates": [
     "v4_chgis_dbase_xtra_contributors_x4143afe1",
     "v4_chgis_dbase_xtra_contributors_x58b4c5f7",
@@ -16480,11 +16570,16 @@
    ],
    "length_check_max": 42,
    "length_note": "最长候选 49 ≤ 63 无需截断",
+   "per_sid_candidates": {
+    "0effb5abead5377b93c6d075484754c36b411eddc2f38580c4affac0d0643175": "v4_chgis_dbase_xtra_contributors_x4143afe1",
+    "1911e12b7b2ea1de570416052c83a9477e0a5f89cfb2867bebfc0c53078240dc": "v4_chgis_dbase_xtra_contributors_x58b4c5f7",
+    "757938161af70e3c9478adf8652a25d31118af9efea58580b28ad329a1d12bbc": "v4_chgis_dbase_xtra_contributors_xaa642b89"
+   },
    "status": "DRAFT_NOT_APPROVED"
   },
   {
    "collision_name": "v4_chgis_dbase_xtra_date_rules",
-   "derivation": "原名 + _x+sha256(载体完整归档链串)[:8]（恒长 10 后缀，源身份派生；同名三副本获三不同候选名）",
+   "derivation": "原名 + _x+sha256(载体完整归档链串)[:8]（恒长 10，源身份派生；同名三副本获三不同候选名）",
    "distinct_candidates": [
     "v4_chgis_dbase_xtra_date_rules_x4143afe1",
     "v4_chgis_dbase_xtra_date_rules_x58b4c5f7",
@@ -16492,11 +16587,16 @@
    ],
    "length_check_max": 40,
    "length_note": "最长候选 49 ≤ 63 无需截断",
+   "per_sid_candidates": {
+    "46c367eab4c63966b92286b0c14bd64a34dd25c6c60aa2d9ac89709d4dcdadfc": "v4_chgis_dbase_xtra_date_rules_xaa642b89",
+    "6c4e17757a92dfd44f62b45d3e64b1de6b5c830c21726a94162cfb6f4e282544": "v4_chgis_dbase_xtra_date_rules_x4143afe1",
+    "9613d0af062891fcff353ee1b2940db77355666a2130ae242a5c6410a230cc38": "v4_chgis_dbase_xtra_date_rules_x58b4c5f7"
+   },
    "status": "DRAFT_NOT_APPROVED"
   },
   {
    "collision_name": "v4_chgis_dbase_xtra_geo_source",
-   "derivation": "原名 + _x+sha256(载体完整归档链串)[:8]（恒长 10 后缀，源身份派生；同名三副本获三不同候选名）",
+   "derivation": "原名 + _x+sha256(载体完整归档链串)[:8]（恒长 10，源身份派生；同名三副本获三不同候选名）",
    "distinct_candidates": [
     "v4_chgis_dbase_xtra_geo_source_x4143afe1",
     "v4_chgis_dbase_xtra_geo_source_x58b4c5f7",
@@ -16504,11 +16604,16 @@
    ],
    "length_check_max": 40,
    "length_note": "最长候选 49 ≤ 63 无需截断",
+   "per_sid_candidates": {
+    "8fec0ec28500d9b08ca496115c1bb93e7547fd96f29e6f7a9bfbfb431696cd55": "v4_chgis_dbase_xtra_geo_source_x58b4c5f7",
+    "add15709275e25d546cb602a207b3020b70e940a9bb4183e34b1a297cdc69d3b": "v4_chgis_dbase_xtra_geo_source_xaa642b89",
+    "c9c39ca6d40039cd8a45283aadd0ec0885dcae54fbdbef7b74d577986e9d419b": "v4_chgis_dbase_xtra_geo_source_x4143afe1"
+   },
    "status": "DRAFT_NOT_APPROVED"
   },
   {
    "collision_name": "v4_chgis_dbase_xtra_other_feature_types",
-   "derivation": "原名 + _x+sha256(载体完整归档链串)[:8]（恒长 10 后缀，源身份派生；同名三副本获三不同候选名）",
+   "derivation": "原名 + _x+sha256(载体完整归档链串)[:8]（恒长 10，源身份派生；同名三副本获三不同候选名）",
    "distinct_candidates": [
     "v4_chgis_dbase_xtra_other_feature_types_x4143afe1",
     "v4_chgis_dbase_xtra_other_feature_types_x58b4c5f7",
@@ -16516,6 +16621,11 @@
    ],
    "length_check_max": 49,
    "length_note": "最长候选 49 ≤ 63 无需截断",
+   "per_sid_candidates": {
+    "42539d9759598787423b56d528baec8ff1694265200260f72ba9a6f91301511f": "v4_chgis_dbase_xtra_other_feature_types_x58b4c5f7",
+    "946394d50e1b6f3943eb5ae3b0d007c9e6b8e1ac8fdfe33168745b922fe9fd77": "v4_chgis_dbase_xtra_other_feature_types_x4143afe1",
+    "bfe14d19b1247925679799a195edd183fb0de200090757a2a0d1e67be1655f12": "v4_chgis_dbase_xtra_other_feature_types_xaa642b89"
+   },
    "status": "DRAFT_NOT_APPROVED"
   }
  ]

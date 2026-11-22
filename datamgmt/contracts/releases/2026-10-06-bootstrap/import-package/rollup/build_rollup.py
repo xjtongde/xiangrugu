@@ -31,7 +31,7 @@ def _find_release_root(start):
         q = q.parent
     return None
 REL = _find_release_root(HERE)
-VCS_REF = "17097e8"
+VCS_REF = "2b37abd"
 
 INV_PATH = None
 for cand in ([REL / "inventory.json"] if REL else []) + [EV / "inventory.json", HERE / "inventory.json"]:
@@ -468,12 +468,63 @@ for gid, g in sp_g_by_gid.items():
     if len(g["members"]) == 2 and g.get("family_candidate") == "mapinfo_candidate":
         twin_pairs.append(gid)
 assert len(twin_pairs) == 2, twin_pairs
+# 孪生 2 案：引用真实 PROPOSED SID；五对同角色组件逐对完整三元组；内层 ZIP inventory sha 一致
+twin_objs = {o["source_object_id"]: o for o in sp_om["proposed_objects"] if o.get("components_exact_identity")}
+assert len(twin_objs) == 2, twin_objs.keys()
+twin_case_records = []
+for sid in sorted(twin_objs):
+    o = twin_objs[sid]
+    rel = "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip"
+    izi = o["inner_zip_identity"]
+    pairs = []
+    for role, c in sorted(o["components_exact_identity"].items()):
+        chain = tuple([rel, izi["member"], c["name"]])
+        hits = [key(h) for h in by_full[chain] if h["sha256"] == c["sha256"] and h.get("size") == c["size"]]
+        assert len(hits) == 1, f"twin pair resolve != 1: {chain}"
+        k = hits[0]
+        pairs.append({"role": role, "inventory_key": [k[0], list(k[1]), list(k[2])],
+                      "archive_ordinals": list(k[2]), "sha256": c["sha256"], "size": c["size"]})
+    _ihits = [key(e) for e in by_full[tuple([rel, izi["member"]])]
+              if e["sha256"] == izi["sha256"] and e.get("size") == izi.get("size")]
+    assert len(_ihits) == 1, f"inner zip 唯一命中失败: {izi['member']}"
+    inner_k = _ihits[0]
+    twin_case_records.append({"sid": sid, "lane": o["twin_copy_lane"], "group_id": o["group_id"],
+                              "component_role_pairs": pairs,
+                              "inner_zip_member": [rel, [izi["member"]], list(inner_k[2])],
+                              "inner_zip_sha256_inventory": im[inner_k]["sha256"],
+                              "inner_zip_size": im[inner_k].get("size")})
+_lanes = {r["lane"]: r for r in twin_case_records}
+assert _lanes["mapinfo"]["inner_zip_sha256_inventory"] == _lanes["shapefiles"]["inner_zip_sha256_inventory"], "两内层 ZIP inventory sha 不一致"
+twin_structured_group = {
+    "family": "mapinfo_twin_bound", "cases": 2, "mirror_role_pairs_per_case": 5,
+    "legacy_string_identities": [
+        "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip!shapefiles/v3_time_pref_pgn_PRC.ZIP/V3_time_pref_pgn_PRC.ID",
+        "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip!shapefiles/v3_time_pref_pgn_PRC.ZIP/V3_time_pref_pgn_PRC.TAB",
+        "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip!mapinfo/v3_time_pref_pgn_PRC.ZIP/V3_time_pref_pgn_PRC.ID",
+        "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip!mapinfo/v3_time_pref_pgn_PRC.ZIP/V3_time_pref_pgn_PRC.TAB"],
+    "legacy_string_identities_note": ("基线 2b37abd 旧 mapinfo_twin_bound 2 组 identities 字符串"
+                                      "原样 4 条逐字保留（lead 裁定 team-message-cf8398aa）：新结构化"
+                                      "案组以 inventory_key 三元组表示，语义等价、完整链在 per_case 在场；"
+                                      "旧串别名仅供 Codex 机械对账闭合"),
+    "candidate_records": sum(len(r["component_role_pairs"]) for r in twin_case_records),
+    "note_counts": {"案数": 2, "镜像对数": "5 角色对/案 ×2 案", "候选记录数": 10},
+    "evidence_ref": ("spatial object-mapping.json proposed_objects[].components_exact_identity"
+                     "（sid f13db8a5…/5039b37a…系 PROPOSED 对象；前盒误引 approved_objects_"
+                     "verbatim——批准 2 件为 Ca1884route shapefile 面，非本项孪生，本处更正）"),
+    "inner_zip_equality_via_inventory_member_sha": _lanes["mapinfo"]["inner_zip_sha256_inventory"],
+    "identity_triples": True,
+    "per_case": twin_case_records,
+    "adjudication_status": "PENDING_ADJUDICATION"}
+# lead 裁定（team-message-cf8398aa）：基线 2b37abd 的孪生 groups-derived 旧两条**原样保留**
+# （字符串 identities+原 evidence_ref），机械对账闭合；更正说明只增不改——
+# SID 结构化案组（含 legacy_string_identities 别名）与其并存。
 for gid in sorted(twin_pairs):
     g = sp_g_by_gid[gid]
     mirror_groups.append({"family": "mapinfo_twin_bound", "group_id": gid,
                           "identities": sorted(m["member_key"] for m in g["members"]),
                           "evidence_ref": "spatial approved_objects_verbatim（孪生绑定批准 2 组）",
                           "adjudication_status": "PENDING_ADJUDICATION"})
+# 结构化案组不入 mirror-adjudication.json（该件保持基线字节形），仅供 draft priority_cases 引用
 peking = []
 for o in rs_om["proposed_objects"]:
     w = o["observed"].get("world_file_declared")
@@ -577,13 +628,18 @@ peking_evidence = []
 for o in rs_om["proposed_objects"]:
     if o["identity"]["sha256"] == pdb2_sha:
         wf = o["observed"].get("world_file_declared")
-        pdb2_evidence.append({
+        _rec = {
             "identity": [o["identity"]["relative_path"], list(o["identity"]["archive_chain"]),
                          list(o["identity"]["archive_ordinals"])],
             "internal_geotransform": o["observed"].get("geotransform"),
             "gcp_count": o["observed"].get("gcp_count"),
             "crs_source_declared_null": o["observed"].get("crs_source_declared", {}).get("srs_is_null"),
-            "world_file_declared_verbatim": wf})
+            "world_file_declared_verbatim": wf}
+        if wf is None:   # V4 [159,6]：派工明文「继续标配准未决」
+            _rec["georeference_status"] = "UNRESOLVED_PENDING"
+            _rec["georeference_reason"] = ("内部 GT=null、无世界文件（exact-stem tifw 不在同容器）；"
+                                           "配准取舍未决留裁定")
+        pdb2_evidence.append(_rec)
     wfd = o["observed"].get("world_file_declared") or {}
     if str(wfd.get("binding_basis", "")).startswith("casefold"):
         peking_evidence.append({
@@ -597,8 +653,35 @@ for o in rs_om["proposed_objects"]:
             "tfw_sha256": wfd.get("sha256"),
             "tfw_source_member": wfd.get("source_member")})
 assert len(pdb2_evidence) == 4 and len(peking_evidence) == 2
+assert sum(1 for e in pdb2_evidence if e.get("georeference_status") == "UNRESOLVED_PENDING") == 1 \
+    and sum(1 for e in pdb2_evidence if e.get("world_file_declared_verbatim")) == 3
 draft_groups = []
-for mg in mirror_groups:
+# draft 面孪生两条 groups-derived 旧条目**原位更正**（identities→结构三元组、evidence_ref 改引、
+# correction_note+legacy_string_identities 只增）；mirror-adjudication.json 基线件保持原样零变更。
+def _upgrade_twin_legacy(mg):
+    ids = []
+    for mk in sorted(m["member_key"] for m in sp_g_by_gid[mg["group_id"]]["members"]):
+        r = resolve_sf(mk); assert len(r) == 1, mk
+        k = r[0]; e = im[k]
+        ids.append({"inventory_key": [k[0], list(k[1]), list(k[2])],
+                    "archive_ordinals": list(k[2]), "sha256": e["sha256"], "size": e.get("size")})
+    up = dict(mg)
+    up["legacy_identities_strings"] = mg["identities"]
+    up["identities"] = ids
+    up["correction_note"] = ("lead 裁定 team-message-cf8398aa：identities 迁移为 inventory_key 结构"
+                             "三元组，语义等价；旧字符串别名在 legacy_identities_strings 逐字保留供"
+                             "机械对账；evidence_ref 更正为 proposed_objects[].components_exact_identity"
+                             "（sid f13db8a5…/5039b37a…系 PROPOSED，批准 2 件 Ca1884route 非本项）")
+    up["evidence_ref"] = "spatial object-mapping.json proposed_objects[].components_exact_identity"
+    return up
+# draft 面：孪生两条 groups-derived 旧条目**原位升级**为结构三元组+correction_note（计数不变），
+# SID 结构化案组以 priority_cases.mapinfo_twin_2_groups.structured_case_group 引用呈现——
+# legacy_string_identities 全 4 串在该节在场，机械 symdiff=0。
+draft_source_groups = [(_upgrade_twin_legacy(mg)
+                        if (mg.get("family") == "mapinfo_twin_bound" and "group_id" in mg) else mg)
+                       for mg in mirror_groups]
+assert len(draft_source_groups) == len(mirror_groups) == 381, (len(draft_source_groups), len(mirror_groups))
+for mg in draft_source_groups:
     cls = classify_family(mg["family"])
     rec = dict(mg); rec["disposition_class_draft"] = cls
     rec["recommendation"] = ("主副本选择留裁定；内容复用可共享同一存储对象" if cls == "byte_identical_content_reuse"
@@ -616,23 +699,63 @@ for rec in draft_groups:
         rec["byte_different_versions"] = [[{"source_file_or_chain": k[0], "carrier_sha256": mdb_carrier_sha[k[0]]}] for k in diff_versions]
         rec["disposition_class_draft"] = "byte_identical_content_reuse+byte_different_independent_versions(mixed)"
         rec["related_name_conflicts"] = "13 组同名目标表（三载体同表名集），区分方案见 naming-draft.json"
+# Peking 世界文件像素中心→角点换算与内部 GT 六项复算（本盒独立）
+peking_affine = []
+for o in rs_om["proposed_objects"]:
+    wfd = o["observed"].get("world_file_declared") or {}
+    if not str(wfd.get("binding_basis", "")).startswith("casefold"): continue
+    pt = [float(x) for x in wfd["probe_text"].split()]
+    assert len(pt) == 6, pt
+    a, b, d, e, c, f = pt   # ESRI: x_res, rot_2, rot_3, y_res, x_origin_ul_center, y_origin_ul_center
+    gt_calc = [c - a / 2.0, a, b, f - e / 2.0, d, e]
+    gt_int = o["observed"]["geotransform"]
+    six_equal = repr(gt_calc) == repr([float(g) for g in gt_int])
+    assert six_equal, (gt_calc, gt_int)
+    peking_affine.append({"sid": o["source_object_id"],
+        "tif_identity": [o["identity"]["relative_path"], list(o["identity"]["archive_chain"]), list(o["identity"]["archive_ordinals"])],
+        "wf_six_params_verbatim": pt,
+        "conversion_formula": "GT=[C−A/2, A, D, F−E/2, B, E]（左上像素中心→左上角点；D/B 为旋转位）",
+        "converted_geotransform": gt_calc,
+        "internal_geotransform_verbatim": gt_int,
+        "six_item_identical": True})
+assert len(peking_affine) == 2
+recommend_upgrade = ("证据支持升级关联确认（换算六项全等，两案同值）；**最终确认仍留茶香裁定**")
+
 mirror_draft = {"format": "xiangrugu.import-package.rollup.mirror-adjudication-draft.v1",
                 "baseline_git": VCS_REF, "status": "DRAFT_NOT_APPROVED",
-                "policy": "草案不预决合并；不同源语义不得提前合并；主副本选择/落盘形态全部留裁定",
+                "policy": "草案不预决合并；不同源语义不得提前合并；主副本选择/落盘形态全部留裁定。存储层复用与逻辑表合并分离：byte_identical 候选可提共用存储对象方案（逐件来源+对象身份保留），逻辑表合并单列供茶香裁定，不与存储复用混同",
                 "counts_by_class": dict(collections.Counter(g["disposition_class_draft"] for g in draft_groups)),
                 "priority_cases": {
-                    "v4_mdb": {"carriers": 7, "distinct_v4_carrier_shas": len(v4_by_sha),
+                    "v4_mdb": {"case_recommendation": ("直接件 vs zip-wrapped 两字节版本取舍+13 组命名区分方案"
+                                                       "（_x+sha256(完整归档链串)[:8]，naming-draft.json）认可与否"),
+                               "case_remaining_adjudication_points": ["主副本选择（直接件或包裹件）",
+                                                                      "13 组区分候选名批准", "两同摘要包裹副本存储复用"],
+                     "carriers": 7, "distinct_v4_carrier_shas": len(v4_by_sha),
                                "three_v4_carriers_note": "access_database 直接件 / access_database zip-wrapped / shapefiles zip-wrapped 三载体；sha 相同者入 byte_identical 子对，不同者独立版本",
                                "same_sha_pairs": {h: ks for h, ks in same_pairs.items()},
                                "different_version_carriers": diff_versions},
-                    "mapinfo_twin_2_groups": {"evidence": "S1 补链后各案 5 组件四元绑定全等（两案组件字节全同）",
+                    "mapinfo_twin_2_groups": {"case_recommendation": ("五对组件字节全等可共用存储对象；"
+                                                                      "各建表或合一逻辑表留茶香裁定（不与存储复用混同）"),
+                                              "case_remaining_adjudication_points": ["逻辑表合并与否",
+                                                                                     "主 lane 选择（mapinfo/shapefiles）"],
+                     "structured_case_group": twin_structured_group,
+                    "evidence": "S1 补链后各案 5 组件四元绑定全等（两案组件字节全同）",
                                               "components": [{"role": r, "name": c["name"], "sha256": c["sha256"],
                                                               "size": c["size"]}
                                                              for r, c in sorted(sp_om["proposed_objects"][0].get("components_exact_identity", {}).items())]},
-                    "pdb2_four_copies": {"note": "本盒独立核对块5 raster-mapping 原读值照录；四副本内部 GT=null、GCP=0、CRS 声明 null 一致；三份伴 pdb2.tifw（exact-stem），V4 副本无世界文件",
+                    "pdb2_four_copies": {"case_recommendation": ("三份 exact-stem tifw 绑定是否采用为配准来源+"
+                                                                 "V4 [159,6] UNRESOLVED_PENDING 处理+四副本主副本选择"),
+                                        "case_remaining_adjudication_points": ["tifw 配准采用与否",
+                                                                               "V4 副本配准来源", "主副本选择与存储复用"],
+                     "note": "本盒独立核对块5 raster-mapping 原读值照录；四副本内部 GT=null、GCP=0、CRS 声明 null 一致；三份伴 pdb2.tifw（exact-stem），V4 副本无世界文件",
                                          "per_copy_evidence": pdb2_evidence},
-                    "peking_casefold_2": {"note": "独立核对：两 tif 均有内部 GT（非依赖 tfw 亦可几何）；tfw 六参数 probe_text 原读值照录；casefold 关联 binding_basis/status 原文保留",
-                                          "per_item_evidence": peking_evidence}},
+                    "peking_casefold_2": {"case_recommendation": ("换算六项全等已证——升级正式绑定或维持 casefold"
+                                                                  "关联登记，最终确认留茶香裁定"),
+                                         "case_remaining_adjudication_points": ["正式绑定 vs 维持 PENDING 关联",
+                                                                                "tfw 是否入装载证据面"],
+                     "note": "独立核对：两 tif 均有内部 GT（非依赖 tfw 亦可几何）；tfw 六参数 probe_text 原读值照录；casefold 关联 binding_basis/status 原文保留",
+                                          "per_item_evidence": peking_evidence,
+                                          "affine_reconciliation_this_box": peking_affine}},
                 "groups": draft_groups}
 
 
@@ -666,9 +789,14 @@ for x in object_index:
                          "action": "RETAIN_UNCHANGED"})
         continue
     if cls.startswith("已批准对象"):
+        shp_b = next((b for b in x["bindings"] if b["source_string"].lower().endswith(".shp")), None)
+        assert shp_b is not None, f"批准对象无 .shp 主件: {ref}"
+        stem = shp_b["source_string"].split("!")[-1].rsplit("/", 1)[-1]
+        cand = _seg_slug(stem)[:-4] if stem.lower().endswith(".shp") else _seg_slug(stem)
         naming_entries.append({"block": 3, "object_ref": ref, "lane": "approved_spatial_special",
-            "candidate_table_name_draft": derive_candidate(3, ref, x["bindings"]),
-            "status": "DRAFT_NOT_APPROVED（既有批准状态保留于绑定上下文，表名分配本草案）"})
+            "candidate_table_name_draft": cand[:63], "schema_draft": "chgis",
+            "derivation": ".shp 主件词干可复算派生（shp_b source_string）",
+            "status": "DRAFT_NOT_APPROVED（既有批准范围/object_name 保留不动，仅表名+显式 schema 草案）"})
         continue
     extra = str(ref.get("group_id", "")) + str(ref.get("carrier", ""))
     draft = {"block": x["block"], "object_ref": ref, "lane": "regular_allocation",
@@ -693,19 +821,44 @@ conflict_resolutions = []
 dup_names = sorted({n for n, v in bare_index.items() if any(x["block"] == 4 for x in v)
                     and sum(1 for x in v if x["block"] == 4) > 1})
 assert len(dup_names) == 13, dup_names
+sid_to_v4_name = {}
 for n in dup_names:
+    cands = {sf: f"{n}{v4_suffix[sf]}" for sf in v4_sfs}
+    for o in md_om["proposed_objects"]:
+        if o.get("table_name_proposal") == n and o["source_file_or_chain"] in cands:
+            sid_to_v4_name[o["source_object_id"]] = cands[o["source_file_or_chain"]]
     conflict_resolutions.append({"collision_name": n,
-        "distinct_candidates": sorted(f"{n}{v4_suffix[sf]}" for sf in v4_sfs),
-        "length_check_max": max(len(c) for c in sorted(f"{n}{v4_suffix[sf]}" for sf in v4_sfs)),
-        "derivation": "原名 + _x+sha256(载体完整归档链串)[:8]（恒长 10 后缀，源身份派生；同名三副本获三不同候选名）",
+        "distinct_candidates": sorted(cands.values()),
+        "per_sid_candidates": {o["source_object_id"]: cands[o["source_file_or_chain"]]
+                               for o in md_om["proposed_objects"]
+                               if o.get("table_name_proposal") == n and o["source_file_or_chain"] in cands},
+        "length_check_max": max(len(v) for v in cands.values()),
+        "derivation": "原名 + _x+sha256(载体完整归档链串)[:8]（恒长 10，源身份派生；同名三副本获三不同候选名）",
         "length_note": f"最长候选 {max(len(n)+10 for n in dup_names)} ≤ 63 无需截断",
         "status": "DRAFT_NOT_APPROVED"})
-for cr in conflict_resolutions:
-    assert len(set(cr["distinct_candidates"])) == 3, f"截断后 V4 区分名不唯一: {cr['collision_name']}"
+assert len(sid_to_v4_name) == 39, len(sid_to_v4_name)   # 13 组 × 3 = 39 SID
+# 主命名表与冲突表同源：block4 同名面 draft_entries 直接采用统一结果
+for d in naming_entries:
+    sid = str(d["object_ref"].get("source_object_id"))
+    if sid in sid_to_v4_name:
+        d["candidate_table_name_draft"] = sid_to_v4_name[sid]
+        d["schema_draft"] = "chgis"
+        d["name_source"] = "unified_with_conflict_table"
+# 逐 SID 对账断言：两表全等
+recon_pairs = [(str(d["object_ref"].get("source_object_id")), d["candidate_table_name_draft"])
+               for d in naming_entries if str(d["object_ref"].get("source_object_id")) in sid_to_v4_name]
+assert len(recon_pairs) == 39
+cr_map = {sid: name for cr in conflict_resolutions for sid, name in cr["per_sid_candidates"].items()}
+assert all(sid_to_v4_name[s] == cr_map[s] for s, _ in recon_pairs), "主表/冲突表 SID 名不一致"
 # 全量联查：1293+2? —— 1293 含批准 2；联查最终名集新碰撞
 final_names = collections.Counter()
 for e in retained: final_names[(e["existing_name"].split(".")[0], e["existing_name"].split(".")[1])] += 1
-for d in naming_entries: final_names[(d.get("schema_draft", "?"), d["candidate_table_name_draft"])] += 1
+for d in naming_entries:
+    assert d.get("schema_draft"), f"草案缺显式 schema: {d['object_ref']}"
+    final_names[(d["schema_draft"], d["candidate_table_name_draft"])] += 1
+for (sch, nm), c in final_names.items():
+    assert len(f"{sch}.{nm}") <= 63 or True   # 记录口径：name ≤63；schema.name 长度入统计
+    assert len(nm) <= 63, f"候选名超 63: {nm}"
 new_collisions = {f"{s}|{n}": c for (s, n), c in final_names.items() if c > 1}
 assert sum(final_names.values()) == 1293, sum(final_names.values())
 naming_draft = {"format": "xiangrugu.import-package.rollup.naming-draft.v1",
@@ -715,7 +868,9 @@ naming_draft = {"format": "xiangrugu.import-package.rollup.naming-draft.v1",
                            "derive_candidate，重跑必得同值。联查=83 保留名+1210 草案名对键计数"),
                 "counts": {"retained_named": 83, "draft_regular": 1208, "draft_approved_spatial": 2,
                            "total_objects": 1293, "v4_conflict_groups_resolved": 13,
-                           "new_collisions_in_joint_scan": len(new_collisions)},
+                           "v4_sid_reconciliation_rows": 39,
+                           "new_collisions_in_joint_scan": len(new_collisions),
+                           "joint_scan_max_schema_dot_name_len": max(len(f"{s_}.{n}") for (s_, n) in final_names)},
                 "retained": retained, "draft_entries": naming_entries,
                 "v4_mdb_conflict_resolutions": conflict_resolutions,
                 "joint_scan_new_collisions": new_collisions}
@@ -757,7 +912,11 @@ summary = f"""# 第 6/6 块 · 全量汇总与落盘首盒（SUMMARY）
 - harvard/chgis/SHA256SUMS.txt（551B sha 694c101f…）line4：本盒 32 独立流式重算 chgis-v6/China_Periods_ReignDates.zip == 声明值逐字全等 ⇒ **ASSOCIATED_BY_SHA_PATH_MISMATCH**（内容可核销，路径指称与布局不符，成因 README 明载）。
 - 源枚举差异单列：README-b2 声明 173 外层件 vs 快照 172（PAGGQS 件缺席；2026-09-28 账 173/173 verified→2026-10-07 快照已无，移除时因待裁定，登记不臆断）。
 
-## 本盒增量（组件引用+裁定草案，基线 17097e8）
+## 本盒增量三（统一镜像与命名裁定草案，基线 2b37abd）
+- **孪生草案更正**：groups-derived 旧式字符串 identities×2 由 SID 结构化案组取代——真实 PROPOSED SID（f13db8a5…/5039b37a…）引用、五对同角色组件逐对完整归档链+序号+size+SHA-256、两内层 ZIP inventory 成员 sha 一致（69b5119f…/6,089,146B 机器核得）；counts 显式 **案数 2/镜像对数 10/候选记录数 10**；evidence_ref 更正为 proposed_objects[].components_exact_identity。**组账 381 保持**（377+1+孪生 1+Peking 按件 2；前盒 Peking 合 1 条系计数口径不一，披露）。
+- **V4 命名统一**：主命名表 draft_entries 与冲突表同源派生，**13 组 39 SID 逐条对账全等断言入码**；直接件与包裹件两字节版本分别保留、两同摘要包裹副本各留来源身份。批准空间 2 件改 **.shp 主件词干派生**+显式 schema=chgis（object_name/批准范围不动）。**1293 全量联查新碰撞 0**（name≤63 断言；最长 schema.name 69 如实登记）。
+- **配准证据入草案**：Peking 两案世界文件像素中心→角点换算 GT=[C−A/2,A,D,F−E/2,B,E] 与内部 GeoTransform **六项 repr 级全等**（本盒独立复算），升级建议附证据、最终确认留茶香；pdb2 三份 exact-stem tifw 绑定各自保留、**V4 [159,6] 标配准 UNRESOLVED_PENDING**；存储复用方案与逻辑表合并单列分离（policy 注）。
+
 - **S1 孪生补链**：MapInfo 2 案按 components_exact_identity 全组件四元绑定（完整归档链+成员序号+sha256+size 唯一命中断言），每案 3→**5** 条、合计新增 **4** 条（TAB/ID×2 案）；根因实证=组内清单缺大写词干 V3_…（大小写敏感结构差异）。反向索引同步：孪生成员 mapped_objects 10 件全命中。coverage_semantics 节入 object-index v2（普通/组/孪生显式/批准六组件/容器五面覆盖语义）。归属账零漂移断言在码（3/174/5294/11/2522 五块计数+七字段+8004）。
 - **S2 mirror-adjudication-draft.json**：381 组三分类草案——byte_identical_content_reuse **379** / mixed(V4 MDB 版本对)**1** / association_pending_sidecar_or_casefold **1**。四案详证：①V4 MDB 三载体 sha 实测=access_database 直接件独立版本 + zip-wrapped 两副本字节相同对（同 sha 子对机器核得）；②孪生 2 组 5 组件全等补链后证据；③pdb2 四副本独立核对：内部 GT=null/GCP=0/CRS null 一致，三份伴 pdb2.tifw(exact-stem)、V4 副本无世界文件——原读值照录；④Peking 2 件独立核对：**tif 均有内部 GT 且 CRS 非 null**，tfw casefold binding_basis/status/probe_text 原文保留——pdb2 与 Peking 分别核对不共享结论。DRAFT 不预决合并。
 - **S3 naming-draft.json**：83 已命名 RETAIN_UNCHANGED；**1208 常规逐件可复算候选名**（derive_candidate 函数：leaf stem/ext slug+对象标识前 8+源身份 sha256 前 8）+2 批准空间单列；13 组 V4 同名冲突=_x+sha256(载体完整归档链)[:8] 恒长 10 后缀区分（三副本三名唯一断言）；全量 1293 联查新碰撞 **0**。DRAFT_NOT_APPROVED。

@@ -1,0 +1,85 @@
+{
+ "acceptance_cases": [
+  {
+   "expected": "拒（白名单不命中，exception_not_implemented 保持）",
+   "gate": "仍阻断",
+   "id": "C1_digest_mismatch",
+   "input": "carrier sha≠固定值"
+  },
+  {
+   "expected": "拒（兼容解析仅限尾部 [21945,22071)）",
+   "gate": "仍阻断",
+   "id": "C2_mid_file_nul",
+   "input": "NUL 出现于非尾部偏移（中间 NUL）"
+  },
+  {
+   "expected": "拒",
+   "gate": "仍阻断",
+   "id": "C3_line_count_mismatch",
+   "input": "有效行数≠172"
+  },
+  {
+   "expected": "拒或留证裁定（不自动核销）",
+   "gate": "仍阻断",
+   "id": "C4_target_mismatch",
+   "input": "line4 目标路径或摘要不符（目标成员 sha≠7452ae6c…）"
+  },
+  {
+   "expected": "exception_not_implemented 保持/模型层 frozen 无 review 拒",
+   "gate": "仍阻断",
+   "id": "C5_unapproved",
+   "input": "无冻结合同 review（未获审批）"
+  },
+  {
+   "expected": "incomplete_inventory 恒门保留",
+   "gate": "仍阻断",
+   "id": "C6_other_inventory_anomalies",
+   "input": "其余清点异常（未知 issue/complete=false）"
+  },
+  {
+   "expected": "运行证据生成，例外门关闭（仅此一例）",
+   "gate": "拟关闭（待实施+审批）",
+   "id": "C7_whitelist_positive_nul",
+   "input": "固定摘要 900d98c6+尾部 126 NUL+172 行全验+已审批"
+  },
+  {
+   "expected": "运行证据生成（路径不符留证），例外门关闭（仅此一例）",
+   "gate": "拟关闭（待实施+审批）",
+   "id": "C8_whitelist_positive_chgis",
+   "input": "固定摘要 694c101f+line4 关联目标全等+已审批"
+  }
+ ],
+ "baseline_git": "5275325",
+ "entry_points_next_round": [
+  "Task 6 reader 模块拟案 datamgmt/src/xiangrugu_datamgmt/checksum_reader.py（新件，窄域：仅两固定例外的解析+核验，不泛化）",
+  "函数签名拟案 read_fixed_exception(carrier_bytes, raw_sha256, whitelist_entry) -> ExceptionRunEvidence（机器可读：行解析报告/NUL 段定位/逐行 sha 结果/目标关联证明）",
+  "接线点：DispositionLedger.evaluate 的 exception_not_implemented 分支（disposition.py L69-71）改为按白名单调用 reader 并核验运行证据；非白名单保持原 issue——模型修改须另行授权，本轮仅拟案"
+ ],
+ "evidence_refs": [
+  "checksum-exceptions-candidates.json 三账",
+  "historical-blockers.json raw_byte_evidence",
+  "a03 ROUND 32 一期 32 实物核验+容器 G1–G7 实跑"
+ ],
+ "format": "xiangrugu.import-package.rollup.run-gate-implementation-plan.v1",
+ "non_generalization": "白名单仅两条固定 raw_sha256；其余任何 exceptions/清点异常仍触发 exception_not_implemented/incomplete_inventory 恒门（模型源码不改）",
+ "reuse": "复用 checksum-exceptions-candidates 预览逻辑（172 行解析/逐行 sha 比对/line4 sha 关联），预览证据升级为运行证据",
+ "scope": "最小运行门：两条固定例外白名单执行面（Task 6 窄域兼容 reader）；不改 ReleaseContract/DispositionLedger 模型源码",
+ "status": "PLAN_NOT_IMPLEMENTED（运行代码实施与测试执行另行授权）",
+ "test_boundaries": [
+  "tests/unit/test_checksum_reader.py（新件拟案）：白名单两例外正例+六反例",
+  "tests/unit/test_disposition.py 既有门位回归（T1–T10 语义不变）",
+  "不改模型源码约束下接线点测试以注入拟案，实施轮另批"
+ ],
+ "whitelist": [
+  {
+   "carrier": "SHA256SUMS-b2",
+   "handling": "固定摘要相等→尾部 [21945,22071) 126 NUL 兼容解析+172 有效行逐行 sha 核验；非尾部 NUL/行数≠172/摘要不符→拒",
+   "raw_sha256": "900d98c69cf9b72f20313aa562b8da5e18e9c3e3def423fa6f618b4b1bafb3cb"
+  },
+  {
+   "carrier": "harvard/chgis/SHA256SUMS.txt",
+   "handling": "固定摘要相等→line4 声明 sha 关联目标成员 chgis-v6/China_Periods_ReignDates.zip（7452ae6c…/155774B）+路径不符留证；目标摘要/身份不符→拒或留证裁定",
+   "raw_sha256": "694c101f04e636012e752c87958c8065c8e6926633c8b542e89978d8f8451a60"
+  }
+ ]
+}

@@ -1,0 +1,15 @@
+== ROUND 32 一期（a02 未就位先报，a03）==
+1 两例外完整身份三账合流 PASS：NUL SHA256SUMS-b2 historical-blockers raw 900d98c6…+roots.yaml verbatim+inventory 同值+32 实物 sha256sum 全 64 逐字等值/stat 22071B/awk NR=173 含 NUL 尾行/首 NUL offset 21945/尾部 126 全零；CHGIS 源账 harvard/chgis/SHA256SUMS.txt 32 实物 694c101f…/551B+line4 verbatim+目标 chgis-v6/China_Periods_ReignDates.zip 7452ae6c…/155774B+inventory 三条目同值。
+2 门位独立判定 PASS（容器/tmp 实跑 EXIT=0 模型零修改）：G1 白名单例外+complete+frozen+review→仅[exception_not_implemented] ready False；G2 摘要不符→stale_assertion；G3 中间 NUL→incomplete_inventory 恒门；G4 行数不符→unmatched_member/unused_rule 族；G5 目标不符→invalid_mirror；G6 未审批→ValueError；G7 code≠checksum_nul→拒。六类全仍阻断，白名单外无泛化通道。
+3 首批 7 缺口 PASS：空间 2 SID/ord[6]/[14]/6 组件/候选名；文本 5 CANDIDATE/MISSING/GAP；技术序①Task 6 reader②PG 装载器③规范值 expected 生成器；批准=table_names+target_mapping。
+4 零漂移 PASS：symdiff0/drift0/8004/1293/1311/owners/等式。
+
+== ROUND 32b（二期交叉核·lead 接管链独立复核，a03，硬停 18:30 内）==
+接管链成立：38 十九件 64 位自算全==lead 终版全集；32 重跑 EXIT=0/stderr 0B/built OK mirrors381 collisions13 pending14/十九件与 38 全等；manifest↔SUMMARY 1333b1b2 绑定收敛实证（artifact 表 SUMMARY 条目==实物）。
+1 两例外分字段 PASS：NUL source_ledger_identity 22071/900d98c6 全 64+nul_lock{172/21945/[21945,22070]/126/单连续/171+1}==一期 32 实物逐值吻合；CHGIS 551/694c101f 全 64+line4 双空格原样+target 155774/7452ae6c 全 64。
+2 镜像文案 PASS：rule 至多一个 IMPORT 主件（仅约束 IMPORT）+mirror_evidence_sha256 与 expected.sha256 分开；伪码 step5+MODEL_FACTS 三处同改；语义==源码（primary_bytes 仅 IMPORT 分支登记，R31 T2b 实跑证实；mirror_evidence_sha256 独立 Field）。
+3 run-gate-plan PASS：白名单恰两条固定 raw_sha256 全 64==实物+handling 拒绝条件（非泛化）；reuse 预览升级；non_generalization 恒门保留；C1–C8==G1–G8 实跑逐条对齐；入口三点可审（checksum_reader.py 拟案/read_fixed_exception 签名/接线点 disposition.py L69-71 实测即 if contract.exceptions 分支锚点精确）；测试边界正 2 反 6+回归+不改模型源码；PLAN_NOT_IMPLEMENTED。
+4 spatial2 补齐 PASS：SID/primary chain+ord[6]/[14]+109d74b1/1752B/6 roles/完整候选名/approved_scope 仅组件绑定/expected MISSING/loader GAP/evidence_refs3；text5 同口径键集齐。
+5 零漂移+确定性+范围 PASS：既有 12 件深比仅 baseline_git；manifest 例外=artifact41 含 rgp+generation_head；8004/1293/1311/owners/等式/unresolved0；五块+模型源码 diff --stat 空；M=2（668900d4）/staged0/二进制0/变更面恰宣布范围。
+首缺口不变：Task 6 窄域兼容 reader 实现轮（计划已具可审入口+测试边界，待授权开工）；批准面首批 7 table_names/target_mapping 第一优先。
+ROUND 32b 五项全 PASS，首个不一致：无。

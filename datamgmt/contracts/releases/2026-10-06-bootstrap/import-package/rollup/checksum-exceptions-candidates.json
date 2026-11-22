@@ -1,5 +1,5 @@
 {
- "baseline_git": "ea40c1f",
+ "baseline_git": "5275325",
  "candidates": [
   {
    "authorization_ledger": "逐案授权=茶香批准固定摘要下兼容解析（blocks_package_freeze，load-blockers id nul126_compat_contract）",
@@ -14,14 +14,29 @@
     "expressible": true,
     "field_map": "ContractException(rule_id, code='checksum_nul', raw_sha256, reason)"
    },
+   "nul_lock": {
+    "nul_length": 126,
+    "nul_offset_range": [
+     21945,
+     22070
+    ],
+    "nul_offset_start": 21945,
+    "single_contiguous_run": true,
+    "valid_line_composition": "171 harvard-full DVN 外层 + 1 chgis-v6",
+    "valid_lines": 172
+   },
    "preview_evidence_ledger": [
     "roots.yaml format_anomaly 条目 verbatim",
     "historical-blockers.json FORMAT_ANOMALY_UNDER_FIXED_DIGEST",
     "SHA256SUMS-b2 172 行全 sha 验证在案（前盒 freshness 172v172）"
    ],
-   "raw_sha256": "900d98c6",
-   "raw_sha256_full_note": "固定摘要账见 historical-blockers.json verbatim",
-   "runtime_gate_ledger": "缺口：Task 6 窄域兼容 reader 未实现 → 任何 exceptions 声明触发 exception_not_implemented（disposition.evaluate L63-64）"
+   "raw_sha256": "900d98c69cf9b72f20313aa562b8da5e18e9c3e3def423fa6f618b4b1bafb3cb",
+   "runtime_gate_ledger": "缺口：Task 6 窄域兼容 reader 未实现 → 任何 exceptions 声明触发 exception_not_implemented（disposition.evaluate L63-64）",
+   "source_ledger_identity": {
+    "relative_path": "SHA256SUMS-b2",
+    "sha256": "900d98c69cf9b72f20313aa562b8da5e18e9c3e3def423fa6f618b4b1bafb3cb",
+    "size": 22071
+   }
   },
   {
    "authorization_ledger": "授权路径：模型扩展 code 枚举另行批准（不新造候选，沿用现有）",
@@ -30,6 +45,7 @@
     "或模型枚举扩展批准事件"
    ],
    "id": "chgis_line4_associated_by_sha_path",
+   "line4_verbatim": "7452ae6cf8d7dedbd0b06ea4e0e8343be9bac4075069ca8eb89e8ff0451c355e  China_Periods_ReignDates.zip",
    "model_expressibility": {
     "blocking_field": "contracts.py L149 Literal['checksum_nul']",
     "expressible": false,
@@ -39,9 +55,19 @@
     "块5 ASSOCIATED_BY_SHA_PATH_MISMATCH 裁定记录",
     "6/6 行验证"
    ],
-   "raw_sha256": "7452ae6c",
-   "raw_sha256_full_note": "China_Periods_ReignDates.zip==chgis-v6 成员 155,774B；6/6 行验证在案",
-   "runtime_gate_ledger": "缺口：checksum ledger 核验器实现（关联证明自动化）"
+   "raw_sha256": "7452ae6cf8d7dedbd0b06ea4e0e8343be9bac4075069ca8eb89e8ff0451c355e",
+   "raw_sha256_full_note": "目标==chgis-v6 成员 155,774B；6/6 行验证+32 流式重算全等在案；源账/line4/目标分字段",
+   "runtime_gate_ledger": "缺口：checksum ledger 核验器实现（关联证明自动化）",
+   "source_ledger_identity": {
+    "relative_path": "harvard/chgis/SHA256SUMS.txt",
+    "sha256": "694c101f04e636012e752c87958c8065c8e6926633c8b542e89978d8f8451a60",
+    "size": 551
+   },
+   "target_identity": {
+    "relative_path": "chgis-v6/China_Periods_ReignDates.zip",
+    "sha256": "7452ae6cf8d7dedbd0b06ea4e0e8343be9bac4075069ca8eb89e8ff0451c355e",
+    "size": 155774
+   }
   }
  ],
  "discipline": "预览证据/运行门/审批三账分离；不新造候选；两候选分列不合并",

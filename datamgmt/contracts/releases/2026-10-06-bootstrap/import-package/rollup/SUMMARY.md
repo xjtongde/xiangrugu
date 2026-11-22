@@ -1,6 +1,6 @@
 # 第 6/6 块 · 全量汇总与落盘首盒（SUMMARY）
 
-基线 git ea40c1f；inventory sha256=fb5e6b334b898d62…；**只读引用五块已交付包，五块文件零改写；未正式落盘/未装依赖/未动服务与库**。
+基线 git 5275325；inventory sha256=fb5e6b334b898d62…；**只读引用五块已交付包，五块文件零改写；未正式落盘/未装依赖/未动服务与库**。
 
 ## 对账闭合（机器断言在码）
 - **3 + 174 + 5294 + 11 + 2522 == 8004**（primary_owner_block exactly-once；两两交集空；inventory↔并集双向 missing 0 / extra 0；逐件 sha==inventory）。
@@ -40,6 +40,7 @@
 - **checksum-exceptions-candidates.json**：两候选分列三账分离——NUL126@固定摘要 900d98c6 code=checksum_nul 模型可表达但运行门缺口 Task 6 reader（exception_not_implemented）；CHGIS 第 4 行 7452ae6c==chgis-v6 成员 155,774B **code 枚举无此项=不可表达**，授权路径=枚举扩展另行批准。
 - **first-batch-preload-table.json**：5 文本逐项（status 七字段照录 table_names_approved=False/target_mapping_approved=False/disposition_retained=BLOCKED/CANDIDATE）+空间 2（各 6 组件 component_binding_approved=True）；回读条件改独立全量结构+规范值+重复次数对账（expected_count/expected_sha256 缺口逐项，text_values sidecar 不可替代）；GDAL Band.Checksum 另账 executed 26+deferred 17==43 断言。
 - **wmf-thumbnail-record.json**：12 件 WMF NON_TABULAR+原件 sha/size 逐件记录；解码器需求条件说明（缩略图展示/图像检索交付才需）。
+- **续盒六（校验账运行门实施准备，lead 接管 a02 两次失败创作）**：两例外完整源账身份分字段（NUL SHA256SUMS-b2 900d98c6…/22071B/172 行/偏移 21945 长 126；CHGIS harvard/chgis/SHA256SUMS.txt 694c101f…/551B/line4 verbatim/目标 chgis-v6/China_Periods_ReignDates.zip 7452ae6c…/155774B）；镜像投影文案修正（同字节仅限制 IMPORT 主件至多一个；mirror_evidence_sha256 与源件摘要分开）；**run-gate-implementation-plan.json**（白名单两固定例外非泛化+8 验收用例 C1–C8+入口/测试边界，实施另批）；首批空间 2 逐项前置补齐（SID/主件/组件/完整候选名/批准范围/expected 标缺/装载器 GAP/证据引用），文本 5 同口径。
 - manifest 双锚 input_baseline_git=f54dd96/generation_head=ea40c1f；正式包应验清单见下节（sha256sum -c 口径）。
 
 ## 边界

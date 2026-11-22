@@ -32,7 +32,7 @@ def _find_release_root(start):
         q = q.parent
     return None
 REL = _find_release_root(HERE)
-VCS_REF = "ea40c1f"          # generation_head（本盒生成时仓库头）
+VCS_REF = "5275325"          # generation_head（本盒生成时仓库头）
 INPUT_BASELINE_GIT = "f54dd96"   # manifest 输入基线（续盒四交付提交；交付锚由 lead 记录，避免自指）
 
 INV_PATH = None
@@ -1051,7 +1051,7 @@ MODEL_FACTS_VERBATIM = [
     "Disposition 枚举仅 IMPORT/MIRROR/NON_TABULAR/BLOCKED（model.py L14-18，无 RETAIN）",
     "每成员 location 恰一规则，否则 unmatched_member/multiple_matches（disposition.py evaluate）",
     "IMPORT 按 (sha256,size) 唯一，同字节第二件 IMPORT 触发 mirror_required（primary_bytes 账）",
-    "MIRROR 须 mirror_of 指向 IMPORT 且同 (sha256,size)+mirror_evidence_sha256；invalid_mirror 门（L93）",
+    "MIRROR 须 mirror_of 指向 IMPORT 且同 (sha256,size)+mirror_evidence_sha256（镜像相等性证据件摘要，与源件 expected.sha256 独立字段）；invalid_mirror 门（L93）；同字节限制仅约束 IMPORT 主件至多一个（primary_bytes 仅登记 IMPORT）",
     "Only IMPORT can have business targets——MIRROR/NON_TABULAR/BLOCKED 带 targets 直接构造失败（contracts.py consistent_action）",
     "(schema,table) 全局唯一 target_collision",
     "exceptions code 仅 Literal['checksum_nul']（contracts.py L149）；任何 exceptions → exception_not_implemented（Task 6 reader 未实现）",
@@ -1091,7 +1091,7 @@ mirror_projection = {"distinct_file_byte_identities": len(byss),
                      "duplicated_identities": len(dup_ids),
                      "primary_rule_candidates_ONE_IMPORT_per_identity": len(byss),
                      "forced_MIRROR_or_NON_TABULAR_or_BLOCKED_copies": sum(v - 1 for v in dup_ids.values()),
-                     "rule": "每 (sha256,size) 恰一 IMPORT 主件（首序 relative_path,chain,ordinals），其余同字节件只能 MIRROR(须 mirror_of+同字节 evidence)/NON_TABULAR/BLOCKED"}
+                     "rule": "每 (sha256,size) 至多一个 IMPORT 主件（同字节限制仅约束 IMPORT 处置；若存在 IMPORT 取首序 relative_path,chain,ordinals）；其余同字节件可 MIRROR(须 mirror_of)/NON_TABULAR/BLOCKED；mirror_evidence_sha256 系镜像相等性证据件摘要，与源件 expected.sha256 分开记账（contracts.py 两独立字段）"}
 cpd = {"format": "xiangrugu.import-package.rollup.contract-projection-draft.v1",
        "baseline_git": VCS_REF, "status": "DRAFT_NOT_APPROVED",
        "model_facts_verbatim": MODEL_FACTS_VERBATIM,
@@ -1100,7 +1100,7 @@ cpd = {"format": "xiangrugu.import-package.rollup.contract-projection-draft.v1",
            "2. retain|evidence_only → Disposition.NON_TABULAR",
            "3. pending_contract → Disposition.BLOCKED",
            "4. proposed_import → 若其对象获 table_names_approved+target_mapping_approved 则 IMPORT（targets=ObjectTarget(schema,table,candidate 名转正)），否则 BLOCKED 照录 disposition_retained",
-           "5. 同 (sha256,size) 第 2..n 件 → MIRROR(mirror_of=主 rule_id, mirror_evidence_sha256=同摘要) 或 NON_TABULAR",
+           "5. 同 (sha256,size) 第 2..n 件 → MIRROR(mirror_of=主 rule_id, mirror_evidence_sha256=镜像相等性证据件摘要，与源件 expected.sha256 分开) 或 NON_TABULAR/BLOCKED",
            "6. 每成员 selector.location=(relative_path,archive_chain,archive_ordinals) 恰一规则",
            "7. ready_for_import = status=='frozen' and coverage.conforms —— 现恒假（incomplete_inventory）"],
        "disposition_projection_counts": dict(proj_counts),
@@ -1135,7 +1135,9 @@ ced = {"format": "xiangrugu.import-package.rollup.checksum-exceptions-candidates
        "baseline_git": VCS_REF, "status": "DRAFT_NOT_APPROVED",
        "candidates": [
         {"id": "nul126_under_fixed_digest_172",
-         "raw_sha256": "900d98c6", "raw_sha256_full_note": "固定摘要账见 historical-blockers.json verbatim",
+         "raw_sha256": "900d98c69cf9b72f20313aa562b8da5e18e9c3e3def423fa6f618b4b1bafb3cb",
+         "source_ledger_identity": {"relative_path": "SHA256SUMS-b2", "size": 22071, "sha256": "900d98c69cf9b72f20313aa562b8da5e18e9c3e3def423fa6f618b4b1bafb3cb"},
+         "nul_lock": {"valid_lines": 172, "valid_line_composition": "171 harvard-full DVN 外层 + 1 chgis-v6", "nul_offset_start": 21945, "nul_length": 126, "nul_offset_range": [21945, 22070], "single_contiguous_run": True},
          "model_expressibility": {"expressible": True, "code": "checksum_nul",
                                    "field_map": "ContractException(rule_id, code='checksum_nul', raw_sha256, reason)"},
          "preview_evidence_ledger": ["roots.yaml format_anomaly 条目 verbatim", "historical-blockers.json FORMAT_ANOMALY_UNDER_FIXED_DIGEST",
@@ -1144,7 +1146,11 @@ ced = {"format": "xiangrugu.import-package.rollup.checksum-exceptions-candidates
          "authorization_ledger": "逐案授权=茶香批准固定摘要下兼容解析（blocks_package_freeze，load-blockers id nul126_compat_contract）",
          "completion_scope": ["reader 实现+测试", "预览→运行升级证据（126 NUL 行逐案解析报告）", "exceptions 入合同后 ledger 复跑无 exception_not_implemented"]},
         {"id": "chgis_line4_associated_by_sha_path",
-         "raw_sha256": "7452ae6c", "raw_sha256_full_note": "China_Periods_ReignDates.zip==chgis-v6 成员 155,774B；6/6 行验证在案",
+         "raw_sha256": "7452ae6cf8d7dedbd0b06ea4e0e8343be9bac4075069ca8eb89e8ff0451c355e",
+         "source_ledger_identity": {"relative_path": "harvard/chgis/SHA256SUMS.txt", "size": 551, "sha256": "694c101f04e636012e752c87958c8065c8e6926633c8b542e89978d8f8451a60"},
+         "line4_verbatim": "7452ae6cf8d7dedbd0b06ea4e0e8343be9bac4075069ca8eb89e8ff0451c355e  China_Periods_ReignDates.zip",
+         "target_identity": {"relative_path": "chgis-v6/China_Periods_ReignDates.zip", "size": 155774, "sha256": "7452ae6cf8d7dedbd0b06ea4e0e8343be9bac4075069ca8eb89e8ff0451c355e"},
+         "raw_sha256_full_note": "目标==chgis-v6 成员 155,774B；6/6 行验证+32 流式重算全等在案；源账/line4/目标分字段",
          "model_expressibility": {"expressible": False,
                                    "reason": "ContractException.code 枚举仅 checksum_nul——本项非 NUL 异常，无 code 可用（不可表达）",
                                    "blocking_field": "contracts.py L149 Literal['checksum_nul']"},
@@ -1166,10 +1172,25 @@ for o in tb_om["objects"]:
                         "expected_count": "MISSING（装载侧行数含重复计数未生成）",
                         "expected_sha256": "MISSING（规范值投影摘要未生成；预览 ordered_strings_sha256_including_header 存在≠合同字段）"}})
 sp_appr = sp_om.get("approved_objects_verbatim", [])
-fb_sp = [{"object_name": x["object"].get("object_name") or x["object"].get("target_table") or "?",
-          "components": len(x["object"]["components"]),
-          "component_binding_approved": x["object"].get("component_binding_approved")}
-         for x in sp_appr]
+_nd_appr = {e["object_ref"]["source_object_id"]: e for e in naming_draft["draft_entries"] if e.get("lane") == "approved_spatial_special"}
+fb_sp = []
+for x in sp_appr:
+    _sid = x["source_object_id"]
+    _shp = [c for c in x["object"]["components"] if c["role"] == "primary_geometry"][0]
+    _nd = _nd_appr.get(_sid, {})
+    fb_sp.append({"object_name": x["object"].get("object_name"),
+                  "source_object_id": _sid,
+                  "primary_member": _shp["selector"],
+                  "primary_sha256": _shp["raw_sha256"], "primary_size": _shp["raw_size"],
+                  "components": len(x["object"]["components"]),
+                  "component_roles": sorted(c["role"] for c in x["object"]["components"]),
+                  "component_binding_approved": x["object"].get("component_binding_approved"),
+                  "candidate_table_name_full": _nd.get("schema_draft", "chgis") + "." + _nd.get("candidate_table_name_draft", ""),
+                  "candidate_name_status": "DRAFT_NOT_APPROVED（naming-draft approved_spatial_special，既有批准范围保留）",
+                  "approved_scope": "component_binding_approved=True（6 组件 cpg/dbf/prj/qpj/shp/shx）；目标名未批",
+                  "canonical_value_gap": {"expected_count": "MISSING（空间装载侧行数未生成）", "expected_sha256": "MISSING（规范值投影摘要未生成）"},
+                  "loader": "GAP（production loader 未实现，照录 load-blockers）",
+                  "evidence_refs": ["object-index.json approved_spatial_objects 绑定", "spatial/object-mapping.json approved_objects_verbatim", "naming-draft.json approved_spatial_special 行"]})
 fbd = {"format": "xiangrugu.import-package.rollup.first-batch-preload-table.v1",
        "baseline_git": VCS_REF, "status": "DRAFT_NOT_APPROVED",
        "first_batch_scope": "首批批准=5 文本（4 harv+1 chgis schema）+空间批准 2（Ca1884route_przh_1251/utf8 各 6 组件 component_binding_approved）",
@@ -1223,6 +1244,36 @@ pend_add("shapename_collision_allocation", nc_doc["collision_groups_pair_key"], 
 pend_doc = {"format": "xiangrugu.import-package.rollup.pending-items.v1",
             "baseline_git": VCS_REF, "item_kinds": len(pend), "items": pend}
 
+# ---------------- S2b run-gate-implementation-plan（续盒六，实施方案非代码） ----------------
+rgp = {"format": "xiangrugu.import-package.rollup.run-gate-implementation-plan.v1",
+       "baseline_git": VCS_REF, "status": "PLAN_NOT_IMPLEMENTED（运行代码实施与测试执行另行授权）",
+       "scope": "最小运行门：两条固定例外白名单执行面（Task 6 窄域兼容 reader）；不改 ReleaseContract/DispositionLedger 模型源码",
+       "reuse": "复用 checksum-exceptions-candidates 预览逻辑（172 行解析/逐行 sha 比对/line4 sha 关联），预览证据升级为运行证据",
+       "whitelist": [
+           {"raw_sha256": "900d98c69cf9b72f20313aa562b8da5e18e9c3e3def423fa6f618b4b1bafb3cb", "carrier": "SHA256SUMS-b2",
+            "handling": "固定摘要相等→尾部 [21945,22071) 126 NUL 兼容解析+172 有效行逐行 sha 核验；非尾部 NUL/行数≠172/摘要不符→拒"},
+           {"raw_sha256": "694c101f04e636012e752c87958c8065c8e6926633c8b542e89978d8f8451a60", "carrier": "harvard/chgis/SHA256SUMS.txt",
+            "handling": "固定摘要相等→line4 声明 sha 关联目标成员 chgis-v6/China_Periods_ReignDates.zip（7452ae6c…/155774B）+路径不符留证；目标摘要/身份不符→拒或留证裁定"}],
+       "non_generalization": "白名单仅两条固定 raw_sha256；其余任何 exceptions/清点异常仍触发 exception_not_implemented/incomplete_inventory 恒门（模型源码不改）",
+       "entry_points_next_round": [
+           "Task 6 reader 模块拟案 datamgmt/src/xiangrugu_datamgmt/checksum_reader.py（新件，窄域：仅两固定例外的解析+核验，不泛化）",
+           "函数签名拟案 read_fixed_exception(carrier_bytes, raw_sha256, whitelist_entry) -> ExceptionRunEvidence（机器可读：行解析报告/NUL 段定位/逐行 sha 结果/目标关联证明）",
+           "接线点：DispositionLedger.evaluate 的 exception_not_implemented 分支（disposition.py L69-71）改为按白名单调用 reader 并核验运行证据；非白名单保持原 issue——模型修改须另行授权，本轮仅拟案"],
+       "test_boundaries": [
+           "tests/unit/test_checksum_reader.py（新件拟案）：白名单两例外正例+六反例",
+           "tests/unit/test_disposition.py 既有门位回归（T1–T10 语义不变）",
+           "不改模型源码约束下接线点测试以注入拟案，实施轮另批"],
+       "acceptance_cases": [
+           {"id": "C1_digest_mismatch", "input": "carrier sha≠固定值", "expected": "拒（白名单不命中，exception_not_implemented 保持）", "gate": "仍阻断"},
+           {"id": "C2_mid_file_nul", "input": "NUL 出现于非尾部偏移（中间 NUL）", "expected": "拒（兼容解析仅限尾部 [21945,22071)）", "gate": "仍阻断"},
+           {"id": "C3_line_count_mismatch", "input": "有效行数≠172", "expected": "拒", "gate": "仍阻断"},
+           {"id": "C4_target_mismatch", "input": "line4 目标路径或摘要不符（目标成员 sha≠7452ae6c…）", "expected": "拒或留证裁定（不自动核销）", "gate": "仍阻断"},
+           {"id": "C5_unapproved", "input": "无冻结合同 review（未获审批）", "expected": "exception_not_implemented 保持/模型层 frozen 无 review 拒", "gate": "仍阻断"},
+           {"id": "C6_other_inventory_anomalies", "input": "其余清点异常（未知 issue/complete=false）", "expected": "incomplete_inventory 恒门保留", "gate": "仍阻断"},
+           {"id": "C7_whitelist_positive_nul", "input": "固定摘要 900d98c6+尾部 126 NUL+172 行全验+已审批", "expected": "运行证据生成，例外门关闭（仅此一例）", "gate": "拟关闭（待实施+审批）"},
+           {"id": "C8_whitelist_positive_chgis", "input": "固定摘要 694c101f+line4 关联目标全等+已审批", "expected": "运行证据生成（路径不符留证），例外门关闭（仅此一例）", "gate": "拟关闭（待实施+审批）"}],
+       "evidence_refs": ["checksum-exceptions-candidates.json 三账", "historical-blockers.json raw_byte_evidence", "a03 ROUND 32 一期 32 实物核验+容器 G1–G7 实跑"]}
+
 summary = f"""# 第 6/6 块 · 全量汇总与落盘首盒（SUMMARY）
 
 基线 git {VCS_REF}；inventory sha256={INV_SHA[:16]}…；**只读引用五块已交付包，五块文件零改写；未正式落盘/未装依赖/未动服务与库**。
@@ -1265,6 +1316,7 @@ summary = f"""# 第 6/6 块 · 全量汇总与落盘首盒（SUMMARY）
 - **checksum-exceptions-candidates.json**：两候选分列三账分离——NUL126@固定摘要 900d98c6 code=checksum_nul 模型可表达但运行门缺口 Task 6 reader（exception_not_implemented）；CHGIS 第 4 行 7452ae6c==chgis-v6 成员 155,774B **code 枚举无此项=不可表达**，授权路径=枚举扩展另行批准。
 - **first-batch-preload-table.json**：5 文本逐项（status 七字段照录 table_names_approved=False/target_mapping_approved=False/disposition_retained=BLOCKED/CANDIDATE）+空间 2（各 6 组件 component_binding_approved=True）；回读条件改独立全量结构+规范值+重复次数对账（expected_count/expected_sha256 缺口逐项，text_values sidecar 不可替代）；GDAL Band.Checksum 另账 executed 26+deferred 17==43 断言。
 - **wmf-thumbnail-record.json**：12 件 WMF NON_TABULAR+原件 sha/size 逐件记录；解码器需求条件说明（缩略图展示/图像检索交付才需）。
+- **续盒六（校验账运行门实施准备，lead 接管 a02 两次失败创作）**：两例外完整源账身份分字段（NUL SHA256SUMS-b2 900d98c6…/22071B/172 行/偏移 21945 长 126；CHGIS harvard/chgis/SHA256SUMS.txt 694c101f…/551B/line4 verbatim/目标 chgis-v6/China_Periods_ReignDates.zip 7452ae6c…/155774B）；镜像投影文案修正（同字节仅限制 IMPORT 主件至多一个；mirror_evidence_sha256 与源件摘要分开）；**run-gate-implementation-plan.json**（白名单两固定例外非泛化+8 验收用例 C1–C8+入口/测试边界，实施另批）；首批空间 2 逐项前置补齐（SID/主件/组件/完整候选名/批准范围/expected 标缺/装载器 GAP/证据引用），文本 5 同口径。
 - manifest 双锚 input_baseline_git=f54dd96/generation_head=ea40c1f；正式包应验清单见下节（sha256sum -c 口径）。
 
 ## 边界
@@ -1302,5 +1354,6 @@ summary = f"""# 第 6/6 块 · 全量汇总与落盘首盒（SUMMARY）
 (HERE / "checksum-exceptions-candidates.json").write_text(json.dumps(ced, ensure_ascii=False, indent=1, sort_keys=True) + "\n")
 (HERE / "first-batch-preload-table.json").write_text(json.dumps(fbd, ensure_ascii=False, indent=1, sort_keys=True) + "\n")
 (HERE / "wmf-thumbnail-record.json").write_text(json.dumps(wmfd, ensure_ascii=False, indent=1, sort_keys=True) + "\n")
+(HERE / "run-gate-implementation-plan.json").write_text(json.dumps(rgp, ensure_ascii=False, indent=1, sort_keys=True) + "\n")
 (HERE / "SUMMARY.md").write_text(summary)
 print(f"built OK: members 8004 objects {len(object_index)} unresolved {len(unresolved)} refs {refs_count} mirrors {len(mirror_groups)} collisions {nc_doc['collision_groups_pair_key']} pending {len(pend)}")

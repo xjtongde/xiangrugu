@@ -1,12 +1,12 @@
 {
  "assertion": "sum==8004；零 RETAIN（枚举无此项）",
- "baseline_git": "ea40c1f",
+ "baseline_git": "5275325",
  "byte_identity_projection": {
   "distinct_file_byte_identities": 4968,
   "duplicated_identities": 1172,
   "forced_MIRROR_or_NON_TABULAR_or_BLOCKED_copies": 2950,
   "primary_rule_candidates_ONE_IMPORT_per_identity": 4968,
-  "rule": "每 (sha256,size) 恰一 IMPORT 主件（首序 relative_path,chain,ordinals），其余同字节件只能 MIRROR(须 mirror_of+同字节 evidence)/NON_TABULAR/BLOCKED"
+  "rule": "每 (sha256,size) 至多一个 IMPORT 主件（同字节限制仅约束 IMPORT 处置；若存在 IMPORT 取首序 relative_path,chain,ordinals）；其余同字节件可 MIRROR(须 mirror_of)/NON_TABULAR/BLOCKED；mirror_evidence_sha256 系镜像相等性证据件摘要，与源件 expected.sha256 分开记账（contracts.py 两独立字段）"
  },
  "disposition_projection_counts": {
   "BLOCKED": 5635,
@@ -18,7 +18,7 @@
   "Disposition 枚举仅 IMPORT/MIRROR/NON_TABULAR/BLOCKED（model.py L14-18，无 RETAIN）",
   "每成员 location 恰一规则，否则 unmatched_member/multiple_matches（disposition.py evaluate）",
   "IMPORT 按 (sha256,size) 唯一，同字节第二件 IMPORT 触发 mirror_required（primary_bytes 账）",
-  "MIRROR 须 mirror_of 指向 IMPORT 且同 (sha256,size)+mirror_evidence_sha256；invalid_mirror 门（L93）",
+  "MIRROR 须 mirror_of 指向 IMPORT 且同 (sha256,size)+mirror_evidence_sha256（镜像相等性证据件摘要，与源件 expected.sha256 独立字段）；invalid_mirror 门（L93）；同字节限制仅约束 IMPORT 主件至多一个（primary_bytes 仅登记 IMPORT）",
   "Only IMPORT can have business targets——MIRROR/NON_TABULAR/BLOCKED 带 targets 直接构造失败（contracts.py consistent_action）",
   "(schema,table) 全局唯一 target_collision",
   "exceptions code 仅 Literal['checksum_nul']（contracts.py L149）；任何 exceptions → exception_not_implemented（Task 6 reader 未实现）",
@@ -33,7 +33,7 @@
   "2. retain|evidence_only → Disposition.NON_TABULAR",
   "3. pending_contract → Disposition.BLOCKED",
   "4. proposed_import → 若其对象获 table_names_approved+target_mapping_approved 则 IMPORT（targets=ObjectTarget(schema,table,candidate 名转正)），否则 BLOCKED 照录 disposition_retained",
-  "5. 同 (sha256,size) 第 2..n 件 → MIRROR(mirror_of=主 rule_id, mirror_evidence_sha256=同摘要) 或 NON_TABULAR",
+  "5. 同 (sha256,size) 第 2..n 件 → MIRROR(mirror_of=主 rule_id, mirror_evidence_sha256=镜像相等性证据件摘要，与源件 expected.sha256 分开) 或 NON_TABULAR/BLOCKED",
   "6. 每成员 selector.location=(relative_path,archive_chain,archive_ordinals) 恰一规则",
   "7. ready_for_import = status=='frozen' and coverage.conforms —— 现恒假（incomplete_inventory）"
  ],

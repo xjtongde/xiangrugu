@@ -1,5 +1,5 @@
 {
- "baseline_git": "2273529",
+ "baseline_git": "17097e8",
  "control_totals": {
   "block1_tables": 78,
   "block2_tabular_objects": 175,
@@ -9,7 +9,14 @@
   "note": "派工文'1393'系笔误：其分解 78+175+901+96+43=1293，本盒以机器断言实测 1293 为准",
   "total": 1293
  },
- "format": "xiangrugu.import-package.rollup.object-index.v1",
+ "coverage_semantics": {
+  "approved_spatial_objects": "批准 2 案（Ca1884route cpg/dbf/prj/qpj/shp/shx）经 components selectors 六组件全绑，非孪生面",
+  "container_note": "容器 ZIP 自身由归属账 primary_owner_block 覆盖（块4 wrappers/块5 structural），对象绑定不隐式覆盖容器",
+  "single_member_objects": "普通对象（cbdb 表经载体文件/tabular/mdb-sql 经载体串）绑定其直接源成员或载体文件——引用覆盖=该对象读取所需的最低源身份集",
+  "spatial_group_objects": "空间提案对象经 primary_member 绑定主件；组内其余组件的覆盖在 spatial groups.json（成员级 sha/size 账），不在对象索引重复展开",
+  "twin_explicit_component_objects": "MapInfo 孪生 2 案按 components_exact_identity 显式全组件四元绑定（5 件/案：DAT/ID/IND/MAP/TAB，完整归档链+成员序号+sha256+size 唯一命中断言）——引用覆盖=全部字节相同组件"
+ },
+ "format": "xiangrugu.import-package.rollup.object-index.v2",
  "objects": [
   {
    "binding_complete": true,
@@ -7535,6 +7542,204 @@
     "candidate_table_name": "t___xtra_u5f_geo_u5f_source_u2e_xlsx",
     "kind": "tabular_object",
     "source_object_id": "602d371d039c503eb4131bea631d3a20944f45c83ddae9d8ef6d65eec7668717"
+   }
+  },
+  {
+   "binding_complete": true,
+   "bindings": [
+    {
+     "inventory_key": [
+      "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip",
+      [
+       "mapinfo/v3_time_pref_pgn_PRC.ZIP",
+       "v3_time_pref_pgn_PRC.DAT"
+      ],
+      [
+       114,
+       4
+      ]
+     ],
+     "sha256": "3937da6c333df757b1b1679268a6c04577913071e2b7251dd46e3de20d4c1533",
+     "size": 601448,
+     "source_string": "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip!mapinfo/v3_time_pref_pgn_PRC.ZIP!v3_time_pref_pgn_PRC.DAT"
+    },
+    {
+     "inventory_key": [
+      "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip",
+      [
+       "mapinfo/v3_time_pref_pgn_PRC.ZIP",
+       "V3_time_pref_pgn_PRC.ID"
+      ],
+      [
+       114,
+       1
+      ]
+     ],
+     "sha256": "f3956a79239f2b7c1e81bfc4e5dc31c68d081889ca9aadc79e62a3ea492dc399",
+     "size": 7956,
+     "source_string": "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip!mapinfo/v3_time_pref_pgn_PRC.ZIP!V3_time_pref_pgn_PRC.ID"
+    },
+    {
+     "inventory_key": [
+      "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip",
+      [
+       "mapinfo/v3_time_pref_pgn_PRC.ZIP",
+       "v3_time_pref_pgn_PRC.IND"
+      ],
+      [
+       114,
+       2
+      ]
+     ],
+     "sha256": "c422403b5cd9865ea5bfecc4fa63ecd437a6ddd74861cc59d6ae7b2f285c4ef0",
+     "size": 28672,
+     "source_string": "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip!mapinfo/v3_time_pref_pgn_PRC.ZIP!v3_time_pref_pgn_PRC.IND"
+    },
+    {
+     "inventory_key": [
+      "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip",
+      [
+       "mapinfo/v3_time_pref_pgn_PRC.ZIP",
+       "v3_time_pref_pgn_PRC.MAP"
+      ],
+      [
+       114,
+       3
+      ]
+     ],
+     "sha256": "a7b44b35a4123c7c8f264c9fed525f394afadd66e46b57b5aaa64c9eec2172df",
+     "size": 20469248,
+     "source_string": "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip!mapinfo/v3_time_pref_pgn_PRC.ZIP!v3_time_pref_pgn_PRC.MAP"
+    },
+    {
+     "inventory_key": [
+      "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip",
+      [
+       "mapinfo/v3_time_pref_pgn_PRC.ZIP",
+       "V3_time_pref_pgn_PRC.TAB"
+      ],
+      [
+       114,
+       0
+      ]
+     ],
+     "sha256": "c7bb2a785505bd4d8c9b0046d879b308cd93491cfef1ccb126fe80847b39e786",
+     "size": 715,
+     "source_string": "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip!mapinfo/v3_time_pref_pgn_PRC.ZIP!V3_time_pref_pgn_PRC.TAB"
+    }
+   ],
+   "block": 3,
+   "naming_status": {
+    "class": "schema 未定（bare-name 提案，srid/schema 留批准面）",
+    "name": "harvard_u2d_full_u2f_doi_u5f_10_u5f_7910_u2f_dvn_u2f___f13db8a5",
+    "schema": null
+   },
+   "object_ref": {
+    "binding_mode": "explicit_components_exact_identity_5",
+    "group_id": "ca752f78d2b5ff45af9b42435ece787528042ddfd3af85c39b5fdd4a10783b72",
+    "kind": "spatial_object",
+    "lane": "mapinfo",
+    "root_cause_note": "前盒经 groups members 仅得 DAT/IND/MAP 3 件；TAB/ID 在组内以大写词干 V3_… 存在于 inventory 而未入组成员清单——大小写敏感结构差异致漏绑（本盒改按 components_exact_identity 全组件四元绑定）",
+    "source_object_id": "f13db8a539baf98756a2a1c0fd6a7d520e3148661911c0133eed91427fa269f3"
+   }
+  },
+  {
+   "binding_complete": true,
+   "bindings": [
+    {
+     "inventory_key": [
+      "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip",
+      [
+       "shapefiles/v3_time_pref_pgn_PRC.ZIP",
+       "v3_time_pref_pgn_PRC.DAT"
+      ],
+      [
+       66,
+       4
+      ]
+     ],
+     "sha256": "3937da6c333df757b1b1679268a6c04577913071e2b7251dd46e3de20d4c1533",
+     "size": 601448,
+     "source_string": "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip!shapefiles/v3_time_pref_pgn_PRC.ZIP!v3_time_pref_pgn_PRC.DAT"
+    },
+    {
+     "inventory_key": [
+      "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip",
+      [
+       "shapefiles/v3_time_pref_pgn_PRC.ZIP",
+       "V3_time_pref_pgn_PRC.ID"
+      ],
+      [
+       66,
+       1
+      ]
+     ],
+     "sha256": "f3956a79239f2b7c1e81bfc4e5dc31c68d081889ca9aadc79e62a3ea492dc399",
+     "size": 7956,
+     "source_string": "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip!shapefiles/v3_time_pref_pgn_PRC.ZIP!V3_time_pref_pgn_PRC.ID"
+    },
+    {
+     "inventory_key": [
+      "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip",
+      [
+       "shapefiles/v3_time_pref_pgn_PRC.ZIP",
+       "v3_time_pref_pgn_PRC.IND"
+      ],
+      [
+       66,
+       2
+      ]
+     ],
+     "sha256": "c422403b5cd9865ea5bfecc4fa63ecd437a6ddd74861cc59d6ae7b2f285c4ef0",
+     "size": 28672,
+     "source_string": "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip!shapefiles/v3_time_pref_pgn_PRC.ZIP!v3_time_pref_pgn_PRC.IND"
+    },
+    {
+     "inventory_key": [
+      "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip",
+      [
+       "shapefiles/v3_time_pref_pgn_PRC.ZIP",
+       "v3_time_pref_pgn_PRC.MAP"
+      ],
+      [
+       66,
+       3
+      ]
+     ],
+     "sha256": "a7b44b35a4123c7c8f264c9fed525f394afadd66e46b57b5aaa64c9eec2172df",
+     "size": 20469248,
+     "source_string": "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip!shapefiles/v3_time_pref_pgn_PRC.ZIP!v3_time_pref_pgn_PRC.MAP"
+    },
+    {
+     "inventory_key": [
+      "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip",
+      [
+       "shapefiles/v3_time_pref_pgn_PRC.ZIP",
+       "V3_time_pref_pgn_PRC.TAB"
+      ],
+      [
+       66,
+       0
+      ]
+     ],
+     "sha256": "c7bb2a785505bd4d8c9b0046d879b308cd93491cfef1ccb126fe80847b39e786",
+     "size": 715,
+     "source_string": "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip!shapefiles/v3_time_pref_pgn_PRC.ZIP!V3_time_pref_pgn_PRC.TAB"
+    }
+   ],
+   "block": 3,
+   "naming_status": {
+    "class": "schema 未定（bare-name 提案，srid/schema 留批准面）",
+    "name": "harvard_u2d_full_u2f_doi_u5f_10_u5f_7910_u2f_dvn_u2f___5039b37a",
+    "schema": null
+   },
+   "object_ref": {
+    "binding_mode": "explicit_components_exact_identity_5",
+    "group_id": "ff9ffff7dc710cf966db047fa3dfab77c783d8666b635889d0b54f9ace6574d4",
+    "kind": "spatial_object",
+    "lane": "shapefiles",
+    "root_cause_note": "前盒经 groups members 仅得 DAT/IND/MAP 3 件；TAB/ID 在组内以大写词干 V3_… 存在于 inventory 而未入组成员清单——大小写敏感结构差异致漏绑（本盒改按 components_exact_identity 全组件四元绑定）",
+    "source_object_id": "5039b37adef85d98cffc972837b0cb331dabc37d320721d86fe335c8a67dfa79"
    }
   },
   {
@@ -29898,71 +30103,6 @@
    "bindings": [
     {
      "inventory_key": [
-      "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip",
-      [
-       "mapinfo/v3_time_pref_pgn_PRC.ZIP",
-       "v3_time_pref_pgn_PRC.DAT"
-      ],
-      [
-       114,
-       4
-      ]
-     ],
-     "sha256": "3937da6c333df757b1b1679268a6c04577913071e2b7251dd46e3de20d4c1533",
-     "size": 601448,
-     "source_string": "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip!mapinfo/v3_time_pref_pgn_PRC.ZIP/v3_time_pref_pgn_PRC.DAT"
-    },
-    {
-     "inventory_key": [
-      "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip",
-      [
-       "mapinfo/v3_time_pref_pgn_PRC.ZIP",
-       "v3_time_pref_pgn_PRC.IND"
-      ],
-      [
-       114,
-       2
-      ]
-     ],
-     "sha256": "c422403b5cd9865ea5bfecc4fa63ecd437a6ddd74861cc59d6ae7b2f285c4ef0",
-     "size": 28672,
-     "source_string": "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip!mapinfo/v3_time_pref_pgn_PRC.ZIP/v3_time_pref_pgn_PRC.IND"
-    },
-    {
-     "inventory_key": [
-      "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip",
-      [
-       "mapinfo/v3_time_pref_pgn_PRC.ZIP",
-       "v3_time_pref_pgn_PRC.MAP"
-      ],
-      [
-       114,
-       3
-      ]
-     ],
-     "sha256": "a7b44b35a4123c7c8f264c9fed525f394afadd66e46b57b5aaa64c9eec2172df",
-     "size": 20469248,
-     "source_string": "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip!mapinfo/v3_time_pref_pgn_PRC.ZIP/v3_time_pref_pgn_PRC.MAP"
-    }
-   ],
-   "block": 3,
-   "naming_status": {
-    "class": "schema 未定（bare-name 提案，srid/schema 留批准面）",
-    "name": "harvard_u2d_full_u2f_doi_u5f_10_u5f_7910_u2f_dvn_u2f___f13db8a5",
-    "schema": null
-   },
-   "object_ref": {
-    "group_id": "ca752f78d2b5ff45af9b42435ece787528042ddfd3af85c39b5fdd4a10783b72",
-    "kind": "spatial_object",
-    "lane": "mapinfo",
-    "source_object_id": "f13db8a539baf98756a2a1c0fd6a7d520e3148661911c0133eed91427fa269f3"
-   }
-  },
-  {
-   "binding_complete": true,
-   "bindings": [
-    {
-     "inventory_key": [
       "harvard-full/doi_10_7910/DVN/PDGOZ0/V4_Data_Archive.zip",
       [
        "shapefiles/v4_gns_shanghai_gbk.zip",
@@ -36232,71 +36372,6 @@
     "kind": "spatial_object",
     "lane": "single",
     "source_object_id": "a2d5f843b7d2ce4dc636f99b0c090ec1c8e0f4ba87cf056ec917abc736d3e5ed"
-   }
-  },
-  {
-   "binding_complete": true,
-   "bindings": [
-    {
-     "inventory_key": [
-      "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip",
-      [
-       "shapefiles/v3_time_pref_pgn_PRC.ZIP",
-       "v3_time_pref_pgn_PRC.DAT"
-      ],
-      [
-       66,
-       4
-      ]
-     ],
-     "sha256": "3937da6c333df757b1b1679268a6c04577913071e2b7251dd46e3de20d4c1533",
-     "size": 601448,
-     "source_string": "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip!shapefiles/v3_time_pref_pgn_PRC.ZIP/v3_time_pref_pgn_PRC.DAT"
-    },
-    {
-     "inventory_key": [
-      "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip",
-      [
-       "shapefiles/v3_time_pref_pgn_PRC.ZIP",
-       "v3_time_pref_pgn_PRC.IND"
-      ],
-      [
-       66,
-       2
-      ]
-     ],
-     "sha256": "c422403b5cd9865ea5bfecc4fa63ecd437a6ddd74861cc59d6ae7b2f285c4ef0",
-     "size": 28672,
-     "source_string": "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip!shapefiles/v3_time_pref_pgn_PRC.ZIP/v3_time_pref_pgn_PRC.IND"
-    },
-    {
-     "inventory_key": [
-      "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip",
-      [
-       "shapefiles/v3_time_pref_pgn_PRC.ZIP",
-       "v3_time_pref_pgn_PRC.MAP"
-      ],
-      [
-       66,
-       3
-      ]
-     ],
-     "sha256": "a7b44b35a4123c7c8f264c9fed525f394afadd66e46b57b5aaa64c9eec2172df",
-     "size": 20469248,
-     "source_string": "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip!shapefiles/v3_time_pref_pgn_PRC.ZIP/v3_time_pref_pgn_PRC.MAP"
-    }
-   ],
-   "block": 3,
-   "naming_status": {
-    "class": "schema 未定（bare-name 提案，srid/schema 留批准面）",
-    "name": "harvard_u2d_full_u2f_doi_u5f_10_u5f_7910_u2f_dvn_u2f___5039b37a",
-    "schema": null
-   },
-   "object_ref": {
-    "group_id": "ff9ffff7dc710cf966db047fa3dfab77c783d8666b635889d0b54f9ace6574d4",
-    "kind": "spatial_object",
-    "lane": "shapefiles",
-    "source_object_id": "5039b37adef85d98cffc972837b0cb331dabc37d320721d86fe335c8a67dfa79"
    }
   },
   {

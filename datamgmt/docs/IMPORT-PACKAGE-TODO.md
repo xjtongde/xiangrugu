@@ -1,6 +1,6 @@
 # 全量导入包与映射进度
 
-更新日期：2026-11-21。当前阶段为数据整理与映射，第 1–2/6 块（CBDB、普通表格）已获 Codex 验收，第 3/6 块空间矢量 **Codex 整理验收通过**（独立验收补正提交 926ed98），第 4/6 块 Access/MDB 与 SQL **Codex 整理验收通过**（收口补正提交 5d0c9e3），第 5/6 块栅格及其他成员 **Codex 验收通过**（首盒+补正+标注收尾+文本出处更正交付链 b39f8ed→d59010b→c2ef3ca→c8b8fe8），第 6/6 块全量汇总与落盘首盒 PASS（2273529）+续盒全量映射索引交付，**待 Codex 复核**（正式落盘须另授权）。交付在本 release 的 [import-package/cbdb/](../contracts/releases/2026-10-06-bootstrap/import-package/cbdb/SUMMARY.md)、[import-package/tabular/](../contracts/releases/2026-10-06-bootstrap/import-package/tabular/SUMMARY.md)、[import-package/spatial/](../contracts/releases/2026-10-06-bootstrap/import-package/spatial/SUMMARY.md)、[import-package/mdb-sql/](../contracts/releases/2026-10-06-bootstrap/import-package/mdb-sql/SUMMARY.md) 与 [import-package/raster-other/](../contracts/releases/2026-10-06-bootstrap/import-package/raster-other/SUMMARY.md)；CBDB 10 表/235 列源侧值验证单列未决，不计入映射完成，ready_for_import=False 保持。
+更新日期：2026-11-21。当前阶段为数据整理与映射，第 1–2/6 块（CBDB、普通表格）已获 Codex 验收，第 3/6 块空间矢量 **Codex 整理验收通过**（独立验收补正提交 926ed98），第 4/6 块 Access/MDB 与 SQL **Codex 整理验收通过**（收口补正提交 5d0c9e3），第 5/6 块栅格及其他成员 **Codex 验收通过**（首盒+补正+标注收尾+文本出处更正交付链 b39f8ed→d59010b→c2ef3ca→c8b8fe8），第 6/6 块全量汇总与落盘首盒+续盒一（映射索引）+续盒二（组件补链+镜像/命名裁定草案）交付，**待 Codex 复核**（正式合并/合同冻结/落盘/入库须另授权）。交付在本 release 的 [import-package/cbdb/](../contracts/releases/2026-10-06-bootstrap/import-package/cbdb/SUMMARY.md)、[import-package/tabular/](../contracts/releases/2026-10-06-bootstrap/import-package/tabular/SUMMARY.md)、[import-package/spatial/](../contracts/releases/2026-10-06-bootstrap/import-package/spatial/SUMMARY.md)、[import-package/mdb-sql/](../contracts/releases/2026-10-06-bootstrap/import-package/mdb-sql/SUMMARY.md) 与 [import-package/raster-other/](../contracts/releases/2026-10-06-bootstrap/import-package/raster-other/SUMMARY.md)；CBDB 10 表/235 列源侧值验证单列未决，不计入映射完成，ready_for_import=False 保持。
 
 本文件是当前阶段、六块待办、交付和讨论结论的唯一进度入口。设计约束见 [DESIGN.md](DESIGN.md)，执行权限见 [OPERATIONS.md](OPERATIONS.md)，原 Task 1–18 工程依赖见 [IMPLEMENTATION-PLAN.md](IMPLEMENTATION-PLAN.md)，既往运行记录见 [PROGRESS-HISTORY.md](PROGRESS-HISTORY.md)。其他入口只链接本文件，不复制当前进度。
 
@@ -34,7 +34,7 @@
 | 3 | Shapefile、MapInfo、KML 等空间矢量 | **Codex 整理验收通过**（补正 926ed98，SHP 头长 705/705 闭合） | 组件组、属性、几何、CRS 原声明及目标映射 | 组件缺失、坐标声明和异常保留 |
 | 4 | Access/MDB、SQL 数据 | **Codex 整理验收通过**（收口补正 5d0c9e3；96 提案批准面留导入阶段） | 内部对象及字段清单、读取/隔离方法、目标映射及不兼容项 | 不能无损读取或表达的具体对象 |
 | 5 | 栅格、其他格式和非业务成员 | **Codex 验收通过**（交付链 b39f8ed→d59010b→c2ef3ca→c8b8fe8） | 栅格对象与入库方式；说明/图片/校验文件用途；未知件明细 | 剩余格式的处置决定 |
-| 6 | 全量合并、重复关系及 32 落盘 | 首盒 PASS（2273529）+续盒映射索引交付，待 Codex 复核 | 全部成员覆盖、唯一目标命名、包清单、执行顺序、完整性报告及绝对路径 | 全量包验收、导入准备与实际执行安排 |
+| 6 | 全量合并、重复关系及 32 落盘 | 首盒+续盒一/二交付（映射索引+组件补链+镜像/命名裁定草案），待 Codex 复核 | 全部成员覆盖、唯一目标命名、包清单、执行顺序、完整性报告及绝对路径 | 全量包验收、导入准备与实际执行安排 |
 
 ### 第 1 块 CBDB
 
@@ -196,6 +196,13 @@
 - **归属账沿用基线**：8004 owners {3,174,5294,11,2522}+等式+partition 零漂移（变化仅 mapped_objects 增列）；五块原交付零改写。
 - 终态 sha：all-members 94bc8c44… / reconciliation 13df5b24… / historical-blockers 4b276865… / mirror e0020e1f… / naming-scan dcca0c28… / object-index 9eaf9d9b… / pending c7312dc0… / SUMMARY 1b4865cd… / 生成器 7bddbf89…；32 双跑 0/0 字节一致；a03 独立核。镜像主从/配准取舍/合同冻结/32 正式落盘留后续裁定。
 
+#### 续盒二：组件引用补齐+镜像与命名裁定草案（2026-11-22，30 分钟盒，基线 17097e8，待 Codex 复核）
+
+- **MapInfo 孪生补链**：2 案（sid f13db8a5…/5039b37a…，v3_time_pref_pgn_PRC 五组件字节全同）按 components_exact_identity 补 **TAB/ID 共 4 条四元绑定**（完整归档链+序号+sha+size 唯一命中断言），每案 bindings 3→**5**；根因实证=组清单仅含小写词干 DAT/IND/MAP，TAB/ID 大写 V3_… 在 inventory（大小写敏感漏绑）；双向孤儿 **0**（孪生 10 成员引用同步，mapped 1140→1142 系共享组件）；**coverage_semantics 五面**入 object-index（普通主件/组关系/孪生显式全组件/批准六组件/容器不隐式覆盖）；归属账零漂移断言入码。
+- **镜像裁定草案**（mirror-adjudication-draft.json，**DRAFT_NOT_APPROVED**）：381 组全覆盖三分类=**byte_identical_content_reuse 379**（377 同 sha+孪生 2）+**mixed 1**（V4 MDB 版本对：access_database 直接件独立字节、两 zip-wrapped 副本同 sha 子对）+**association_pending 1**（Peking casefold）；每组源身份+组件链+recommendation+remaining_adjudication_points 保留。**四案详证**：pdb2 四副本 GT=null/GCP=0/CRS null 一致、3/4 伴 pdb2.tifw（exact-stem）、V4 副本无世界文件；Peking 2 件内部 GT 均在/CRS 非 null、tfw casefold basis/status/probe_text 原文保留——**两案分别核对配准证据、原读值照录、不预决合并**。
+- **全量命名草案**（naming-draft.json，DRAFT_NOT_APPROVED）：**83 已命名 RETAIN_UNCHANGED**+**1208 常规逐件可复算候选名**（derive_candidate：leaf stem/ext slug+对象标识前 8+源身份 sha 前 8）+**2 批准空间单列**（批准状态保留）；**13 组 V4 MDB 同名冲突**区分段=_x+sha256(载体完整归档链串)[:8] 恒长 10、三副本三名唯一断言（首版载体 sha 派生在字节相同对撞车，改链串哈希修正——披露）；全量 1293 联查**新碰撞 0**；最长 ≤63 无需截断。
+- 终态 sha：all-members 68b6a171… / reconciliation 2e82b8d8… / historical-blockers 9019ac05…（三阻断状态语义零变）/ mirror 92664a81… / **mirror-draft e9d2837c…** / naming-scan a1842d9a… / **naming-draft b5a6662c…** / object-index 8e045afc… / pending debb3e1b… / SUMMARY 3fb34fcb… / 生成器 7333ec58…；32 双跑 0/0 十件字节一致；a03 独立核。**正式合并/合同冻结/32 版本化落盘/入库留后续授权**。
+
 - [ ] 合并前五块并重新统计；核销历史清点 issue、未知件和所有未决语义。
 - [ ] 全局检查源成员覆盖、组件交叉归属、目标名称冲突及镜像主从关系；用双向检查发现漏项和多余项。
 - [ ] 确定 32 的版本化导入包目录，保留现有快照，不覆盖同名包；复用一致的本地源字节，差异明确留证。
@@ -244,3 +251,4 @@ PASS 必须覆盖本块全部范围及处置；未决项保留 PARTIAL/BLOCKED�
 - 2026-11-21：**第 5 块 Codex 验收通过**（本轮派工指令记入；交付链 b39f8ed→d59010b→c2ef3ca→c8b8fe8 已上 Gitea）。**第 6/6 块首盒启动**（30 分钟盒，基线 c8b8fe8）：lead 预核查清三历史阻断——SHA256SUMS-b2 第 173 行被 126 NUL 覆盖，经 README-b2 §四 173 件表差集+字节闭合唯一重构为 PAGGQS/CBDB_20240208_sqlite.db（837.2MB sha16 5207eace），该件缺席快照（源枚举差异单列待裁）；chgis 账 line4 经唯一 sha 关联 chgis-v6 件可核销（路径不符注记）；归属口径裁定块4=core7+structural4=11；32 落盘拟案 releases/2026-10-06-bootstrap/rollup/<commit>/（仅提案）。a02 rollup+a03 独立复算进行中。
 - 2026-11-21（块6首盒续）：a02 rollup 八件交付（对账漏0/余0/重复0/失配0，等式断言入码；三阻断 32 逐步独立复核；mirror 381 组/name 13 碰撞组跨块0/pending 14 类；set 迭代序缺陷修复披露；双跑0/0字节一致）；a03 ROUND 24 一期+二期全 PASS（五块 symdiff 0、refs 613 全真、32 全量 8004 失配0、三阻断独立复现、381/13/14 核实、重跑确定性）。**lead 口径裁定**：distinct_proposed_names 974 直算确证（mdb70+spatial899+tabular objects 5），a03 1144 系 tabular 取数面差（175 vs 5），核心断言不受影响，登记待 Codex 复核。首个无法验证位置=PAGGQS/CBDB_20240208_sqlite.db 本体及其全 sha256。
 - 2026-11-22：**第 6 块续盒「补齐全量映射索引」**（30 分钟盒，基线 2273529）：object-index 1293 对象（78/175/901/96/43，派工 1393 系 lead 笔误勘误确证）unresolved 0、mapped_objects 1140 件反查入 all-members；naming-scan v2 三分类闭合 83+1165+43+2=1293（a02 文案缺陷自修披露）、对照 1144 PASS、13 组 V4 MDB 保留跨块新增 0；**PAGGQS 裁定落账 EXCLUDED_BY_DECISION_2026-10-02**（roots.yaml/log.md 全文引文+下载备份原件 877,862,912B 全 sha 5207eace…b9a7f 双独立重算回溯）、NUL FORMAT_ANOMALY_UNDER_FIXED_DIGEST（冻结合同留裁）、line4 摘要关联维持；原账+complete=false 不动；归属账沿用基线零漂移；五块零改写；32 双跑 0/0 字节一致；a03 独立核。镜像主从/配准/合同冻结/正式落盘留后续。
+- 2026-11-22（续盒二）：**组件引用补齐+镜像与命名裁定草案**（30 分钟盒，基线 17097e8）：MapInfo 孪生 2 案补 TAB/ID 4 条四元绑定（每案 5/5，根因=组清单大小写敏感漏绑，双向孤儿 0，coverage_semantics 五面）；mirror-adjudication-draft 381 组三分类 379/1/1 全 DRAFT_NOT_APPROVED（pdb2 四副本与 Peking 2 件分别核对配准证据原读值照录，不预决合并）；naming-draft 83 保留+1208 可复算候选名+2 批准单列+13 组 V4 链串哈希区分（首版撞车修正披露）+全量联查新碰撞 0；归属账零漂移；32 双跑 0/0 十件字节一致；a03 独立核。a02 回合中途异常一次，唤醒续作硬停内完成（披露）。正式合并/合同冻结/落盘/入库留后续授权。

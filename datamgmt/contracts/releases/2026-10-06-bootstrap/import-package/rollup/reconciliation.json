@@ -1,5 +1,5 @@
 {
- "baseline_git": "2273529",
+ "baseline_git": "17097e8",
  "block4_composition_ruling": {
   "basis": "lead-ruling team-message-3ffcfc67：块4归属=core 7(MDB5+SQL2)+related structural_container 4；a03 口径观察：core 键仅 7、4 容器在 related_members 标 structural_container（descendant mapped separately）",
   "core_data": 7,
@@ -136,7 +136,7 @@
   "note": "交接面成员按最终归属块计 primary_owner_block exactly-once（846 面→块3 组内件、620→块5），不重复认领"
  },
  "inventory_sha256": "fb5e6b334b898d62dc0e5c77094fdb50e0946300e6e3009f447b2ecd1bc216db",
- "members_mapped_to_objects": 1140,
+ "members_mapped_to_objects": 1142,
  "members_without_objects_note": "无对象成员按处置登记（NON_TABULAR/structural/cache 等），非解析失败",
  "object_binding_unresolved": 0,
  "object_coverage_control_totals": {

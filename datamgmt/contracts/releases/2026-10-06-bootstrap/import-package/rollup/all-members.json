@@ -1,5 +1,5 @@
 {
- "baseline_git": "2273529",
+ "baseline_git": "17097e8",
  "block_counts": {
   "1": 3,
   "2": 174,
@@ -93952,6 +93952,17 @@
       "lane": "single",
       "source_object_id": "7b6d1a52c50b189fb1b2aa3150a9532fad5fb91073ffb61ea26369a31c2b2953"
      }
+    },
+    {
+     "block": 3,
+     "object_ref": {
+      "binding_mode": "explicit_components_exact_identity_5",
+      "group_id": "ff9ffff7dc710cf966db047fa3dfab77c783d8666b635889d0b54f9ace6574d4",
+      "kind": "spatial_object",
+      "lane": "shapefiles",
+      "root_cause_note": "前盒经 groups members 仅得 DAT/IND/MAP 3 件；TAB/ID 在组内以大写词干 V3_… 存在于 inventory 而未入组成员清单——大小写敏感结构差异致漏绑（本盒改按 components_exact_identity 全组件四元绑定）",
+      "source_object_id": "5039b37adef85d98cffc972837b0cb331dabc37d320721d86fe335c8a67dfa79"
+     }
     }
    ],
    "primary_owner_block": 3,
@@ -93980,6 +93991,19 @@
     "kind": "file",
     "relative_path": "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip"
    },
+   "mapped_objects": [
+    {
+     "block": 3,
+     "object_ref": {
+      "binding_mode": "explicit_components_exact_identity_5",
+      "group_id": "ff9ffff7dc710cf966db047fa3dfab77c783d8666b635889d0b54f9ace6574d4",
+      "kind": "spatial_object",
+      "lane": "shapefiles",
+      "root_cause_note": "前盒经 groups members 仅得 DAT/IND/MAP 3 件；TAB/ID 在组内以大写词干 V3_… 存在于 inventory 而未入组成员清单——大小写敏感结构差异致漏绑（本盒改按 components_exact_identity 全组件四元绑定）",
+      "source_object_id": "5039b37adef85d98cffc972837b0cb331dabc37d320721d86fe335c8a67dfa79"
+     }
+    }
+   ],
    "primary_owner_block": 3,
    "sha256": "f3956a79239f2b7c1e81bfc4e5dc31c68d081889ca9aadc79e62a3ea492dc399",
    "signature": "unknown",
@@ -94010,9 +94034,11 @@
     {
      "block": 3,
      "object_ref": {
+      "binding_mode": "explicit_components_exact_identity_5",
       "group_id": "ff9ffff7dc710cf966db047fa3dfab77c783d8666b635889d0b54f9ace6574d4",
       "kind": "spatial_object",
       "lane": "shapefiles",
+      "root_cause_note": "前盒经 groups members 仅得 DAT/IND/MAP 3 件；TAB/ID 在组内以大写词干 V3_… 存在于 inventory 而未入组成员清单——大小写敏感结构差异致漏绑（本盒改按 components_exact_identity 全组件四元绑定）",
       "source_object_id": "5039b37adef85d98cffc972837b0cb331dabc37d320721d86fe335c8a67dfa79"
      }
     }
@@ -94047,9 +94073,11 @@
     {
      "block": 3,
      "object_ref": {
+      "binding_mode": "explicit_components_exact_identity_5",
       "group_id": "ff9ffff7dc710cf966db047fa3dfab77c783d8666b635889d0b54f9ace6574d4",
       "kind": "spatial_object",
       "lane": "shapefiles",
+      "root_cause_note": "前盒经 groups members 仅得 DAT/IND/MAP 3 件；TAB/ID 在组内以大写词干 V3_… 存在于 inventory 而未入组成员清单——大小写敏感结构差异致漏绑（本盒改按 components_exact_identity 全组件四元绑定）",
       "source_object_id": "5039b37adef85d98cffc972837b0cb331dabc37d320721d86fe335c8a67dfa79"
      }
     }
@@ -94084,9 +94112,11 @@
     {
      "block": 3,
      "object_ref": {
+      "binding_mode": "explicit_components_exact_identity_5",
       "group_id": "ff9ffff7dc710cf966db047fa3dfab77c783d8666b635889d0b54f9ace6574d4",
       "kind": "spatial_object",
       "lane": "shapefiles",
+      "root_cause_note": "前盒经 groups members 仅得 DAT/IND/MAP 3 件；TAB/ID 在组内以大写词干 V3_… 存在于 inventory 而未入组成员清单——大小写敏感结构差异致漏绑（本盒改按 components_exact_identity 全组件四元绑定）",
       "source_object_id": "5039b37adef85d98cffc972837b0cb331dabc37d320721d86fe335c8a67dfa79"
      }
     }
@@ -104694,6 +104724,17 @@
       "lane": "single",
       "source_object_id": "7dd347462de55ab8f06598b6da9730660b2b63cd9983c10c0a42202b39386a95"
      }
+    },
+    {
+     "block": 3,
+     "object_ref": {
+      "binding_mode": "explicit_components_exact_identity_5",
+      "group_id": "ca752f78d2b5ff45af9b42435ece787528042ddfd3af85c39b5fdd4a10783b72",
+      "kind": "spatial_object",
+      "lane": "mapinfo",
+      "root_cause_note": "前盒经 groups members 仅得 DAT/IND/MAP 3 件；TAB/ID 在组内以大写词干 V3_… 存在于 inventory 而未入组成员清单——大小写敏感结构差异致漏绑（本盒改按 components_exact_identity 全组件四元绑定）",
+      "source_object_id": "f13db8a539baf98756a2a1c0fd6a7d520e3148661911c0133eed91427fa269f3"
+     }
     }
    ],
    "primary_owner_block": 3,
@@ -104722,6 +104763,19 @@
     "kind": "file",
     "relative_path": "harvard-full/doi_10_7910/DVN/HIMIVE/V3_Data_Archive.zip"
    },
+   "mapped_objects": [
+    {
+     "block": 3,
+     "object_ref": {
+      "binding_mode": "explicit_components_exact_identity_5",
+      "group_id": "ca752f78d2b5ff45af9b42435ece787528042ddfd3af85c39b5fdd4a10783b72",
+      "kind": "spatial_object",
+      "lane": "mapinfo",
+      "root_cause_note": "前盒经 groups members 仅得 DAT/IND/MAP 3 件；TAB/ID 在组内以大写词干 V3_… 存在于 inventory 而未入组成员清单——大小写敏感结构差异致漏绑（本盒改按 components_exact_identity 全组件四元绑定）",
+      "source_object_id": "f13db8a539baf98756a2a1c0fd6a7d520e3148661911c0133eed91427fa269f3"
+     }
+    }
+   ],
    "primary_owner_block": 3,
    "sha256": "f3956a79239f2b7c1e81bfc4e5dc31c68d081889ca9aadc79e62a3ea492dc399",
    "signature": "unknown",
@@ -104752,9 +104806,11 @@
     {
      "block": 3,
      "object_ref": {
+      "binding_mode": "explicit_components_exact_identity_5",
       "group_id": "ca752f78d2b5ff45af9b42435ece787528042ddfd3af85c39b5fdd4a10783b72",
       "kind": "spatial_object",
       "lane": "mapinfo",
+      "root_cause_note": "前盒经 groups members 仅得 DAT/IND/MAP 3 件；TAB/ID 在组内以大写词干 V3_… 存在于 inventory 而未入组成员清单——大小写敏感结构差异致漏绑（本盒改按 components_exact_identity 全组件四元绑定）",
       "source_object_id": "f13db8a539baf98756a2a1c0fd6a7d520e3148661911c0133eed91427fa269f3"
      }
     }
@@ -104789,9 +104845,11 @@
     {
      "block": 3,
      "object_ref": {
+      "binding_mode": "explicit_components_exact_identity_5",
       "group_id": "ca752f78d2b5ff45af9b42435ece787528042ddfd3af85c39b5fdd4a10783b72",
       "kind": "spatial_object",
       "lane": "mapinfo",
+      "root_cause_note": "前盒经 groups members 仅得 DAT/IND/MAP 3 件；TAB/ID 在组内以大写词干 V3_… 存在于 inventory 而未入组成员清单——大小写敏感结构差异致漏绑（本盒改按 components_exact_identity 全组件四元绑定）",
       "source_object_id": "f13db8a539baf98756a2a1c0fd6a7d520e3148661911c0133eed91427fa269f3"
      }
     }
@@ -104826,9 +104884,11 @@
     {
      "block": 3,
      "object_ref": {
+      "binding_mode": "explicit_components_exact_identity_5",
       "group_id": "ca752f78d2b5ff45af9b42435ece787528042ddfd3af85c39b5fdd4a10783b72",
       "kind": "spatial_object",
       "lane": "mapinfo",
+      "root_cause_note": "前盒经 groups members 仅得 DAT/IND/MAP 3 件；TAB/ID 在组内以大写词干 V3_… 存在于 inventory 而未入组成员清单——大小写敏感结构差异致漏绑（本盒改按 components_exact_identity 全组件四元绑定）",
       "source_object_id": "f13db8a539baf98756a2a1c0fd6a7d520e3148661911c0133eed91427fa269f3"
      }
     }

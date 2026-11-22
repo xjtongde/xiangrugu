@@ -1,5 +1,5 @@
 {
- "baseline_git": "5275325",
+ "baseline_git": "e3dd139",
  "candidates": [
   {
    "authorization_ledger": "逐案授权=茶香批准固定摘要下兼容解析（blocks_package_freeze，load-blockers id nul126_compat_contract）",
@@ -30,12 +30,17 @@
     "historical-blockers.json FORMAT_ANOMALY_UNDER_FIXED_DIGEST",
     "SHA256SUMS-b2 172 行全 sha 验证在案（前盒 freshness 172v172）"
    ],
-   "raw_sha256": "900d98c69cf9b72f20313aa562b8da5e18e9c3e3def423fa6f618b4b1bafb3cb",
-   "runtime_gate_ledger": "缺口：Task 6 窄域兼容 reader 未实现 → 任何 exceptions 声明触发 exception_not_implemented（disposition.evaluate L63-64）",
+   "runtime_gate_ledger": "Task 6 窄域兼容 reader 本盒隔离实施（checksum_reader.py+evaluate 可选接线，白名单仅本条固定身份）；12 用例+103 回归全过 exit 0；机器证据绑定 contract_sha256/inventory_sha256+172 逐条 matched；真实合同冻结/生产接线/正式落盘另行授权；缺审批或证据失配保持阻断",
    "source_ledger_identity": {
     "relative_path": "SHA256SUMS-b2",
     "sha256": "900d98c69cf9b72f20313aa562b8da5e18e9c3e3def423fa6f618b4b1bafb3cb",
     "size": 22071
+   },
+   "task6_isolated_implementation": {
+    "evidence_ref": ".task6-nul-gate-20261123/machine-evidence.json",
+    "remaining": "真实合同冻结审批+生产启用另行授权",
+    "status": "IMPLEMENTED_ISOLATED_CANDIDATE",
+    "tests": "12 passed + 115 passed（含回归）exit 0"
    }
   },
   {
@@ -55,9 +60,7 @@
     "块5 ASSOCIATED_BY_SHA_PATH_MISMATCH 裁定记录",
     "6/6 行验证"
    ],
-   "raw_sha256": "7452ae6cf8d7dedbd0b06ea4e0e8343be9bac4075069ca8eb89e8ff0451c355e",
-   "raw_sha256_full_note": "目标==chgis-v6 成员 155,774B；6/6 行验证+32 流式重算全等在案；源账/line4/目标分字段",
-   "runtime_gate_ledger": "缺口：checksum ledger 核验器实现（关联证明自动化）",
+   "runtime_gate_ledger": "缺口：checksum ledger 核验器实现（关联证明自动化）——单列待实施，本盒 Task 6 仅覆盖 NUL 例外，CHGIS 声明仍 exception_not_implemented",
    "source_ledger_identity": {
     "relative_path": "harvard/chgis/SHA256SUMS.txt",
     "sha256": "694c101f04e636012e752c87958c8065c8e6926633c8b542e89978d8f8451a60",

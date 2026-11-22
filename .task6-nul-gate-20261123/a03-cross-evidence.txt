@@ -1,0 +1,13 @@
+== ROUND 33 一期（a02 未就位先报，a03）==
+独立输入就绪（真实 b2 32 只读+最小合同矩阵+真实 inventory complete=false）；门位预期矩阵容器实跑 EXIT=0：E1 白名单正例现行为[exception_not_implemented] ready False；E2 draft 无 review 同；E3 frozen 缺 review ValidationError 拒；E4 blocking issue→[exception_not_implemented, incomplete_inventory]；E5 非白名单 code 拒。零漂移 vs e3dd139 PASS。
+
+== ROUND 33b（二期独立执行，a03，硬停 18:58 内）==
+自写驱动 t6drive.py 容器 /tmp/a03-task6 隔离（fresh 暂存树 sha 同版核验，不复制 lead 测试代码）：
+P1 reader 正例：RUN_EVIDENCE_FIXED_EXCEPTION，172/21945/126/172 matched/contract_sha_ok+inv_sha_ok true/ready false EXIT=0；
+P2 evaluate 接线正例：issues==[]（exception_not_implemented 消失）ready True（合成 complete 盘点下，证明关闭路径仅对白名单本条生效）；
+N1 未审批→仍阻断；N2 摘要不符→closed=False 计数失配阻断；N3 中间 NUL→ValueError；N4 行数≠172→ValueError；N5 CHGIS 式第二例外→聚合 issue 保持（closed1≠len2）；N6 无 inputs 旧路径→现行为不变；N7 blocking 保留态→incomplete_inventory 恒门 ready False；N8 缺 bytes→拒。
+lead 测试独立复跑（fresh 暂存树）：12 passed EXIT=0；四套合跑 115 passed REG_EXIT=0（中途失败均系暂存缺 inventory.json/config schema，补入全过，非代码回归，与 lead 披露一致）。
+fixture provenance PASS：b64 decode==22071B/900d98c6 全 64/首 NUL 21945/尾 126 全零/prefix 无 NUL/172 行==32 实物逐项等值；machine-evidence contract 0e97147d/inventory fb5e6b33==真实重算/issues[incomplete_inventory,unmatched_member]无 exception_not_implemented/ready false/complete false/172 matched。
+rollup/范围/确定性 PASS：顶层歧义字段两候选均无（分字段保留）；NUL IMPLEMENTED_ISOLATED_CANDIDATE+task6 节；CHGIS 单列待实施注；十九件 38 自算（all-members ac773dea/recon e4e54a26/blockers 8fe5cee9/mirror 8a31eed6/mirror-draft 91a7f1d1/naming-scan a2330663/naming-draft c89d5abc/object-index 1f48a9f8/pending 951b9119/manifest 10f608d1/dispositions c3fd62d0/load-blockers b86292e3/projection bcd4fb8c/exceptions 8fabba2c/first-batch 07101414/wmf c9e629dc/rgp 6eba2b5c/SUMMARY a6d94f29/生成器 44fa62af）关键六件==lead 值，32 全 19 件同值+重跑 EXIT=0 stderr 0B 不变；归属 symdiff0/drift0/8004/1293/1311/owners/等式；既有 14 件深比仅 baseline_git；五块+模型核心源码（contracts/model/inventory/checksum_candidates）diff 空；改动面恰 checksum_reader 新件+disposition 最小接线（location[0] 修正 lead 已修复复验）；M=2（668900d4）/staged0/二进制0/变更面恰宣布范围。
+首缺口：CHGIS line4 关联核验器单列实施轮（NUL 门已闭，第二例外仍恒阻断）；批准面首批 7 table_names/target_mapping 第一优先。
+ROUND 33b 全项 PASS，首个不一致：无。

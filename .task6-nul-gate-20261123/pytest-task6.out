@@ -1,0 +1,20 @@
+============================= test session starts ==============================
+platform linux -- Python 3.11.16, pytest-9.1.1, pluggy-1.6.0 -- /usr/local/bin/python
+cachedir: .pytest_cache
+rootdir: /tmp/task6lead
+collecting ... collected 12 items
+
+tests/unit/test_checksum_reader.py::test_fixture_identity PASSED         [  8%]
+tests/unit/test_checksum_reader.py::test_positive_run_evidence_binds_contract_and_inventory PASSED [ 16%]
+tests/unit/test_checksum_reader.py::test_positive_gate_closes_only_this_exception PASSED [ 25%]
+tests/unit/test_checksum_reader.py::test_negative_unapproved_draft_keeps_block PASSED [ 33%]
+tests/unit/test_checksum_reader.py::test_negative_frozen_without_review_rejected_by_model PASSED [ 41%]
+tests/unit/test_checksum_reader.py::test_negative_carrier_digest_mismatch PASSED [ 50%]
+tests/unit/test_checksum_reader.py::test_negative_mid_file_nul PASSED    [ 58%]
+tests/unit/test_checksum_reader.py::test_negative_record_count_mismatch PASSED [ 66%]
+tests/unit/test_checksum_reader.py::test_negative_other_inventory_anomalies_still_block PASSED [ 75%]
+tests/unit/test_checksum_reader.py::test_negative_chgis_declaration_stays_pending PASSED [ 83%]
+tests/unit/test_checksum_reader.py::test_negative_missing_raw_bytes PASSED [ 91%]
+tests/unit/test_checksum_reader.py::test_backward_compat_no_inputs_keeps_old_behavior PASSED [100%]
+
+============================== 12 passed in 9.64s ==============================

@@ -7,7 +7,7 @@
   "note": "GDAL Band.Checksum() 面与源件 SHA-256 分账",
   "total_geo_raster": 43
  },
- "baseline_git": "5275325",
+ "baseline_git": "e3dd139",
  "first_batch_scope": "首批批准=5 文本（4 harv+1 chgis schema）+空间批准 2（Ca1884route_przh_1251/utf8 各 6 组件 component_binding_approved）",
  "format": "xiangrugu.import-package.rollup.first-batch-preload-table.v1",
  "gaps_itemized": [

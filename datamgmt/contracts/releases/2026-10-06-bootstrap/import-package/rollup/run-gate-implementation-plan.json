@@ -49,7 +49,7 @@
    "input": "固定摘要 694c101f+line4 关联目标全等+已审批"
   }
  ],
- "baseline_git": "5275325",
+ "baseline_git": "e3dd139",
  "entry_points_next_round": [
   "Task 6 reader 模块拟案 datamgmt/src/xiangrugu_datamgmt/checksum_reader.py（新件，窄域：仅两固定例外的解析+核验，不泛化）",
   "函数签名拟案 read_fixed_exception(carrier_bytes, raw_sha256, whitelist_entry) -> ExceptionRunEvidence（机器可读：行解析报告/NUL 段定位/逐行 sha 结果/目标关联证明）",

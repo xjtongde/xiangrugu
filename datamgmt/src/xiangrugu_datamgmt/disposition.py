@@ -4,6 +4,7 @@ from dataclasses import dataclass
 import hashlib
 import json
 
+from . import checksum_reader
 from .contracts import ReleaseContract
 from .inventory import InventoryEntry
 from .model import Disposition
@@ -56,7 +57,7 @@ class DispositionLedger:
     issues: tuple[LedgerIssue, ...]
 
     @classmethod
-    def evaluate(cls, manifest, contract: ReleaseContract):
+    def evaluate(cls, manifest, contract: ReleaseContract, exception_run_inputs=None):
         # Revalidate even typed inputs built via model_construct/model_copy.
         contract = ReleaseContract.model_validate(contract.model_dump(by_alias=True))
         issues = []
@@ -66,9 +67,15 @@ class DispositionLedger:
             issues.append(LedgerIssue("incomplete_inventory"))
         if not manifest.entries:
             issues.append(LedgerIssue("empty_inventory"))
-        # Exceptions are declarations only until the narrowly scoped Task 6 reader exists.
+        # Exceptions stay declarations unless the narrow Task 6 reader closes the
+        # single fixed-digest NUL case with approval and bound run evidence.
         if contract.exceptions:
-            issues.append(LedgerIssue("exception_not_implemented"))
+            closed = 0
+            if exception_run_inputs is not None:
+                closed = sum(checksum_reader.nul_exception_closed(exc, contract, manifest, exception_run_inputs)
+                             for exc in contract.exceptions)
+            if closed != len(contract.exceptions):
+                issues.append(LedgerIssue("exception_not_implemented"))
         by_location = defaultdict(list)
         by_id = {rule.rule_id: rule for rule in contract.rules}
         for rule in contract.rules:

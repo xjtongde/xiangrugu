@@ -48,8 +48,16 @@ def run_fixed_nul_exception(manifest, contract, raw_ledgers):
     if len(matches) != 1:
         raise ValueError("exactly one whitelisted NUL exception declaration required")
     exception = matches[0]
-    if _whitelisted_rule(exception, contract) is None:
+    rule = _whitelisted_rule(exception, contract)
+    if rule is None:
         raise ValueError("exception rule must target the fixed ledger identity")
+    if manifest.sha256 != contract.inventory_sha256:
+        raise ValueError("input inventory digest differs from the contract binding")
+    if rule.selector.location != (fixed["ledger"], (), ()):
+        raise ValueError("exception rule must select the exact outer ledger location")
+    if (rule.expected.kind, rule.expected.size, rule.expected.sha256) != (
+            "file", fixed["raw_size"], fixed["raw_sha256"]):
+        raise ValueError("exception rule expectations differ from the fixed identity")
     candidate = TrailingNulCandidate(
         rule_id=exception.rule_id, ledger=fixed["ledger"], raw_sha256=fixed["raw_sha256"],
         raw_size=fixed["raw_size"], reason=exception.reason, kind="trailing_nul",

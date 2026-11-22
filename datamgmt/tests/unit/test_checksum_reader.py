@@ -204,3 +204,41 @@ def test_backward_compat_no_inputs_keeps_old_behavior():
     no_exc = _contract(manifest, exceptions=())
     ledger2 = DispositionLedger.evaluate(manifest, no_exc)
     assert "exception_not_implemented" not in _codes(ledger2)
+
+
+def test_negative_inventory_binding_mismatch():
+    manifest = _inventory()
+    contract = _contract(manifest).model_copy(update={"inventory_sha256": "0" * 64})
+    with pytest.raises(ValueError):
+        checksum_reader.run_fixed_nul_exception(manifest, contract, {"SHA256SUMS-b2": _raw()})
+    ledger = DispositionLedger.evaluate(manifest, contract, {"SHA256SUMS-b2": _raw()})
+    assert "exception_not_implemented" in _codes(ledger)
+    assert ledger.ready_for_import is False
+
+
+def test_negative_archived_selector_not_outer_triple():
+    manifest = _inventory()
+    doc = _contract(manifest).model_dump(by_alias=True)
+    doc["rules"][0]["selector"]["archive_chain"] = ["x.zip"]
+    doc["rules"][0]["selector"]["archive_ordinals"] = [0]
+    contract = ReleaseContract.model_validate(doc)
+    with pytest.raises(ValueError):
+        checksum_reader.run_fixed_nul_exception(manifest, contract, {"SHA256SUMS-b2": _raw()})
+    ledger = DispositionLedger.evaluate(manifest, contract, {"SHA256SUMS-b2": _raw()})
+    assert "exception_not_implemented" in _codes(ledger)
+
+
+def test_negative_rule_expectation_mismatch():
+    manifest = _inventory()
+    doc = _contract(manifest).model_dump(by_alias=True)
+    doc["rules"][0]["expected"]["size"] = 22072
+    contract = ReleaseContract.model_validate(doc)
+    with pytest.raises(ValueError):
+        checksum_reader.run_fixed_nul_exception(manifest, contract, {"SHA256SUMS-b2": _raw()})
+    doc["rules"][0]["expected"]["size"] = 22071
+    doc["rules"][0]["expected"]["sha256"] = "0" * 64
+    contract2 = ReleaseContract.model_validate(doc)
+    with pytest.raises(ValueError):
+        checksum_reader.run_fixed_nul_exception(manifest, contract2, {"SHA256SUMS-b2": _raw()})
+    ledger = DispositionLedger.evaluate(manifest, contract, {"SHA256SUMS-b2": _raw()})
+    assert "exception_not_implemented" in _codes(ledger)

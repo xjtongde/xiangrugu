@@ -1,0 +1,13 @@
+== ROUND 34（Task 6 证据绑定补正·独立核，a03，硬停 19:10 内）==
+自写驱动 t6adv.py 容器 /tmp/a03-task6 fresh 暂存（不复制 lead 测试代码），补正版 vs 旧版（剥三核块复现 804000b 前语义）双版对照 EXIT=0：
+P 正例 sanity：172/21945/126 两版同（正例不受影响）。
+ADV1 inventory sha≠合同 inv_sha256：补正版 direct rejected:ValueError+eval 保持[exception_not_implemented, inventory_mismatch, unmatched_member]；**旧版 NO-ERROR 误签发+eval 无 exception_not_implemented——缺口证实**。
+ADV2a 归档链非空：补正版 eval 保持 exception_not_implemented；旧版该 issue 消失——缺口证实。
+ADV2b expected size 失配：补正版[exception_not_implemented, stale_assertion]；旧版仅[stale_assertion]。
+ADV2c expected sha 失配 / ADV2d kind=directory：同 ADV2b。
+真实清单保留态：incomplete_inventory 在、ready_for_import false 两版 ✓。
+**Codex 两反例重现成立：旧版确会误签发成功证据（例外门静默关闭），补正后全拒签发+阻断保持——补正必要性实证。**
+测试独立复跑（fresh 暂存含 config schema+inventory）：15 passed T6_EXIT=0；四套回归 118 passed REG_EXIT=0。
+范围核 PASS：worktree M={checksum_reader.py ef8ef50b…/test_checksum_reader.py 766838cc…}+TODO+lead 证据目录；**rollup 19 件 vs 804000b 逐文件 sha 差异 0（不动确证 VCS_REF 保持 e3dd139）**；五块+模型核心源码（contracts/model/inventory/checksum_candidates/disposition）diff 空；M=2（668900d4）/staged0；8004/1293/1311/owners 零漂移。
+剩余缺口：①CHGIS line4 核验器单列实施轮②运行门→冻结两步外部事件：exceptions 入正式合同审批（frozen+review）+reader 隔离候选转正受控发布③首批 7 table_names/target_mapping 批准第一优先。
+ROUND 34 全项 PASS，首个不一致：无。

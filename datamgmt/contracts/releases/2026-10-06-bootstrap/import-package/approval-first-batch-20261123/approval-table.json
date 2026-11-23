@@ -1,0 +1,375 @@
+{
+ "baseline_git": "8f3d014",
+ "items": [
+  {
+   "approval_basis": {
+    "approved_fields": [
+     "crs_srid_approved=true",
+     "geometry_mapping_approved=true",
+     "srid=4326",
+     "dimensions=2",
+     "geometry_type_proposal=Point",
+     "coordinate_storage=preserve_original_ieee754_xy_no_swap_or_transform",
+     "source_record_count=59",
+     "component_binding_approved=true（6 组件）",
+     "column_name_mapping_approved=true（属性列）",
+     "crs_approval_decision_sha256=e80389fb5064ba6fd09c5fb5f74dda8dee96e46950dd127b63cc1a85b1e27a0b"
+    ],
+    "files": {
+     "approved-spatial-binding-context.json": "bfee774f952a706528700daafe07ed9e850e7d4a5d38a5750ca9db372cf63300",
+     "spatial-attributes-approved.draft.yaml": "6281aba195b09e107149455bda43264d75a27f2fc0129b7bb25477251068b29f",
+     "spatial-crs-approved.draft.yaml": "de5646f6d1f3b5a62a78bd19c391e75321501fdcf857b5e07be78d39559d008c"
+    }
+   },
+   "candidate_table_name_full": "chgis.ca1884route_przh_1251",
+   "canonical_value_evidence_gap": {
+    "canonical_projection": "属性按已批列映射投影 XRGVALUE-v1 有序流（含 __src_rownum，一基物理记录）；geom 按 Point 二维 IEEE754 原始 X/Y（不交换不变换）+ SRID 4326 规范字节投影",
+    "duplicate_reconciliation": "装载侧行数含重复计数 vs source_record_count=59（观测值）逐项对账",
+    "expected_evidence": "expected_count + expected_sha256（属性流与 geom 投影分列）生成并绑定正式合同 frozen 目标",
+    "geometry_expected_hash": null,
+    "independent_read_scope": "独立读件：1884route.zip 内 5_1884route/Ca1884route_przh_1251.shp（.shp 主件 109d74b1e5cefcd1…/1752B）+ 同名 .dbf 属性件；不复用旧库值，源件只读"
+   },
+   "closure_evidence": [
+    "独立读件 + 双投影摘要生成（geometry_expected_hash 非空）",
+    "重复次数对账证据（59 记录）绑定正式合同",
+    "表名批准事件（分账）+ 正式合同 frozen+review",
+    "装载授权事件（分账）后 loader 实施"
+   ],
+   "formal_contract_pending": true,
+   "kind": "spatial",
+   "ledgers": {
+    "formal_contract_frozen": false,
+    "load_authorized": false,
+    "table_name_approved": false
+   },
+   "new_source_read_or_impl_scope_for_approval": [
+    "真源读取（新授权面）：1884route.zip 内 .shp/.dbf 独立解析（容器隔离，源件只读，逐组件 sha 对账）",
+    "实现（新授权面）：Point 几何规范投影器 + 属性 XRGVALUE-v1 投影器（仅此一对象族，不泛化）",
+    "对账证据：59 物理记录逐行 __src_rownum + 重复次数计数 + 双投影摘要"
+   ],
+   "proposed_mapping": {
+    "attribute_columns": "已批列映射（spatial-attributes-approved.draft.yaml）",
+    "coordinate_storage": "preserve_original_ieee754_xy_no_swap_or_transform",
+    "dimensions": 2,
+    "geometry_type": "Point",
+    "schema": "chgis",
+    "srid": 4326,
+    "target_column": "geom"
+   },
+   "rule_id": "m002709",
+   "source_path": "harvard-full/doi_10_7910/DVN/E7HDYD/1884route.zip",
+   "source_sid": "9b4496c93de442c447b58adf9be56303ab5fd4897d68bbf0bad99069d12d44dc",
+   "source_side_expectation_approved": true,
+   "technical_gaps": [
+    "geometry_expected_hash=null（规范几何投影摘要未生成）",
+    "装载侧行数含重复计数未生成（source_record_count=59 为观测值）",
+    "production geometry reader 未实现（production_readers_implemented=false）",
+    "table_names_approved=false（目标名未批）"
+   ]
+  },
+  {
+   "approval_basis": {
+    "approved_fields": [
+     "crs_srid_approved=true",
+     "geometry_mapping_approved=true",
+     "srid=4326",
+     "dimensions=2",
+     "geometry_type_proposal=Point",
+     "coordinate_storage=preserve_original_ieee754_xy_no_swap_or_transform",
+     "source_record_count=59",
+     "component_binding_approved=true（6 组件）",
+     "column_name_mapping_approved=true（属性列）",
+     "crs_approval_decision_sha256=e80389fb5064ba6fd09c5fb5f74dda8dee96e46950dd127b63cc1a85b1e27a0b"
+    ],
+    "files": {
+     "approved-spatial-binding-context.json": "bfee774f952a706528700daafe07ed9e850e7d4a5d38a5750ca9db372cf63300",
+     "spatial-attributes-approved.draft.yaml": "6281aba195b09e107149455bda43264d75a27f2fc0129b7bb25477251068b29f",
+     "spatial-crs-approved.draft.yaml": "de5646f6d1f3b5a62a78bd19c391e75321501fdcf857b5e07be78d39559d008c"
+    }
+   },
+   "candidate_table_name_full": "chgis.ca1884route_przh_utf8",
+   "canonical_value_evidence_gap": {
+    "canonical_projection": "属性按已批列映射投影 XRGVALUE-v1 有序流（含 __src_rownum，一基物理记录）；geom 按 Point 二维 IEEE754 原始 X/Y（不交换不变换）+ SRID 4326 规范字节投影",
+    "duplicate_reconciliation": "装载侧行数含重复计数 vs source_record_count=59（观测值）逐项对账",
+    "expected_evidence": "expected_count + expected_sha256（属性流与 geom 投影分列）生成并绑定正式合同 frozen 目标",
+    "geometry_expected_hash": null,
+    "independent_read_scope": "独立读件：1884route.zip 内 5_1884route/Ca1884route_przh_utf8.shp（.shp 主件 109d74b1e5cefcd1…/1752B）+ 同名 .dbf 属性件；不复用旧库值，源件只读"
+   },
+   "closure_evidence": [
+    "独立读件 + 双投影摘要生成（geometry_expected_hash 非空）",
+    "重复次数对账证据（59 记录）绑定正式合同",
+    "表名批准事件（分账）+ 正式合同 frozen+review",
+    "装载授权事件（分账）后 loader 实施"
+   ],
+   "formal_contract_pending": true,
+   "kind": "spatial",
+   "ledgers": {
+    "formal_contract_frozen": false,
+    "load_authorized": false,
+    "table_name_approved": false
+   },
+   "new_source_read_or_impl_scope_for_approval": [
+    "真源读取（新授权面）：1884route.zip 内 .shp/.dbf 独立解析（容器隔离，源件只读，逐组件 sha 对账）",
+    "实现（新授权面）：Point 几何规范投影器 + 属性 XRGVALUE-v1 投影器（仅此一对象族，不泛化）",
+    "对账证据：59 物理记录逐行 __src_rownum + 重复次数计数 + 双投影摘要"
+   ],
+   "proposed_mapping": {
+    "attribute_columns": "已批列映射（spatial-attributes-approved.draft.yaml）",
+    "coordinate_storage": "preserve_original_ieee754_xy_no_swap_or_transform",
+    "dimensions": 2,
+    "geometry_type": "Point",
+    "schema": "chgis",
+    "srid": 4326,
+    "target_column": "geom"
+   },
+   "rule_id": "m002717",
+   "source_path": "harvard-full/doi_10_7910/DVN/E7HDYD/1884route.zip",
+   "source_sid": "e601ce1a7667c8286abce0d09c5b81d3dc809265ed219dd6e4e1dd3c5cfc9ace",
+   "source_side_expectation_approved": true,
+   "technical_gaps": [
+    "geometry_expected_hash=null（规范几何投影摘要未生成）",
+    "装载侧行数含重复计数未生成（source_record_count=59 为观测值）",
+    "production geometry reader 未实现（production_readers_implemented=false）",
+    "table_names_approved=false（目标名未批）"
+   ]
+  },
+  {
+   "approval_basis": {
+    "approved_fields": [
+     "value_contract_approved=true",
+     "schema_sha256=19287ad30494c81767065da3c37a314be7a5b00061523d8befae91fb00c6f14f",
+     "expected.row_count=29",
+     "expected.sha256=b3f6ceb609a853cbb06eb7f8004a39f676d1ff5e95fbb46fc0381abbf722f667",
+     "expected.field_count=232",
+     "source.sha256=cdc6d3e5d6d85e139305efe9c617c756f0eb668c19ce34efc4eca4f6cc8c2728"
+    ],
+    "canonical_format": "XRGVALUE-v1",
+    "decision_sha256": "e4c666c0f1d17b7d4c60f986379fa8084120c9a98db9583da183ef790048df93",
+    "file": "text-value-contract-approved.draft.json",
+    "sha256": "ecb0282805d19930266ec8f82605ed94477b24fd73e1d881ec42b77cb7810f47"
+   },
+   "candidate_table_name_full": "harv.harvard_u2d_full_u2f_doi_u5f_10_u5f_7910_u2f_dvn_u2f___1334a175",
+   "closure_evidence": [
+    "装载侧 expected_count（含重复次数对账）生成并绑定正式合同",
+    "规范值投影 expected_sha256 接入正式合同 frozen 目标",
+    "表名批准事件 + target_mapping 批准事件（分账）",
+    "正式合同 frozen+review 后 DispositionLedger 目标门通过"
+   ],
+   "formal_contract_pending": true,
+   "kind": "text",
+   "ledgers": {
+    "formal_contract_frozen": false,
+    "load_authorized": false,
+    "table_name_approved": false
+   },
+   "proposed_mapping": {
+    "schema": "harv",
+    "source_column_count": 7,
+    "target_columns": "待正式合同 target_mapping 批准（现 target_mapping_approved=false）"
+   },
+   "rule_id": "m004812",
+   "source_path": "harvard-full/doi_10_7910/DVN/MI56KU/2001_Shanghai_0_INDEX_OF_PRESENTATIONS.tab",
+   "source_sid": "1334a175777350ed2cb0c7ea037bd89fa74f660b1ab351400b09d06d0142ee76",
+   "source_side_expectation_approved": true,
+   "technical_gaps": [
+    "loader GAP：production PostgreSQL loader 未实现（importer/load.py 为 staging 原型）",
+    "expected_count MISSING：装载侧行数含重复计数未生成（源侧期望 29 已批）",
+    "expected_sha256 MISSING：规范值投影摘要待接入正式合同（源侧 XRGVALUE-v1 期望 b3f6ceb609a853cb… 已批）",
+    "table_names_approved=false / target_mapping_approved=false（表名与映射待批）"
+   ]
+  },
+  {
+   "approval_basis": {
+    "approved_fields": [
+     "value_contract_approved=true",
+     "schema_sha256=15a333edbdce8d59db76fc056fef6ca7120344c58efac531d1588bab9ae65c1c",
+     "expected.row_count=3389",
+     "expected.sha256=3bad44a0482c1bc2479a541d2d9c9d405187eb1caeb177479fb69f7954b313fc",
+     "expected.field_count=23723",
+     "source.sha256=58ef3cb445ef4b0e70a8716aad3463915320c64ee7fa257ea88eb0c93fe1cec0"
+    ],
+    "canonical_format": "XRGVALUE-v1",
+    "decision_sha256": "e4c666c0f1d17b7d4c60f986379fa8084120c9a98db9583da183ef790048df93",
+    "file": "text-value-contract-approved.draft.json",
+    "sha256": "ecb0282805d19930266ec8f82605ed94477b24fd73e1d881ec42b77cb7810f47"
+   },
+   "candidate_table_name_full": "chgis.harvard_u2d_full_u2f_doi_u5f_10_u5f_7910_u2f_dvn_u2f___9784b044",
+   "closure_evidence": [
+    "装载侧 expected_count（含重复次数对账）生成并绑定正式合同",
+    "规范值投影 expected_sha256 接入正式合同 frozen 目标",
+    "表名批准事件 + target_mapping 批准事件（分账）",
+    "正式合同 frozen+review 后 DispositionLedger 目标门通过"
+   ],
+   "formal_contract_pending": true,
+   "kind": "text",
+   "ledgers": {
+    "formal_contract_frozen": false,
+    "load_authorized": false,
+    "table_name_approved": false
+   },
+   "proposed_mapping": {
+    "schema": "chgis",
+    "source_column_count": 6,
+    "target_columns": "待正式合同 target_mapping 批准（现 target_mapping_approved=false）"
+   },
+   "rule_id": "m006642",
+   "source_path": "harvard-full/doi_10_7910/DVN/SK7KGK/GB_91_HZ_040201_UTF8.tab",
+   "source_sid": "9784b04445aa2c8b39232f8f5f06d7e13f8249e36fc67f47cbd38e35a9a2efa4",
+   "source_side_expectation_approved": true,
+   "technical_gaps": [
+    "loader GAP：production PostgreSQL loader 未实现（importer/load.py 为 staging 原型）",
+    "expected_count MISSING：装载侧行数含重复计数未生成（源侧期望 3389 已批）",
+    "expected_sha256 MISSING：规范值投影摘要待接入正式合同（源侧 XRGVALUE-v1 期望 3bad44a0482c1bc2… 已批）",
+    "table_names_approved=false / target_mapping_approved=false（表名与映射待批）"
+   ]
+  },
+  {
+   "approval_basis": {
+    "approved_fields": [
+     "value_contract_approved=true",
+     "schema_sha256=73d2597154d2df87085e0a790576207b333ead408dc589715d06159d2d7ad551",
+     "expected.row_count=2957",
+     "expected.sha256=475ea1d8b400939cb79b46b47d641d83685bc8d1a3e4478bec1cdfdd562c429a",
+     "expected.field_count=162635",
+     "source.sha256=d21bd9f625acd85e66298fd8635b64c54f380d36b8f44f5d1d9734a0bf55c256"
+    ],
+    "canonical_format": "XRGVALUE-v1",
+    "decision_sha256": "e4c666c0f1d17b7d4c60f986379fa8084120c9a98db9583da183ef790048df93",
+    "file": "text-value-contract-approved.draft.json",
+    "sha256": "ecb0282805d19930266ec8f82605ed94477b24fd73e1d881ec42b77cb7810f47"
+   },
+   "candidate_table_name_full": "harv.harvard_u2f_tab__academy_u5f_data_u2e_tab",
+   "closure_evidence": [
+    "装载侧 expected_count（含重复次数对账）生成并绑定正式合同",
+    "规范值投影 expected_sha256 接入正式合同 frozen 目标",
+    "表名批准事件 + target_mapping 批准事件（分账）",
+    "正式合同 frozen+review 后 DispositionLedger 目标门通过"
+   ],
+   "formal_contract_pending": true,
+   "kind": "text",
+   "ledgers": {
+    "formal_contract_frozen": false,
+    "load_authorized": false,
+    "table_name_approved": false
+   },
+   "proposed_mapping": {
+    "schema": "harv",
+    "source_column_count": 54,
+    "target_columns": "待正式合同 target_mapping 批准（现 target_mapping_approved=false）"
+   },
+   "rule_id": "m008002",
+   "source_path": "harvard/tab/ACADEMY_Data.tab",
+   "source_sid": "257375d1235ceb968ae65d6e6dbe03238b4c482d8953714c43de08ec5eb23d41",
+   "source_side_expectation_approved": true,
+   "technical_gaps": [
+    "loader GAP：production PostgreSQL loader 未实现（importer/load.py 为 staging 原型）",
+    "expected_count MISSING：装载侧行数含重复计数未生成（源侧期望 2957 已批）",
+    "expected_sha256 MISSING：规范值投影摘要待接入正式合同（源侧 XRGVALUE-v1 期望 475ea1d8b400939c… 已批）",
+    "table_names_approved=false / target_mapping_approved=false（表名与映射待批）"
+   ]
+  },
+  {
+   "approval_basis": {
+    "approved_fields": [
+     "value_contract_approved=true",
+     "schema_sha256=70bdb375e51e4aae687fa22fa5db1f7840225b56b51234351dadb2f4ef16acf1",
+     "expected.row_count=40199",
+     "expected.sha256=dcbedb5a5073a6b980d82156ffb3fa7dbaf3ca9906c2928534793b3e0a43a039",
+     "expected.field_count=241194",
+     "source.sha256=b720bff1d328e93726822910cbe361778667e414c24de4ab5f61082a0316623d"
+    ],
+    "canonical_format": "XRGVALUE-v1",
+    "decision_sha256": "e4c666c0f1d17b7d4c60f986379fa8084120c9a98db9583da183ef790048df93",
+    "file": "text-value-contract-approved.draft.json",
+    "sha256": "ecb0282805d19930266ec8f82605ed94477b24fd73e1d881ec42b77cb7810f47"
+   },
+   "candidate_table_name_full": "harv.harvard_u2f_tab__index_u5f_of_u5f_the_u5f_complete_u5__300c7027",
+   "closure_evidence": [
+    "装载侧 expected_count（含重复次数对账）生成并绑定正式合同",
+    "规范值投影 expected_sha256 接入正式合同 frozen 目标",
+    "表名批准事件 + target_mapping 批准事件（分账）",
+    "正式合同 frozen+review 后 DispositionLedger 目标门通过"
+   ],
+   "formal_contract_pending": true,
+   "kind": "text",
+   "ledgers": {
+    "formal_contract_frozen": false,
+    "load_authorized": false,
+    "table_name_approved": false
+   },
+   "proposed_mapping": {
+    "schema": "harv",
+    "source_column_count": 5,
+    "target_columns": "待正式合同 target_mapping 批准（现 target_mapping_approved=false）"
+   },
+   "rule_id": "m008003",
+   "source_path": "harvard/tab/Index_of_the_Complete_Prose_of_the_Yuan_Dynasty_vol_1-60.tab",
+   "source_sid": "300c70270efd1fe3df8e33fd06ac2de0b361ee9185c519589eaa0664fc73def0",
+   "source_side_expectation_approved": true,
+   "technical_gaps": [
+    "loader GAP：production PostgreSQL loader 未实现（importer/load.py 为 staging 原型）",
+    "expected_count MISSING：装载侧行数含重复计数未生成（源侧期望 40199 已批）",
+    "expected_sha256 MISSING：规范值投影摘要待接入正式合同（源侧 XRGVALUE-v1 期望 dcbedb5a5073a6b9… 已批）",
+    "table_names_approved=false / target_mapping_approved=false（表名与映射待批）"
+   ]
+  },
+  {
+   "approval_basis": {
+    "approved_fields": [
+     "value_contract_approved=true",
+     "schema_sha256=492a32cd54147a5a1eae1cf6b11a22f585af706f757f6ed81e9322c12f956ea1",
+     "expected.row_count=1033",
+     "expected.sha256=d233ed9c81ad6f8ff22c1f8c89786dcae90b0fffaf5657666d98e6212edec5fd",
+     "expected.field_count=12396",
+     "source.sha256=23b23f6fdd8c8c3d070fe0d215bc643beef8742c06801ee861fb9255d77e5fe7"
+    ],
+    "canonical_format": "XRGVALUE-v1",
+    "decision_sha256": "e4c666c0f1d17b7d4c60f986379fa8084120c9a98db9583da183ef790048df93",
+    "file": "text-value-contract-approved.draft.json",
+    "sha256": "ecb0282805d19930266ec8f82605ed94477b24fd73e1d881ec42b77cb7810f47"
+   },
+   "candidate_table_name_full": "harv.harvard_u2f_tab__writings_u20_of_u20_the_u20_19c_u20___7866bf2d",
+   "closure_evidence": [
+    "装载侧 expected_count（含重复次数对账）生成并绑定正式合同",
+    "规范值投影 expected_sha256 接入正式合同 frozen 目标",
+    "表名批准事件 + target_mapping 批准事件（分账）",
+    "正式合同 frozen+review 后 DispositionLedger 目标门通过"
+   ],
+   "formal_contract_pending": true,
+   "kind": "text",
+   "ledgers": {
+    "formal_contract_frozen": false,
+    "load_authorized": false,
+    "table_name_approved": false
+   },
+   "proposed_mapping": {
+    "schema": "harv",
+    "source_column_count": 11,
+    "target_columns": "待正式合同 target_mapping 批准（现 target_mapping_approved=false）"
+   },
+   "rule_id": "m008004",
+   "source_path": "harvard/tab/writings of the 19c missionaries in China.tab",
+   "source_sid": "7866bf2d2a1df79444ab2da4e91686b81d960b95b31d8103fdbd8974c5637d72",
+   "source_side_expectation_approved": true,
+   "technical_gaps": [
+    "loader GAP：production PostgreSQL loader 未实现（importer/load.py 为 staging 原型）",
+    "expected_count MISSING：装载侧行数含重复计数未生成（源侧期望 1033 已批）",
+    "expected_sha256 MISSING：规范值投影摘要待接入正式合同（源侧 XRGVALUE-v1 期望 d233ed9c81ad6f8f… 已批）",
+    "table_names_approved=false / target_mapping_approved=false（表名与映射待批）"
+   ]
+  }
+ ],
+ "scope": "first-batch-seven-objects-approval-package-only",
+ "status": "APPROVAL_PACKAGE_DRAFT_NOT_APPROVED",
+ "text_row_total_check": {
+  "equal": true,
+  "sum_of_expected_row_count": 47607,
+  "totals_data_record_count": 47607
+ },
+ "three_ledgers_separate": {
+  "formal_contract_freeze": "false（contract_frozen=false，冻结事件另录）",
+  "load_authorization": "false（loader GAP，装载授权另录）",
+  "table_name_approval": "七件均 false（候选名 DRAFT，批准事件另录）"
+ },
+ "version": 1
+}

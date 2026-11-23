@@ -1,0 +1,96 @@
+{
+ "baseline_git": "8f3d014",
+ "entries": [
+  {
+   "path": "datamgmt/contracts/releases/2026-10-06-bootstrap/additional-text-reading-decisions.draft.yaml",
+   "purpose": "文本期望输入绑定（input_sha256）",
+   "sha256": "cb94b467d57018f9257dc4767570328eabe106b309fce42e68d6298dfac5528a"
+  },
+  {
+   "path": "datamgmt/contracts/releases/2026-10-06-bootstrap/approved-spatial-binding-context.json",
+   "purpose": "六组件绑定批准上下文",
+   "sha256": "bfee774f952a706528700daafe07ed9e850e7d4a5d38a5750ca9db372cf63300"
+  },
+  {
+   "path": "datamgmt/contracts/releases/2026-10-06-bootstrap/assertions.yaml",
+   "purpose": "文本期望输入绑定（input_sha256）",
+   "sha256": "54f813f763dbe0700f27a9173e53e5b0aad07efeef28fec8ef196130d1326a87"
+  },
+  {
+   "path": "datamgmt/contracts/releases/2026-10-06-bootstrap/decoding.yaml",
+   "purpose": "文本期望输入绑定（input_sha256）",
+   "sha256": "6f3d2fc6b189ac3208c8cd7e80a347750129916226668bfda3f20db7f88f2124"
+  },
+  {
+   "path": "datamgmt/contracts/releases/2026-10-06-bootstrap/import-package/rollup/first-batch-preload-table.json",
+   "purpose": "首批七对象候选名/缺口/批准范围照录",
+   "sha256": "97e5d19627e277847a8f9a3d40b7e580fa88dfdca4f8100a31696e5cde3ed74c"
+  },
+  {
+   "path": "datamgmt/contracts/releases/2026-10-06-bootstrap/import-package/rollup/naming-draft.json",
+   "purpose": "命名草案（approved_spatial_special  lane）",
+   "sha256": "962bca32c6564b05084c3a2631d674b6b19c59b122fa6533a40c68d7f43ef937"
+  },
+  {
+   "path": "datamgmt/contracts/releases/2026-10-06-bootstrap/import-package/rollup/object-index.json",
+   "purpose": "对象索引（approved_spatial_objects 绑定）",
+   "sha256": "9481a0d644c9de4a5ca300f3b3870baeda6f83e5b3f328f72261b203476d98b3"
+  },
+  {
+   "path": "datamgmt/contracts/releases/2026-10-06-bootstrap/inventory.json",
+   "purpose": "原清单（fb5e6b33…，complete=false 三 issue 保留）",
+   "sha256": "fb5e6b334b898d62dc0e5c77094fdb50e0946300e6e3009f447b2ecd1bc216db"
+  },
+  {
+   "path": "datamgmt/contracts/releases/2026-10-06-bootstrap/sources-metadata-review.draft.yaml",
+   "purpose": "文本期望输入绑定（input_sha256）",
+   "sha256": "9d05e365e0baaa405614efb64a0e7413bc465ed31d63e655ded7cac58e985f7d"
+  },
+  {
+   "path": "datamgmt/contracts/releases/2026-10-06-bootstrap/sources.yaml",
+   "purpose": "文本期望输入绑定（input_sha256）",
+   "sha256": "8d504b66a03eee2e9f235722a25aa6ece3e46cbcd3322941c9225c37cf747377"
+  },
+  {
+   "path": "datamgmt/contracts/releases/2026-10-06-bootstrap/spatial-attributes-approved.draft.yaml",
+   "purpose": "两空间属性列映射批准",
+   "sha256": "6281aba195b09e107149455bda43264d75a27f2fc0129b7bb25477251068b29f"
+  },
+  {
+   "path": "datamgmt/contracts/releases/2026-10-06-bootstrap/spatial-crs-approved.draft.yaml",
+   "purpose": "两空间 CRS/SRID 4326/Point 二维/原始 X/Y 批准",
+   "sha256": "de5646f6d1f3b5a62a78bd19c391e75321501fdcf857b5e07be78d39559d008c"
+  },
+  {
+   "path": "datamgmt/contracts/releases/2026-10-06-bootstrap/spatial-geometry-approved.draft.yaml",
+   "purpose": "空间几何映射批准",
+   "sha256": "21d15e4308b7cf9ea4a945942708ffcdeb4e76438917705bd4300ca206e760c5"
+  },
+  {
+   "path": "datamgmt/contracts/releases/2026-10-06-bootstrap/text-reading-decisions.draft.yaml",
+   "purpose": "文本期望输入绑定（input_sha256）",
+   "sha256": "49555b018fe87df0756620ac64eaaf4c73a3d3789cbb4408730b796acea16ec2"
+  },
+  {
+   "path": "datamgmt/contracts/releases/2026-10-06-bootstrap/text-schema-approved.draft.yaml",
+   "purpose": "文本期望输入绑定（input_sha256）",
+   "sha256": "0f379eee0eb120eb037cd63b73299cd79a9be6aee412b24ca5e04dac9bb03189"
+  },
+  {
+   "path": "datamgmt/contracts/releases/2026-10-06-bootstrap/text-value-contract-approved.draft.json",
+   "purpose": "五件文本源侧期望批准（XRGVALUE-v1 行数/摘要/schema）",
+   "sha256": "ecb0282805d19930266ec8f82605ed94477b24fd73e1d881ec42b77cb7810f47"
+  },
+  {
+   "path": "datamgmt/contracts/releases/2026-10-06-bootstrap/text-value-contract-decisions.draft.json",
+   "purpose": "文本值批准决定（decision sha e4c666c0…）",
+   "sha256": "e4c666c0f1d17b7d4c60f986379fa8084120c9a98db9583da183ef790048df93"
+  },
+  {
+   "path": "docs/superpowers/evidence/2026-10-08-text-source-values/text-source-value-expectations.draft.json",
+   "purpose": "文本期望输入绑定（input_sha256）",
+   "sha256": "47c2401197e557be356941842d099a27db867e707682a3ef536cee2430d7ac38"
+  }
+ ],
+ "version": 1
+}

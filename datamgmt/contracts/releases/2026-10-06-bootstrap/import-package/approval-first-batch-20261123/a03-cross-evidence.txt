@@ -1,0 +1,10 @@
+== ROUND 39 一期（a03）==
+五件文本期望独立复算 PASS：row_count 2957/40199/1033/29/3389 sum 47607==totals.data_record_count；input_sha256 8 绑定 mismatch 0；proposal c86be708/decision e4c666c0 自算等值 True×2；五对象 source sha/size==inventory 5/5；源侧已批 vs 待接入区分（DRAFT_VALUE_APPROVED+table_names/target_mapping/frozen False 系）。七名称：rule_ids symdiff ∅；候选名 naming-draft token 7/7。spatial-crs find 空（搜索面误，二期更正）。范围核 PASS。
+
+== ROUND 39b 二期（a03，硬停 16:40 内）==
+CRS 六要素 PASS：两对象 SID 全 64==approval-table；srid 4326/dimensions 2/Point(source_shape_type 1)/coordinate_storage preserve_original_ieee754_xy_no_swap_or_transform/source_record_count 59/geometry_mapping_approved True；列映射批 attribute_mapping_approved True 对位；geometry_expected_hash=null×2 显式在账；production_geometry_reader_implemented False/ready_for_import False 三态分离。
+审批表逐项可判断+三账分开 PASS：7 项 sid64 True×7/approval_basis files+approved_fields/technical_gaps 4/closure_evidence 4 逐件/proposed_mapping target_columns 待批 verbatim；ledgers False×7×3 逐项分开；text_row_total_check equal True；空间 gap 四段+新授权范围三条精确（真源读取/仅此一对象族不泛化/对账证据）；候选名 stem==first-batch True×5+chgis 两件对位。
+受控四锚 PASS：版本锚 8f3d014/run_writeoff/R0+R1/三账 token 全中；独立双跑 rc=0「ITEMS 7 EVIDENCE 18 ROWS 47607」跑后三 sha 稳定==lead（8fc1af72/8a3c01ca/3b9d9498）；evidence-list 18 条自算 mismatch 0。
+范围核 PASS：rollup+src/config/tests diff 8f3d014..worktree 空；REL untracked 恰 approval-first-batch-20261123/ 一目录；M=2（668900d4）；8004/1293/1311 零漂移。
+首个缺口：promotion 步骤 1「32 受控接收转正」；批准后顺序 table_names/target_mapping 批复→正式合同冻结→证据再生→run_writeoff 核销→装载授权。
+ROUND 39b 全项 PASS，无首个不一致。

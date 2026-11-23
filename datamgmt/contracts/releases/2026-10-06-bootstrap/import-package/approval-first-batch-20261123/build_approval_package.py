@@ -88,7 +88,8 @@ def main():
                 "表名批准事件 + target_mapping 批准事件（分账）",
                 "正式合同 frozen+review 后 DispositionLedger 目标门通过"],
             "ledgers": {"table_name_approved": False, "formal_contract_frozen": False,
-                        "load_authorized": False}})
+                        "load_authorized": False},
+            "formal_contract_integration_status": "NOT_INTEGRATED（expected_count/expected_sha256 待生成接入；contract_frozen=false）"})
     for s in fb["spatial_items"]:
         sid = s["source_object_id"]
         c, a, b = crs_by_sid[sid], attrs_by_sid[sid], binding_by_sid[sid]
@@ -153,7 +154,26 @@ def main():
                 "表名批准事件（分账）+ 正式合同 frozen+review",
                 "装载授权事件（分账）后 loader 实施"],
             "ledgers": {"table_name_approved": False, "formal_contract_frozen": False,
-                        "load_authorized": False}})
+                        "load_authorized": False},
+            "formal_contract_integration_status": "NOT_INTEGRATED（expected_count/expected_sha256 待生成接入；contract_frozen=false）"})
+
+    trial_path = REPO / ".task6-trial-load-m004812-20261123" / "trial-evidence.json"
+    trial_node = {"status": "NOT_RUN"}
+    if trial_path.exists():
+        trial = json.loads(trial_path.read_text())
+        trial_node = {"trial_only": True, "separate_from_formal_approval": True,
+                      "object_rule_id": trial["object_rule_id"],
+                      "status": trial["status"],
+                      "instance_identity_verified_before_write": trial["identity_verified_before_write"],
+                      "container": "xiangrugu-trial-m004812", "image": "postgres:18-bookworm",
+                      "network": "none", "pg32_pg32b_touched": trial["pg32_pg32b_touched"],
+                      "row_count": trial["readback"]["row_count"],
+                      "columns_meta_match": trial["readback"]["columns_meta_match"],
+                      "duplicate_row_groups": trial["readback"]["duplicate_row_groups"],
+                      "readback_stream_sha256": trial["readback"]["stream_sha256_from_db_values"],
+                      "matches_approved_expectation": trial["readback"]["matches_approved_expectation"],
+                      "evidence_ref": ".task6-trial-load-m004812-20261123/trial-evidence.json",
+                      "formal_reception_frozen_landing_pg32b_write": "仍待授权"}
 
     table = {"version": 1, "status": "APPROVAL_PACKAGE_DRAFT_NOT_APPROVED",
              "baseline_git": VCS_REF, "scope": "first-batch-seven-objects-approval-package-only",
@@ -168,6 +188,7 @@ def main():
                  "text_source_side": "五件引用既有已批期望（text-value-contract-approved.draft.json，47607 行）",
                  "spatial_source_side": "两件源侧期望已生成（59 行/零重复/属性+几何摘要，.task6-spatial-values-20261123/）",
                  "formal_contract_integration": "七件均待接入正式合同 frozen 目标（expected_count/expected_sha256）"},
+             "trial_load_result": trial_node,
              "items": sorted(items, key=lambda x: (x["kind"], x["rule_id"]))}
     dump("approval-table.json", table)
 

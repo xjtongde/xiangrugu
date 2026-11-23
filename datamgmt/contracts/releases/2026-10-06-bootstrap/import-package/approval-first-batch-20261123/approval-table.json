@@ -43,6 +43,7 @@
     "表名批准事件（分账）+ 正式合同 frozen+review",
     "装载授权事件（分账）后 loader 实施"
    ],
+   "formal_contract_integration_status": "NOT_INTEGRATED（expected_count/expected_sha256 待生成接入；contract_frozen=false）",
    "formal_contract_pending": true,
    "kind": "spatial",
    "ledgers": {
@@ -140,6 +141,7 @@
     "表名批准事件（分账）+ 正式合同 frozen+review",
     "装载授权事件（分账）后 loader 实施"
    ],
+   "formal_contract_integration_status": "NOT_INTEGRATED（expected_count/expected_sha256 待生成接入；contract_frozen=false）",
    "formal_contract_pending": true,
    "kind": "spatial",
    "ledgers": {
@@ -222,6 +224,7 @@
     "表名批准事件 + target_mapping 批准事件（分账）",
     "正式合同 frozen+review 后 DispositionLedger 目标门通过"
    ],
+   "formal_contract_integration_status": "NOT_INTEGRATED（expected_count/expected_sha256 待生成接入；contract_frozen=false）",
    "formal_contract_pending": true,
    "kind": "text",
    "ledgers": {
@@ -292,6 +295,7 @@
     "表名批准事件 + target_mapping 批准事件（分账）",
     "正式合同 frozen+review 后 DispositionLedger 目标门通过"
    ],
+   "formal_contract_integration_status": "NOT_INTEGRATED（expected_count/expected_sha256 待生成接入；contract_frozen=false）",
    "formal_contract_pending": true,
    "kind": "text",
    "ledgers": {
@@ -362,6 +366,7 @@
     "表名批准事件 + target_mapping 批准事件（分账）",
     "正式合同 frozen+review 后 DispositionLedger 目标门通过"
    ],
+   "formal_contract_integration_status": "NOT_INTEGRATED（expected_count/expected_sha256 待生成接入；contract_frozen=false）",
    "formal_contract_pending": true,
    "kind": "text",
    "ledgers": {
@@ -432,6 +437,7 @@
     "表名批准事件 + target_mapping 批准事件（分账）",
     "正式合同 frozen+review 后 DispositionLedger 目标门通过"
    ],
+   "formal_contract_integration_status": "NOT_INTEGRATED（expected_count/expected_sha256 待生成接入；contract_frozen=false）",
    "formal_contract_pending": true,
    "kind": "text",
    "ledgers": {
@@ -502,6 +508,7 @@
     "表名批准事件 + target_mapping 批准事件（分账）",
     "正式合同 frozen+review 后 DispositionLedger 目标门通过"
    ],
+   "formal_contract_integration_status": "NOT_INTEGRATED（expected_count/expected_sha256 待生成接入；contract_frozen=false）",
    "formal_contract_pending": true,
    "kind": "text",
    "ledgers": {
@@ -557,6 +564,24 @@
   "formal_contract_freeze": "false（contract_frozen=false，冻结事件另录）",
   "load_authorization": "false（loader GAP，装载授权另录）",
   "table_name_approval": "七件均 false（候选名 DRAFT，批准事件另录）"
+ },
+ "trial_load_result": {
+  "columns_meta_match": true,
+  "container": "xiangrugu-trial-m004812",
+  "duplicate_row_groups": "0",
+  "evidence_ref": ".task6-trial-load-m004812-20261123/trial-evidence.json",
+  "formal_reception_frozen_landing_pg32b_write": "仍待授权",
+  "image": "postgres:18-bookworm",
+  "instance_identity_verified_before_write": true,
+  "matches_approved_expectation": true,
+  "network": "none",
+  "object_rule_id": "m004812",
+  "pg32_pg32b_touched": false,
+  "readback_stream_sha256": "b3f6ceb609a853cbb06eb7f8004a39f676d1ff5e95fbb46fc0381abbf722f667",
+  "row_count": 29,
+  "separate_from_formal_approval": true,
+  "status": "TRIAL_LOAD_READBACK_PASS",
+  "trial_only": true
  },
  "value_expectations_ledger": {
   "formal_contract_integration": "七件均待接入正式合同 frozen 目标（expected_count/expected_sha256）",

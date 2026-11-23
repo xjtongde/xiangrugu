@@ -1,0 +1,11 @@
+== ROUND 41 一期（a03）==
+期望基线独立锁定：m004812 SID 1334a175…ee76/源 cdc6d3e5…/3727B；8 列规格（7 text NOT NULL+__src_rownum bigint，column_key 逐列）；29 行/232 字段（29×8 自洽）/5605B/b3f6ceb609a853cb…三处引用一致；schema_sha 19287ad3；BLOCKED/frozen False/database_connected False 隔离语义清晰。回读驱动就绪（五项方案）；实例身份核方案预置（镜像差/无 5433/库清单隔离）。范围一期 PASS。
+
+== ROUND 41b 二期（a03，硬停 17:44 内）==
+独立全量回读 RB_EXIT=0/STREAM_EXIT=0（自写 rb.sh/rbrows+本地流重建，零复用 lead 装载码）：
+列名/类型/列序/nullable：information_schema ordinal 1-8 逐项==一期规格 PASS；count 29 PASS；重复双查整行组 0+rownum 唯一 0 PASS；rownum min/max/distinct 1|29|29+序列==range(1,30) PASS；库值重建 XRGVALUE-v1（json_agg 无损取回→header SID+schema_sha 19287ad3 match True+frame+cell+trailer）fields 232/bytes 5605/sha match True PASS。
+实例身份 PASS：NetworkMode none/镜像 postgres:18-bookworm≠pg32b-full/Ports 空/18.4 pgdg12/inet null/库清单四件仅 trial；identity_verified_before_write True/PGDATA 18/docker 在账。
+接收方案补正+审批表三态 PASS：失效示例已标注换实际 API 全例；版本锚 44e5f56/R1 checkout/试装单列节；approval-table e009c2ad==lead；NOT_INTEGRATED×7（首判 0/7 系精确等值 vs 长串，startswith 7/7 更正记录非交付缺陷）；trial_load_result separate True；生成器双跑全等 35cc08cc==lead；TE PASS/first_difference null。
+范围核 PASS：rollup 19 set equal；五块+src diff 44e5f56..worktree 空（驱动器在证据目录非 src）；M=2（668900d4）；全程未触 pg32/pg32b:5433/xiangrugu。
+剩余缺口：①promotion 步骤 1 32 受控接收转正②正式合同冻结下 expected 接入+证据再生③装载授权与首批七正式接入链（试装单列不构成批准）。
+ROUND 41b 全项 PASS，无首个差异。

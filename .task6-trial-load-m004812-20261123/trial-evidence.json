@@ -1,0 +1,108 @@
+{
+ "candidate_names_approved": false,
+ "container_start": {
+  "exit": 0,
+  "host_port_mapping": "none",
+  "image": "postgres:18-bookworm",
+  "network": "none",
+  "stderr": ""
+ },
+ "copy_exit": 0,
+ "copy_stderr": "",
+ "ddl_exit": 0,
+ "first_difference": null,
+ "formal_contract_modified": false,
+ "identity_verified_before_write": true,
+ "instance_identity": {
+  "data_directory": "/var/lib/postgresql/18/docker",
+  "databases": "postgres\ntemplate0\ntemplate1\nxiangrugu_trial",
+  "inet_server_addr": "null",
+  "port": "5432",
+  "server_version": "18.4 (Debian 18.4-1.pgdg12+1)",
+  "start_time": "2026-11-23 17:21:36.54812+00"
+ },
+ "object_rule_id": "m004812",
+ "pg32_pg32b_touched": false,
+ "pg_isready": true,
+ "readback": {
+  "columns_meta": [
+   [
+    "authorlast",
+    "text",
+    "NO",
+    "1"
+   ],
+   [
+    "authorfirst",
+    "text",
+    "NO",
+    "2"
+   ],
+   [
+    "format",
+    "text",
+    "NO",
+    "3"
+   ],
+   [
+    "language",
+    "text",
+    "NO",
+    "4"
+   ],
+   [
+    "type",
+    "text",
+    "NO",
+    "5"
+   ],
+   [
+    "title",
+    "text",
+    "NO",
+    "6"
+   ],
+   [
+    "filename",
+    "text",
+    "NO",
+    "7"
+   ],
+   [
+    "__src_rownum",
+    "bigint",
+    "NO",
+    "8"
+   ]
+  ],
+  "columns_meta_match": true,
+  "count_query": "29",
+  "duplicate_row_groups": "0",
+  "field_count": 232,
+  "matches_approved_expectation": true,
+  "row_count": 29,
+  "rownum_sequence_1_29": true,
+  "stream_bytes": 5605,
+  "stream_sha256_from_db_values": "b3f6ceb609a853cbb06eb7f8004a39f676d1ff5e95fbb46fc0381abbf722f667"
+ },
+ "readback_exit": 0,
+ "source": {
+  "path": "/mnt/wd61workmetadata/usedata/harvard-full/doi_10_7910/DVN/MI56KU/2001_Shanghai_0_INDEX_OF_PRESENTATIONS.tab",
+  "sha256": "cdc6d3e5d6d85e139305efe9c617c756f0eb668c19ce34efc4eca4f6cc8c2728",
+  "sha_match": true,
+  "size": 3727
+ },
+ "source_object_id": "1334a175777350ed2cb0c7ea037bd89fa74f660b1ab351400b09d06d0142ee76",
+ "source_side_stream": {
+  "expected_sha256": "b3f6ceb609a853cbb06eb7f8004a39f676d1ff5e95fbb46fc0381abbf722f667",
+  "field_count": 232,
+  "matches_approved_expectation": true,
+  "row_count": 29,
+  "rows_match_29": true,
+  "sha256": "b3f6ceb609a853cbb06eb7f8004a39f676d1ff5e95fbb46fc0381abbf722f667",
+  "stream_bytes": 5605
+ },
+ "status": "TRIAL_LOAD_READBACK_PASS",
+ "trial_only": true,
+ "version": 1
+}

@@ -175,6 +175,30 @@ def main():
                       "evidence_ref": ".task6-trial-load-m004812-20261123/trial-evidence.json",
                       "formal_reception_frozen_landing_pg32b_write": "仍待授权"}
 
+    t5_path = REPO / ".task6-trial-text5-20261123" / "trial-evidence.json"
+    t5_node = {"status": "NOT_RUN"}
+    if t5_path.exists():
+        t5 = json.loads(t5_path.read_text())
+        t5_node = {"trial_only": True, "separate_from_formal_approval": True,
+                   "status": t5["status"], "container": t5["container"],
+                   "image_identity": t5["image_identity"]["id_and_digests"],
+                   "network": "none", "unique_run_identity": True,
+                   "cleanup_scope": t5["cleanup_scope"],
+                   "identity_verified_before_write": t5["identity_verified_before_write"],
+                   "pg32_pg32b_deploy_touched": t5["pg32_pg32b_deploy_touched"],
+                   "items": [{"rule_id": it["rule_id"], "status": it["status"],
+                              "pre_write_gate": it["pre_write_gate"],
+                              "row_count": it["readback"]["row_count"],
+                              "duplicate_groups_value_cols_only": it["readback"]["duplicate_groups_value_cols_only"],
+                              "duplicate_extra_rows_value_cols_only": it["readback"]["duplicate_extra_rows_value_cols_only"],
+                              "readback_stream_sha256": it["readback"]["stream_sha256_from_db_values"],
+                              "matches_approved_expectation": it["readback"]["matches_approved_expectation"]}
+                             for it in t5["items"]],
+                   "total_rows_all_pass": t5["total_rows_all_pass"],
+                   "total_matches_47607": t5["total_matches_47607"],
+                   "evidence_ref": ".task6-trial-text5-20261123/trial-evidence.json",
+                   "distinction": "试装通过≠正式合同接入≠生产装载授权；pg32/pg32b/deploy/正式落盘不在本轮"}
+
     table = {"version": 1, "status": "APPROVAL_PACKAGE_DRAFT_NOT_APPROVED",
              "baseline_git": VCS_REF, "scope": "first-batch-seven-objects-approval-package-only",
              "text_row_total_check": {"sum_of_expected_row_count": row_sum,
@@ -189,6 +213,7 @@ def main():
                  "spatial_source_side": "两件源侧期望已生成（59 行/零重复/属性+几何摘要，.task6-spatial-values-20261123/）",
                  "formal_contract_integration": "七件均待接入正式合同 frozen 目标（expected_count/expected_sha256）"},
              "trial_load_result": trial_node,
+             "trial_text5_result": t5_node,
              "items": sorted(items, key=lambda x: (x["kind"], x["rule_id"]))}
     dump("approval-table.json", table)
 

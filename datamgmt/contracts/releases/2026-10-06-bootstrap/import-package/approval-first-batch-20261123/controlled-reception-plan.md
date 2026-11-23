@@ -1,6 +1,6 @@
 # 首批七对象 · 受控接收方案（草案，未执行）
 
-- 基线版本锚：**44e5f5697d3c842f8eb1647050afe7d3dabae948**（分支 dsh/p01-real-prep-20261113，Gitea ls-remote 已核）；接收时以经核对的当时分支头为完整版本锚。
+- **三锚统一**：代码锚 = 审批包锚 = 接收前实际回退锚 = **同一完整版本锚**（本盒记录 **d46656214ac3cb2708fe3596f8f98f97dcc4545f**，分支 dsh/p01-real-prep-20261113，Gitea ls-remote 已核）；接收时以经核对的当时分支头为完整锚，三者不得分别取不同提交。
 - 本方案仅为计划；**受控接收、正式合同冻结、落盘、数据库写入均另行授权**，本轮不执行。
 
 ## 1. 接收范围
@@ -58,7 +58,7 @@ python3 build_approval_package.py   # ×2，approval-table/evidence-list 字节�
 
 ## 4. 回退点（恢复接收前的完整版本锚）
 - R0：接收前 deploy 快照 tar（sha256 记录）+ **完整版本锚 19a77184440f604353cde6a1efe7a0611ebad03c**（Gitea ls-remote 已核）。
-- R1：回退即**恢复接收前完整版本锚**——受控目录整体恢复 R0 快照，或 `git checkout 44e5f56 -- .` 全量回到锚版本（不做局部挑拣回退）；分支历史不改写（R-10 禁 reset/clean/stash）。
+- R1：回退即**恢复接收前完整版本锚**——受控目录整体恢复 R0 快照，或 `git checkout <统一完整锚> -- .` 全量回到锚版本（本盒记录锚 d466562；不做局部挑拣回退，代码/审批包/回退三锚同一提交）；分支历史不改写（R-10 禁 reset/clean/stash）。
 - **保留已验收的核销保护**：回退后的版本仍含 writeoff.py 原清单绑定补正（ORIGINAL_INVENTORY_SHA256=fb5e6b33… 锁定 + 签发前四核 + 证据全文可取回重算 + 替代清单拒绝用例）；任何回退不得移除这些保护（11 用例回归须仍全过）。
 - 任何验证失败：停止接收，恢复 R0 完整锚，记录冲突按 docs/index.md 权威顺序处理。
 
@@ -79,3 +79,10 @@ python3 build_approval_package.py   # ×2，approval-table/evidence-list 字节�
 - 最小装载路径：canonical.py 源侧流核验（sha b3f6ceb6…==已批）→psql DDL+COPY（exit 0/0）→全量回读 29 行/列名列序类型全合/rownum [1,29]/重复 0/**库值重建流 sha b3f6ceb609a853cb…==已批期望/5605B**。TL_EXIT=0 stderr 0B。
 - 试装表 harv.trial_m004812_20261123（显式临时名；候选生产名仍未批）。证据 .task6-trial-load-m004812-20261123/trial-evidence.json。
 - **正式接收、冻结、落盘和写入 pg32b:5433/xiangrugu 仍待授权**；临时容器用后销毁，不留常驻。
+
+## 9. 五件文本隔离试装结果（单列——试装通过≠正式合同接入≠生产装载授权）
+- 隔离边界：仅 32 已验证项目快照读件；复用本地 postgres:18-bookworm（**实际镜像 Id sha256:882236b897e39051d2368c5ccc6cda944904723506b2dfc97f2a8f5bc9afa382==RepoDigest**）；容器 xiangrugu-trial-text5-20261123-173109 **本次唯一身份**，--network none 无宿主端口；清理仅针对本次创建的容器。
+- 逐件试装前核：源 sha+schema sha+行数+XRGVALUE-v1 流 sha+stream_bytes 五核全 PASS 才写入；任何读法/摘要/实例身份失配该件停报留证（本轮无失配）。
+- 五表（显式临时名）：harv.trial_m008002/m008003/m008004/m004812_20261123 + chgis.trial_m006642_20261123；m004812 快照路径重跑。
+- 全量回读：2957/40199/1033/29/3389 行，列名类型列序全合、全 text NOT NULL 空串保留（null 行 0）、rownum [1,N]、**重复按实际值列（排除唯一源行号）：m008003 63 组/74 多余行，余四件 0**；库值重建流 sha 逐件==已批（475ea1d8/dcbedb5a/d233ed9c/b3f6ceb6/3bad44a0）；**合计 47607**。T5_EXIT=0 stderr 0B。
+- 证据 .task6-trial-text5-20261123/trial-evidence.json；**pg32、pg32b、deploy 与正式落盘不在本轮范围**。

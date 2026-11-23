@@ -583,6 +583,74 @@
   "status": "TRIAL_LOAD_READBACK_PASS",
   "trial_only": true
  },
+ "trial_text5_result": {
+  "cleanup_scope": "only this run's container",
+  "container": "xiangrugu-trial-text5-20261123-173109",
+  "distinction": "试装通过≠正式合同接入≠生产装载授权；pg32/pg32b/deploy/正式落盘不在本轮",
+  "evidence_ref": ".task6-trial-text5-20261123/trial-evidence.json",
+  "identity_verified_before_write": true,
+  "image_identity": "sha256:882236b897e39051d2368c5ccc6cda944904723506b2dfc97f2a8f5bc9afa382 | [\"postgres@sha256:882236b897e39051d2368c5ccc6cda944904723506b2dfc97f2a8f5bc9afa382\"]",
+  "items": [
+   {
+    "duplicate_extra_rows_value_cols_only": "0",
+    "duplicate_groups_value_cols_only": "0",
+    "matches_approved_expectation": true,
+    "pre_write_gate": "PASS",
+    "readback_stream_sha256": "475ea1d8b400939cb79b46b47d641d83685bc8d1a3e4478bec1cdfdd562c429a",
+    "row_count": 2957,
+    "rule_id": "m008002",
+    "status": "PASS"
+   },
+   {
+    "duplicate_extra_rows_value_cols_only": "74",
+    "duplicate_groups_value_cols_only": "63",
+    "matches_approved_expectation": true,
+    "pre_write_gate": "PASS",
+    "readback_stream_sha256": "dcbedb5a5073a6b980d82156ffb3fa7dbaf3ca9906c2928534793b3e0a43a039",
+    "row_count": 40199,
+    "rule_id": "m008003",
+    "status": "PASS"
+   },
+   {
+    "duplicate_extra_rows_value_cols_only": "0",
+    "duplicate_groups_value_cols_only": "0",
+    "matches_approved_expectation": true,
+    "pre_write_gate": "PASS",
+    "readback_stream_sha256": "d233ed9c81ad6f8ff22c1f8c89786dcae90b0fffaf5657666d98e6212edec5fd",
+    "row_count": 1033,
+    "rule_id": "m008004",
+    "status": "PASS"
+   },
+   {
+    "duplicate_extra_rows_value_cols_only": "0",
+    "duplicate_groups_value_cols_only": "0",
+    "matches_approved_expectation": true,
+    "pre_write_gate": "PASS",
+    "readback_stream_sha256": "b3f6ceb609a853cbb06eb7f8004a39f676d1ff5e95fbb46fc0381abbf722f667",
+    "row_count": 29,
+    "rule_id": "m004812",
+    "status": "PASS"
+   },
+   {
+    "duplicate_extra_rows_value_cols_only": "0",
+    "duplicate_groups_value_cols_only": "0",
+    "matches_approved_expectation": true,
+    "pre_write_gate": "PASS",
+    "readback_stream_sha256": "3bad44a0482c1bc2479a541d2d9c9d405187eb1caeb177479fb69f7954b313fc",
+    "row_count": 3389,
+    "rule_id": "m006642",
+    "status": "PASS"
+   }
+  ],
+  "network": "none",
+  "pg32_pg32b_deploy_touched": false,
+  "separate_from_formal_approval": true,
+  "status": "TRIAL_TEXT5_PASS",
+  "total_matches_47607": true,
+  "total_rows_all_pass": 47607,
+  "trial_only": true,
+  "unique_run_identity": true
+ },
  "value_expectations_ledger": {
   "formal_contract_integration": "七件均待接入正式合同 frozen 目标（expected_count/expected_sha256）",
   "spatial_source_side": "两件源侧期望已生成（59 行/零重复/属性+几何摘要，.task6-spatial-values-20261123/）",

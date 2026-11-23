@@ -1,0 +1,16 @@
+== ROUND 42 一期（a03）==
+五件期望基线独立锁定：m008002 harv 2957/162635(=2957×55)/1778794/475ea1d8；m008003 harv 40199/241194(×6)/4709809/dcbedb5a；m008004 harv 1033/12396(×12)/292942/d233ed9c；m004812 harv 29/232(×8)/5605/b3f6ceb6；m006642 chgis 3389/23723(×7)/361678/3bad44a0。合计 47607==totals.data_record_count True；field_count 全自洽；SID↔value_columns 对位；空值语义全 text NOT NULL 空串保留+__src_rownum bigint NOT NULL。回读方案就绪（重复键显式排除 __src_rownum/json_agg 无损/镜像 Id 核/实例隔离核/三锚核）。范围一期 PASS。
+
+== ROUND 42b 二期（a03，硬停 17:57 内）==
+逐表独立回读（自写 t5stream.py/t5dup.sh/t5meta.sh 零复用 lead 码）STREAM_EXIT=0/DUP_EXIT=0/META_EXIT=0：
+m008002 2957/162635/1778794/dup 0/0/rownum✓/sha 475ea1d8✓/schema 73d25971✓；m008003 40199/241194/4709809/dup 63/74==lead✓/dcbedb5a✓/70bdb375✓；m008004 1033/12396/292942/0/0/d233ed9c✓/492a32cd✓；m004812 29/232/5605/0/0/b3f6ceb6✓/19287ad3✓；m006642 3389/23723/361678/0/0/3bad44a0✓/15a333ed✓。合计 47607✓。
+列名/类型/列序 information_schema ordinal 逐项==规格 5/5 True（含 m008002 55 列 slug 长名+baae1ea9 截断位对位）；空值语义 is_nullable YES 计数 0×5 全 NO；流重建 jsonb_build_array→base64 无损通道（大表 -At -f 文件法）XRGVALUE-v1 帧逐字节==已批——库值即源值机器证明。
+镜像/实例身份 PASS：容器 Image Id sha256:882236b897e39051…afa382==image inspect .Id 逐字等；NetworkMode none/Ports 空/inet null/库清单四件隔离；非 pg32/pg32b 成立。
+三锚统一+审批包 PASS：plan d466562/三锚/代码锚/审批包锚/回退锚/试装 6/6；trial_text5_result 单列（cleanup_scope/distinction verbatim/evidence_ref）；AT 0adf781dd1c725d1 生成器双跑全等；TE TRIAL_TEXT5_PASS/first_difference None。
+范围核 PASS：rollup+src diff d466562..worktree 空；M=2（668900d4）；全程仅本盒临时容器+host /tmp（已清）；未触 pg32/pg32b:5433/deploy/正式落盘。
+诊断披露：中途三次 STREAM_EXIT=1 系 a03 驱动传参面（容器无 python3/scp 别名不可用/嵌套 ssh 转义），改本地驱动+ssh cat/docker cp 通道后一次通过——非交付缺陷。
+剩余缺口：①promotion 步骤 1 32 受控接收转正②正式合同冻结下 expected 接入+证据再生③装载授权链（m008003 63 组实际值重复须装载侧行数含重复计数口径承接）。
+ROUND 42b 全项 PASS，无首个差异。
+
+== R42b 补正（cleanup 候选不一致处置）==
+a03 观察交报时容器仍 Up vs cleanup_scope 声明。lead 澄清：scope=范围语义（仅本次容器）；时机=保留至独立复核完成后即刻清理（17:37:22 UTC docker rm -f 留证，pg32b 未触）。证据增 cleanup_execution 节点。非数据面问题，结论不变。

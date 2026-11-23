@@ -1,0 +1,264 @@
+{
+ "all_five_pass": true,
+ "cleanup_execution": {
+  "a03_observation": "R42b 交报时容器仍 Up 系复核窗口保留，属预期策略",
+  "command": "docker rm -f xiangrugu-trial-text5-20261123-173109",
+  "pg32b_container_untouched": true,
+  "policy": "容器保留至 a03 独立回读复核完成，随后即刻销毁；cleanup_scope 指清理对象仅限本次创建的容器（范围语义），非交报即清（时机语义）",
+  "removed": true,
+  "removed_at_utc": "2026-11-23 17:37:22"
+ },
+ "cleanup_scope": "only this run's container",
+ "container": "xiangrugu-trial-text5-20261123-173109",
+ "container_start_exit": 0,
+ "first_difference": null,
+ "formal_contract_modified": false,
+ "host_port_mapping": "none",
+ "identity_verified_before_write": true,
+ "image": "postgres:18-bookworm",
+ "image_identity": {
+  "exit": 0,
+  "id_and_digests": "sha256:882236b897e39051d2368c5ccc6cda944904723506b2dfc97f2a8f5bc9afa382 | [\"postgres@sha256:882236b897e39051d2368c5ccc6cda944904723506b2dfc97f2a8f5bc9afa382\"]"
+ },
+ "instance_identity": {
+  "data_directory": "/var/lib/postgresql/18/docker",
+  "databases": "postgres\ntemplate0\ntemplate1\nxiangrugu_trial",
+  "inet_server_addr": "null",
+  "server_version": "18.4 (Debian 18.4-1.pgdg12+1)",
+  "start_time": "2026-11-23 17:34:07.725208+00"
+ },
+ "items": [
+  {
+   "approved_schema": "harv",
+   "copy_exit": 0,
+   "ddl_exit": 0,
+   "expected": {
+    "field_count": 162635,
+    "row_count": 2957,
+    "sha256": "475ea1d8b400939cb79b46b47d641d83685bc8d1a3e4478bec1cdfdd562c429a",
+    "stream_bytes": 1778794
+   },
+   "pre_write_gate": "PASS",
+   "readback": {
+    "columns_meta_match": true,
+    "duplicate_extra_rows_value_cols_only": "0",
+    "duplicate_groups_value_cols_only": "0",
+    "duplicate_key_excludes_src_rownum": true,
+    "matches_approved_expectation": true,
+    "null_value_semantics": {
+     "all_not_null": true,
+     "null_rows": "0"
+    },
+    "row_count": 2957,
+    "rownum_sequence_ok": true,
+    "stream_bytes": 1778794,
+    "stream_sha256_from_db_values": "475ea1d8b400939cb79b46b47d641d83685bc8d1a3e4478bec1cdfdd562c429a"
+   },
+   "readback_exit": 0,
+   "row_count_match": true,
+   "row_count_parsed": 2957,
+   "rule_id": "m008002",
+   "schema_sha256": "73d2597154d2df87085e0a790576207b333ead408dc589715d06159d2d7ad551",
+   "schema_sha_match": true,
+   "source_object_id": "257375d1235ceb968ae65d6e6dbe03238b4c482d8953714c43de08ec5eb23d41",
+   "source_sha256": "d21bd9f625acd85e66298fd8635b64c54f380d36b8f44f5d1d9734a0bf55c256",
+   "source_sha_match": true,
+   "source_stream": {
+    "bytes_match": true,
+    "field_count": 162635,
+    "matches_approved": true,
+    "sha256": "475ea1d8b400939cb79b46b47d641d83685bc8d1a3e4478bec1cdfdd562c429a",
+    "stream_bytes": 1778794
+   },
+   "status": "PASS",
+   "trial_table": "harv.trial_m008002_20261123"
+  },
+  {
+   "approved_schema": "harv",
+   "copy_exit": 0,
+   "ddl_exit": 0,
+   "expected": {
+    "field_count": 241194,
+    "row_count": 40199,
+    "sha256": "dcbedb5a5073a6b980d82156ffb3fa7dbaf3ca9906c2928534793b3e0a43a039",
+    "stream_bytes": 4709809
+   },
+   "pre_write_gate": "PASS",
+   "readback": {
+    "columns_meta_match": true,
+    "duplicate_extra_rows_value_cols_only": "74",
+    "duplicate_groups_value_cols_only": "63",
+    "duplicate_key_excludes_src_rownum": true,
+    "matches_approved_expectation": true,
+    "null_value_semantics": {
+     "all_not_null": true,
+     "null_rows": "0"
+    },
+    "row_count": 40199,
+    "rownum_sequence_ok": true,
+    "stream_bytes": 4709809,
+    "stream_sha256_from_db_values": "dcbedb5a5073a6b980d82156ffb3fa7dbaf3ca9906c2928534793b3e0a43a039"
+   },
+   "readback_exit": 0,
+   "row_count_match": true,
+   "row_count_parsed": 40199,
+   "rule_id": "m008003",
+   "schema_sha256": "70bdb375e51e4aae687fa22fa5db1f7840225b56b51234351dadb2f4ef16acf1",
+   "schema_sha_match": true,
+   "source_object_id": "300c70270efd1fe3df8e33fd06ac2de0b361ee9185c519589eaa0664fc73def0",
+   "source_sha256": "b720bff1d328e93726822910cbe361778667e414c24de4ab5f61082a0316623d",
+   "source_sha_match": true,
+   "source_stream": {
+    "bytes_match": true,
+    "field_count": 241194,
+    "matches_approved": true,
+    "sha256": "dcbedb5a5073a6b980d82156ffb3fa7dbaf3ca9906c2928534793b3e0a43a039",
+    "stream_bytes": 4709809
+   },
+   "status": "PASS",
+   "trial_table": "harv.trial_m008003_20261123"
+  },
+  {
+   "approved_schema": "harv",
+   "copy_exit": 0,
+   "ddl_exit": 0,
+   "expected": {
+    "field_count": 12396,
+    "row_count": 1033,
+    "sha256": "d233ed9c81ad6f8ff22c1f8c89786dcae90b0fffaf5657666d98e6212edec5fd",
+    "stream_bytes": 292942
+   },
+   "pre_write_gate": "PASS",
+   "readback": {
+    "columns_meta_match": true,
+    "duplicate_extra_rows_value_cols_only": "0",
+    "duplicate_groups_value_cols_only": "0",
+    "duplicate_key_excludes_src_rownum": true,
+    "matches_approved_expectation": true,
+    "null_value_semantics": {
+     "all_not_null": true,
+     "null_rows": "0"
+    },
+    "row_count": 1033,
+    "rownum_sequence_ok": true,
+    "stream_bytes": 292942,
+    "stream_sha256_from_db_values": "d233ed9c81ad6f8ff22c1f8c89786dcae90b0fffaf5657666d98e6212edec5fd"
+   },
+   "readback_exit": 0,
+   "row_count_match": true,
+   "row_count_parsed": 1033,
+   "rule_id": "m008004",
+   "schema_sha256": "492a32cd54147a5a1eae1cf6b11a22f585af706f757f6ed81e9322c12f956ea1",
+   "schema_sha_match": true,
+   "source_object_id": "7866bf2d2a1df79444ab2da4e91686b81d960b95b31d8103fdbd8974c5637d72",
+   "source_sha256": "23b23f6fdd8c8c3d070fe0d215bc643beef8742c06801ee861fb9255d77e5fe7",
+   "source_sha_match": true,
+   "source_stream": {
+    "bytes_match": true,
+    "field_count": 12396,
+    "matches_approved": true,
+    "sha256": "d233ed9c81ad6f8ff22c1f8c89786dcae90b0fffaf5657666d98e6212edec5fd",
+    "stream_bytes": 292942
+   },
+   "status": "PASS",
+   "trial_table": "harv.trial_m008004_20261123"
+  },
+  {
+   "approved_schema": "harv",
+   "copy_exit": 0,
+   "ddl_exit": 0,
+   "expected": {
+    "field_count": 232,
+    "row_count": 29,
+    "sha256": "b3f6ceb609a853cbb06eb7f8004a39f676d1ff5e95fbb46fc0381abbf722f667",
+    "stream_bytes": 5605
+   },
+   "pre_write_gate": "PASS",
+   "readback": {
+    "columns_meta_match": true,
+    "duplicate_extra_rows_value_cols_only": "0",
+    "duplicate_groups_value_cols_only": "0",
+    "duplicate_key_excludes_src_rownum": true,
+    "matches_approved_expectation": true,
+    "null_value_semantics": {
+     "all_not_null": true,
+     "null_rows": "0"
+    },
+    "row_count": 29,
+    "rownum_sequence_ok": true,
+    "stream_bytes": 5605,
+    "stream_sha256_from_db_values": "b3f6ceb609a853cbb06eb7f8004a39f676d1ff5e95fbb46fc0381abbf722f667"
+   },
+   "readback_exit": 0,
+   "row_count_match": true,
+   "row_count_parsed": 29,
+   "rule_id": "m004812",
+   "schema_sha256": "19287ad30494c81767065da3c37a314be7a5b00061523d8befae91fb00c6f14f",
+   "schema_sha_match": true,
+   "source_object_id": "1334a175777350ed2cb0c7ea037bd89fa74f660b1ab351400b09d06d0142ee76",
+   "source_sha256": "cdc6d3e5d6d85e139305efe9c617c756f0eb668c19ce34efc4eca4f6cc8c2728",
+   "source_sha_match": true,
+   "source_stream": {
+    "bytes_match": true,
+    "field_count": 232,
+    "matches_approved": true,
+    "sha256": "b3f6ceb609a853cbb06eb7f8004a39f676d1ff5e95fbb46fc0381abbf722f667",
+    "stream_bytes": 5605
+   },
+   "status": "PASS",
+   "trial_table": "harv.trial_m004812_20261123"
+  },
+  {
+   "approved_schema": "chgis",
+   "copy_exit": 0,
+   "ddl_exit": 0,
+   "expected": {
+    "field_count": 23723,
+    "row_count": 3389,
+    "sha256": "3bad44a0482c1bc2479a541d2d9c9d405187eb1caeb177479fb69f7954b313fc",
+    "stream_bytes": 361678
+   },
+   "pre_write_gate": "PASS",
+   "readback": {
+    "columns_meta_match": true,
+    "duplicate_extra_rows_value_cols_only": "0",
+    "duplicate_groups_value_cols_only": "0",
+    "duplicate_key_excludes_src_rownum": true,
+    "matches_approved_expectation": true,
+    "null_value_semantics": {
+     "all_not_null": true,
+     "null_rows": "0"
+    },
+    "row_count": 3389,
+    "rownum_sequence_ok": true,
+    "stream_bytes": 361678,
+    "stream_sha256_from_db_values": "3bad44a0482c1bc2479a541d2d9c9d405187eb1caeb177479fb69f7954b313fc"
+   },
+   "readback_exit": 0,
+   "row_count_match": true,
+   "row_count_parsed": 3389,
+   "rule_id": "m006642",
+   "schema_sha256": "15a333edbdce8d59db76fc056fef6ca7120344c58efac531d1588bab9ae65c1c",
+   "schema_sha_match": true,
+   "source_object_id": "9784b04445aa2c8b39232f8f5f06d7e13f8249e36fc67f47cbd38e35a9a2efa4",
+   "source_sha256": "58ef3cb445ef4b0e70a8716aad3463915320c64ee7fa257ea88eb0c93fe1cec0",
+   "source_sha_match": true,
+   "source_stream": {
+    "bytes_match": true,
+    "field_count": 23723,
+    "matches_approved": true,
+    "sha256": "3bad44a0482c1bc2479a541d2d9c9d405187eb1caeb177479fb69f7954b313fc",
+    "stream_bytes": 361678
+   },
+   "status": "PASS",
+   "trial_table": "chgis.trial_m006642_20261123"
+  }
+ ],
+ "network": "none",
+ "pg32_pg32b_deploy_touched": false,
+ "status": "TRIAL_TEXT5_PASS",
+ "total_matches_47607": true,
+ "total_rows_all_pass": 47607,
+ "trial_only": true,
+ "version": 1
+}

@@ -1,6 +1,6 @@
 # 首批七对象 · 受控接收方案（草案，未执行）
 
-- 基线版本锚：**8f3d014442e59b1a1af4a1234a465bb874a6426c**（分支 dsh/p01-real-prep-20261113，Gitea ls-remote 已核）。
+- 基线版本锚：**19a77184440f604353cde6a1efe7a0611ebad03c**（分支 dsh/p01-real-prep-20261113，Gitea ls-remote 已核）；接收时以经核对的当时分支头为完整版本锚。
 - 本方案仅为计划；**受控接收、正式合同冻结、落盘、数据库写入均另行授权**，本轮不执行。
 
 ## 1. 接收范围
@@ -36,10 +36,20 @@ python3 build_rollup.py   # ×3，stderr 0B，sha256sum 全等
 python3 build_approval_package.py   # ×2，approval-table/evidence-list 字节全等
 ```
 
-## 4. 回退点
-- R0：接收前 deploy 快照 tar（sha256 记录）。
-- R1：Git 回退 `git revert 8f3d014`（或受控目录恢复 R0 快照）；分支历史不改写（R-10 禁 reset/clean/stash）。
-- 任何验证失败：停止接收，恢复 R0，记录冲突按 docs/index.md 权威顺序处理。
+## 4. 回退点（恢复接收前的完整版本锚）
+- R0：接收前 deploy 快照 tar（sha256 记录）+ **完整版本锚 19a77184440f604353cde6a1efe7a0611ebad03c**（Gitea ls-remote 已核）。
+- R1：回退即**恢复接收前完整版本锚**——受控目录整体恢复 R0 快照，或 `git checkout 19a7718 -- .` 全量回到锚版本（不做局部挑拣回退）；分支历史不改写（R-10 禁 reset/clean/stash）。
+- **保留已验收的核销保护**：回退后的版本仍含 writeoff.py 原清单绑定补正（ORIGINAL_INVENTORY_SHA256=fb5e6b33… 锁定 + 签发前四核 + 证据全文可取回重算 + 替代清单拒绝用例）；任何回退不得移除这些保护（11 用例回归须仍全过）。
+- 任何验证失败：停止接收，恢复 R0 完整锚，记录冲突按 docs/index.md 权威顺序处理。
 
-## 5. 分账纪律
-- 表名批准 / 正式合同冻结 / 装载授权三账独立（approval-table.json ledgers 逐项 false）；本方案不预支任何批准。
+## 5. 实际跑通的核销调用（本盒留证）
+- 32 容器 xiangrugu-dev /tmp/wb：`writeoff.run_writeoff(manifest, contract, raw_ledgers)`（fixture 合同，原清单 fb5e6b33…）→ **WO_CALL_EXIT=0，stderr 0B**。
+- 结果：closed_issues 三条完整身份；derived_issue_codes=[unmatched_member]；ready_for_import=false；run_evidence_sha256 nul b74c33847935…/chgis e24ed0f17ebd…。
+- 证据：`.task6-spatial-values-20261123/writeoff-call.json`（正式合同下须重跑再生证据，fixture 证据不可挪用）。
+
+## 6. 提交分列
+- **代码基线提交**：源侧值证据驱动器 + 证据（.task6-spatial-values-20261123/）——不含审批包文案。
+- **审批包提交**：approval-table/evidence-list/接收方案修正 + TODO + 记录——与代码基线分列，便于逐项审批与回退。
+
+## 7. 分账纪律
+- 表名批准 / 正式合同冻结 / 装载授权三账独立（approval-table.json ledgers 逐项 false）；**已批映射与待生成值期望分开**（approved_mapping vs pending_value_expectations / source_side_value_expectations）；本方案不预支任何批准。

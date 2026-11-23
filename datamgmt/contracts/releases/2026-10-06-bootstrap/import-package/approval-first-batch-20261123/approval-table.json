@@ -21,6 +21,14 @@
      "spatial-crs-approved.draft.yaml": "de5646f6d1f3b5a62a78bd19c391e75321501fdcf857b5e07be78d39559d008c"
     }
    },
+   "approved_mapping": {
+    "attribute_columns": 12,
+    "components": 6,
+    "coordinate_storage": "preserve_original_ieee754_xy_no_swap_or_transform",
+    "dimensions": 2,
+    "geometry_type": "Point",
+    "srid": 4326
+   },
    "candidate_table_name_full": "chgis.ca1884route_przh_1251",
    "canonical_value_evidence_gap": {
     "canonical_projection": "属性按已批列映射投影 XRGVALUE-v1 有序流（含 __src_rownum，一基物理记录）；geom 按 Point 二维 IEEE754 原始 X/Y（不交换不变换）+ SRID 4326 规范字节投影",
@@ -60,6 +68,29 @@
    "source_path": "harvard-full/doi_10_7910/DVN/E7HDYD/1884route.zip",
    "source_sid": "9b4496c93de442c447b58adf9be56303ab5fd4897d68bbf0bad99069d12d44dc",
    "source_side_expectation_approved": true,
+   "source_side_value_expectations": {
+    "alignment": {
+     "attr_geom_aligned_by_src_rownum": true,
+     "rownum_range": [
+      1,
+      59
+     ]
+    },
+    "attribute_sha256": "3519649f663f8a6d65659fb00b4456c1f2a282ed095545795e1a2bb3b00a7cd8",
+    "attribute_stream_bytes": 24634,
+    "count_matches_known_59": true,
+    "duplicate_counts": {
+     "attribute_rownums": [],
+     "attribute_rows": 0,
+     "coordinate_pairs": 0,
+     "coordinate_rownums": []
+    },
+    "evidence_ref": ".task6-spatial-values-20261123/source-side-expectations.json",
+    "geometry_sha256": "ff7081a0013d721f22fb12ec00edc85de98e9cef7f75426db6254dbabdb632da",
+    "geometry_stream_bytes": 1530,
+    "row_count": 59,
+    "status": "GENERATED_PENDING_FORMAL_CONTRACT"
+   },
    "technical_gaps": [
     "geometry_expected_hash=null（规范几何投影摘要未生成）",
     "装载侧行数含重复计数未生成（source_record_count=59 为观测值）",
@@ -86,6 +117,14 @@
      "spatial-attributes-approved.draft.yaml": "6281aba195b09e107149455bda43264d75a27f2fc0129b7bb25477251068b29f",
      "spatial-crs-approved.draft.yaml": "de5646f6d1f3b5a62a78bd19c391e75321501fdcf857b5e07be78d39559d008c"
     }
+   },
+   "approved_mapping": {
+    "attribute_columns": 12,
+    "components": 6,
+    "coordinate_storage": "preserve_original_ieee754_xy_no_swap_or_transform",
+    "dimensions": 2,
+    "geometry_type": "Point",
+    "srid": 4326
    },
    "candidate_table_name_full": "chgis.ca1884route_przh_utf8",
    "canonical_value_evidence_gap": {
@@ -126,6 +165,29 @@
    "source_path": "harvard-full/doi_10_7910/DVN/E7HDYD/1884route.zip",
    "source_sid": "e601ce1a7667c8286abce0d09c5b81d3dc809265ed219dd6e4e1dd3c5cfc9ace",
    "source_side_expectation_approved": true,
+   "source_side_value_expectations": {
+    "alignment": {
+     "attr_geom_aligned_by_src_rownum": true,
+     "rownum_range": [
+      1,
+      59
+     ]
+    },
+    "attribute_sha256": "a2ad2d24ff4cae8c2e0315af0278d6286ef27510911a2f81ee1f4aa6c4b9b1d0",
+    "attribute_stream_bytes": 24214,
+    "count_matches_known_59": true,
+    "duplicate_counts": {
+     "attribute_rownums": [],
+     "attribute_rows": 0,
+     "coordinate_pairs": 0,
+     "coordinate_rownums": []
+    },
+    "evidence_ref": ".task6-spatial-values-20261123/source-side-expectations.json",
+    "geometry_sha256": "3c6067845a7938e8e4e1946d96c46dc4d57bab6aba236d3857b0967c10c73722",
+    "geometry_stream_bytes": 1530,
+    "row_count": 59,
+    "status": "GENERATED_PENDING_FORMAL_CONTRACT"
+   },
    "technical_gaps": [
     "geometry_expected_hash=null（规范几何投影摘要未生成）",
     "装载侧行数含重复计数未生成（source_record_count=59 为观测值）",
@@ -148,6 +210,11 @@
     "file": "text-value-contract-approved.draft.json",
     "sha256": "ecb0282805d19930266ec8f82605ed94477b24fd73e1d881ec42b77cb7810f47"
    },
+   "approved_mapping": {
+    "schema": "harv",
+    "schema_sha256": "19287ad30494c81767065da3c37a314be7a5b00061523d8befae91fb00c6f14f",
+    "source_column_count": 7
+   },
    "candidate_table_name_full": "harv.harvard_u2d_full_u2f_doi_u5f_10_u5f_7910_u2f_dvn_u2f___1334a175",
    "closure_evidence": [
     "装载侧 expected_count（含重复次数对账）生成并绑定正式合同",
@@ -161,6 +228,26 @@
     "formal_contract_frozen": false,
     "load_authorized": false,
     "table_name_approved": false
+   },
+   "pending_value_expectations": {
+    "formal_contract_expected_count": "待生成（装载侧行数含重复计数）",
+    "formal_contract_expected_sha256": "待接入正式合同 frozen 目标",
+    "source_side_reference": {
+     "field_count": 232,
+     "row_count": 29,
+     "sha256": "b3f6ceb609a853cbb06eb7f8004a39f676d1ff5e95fbb46fc0381abbf722f667",
+     "stream_bytes": 5605
+    }
+   },
+   "precise_field_mapping_refs": {
+    "approved_schema_object": {
+     "file": "datamgmt/contracts/releases/2026-10-06-bootstrap/text-schema-approved.draft.yaml",
+     "pointer": "/objects/3"
+    },
+    "value_columns": {
+     "file": "docs/superpowers/evidence/2026-10-08-text-source-values/text-source-value-expectations.draft.json",
+     "pointer": "/objects/3/value_columns"
+    }
    },
    "proposed_mapping": {
     "schema": "harv",
@@ -193,6 +280,11 @@
     "file": "text-value-contract-approved.draft.json",
     "sha256": "ecb0282805d19930266ec8f82605ed94477b24fd73e1d881ec42b77cb7810f47"
    },
+   "approved_mapping": {
+    "schema": "chgis",
+    "schema_sha256": "15a333edbdce8d59db76fc056fef6ca7120344c58efac531d1588bab9ae65c1c",
+    "source_column_count": 6
+   },
    "candidate_table_name_full": "chgis.harvard_u2d_full_u2f_doi_u5f_10_u5f_7910_u2f_dvn_u2f___9784b044",
    "closure_evidence": [
     "装载侧 expected_count（含重复次数对账）生成并绑定正式合同",
@@ -206,6 +298,26 @@
     "formal_contract_frozen": false,
     "load_authorized": false,
     "table_name_approved": false
+   },
+   "pending_value_expectations": {
+    "formal_contract_expected_count": "待生成（装载侧行数含重复计数）",
+    "formal_contract_expected_sha256": "待接入正式合同 frozen 目标",
+    "source_side_reference": {
+     "field_count": 23723,
+     "row_count": 3389,
+     "sha256": "3bad44a0482c1bc2479a541d2d9c9d405187eb1caeb177479fb69f7954b313fc",
+     "stream_bytes": 361678
+    }
+   },
+   "precise_field_mapping_refs": {
+    "approved_schema_object": {
+     "file": "datamgmt/contracts/releases/2026-10-06-bootstrap/text-schema-approved.draft.yaml",
+     "pointer": "/objects/4"
+    },
+    "value_columns": {
+     "file": "docs/superpowers/evidence/2026-10-08-text-source-values/text-source-value-expectations.draft.json",
+     "pointer": "/objects/4/value_columns"
+    }
    },
    "proposed_mapping": {
     "schema": "chgis",
@@ -238,6 +350,11 @@
     "file": "text-value-contract-approved.draft.json",
     "sha256": "ecb0282805d19930266ec8f82605ed94477b24fd73e1d881ec42b77cb7810f47"
    },
+   "approved_mapping": {
+    "schema": "harv",
+    "schema_sha256": "73d2597154d2df87085e0a790576207b333ead408dc589715d06159d2d7ad551",
+    "source_column_count": 54
+   },
    "candidate_table_name_full": "harv.harvard_u2f_tab__academy_u5f_data_u2e_tab",
    "closure_evidence": [
     "装载侧 expected_count（含重复次数对账）生成并绑定正式合同",
@@ -251,6 +368,26 @@
     "formal_contract_frozen": false,
     "load_authorized": false,
     "table_name_approved": false
+   },
+   "pending_value_expectations": {
+    "formal_contract_expected_count": "待生成（装载侧行数含重复计数）",
+    "formal_contract_expected_sha256": "待接入正式合同 frozen 目标",
+    "source_side_reference": {
+     "field_count": 162635,
+     "row_count": 2957,
+     "sha256": "475ea1d8b400939cb79b46b47d641d83685bc8d1a3e4478bec1cdfdd562c429a",
+     "stream_bytes": 1778794
+    }
+   },
+   "precise_field_mapping_refs": {
+    "approved_schema_object": {
+     "file": "datamgmt/contracts/releases/2026-10-06-bootstrap/text-schema-approved.draft.yaml",
+     "pointer": "/objects/0"
+    },
+    "value_columns": {
+     "file": "docs/superpowers/evidence/2026-10-08-text-source-values/text-source-value-expectations.draft.json",
+     "pointer": "/objects/0/value_columns"
+    }
    },
    "proposed_mapping": {
     "schema": "harv",
@@ -283,6 +420,11 @@
     "file": "text-value-contract-approved.draft.json",
     "sha256": "ecb0282805d19930266ec8f82605ed94477b24fd73e1d881ec42b77cb7810f47"
    },
+   "approved_mapping": {
+    "schema": "harv",
+    "schema_sha256": "70bdb375e51e4aae687fa22fa5db1f7840225b56b51234351dadb2f4ef16acf1",
+    "source_column_count": 5
+   },
    "candidate_table_name_full": "harv.harvard_u2f_tab__index_u5f_of_u5f_the_u5f_complete_u5__300c7027",
    "closure_evidence": [
     "装载侧 expected_count（含重复次数对账）生成并绑定正式合同",
@@ -296,6 +438,26 @@
     "formal_contract_frozen": false,
     "load_authorized": false,
     "table_name_approved": false
+   },
+   "pending_value_expectations": {
+    "formal_contract_expected_count": "待生成（装载侧行数含重复计数）",
+    "formal_contract_expected_sha256": "待接入正式合同 frozen 目标",
+    "source_side_reference": {
+     "field_count": 241194,
+     "row_count": 40199,
+     "sha256": "dcbedb5a5073a6b980d82156ffb3fa7dbaf3ca9906c2928534793b3e0a43a039",
+     "stream_bytes": 4709809
+    }
+   },
+   "precise_field_mapping_refs": {
+    "approved_schema_object": {
+     "file": "datamgmt/contracts/releases/2026-10-06-bootstrap/text-schema-approved.draft.yaml",
+     "pointer": "/objects/1"
+    },
+    "value_columns": {
+     "file": "docs/superpowers/evidence/2026-10-08-text-source-values/text-source-value-expectations.draft.json",
+     "pointer": "/objects/1/value_columns"
+    }
    },
    "proposed_mapping": {
     "schema": "harv",
@@ -328,6 +490,11 @@
     "file": "text-value-contract-approved.draft.json",
     "sha256": "ecb0282805d19930266ec8f82605ed94477b24fd73e1d881ec42b77cb7810f47"
    },
+   "approved_mapping": {
+    "schema": "harv",
+    "schema_sha256": "492a32cd54147a5a1eae1cf6b11a22f585af706f757f6ed81e9322c12f956ea1",
+    "source_column_count": 11
+   },
    "candidate_table_name_full": "harv.harvard_u2f_tab__writings_u20_of_u20_the_u20_19c_u20___7866bf2d",
    "closure_evidence": [
     "装载侧 expected_count（含重复次数对账）生成并绑定正式合同",
@@ -341,6 +508,26 @@
     "formal_contract_frozen": false,
     "load_authorized": false,
     "table_name_approved": false
+   },
+   "pending_value_expectations": {
+    "formal_contract_expected_count": "待生成（装载侧行数含重复计数）",
+    "formal_contract_expected_sha256": "待接入正式合同 frozen 目标",
+    "source_side_reference": {
+     "field_count": 12396,
+     "row_count": 1033,
+     "sha256": "d233ed9c81ad6f8ff22c1f8c89786dcae90b0fffaf5657666d98e6212edec5fd",
+     "stream_bytes": 292942
+    }
+   },
+   "precise_field_mapping_refs": {
+    "approved_schema_object": {
+     "file": "datamgmt/contracts/releases/2026-10-06-bootstrap/text-schema-approved.draft.yaml",
+     "pointer": "/objects/2"
+    },
+    "value_columns": {
+     "file": "docs/superpowers/evidence/2026-10-08-text-source-values/text-source-value-expectations.draft.json",
+     "pointer": "/objects/2/value_columns"
+    }
    },
    "proposed_mapping": {
     "schema": "harv",
@@ -370,6 +557,11 @@
   "formal_contract_freeze": "false（contract_frozen=false，冻结事件另录）",
   "load_authorization": "false（loader GAP，装载授权另录）",
   "table_name_approval": "七件均 false（候选名 DRAFT，批准事件另录）"
+ },
+ "value_expectations_ledger": {
+  "formal_contract_integration": "七件均待接入正式合同 frozen 目标（expected_count/expected_sha256）",
+  "spatial_source_side": "两件源侧期望已生成（59 行/零重复/属性+几何摘要，.task6-spatial-values-20261123/）",
+  "text_source_side": "五件引用既有已批期望（text-value-contract-approved.draft.json，47607 行）"
  },
  "version": 1
 }

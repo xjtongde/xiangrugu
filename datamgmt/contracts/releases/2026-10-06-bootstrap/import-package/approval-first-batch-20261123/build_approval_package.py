@@ -34,6 +34,11 @@ def main():
     crs_by_sid = {o["source_object_id"]: o for o in crs["objects"]}
     attrs_by_sid = {o["source_object_id"]: o for o in attrs["objects"]}
     binding_by_sid = {o["source_object_id"]: o for o in binding["bound_objects"]}
+    sv_path = REPO / ".task6-spatial-values-20261123" / "source-side-expectations.json"
+    sv_by_sid = {}
+    if sv_path.exists():
+        sv = json.loads(sv_path.read_text())
+        sv_by_sid = {o["source_object_id"]: o for o in sv["objects"]}
     row_sum = sum(o["expected"]["row_count"] for o in approved["objects"])
     assert row_sum == approved["totals"]["data_record_count"] == 47607
 
@@ -50,6 +55,18 @@ def main():
                                  "target_columns": "待正式合同 target_mapping 批准（现 target_mapping_approved=false）"},
             "source_side_expectation_approved": True,
             "formal_contract_pending": True,
+            "approved_mapping": {"schema": o["approved_schema"],
+                                 "source_column_count": o["source_column_count"],
+                                 "schema_sha256": o["schema_sha256"]},
+            "pending_value_expectations": {
+                "formal_contract_expected_count": "待生成（装载侧行数含重复计数）",
+                "formal_contract_expected_sha256": "待接入正式合同 frozen 目标",
+                "source_side_reference": {"row_count": o["expected"]["row_count"],
+                                          "sha256": o["expected"]["sha256"],
+                                          "field_count": o["expected"]["field_count"],
+                                          "stream_bytes": o["expected"]["stream_bytes"]}},
+            "precise_field_mapping_refs": {"value_columns": o["value_columns_ref"],
+                                           "approved_schema_object": o["approved_object_ref"]},
             "approval_basis": {
                 "file": "text-value-contract-approved.draft.json",
                 "sha256": sha256_file(REL / "text-value-contract-approved.draft.json"),
@@ -87,6 +104,22 @@ def main():
                                  "attribute_columns": "已批列映射（spatial-attributes-approved.draft.yaml）"},
             "source_side_expectation_approved": True,
             "formal_contract_pending": True,
+            "approved_mapping": {"components": 6, "attribute_columns": len(a["source_columns"]),
+                                 "srid": c["srid"], "dimensions": c["dimensions"],
+                                 "geometry_type": c["geometry_type_proposal"],
+                                 "coordinate_storage": c["coordinate_storage"]},
+            "source_side_value_expectations": (
+                {"status": "GENERATED_PENDING_FORMAL_CONTRACT",
+                 "row_count": sv_by_sid[sid]["row_count"],
+                 "count_matches_known_59": sv_by_sid[sid]["count_matches_known"],
+                 "duplicate_counts": sv_by_sid[sid]["duplicate_counts"],
+                 "alignment": sv_by_sid[sid]["alignment"],
+                 "attribute_sha256": sv_by_sid[sid]["attribute_expectation"]["sha256"],
+                 "attribute_stream_bytes": sv_by_sid[sid]["attribute_expectation"]["stream_bytes"],
+                 "geometry_sha256": sv_by_sid[sid]["geometry_expectation"]["sha256"],
+                 "geometry_stream_bytes": sv_by_sid[sid]["geometry_expectation"]["stream_bytes"],
+                 "evidence_ref": ".task6-spatial-values-20261123/source-side-expectations.json"}
+                if sid in sv_by_sid else {"status": "NOT_GENERATED"}),
             "approval_basis": {
                 "files": {"spatial-crs-approved.draft.yaml": sha256_file(REL / "spatial-crs-approved.draft.yaml"),
                           "spatial-attributes-approved.draft.yaml": sha256_file(REL / "spatial-attributes-approved.draft.yaml"),
@@ -131,6 +164,10 @@ def main():
                  "table_name_approval": "七件均 false（候选名 DRAFT，批准事件另录）",
                  "formal_contract_freeze": "false（contract_frozen=false，冻结事件另录）",
                  "load_authorization": "false（loader GAP，装载授权另录）"},
+             "value_expectations_ledger": {
+                 "text_source_side": "五件引用既有已批期望（text-value-contract-approved.draft.json，47607 行）",
+                 "spatial_source_side": "两件源侧期望已生成（59 行/零重复/属性+几何摘要，.task6-spatial-values-20261123/）",
+                 "formal_contract_integration": "七件均待接入正式合同 frozen 目标（expected_count/expected_sha256）"},
              "items": sorted(items, key=lambda x: (x["kind"], x["rule_id"]))}
     dump("approval-table.json", table)
 

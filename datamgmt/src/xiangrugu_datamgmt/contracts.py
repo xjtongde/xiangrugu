@@ -82,12 +82,90 @@ class ColumnEncoding(ContractRecord):
         return value
 
 
+class ColumnMapping(ContractRecord):
+    """Ordered source->target column mapping with approved width/scale (optional extension)."""
+    ordinal: Count
+    source_column: Text
+    target_column: Text
+    pg_type: Annotated[str, Field(pattern=r"^(text|bigint|numeric\([1-9][0-9]*,[0-9]+\))$")]
+    nullable: bool
+    source_width_bytes: Count | None = None
+    source_decimals: Count | None = None
+
+    @model_validator(mode="after")
+    def consistent_width_scale(self):
+        if self.ordinal < 1:
+            raise ValueError("Column ordinals are one-based")
+        if self.source_width_bytes is not None and self.source_width_bytes < 1:
+            raise ValueError("Approved source width must be positive")
+        if self.pg_type.startswith("numeric("):
+            precision, scale = self.pg_type[len("numeric("):-1].split(",")
+            if self.source_width_bytes != int(precision) or self.source_decimals != int(scale):
+                raise ValueError("numeric width/scale must equal the approved source width and decimals")
+        elif self.source_decimals not in (None, 0):
+            raise ValueError("Non-numeric columns cannot declare nonzero decimals")
+        return self
+
+
+class DerivedRownum(ContractRecord):
+    """Fixed semantics: one-based physical source row number, never nullable."""
+    target_column: Literal["__src_rownum"]
+    pg_type: Literal["bigint"]
+    nullable: Literal[False]
+    origin: Literal["one_based_physical_source_row"]
+
+
+class DuplicateReconciliation(ContractRecord):
+    """Duplicate accounting on actual value columns, excluding the unique source rownum."""
+    key: Literal["value_columns_excluding_src_rownum"]
+    expected_groups: Count
+    expected_extra_rows: Count
+    count_includes_duplicates: Literal[True]
+
+    @model_validator(mode="after")
+    def consistent_arithmetic(self):
+        if self.expected_groups == 0 and self.expected_extra_rows != 0:
+            raise ValueError("Extra duplicate rows require at least one duplicate group")
+        if self.expected_groups > 0 and self.expected_extra_rows < self.expected_groups:
+            raise ValueError("Every duplicate group contributes at least one extra row")
+        return self
+
+
+class GeometryExpectation(ContractRecord):
+    """Spatial geometry expectation with canonical digest and original-coordinate storage."""
+    geometry_type: Literal["Point"]
+    dimensions: Literal[2]
+    srid: Annotated[int, Field(ge=1, strict=True)]
+    canonical_format: Literal["XRGGEOM-v1"]
+    expected_sha256: Digest
+    coordinate_storage: Literal["preserve_original_ieee754_xy_no_swap_or_transform"]
+
+
 class ObjectTarget(ContractRecord):
     object_name: Text
     schema_name: Literal["cbdb", "chgis", "harv"] = Field(alias="schema")
     table: Annotated[str, Field(pattern=r"^[a-z][a-z0-9_]{0,62}$")]
     expected_count: Count | None
     expected_sha256: Digest | None
+    columns: tuple[ColumnMapping, ...] | None = None
+    derived_rownum: DerivedRownum | None = None
+    duplicate_reconciliation: DuplicateReconciliation | None = None
+    geometry: GeometryExpectation | None = None
+
+    @model_validator(mode="after")
+    def extended_mapping_consistency(self):
+        if self.columns is not None:
+            ordinals = [column.ordinal for column in self.columns]
+            if ordinals != list(range(1, len(ordinals) + 1)):
+                raise ValueError("Column ordinals must be contiguous and ordered from 1")
+            if len({column.target_column for column in self.columns}) != len(self.columns):
+                raise ValueError("Target column names must be unique within a mapping")
+            if len({column.source_column for column in self.columns}) != len(self.columns):
+                raise ValueError("Source column identities must be unique within a mapping")
+            if self.derived_rownum is not None and any(
+                    column.target_column == self.derived_rownum.target_column for column in self.columns):
+                raise ValueError("Derived rownum column must not collide with mapped source columns")
+        return self
 
 
 class DispositionRule(ContractRecord):
@@ -191,6 +269,45 @@ class ReleaseContract(ContractRecord):
     @property
     def sha256(self):
         return hashlib.sha256(self.canonical_bytes()).hexdigest()
+
+
+FIRST_BATCH_RULES = ("m002709", "m002717", "m004812", "m006642", "m008002", "m008003", "m008004")
+FIRST_BATCH_SPATIAL_RULES = ("m002709", "m002717")
+FIRST_BATCH_APPROVED_SRID = 4326
+
+
+def validate_first_batch_seven(contract: ReleaseContract) -> None:
+    """Dedicated first-batch validation: missing or contradictory extension fields fail closed.
+
+    Separate from general parsing so existing contracts keep their original rules.
+    """
+    if contract.status != "draft":
+        raise ContractError("First-batch candidate must be unfrozen (draft)")
+    if sorted(rule.rule_id for rule in contract.rules) != sorted(FIRST_BATCH_RULES):
+        raise ContractError("Exactly the seven first-batch rules are required")
+    for rule in contract.rules:
+        if rule.disposition != Disposition.IMPORT:
+            raise ContractError(f"{rule.rule_id}: first-batch rules must be IMPORT")
+        if len(rule.targets) != 1:
+            raise ContractError(f"{rule.rule_id}: exactly one logical target per first-batch rule")
+        target = rule.targets[0]
+        for field in ("columns", "derived_rownum", "duplicate_reconciliation"):
+            if getattr(target, field) is None:
+                raise ContractError(f"{rule.rule_id}: missing required extension field {field}")
+        if not target.columns:
+            raise ContractError(f"{rule.rule_id}: column mapping must not be empty")
+        if target.expected_count is None or target.expected_sha256 is None:
+            raise ContractError(f"{rule.rule_id}: expected_count and expected_sha256 are required")
+        reconciliation = target.duplicate_reconciliation
+        if target.expected_count < reconciliation.expected_groups + reconciliation.expected_extra_rows:
+            raise ContractError(f"{rule.rule_id}: duplicate reconciliation exceeds expected_count")
+        if rule.rule_id in FIRST_BATCH_SPATIAL_RULES:
+            if target.geometry is None:
+                raise ContractError(f"{rule.rule_id}: spatial object requires a geometry expectation")
+            if target.geometry.srid != FIRST_BATCH_APPROVED_SRID:
+                raise ContractError(f"{rule.rule_id}: geometry SRID must be the approved 4326")
+        elif target.geometry is not None:
+            raise ContractError(f"{rule.rule_id}: text object must not carry a geometry expectation")
 
 
 def contract_schema():

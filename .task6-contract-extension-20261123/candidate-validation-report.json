@@ -1,0 +1,105 @@
+{
+ "all_items_match": true,
+ "candidate_status": "draft_unfrozen",
+ "contract_frozen": false,
+ "database_written": false,
+ "deploy_received": false,
+ "inventory_sha256": "fb5e6b334b898d62dc0e5c77094fdb50e0946300e6e3009f447b2ecd1bc216db",
+ "item_checks": [
+  {
+   "all_match": true,
+   "attr_digest_match": true,
+   "count_match": true,
+   "duplicate_match": true,
+   "geom_digest_match": true,
+   "mapping_match": true,
+   "name_match": true,
+   "rownum_declared": true,
+   "rule_id": "m002709",
+   "source_identity_match": true,
+   "srid_match": true,
+   "trial_attr_match": true,
+   "trial_geom_match": true
+  },
+  {
+   "all_match": true,
+   "attr_digest_match": true,
+   "count_match": true,
+   "duplicate_match": true,
+   "geom_digest_match": true,
+   "mapping_match": true,
+   "name_match": true,
+   "rownum_declared": true,
+   "rule_id": "m002717",
+   "source_identity_match": true,
+   "srid_match": true,
+   "trial_attr_match": true,
+   "trial_geom_match": true
+  },
+  {
+   "all_match": true,
+   "attr_digest_match": true,
+   "count_match": true,
+   "duplicate_match": true,
+   "mapping_match": true,
+   "name_match": true,
+   "rownum_declared": true,
+   "rule_id": "m004812",
+   "trial_attr_match": true
+  },
+  {
+   "all_match": true,
+   "attr_digest_match": true,
+   "count_match": true,
+   "duplicate_match": true,
+   "mapping_match": true,
+   "name_match": true,
+   "rownum_declared": true,
+   "rule_id": "m006642",
+   "trial_attr_match": true
+  },
+  {
+   "all_match": true,
+   "attr_digest_match": true,
+   "count_match": true,
+   "duplicate_match": true,
+   "mapping_match": true,
+   "name_match": true,
+   "rownum_declared": true,
+   "rule_id": "m008002",
+   "trial_attr_match": true
+  },
+  {
+   "all_match": true,
+   "attr_digest_match": true,
+   "count_match": true,
+   "duplicate_match": true,
+   "mapping_match": true,
+   "name_match": true,
+   "rownum_declared": true,
+   "rule_id": "m008003",
+   "trial_attr_match": true
+  },
+  {
+   "all_match": true,
+   "attr_digest_match": true,
+   "count_match": true,
+   "duplicate_match": true,
+   "mapping_match": true,
+   "name_match": true,
+   "rownum_declared": true,
+   "rule_id": "m008004",
+   "trial_attr_match": true
+  }
+ ],
+ "m008003_duplicates": {
+  "count_includes_duplicates": true,
+  "expected_extra_rows": 74,
+  "expected_groups": 63,
+  "key": "value_columns_excluding_src_rownum"
+ },
+ "service_changed": false,
+ "total_expected_rows": 47725,
+ "total_matches_47725": true,
+ "version": 1
+}

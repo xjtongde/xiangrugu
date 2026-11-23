@@ -1,0 +1,1775 @@
+{
+ "exceptions": [],
+ "inventory_sha256": "fb5e6b334b898d62dc0e5c77094fdb50e0946300e6e3009f447b2ecd1bc216db",
+ "release_id": "2026-11-23-first-batch-seven-candidate",
+ "review": null,
+ "rules": [
+  {
+   "disposition": "IMPORT",
+   "encodings": [
+    {
+     "codec": "cp1251",
+     "column": "NAME_RUS",
+     "errors": "strict",
+     "object_name": "ca1884route_przh_1251"
+    },
+    {
+     "codec": "cp1251",
+     "column": "NAME_ROM",
+     "errors": "strict",
+     "object_name": "ca1884route_przh_1251"
+    },
+    {
+     "codec": "cp1251",
+     "column": "TYPE",
+     "errors": "strict",
+     "object_name": "ca1884route_przh_1251"
+    },
+    {
+     "codec": "ascii",
+     "column": "LAT",
+     "errors": "strict",
+     "object_name": "ca1884route_przh_1251"
+    },
+    {
+     "codec": "ascii",
+     "column": "LONG",
+     "errors": "strict",
+     "object_name": "ca1884route_przh_1251"
+    },
+    {
+     "codec": "ascii",
+     "column": "POS_CERT",
+     "errors": "strict",
+     "object_name": "ca1884route_przh_1251"
+    },
+    {
+     "codec": "ascii",
+     "column": "DATE_CERT",
+     "errors": "strict",
+     "object_name": "ca1884route_przh_1251"
+    },
+    {
+     "codec": "ascii",
+     "column": "DATE_",
+     "errors": "strict",
+     "object_name": "ca1884route_przh_1251"
+    },
+    {
+     "codec": "cp1251",
+     "column": "MAP_NAME",
+     "errors": "strict",
+     "object_name": "ca1884route_przh_1251"
+    },
+    {
+     "codec": "cp1251",
+     "column": "MAP_CITE",
+     "errors": "strict",
+     "object_name": "ca1884route_przh_1251"
+    },
+    {
+     "codec": "cp1251",
+     "column": "ID",
+     "errors": "strict",
+     "object_name": "ca1884route_przh_1251"
+    },
+    {
+     "codec": "cp1251",
+     "column": "RAS_ID",
+     "errors": "strict",
+     "object_name": "ca1884route_przh_1251"
+    }
+   ],
+   "expected": {
+    "kind": "file",
+    "sha256": "0b4b86cb8b6dc892d70c9a4ede9adf6ed0a72bf8884376ae207a1075be9a692c",
+    "signature": "unknown",
+    "size": 16937
+   },
+   "format_family": "spatial",
+   "reason": "first-batch seven candidate; names and mappings pending approval",
+   "rule_id": "m002709",
+   "selector": {
+    "archive_chain": [
+     "5_1884route/Ca1884route_przh_1251.dbf"
+    ],
+    "archive_ordinals": [
+     3
+    ],
+    "relative_path": "harvard-full/doi_10_7910/DVN/E7HDYD/1884route.zip"
+   },
+   "targets": [
+    {
+     "columns": [
+      {
+       "nullable": true,
+       "ordinal": 1,
+       "pg_type": "text",
+       "source_column": "NAME_RUS",
+       "source_decimals": 0,
+       "source_width_bytes": 32,
+       "target_column": "name_u5f_rus"
+      },
+      {
+       "nullable": true,
+       "ordinal": 2,
+       "pg_type": "text",
+       "source_column": "NAME_ROM",
+       "source_decimals": 0,
+       "source_width_bytes": 32,
+       "target_column": "name_u5f_rom"
+      },
+      {
+       "nullable": true,
+       "ordinal": 3,
+       "pg_type": "text",
+       "source_column": "TYPE",
+       "source_decimals": 0,
+       "source_width_bytes": 40,
+       "target_column": "type"
+      },
+      {
+       "nullable": true,
+       "ordinal": 4,
+       "pg_type": "numeric(19,5)",
+       "source_column": "LAT",
+       "source_decimals": 5,
+       "source_width_bytes": 19,
+       "target_column": "lat"
+      },
+      {
+       "nullable": true,
+       "ordinal": 5,
+       "pg_type": "numeric(19,5)",
+       "source_column": "LONG",
+       "source_decimals": 5,
+       "source_width_bytes": 19,
+       "target_column": "long"
+      },
+      {
+       "nullable": true,
+       "ordinal": 6,
+       "pg_type": "bigint",
+       "source_column": "POS_CERT",
+       "source_decimals": 0,
+       "source_width_bytes": 16,
+       "target_column": "pos_u5f_cert"
+      },
+      {
+       "nullable": true,
+       "ordinal": 7,
+       "pg_type": "bigint",
+       "source_column": "DATE_CERT",
+       "source_decimals": 0,
+       "source_width_bytes": 16,
+       "target_column": "date_u5f_cert"
+      },
+      {
+       "nullable": true,
+       "ordinal": 8,
+       "pg_type": "bigint",
+       "source_column": "DATE_",
+       "source_decimals": 0,
+       "source_width_bytes": 16,
+       "target_column": "date_u5f_"
+      },
+      {
+       "nullable": true,
+       "ordinal": 9,
+       "pg_type": "text",
+       "source_column": "MAP_NAME",
+       "source_decimals": 0,
+       "source_width_bytes": 32,
+       "target_column": "map_u5f_name"
+      },
+      {
+       "nullable": true,
+       "ordinal": 10,
+       "pg_type": "text",
+       "source_column": "MAP_CITE",
+       "source_decimals": 0,
+       "source_width_bytes": 40,
+       "target_column": "map_u5f_cite"
+      },
+      {
+       "nullable": true,
+       "ordinal": 11,
+       "pg_type": "text",
+       "source_column": "ID",
+       "source_decimals": 0,
+       "source_width_bytes": 8,
+       "target_column": "id"
+      },
+      {
+       "nullable": true,
+       "ordinal": 12,
+       "pg_type": "text",
+       "source_column": "RAS_ID",
+       "source_decimals": 0,
+       "source_width_bytes": 9,
+       "target_column": "ras_u5f_id"
+      }
+     ],
+     "derived_rownum": {
+      "nullable": false,
+      "origin": "one_based_physical_source_row",
+      "pg_type": "bigint",
+      "target_column": "__src_rownum"
+     },
+     "duplicate_reconciliation": {
+      "count_includes_duplicates": true,
+      "expected_extra_rows": 0,
+      "expected_groups": 0,
+      "key": "value_columns_excluding_src_rownum"
+     },
+     "expected_count": 59,
+     "expected_sha256": "3519649f663f8a6d65659fb00b4456c1f2a282ed095545795e1a2bb3b00a7cd8",
+     "geometry": {
+      "canonical_format": "XRGGEOM-v1",
+      "coordinate_storage": "preserve_original_ieee754_xy_no_swap_or_transform",
+      "dimensions": 2,
+      "expected_sha256": "ff7081a0013d721f22fb12ec00edc85de98e9cef7f75426db6254dbabdb632da",
+      "geometry_type": "Point",
+      "srid": 4326
+     },
+     "object_name": "ca1884route_przh_1251",
+     "schema": "chgis",
+     "table": "ca1884route_przh_1251"
+    }
+   ],
+   "validator": "canonical-spatial-v1"
+  },
+  {
+   "disposition": "IMPORT",
+   "encodings": [
+    {
+     "codec": "utf-8",
+     "column": "NAME_RUS",
+     "errors": "strict",
+     "object_name": "ca1884route_przh_utf8"
+    },
+    {
+     "codec": "utf-8",
+     "column": "NAME_ROM",
+     "errors": "strict",
+     "object_name": "ca1884route_przh_utf8"
+    },
+    {
+     "codec": "utf-8",
+     "column": "TYPE",
+     "errors": "strict",
+     "object_name": "ca1884route_przh_utf8"
+    },
+    {
+     "codec": "ascii",
+     "column": "LAT",
+     "errors": "strict",
+     "object_name": "ca1884route_przh_utf8"
+    },
+    {
+     "codec": "ascii",
+     "column": "LONG",
+     "errors": "strict",
+     "object_name": "ca1884route_przh_utf8"
+    },
+    {
+     "codec": "ascii",
+     "column": "POS_CERT",
+     "errors": "strict",
+     "object_name": "ca1884route_przh_utf8"
+    },
+    {
+     "codec": "ascii",
+     "column": "DATE_CERT",
+     "errors": "strict",
+     "object_name": "ca1884route_przh_utf8"
+    },
+    {
+     "codec": "ascii",
+     "column": "DATE_",
+     "errors": "strict",
+     "object_name": "ca1884route_przh_utf8"
+    },
+    {
+     "codec": "utf-8",
+     "column": "MAP_NAME",
+     "errors": "strict",
+     "object_name": "ca1884route_przh_utf8"
+    },
+    {
+     "codec": "utf-8",
+     "column": "MAP_CITE",
+     "errors": "strict",
+     "object_name": "ca1884route_przh_utf8"
+    },
+    {
+     "codec": "utf-8",
+     "column": "ID",
+     "errors": "strict",
+     "object_name": "ca1884route_przh_utf8"
+    },
+    {
+     "codec": "utf-8",
+     "column": "RAS_ID",
+     "errors": "strict",
+     "object_name": "ca1884route_przh_utf8"
+    }
+   ],
+   "expected": {
+    "kind": "file",
+    "sha256": "eb9dfed2745641ac0ce91bf6f0f732fafe907192897eed0de42d16997044c724",
+    "signature": "unknown",
+    "size": 16937
+   },
+   "format_family": "spatial",
+   "reason": "first-batch seven candidate; names and mappings pending approval",
+   "rule_id": "m002717",
+   "selector": {
+    "archive_chain": [
+     "5_1884route/Ca1884route_przh_utf8.dbf"
+    ],
+    "archive_ordinals": [
+     11
+    ],
+    "relative_path": "harvard-full/doi_10_7910/DVN/E7HDYD/1884route.zip"
+   },
+   "targets": [
+    {
+     "columns": [
+      {
+       "nullable": true,
+       "ordinal": 1,
+       "pg_type": "text",
+       "source_column": "NAME_RUS",
+       "source_decimals": 0,
+       "source_width_bytes": 32,
+       "target_column": "name_u5f_rus"
+      },
+      {
+       "nullable": true,
+       "ordinal": 2,
+       "pg_type": "text",
+       "source_column": "NAME_ROM",
+       "source_decimals": 0,
+       "source_width_bytes": 32,
+       "target_column": "name_u5f_rom"
+      },
+      {
+       "nullable": true,
+       "ordinal": 3,
+       "pg_type": "text",
+       "source_column": "TYPE",
+       "source_decimals": 0,
+       "source_width_bytes": 40,
+       "target_column": "type"
+      },
+      {
+       "nullable": true,
+       "ordinal": 4,
+       "pg_type": "numeric(19,5)",
+       "source_column": "LAT",
+       "source_decimals": 5,
+       "source_width_bytes": 19,
+       "target_column": "lat"
+      },
+      {
+       "nullable": true,
+       "ordinal": 5,
+       "pg_type": "numeric(19,5)",
+       "source_column": "LONG",
+       "source_decimals": 5,
+       "source_width_bytes": 19,
+       "target_column": "long"
+      },
+      {
+       "nullable": true,
+       "ordinal": 6,
+       "pg_type": "bigint",
+       "source_column": "POS_CERT",
+       "source_decimals": 0,
+       "source_width_bytes": 16,
+       "target_column": "pos_u5f_cert"
+      },
+      {
+       "nullable": true,
+       "ordinal": 7,
+       "pg_type": "bigint",
+       "source_column": "DATE_CERT",
+       "source_decimals": 0,
+       "source_width_bytes": 16,
+       "target_column": "date_u5f_cert"
+      },
+      {
+       "nullable": true,
+       "ordinal": 8,
+       "pg_type": "bigint",
+       "source_column": "DATE_",
+       "source_decimals": 0,
+       "source_width_bytes": 16,
+       "target_column": "date_u5f_"
+      },
+      {
+       "nullable": true,
+       "ordinal": 9,
+       "pg_type": "text",
+       "source_column": "MAP_NAME",
+       "source_decimals": 0,
+       "source_width_bytes": 32,
+       "target_column": "map_u5f_name"
+      },
+      {
+       "nullable": true,
+       "ordinal": 10,
+       "pg_type": "text",
+       "source_column": "MAP_CITE",
+       "source_decimals": 0,
+       "source_width_bytes": 40,
+       "target_column": "map_u5f_cite"
+      },
+      {
+       "nullable": true,
+       "ordinal": 11,
+       "pg_type": "text",
+       "source_column": "ID",
+       "source_decimals": 0,
+       "source_width_bytes": 8,
+       "target_column": "id"
+      },
+      {
+       "nullable": true,
+       "ordinal": 12,
+       "pg_type": "text",
+       "source_column": "RAS_ID",
+       "source_decimals": 0,
+       "source_width_bytes": 9,
+       "target_column": "ras_u5f_id"
+      }
+     ],
+     "derived_rownum": {
+      "nullable": false,
+      "origin": "one_based_physical_source_row",
+      "pg_type": "bigint",
+      "target_column": "__src_rownum"
+     },
+     "duplicate_reconciliation": {
+      "count_includes_duplicates": true,
+      "expected_extra_rows": 0,
+      "expected_groups": 0,
+      "key": "value_columns_excluding_src_rownum"
+     },
+     "expected_count": 59,
+     "expected_sha256": "a2ad2d24ff4cae8c2e0315af0278d6286ef27510911a2f81ee1f4aa6c4b9b1d0",
+     "geometry": {
+      "canonical_format": "XRGGEOM-v1",
+      "coordinate_storage": "preserve_original_ieee754_xy_no_swap_or_transform",
+      "dimensions": 2,
+      "expected_sha256": "3c6067845a7938e8e4e1946d96c46dc4d57bab6aba236d3857b0967c10c73722",
+      "geometry_type": "Point",
+      "srid": 4326
+     },
+     "object_name": "ca1884route_przh_utf8",
+     "schema": "chgis",
+     "table": "ca1884route_przh_utf8"
+    }
+   ],
+   "validator": "canonical-spatial-v1"
+  },
+  {
+   "disposition": "IMPORT",
+   "encodings": [
+    {
+     "codec": "utf-8",
+     "column": "authorlast",
+     "errors": "strict",
+     "object_name": "harvard_u2d_full_u2f_doi_u5f_10_u5f_7910_u2f_dvn_u2f___1334a175"
+    },
+    {
+     "codec": "utf-8",
+     "column": "authorfirst",
+     "errors": "strict",
+     "object_name": "harvard_u2d_full_u2f_doi_u5f_10_u5f_7910_u2f_dvn_u2f___1334a175"
+    },
+    {
+     "codec": "utf-8",
+     "column": "format",
+     "errors": "strict",
+     "object_name": "harvard_u2d_full_u2f_doi_u5f_10_u5f_7910_u2f_dvn_u2f___1334a175"
+    },
+    {
+     "codec": "utf-8",
+     "column": "language",
+     "errors": "strict",
+     "object_name": "harvard_u2d_full_u2f_doi_u5f_10_u5f_7910_u2f_dvn_u2f___1334a175"
+    },
+    {
+     "codec": "utf-8",
+     "column": "type",
+     "errors": "strict",
+     "object_name": "harvard_u2d_full_u2f_doi_u5f_10_u5f_7910_u2f_dvn_u2f___1334a175"
+    },
+    {
+     "codec": "utf-8",
+     "column": "title",
+     "errors": "strict",
+     "object_name": "harvard_u2d_full_u2f_doi_u5f_10_u5f_7910_u2f_dvn_u2f___1334a175"
+    },
+    {
+     "codec": "utf-8",
+     "column": "filename",
+     "errors": "strict",
+     "object_name": "harvard_u2d_full_u2f_doi_u5f_10_u5f_7910_u2f_dvn_u2f___1334a175"
+    }
+   ],
+   "expected": {
+    "kind": "file",
+    "sha256": "cdc6d3e5d6d85e139305efe9c617c756f0eb668c19ce34efc4eca4f6cc8c2728",
+    "signature": "unknown",
+    "size": 3727
+   },
+   "format_family": "text",
+   "reason": "first-batch seven candidate; names and mappings pending approval",
+   "rule_id": "m004812",
+   "selector": {
+    "archive_chain": [],
+    "archive_ordinals": [],
+    "relative_path": "harvard-full/doi_10_7910/DVN/MI56KU/2001_Shanghai_0_INDEX_OF_PRESENTATIONS.tab"
+   },
+   "targets": [
+    {
+     "columns": [
+      {
+       "nullable": false,
+       "ordinal": 1,
+       "pg_type": "text",
+       "source_column": "c7a256b06ec71d74817f8ee21157421ce1aeba8fcf67d6196041bbbc4e769f48",
+       "target_column": "authorlast"
+      },
+      {
+       "nullable": false,
+       "ordinal": 2,
+       "pg_type": "text",
+       "source_column": "af17023a88e64e6f6724d4d047b8d7420a0faf3c4c8494eb647941631a98136c",
+       "target_column": "authorfirst"
+      },
+      {
+       "nullable": false,
+       "ordinal": 3,
+       "pg_type": "text",
+       "source_column": "c56bb84ed7c0ace1fcdffaf0d66483736c6a97038c65100164656bd87a9fa0b9",
+       "target_column": "format"
+      },
+      {
+       "nullable": false,
+       "ordinal": 4,
+       "pg_type": "text",
+       "source_column": "f13ff07d214294441502620f83d42df6f6e0ab00e9779ca89542c4a1de252ee8",
+       "target_column": "language"
+      },
+      {
+       "nullable": false,
+       "ordinal": 5,
+       "pg_type": "text",
+       "source_column": "f3ae27351dbd9f8101c67dbb8b85d1b703f6d0e96c610b2937ddd0f8dac046dc",
+       "target_column": "type"
+      },
+      {
+       "nullable": false,
+       "ordinal": 6,
+       "pg_type": "text",
+       "source_column": "144070aa1993d02d92dbd83125e7dca396669af4f2b71d046eaf2041da54bacd",
+       "target_column": "title"
+      },
+      {
+       "nullable": false,
+       "ordinal": 7,
+       "pg_type": "text",
+       "source_column": "de8acd389c549246eb8169b17e74a3ba819380682dff98a35d757a13753bece3",
+       "target_column": "filename"
+      }
+     ],
+     "derived_rownum": {
+      "nullable": false,
+      "origin": "one_based_physical_source_row",
+      "pg_type": "bigint",
+      "target_column": "__src_rownum"
+     },
+     "duplicate_reconciliation": {
+      "count_includes_duplicates": true,
+      "expected_extra_rows": 0,
+      "expected_groups": 0,
+      "key": "value_columns_excluding_src_rownum"
+     },
+     "expected_count": 29,
+     "expected_sha256": "b3f6ceb609a853cbb06eb7f8004a39f676d1ff5e95fbb46fc0381abbf722f667",
+     "object_name": "harvard_u2d_full_u2f_doi_u5f_10_u5f_7910_u2f_dvn_u2f___1334a175",
+     "schema": "harv",
+     "table": "harvard_u2d_full_u2f_doi_u5f_10_u5f_7910_u2f_dvn_u2f___1334a175"
+    }
+   ],
+   "validator": "canonical-value-v1"
+  },
+  {
+   "disposition": "IMPORT",
+   "encodings": [
+    {
+     "codec": "utf-8",
+     "column": "gb_u5f_91",
+     "errors": "strict",
+     "object_name": "harvard_u2d_full_u2f_doi_u5f_10_u5f_7910_u2f_dvn_u2f___9784b044"
+    },
+    {
+     "codec": "utf-8",
+     "column": "hz_u5f_name",
+     "errors": "strict",
+     "object_name": "harvard_u2d_full_u2f_doi_u5f_10_u5f_7910_u2f_dvn_u2f___9784b044"
+    },
+    {
+     "codec": "utf-8",
+     "column": "py_u5f_name",
+     "errors": "strict",
+     "object_name": "harvard_u2d_full_u2f_doi_u5f_10_u5f_7910_u2f_dvn_u2f___9784b044"
+    },
+    {
+     "codec": "utf-8",
+     "column": "adm2",
+     "errors": "strict",
+     "object_name": "harvard_u2d_full_u2f_doi_u5f_10_u5f_7910_u2f_dvn_u2f___9784b044"
+    },
+    {
+     "codec": "utf-8",
+     "column": "adm1",
+     "errors": "strict",
+     "object_name": "harvard_u2d_full_u2f_doi_u5f_10_u5f_7910_u2f_dvn_u2f___9784b044"
+    },
+    {
+     "codec": "utf-8",
+     "column": "adm_u5f_lvl",
+     "errors": "strict",
+     "object_name": "harvard_u2d_full_u2f_doi_u5f_10_u5f_7910_u2f_dvn_u2f___9784b044"
+    }
+   ],
+   "expected": {
+    "kind": "file",
+    "sha256": "58ef3cb445ef4b0e70a8716aad3463915320c64ee7fa257ea88eb0c93fe1cec0",
+    "signature": "unknown",
+    "size": 137961
+   },
+   "format_family": "text",
+   "reason": "first-batch seven candidate; names and mappings pending approval",
+   "rule_id": "m006642",
+   "selector": {
+    "archive_chain": [],
+    "archive_ordinals": [],
+    "relative_path": "harvard-full/doi_10_7910/DVN/SK7KGK/GB_91_HZ_040201_UTF8.tab"
+   },
+   "targets": [
+    {
+     "columns": [
+      {
+       "nullable": false,
+       "ordinal": 1,
+       "pg_type": "text",
+       "source_column": "171573792783ab3bdd581c4c5a1dfebd8c318703ccd7d4723ff8c146f64f5fa5",
+       "target_column": "gb_u5f_91"
+      },
+      {
+       "nullable": false,
+       "ordinal": 2,
+       "pg_type": "text",
+       "source_column": "1ca769c974aea09e27cc48017e96c67c645d19ba319508524576a952fd62d924",
+       "target_column": "hz_u5f_name"
+      },
+      {
+       "nullable": false,
+       "ordinal": 3,
+       "pg_type": "text",
+       "source_column": "d5b1530c2c385423e0167b4caedba865d651fa353ebb0e30a77be4e4cae4cd89",
+       "target_column": "py_u5f_name"
+      },
+      {
+       "nullable": false,
+       "ordinal": 4,
+       "pg_type": "text",
+       "source_column": "dbe12578f5d2ef3f57da82ad46b604c0c260b31fe3daad15bb23646008591bf3",
+       "target_column": "adm2"
+      },
+      {
+       "nullable": false,
+       "ordinal": 5,
+       "pg_type": "text",
+       "source_column": "09c7256b4f5e9e865992608bcb368e18869428f47c4977b9e7978d1b7819be5e",
+       "target_column": "adm1"
+      },
+      {
+       "nullable": false,
+       "ordinal": 6,
+       "pg_type": "text",
+       "source_column": "5c01f7eafc615393b58011de525b53d500d75d2daff29d9528ff19752d1c18b7",
+       "target_column": "adm_u5f_lvl"
+      }
+     ],
+     "derived_rownum": {
+      "nullable": false,
+      "origin": "one_based_physical_source_row",
+      "pg_type": "bigint",
+      "target_column": "__src_rownum"
+     },
+     "duplicate_reconciliation": {
+      "count_includes_duplicates": true,
+      "expected_extra_rows": 0,
+      "expected_groups": 0,
+      "key": "value_columns_excluding_src_rownum"
+     },
+     "expected_count": 3389,
+     "expected_sha256": "3bad44a0482c1bc2479a541d2d9c9d405187eb1caeb177479fb69f7954b313fc",
+     "object_name": "harvard_u2d_full_u2f_doi_u5f_10_u5f_7910_u2f_dvn_u2f___9784b044",
+     "schema": "chgis",
+     "table": "harvard_u2d_full_u2f_doi_u5f_10_u5f_7910_u2f_dvn_u2f___9784b044"
+    }
+   ],
+   "validator": "canonical-value-v1"
+  },
+  {
+   "disposition": "IMPORT",
+   "encodings": [
+    {
+     "codec": "utf-8-sig",
+     "column": "id",
+     "errors": "strict",
+     "object_name": "harvard_u2f_tab__academy_u5f_data_u2e_tab"
+    },
+    {
+     "codec": "utf-8-sig",
+     "column": "t__u4e66__u9662__u540d_id_u28_cbdb_u29_",
+     "errors": "strict",
+     "object_name": "harvard_u2f_tab__academy_u5f_data_u2e_tab"
+    },
+    {
+     "codec": "utf-8-sig",
+     "column": "t__u4e66__u9662_id_u28_cbdb_u29_",
+     "errors": "strict",
+     "object_name": "harvard_u2f_tab__academy_u5f_data_u2e_tab"
+    },
+    {
+     "codec": "utf-8-sig",
+     "column": "t__u4e66__u9662__u540d_",
+     "errors": "strict",
+     "object_name": "harvard_u2f_tab__academy_u5f_data_u2e_tab"
+    },
+    {
+     "codec": "utf-8-sig",
+     "column": "t__u5efa__u9662__u65f6__u95f4_",
+     "errors": "strict",
+     "object_name": "harvard_u2f_tab__academy_u5f_data_u2e_tab"
+    },
+    {
+     "codec": "utf-8-sig",
+     "column": "t__u5efa__u9662__u5e74__u53f7_",
+     "errors": "strict",
+     "object_name": "harvard_u2f_tab__academy_u5f_data_u2e_tab"
+    },
+    {
+     "codec": "utf-8-sig",
+     "column": "t__u5efa__u9662__u671d__u4ee3_",
+     "errors": "strict",
+     "object_name": "harvard_u2f_tab__academy_u5f_data_u2e_tab"
+    },
+    {
+     "codec": "utf-8-sig",
+     "column": "t__u5efa__u66f8__u9662__u8005_",
+     "errors": "strict",
+     "object_name": "harvard_u2f_tab__academy_u5f_data_u2e_tab"
+    },
+    {
+     "codec": "utf-8-sig",
+     "column": "t__u7e41__u76db__u671d__u4ee3_",
+     "errors": "strict",
+     "object_name": "harvard_u2f_tab__academy_u5f_data_u2e_tab"
+    },
+    {
+     "codec": "utf-8-sig",
+     "column": "t__u4e66__u9662__u5730__u5740_",
+     "errors": "strict",
+     "object_name": "harvard_u2f_tab__academy_u5f_data_u2e_tab"
+    },
+    {
+     "codec": "utf-8-sig",
+     "column": "t__u4e66__u9662__u5730__u5740_x_u5750__u6807_",
+     "errors": "strict",
+     "object_name": "harvard_u2f_tab__academy_u5f_data_u2e_tab"
+    },
+    {
+     "codec": "utf-8-sig",
+     "column": "t__u4e66__u9662__u5730__u5740_y_u5750__u6807_",
+     "errors": "strict",
+     "object_name": "harvard_u2f_tab__academy_u5f_data_u2e_tab"
+    },
+    {
+     "codec": "utf-8-sig",
+     "column": "t__u5efa__u7bc9_",
+     "errors": "strict",
+     "object_name": "harvard_u2f_tab__academy_u5f_data_u2e_tab"
+    },
+    {
+     "codec": "utf-8-sig",
+     "column": "t__u5efa__u7bc9__u6642__u9593_",
+     "errors": "strict",
+     "object_name": "harvard_u2f_tab__academy_u5f_data_u2e_tab"
+    },
+    {
+     "codec": "utf-8-sig",
+     "column": "t__u7d93__u8cbb__u4f86__u6e90_",
+     "errors": "strict",
+     "object_name": "harvard_u2f_tab__academy_u5f_data_u2e_tab"
+    },
+    {
+     "codec": "utf-8-sig",
+     "column": "t__u7d93__u8cbb__u6578__u76ee_",
+     "errors": "strict",
+     "object_name": "harvard_u2f_tab__academy_u5f_data_u2e_tab"
+    },
+    {
+     "codec": "utf-8-sig",
+     "column": "t__u6350__u8d08__u8005_",
+     "errors": "strict",
+     "object_name": "harvard_u2f_tab__academy_u5f_data_u2e_tab"
+    },
+    {
+     "codec": "utf-8-sig",
+     "column": "t__u6350__u8d08__u7269__u8cc7_",
+     "errors": "strict",
+     "object_name": "harvard_u2f_tab__academy_u5f_data_u2e_tab"
+    },
+    {
+     "codec": "utf-8-sig",
+     "column": "t__u6350__u8d08__u6642__u9593_",
+     "errors": "strict",
+     "object_name": "harvard_u2f_tab__academy_u5f_data_u2e_tab"
+    },
+    {
+     "codec": "utf-8-sig",
+     "column": "t__u662f__u5426__u6709__u85cf__u66f8_",
+     "errors": "strict",
+     "object_name": "harvard_u2f_tab__academy_u5f_data_u2e_tab"
+    },
+    {
+     "codec": "utf-8-sig",
+     "column": "t__u662f__u5426__u6709__u85cf__u66f8__u5099__u8a3b_",
+     "errors": "strict",
+     "object_name": "harvard_u2f_tab__academy_u5f_data_u2e_tab"
+    },
+    {
+     "codec": "utf-8-sig",
+     "column": "t__u6539__u5efa__u2f__u64f4__u5efa__u2f__u91cd__u4fee__u8005_",
+     "errors": "strict",
+     "object_name": "harvard_u2f_tab__academy_u5f_data_u2e_tab"
+    },
+    {
+     "codec": "utf-8-sig",
+     "column": "t__u6539__u5efa__u2f__u64f4__u5efa__u2f__u91cd__u4fee__baae1ea9",
+     "errors": "strict",
+     "object_name": "harvard_u2f_tab__academy_u5f_data_u2e_tab"
+    },
+    {
+     "codec": "utf-8-sig",
+     "column": "t__u91cd__u5efa__u8005_",
+     "errors": "strict",
+     "object_name": "harvard_u2f_tab__academy_u5f_data_u2e_tab"
+    },
+    {
+     "codec": "utf-8-sig",
+     "column": "t__u91cd__u5efa__u6642__u9593_",
+     "errors": "strict",
+     "object_name": "harvard_u2f_tab__academy_u5f_data_u2e_tab"
+    },
+    {
+     "codec": "utf-8-sig",
+     "column": "t__u7940_y",
+     "errors": "strict",
+     "object_name": "harvard_u2f_tab__academy_u5f_data_u2e_tab"
+    },
+    {
+     "codec": "utf-8-sig",
+     "column": "t__u66f8__u9662__u985e__u578b_",
+     "errors": "strict",
+     "object_name": "harvard_u2f_tab__academy_u5f_data_u2e_tab"
+    },
+    {
+     "codec": "utf-8-sig",
+     "column": "t__u66f8__u9662__u985e__u578b__u5099__u8a3b_",
+     "errors": "strict",
+     "object_name": "harvard_u2f_tab__academy_u5f_data_u2e_tab"
+    },
+    {
+     "codec": "utf-8-sig",
+     "column": "t__u51fa__u7248__u7269__u985e__u578b_",
+     "errors": "strict",
+     "object_name": "harvard_u2f_tab__academy_u5f_data_u2e_tab"
+    },
+    {
+     "codec": "utf-8-sig",
+     "column": "t__u51fa__u7248__u7269__u6642__u9593_",
+     "errors": "strict",
+     "object_name": "harvard_u2f_tab__academy_u5f_data_u2e_tab"
+    },
+    {
+     "codec": "utf-8-sig",
+     "column": "t__u91cd__u5927__u4e8b__u4ef6_",
+     "errors": "strict",
+     "object_name": "harvard_u2f_tab__academy_u5f_data_u2e_tab"
+    },
+    {
+     "codec": "utf-8-sig",
+     "column": "t__u4efb__u8077__u2f__u5b78__u751f_",
+     "errors": "strict",
+     "object_name": "harvard_u2f_tab__academy_u5f_data_u2e_tab"
+    },
+    {
+     "codec": "utf-8-sig",
+     "column": "t__u4efb__u8077__u2f__u5c31__u5b78__u6642__u9593_",
+     "errors": "strict",
+     "object_name": "harvard_u2f_tab__academy_u5f_data_u2e_tab"
+    },
+    {
+     "codec": "utf-8-sig",
+     "column": "t__u5225__u7a31_",
+     "errors": "strict",
+     "object_name": "harvard_u2f_tab__academy_u5f_data_u2e_tab"
+    },
+    {
+     "codec": "utf-8-sig",
+     "column": "t__u4e26__u7a31_",
+     "errors": "strict",
+     "object_name": "harvard_u2f_tab__academy_u5f_data_u2e_tab"
+    },
+    {
+     "codec": "utf-8-sig",
+     "column": "t__u5b78__u6d3e__u5099__u8a3b_",
+     "errors": "strict",
+     "object_name": "harvard_u2f_tab__academy_u5f_data_u2e_tab"
+    },
+    {
+     "codec": "utf-8-sig",
+     "column": "t__u88ab__u6bc0__u6642__u9593_",
+     "errors": "strict",
+     "object_name": "harvard_u2f_tab__academy_u5f_data_u2e_tab"
+    },
+    {
+     "codec": "utf-8-sig",
+     "column": "t__u88ab__u6bc0__u6642__u9593__u5099__u8a3b_",
+     "errors": "strict",
+     "object_name": "harvard_u2f_tab__academy_u5f_data_u2e_tab"
+    },
+    {
+     "codec": "utf-8-sig",
+     "column": "t__u8a2d__u5b9a__u5236__u5ea6__u8005_",
+     "errors": "strict",
+     "object_name": "harvard_u2f_tab__academy_u5f_data_u2e_tab"
+    },
+    {
+     "codec": "utf-8-sig",
+     "column": "t__u8a2d__u5b9a__u5236__u5ea6__u6642__u9593_",
+     "errors": "strict",
+     "object_name": "harvard_u2f_tab__academy_u5f_data_u2e_tab"
+    },
+    {
+     "codec": "utf-8-sig",
+     "column": "t__u51fa__u7248__u7269_",
+     "errors": "strict",
+     "object_name": "harvard_u2f_tab__academy_u5f_data_u2e_tab"
+    },
+    {
+     "codec": "utf-8-sig",
+     "column": "t__u6539__u5236__u540d__u7a31_",
+     "errors": "strict",
+     "object_name": "harvard_u2f_tab__academy_u5f_data_u2e_tab"
+    },
+    {
+     "codec": "utf-8-sig",
+     "column": "t__u6539__u5236__u6642__u9593_",
+     "errors": "strict",
+     "object_name": "harvard_u2f_tab__academy_u5f_data_u2e_tab"
+    },
+    {
+     "codec": "utf-8-sig",
+     "column": "t__u4fe1__u606f__u4f86__u6e90_",
+     "errors": "strict",
+     "object_name": "harvard_u2f_tab__academy_u5f_data_u2e_tab"
+    },
+    {
+     "codec": "utf-8-sig",
+     "column": "t__u524d__u8eab__u4fe1__u606f_",
+     "errors": "strict",
+     "object_name": "harvard_u2f_tab__academy_u5f_data_u2e_tab"
+    },
+    {
+     "codec": "utf-8-sig",
+     "column": "t__u7ecf__u6d4e__u5236__u5ea6_",
+     "errors": "strict",
+     "object_name": "harvard_u2f_tab__academy_u5f_data_u2e_tab"
+    },
+    {
+     "codec": "utf-8-sig",
+     "column": "t__u62db__u751f__u5236__u5ea6_",
+     "errors": "strict",
+     "object_name": "harvard_u2f_tab__academy_u5f_data_u2e_tab"
+    },
+    {
+     "codec": "utf-8-sig",
+     "column": "t__u85cf__u4e66_",
+     "errors": "strict",
+     "object_name": "harvard_u2f_tab__academy_u5f_data_u2e_tab"
+    },
+    {
+     "codec": "utf-8-sig",
+     "column": "t__u4e66__u9662__u5236__u5ea6_",
+     "errors": "strict",
+     "object_name": "harvard_u2f_tab__academy_u5f_data_u2e_tab"
+    },
+    {
+     "codec": "utf-8-sig",
+     "column": "t__u9500__u6bc1__u7684__u5efa__u7b51__u28__u65f6__u95f4__u29_",
+     "errors": "strict",
+     "object_name": "harvard_u2f_tab__academy_u5f_data_u2e_tab"
+    },
+    {
+     "codec": "utf-8-sig",
+     "column": "t__u4e66__u9662__u51fa__u5904_",
+     "errors": "strict",
+     "object_name": "harvard_u2f_tab__academy_u5f_data_u2e_tab"
+    },
+    {
+     "codec": "utf-8-sig",
+     "column": "t__u4e66__u9662__u51fa__u5904__u9875__u7801_",
+     "errors": "strict",
+     "object_name": "harvard_u2f_tab__academy_u5f_data_u2e_tab"
+    },
+    {
+     "codec": "utf-8-sig",
+     "column": "t__u5907__u6ce8_",
+     "errors": "strict",
+     "object_name": "harvard_u2f_tab__academy_u5f_data_u2e_tab"
+    },
+    {
+     "codec": "utf-8-sig",
+     "column": "t__u4fe1__u606f__u6536__u96c6_",
+     "errors": "strict",
+     "object_name": "harvard_u2f_tab__academy_u5f_data_u2e_tab"
+    }
+   ],
+   "expected": {
+    "kind": "file",
+    "sha256": "d21bd9f625acd85e66298fd8635b64c54f380d36b8f44f5d1d9734a0bf55c256",
+    "signature": "unknown",
+    "size": 714962
+   },
+   "format_family": "text",
+   "reason": "first-batch seven candidate; names and mappings pending approval",
+   "rule_id": "m008002",
+   "selector": {
+    "archive_chain": [],
+    "archive_ordinals": [],
+    "relative_path": "harvard/tab/ACADEMY_Data.tab"
+   },
+   "targets": [
+    {
+     "columns": [
+      {
+       "nullable": false,
+       "ordinal": 1,
+       "pg_type": "text",
+       "source_column": "df86d255b7714be5c26a3bd081ab7224244ab4d3e20589e0104376bb38d57fea",
+       "target_column": "id"
+      },
+      {
+       "nullable": false,
+       "ordinal": 2,
+       "pg_type": "text",
+       "source_column": "3bbda2eafbf20f75d1190a2be06dcf0706938b6696a3a7d99516bdf79d5dadff",
+       "target_column": "t__u4e66__u9662__u540d_id_u28_cbdb_u29_"
+      },
+      {
+       "nullable": false,
+       "ordinal": 3,
+       "pg_type": "text",
+       "source_column": "357b872e8056982b35c5acda982f25ff60802c1f0801f46f2cfe2c7e690c4546",
+       "target_column": "t__u4e66__u9662_id_u28_cbdb_u29_"
+      },
+      {
+       "nullable": false,
+       "ordinal": 4,
+       "pg_type": "text",
+       "source_column": "a39cff2262d75c404ac5525475146fad78bf0b79a1c487a8af34e057e22abddb",
+       "target_column": "t__u4e66__u9662__u540d_"
+      },
+      {
+       "nullable": false,
+       "ordinal": 5,
+       "pg_type": "text",
+       "source_column": "d63711e9dccb0997093920d08a0218ea0f2bc839fbc7d9ac02497eb41bbcc080",
+       "target_column": "t__u5efa__u9662__u65f6__u95f4_"
+      },
+      {
+       "nullable": false,
+       "ordinal": 6,
+       "pg_type": "text",
+       "source_column": "0bc2e410812334cef3e544606963e75099e68e2b43fb8a5e9d94f71fabd8a76d",
+       "target_column": "t__u5efa__u9662__u5e74__u53f7_"
+      },
+      {
+       "nullable": false,
+       "ordinal": 7,
+       "pg_type": "text",
+       "source_column": "0d3250c5164b2eb673eaf90d9556a54f382373f251dd9b58d087525d76ddcca4",
+       "target_column": "t__u5efa__u9662__u671d__u4ee3_"
+      },
+      {
+       "nullable": false,
+       "ordinal": 8,
+       "pg_type": "text",
+       "source_column": "6d47f38c13f5846a876326531f7bedc56c682ce409b1701bc739003484a861cc",
+       "target_column": "t__u5efa__u66f8__u9662__u8005_"
+      },
+      {
+       "nullable": false,
+       "ordinal": 9,
+       "pg_type": "text",
+       "source_column": "7899069e0ce157c45139736f269ace456b25576a3832c6b0bcf1d80828c1084d",
+       "target_column": "t__u7e41__u76db__u671d__u4ee3_"
+      },
+      {
+       "nullable": false,
+       "ordinal": 10,
+       "pg_type": "text",
+       "source_column": "8b7e8faa555aa9b409d1213c317376557013a446f3863785f20f7d576c5d4659",
+       "target_column": "t__u4e66__u9662__u5730__u5740_"
+      },
+      {
+       "nullable": false,
+       "ordinal": 11,
+       "pg_type": "text",
+       "source_column": "2bdbad1d6149cb61d22a963468e0c7580595bd2728350ee07b4c1a8f8c7f5033",
+       "target_column": "t__u4e66__u9662__u5730__u5740_x_u5750__u6807_"
+      },
+      {
+       "nullable": false,
+       "ordinal": 12,
+       "pg_type": "text",
+       "source_column": "b52591f85cf732b219912b571f3425b43fdd428b8c227ea71e60ac211524b017",
+       "target_column": "t__u4e66__u9662__u5730__u5740_y_u5750__u6807_"
+      },
+      {
+       "nullable": false,
+       "ordinal": 13,
+       "pg_type": "text",
+       "source_column": "4d3fe9de9158a04d9aa4092370db49967c9534894ee794f6e367332fa567b97a",
+       "target_column": "t__u5efa__u7bc9_"
+      },
+      {
+       "nullable": false,
+       "ordinal": 14,
+       "pg_type": "text",
+       "source_column": "9c82817161141dd1fd6f180cc074f28a56f93024d06570627424fac2cbb20f26",
+       "target_column": "t__u5efa__u7bc9__u6642__u9593_"
+      },
+      {
+       "nullable": false,
+       "ordinal": 15,
+       "pg_type": "text",
+       "source_column": "99b49242eac8e0593299ffe00c546e13bee3c19e0a0a874109849e2f6239fc58",
+       "target_column": "t__u7d93__u8cbb__u4f86__u6e90_"
+      },
+      {
+       "nullable": false,
+       "ordinal": 16,
+       "pg_type": "text",
+       "source_column": "36b657e52f16a63d84f3ee61607ca9a04fbb64573b8a5af2243be5dfcaedd074",
+       "target_column": "t__u7d93__u8cbb__u6578__u76ee_"
+      },
+      {
+       "nullable": false,
+       "ordinal": 17,
+       "pg_type": "text",
+       "source_column": "61b36ab9927c26155f25c32b3b9d1026c3a9bd6993fd658c9d2ef87cabcc1c48",
+       "target_column": "t__u6350__u8d08__u8005_"
+      },
+      {
+       "nullable": false,
+       "ordinal": 18,
+       "pg_type": "text",
+       "source_column": "f79b0981d174f7a1482b87f27de77cdb494b708de18573f876eb9f5bf0ad2b29",
+       "target_column": "t__u6350__u8d08__u7269__u8cc7_"
+      },
+      {
+       "nullable": false,
+       "ordinal": 19,
+       "pg_type": "text",
+       "source_column": "966176e4d137116c24a45d427b8a55dff911766cdb56d5c1ded6fc300f29be83",
+       "target_column": "t__u6350__u8d08__u6642__u9593_"
+      },
+      {
+       "nullable": false,
+       "ordinal": 20,
+       "pg_type": "text",
+       "source_column": "23142d0ff623952135e2bc5079e0eaea0baa409d7476dc9fa72f4f98568d29ef",
+       "target_column": "t__u662f__u5426__u6709__u85cf__u66f8_"
+      },
+      {
+       "nullable": false,
+       "ordinal": 21,
+       "pg_type": "text",
+       "source_column": "6f14839a6a04d83b97fdb15c76a614ba02880f98006d12b0d493bcae098cb14b",
+       "target_column": "t__u662f__u5426__u6709__u85cf__u66f8__u5099__u8a3b_"
+      },
+      {
+       "nullable": false,
+       "ordinal": 22,
+       "pg_type": "text",
+       "source_column": "6fc47e5bf8b40f1a1efe76fb5b1b4f0cac14aacf26fef2cdf3889a9c7cba8261",
+       "target_column": "t__u6539__u5efa__u2f__u64f4__u5efa__u2f__u91cd__u4fee__u8005_"
+      },
+      {
+       "nullable": false,
+       "ordinal": 23,
+       "pg_type": "text",
+       "source_column": "baae1ea9412a18d147fe3a3555f442aa34bebab0015315e0cf91ac63e0e6472e",
+       "target_column": "t__u6539__u5efa__u2f__u64f4__u5efa__u2f__u91cd__u4fee__baae1ea9"
+      },
+      {
+       "nullable": false,
+       "ordinal": 24,
+       "pg_type": "text",
+       "source_column": "3de764448c6d76b3ecda34d6dcad76b94af0ffbbb78c8a12f04c3e93e511a7dc",
+       "target_column": "t__u91cd__u5efa__u8005_"
+      },
+      {
+       "nullable": false,
+       "ordinal": 25,
+       "pg_type": "text",
+       "source_column": "b157bb84d446b0e24e1d3b722dbc3a686cd91aa7e602bbe3816e3d34643dd63e",
+       "target_column": "t__u91cd__u5efa__u6642__u9593_"
+      },
+      {
+       "nullable": false,
+       "ordinal": 26,
+       "pg_type": "text",
+       "source_column": "2974a526bb2f342a79c4c6fbe084066abb7da7705b69cf141b97079c3a71aac6",
+       "target_column": "t__u7940_y"
+      },
+      {
+       "nullable": false,
+       "ordinal": 27,
+       "pg_type": "text",
+       "source_column": "9a99d2e23cb7da83a696b5f8521dbcdeb441665da6a9648a69c1ffd7dce89864",
+       "target_column": "t__u66f8__u9662__u985e__u578b_"
+      },
+      {
+       "nullable": false,
+       "ordinal": 28,
+       "pg_type": "text",
+       "source_column": "1150679be74c8f80698fe358c1b531271382d4fce3b8e7683e9fe529061f5d8b",
+       "target_column": "t__u66f8__u9662__u985e__u578b__u5099__u8a3b_"
+      },
+      {
+       "nullable": false,
+       "ordinal": 29,
+       "pg_type": "text",
+       "source_column": "a6f40cb4656f6dbfcbb5436938b186ba86032357f7f0983b08788d7a61042870",
+       "target_column": "t__u51fa__u7248__u7269__u985e__u578b_"
+      },
+      {
+       "nullable": false,
+       "ordinal": 30,
+       "pg_type": "text",
+       "source_column": "a5a96c50a981480227622679a8e543b30242f1b3c2208751b67b491bf086bdd9",
+       "target_column": "t__u51fa__u7248__u7269__u6642__u9593_"
+      },
+      {
+       "nullable": false,
+       "ordinal": 31,
+       "pg_type": "text",
+       "source_column": "78f3598e2ac96e4d77b301d270886160ea04c66063fdc1e7998878a24514fc5e",
+       "target_column": "t__u91cd__u5927__u4e8b__u4ef6_"
+      },
+      {
+       "nullable": false,
+       "ordinal": 32,
+       "pg_type": "text",
+       "source_column": "a95b1729547cb13ce83af346dbebb22503b7802d1187bc362fe086eaceadb841",
+       "target_column": "t__u4efb__u8077__u2f__u5b78__u751f_"
+      },
+      {
+       "nullable": false,
+       "ordinal": 33,
+       "pg_type": "text",
+       "source_column": "6d205487787d5c1d7bfc331b63ec6fad3bdee9ccf8ec642ed4931c267f7ceb4a",
+       "target_column": "t__u4efb__u8077__u2f__u5c31__u5b78__u6642__u9593_"
+      },
+      {
+       "nullable": false,
+       "ordinal": 34,
+       "pg_type": "text",
+       "source_column": "33f14d3f51cfc971c85e29fde48508ed3674bff70d7ab4d96ca68f5f8be6b886",
+       "target_column": "t__u5225__u7a31_"
+      },
+      {
+       "nullable": false,
+       "ordinal": 35,
+       "pg_type": "text",
+       "source_column": "c6bd972983a295548ea536515b38a1c1b58aa6a78ba6c6dd8761d66b7e43b083",
+       "target_column": "t__u4e26__u7a31_"
+      },
+      {
+       "nullable": false,
+       "ordinal": 36,
+       "pg_type": "text",
+       "source_column": "6f31147fcac3ebc7e4cd20cc30c8616bbcffeb00a31204568d9da488b7d3f48e",
+       "target_column": "t__u5b78__u6d3e__u5099__u8a3b_"
+      },
+      {
+       "nullable": false,
+       "ordinal": 37,
+       "pg_type": "text",
+       "source_column": "90ce14e73f45a4ea4d524f9e6d2d3115de6fba125e948877b8b1638a3d3e13ae",
+       "target_column": "t__u88ab__u6bc0__u6642__u9593_"
+      },
+      {
+       "nullable": false,
+       "ordinal": 38,
+       "pg_type": "text",
+       "source_column": "0fbba0b2d1f56b507bd4fb22c0f53e4950a17939082313419cd1648abb9e1de2",
+       "target_column": "t__u88ab__u6bc0__u6642__u9593__u5099__u8a3b_"
+      },
+      {
+       "nullable": false,
+       "ordinal": 39,
+       "pg_type": "text",
+       "source_column": "73695cbbe0373ecd504e5434040cf37fd3aeabaf322b0c8c3c8afbaaadf5a0d3",
+       "target_column": "t__u8a2d__u5b9a__u5236__u5ea6__u8005_"
+      },
+      {
+       "nullable": false,
+       "ordinal": 40,
+       "pg_type": "text",
+       "source_column": "289bef7fc133a56260773ddbb1bfd847a201feb5a12ef4f5bf592436f9aee99f",
+       "target_column": "t__u8a2d__u5b9a__u5236__u5ea6__u6642__u9593_"
+      },
+      {
+       "nullable": false,
+       "ordinal": 41,
+       "pg_type": "text",
+       "source_column": "ebdc48abcaa8df6ab01cfa3ec2db43c372bfea85e077445ecc5960df3c324566",
+       "target_column": "t__u51fa__u7248__u7269_"
+      },
+      {
+       "nullable": false,
+       "ordinal": 42,
+       "pg_type": "text",
+       "source_column": "390ebe928d4268250884f7fa014e4576fde17e4f444a87d96f8ee10767193508",
+       "target_column": "t__u6539__u5236__u540d__u7a31_"
+      },
+      {
+       "nullable": false,
+       "ordinal": 43,
+       "pg_type": "text",
+       "source_column": "6d617200464a732bc3950d79912babccd881e9ce012823936fff4e15443c35d2",
+       "target_column": "t__u6539__u5236__u6642__u9593_"
+      },
+      {
+       "nullable": false,
+       "ordinal": 44,
+       "pg_type": "text",
+       "source_column": "d1e979d6b169f18c8d95773d63d3f3dc73fd540f3fd81acbd6ff72808de95b3c",
+       "target_column": "t__u4fe1__u606f__u4f86__u6e90_"
+      },
+      {
+       "nullable": false,
+       "ordinal": 45,
+       "pg_type": "text",
+       "source_column": "b8a8e6a623f1769a312a5a3235c5677a632288f778cdb45fa570d135fd56f145",
+       "target_column": "t__u524d__u8eab__u4fe1__u606f_"
+      },
+      {
+       "nullable": false,
+       "ordinal": 46,
+       "pg_type": "text",
+       "source_column": "41f3700adfd4e6060a52baa102ba5dafab6425d191465ebb2afd642b56e7bae3",
+       "target_column": "t__u7ecf__u6d4e__u5236__u5ea6_"
+      },
+      {
+       "nullable": false,
+       "ordinal": 47,
+       "pg_type": "text",
+       "source_column": "5de75e4ee7231b272fe91c725b2e19e30edd53d6420bd39965992e30d820d9a2",
+       "target_column": "t__u62db__u751f__u5236__u5ea6_"
+      },
+      {
+       "nullable": false,
+       "ordinal": 48,
+       "pg_type": "text",
+       "source_column": "54984c7cfa4201ab7d4f07c4e44c22bf899fdcd49bd39e3d1cd4af100d5f5940",
+       "target_column": "t__u85cf__u4e66_"
+      },
+      {
+       "nullable": false,
+       "ordinal": 49,
+       "pg_type": "text",
+       "source_column": "647d37bd4b94cf6c8d4f986f64f60cb718a007b4b492e0e86fa0e1909ad76234",
+       "target_column": "t__u4e66__u9662__u5236__u5ea6_"
+      },
+      {
+       "nullable": false,
+       "ordinal": 50,
+       "pg_type": "text",
+       "source_column": "32da82a5a8a401bee98d862b9acabaf222b8e0a3c02a43e9b8826188835a7467",
+       "target_column": "t__u9500__u6bc1__u7684__u5efa__u7b51__u28__u65f6__u95f4__u29_"
+      },
+      {
+       "nullable": false,
+       "ordinal": 51,
+       "pg_type": "text",
+       "source_column": "56f0c8a5c528ee7a66366e6a7127f1bbf58bfa527d0f9d573e64322689a3d2ec",
+       "target_column": "t__u4e66__u9662__u51fa__u5904_"
+      },
+      {
+       "nullable": false,
+       "ordinal": 52,
+       "pg_type": "text",
+       "source_column": "c0e072be9ba846937abfc23ca70ed42b857c0261c65b7affb497bdf8a6d67ad2",
+       "target_column": "t__u4e66__u9662__u51fa__u5904__u9875__u7801_"
+      },
+      {
+       "nullable": false,
+       "ordinal": 53,
+       "pg_type": "text",
+       "source_column": "808596694cae627a87eee29c4b1b27521f88bb6037e8208abc0233df828dbdc4",
+       "target_column": "t__u5907__u6ce8_"
+      },
+      {
+       "nullable": false,
+       "ordinal": 54,
+       "pg_type": "text",
+       "source_column": "ef68fcc3569aa57dd9b805b8251b9137e297d61adaa01dc08a1dabb0e1393ff8",
+       "target_column": "t__u4fe1__u606f__u6536__u96c6_"
+      }
+     ],
+     "derived_rownum": {
+      "nullable": false,
+      "origin": "one_based_physical_source_row",
+      "pg_type": "bigint",
+      "target_column": "__src_rownum"
+     },
+     "duplicate_reconciliation": {
+      "count_includes_duplicates": true,
+      "expected_extra_rows": 0,
+      "expected_groups": 0,
+      "key": "value_columns_excluding_src_rownum"
+     },
+     "expected_count": 2957,
+     "expected_sha256": "475ea1d8b400939cb79b46b47d641d83685bc8d1a3e4478bec1cdfdd562c429a",
+     "object_name": "harvard_u2f_tab__academy_u5f_data_u2e_tab",
+     "schema": "harv",
+     "table": "harvard_u2f_tab__academy_u5f_data_u2e_tab"
+    }
+   ],
+   "validator": "canonical-value-v1"
+  },
+  {
+   "disposition": "IMPORT",
+   "encodings": [
+    {
+     "codec": "utf-8-sig",
+     "column": "vol_u5f_juan",
+     "errors": "strict",
+     "object_name": "harvard_u2f_tab__index_u5f_of_u5f_the_u5f_complete_u5__300c7027"
+    },
+    {
+     "codec": "utf-8-sig",
+     "column": "name",
+     "errors": "strict",
+     "object_name": "harvard_u2f_tab__index_u5f_of_u5f_the_u5f_complete_u5__300c7027"
+    },
+    {
+     "codec": "utf-8-sig",
+     "column": "title",
+     "errors": "strict",
+     "object_name": "harvard_u2f_tab__index_u5f_of_u5f_the_u5f_complete_u5__300c7027"
+    },
+    {
+     "codec": "utf-8-sig",
+     "column": "page",
+     "errors": "strict",
+     "object_name": "harvard_u2f_tab__index_u5f_of_u5f_the_u5f_complete_u5__300c7027"
+    },
+    {
+     "codec": "utf-8-sig",
+     "column": "vol",
+     "errors": "strict",
+     "object_name": "harvard_u2f_tab__index_u5f_of_u5f_the_u5f_complete_u5__300c7027"
+    }
+   ],
+   "expected": {
+    "kind": "file",
+    "sha256": "b720bff1d328e93726822910cbe361778667e414c24de4ab5f61082a0316623d",
+    "signature": "unknown",
+    "size": 2619410
+   },
+   "format_family": "text",
+   "reason": "first-batch seven candidate; names and mappings pending approval",
+   "rule_id": "m008003",
+   "selector": {
+    "archive_chain": [],
+    "archive_ordinals": [],
+    "relative_path": "harvard/tab/Index_of_the_Complete_Prose_of_the_Yuan_Dynasty_vol_1-60.tab"
+   },
+   "targets": [
+    {
+     "columns": [
+      {
+       "nullable": false,
+       "ordinal": 1,
+       "pg_type": "text",
+       "source_column": "f3ffd3597b22d292226ed85c78417d5c4c8746bea68a14791d72ba5d83988a97",
+       "target_column": "vol_u5f_juan"
+      },
+      {
+       "nullable": false,
+       "ordinal": 2,
+       "pg_type": "text",
+       "source_column": "4c2c7f950410f1960a6a6d16468685e24a98ab980fea84c09ad1af98810f7510",
+       "target_column": "name"
+      },
+      {
+       "nullable": false,
+       "ordinal": 3,
+       "pg_type": "text",
+       "source_column": "6fb793bd71ce4d10b36926b8697063489cd08155b2a317fad2126d6e0b6a840a",
+       "target_column": "title"
+      },
+      {
+       "nullable": false,
+       "ordinal": 4,
+       "pg_type": "text",
+       "source_column": "93585ed41893b30a270ec77284b5ddab9f8689f43ccbfa352655adde5fd75b1b",
+       "target_column": "page"
+      },
+      {
+       "nullable": false,
+       "ordinal": 5,
+       "pg_type": "text",
+       "source_column": "e50dccf4d96c66364fa3d07b0a046668d06ded5440878e52cb4f1a129097ec73",
+       "target_column": "vol"
+      }
+     ],
+     "derived_rownum": {
+      "nullable": false,
+      "origin": "one_based_physical_source_row",
+      "pg_type": "bigint",
+      "target_column": "__src_rownum"
+     },
+     "duplicate_reconciliation": {
+      "count_includes_duplicates": true,
+      "expected_extra_rows": 74,
+      "expected_groups": 63,
+      "key": "value_columns_excluding_src_rownum"
+     },
+     "expected_count": 40199,
+     "expected_sha256": "dcbedb5a5073a6b980d82156ffb3fa7dbaf3ca9906c2928534793b3e0a43a039",
+     "object_name": "harvard_u2f_tab__index_u5f_of_u5f_the_u5f_complete_u5__300c7027",
+     "schema": "harv",
+     "table": "harvard_u2f_tab__index_u5f_of_u5f_the_u5f_complete_u5__300c7027"
+    }
+   ],
+   "validator": "canonical-value-v1"
+  },
+  {
+   "disposition": "IMPORT",
+   "encodings": [
+    {
+     "codec": "utf-8",
+     "column": "textid",
+     "errors": "strict",
+     "object_name": "harvard_u2f_tab__writings_u20_of_u20_the_u20_19c_u20___7866bf2d"
+    },
+    {
+     "codec": "utf-8",
+     "column": "book_u5f_title",
+     "errors": "strict",
+     "object_name": "harvard_u2f_tab__writings_u20_of_u20_the_u20_19c_u20___7866bf2d"
+    },
+    {
+     "codec": "utf-8",
+     "column": "book_u5f_title_u5f_chn",
+     "errors": "strict",
+     "object_name": "harvard_u2f_tab__writings_u20_of_u20_the_u20_19c_u20___7866bf2d"
+    },
+    {
+     "codec": "utf-8",
+     "column": "author_u5f_id",
+     "errors": "strict",
+     "object_name": "harvard_u2f_tab__writings_u20_of_u20_the_u20_19c_u20___7866bf2d"
+    },
+    {
+     "codec": "utf-8",
+     "column": "author_u5f_name",
+     "errors": "strict",
+     "object_name": "harvard_u2f_tab__writings_u20_of_u20_the_u20_19c_u20___7866bf2d"
+    },
+    {
+     "codec": "utf-8",
+     "column": "pub_u5f_year",
+     "errors": "strict",
+     "object_name": "harvard_u2f_tab__writings_u20_of_u20_the_u20_19c_u20___7866bf2d"
+    },
+    {
+     "codec": "utf-8",
+     "column": "source",
+     "errors": "strict",
+     "object_name": "harvard_u2f_tab__writings_u20_of_u20_the_u20_19c_u20___7866bf2d"
+    },
+    {
+     "codec": "utf-8",
+     "column": "pages",
+     "errors": "strict",
+     "object_name": "harvard_u2f_tab__writings_u20_of_u20_the_u20_19c_u20___7866bf2d"
+    },
+    {
+     "codec": "utf-8",
+     "column": "number",
+     "errors": "strict",
+     "object_name": "harvard_u2f_tab__writings_u20_of_u20_the_u20_19c_u20___7866bf2d"
+    },
+    {
+     "codec": "utf-8",
+     "column": "counter",
+     "errors": "strict",
+     "object_name": "harvard_u2f_tab__writings_u20_of_u20_the_u20_19c_u20___7866bf2d"
+    },
+    {
+     "codec": "utf-8",
+     "column": "publish_u5f_location_u5f_in_u5f_chinese",
+     "errors": "strict",
+     "object_name": "harvard_u2f_tab__writings_u20_of_u20_the_u20_19c_u20___7866bf2d"
+    }
+   ],
+   "expected": {
+    "kind": "file",
+    "sha256": "23b23f6fdd8c8c3d070fe0d215bc643beef8742c06801ee861fb9255d77e5fe7",
+    "signature": "unknown",
+    "size": 193811
+   },
+   "format_family": "text",
+   "reason": "first-batch seven candidate; names and mappings pending approval",
+   "rule_id": "m008004",
+   "selector": {
+    "archive_chain": [],
+    "archive_ordinals": [],
+    "relative_path": "harvard/tab/writings of the 19c missionaries in China.tab"
+   },
+   "targets": [
+    {
+     "columns": [
+      {
+       "nullable": false,
+       "ordinal": 1,
+       "pg_type": "text",
+       "source_column": "4a79a9f0bf30d0d16a09f3462fac0c11e089da5b7e0248ebc872d16bcb5b73ea",
+       "target_column": "textid"
+      },
+      {
+       "nullable": false,
+       "ordinal": 2,
+       "pg_type": "text",
+       "source_column": "ae56c251dc5d2cdd831bfa724c87669ab87a8861c283466750f4574f72279656",
+       "target_column": "book_u5f_title"
+      },
+      {
+       "nullable": false,
+       "ordinal": 3,
+       "pg_type": "text",
+       "source_column": "697538cb7e523c4ed3a23e862946b79521bf25529514179d0dad45db3290f5ab",
+       "target_column": "book_u5f_title_u5f_chn"
+      },
+      {
+       "nullable": false,
+       "ordinal": 4,
+       "pg_type": "text",
+       "source_column": "7b36acb41ff7b9f8f48c3d24d87ba81ac033aca6adb05314a27880b00a315f09",
+       "target_column": "author_u5f_id"
+      },
+      {
+       "nullable": false,
+       "ordinal": 5,
+       "pg_type": "text",
+       "source_column": "8eb6b94fa210bc3cd524129b9c8c85d04e0835686a17417766c78f7f446082be",
+       "target_column": "author_u5f_name"
+      },
+      {
+       "nullable": false,
+       "ordinal": 6,
+       "pg_type": "text",
+       "source_column": "8a4d3ffb02041409d13b9b12385d43a609662ca19d37f4cdf23eff2a848f7546",
+       "target_column": "pub_u5f_year"
+      },
+      {
+       "nullable": false,
+       "ordinal": 7,
+       "pg_type": "text",
+       "source_column": "7e07b2abe67b45233b45c144f10de840da19ea0ccacc763504521e3fdc9d02f2",
+       "target_column": "source"
+      },
+      {
+       "nullable": false,
+       "ordinal": 8,
+       "pg_type": "text",
+       "source_column": "4090eca17d2492319effa50ab339a25447e5e4d480f74993d615bbf13cc9b487",
+       "target_column": "pages"
+      },
+      {
+       "nullable": false,
+       "ordinal": 9,
+       "pg_type": "text",
+       "source_column": "37b2751a33cc5d0615ddfd9094e305ce05d069c468459e43d00bb9b2aac4b24b",
+       "target_column": "number"
+      },
+      {
+       "nullable": false,
+       "ordinal": 10,
+       "pg_type": "text",
+       "source_column": "4f708d5f226f6e8bc8f4e59f990c0576860b975debe808b60772f9b342dae365",
+       "target_column": "counter"
+      },
+      {
+       "nullable": false,
+       "ordinal": 11,
+       "pg_type": "text",
+       "source_column": "b0333c99260a232e9000b4637fa90455a60e54472938c165589fe637b320e9d7",
+       "target_column": "publish_u5f_location_u5f_in_u5f_chinese"
+      }
+     ],
+     "derived_rownum": {
+      "nullable": false,
+      "origin": "one_based_physical_source_row",
+      "pg_type": "bigint",
+      "target_column": "__src_rownum"
+     },
+     "duplicate_reconciliation": {
+      "count_includes_duplicates": true,
+      "expected_extra_rows": 0,
+      "expected_groups": 0,
+      "key": "value_columns_excluding_src_rownum"
+     },
+     "expected_count": 1033,
+     "expected_sha256": "d233ed9c81ad6f8ff22c1f8c89786dcae90b0fffaf5657666d98e6212edec5fd",
+     "object_name": "harvard_u2f_tab__writings_u20_of_u20_the_u20_19c_u20___7866bf2d",
+     "schema": "harv",
+     "table": "harvard_u2f_tab__writings_u20_of_u20_the_u20_19c_u20___7866bf2d"
+    }
+   ],
+   "validator": "canonical-value-v1"
+  }
+ ],
+ "source_version": "usedata-wd61-verified-snapshot",
+ "status": "draft",
+ "version": 1
+}

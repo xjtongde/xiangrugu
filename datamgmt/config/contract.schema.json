@@ -36,6 +36,73 @@
       "title": "ColumnEncoding",
       "type": "object"
     },
+    "ColumnMapping": {
+      "additionalProperties": false,
+      "description": "Ordered source->target column mapping with approved width/scale (optional extension).",
+      "properties": {
+        "nullable": {
+          "title": "Nullable",
+          "type": "boolean"
+        },
+        "ordinal": {
+          "minimum": 0,
+          "title": "Ordinal",
+          "type": "integer"
+        },
+        "pg_type": {
+          "pattern": "^(text|bigint|numeric\\([1-9][0-9]*,[0-9]+\\))$",
+          "title": "Pg Type",
+          "type": "string"
+        },
+        "source_column": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "title": "Source Column",
+          "type": "string"
+        },
+        "source_decimals": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Source Decimals"
+        },
+        "source_width_bytes": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Source Width Bytes"
+        },
+        "target_column": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "title": "Target Column",
+          "type": "string"
+        }
+      },
+      "required": [
+        "ordinal",
+        "source_column",
+        "target_column",
+        "pg_type",
+        "nullable"
+      ],
+      "title": "ColumnMapping",
+      "type": "object"
+    },
     "ContractException": {
       "additionalProperties": false,
       "properties": {
@@ -100,6 +167,40 @@
         "approval_ref"
       ],
       "title": "ContractReview",
+      "type": "object"
+    },
+    "DerivedRownum": {
+      "additionalProperties": false,
+      "description": "Fixed semantics: one-based physical source row number, never nullable.",
+      "properties": {
+        "nullable": {
+          "const": false,
+          "title": "Nullable",
+          "type": "boolean"
+        },
+        "origin": {
+          "const": "one_based_physical_source_row",
+          "title": "Origin",
+          "type": "string"
+        },
+        "pg_type": {
+          "const": "bigint",
+          "title": "Pg Type",
+          "type": "string"
+        },
+        "target_column": {
+          "const": "__src_rownum",
+          "title": "Target Column",
+          "type": "string"
+        }
+      },
+      "required": [
+        "target_column",
+        "pg_type",
+        "nullable",
+        "origin"
+      ],
+      "title": "DerivedRownum",
       "type": "object"
     },
     "Disposition": {
@@ -200,6 +301,86 @@
       "title": "DispositionRule",
       "type": "object"
     },
+    "DuplicateReconciliation": {
+      "additionalProperties": false,
+      "description": "Duplicate accounting on actual value columns, excluding the unique source rownum.",
+      "properties": {
+        "count_includes_duplicates": {
+          "const": true,
+          "title": "Count Includes Duplicates",
+          "type": "boolean"
+        },
+        "expected_extra_rows": {
+          "minimum": 0,
+          "title": "Expected Extra Rows",
+          "type": "integer"
+        },
+        "expected_groups": {
+          "minimum": 0,
+          "title": "Expected Groups",
+          "type": "integer"
+        },
+        "key": {
+          "const": "value_columns_excluding_src_rownum",
+          "title": "Key",
+          "type": "string"
+        }
+      },
+      "required": [
+        "key",
+        "expected_groups",
+        "expected_extra_rows",
+        "count_includes_duplicates"
+      ],
+      "title": "DuplicateReconciliation",
+      "type": "object"
+    },
+    "GeometryExpectation": {
+      "additionalProperties": false,
+      "description": "Spatial geometry expectation with canonical digest and original-coordinate storage.",
+      "properties": {
+        "canonical_format": {
+          "const": "XRGGEOM-v1",
+          "title": "Canonical Format",
+          "type": "string"
+        },
+        "coordinate_storage": {
+          "const": "preserve_original_ieee754_xy_no_swap_or_transform",
+          "title": "Coordinate Storage",
+          "type": "string"
+        },
+        "dimensions": {
+          "const": 2,
+          "title": "Dimensions",
+          "type": "integer"
+        },
+        "expected_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Expected Sha256",
+          "type": "string"
+        },
+        "geometry_type": {
+          "const": "Point",
+          "title": "Geometry Type",
+          "type": "string"
+        },
+        "srid": {
+          "minimum": 1,
+          "title": "Srid",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "geometry_type",
+        "dimensions",
+        "srid",
+        "canonical_format",
+        "expected_sha256",
+        "coordinate_storage"
+      ],
+      "title": "GeometryExpectation",
+      "type": "object"
+    },
     "MemberExpectation": {
       "additionalProperties": false,
       "properties": {
@@ -297,6 +478,43 @@
     "ObjectTarget": {
       "additionalProperties": false,
       "properties": {
+        "columns": {
+          "anyOf": [
+            {
+              "items": {
+                "$ref": "#/$defs/ColumnMapping"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Columns"
+        },
+        "derived_rownum": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/DerivedRownum"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "duplicate_reconciliation": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/DuplicateReconciliation"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
         "expected_count": {
           "anyOf": [
             {
@@ -320,6 +538,17 @@
             }
           ],
           "title": "Expected Sha256"
+        },
+        "geometry": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/GeometryExpectation"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
         },
         "object_name": {
           "minLength": 1,

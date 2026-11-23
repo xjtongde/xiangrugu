@@ -1,6 +1,6 @@
 # 第 6/6 块 · 全量汇总与落盘首盒（SUMMARY）
 
-基线 git e3dd139；inventory sha256=fb5e6b334b898d62…；**只读引用五块已交付包，五块文件零改写；未正式落盘/未装依赖/未动服务与库**。
+基线 git 912a883；inventory sha256=fb5e6b334b898d62…；**只读引用五块已交付包，五块文件零改写；未正式落盘/未装依赖/未动服务与库**。
 
 ## 对账闭合（机器断言在码）
 - **3 + 174 + 5294 + 11 + 2522 == 8004**（primary_owner_block exactly-once；两两交集空；inventory↔并集双向 missing 0 / extra 0；逐件 sha==inventory）。
@@ -40,6 +40,7 @@
 - **checksum-exceptions-candidates.json**：两候选分列三账分离——NUL126@固定摘要 900d98c6 code=checksum_nul 模型可表达但运行门缺口 Task 6 reader（exception_not_implemented）；CHGIS 第 4 行 7452ae6c==chgis-v6 成员 155,774B **code 枚举无此项=不可表达**，授权路径=枚举扩展另行批准。
 - **first-batch-preload-table.json**：5 文本逐项（status 七字段照录 table_names_approved=False/target_mapping_approved=False/disposition_retained=BLOCKED/CANDIDATE）+空间 2（各 6 组件 component_binding_approved=True）；回读条件改独立全量结构+规范值+重复次数对账（expected_count/expected_sha256 缺口逐项，text_values sidecar 不可替代）；GDAL Band.Checksum 另账 executed 26+deferred 17==43 断言。
 - **wmf-thumbnail-record.json**：12 件 WMF NON_TABULAR+原件 sha/size 逐件记录；解码器需求条件说明（缩略图展示/图像检索交付才需）。
+- **三条固定清点 issue 核销实施（本盒隔离候选，茶香授权）**：writeoff.py 新件（三条完整身份+出现次数核/同合同同清单重跑两例外/派生 writeoff_result 绑合同+清单+两新证据摘要/仅派生核销 incomplete_inventory/原清单字节 complete=false 保留/其余门照常）；test_writeoff 10 用例；rgp C7/C8 原账摘要更正全 64 位；两 Ca1884route SRID 批准状态更正（approved 2 除外语义）；真实审批/受控接收/冻结/落盘另行授权。
 - **Task 6 固定摘要 NUL 运行门（本盒隔离实施，茶香授权）**：checksum_reader.py 新件（白名单仅 SHA256SUMS-b2 固定身份，复用 preview 核验逻辑）+disposition.evaluate 可选参数接线（默认 None 向后兼容）；正例证据绑定 contract/inventory sha+172 逐条 matched；反例（未审批/摘要不符/中间 NUL/行数不符/其他清点异常/CHGIS 声明）全保持阻断；**inventory.complete=false 保留、ready_for_import=false**；12 新用例+103 回归=115 passed exit 0；草案顶层歧义摘要字段清除（分字段身份保留）；CHGIS 单列待实施。真实冻结/落盘/服务/写库另行授权。
 - **续盒六（校验账运行门实施准备，lead 接管 a02 两次失败创作）**：两例外完整源账身份分字段（NUL SHA256SUMS-b2 900d98c6…/22071B/172 行/偏移 21945 长 126；CHGIS harvard/chgis/SHA256SUMS.txt 694c101f…/551B/line4 verbatim/目标 chgis-v6/China_Periods_ReignDates.zip 7452ae6c…/155774B）；镜像投影文案修正（同字节仅限制 IMPORT 主件至多一个；mirror_evidence_sha256 与源件摘要分开）；**run-gate-implementation-plan.json**（白名单两固定例外非泛化+8 验收用例 C1–C8+入口/测试边界，实施另批）；首批空间 2 逐项前置补齐（SID/主件/组件/完整候选名/批准范围/expected 标缺/装载器 GAP/证据引用），文本 5 同口径。
 - manifest 双锚 input_baseline_git=f54dd96/generation_head=ea40c1f；正式包应验清单见下节（sha256sum -c 口径）。

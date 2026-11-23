@@ -1,0 +1,15 @@
+== ROUND 37 一期（a03，a02 未就位先报）==
+原样基线核 PASS：inventory sha fb5e6b33 不变/三 issue 逐字/complete=false；两 fixture==32 实物。独立门位预期（自写 wexp.py 容器 baseline 树 EXIT=0）：W0 双证据齐+frozen+review→[unmatched_member 伪影 path chgis-v6/China_Periods_ReignDates.zip] exception_not_implemented 消失 ready false；writeoff_result 预期四要件（closed 恰三条逐字/仅派生核销原清单不动/四元组绑定/fixture review 仅测试面）；反例预期 X1–X6。rollup 两更正预核取证：rgp C7/C8 现版短摘要非全 64（更正应全 64）；fbd 无 srid 字段（应补 approved==LB「approved 2 除外」2 对 2）；VCS_REF 应 912a883。范围核 PASS。
+
+== ROUND 37b 二期交叉核（a03，硬停 15:57 内）==
+自写驱动 wdrive.py 容器 fresh 暂存 EXIT=0：
+W 正例：closed_issues 恰三条完整身份逐字==原 issue（chain[]/ords[]/blocking true）；derived [unmatched_member]/ready False/written_off True/orig_complete False/contract+inventory 双绑 True；跑后原 manifest issues+complete=false 未动实证。
+X1a/X1b 缺 NUL/CHGIS 证据 rejected×2；X2 跨合同混用 rejected（同合同同清单重跑设计使证据无法挪用——机制级成立）；X3 摘要变化 rejected；X4 增添/X5 重复/X6 缺失 issue rejected×3（sorted 身份+次数核实证）；X7 未审批 rejected。
+合成全覆派生门可闭独立证：三成员全覆盖+frozen+review→derived []/ready True/orig_ledger_ready False（首轮 stale_assertion 系 a03 驱动 signature 构造错，对齐后即过，非实现缺陷）。
+七反例 ME ids 与 X 集一一对位全 rejected True。
+测试复跑：test_writeoff 10 passed WO_EXIT=0；五套合跑 140 passed REG_EXIT=0。
+四元组/新证据 sha 语义 PASS：ME ev nul b74c33847935cdcd…/chgis e24ed0f17ebd91f5…==canonical JSON sha；a03 fixture 合同跑出不同值 3e28fd3a/1ff56ba3——随合同变即预期（X2 不可挪用机器面）；original_preserved 全 True；零真实审批录入。
+rollup 两更正核 PASS：rgp C7/C8 各恰 1 个 64-hex token==实物；fbd SRID 已批计数 2==LB「approved 2 除外」2 对 2；generation_head=912a883；lead 关键六件 sha 38 自算 match；32 重跑 EXIT=0 stderr 0B 十九件全等。
+范围核 PASS：symdiff0/drift0/8004/1293/1311/owners；既有件深比仅 baseline_git+rgp/fbd 设计面；五块+模型核心源码（contracts/disposition/checksum_reader/model/inventory/checksum_candidates）diff 空；src M 仅 writeoff.py+test_writeoff.py 新件；M=2（668900d4）/staged0。
+首个缺口：promotion 步骤 1「32 受控运行目录接收转正」——正式核销须 commit→Gitea→deploy 接收后正式合同下重跑再生证据（evidence_regeneration_required=True 在账）；首批七批准面第一优先并行。
+ROUND 37b 全项 PASS，无首个不一致。

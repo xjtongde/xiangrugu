@@ -7,7 +7,7 @@
   "note": "GDAL Band.Checksum() 面与源件 SHA-256 分账",
   "total_geo_raster": 43
  },
- "baseline_git": "e3dd139",
+ "baseline_git": "912a883",
  "first_batch_scope": "首批批准=5 文本（4 harv+1 chgis schema）+空间批准 2（Ca1884route_przh_1251/utf8 各 6 组件 component_binding_approved）",
  "format": "xiangrugu.import-package.rollup.first-batch-preload-table.v1",
  "gaps_itemized": [
@@ -23,7 +23,7 @@
  ],
  "spatial_items": [
   {
-   "approved_scope": "component_binding_approved=True（6 组件 cpg/dbf/prj/qpj/shp/shx）；目标名未批",
+   "approved_scope": "component_binding_approved=True（6 组件 cpg/dbf/prj/qpj/shp/shx）；SRID 已批（load-blockers『SRID 政策未决（approved 2 除外）』即此二件；SRID 值随 .prj CRS 声明组件装载重算）；目标名未批",
    "candidate_name_status": "DRAFT_NOT_APPROVED（naming-draft approved_spatial_special，既有批准范围保留）",
    "candidate_table_name_full": "chgis.ca1884route_przh_1251",
    "canonical_value_gap": {
@@ -61,7 +61,7 @@
    "source_object_id": "9b4496c93de442c447b58adf9be56303ab5fd4897d68bbf0bad99069d12d44dc"
   },
   {
-   "approved_scope": "component_binding_approved=True（6 组件 cpg/dbf/prj/qpj/shp/shx）；目标名未批",
+   "approved_scope": "component_binding_approved=True（6 组件 cpg/dbf/prj/qpj/shp/shx）；SRID 已批（load-blockers『SRID 政策未决（approved 2 除外）』即此二件；SRID 值随 .prj CRS 声明组件装载重算）；目标名未批",
    "candidate_name_status": "DRAFT_NOT_APPROVED（naming-draft approved_spatial_special，既有批准范围保留）",
    "candidate_table_name_full": "chgis.ca1884route_przh_utf8",
    "canonical_value_gap": {

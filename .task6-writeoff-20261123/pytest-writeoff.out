@@ -1,0 +1,18 @@
+============================= test session starts ==============================
+platform linux -- Python 3.11.16, pytest-9.1.1, pluggy-1.6.0 -- /usr/local/bin/python
+cachedir: .pytest_cache
+rootdir: /tmp/wo
+collecting ... collected 10 items
+
+tests/unit/test_writeoff.py::test_positive_writeoff_only_the_three_fixed_issues PASSED [ 10%]
+tests/unit/test_writeoff.py::test_positive_derived_gate_closes_when_all_else_conforms PASSED [ 20%]
+tests/unit/test_writeoff.py::test_negative_missing_one_evidence PASSED   [ 30%]
+tests/unit/test_writeoff.py::test_negative_cross_contract_evidence_cannot_be_reused PASSED [ 40%]
+tests/unit/test_writeoff.py::test_negative_inventory_digest_change PASSED [ 50%]
+tests/unit/test_writeoff.py::test_negative_added_issue PASSED            [ 60%]
+tests/unit/test_writeoff.py::test_negative_duplicated_issue PASSED       [ 70%]
+tests/unit/test_writeoff.py::test_negative_missing_issue PASSED          [ 80%]
+tests/unit/test_writeoff.py::test_negative_unapproved PASSED             [ 90%]
+tests/unit/test_writeoff.py::test_unmatched_member_keeps_blocking PASSED [100%]
+
+============================= 10 passed in 19.08s ==============================

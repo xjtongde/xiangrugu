@@ -40,16 +40,16 @@
    "expected": "运行证据生成，例外门关闭（仅此一例）",
    "gate": "拟关闭（待实施+审批）",
    "id": "C7_whitelist_positive_nul",
-   "input": "固定摘要 900d98c6+尾部 126 NUL+172 行全验+已审批"
+   "input": "固定摘要 900d98c69cf9b72f20313aa562b8da5e18e9c3e3def423fa6f618b4b1bafb3cb+尾部 126 NUL+172 行全验+已审批"
   },
   {
    "expected": "运行证据生成（路径不符留证），例外门关闭（仅此一例）",
    "gate": "拟关闭（待实施+审批）",
    "id": "C8_whitelist_positive_chgis",
-   "input": "固定摘要 694c101f+line4 关联目标全等+已审批"
+   "input": "固定摘要 694c101f04e636012e752c87958c8065c8e6926633c8b542e89978d8f8451a60+line4 关联目标全等+已审批"
   }
  ],
- "baseline_git": "e3dd139",
+ "baseline_git": "912a883",
  "entry_points_next_round": [
   "Task 6 reader 模块拟案 datamgmt/src/xiangrugu_datamgmt/checksum_reader.py（新件，窄域：仅两固定例外的解析+核验，不泛化）",
   "函数签名拟案 read_fixed_exception(carrier_bytes, raw_sha256, whitelist_entry) -> ExceptionRunEvidence（机器可读：行解析报告/NUL 段定位/逐行 sha 结果/目标关联证明）",

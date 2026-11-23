@@ -1,6 +1,6 @@
 {
  "assertion": "sum==8004；零 RETAIN（枚举无此项）",
- "baseline_git": "e3dd139",
+ "baseline_git": "912a883",
  "byte_identity_projection": {
   "distinct_file_byte_identities": 4968,
   "duplicated_identities": 1172,

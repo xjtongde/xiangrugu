@@ -1,0 +1,9 @@
+== ROUND 40（两件空间源侧值证据·独立核，a03，硬停 16:54 内）==
+同一只读快照独立复算 PASS：zip sha 39f505c1c4f71934/2156327B 实物自算 match（首轮 find 面误更正，同 R39 教训）；自写 zipfile+struct 解析器零复用 lead 驱动器，/tmp/a03-r40 隔离 SV_EXIT=0/ATTR2_EXIT=0；两件 rows 59==known/deleted 0/blankN 0/DBF 长度精确/shp type 1 Point 全记录/rownum 对齐 [1,59]/重复 attr 0+xy 0（原始字节对计）。
+XRGGEOM-v1 帧独立重建 geom_sha_match True×2（1530B 等长）；XRGVALUE-v1 属性流独立重建 attr_sha_match True×2（24634/24214B 逐字节等长）；shp 109d74b1 两件同/dbf/cpg 组件 sha 全 match。
+首个不一致（观测级）：schema_sha256 节点唯一命中组合 [column_id,target_name,"text",nullable_proposal]——nullable_proposal(false) 恰同编码器 nullable=False，值流与 sha 不受影响，字段语义混用建议注记。lead 处置：schema_nullability_note 注明（XRGVALUE-v1 NOT NULL 流 vs yaml nullable_approved DDL 面），重跑 sha 稳定。
+处置分账+回退 PASS：value_expectations_ledger 三态 verbatim；plan 七 token 7/7（19a7718 完整锚/整体 R0/核销保护/提交分列）。
+审批表修正 PASS：a35393bd==lead/双跑全等/evidence-list 8a3c01ca 不变/7/7 映射与期望两节点分开/文本精确引用在位/writeoff-call closed3 derived[unmatched_member] ready False。
+范围核 PASS：rollup+src+config+tests diff 19a7718..worktree 空；19 件 set equal；M=2（668900d4）；8004 零漂移。
+剩余缺口：①nullable 语义注记（已处置）②promotion 步骤 1 32 受控接收转正③正式合同冻结下证据再生+装载授权链。
+ROUND 40 PASS（观测级不一致已注明处置）。

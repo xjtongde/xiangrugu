@@ -1,0 +1,193 @@
+{
+ "database_connected": false,
+ "formal_contract_modified": false,
+ "objects": [
+  {
+   "alignment": {
+    "attr_geom_aligned_by_src_rownum": true,
+    "rownum_range": [
+     1,
+     59
+    ]
+   },
+   "attribute_expectation": {
+    "canonical_format": "XRGVALUE-v1",
+    "character_trailing_spaces": "preserve",
+    "field_count": 767,
+    "numeric_reading": "N raw bytes preserved as text; blank numeric NULL not approved",
+    "row_count": 59,
+    "schema_nullability_note": "流 schema 按 XRGVALUE-v1 全源列 text NOT NULL（空串保留）nullable=False；yaml nullable_approved=true 为目标表 DDL 可空性批准（另一批准面），非流可空性；nullable_proposal=false 恰同值",
+    "schema_sha256": "89d17ddd44950b77d7a2da8fb09b99d72fa2d5b148d2a6cafe9927adb17e7294",
+    "sha256": "3519649f663f8a6d65659fb00b4456c1f2a282ed095545795e1a2bb3b00a7cd8",
+    "stream_bytes": 24634
+   },
+   "blank_numeric_fields": [],
+   "codec": "cp1251",
+   "components": {
+    "cpg": {
+     "declared": "1251",
+     "expected": "ea80b523f4585374b7c94e7b9b420166e845e318f0efb4bafd6f51d3e8b1f72a",
+     "match": true,
+     "sha256": "ea80b523f4585374b7c94e7b9b420166e845e318f0efb4bafd6f51d3e8b1f72a",
+     "size": 4
+    },
+    "dbf": {
+     "expected": "0b4b86cb8b6dc892d70c9a4ede9adf6ed0a72bf8884376ae207a1075be9a692c",
+     "match": true,
+     "sha256": "0b4b86cb8b6dc892d70c9a4ede9adf6ed0a72bf8884376ae207a1075be9a692c",
+     "size": 16937
+    },
+    "shp": {
+     "expected": "109d74b1e5cefcd1b32ad81e90fa94d150dd719b4fd530651b4dbdfff869eac7",
+     "match": true,
+     "sha256": "109d74b1e5cefcd1b32ad81e90fa94d150dd719b4fd530651b4dbdfff869eac7",
+     "size": 1752
+    }
+   },
+   "count_matches_known": true,
+   "dbf_numrecords": 59,
+   "deleted_records": 0,
+   "duplicate_counts": {
+    "attribute_rownums": [],
+    "attribute_rows": 0,
+    "coordinate_pairs": 0,
+    "coordinate_rownums": []
+   },
+   "geometry_expectation": {
+    "canonical_format": "XRGGEOM-v1",
+    "coordinate_storage": "preserve_original_ieee754_xy_no_swap_or_transform",
+    "dimensions": 2,
+    "frame": "header XRGGEOM\\0\\1 + SID + srid>int32 + dims>byte; row 0x52 + rownum>uint64 + X(8 LE original) + Y(8 LE original); trailer 0x45 + count>uint64",
+    "geometry_type": "Point",
+    "row_count": 59,
+    "sample_first3": [
+     {
+      "rownum": 1,
+      "x": 87.73690302553041,
+      "x_bytes": "80be4e6b29ef5540",
+      "y": 38.97312358694757,
+      "y_bytes": "f9734e508f7c4340"
+     },
+     {
+      "rownum": 2,
+      "x": 87.51254851026442,
+      "x_bytes": "c04c4498cde05540",
+      "y": 38.852724648776935,
+      "y_bytes": "b97ecf14266d4340"
+     },
+     {
+      "rownum": 3,
+      "x": 86.95461085519037,
+      "x_bytes": "c0dc205818bd5540",
+      "y": 38.70074655096829,
+      "y_bytes": "c8981f10b2594340"
+     }
+    ],
+    "sha256": "ff7081a0013d721f22fb12ec00edc85de98e9cef7f75426db6254dbabdb632da",
+    "srid": 4326,
+    "stream_bytes": 1530
+   },
+   "known_rows": 59,
+   "object_name": "Ca1884route_przh_1251",
+   "row_count": 59,
+   "shp_records": 59,
+   "source_object_id": "9b4496c93de442c447b58adf9be56303ab5fd4897d68bbf0bad99069d12d44dc"
+  },
+  {
+   "alignment": {
+    "attr_geom_aligned_by_src_rownum": true,
+    "rownum_range": [
+     1,
+     59
+    ]
+   },
+   "attribute_expectation": {
+    "canonical_format": "XRGVALUE-v1",
+    "character_trailing_spaces": "preserve",
+    "field_count": 767,
+    "numeric_reading": "N raw bytes preserved as text; blank numeric NULL not approved",
+    "row_count": 59,
+    "schema_nullability_note": "流 schema 按 XRGVALUE-v1 全源列 text NOT NULL（空串保留）nullable=False；yaml nullable_approved=true 为目标表 DDL 可空性批准（另一批准面），非流可空性；nullable_proposal=false 恰同值",
+    "schema_sha256": "369645a9a81b6452323fd1250dadc5f222a6b03f2246a333df5b679c054d1889",
+    "sha256": "a2ad2d24ff4cae8c2e0315af0278d6286ef27510911a2f81ee1f4aa6c4b9b1d0",
+    "stream_bytes": 24214
+   },
+   "blank_numeric_fields": [],
+   "codec": "utf-8",
+   "components": {
+    "cpg": {
+     "declared": "UTF-8",
+     "expected": "3ad3031f5503a4404af825262ee8232cc04d4ea6683d42c5dd0a2f2a27ac9824",
+     "match": true,
+     "sha256": "3ad3031f5503a4404af825262ee8232cc04d4ea6683d42c5dd0a2f2a27ac9824",
+     "size": 5
+    },
+    "dbf": {
+     "expected": "eb9dfed2745641ac0ce91bf6f0f732fafe907192897eed0de42d16997044c724",
+     "match": true,
+     "sha256": "eb9dfed2745641ac0ce91bf6f0f732fafe907192897eed0de42d16997044c724",
+     "size": 16937
+    },
+    "shp": {
+     "expected": "109d74b1e5cefcd1b32ad81e90fa94d150dd719b4fd530651b4dbdfff869eac7",
+     "match": true,
+     "sha256": "109d74b1e5cefcd1b32ad81e90fa94d150dd719b4fd530651b4dbdfff869eac7",
+     "size": 1752
+    }
+   },
+   "count_matches_known": true,
+   "dbf_numrecords": 59,
+   "deleted_records": 0,
+   "duplicate_counts": {
+    "attribute_rownums": [],
+    "attribute_rows": 0,
+    "coordinate_pairs": 0,
+    "coordinate_rownums": []
+   },
+   "geometry_expectation": {
+    "canonical_format": "XRGGEOM-v1",
+    "coordinate_storage": "preserve_original_ieee754_xy_no_swap_or_transform",
+    "dimensions": 2,
+    "frame": "header XRGGEOM\\0\\1 + SID + srid>int32 + dims>byte; row 0x52 + rownum>uint64 + X(8 LE original) + Y(8 LE original); trailer 0x45 + count>uint64",
+    "geometry_type": "Point",
+    "row_count": 59,
+    "sample_first3": [
+     {
+      "rownum": 1,
+      "x": 87.73690302553041,
+      "x_bytes": "80be4e6b29ef5540",
+      "y": 38.97312358694757,
+      "y_bytes": "f9734e508f7c4340"
+     },
+     {
+      "rownum": 2,
+      "x": 87.51254851026442,
+      "x_bytes": "c04c4498cde05540",
+      "y": 38.852724648776935,
+      "y_bytes": "b97ecf14266d4340"
+     },
+     {
+      "rownum": 3,
+      "x": 86.95461085519037,
+      "x_bytes": "c0dc205818bd5540",
+      "y": 38.70074655096829,
+      "y_bytes": "c8981f10b2594340"
+     }
+    ],
+    "sha256": "3c6067845a7938e8e4e1946d96c46dc4d57bab6aba236d3857b0967c10c73722",
+    "srid": 4326,
+    "stream_bytes": 1530
+   },
+   "known_rows": 59,
+   "object_name": "Ca1884route_przh_utf8",
+   "row_count": 59,
+   "shp_records": 59,
+   "source_object_id": "e601ce1a7667c8286abce0d09c5b81d3dc809265ed219dd6e4e1dd3c5cfc9ace"
+  }
+ ],
+ "source_read_only": true,
+ "source_zip": "/mnt/wd61workmetadata/usedata/harvard-full/doi_10_7910/DVN/E7HDYD/1884route.zip",
+ "source_zip_sha256": "39f505c1c4f719348fc0e8ee5ebf49c5c017ce1143a9a7755b742518101153d7",
+ "status": "SOURCE_SIDE_EXPECTATIONS_GENERATED",
+ "version": 1
+}

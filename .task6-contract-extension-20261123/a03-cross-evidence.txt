@@ -1,0 +1,20 @@
+== ROUND 45 一期（a03）==
+实施件未就位时先报独立核预置：扩展面审计方案（可选性 fixture 等值/≥7 类反例自构/schema==model_json_schema 再生比对）；候选对账基线锁定（47725=47607+118/63/74/四摘要+五文本摘要/两份 DBF 身份 0b4b86cb/eb9dfed2@16937B 各自绑定/table-part regex）；容器 fresh 暂存测试配方；范围核预置。
+
+== ROUND 45b 二期（a03，硬停 18:45 内）==
+总判定 PASS；无首个不一致。交付提交 ebd093bbb63e812225d765d6cd3226458189c9c4 本地 HEAD==该号，worktree 零差。
+
+1. 扩展面独立审计 PASS（自写 extdrive.py，xiangrugu-dev fresh tree PYTHONPATH 新 src，EXT_EXIT=0）：
+- 可选性：frozen 形态候选剥离全部四扩展字段后 model_validate 仍通过（None 默认成立，既有解析不变）。
+- 反例拒绝核 11 例两阶段：ordinal 断序/目标重名/宽度矛盾(19→20)/维数3/rownum nullable→rejected-parse ValidationError×5；SRID4327/文本带几何/缺columns/dup超count→rejected-batch7 ContractError×4（消息 verbatim 引 rule_id）；groups>extra 算术→rejected-parse×1；正例 P_positive PASS-BOTH。
+- 诊断披露：X4_dup_arith(74→99) NO-ERROR 系 a03 构造不触任何门（extra≥groups 且<count 语义合法），改 X4b 75组/74行命中 consistent_arithmetic——非交付缺陷，更正记录。
+- schema==运行模型独立再生：结构 diff 唯一差=$schema 键（contract_schema() 注入与发布件一致）→等价成立；发布 sha b8c48888 在账。
+
+2. 候选逐项对账 PASS（三方全等已审证据）：恰 7 rules 全 IMPORT 单 target draft/frozen False/inventory fb5e6b33…16db 逐字绑定；total 47725==47607+118；m008003 63/74/含重复 Literal；五文本 attr sha==approved 5/5；空间四摘要==试装回读 ff7081a0/3c606784/3519649f/a2ad2d24；两份 DBF 身份 selector 0b4b86cb/eb9dfed2@16937B 互异各自绑定（chain ordinal 3/11）；列映射 7/7 ordinal 连续+target 名+pg_type 全合已批源规格（spatial width/scale/nullable 逐列 mismatch 0）；table regex fullmatch 7/7（21/21/41/63×4）；report all_items_match True/五 flags False。
+
+3. 独立测试跑 PASS：容器 /tmp/a03ce fresh 树 test_contract_extension 19 passed CE_EXIT=0；六套 R6_EXIT=0 160 passed in 50.00s（141+19==lead 官方口径）。首轮 17 errors 系 a03 暂存缺 candidate-contract.json repo-root 路径件（parents[3] 解析），补齐即全过——环境性非交付缺陷。基线对照补记（FAILURE_SETS_IDENTICAL/158 全环境性）采信+六套定向面独立复现一致。
+
+4. 范围 PASS：交付 8 文件 2565 insertions 0 deletions 恰四类；保护面（rollup/cbdb/tabular/spatial/mdb-sql/raster-other/inventory/writeoff/disposition/checksum_reader/model）diff 空；M=2 entry py 668900d4+rehearsal 未触；host/容器临时面已清；不接收 deploy/不切服务/不冻结/不写库全程遵守。
+
+首个剩余缺口：候选仍 draft_unfrozen——正式冻结程序（茶香批准事件+review 三件套入合同）未启动；冻结后 expected_count/expected_sha256 接入的正式合同证据再生链沿留；转正步骤 1 不变。
+ROUND 45b PASS。

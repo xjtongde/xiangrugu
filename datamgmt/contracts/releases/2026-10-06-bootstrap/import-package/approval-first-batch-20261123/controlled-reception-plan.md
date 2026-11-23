@@ -1,6 +1,10 @@
 # 首批七对象 · 受控接收方案（草案，未执行）
 
-- **三锚统一（来源提交 == 接收前实际回退锚）**：代码锚 = 审批包锚 = 接收前实际回退锚 = **同一完整版本锚**（本盒记录 **f10bfea14cf48b7fb9f9e09039a3a980e31a38c7**，分支 dsh/p01-real-prep-20261113，Gitea ls-remote 已核）；接收时以经核对的当时分支头为完整锚，来源提交与回退锚不得分别取不同提交。
+- **来件完整提交（incoming）**：代码锚 = 审批包锚 = 同一完整版本锚（本盒记录 **df5a7c513cc9912efcb4322c405c1a9af0a913ee**，分支 dsh/p01-real-prep-20261113，Gitea ls-remote 已核）；接收时以经核对的当时分支头为来件完整锚。
+- **接收前实际恢复点（deploy 现状，与来件锚分列）**：32 `/opt/mydocker/xiangrugu/deploy` **非 Git 仓库（无 .git）→现役 Git 提交 UNKNOWN**（无法证明，按实记录）；可公开版本标记=**内容 sha256 清单 `62737bd0c16ac23f1c9ba4fd92e73abadb6a6eace014494f605f29e6aa00396f`**（7719 文件/87798110 字节，清单 .task6-reception-precheck-20261123/deploy-content-manifest.txt）；现役镜像 **xiangrugu:dev Id sha256:89f1a0978cb81787…**；deploy→/workspace **ro 挂载**；保护范围=deploy 全部 7719 文件（data/persistent、data/var 独立 rw 绑定不在内）。**恢复点=内容快照（R0 tar+清单），非 Git 锚**；证据 deploy-state.json。
+- **备份**：接收动作前对 deploy 全量 `tar czf R0-<timestamp>.tgz`（含权限/路径）+ 重算 sha256 清单；备份落 deploy 之外的安全位置；清单与预检清单（62737bd0…）比对——**漂移即停手**，重新预检并另批。
+- **恢复校验**：恢复=从 R0 tar 全量还原（不做局部挑拣）；校验=`sha256sum -c` 全量清单 + 文件数 7719 + 字节和 87798110 + tar 完整性；任一不符→恢复失败停手留证。
+- **停手条件**：①预检清单与接收时现状漂移；②无法形成可验证恢复点（快照失败/清单不可复算）；③现役 Git 提交 UNKNOWN 且内容快照亦不可得；④需要改服务/镜像或写 deploy 之外受保护路径；⑤任一审批缺失（表名/冻结/装载三账）。**满足任一→受控接收停在预检，不得继续**。
 - 本方案仅为计划；**受控接收、正式合同冻结、落盘、数据库写入均另行授权**，本轮不执行。
 
 ## 1. 接收范围
@@ -58,7 +62,7 @@ python3 build_approval_package.py   # ×2，approval-table/evidence-list 字节�
 
 ## 4. 回退点（恢复接收前的完整版本锚）
 - R0：接收前 deploy 快照 tar（sha256 记录）+ **完整版本锚 19a77184440f604353cde6a1efe7a0611ebad03c**（Gitea ls-remote 已核）。
-- R1：回退即**恢复接收前完整版本锚**——受控目录整体恢复 R0 快照，或 `git checkout <统一完整锚> -- .` 全量回到锚版本（本盒记录锚 f10bfea；来源提交==回退锚，不做局部挑拣回退）；分支历史不改写（R-10 禁 reset/clean/stash）。
+- R1：回退即**恢复接收前实际恢复点**——deploy 非 Git 仓库，回退=从接收前 R0 内容快照（tar+清单 62737bd0…）**全量还原**并按恢复校验节核验（不做局部挑拣回退）；来件 Git 锚（df5a7c5…）仅用于来件侧版本核对，不替代 deploy 内容恢复点；分支历史不改写（R-10 禁 reset/clean/stash）。
 - **保留已验收的核销保护**：回退后的版本仍含 writeoff.py 原清单绑定补正（ORIGINAL_INVENTORY_SHA256=fb5e6b33… 锁定 + 签发前四核 + 证据全文可取回重算 + 替代清单拒绝用例）；任何回退不得移除这些保护（11 用例回归须仍全过）。
 - 任何验证失败：停止接收，恢复 R0 完整锚，记录冲突按 docs/index.md 权威顺序处理。
 

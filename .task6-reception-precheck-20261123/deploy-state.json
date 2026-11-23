@@ -1,0 +1,45 @@
+{
+ "active_image": {
+  "container": "xiangrugu-dev",
+  "image_id": "sha256:89f1a0978cb817871d50d6468f3dec19e3ea1e67d5bc73457a62fd10b5b8732d",
+  "image_tag": "xiangrugu:dev"
+ },
+ "contract_frozen": false,
+ "database_written": false,
+ "deploy_replaced": false,
+ "git_commit": "UNKNOWN",
+ "git_commit_reason": "deploy 非 Git 仓库（无 .git，git rev-parse 致命错误）；无法证明现役 Git 提交，按派单记为未知",
+ "inspection": "read-only",
+ "mounts": {
+  "deploy_to_workspace": "ro（只读挂载，容器不写 deploy）",
+  "outside_deploy": "data/persistent 与 data/var 为独立 rw 绑定，不在 deploy 保护范围"
+ },
+ "path": "/opt/mydocker/xiangrugu/deploy",
+ "protection_scope": {
+  "bytes": 87798110,
+  "definition": "deploy 下全部 7719 文件（datamgmt/demo/docs/scripts/根文件）；恢复以内容清单全量为准",
+  "files": 7719,
+  "manifest_ref": ".task6-reception-precheck-20261123/deploy-content-manifest.txt"
+ },
+ "publishable_version_markers": {
+  "content_manifest_sha256": "62737bd0c16ac23f1c9ba4fd92e73abadb6a6eace014494f605f29e6aa00396f",
+  "file_count": 7719,
+  "key_file_note": "key_file_sha256 为前 16 位截断展示；全量以 content manifest 为准",
+  "key_file_sha256": {
+   "AGENTS.md": "2043155a8ebc6d96",
+   "Dockerfile": "51a1df8e5a0f51a1",
+   "docker-compose.yml": "67212d2871b2dd10"
+  },
+  "mtime_range": "2026-10-06..2026-10-15 (+0800)，早于当前交付分支，内容代际另行核对",
+  "total_bytes": 87798110
+ },
+ "recovery_point": {
+  "basis": "内容 sha256 清单（62737bd0…）+ 接收时 R0 tar 快照；恢复校验=全量 sha256sum -c + 文件数 + 字节和",
+  "git_anchor": "UNKNOWN",
+  "kind": "content_snapshot",
+  "note": "Git 锚不可证时以内容快照为可验证恢复点；若接收时清单漂移或快照不可形成→受控接收停在预检",
+  "verifiable": true
+ },
+ "service_changed": false,
+ "version": 1
+}

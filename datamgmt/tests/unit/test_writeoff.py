@@ -39,6 +39,11 @@ def test_positive_writeoff_only_the_three_fixed_issues():
     assert result["inventory_sha256"] == manifest.sha256
     assert len(result["run_evidence_sha256"]["nul"]) == 64
     assert len(result["run_evidence_sha256"]["chgis"]) == 64
+    # both freshly generated evidence bodies are retrievable and recomputable
+    assert writeoff._evidence_sha256(result["run_evidence"]["nul"]) == result["run_evidence_sha256"]["nul"]
+    assert writeoff._evidence_sha256(result["run_evidence"]["chgis"]) == result["run_evidence_sha256"]["chgis"]
+    assert result["run_evidence"]["nul"]["contract_sha256"] == contract.sha256
+    assert result["run_evidence"]["chgis"]["contract_sha256"] == contract.sha256
     closed = {(c["code"], c["detail"], c["relative_path"]) for c in result["closed_issues"]}
     assert closed == {("checksum_line", "line=173", "SHA256SUMS-b2"),
                       ("checksum_nul", "count=126", "SHA256SUMS-b2"),
@@ -54,7 +59,10 @@ def test_positive_writeoff_only_the_three_fixed_issues():
     assert manifest.complete is before_complete is False
 
 
-def test_positive_derived_gate_closes_when_all_else_conforms():
+def test_negative_substitute_inventory_same_three_issues():
+    # Formerly the "three-member test inventory can be written off" positive;
+    # the write-off scope is now locked to the audited original inventory, so a
+    # substitute inventory carrying the same three issues must be refused.
     manifest = t._inventory()
     paths = {"SHA256SUMS-b2", "harvard/chgis/SHA256SUMS.txt", "chgis-v6/China_Periods_ReignDates.zip"}
     entries = tuple(e for e in manifest.entries if e.relative_path in paths and not e.archive_chain)
@@ -62,6 +70,7 @@ def test_positive_derived_gate_closes_when_all_else_conforms():
                     if c.ledger in {"SHA256SUMS-b2", "harvard/chgis/SHA256SUMS.txt"})
     issues = tuple(_fixed_issue(fixed) for fixed in writeoff.FIXED_ISSUES)
     synthetic = replace(manifest, entries=entries, checksums=checksums, issues=issues)
+    assert synthetic.sha256 != writeoff.ORIGINAL_INVENTORY_SHA256
     target = next(e for e in entries if e.relative_path == "chgis-v6/China_Periods_ReignDates.zip")
     zip_rule = DispositionRule(
         rule_id="r-chgis-target-zip",
@@ -72,12 +81,15 @@ def test_positive_derived_gate_closes_when_all_else_conforms():
         format_family="zip_archive", encodings=(), targets=(), validator="none")
     contract = t._chgis_contract(synthetic, exceptions=(t._exception(), t._chgis_exception()),
                                  rules=(t._b2_rule(), t._chgis_rule(), zip_rule))
-    result = writeoff.run_writeoff(synthetic, contract, BOTH_INPUTS)
-    assert result["derived_issue_codes"] == []
-    assert result["ready_for_import"] is True
-    assert result["incomplete_inventory_written_off"] is True
-    assert result["original_inventory_complete"] is False
-    assert synthetic.complete is False
+    with pytest.raises(ValueError):
+        writeoff.run_writeoff(synthetic, contract, BOTH_INPUTS)
+
+
+def test_negative_contract_binds_substitute_digest():
+    manifest = t._inventory()
+    contract = _both_contract(manifest).model_copy(update={"inventory_sha256": "1" * 64})
+    with pytest.raises(ValueError):
+        writeoff.run_writeoff(manifest, contract, BOTH_INPUTS)
 
 
 def test_negative_missing_one_evidence():

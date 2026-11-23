@@ -23,6 +23,10 @@ FIXED_ISSUES = (
      "archive_chain": (), "archive_ordinals": (), "blocking": True},
 )
 
+# The write-off scope is locked to the audited original inventory; a substitute
+# inventory carrying the same three issues must never be written off.
+ORIGINAL_INVENTORY_SHA256 = "fb5e6b334b898d62dc0e5c77094fdb50e0946300e6e3009f447b2ecd1bc216db"
+
 
 def _issue_key(issue):
     return (issue.code, issue.detail, issue.relative_path,
@@ -48,6 +52,10 @@ def run_writeoff(manifest, contract, raw_ledgers):
     """
     if contract.status != "frozen" or contract.review is None:
         raise ValueError("write-off requires an approved frozen contract")
+    if manifest.sha256 != ORIGINAL_INVENTORY_SHA256:
+        raise ValueError("write-off scope is locked to the audited original inventory digest")
+    if contract.inventory_sha256 != ORIGINAL_INVENTORY_SHA256:
+        raise ValueError("contract must bind the audited original inventory digest")
     observed = sorted(_issue_key(issue) for issue in manifest.issues)
     expected = sorted(_fixed_key(fixed) for fixed in FIXED_ISSUES)
     if observed != expected:
@@ -67,6 +75,7 @@ def run_writeoff(manifest, contract, raw_ledgers):
             "contract_sha256": contract.sha256, "inventory_sha256": manifest.sha256,
             "run_evidence_sha256": {"nul": _evidence_sha256(nul_evidence),
                                     "chgis": _evidence_sha256(chgis_evidence)},
+            "run_evidence": {"nul": nul_evidence, "chgis": chgis_evidence},
             "closed_issues": [dict(fixed, archive_chain=list(fixed["archive_chain"]),
                                    archive_ordinals=list(fixed["archive_ordinals"]))
                               for fixed in FIXED_ISSUES],

@@ -1,0 +1,10 @@
+== ROUND 38（核销器原清单绑定补正·独立核，a03，硬停 16:04 内）==
+自写驱动 walt.py 容器 fresh 暂存新旧对照 EXIT=0×2：
+ALT 替代清单（三成员合成/同三条 issue/合同绑替代 sha 3b8f5f3e…）：补正版 rejected:ValueError「write-off scope is locked to the audited original inventory digest」；**旧版 0da4f0f 对照 ready True/derived []——误签发实证**（旧版 grep ORIGINAL_INVENTORY==0 缺口证实，与 R37b 合成全覆 ready True 同路径吻合）。
+REAL 原清单正例：inv.json 重建 manifest sha==fb5e6b33==文件摘要逐字节等值探针 True；closed 3/derived [unmatched_member] 留门/ready False/written_off True/orig_complete False。
+RECOMPUTE：run_evidence{nul,chgis} 全文取回独立 canonical 重算 nul True/chgis True==结果两摘要；双绑探针 manifest_sha==file_digest==固定常量全 64。
+诊断披露：a03 驱动首轮 REAL 被拒系其重建 InventoryEntry 目录条目 sha256 None 折叠成 ""（c2cafb73≠fb5e6b33），修正保 None 后逐位等值——反证新门对清单身份严格性；reader L55 既有绑定门先于 writeoff 新门触发同族拒绝语义一致。
+测试复跑：test_writeoff 11 passed WO_EXIT=0（含两新拒用例+重算断言）；五套合跑 141 passed REG_EXIT=0。ME 两反例 rejected True+错误消息逐字==源码分支；substitute sha 3b8f5f3e 在账；original_preserved/evidence_bodies_present/evidence_recomputable 全 True。
+范围核 PASS：rollup 19 件 vs 0da4f0f unchanged True；改动恰 writeoff.py+test_writeoff.py+TODO+证据目录；五块+其余源码（contracts/disposition/checksum_reader/model/inventory/candidates）diff 空；M=2（668900d4）/staged0；原清单字节 fb5e6b33 不变（32 实物复算）。
+剩余缺口：①promotion 步骤 1「32 受控接收转正」②正式合同下证据再生（evidence_regeneration_required=True）③首批七批准面第一优先。
+ROUND 38 全项 PASS，无首个不一致。

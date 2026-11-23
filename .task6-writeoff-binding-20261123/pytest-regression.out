@@ -1,0 +1,13 @@
+============================= test session starts ==============================
+platform linux -- Python 3.11.16, pytest-9.1.1, pluggy-1.6.0
+rootdir: /tmp/wb
+collected 141 items
+
+tests/unit/test_disposition.py .........................                 [ 17%]
+tests/unit/test_contracts.py ........................................... [ 48%]
+.......                                                                  [ 53%]
+tests/unit/test_checksum_candidates.py ............................      [ 73%]
+tests/unit/test_checksum_reader.py ...........................           [ 92%]
+tests/unit/test_writeoff.py ...........                                  [100%]
+
+============================= 141 passed in 49.98s =============================

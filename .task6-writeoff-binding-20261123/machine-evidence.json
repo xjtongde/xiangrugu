@@ -1,0 +1,71 @@
+{
+ "evidence_bodies_present": {
+  "chgis": true,
+  "nul": true
+ },
+ "evidence_recomputable": {
+  "chgis": true,
+  "nul": true
+ },
+ "negative_cases": [
+  {
+   "error": "write-off scope is locked to the audited original inventory digest",
+   "id": "substitute_inventory_same_three_issues",
+   "rejected": true
+  },
+  {
+   "error": "contract must bind the audited original inventory digest",
+   "id": "contract_binds_substitute_digest",
+   "rejected": true
+  }
+ ],
+ "original_preserved": {
+  "complete": false,
+  "issues_unchanged": true,
+  "sha_unchanged": true
+ },
+ "positive_writeoff_result": {
+  "closed_issues": [
+   {
+    "archive_chain": [],
+    "archive_ordinals": [],
+    "blocking": true,
+    "code": "checksum_line",
+    "detail": "line=173",
+    "relative_path": "SHA256SUMS-b2"
+   },
+   {
+    "archive_chain": [],
+    "archive_ordinals": [],
+    "blocking": true,
+    "code": "checksum_nul",
+    "detail": "count=126",
+    "relative_path": "SHA256SUMS-b2"
+   },
+   {
+    "archive_chain": [],
+    "archive_ordinals": [],
+    "blocking": true,
+    "code": "checksum_missing",
+    "detail": "line=4",
+    "relative_path": "harvard/chgis/SHA256SUMS.txt"
+   }
+  ],
+  "contract_sha256": "63d1f862d64c7186aaf1c256e8b6549fcc4a19c7c74cbcd441f8526f05aab192",
+  "derived_issue_codes": [
+   "unmatched_member"
+  ],
+  "incomplete_inventory_written_off": true,
+  "inventory_sha256": "fb5e6b334b898d62dc0e5c77094fdb50e0946300e6e3009f447b2ecd1bc216db",
+  "original_inventory_complete": false,
+  "original_ledger_ready_for_import": false,
+  "ready_for_import": false,
+  "run_evidence_sha256": {
+   "chgis": "e24ed0f17ebd91f554e45e06e41b5e1cf430ab67ffd4365db562d5f0608498e4",
+   "nul": "b74c33847935cdcd2e1733a553764e2645efd35ccdb3b6b7f085b873dc1dd088"
+  },
+  "status": "WRITEOFF_RESULT_DERIVED",
+  "version": 1
+ },
+ "substitute_inventory_sha256": "3b8f5f3e2f90e63267f4ef5b9364d5b2024c0cf6fb4a0dcecfd7c460036aea77"
+}

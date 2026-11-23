@@ -1,0 +1,8 @@
+============================= test session starts ==============================
+platform linux -- Python 3.11.16, pytest-9.1.1, pluggy-1.6.0
+rootdir: /tmp/wb
+collected 11 items
+
+tests/unit/test_writeoff.py ...........                                  [100%]
+
+============================= 11 passed in 20.51s ==============================

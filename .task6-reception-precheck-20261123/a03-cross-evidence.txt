@@ -1,0 +1,19 @@
+== ROUND 44（首批七对象受控接收预检·独立复核，a03，硬停 18:30 内）==
+总判定 PASS；无首个不一致。
+
+1. 回退依据独立核 PASS：
+- deploy 非 Git 自证：host git rev-parse 致命错误复现 True；ls -a 无 .git；7719 文件/111M 双计数==DS。
+- 内容清单抽核：自写两窗口抽样（首 400+中段 3800-4200）801 文件 sha 全等 mismatch 0；manifest n=7719 完整；清单文件自身 sha 62737bd0…==recovery_point.basis 逐字命中。聚合语义澄清：basis=清单文件字节摘要（a03 另算 sorted-list agg 20814abb 为不同聚合面，非不一致）；可验证性操作面=sha256sum -c 全量校验，成立。
+- 恢复点可验证性：content_snapshot/git_anchor UNKNOWN/停手条件在文——内容快照足以构成可验证恢复点（接收时 R0 tar 同法校验前提），不触发 BLOCKED。
+- active_image xiangrugu:dev Id 89f1a097…独立 inspect 逐字==DS。
+
+2. 七项证据独立核 PASS：
+- items 7/text 47607/spatial 118/PENDING_APPROVAL/三 False；build_precheck.py 独立跑 rc=0 确定性再生。
+- 五文本 SID/候选名/行数/attr 摘要 approved.draft+审批表三方一致 True×5；m008003 dup groups 63/extra 74/key 排除 __src_rownum/40199 含重复口径 verbatim==R42b。
+- 空间 srid 4326/dims 2/geom ff7081a0/3c606784/dbf 身份 cp1251+cpg ea80b523/hex EWKB 装载法==R43b 四摘要全等。
+- 合同表达独立核（contracts.py+contract.schema.json）：ObjectTarget required 五字段表达目标行+值摘要成立；NOT_EXPRESSIBLE 族七件一致（derived_src_rownum 7/7、duplicate_ledger 7/7、precise_field_mapping 7/7、geometry_expectation 2/2）；与 lead 表逐项吻合。首个无法表达位置表述差异：a03 schema 审计序以 derived_src_rownum 为首，lead 表以 m008002 precise_field_mapping 为首——同为首件 m008002 的不可表达面，排序视角差异非数据不一致；承接=合同扩展或旁挂批准件，正式冻结前必须决策。
+
+3. 方案分列+范围 PASS：plan UNKNOWN/内容快照/来件/停手/恢复校验/分列 6/6；rollup/src diff 空；M 核心恰 plan 一件（历史噪声 668900d4 未触）；交付恰三类；全程只读，deploy 未替换/服务未改/未冻结/未写库。
+
+剩余缺口：①合同表达四项 NOT_EXPRESSIBLE 承接方案（扩展 vs 旁挂件）为正式冻结前必须决策项②promotion 步骤 1 转正链③装载授权链。
+ROUND 44 PASS。

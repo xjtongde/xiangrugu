@@ -26,3 +26,10 @@
 - 交付面：仅预检报告（本目录）+接收方案修正+待批表；rollup/src/原 inventory/五块零改写；M=2 未触；deploy 未替换；服务未改。
 - 证据：deploy-state.json（e9712e6a887d2745…）/deploy-content-manifest.txt（62737bd0…）/pending-approval-seven-20261123.json（23e44d12bbd6dd50…）/build_precheck.py（46f944ef201aea7b…，双跑字节全等）。
 - a03 独立复核：回退依据（非 Git 自证+清单抽核+恢复点可验证性）+七项证据+合同表达独立核；按 PASS/PARTIAL/BLOCKED 回报。
+## 4. a03 独立复核结果（R44，硬停内）
+- **总判定 PASS，无首个不一致**。回退依据：非 Git 自证复现/801 文件两窗口抽核 mismatch 0/清单 sha 62737bd0 逐字命中/恢复点可验证成立（不触发 BLOCKED）/镜像 Id 独立 inspect 逐字等。
+- 七项证据：生成器独立跑 rc=0 确定性再生/五文本三方一致×5/m008003 63/74 口径 verbatim/空间四摘要==R43b/合同 NOT_EXPRESSIBLE 族逐项吻合（7/7/7/7+2/2）。
+- 聚合语义澄清：recovery_point.basis=清单文件字节摘要（62737bd0）；a03 sorted-list agg 20814abb 为另一聚合面，非不一致；操作面=sha256sum -c 全量。
+- 首个不可表达位置表述：lead 表=m008002 precise_field_mapping；a03 审计序=derived_src_rownum——同首件不同面，排序视角差异，已并录。
+- 方案 6/6 token/范围核 PASS/全程只读。
+- 剩余缺口：①四项 NOT_EXPRESSIBLE 承接方案（合同扩展 vs 旁挂批准件）为正式冻结前必须决策项②promotion 步骤 1 转正链③装载授权链。

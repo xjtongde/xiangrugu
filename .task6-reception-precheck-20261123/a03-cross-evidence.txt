@@ -17,3 +17,14 @@
 
 剩余缺口：①合同表达四项 NOT_EXPRESSIBLE 承接方案（扩展 vs 旁挂件）为正式冻结前必须决策项②promotion 步骤 1 转正链③装载授权链。
 ROUND 44 PASS。
+
+== ROUND 44b 补充确认（a03，交付态复核，硬停内）==
+总判定 PASS，无首个不一致（R44 同结论展开面）。
+- 回退依据：非 Git 自证复现/801 文件两窗口抽核 mismatch 0（首 400+中段 401）/manifest sha 62737bd0 逐字==DS basis/n 7719/bytes 87798110 verbatim/ro 挂载核 True/镜像 Id 独立 inspect==DS；恢复点可验证性成立不触发 BLOCKED。
+- 七项证据：期望==试装回读 match 7/7（五文本 exp sha 逐件 True+空间 attr×2+geom 节点）；dbf 身份逐字；m008003 63/74 verbatim；47607/118/三账 false。
+- 合同表达：table pattern 首轮按全名长度比对 7/7 False 系口径差（lead length 指 table 部分），改 schema.table 分解后 table-part len 41/63/63/63/63/21/21+regex fullmatch True×7 全等 lead 声称（更正记录非交付缺陷）；首个无法表达=m008002 precise_field_mapping verbatim 理由链与独立审计一致；duplicate_ledger/geometry_expectation 亦无字段。
+- 生成器独立双跑 rc 0/0，deploy-state e9712e6a/pending-seven 23e44d12 跑后字节全等/builder 46f944ef；report token 中。
+- 方案：分列成文/R0 漂移即停/恢复校验四件套/停手五条 verbatim/R1 逻辑自洽。
+- 范围：src+rollup diff df5a7c5..worktree 空；交付恰三类；M 核心恰 plan；668900d4 M=2 未触；全程只读。
+- a03 建议：lead 提请茶香批准事件明确承接二选一——「扩展 contracts.py ObjectTarget（新授权实现盒）」vs「旁挂已批映射件+expected_count/sha 引用」——后再进正式冻结程序。转正链沿 promotion 步骤 1。
+ROUND 44b PASS。

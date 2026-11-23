@@ -1,0 +1,86 @@
+{
+ "baseline_git": "e7a132cbe6e7fdc0ddd0e4e48131f761c420c3ab",
+ "block_rules": [
+  "多出 issue（不在三条精确身份内）→不可结项",
+  "任一证据缺失/失配（四核/逐条/字节证）→exception_not_implemented 保持",
+  "未审批（非 frozen 或缺 review）→阻断",
+  "清单摘要变化→inventory_mismatch+例外阻断",
+  "任一例外失配→聚合 exception_not_implemented（closed≠len）"
+ ],
+ "byte_proof_note": "issue① line=173 与 issue② count=126 是同一 NUL 尾段的两个观测面（a03 R36 独立证：raw[21944:21946]==\\n\\x00，split 产幻影第 173 元素）；兼容解析 172 有效行即双闭",
+ "closeable_issues": [
+  {
+   "closed_by": "nul_run_evidence",
+   "conditions": [
+    "line=173 幻影行字节==NUL 尾段（split(b'\\n')[172]==raw[21945:]，本盒字节证 True）",
+    "prefix 恰 172 换行且末换行@21944",
+    "raw[21945:22071]==126×NUL 无尾换行",
+    "172 逐条 assertion matched",
+    "固定身份四核（外层三元组/expected file,22071,900d98c6/清单绑定/审批 frozen+review）"
+   ],
+   "identity": {
+    "archive_chain": [],
+    "archive_ordinals": [],
+    "blocking": true,
+    "code": "checksum_line",
+    "detail": "line=173",
+    "relative_path": "SHA256SUMS-b2"
+   }
+  },
+  {
+   "closed_by": "nul_run_evidence",
+   "conditions": [
+    "count=126==trailing_nul_bytes",
+    "tail_offset==21945",
+    "raw_sha256==900d98c69cf9b72f20313aa562b8da5e18e9c3e3def423fa6f618b4b1bafb3cb",
+    "172 逐条 matched+四核"
+   ],
+   "identity": {
+    "archive_chain": [],
+    "archive_ordinals": [],
+    "blocking": true,
+    "code": "checksum_nul",
+    "detail": "count=126",
+    "relative_path": "SHA256SUMS-b2"
+   }
+  },
+  {
+   "closed_by": "chgis_run_evidence",
+   "conditions": [
+    "line=4 声明路径 harvard/chgis/China_Periods_ReignDates.zip entries==0（缺席）",
+    "resolved chgis-v6/China_Periods_ReignDates.zip 外层 chain[] 唯一 file/155774/7452ae6cf8d7dedbd0b06ea4e0e8343be9bac4075069ca8eb89e8ff0451c355e",
+    "strict assertion 恰一 matched=False 且 (raw_name,target,sha) 等值——原声明保留",
+    "源账固定身份四核（551/694c101f/外层三元组/审批）+清单绑定"
+   ],
+   "identity": {
+    "archive_chain": [],
+    "archive_ordinals": [],
+    "blocking": true,
+    "code": "checksum_missing",
+    "detail": "line=4",
+    "relative_path": "harvard/chgis/SHA256SUMS.txt"
+   }
+  }
+ ],
+ "joint_verification_ref": "joint-comparison.json（容器实跑 DRIVE_EXIT=0：并存 codes [incomplete_inventory, unmatched_member] ready false；四留门反例+新增阻断反例全 ready false）",
+ "normal_entry": "DispositionLedger.evaluate(manifest, contract, exception_run_inputs)（候选已实现）→核销评估器扩展（另行授权）读 evaluate 结果+两份运行证据产 writeoff_result；原 issue 账不动，closed_issues 仅记于 writeoff_result",
+ "principle": "原始 inventory 逐字节保留（complete=false、三 issue 逐字、sha fb5e6b334b898d62dc0e5c77094fdb50e0946300e6e3009f447b2ecd1bc216db）；核销为独立派生产物 writeoff_result，永不改写原清单",
+ "scope": "最小核销方案——本轮仅方案；核销逻辑实施/候选转正/冻结/落盘另行授权",
+ "status": "PLAN_NOT_IMPLEMENTED",
+ "still_blocking": {
+  "incomplete_inventory": "原清单三 blocking issue 派生恒门——complete=false 保留；核销视图亦不改原清单 complete；ready_for_import 仍 false 直至正式冻结+全量合同+G0-G7",
+  "new_blocking_issue": "新增阻断项不重开例外门但 incomplete_inventory 恒门保持、ready false（本盒 gate_negatives 实证）",
+  "unmatched_member": "测试合同仅两规则（8004 成员面外）伪影，非原 issue；a03 R36 独立实证残差精确身份 {code: unmatched_member, path: chgis-v6/China_Periods_ReignDates.zip}（目标 zip 成员无覆盖规则所致）；正式全量合同下消失"
+ },
+ "version": 1,
+ "writeoff_result_binding": {
+  "contract_sha256": "正式冻结合同 sha（当前证据绑 fixture 合同，正式核销须在正式合同下重跑 reader 再生证据）",
+  "evidence_regeneration_required": true,
+  "inventory_sha256": "fb5e6b334b898d62dc0e5c77094fdb50e0946300e6e3009f447b2ecd1bc216db",
+  "note": "本盒两份证据为对应关系参照（绑 fixture 合同 0e97147d/921e1469 面）；正式 writeoff_result 须绑正式合同 sha+原清单 sha+正式重跑证据 sha 三元组",
+  "run_evidence_sha256_reference": {
+   "chgis": "fe8c392b824c6eec41fa1f7712b08f353a92db64c89dc85e972499c2fa0c2606",
+   "nul": "2fa2400cb4dcf5945b21050d251466e476698e56125497749ae3773bbd6920f1"
+  }
+ }
+}

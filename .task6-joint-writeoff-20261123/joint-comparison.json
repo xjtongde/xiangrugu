@@ -1,0 +1,172 @@
+{
+ "baseline_git": "e7a132cbe6e7fdc0ddd0e4e48131f761c420c3ab",
+ "gate_negatives": [
+  {
+   "exception_block_kept": true,
+   "id": "missing_nul_raw",
+   "issue_codes": [
+    "exception_not_implemented",
+    "incomplete_inventory",
+    "unmatched_member"
+   ],
+   "ready_for_import": false
+  },
+  {
+   "exception_block_kept": true,
+   "id": "missing_chgis_raw",
+   "issue_codes": [
+    "exception_not_implemented",
+    "incomplete_inventory",
+    "unmatched_member"
+   ],
+   "ready_for_import": false
+  },
+  {
+   "exception_block_kept": true,
+   "id": "inventory_digest_changed",
+   "issue_codes": [
+    "exception_not_implemented",
+    "incomplete_inventory",
+    "inventory_mismatch",
+    "unmatched_member"
+   ],
+   "ready_for_import": false
+  },
+  {
+   "exception_block_kept": false,
+   "id": "new_blocking_issue",
+   "issue_codes": [
+    "incomplete_inventory",
+    "unmatched_member"
+   ],
+   "ready_for_import": false
+  },
+  {
+   "exception_block_kept": true,
+   "id": "unapproved_draft",
+   "issue_codes": [
+    "exception_not_implemented",
+    "incomplete_inventory",
+    "unmatched_member"
+   ],
+   "ready_for_import": false
+  }
+ ],
+ "issue_correspondence": [
+  {
+   "byte_proof": {
+    "no_trailing_newline_after_tail": true,
+    "phantom_line_173_bytes_equal_nul_tail": true,
+    "prefix_ends_with_newline": true,
+    "prefix_newline_count": 172,
+    "tail_all_nul": true,
+    "tail_length": 126,
+    "tail_offset": 21945
+   },
+   "closeable_by": "nul_run_evidence",
+   "condition": "line=173 幻影行字节==NUL 尾段（phantom_line_173_bytes_equal_nul_tail）+172 逐条 matched+固定身份+审批 frozen+review",
+   "issue": {
+    "archive_chain": [],
+    "archive_ordinals": [],
+    "blocking": true,
+    "code": "checksum_line",
+    "detail": "line=173",
+    "relative_path": "SHA256SUMS-b2"
+   },
+   "issue_index": 0
+  },
+  {
+   "closeable_by": "nul_run_evidence",
+   "condition": "count=126==trailing_nul_bytes+tail_offset 21945+raw_sha256 固定+172 逐条 matched+审批",
+   "issue": {
+    "archive_chain": [],
+    "archive_ordinals": [],
+    "blocking": true,
+    "code": "checksum_nul",
+    "detail": "count=126",
+    "relative_path": "SHA256SUMS-b2"
+   },
+   "issue_index": 1
+  },
+  {
+   "closeable_by": "chgis_run_evidence",
+   "condition": "line=4 声明路径缺席（entries 0）+resolved 外层唯一 155774/7452ae6c+strict assertion matched=False 保留原声明+审批",
+   "issue": {
+    "archive_chain": [],
+    "archive_ordinals": [],
+    "blocking": true,
+    "code": "checksum_missing",
+    "detail": "line=4",
+    "relative_path": "harvard/chgis/SHA256SUMS.txt"
+   },
+   "issue_index": 2
+  }
+ ],
+ "joint_evaluate": {
+  "contract_sha256": "921e146912c6bf17b3c2300b392edcb228f0c3f8ad7d11bb56ff3b0c767c844e",
+  "inventory_complete": false,
+  "inventory_sha256": "fb5e6b334b898d62dc0e5c77094fdb50e0946300e6e3009f447b2ecd1bc216db",
+  "issue_codes": [
+   "incomplete_inventory",
+   "unmatched_member"
+  ],
+  "ready_for_import": false
+ },
+ "original_inventory": {
+  "complete": false,
+  "issue_count": 3,
+  "issues_verbatim": [
+   {
+    "archive_chain": [],
+    "archive_ordinals": [],
+    "blocking": true,
+    "code": "checksum_line",
+    "detail": "line=173",
+    "relative_path": "SHA256SUMS-b2"
+   },
+   {
+    "archive_chain": [],
+    "archive_ordinals": [],
+    "blocking": true,
+    "code": "checksum_nul",
+    "detail": "count=126",
+    "relative_path": "SHA256SUMS-b2"
+   },
+   {
+    "archive_chain": [],
+    "archive_ordinals": [],
+    "blocking": true,
+    "code": "checksum_missing",
+    "detail": "line=4",
+    "relative_path": "harvard/chgis/SHA256SUMS.txt"
+   }
+  ],
+  "sha256": "fb5e6b334b898d62dc0e5c77094fdb50e0946300e6e3009f447b2ecd1bc216db"
+ },
+ "run_evidence_files": {
+  "chgis": {
+   "declared_target": "harvard/chgis/China_Periods_ReignDates.zip",
+   "expected_size": 155774,
+   "line": 4,
+   "path": ".task6-chgis-binding-20261123/machine-evidence.json",
+   "resolved_target": "chgis-v6/China_Periods_ReignDates.zip",
+   "sha256": "fe8c392b824c6eec41fa1f7712b08f353a92db64c89dc85e972499c2fa0c2606",
+   "strict_assertion_matched": false
+  },
+  "nul": {
+   "path": ".task6-nul-gate-20261123/machine-evidence.json",
+   "prefix_assertions_matched": 172,
+   "run_evidence_sha256": "900d98c69cf9b72f20313aa562b8da5e18e9c3e3def423fa6f618b4b1bafb3cb",
+   "sha256": "2fa2400cb4dcf5945b21050d251466e476698e56125497749ae3773bbd6920f1",
+   "tail_offset": 21945,
+   "trailing_nul_bytes": 126,
+   "valid_lines": 172
+  }
+ },
+ "status": "JOINT_VERIFICATION_READ_ONLY",
+ "still_blocking": {
+  "incomplete_inventory": "三 blocking issue 派生恒门；原清单 complete=false 保留不改；核销结果单独记账",
+  "unmatched_member": "测试合同仅两规则（8004 成员面外）伪影，非原 issue；正式全量合同下消失"
+ },
+ "version": 1
+}

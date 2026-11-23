@@ -1,0 +1,13 @@
+== ROUND 36 一期（a03，a02 未就位先报）==
+两证据↔三 issue 对应独立复核 PASS：原清单三 issue 逐字（sha fb5e6b33 不变 complete=false）；NUL 闭①②字节级独立证（32 实物直读：prefix[0:21945] 恰 172 换行末@21944 raw[21944:21946]==\n\x00/raw[21945:]==126 全 NUL/prefix 无 NUL/尾无换行→split 幻影第 173 元素——issue①line=173 与②count=126 同一尾段双观测面，兼容解析 172 行即双闭）；CHGIS 闭③（声明 entries 0/line4 matched=False/resolved 外层唯一）。区分核：incomplete_inventory 派生恒门非独立可闭项；unmatched_member 伪影实证残差精确身份 {code unmatched_member, path chgis-v6/China_Periods_ReignDates.zip}（两规则合同目标 zip 无覆盖）。
+留门验证（自写 gatekeep.py/gk2.py 容器 fresh reader 82b6cd0f==worktree EXIT=0）：G0 双证据齐+frozen+review 无 exception_not_implemented；G1 缺 NUL raw/G2 缺 CHGIS raw/G3 摘要变化→exception_not_implemented(+inventory_mismatch) 保持；G4 新增阻断→incomplete_inventory 恒门；全 ready false。
+原清单与源件原样核 PASS：inventory sha 不变/三 issue 逐字/complete=false；32 两源件 sha 复算 900d98c6/694c101f 不变；两 fixture decode==实物字节级 True。
+首批七缺口对账：gaps_itemized 三条逐字/text5+spatial2=7 口径一致。范围核：零源码改动（src/config/tests/rollup diff 空）；M=2；staged0；8004/1293/1311 零漂移。
+
+== ROUND 36b 二期交叉核（a03，硬停 15:16 内）==
+①四要件核 PASS：绑定面三元组+evidence_regeneration_required=True（现证据绑 fixture 0e97147d/921e1469 明示）；三可结项身份逐字==原 issue（JC issues_verbatim==real True）；conditions 与 R35/R36 实证条件集一致；正常入口 evaluate+inputs→核销评估器另行授权原账不动；恒门/伪影区分（残差身份采纳入注记）；block_rules 五条 vs G1-G4 逐码对位等值（含 new_blocking_issue exception_block_kept=false/incomplete 恒门）。
+②证据 sha 独立复算 match True×2（nul 2fa2400cb4dcf594/chgis fe8c392b824c6eec）；byte_proof 32 实物独立重证全 True（split 恰 173 元素第 173==尾段）；joint_evaluate 与 G0+R35 实跑同构。
+③七缺口对账 PASS：items7 symdiff ∅/count7/gaps_itemized_verbatim==table True；前置 8 步顺序依赖合理每步另行授权闸口与 PLAN_NOT_IMPLEMENTED 自洽。
+④范围终核 PASS：git diff --stat e7a132c -- src/config/tests/rollup 空；M 恰 TODO+lead 证据；untracked 新面恰 .task6-joint-writeoff-20261123/（历史证据目录噪声口径分离）；staged0；M=2（668900d4）；rollup 19 件不动。
+首个剩余缺口：promotion 步骤 1「32 受控运行目录接收 e7a132c」——证据再生/核销实施/冻结全依赖此转正事件；首批七批准面第一优先并行。
+ROUND 36b 四项全 PASS，无首个不一致。

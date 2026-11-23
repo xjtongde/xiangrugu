@@ -199,6 +199,35 @@ def main():
                    "evidence_ref": ".task6-trial-text5-20261123/trial-evidence.json",
                    "distinction": "试装通过≠正式合同接入≠生产装载授权；pg32/pg32b/deploy/正式落盘不在本轮"}
 
+    sp2_path = REPO / ".task6-trial-spatial2-20261123" / "trial-evidence.json"
+    sp2_node = {"status": "NOT_RUN"}
+    if sp2_path.exists():
+        sp2 = json.loads(sp2_path.read_text())
+        sp2_node = {"trial_only": True, "separate_from_formal_approval": True,
+                    "status": sp2["status"], "container_name": sp2["container_name"],
+                    "container_id": sp2["container_id"],
+                    "image_identity": sp2["image_identity"]["id_and_digests"],
+                    "postgis_version": sp2["postgis_version"],
+                    "network": "none", "unique_run_identity": True,
+                    "fixed_name_pre_delete": False,
+                    "cleanup_scope": sp2["cleanup_scope"],
+                    "identity_verified_before_write": sp2["identity_verified_before_write"],
+                    "pg32_pg32b_deploy_touched": sp2["pg32_pg32b_deploy_touched"],
+                    "items": [{"rule_id": it["rule_id"], "status": it["status"],
+                               "pre_write_gate": it["pre_write_gate"],
+                               "row_count": it["readback"]["row_count"],
+                               "per_point_xy_original_bytes_match": it["readback"]["per_point_xy_original_bytes_match"],
+                               "numeric_reconstruction_matches_source_raw": it["readback"]["numeric_reconstruction_matches_source_raw"],
+                               "attr_stream_sha256": it["readback"]["attr_stream_sha256_from_db_values"],
+                               "geom_stream_sha256": it["readback"]["geom_stream_sha256_from_db_values"],
+                               "attr_matches_approved": it["readback"]["attr_matches_approved"],
+                               "geom_matches_approved": it["readback"]["geom_matches_approved"]}
+                              for it in sp2["items"]],
+                    "four_digests_all_match": sp2["four_digests_all_match"],
+                    "total_rows_all_pass": sp2["total_rows_all_pass"],
+                    "evidence_ref": ".task6-trial-spatial2-20261123/trial-evidence.json",
+                    "distinction": "以临时试装为终点；试装通过≠正式合同接入≠生产装载授权；pg32/pg32b/deploy/正式落盘不在本轮"}
+
     table = {"version": 1, "status": "APPROVAL_PACKAGE_DRAFT_NOT_APPROVED",
              "baseline_git": VCS_REF, "scope": "first-batch-seven-objects-approval-package-only",
              "text_row_total_check": {"sum_of_expected_row_count": row_sum,
@@ -214,6 +243,7 @@ def main():
                  "formal_contract_integration": "七件均待接入正式合同 frozen 目标（expected_count/expected_sha256）"},
              "trial_load_result": trial_node,
              "trial_text5_result": t5_node,
+             "trial_spatial2_result": sp2_node,
              "items": sorted(items, key=lambda x: (x["kind"], x["rule_id"]))}
     dump("approval-table.json", table)
 

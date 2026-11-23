@@ -122,7 +122,8 @@ def main():
     if src_summary.sha256 != EXPECTED_SHA or src_summary.row_count != EXPECTED_ROWS:
         ev["status"] = "SOURCE_EXPECTATION_MISMATCH_STOP"; print(json.dumps(ev, ensure_ascii=False, indent=1, sort_keys=True)); sys.exit(2)
     # --- temporary isolated instance ---
-    run(["docker", "rm", "-f", CONTAINER])
+    # NOTE: fixed-name pre-delete removed (2026-11-23 spatial2 box dispatch, same
+    # safety pattern as trial_text5.py): a name collision must fail closed.
     r = run(["docker", "run", "-d", "--name", CONTAINER, "--network", "none",
              "-e", "POSTGRES_PASSWORD=trial-only-not-production", "-e", "POSTGRES_DB=xiangrugu_trial", IMAGE])
     ev["container_start"] = {"exit": r.returncode, "image": IMAGE, "network": "none",

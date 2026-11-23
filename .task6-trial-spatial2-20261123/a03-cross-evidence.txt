@@ -1,0 +1,14 @@
+== ROUND 43 一期（a03）==
+四摘要目标独立锁定：attr 3519649f663f8a6d/a2ad2d24ff4cae8c（24634/24214B）+geom ff7081a0013d721f/3c6067845a7938e8（1530B）；SID 9b4496c9/e601ce1a 全 64；各 59 行 12 源列；15 列框架（text×7+numeric(19,5)×2+bigint×3+geometry(Point,4326)+__src_rownum）自洽；重建方案（数值 lpad 宽度标度右对齐+host DBF raw 双向对账；geom ST_AsEWKB hex 无损通道）；实例隔离核预置（镜像 Id d562e436/唯一名/容器 ID/PGDATA 新卷/postmaster 时刻）。范围一期 PASS。
+
+== ROUND 43b 二期（a03，硬停 18:11 内）==
+逐表独立回读（自写 sp2stream.py/sp2dup.sh/sp2meta.sh 零复用 lead 码）META/COL/DUP/SP_EXIT 全 0：
+m002709/m002717 各：15 列 format_type+is_nullable 逐项==（text×7 YES/numeric(19,5)×2 YES/bigint×3 YES/geometry(Point,4326) NO/__src_rownum bigint NO）；count 59/null 行 0/rownum 1|59|59；dup 值列全集排除 rownum+geom 0/0+EWKB X-Y 字节对 0；attr-geom 按 rownum 对齐 True；attr XRGVALUE-v1 从库重建（lpad 19/5、16/0 右对齐+text cell utf-8+frame）24634B 3519649f✓/24214B a2ad2d24✓；geom XRGGEOM-v1 从库重建（ST_AsEWKB hex：01+0x20000001+SRID LE 逐点断言+原始 X/Y LE 直取无十进制往返）1530B ff7081a0✓/3c606784✓。四摘要逐件全等 PASS；total 118；field_count 767×2✓。
+实例隔离 PASS：容器 ID d71bca328f57797012b692b9855fce1976ef0ae37dbd33eb40b3ec59ed3f7ca0==TE 逐字；name==唯一名；镜像 Id sha256:d562e43664f9…==RepoDigest 逐字等；NetworkMode none/Ports 空；库清单四件；PGDATA /var/lib/postgresql/18/docker 新匿名卷非 pg32b 数据目录；postmaster.pid mtime 17:47:12Z 盒起后全新；PostGIS 3.6 GEOS/PROJ/STATS；TE pg32_pg32b_deploy_touched False。
+固定名强删移除 PASS：trial_text5.py/trial_load_m004812.py grep 强删行 0/0；TE fixed_name_pre_delete False/unique_run_identity True；仅按本次容器 ID 清理语义在账。
+方案来源提交==回退锚统一 PASS：plan f10bfea/来源提交/回退锚/试装 4/4；AT ddd15933（trial_spatial2_result cleanup_scope verbatim/container_id/name）；生成器双跑全等。
+范围核 PASS：rollup+src diff f10bfea..worktree 空；M=2（668900d4）；全程仅本盒容器；未触 pg32/pg32b/deploy/正式落盘。
+诊断披露：三轮 SP_EXIT=1 系 a03 SQL 引号转义面（f-string 内嵌引号与%优先级），改字符串拼接法一次通过——非交付缺陷。
+cleanup 时机观察沿 R42 补正（复核窗口保留→lead 按 ID 销毁 17:55:30 留证）。
+剩余缺口：①promotion 步骤 1 32 受控接收转正②正式合同冻结下 expected 接入+证据再生③装载授权链。
+ROUND 43b 全项 PASS，无首个差异。

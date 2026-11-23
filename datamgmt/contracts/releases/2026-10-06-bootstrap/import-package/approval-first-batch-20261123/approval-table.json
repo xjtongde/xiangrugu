@@ -583,6 +583,51 @@
   "status": "TRIAL_LOAD_READBACK_PASS",
   "trial_only": true
  },
+ "trial_spatial2_result": {
+  "cleanup_scope": "only the container Id created and verified in this run",
+  "container_id": "d71bca328f57797012b692b9855fce1976ef0ae37dbd33eb40b3ec59ed3f7ca0",
+  "container_name": "xiangrugu-trial-spatial2-20261123-174708-b6e61aa3",
+  "distinction": "以临时试装为终点；试装通过≠正式合同接入≠生产装载授权；pg32/pg32b/deploy/正式落盘不在本轮",
+  "evidence_ref": ".task6-trial-spatial2-20261123/trial-evidence.json",
+  "fixed_name_pre_delete": false,
+  "four_digests_all_match": true,
+  "identity_verified_before_write": true,
+  "image_identity": "sha256:d562e43664f996da0e4208b375c00c111a543d996475188d852e9189b2a8cd05 | [\"pg32b-full@sha256:d562e43664f996da0e4208b375c00c111a543d996475188d852e9189b2a8cd05\"]",
+  "items": [
+   {
+    "attr_matches_approved": true,
+    "attr_stream_sha256": "3519649f663f8a6d65659fb00b4456c1f2a282ed095545795e1a2bb3b00a7cd8",
+    "geom_matches_approved": true,
+    "geom_stream_sha256": "ff7081a0013d721f22fb12ec00edc85de98e9cef7f75426db6254dbabdb632da",
+    "numeric_reconstruction_matches_source_raw": true,
+    "per_point_xy_original_bytes_match": true,
+    "pre_write_gate": "PASS",
+    "row_count": 59,
+    "rule_id": "m002709",
+    "status": "PASS"
+   },
+   {
+    "attr_matches_approved": true,
+    "attr_stream_sha256": "a2ad2d24ff4cae8c2e0315af0278d6286ef27510911a2f81ee1f4aa6c4b9b1d0",
+    "geom_matches_approved": true,
+    "geom_stream_sha256": "3c6067845a7938e8e4e1946d96c46dc4d57bab6aba236d3857b0967c10c73722",
+    "numeric_reconstruction_matches_source_raw": true,
+    "per_point_xy_original_bytes_match": true,
+    "pre_write_gate": "PASS",
+    "row_count": 59,
+    "rule_id": "m002717",
+    "status": "PASS"
+   }
+  ],
+  "network": "none",
+  "pg32_pg32b_deploy_touched": false,
+  "postgis_version": "3.6 USE_GEOS=1 USE_PROJ=1 USE_STATS=1",
+  "separate_from_formal_approval": true,
+  "status": "TRIAL_SPATIAL2_PASS",
+  "total_rows_all_pass": 118,
+  "trial_only": true,
+  "unique_run_identity": true
+ },
  "trial_text5_result": {
   "cleanup_scope": "only this run's container",
   "container": "xiangrugu-trial-text5-20261123-173109",

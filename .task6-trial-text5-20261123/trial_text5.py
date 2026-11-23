@@ -124,7 +124,8 @@ def main():
         ev["total_rows"] = None
         print(json.dumps(ev, ensure_ascii=False, indent=1, sort_keys=True)); sys.exit(2)
     # --- one isolated temporary instance, unique identity ---
-    run(["docker", "rm", "-f", CONTAINER])
+    # NOTE: fixed-name pre-delete removed (2026-11-23 spatial2 box dispatch): never
+    # force-remove a fixed name before start; a name collision must fail closed.
     r = run(["docker", "run", "-d", "--name", CONTAINER, "--network", "none",
              "-e", "POSTGRES_PASSWORD=trial-only-not-production", "-e", "POSTGRES_DB=xiangrugu_trial", IMAGE])
     ev["container_start_exit"] = r.returncode

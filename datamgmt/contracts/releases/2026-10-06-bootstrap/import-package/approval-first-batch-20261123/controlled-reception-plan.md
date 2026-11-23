@@ -1,6 +1,6 @@
 # 首批七对象 · 受控接收方案（草案，未执行）
 
-- **三锚统一**：代码锚 = 审批包锚 = 接收前实际回退锚 = **同一完整版本锚**（本盒记录 **d46656214ac3cb2708fe3596f8f98f97dcc4545f**，分支 dsh/p01-real-prep-20261113，Gitea ls-remote 已核）；接收时以经核对的当时分支头为完整锚，三者不得分别取不同提交。
+- **三锚统一（来源提交 == 接收前实际回退锚）**：代码锚 = 审批包锚 = 接收前实际回退锚 = **同一完整版本锚**（本盒记录 **f10bfea14cf48b7fb9f9e09039a3a980e31a38c7**，分支 dsh/p01-real-prep-20261113，Gitea ls-remote 已核）；接收时以经核对的当时分支头为完整锚，来源提交与回退锚不得分别取不同提交。
 - 本方案仅为计划；**受控接收、正式合同冻结、落盘、数据库写入均另行授权**，本轮不执行。
 
 ## 1. 接收范围
@@ -58,7 +58,7 @@ python3 build_approval_package.py   # ×2，approval-table/evidence-list 字节�
 
 ## 4. 回退点（恢复接收前的完整版本锚）
 - R0：接收前 deploy 快照 tar（sha256 记录）+ **完整版本锚 19a77184440f604353cde6a1efe7a0611ebad03c**（Gitea ls-remote 已核）。
-- R1：回退即**恢复接收前完整版本锚**——受控目录整体恢复 R0 快照，或 `git checkout <统一完整锚> -- .` 全量回到锚版本（本盒记录锚 d466562；不做局部挑拣回退，代码/审批包/回退三锚同一提交）；分支历史不改写（R-10 禁 reset/clean/stash）。
+- R1：回退即**恢复接收前完整版本锚**——受控目录整体恢复 R0 快照，或 `git checkout <统一完整锚> -- .` 全量回到锚版本（本盒记录锚 f10bfea；来源提交==回退锚，不做局部挑拣回退）；分支历史不改写（R-10 禁 reset/clean/stash）。
 - **保留已验收的核销保护**：回退后的版本仍含 writeoff.py 原清单绑定补正（ORIGINAL_INVENTORY_SHA256=fb5e6b33… 锁定 + 签发前四核 + 证据全文可取回重算 + 替代清单拒绝用例）；任何回退不得移除这些保护（11 用例回归须仍全过）。
 - 任何验证失败：停止接收，恢复 R0 完整锚，记录冲突按 docs/index.md 权威顺序处理。
 
@@ -86,3 +86,10 @@ python3 build_approval_package.py   # ×2，approval-table/evidence-list 字节�
 - 五表（显式临时名）：harv.trial_m008002/m008003/m008004/m004812_20261123 + chgis.trial_m006642_20261123；m004812 快照路径重跑。
 - 全量回读：2957/40199/1033/29/3389 行，列名类型列序全合、全 text NOT NULL 空串保留（null 行 0）、rownum [1,N]、**重复按实际值列（排除唯一源行号）：m008003 63 组/74 多余行，余四件 0**；库值重建流 sha 逐件==已批（475ea1d8/dcbedb5a/d233ed9c/b3f6ceb6/3bad44a0）；**合计 47607**。T5_EXIT=0 stderr 0B。
 - 证据 .task6-trial-text5-20261123/trial-evidence.json；**pg32、pg32b、deploy 与正式落盘不在本轮范围**。
+
+## 10. 两件空间对象隔离试装结果（单列——以临时试装为终点）
+- PostGIS 能力核：本地 postgres:18-bookworm 无 PostGIS；**pg32b-full:18-pgdg 含 postgis-3.so+postgis.control**（实际镜像 Id **sha256:d562e43664f996da0e4208b375c00c111a543d996475188d852e9189b2a8cd05==RepoDigest**）；以该镜像建**全新隔离容器**（pg32b 实例/数据未触）；CREATE EXTENSION postgis → **3.6 USE_GEOS=1 USE_PROJ=1 USE_STATS=1**。
+- 容器 **xiangrugu-trial-spatial2-20261123-174708-b6e61aa3（本次运行唯一名）**，容器 ID d71bca328f577970…（创建后 inspect 核实）；--network none 无宿主端口；**无固定名预删**（trial_text5.py 与 trial_load_m004812.py 的启动前固定名强删逻辑已同步移除，name collision fail closed）；**清理仅按本次创建并核实的容器 ID**。
+- 两件各自核对（SHP 字节相同也分开）：m002709（cp1251）/m002717（utf-8）各 59 行；两份 DBF 身份（0b4b86cb/eb9dfed2）；已批属性类型 text×7/numeric(19,5)×2/bigint×3；源行号 [1,59]；2D Point/SRID 4326；**原始 X/Y 以 hex EWKB 装载（无十进制转换），回读逐点原始 LE 字节 match**。
+- 数值列按已核宽度标度（19,5/16,0 右对齐）重建源字段文本==raw；**四摘要逐件全等**：attr 3519649f663f8a6d/a2ad2d24ff4cae8c + geom ff7081a0013d721f/3c6067845a7938e8；dup attr 0/xy 0；null 行 0；合计 118。SP2_EXIT=0 stderr 0B。
+- 证据 .task6-trial-spatial2-20261123/trial-evidence.json；**试装通过≠正式合同接入≠生产装载授权；pg32、pg32b、deploy 与正式落盘不在本轮范围**。

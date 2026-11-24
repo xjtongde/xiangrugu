@@ -1,0 +1,22 @@
+== ROUND 46 一期（a03）==
+实施件未提交时先报期望基线+独立核方案：旧合同文档源（conftest contract_doc fixture 两面+候选 ebd093b 版）；基线树 git archive 450d68d vs 新树双 PYTHONPATH；反例矩阵（正式 model_validate frozen 入口×6+旧合同 frozen 原规则+validate_first_batch_seven frozen 拒语义）；范围核预置。关键观察：读码时点差所见 canonical_bytes 未补正（在途编辑），请 lead 确认——lead 以探针实证裁决补正已落地。
+
+== ROUND 46b 二期（a03，硬停 16:01 内）==
+总判定 PASS；无首个不一致。交付提交 2df8fa06dc529a5003ebe18c95eb847c7210a18b 本地 HEAD==该号。
+
+1. 双版本摘要对照 PASS（自构旧 doc=conftest fixture 面，同容器双 PYTHONPATH baseu(450d68d)/newu(2df8fa0)，OLD/NF_EXIT=0 stderr 0B）：
+- legacy draft/frozen sha 基线树==新版树逐字节 IDENTICAL（cmp 通过；a03 fixture 面锚定 draft 0961c4d3…/frozen 5a2c5a8e… 两树全等——与 lead 探针面 156b6354/db5e163d 为不同旧文档各自锚定，语义一致）。
+- lead probe-baseline/extended/digest-comparison 三件读码核对 verbatim；baseline_commit 450d68d 完整号在账；基线拒扩展候选 REJECTED ValidationError。
+- 值参与摘要：候选 bb715799→a03 改 target_column c6d59ffd（lead 探针 62022257 为不同突变位，互异语义==mutation_changes_digest True）→改 LAT 宽 20 5edcf43e 三者互异。
+- 补正实现面直读 newu canonical_bytes：四扩展键 None→pop+注释在文。诊断披露：一期 NF=1 系跨日 /tmp 清空暂存缺失，重建后全过——环境性非缺陷。
+
+2. 冻结门正反例（正式 model_validate frozen 入口）PASS：P_frozen_candidate NO-ERROR；六反例全拒 ValidationError 消息携 rule_id（缺 columns m008002/缺 rownum m004812/缺 dup m008003/空间缺几何 m002709/SRID4327/宽度矛盾 columns.3）；既有非首批旧合同 frozen 原规则 PASS；validate_first_batch_seven frozen 拒语义代码面核实。
+
+3. pending-seven 映射对账 PASS（ALL MATCH True×7）：五文本逐列 column_key/target_name/pg_type/nullable+序 5/5 含 rownum 尾项；空间 multiset text×7/numeric(19,5)×2/bigint×3+geometry(Point,4326)+__src_rownum bigint count 14 全合。诊断披露：首轮按 types 串顺序对位误判 False 系口径差（pending 表为类型族聚合声明非列序清单），更正记录非交付缺陷。
+
+4. 七套独立跑 PASS：fresh datamgmt 布局+inventory/candidate/pending 路径件补齐 R7_EXIT=0 172 passed in 49.24s（141+19+12==lead 官方口径）；中途 37 failed/1 failed 均 a03 暂存面（tar 根布局/路径件）修正即全过。
+
+5. 范围 PASS：交付恰 8 files +290/−22；保护面 rollup/writeoff/schema diff 0 行；M 核心 0；不录真实审批/不冻结正式/不接收 deploy/不写库全程遵守；host/容器临时面已清。
+
+首个剩余缺口：候选仍 draft_unfrozen——正式冻结需茶香批准事件录入 review 三面（approved_by/at/ref 真实权威），届时 frozen 门+摘要锚定自动承接；转正步骤 1 与装载授权链沿留。
+ROUND 46b PASS。

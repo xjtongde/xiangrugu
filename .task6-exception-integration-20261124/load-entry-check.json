@@ -1,0 +1,37 @@
+{
+ "closure_conditions": [
+  "①装载授权事件（茶香另行批准，postgresql_authorized 翻正）",
+  "②PG 生产装载器实现并通过隔离试装→正式验收（loader GAP 关闭）",
+  "③全成员处置覆盖（8004 成员逐一定处置，unmatched_member 清零）或经批准的处置范围合同",
+  "④两条例外已入本冻结候选（本盒完成）；核销结果≠写库批准，装载门保持"
+ ],
+ "coverage": {
+  "blocked": 0,
+  "matched": 9,
+  "multiple": 0,
+  "total": 8004,
+  "unexplained": 7995,
+  "unmatched": 7995
+ },
+ "database_connected": false,
+ "derived_issue_codes": [
+  "unmatched_member"
+ ],
+ "entry_gates_verbatim": {
+  "consequence": "现役正式批入口为只读合成面；PG 写入路径结构性关闭",
+  "invalid_staging": "result.ready_for_import=False, postgresql_connected=False",
+  "scope_authority": "source_read_authorized=False, synthetic_data_authorized=True, postgresql_authorized=False, ready_for_import=False"
+ },
+ "first_actual_blocker": "PG 生产装载器未实现（loader GAP）；叠加 ready_for_import=False（unmatched_member 派生阻断）与 postgresql_authorized=False（装载授权事件未到）",
+ "first_batch_rules": 7,
+ "formal_batch_entry": "batch_execution.execute_batch（approved-readonly-batch-v1）",
+ "ledger_issue_codes": [
+  "incomplete_inventory",
+  "unmatched_member"
+ ],
+ "ledger_ready_for_import": false,
+ "production_loader": "GAP：PG 生产装载器未实现（importer/load.py 仅 staging 原型且须修订，禁直跑；IMPORT-PACKAGE-TODO 未决项①）",
+ "uncovered_list_ref": "uncovered-members.txt",
+ "uncovered_member_count": 7995,
+ "writeoff_ready_for_import": false
+}

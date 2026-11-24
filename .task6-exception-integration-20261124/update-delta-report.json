@@ -1,0 +1,27 @@
+{
+ "added_ledger_rules": [
+  "r-sha256sums-b2",
+  "r-chgis-sha256sums"
+ ],
+ "business_rules_count": 7,
+ "changed_top_level_keys": [
+  "exceptions",
+  "review",
+  "rules"
+ ],
+ "exceptions_added": [
+  "checksum_nul",
+  "checksum_path_binding"
+ ],
+ "new_review": {
+  "approval_ref": "chaxiang-approval-20261124-two-exceptions-integration@0e7fed12d335a080c2a62e4c8553d937c7d0a049",
+  "approved_at": "2026-11-24T17:42:32Z",
+  "approved_by": "茶香"
+ },
+ "previous_review": {
+  "approval_ref": "chaxiang-approval-20261124-first-batch-seven@c250e03acc25843740fce974bf3f8b9bf1cfcc68",
+  "approved_at": "2026-11-24T16:10:50Z",
+  "approved_by": "茶香"
+ },
+ "seven_business_rules_deep_equal_to_approved": true
+}

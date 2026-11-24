@@ -1,0 +1,96 @@
+{
+ "chgis_raw_sha256": "694c101f04e636012e752c87958c8065c8e6926633c8b542e89978d8f8451a60",
+ "closed_issue_count": 3,
+ "contract_canonical_sha256": "ba8118fb5188478c7a891c37a0ae9d84687910c472946fe44709f3533843bd62",
+ "contract_inventory_binding": true,
+ "exactly_three_fixed_closed": true,
+ "formal_frozen_parse": "PASS",
+ "inventory_bytes_untouched": true,
+ "inventory_file_sha256": "fb5e6b334b898d62dc0e5c77094fdb50e0946300e6e3009f447b2ecd1bc216db",
+ "manifest_reconstructed_sha256": "fb5e6b334b898d62dc0e5c77094fdb50e0946300e6e3009f447b2ecd1bc216db",
+ "nul_raw_sha256": "900d98c69cf9b72f20313aa562b8da5e18e9c3e3def423fa6f618b4b1bafb3cb",
+ "original_complete_false_preserved": true,
+ "original_inventory_lock": true,
+ "writeoff_result": {
+  "closed_issues": [
+   {
+    "archive_chain": [],
+    "archive_ordinals": [],
+    "blocking": true,
+    "code": "checksum_line",
+    "detail": "line=173",
+    "relative_path": "SHA256SUMS-b2"
+   },
+   {
+    "archive_chain": [],
+    "archive_ordinals": [],
+    "blocking": true,
+    "code": "checksum_nul",
+    "detail": "count=126",
+    "relative_path": "SHA256SUMS-b2"
+   },
+   {
+    "archive_chain": [],
+    "archive_ordinals": [],
+    "blocking": true,
+    "code": "checksum_missing",
+    "detail": "line=4",
+    "relative_path": "harvard/chgis/SHA256SUMS.txt"
+   }
+  ],
+  "contract_sha256": "ba8118fb5188478c7a891c37a0ae9d84687910c472946fe44709f3533843bd62",
+  "derived_issue_codes": [
+   "unmatched_member"
+  ],
+  "incomplete_inventory_written_off": true,
+  "inventory_sha256": "fb5e6b334b898d62dc0e5c77094fdb50e0946300e6e3009f447b2ecd1bc216db",
+  "original_inventory_complete": false,
+  "original_ledger_ready_for_import": false,
+  "ready_for_import": false,
+  "run_evidence": {
+   "chgis": {
+    "contract_sha256": "ba8118fb5188478c7a891c37a0ae9d84687910c472946fe44709f3533843bd62",
+    "declared_target": "harvard/chgis/China_Periods_ReignDates.zip",
+    "exception_code": "checksum_path_binding",
+    "exception_rule_id": "r-chgis-sha256sums",
+    "expected_sha256": "7452ae6cf8d7dedbd0b06ea4e0e8343be9bac4075069ca8eb89e8ff0451c355e",
+    "expected_size": 155774,
+    "inventory_sha256": "fb5e6b334b898d62dc0e5c77094fdb50e0946300e6e3009f447b2ecd1bc216db",
+    "ledger": "harvard/chgis/SHA256SUMS.txt",
+    "line": 4,
+    "raw_name": "China_Periods_ReignDates.zip",
+    "raw_sha256": "694c101f04e636012e752c87958c8065c8e6926633c8b542e89978d8f8451a60",
+    "raw_size": 551,
+    "ready_for_import": false,
+    "resolved_target": "chgis-v6/China_Periods_ReignDates.zip",
+    "status": "RUN_EVIDENCE_FIXED_EXCEPTION",
+    "strict_assertion_matched": false,
+    "strict_inventory_complete": false,
+    "version": 1
+   },
+   "nul": {
+    "contract_sha256": "ba8118fb5188478c7a891c37a0ae9d84687910c472946fe44709f3533843bd62",
+    "exception_code": "checksum_nul",
+    "exception_rule_id": "r-sha256sums-b2",
+    "inventory_sha256": "fb5e6b334b898d62dc0e5c77094fdb50e0946300e6e3009f447b2ecd1bc216db",
+    "ledger": "SHA256SUMS-b2",
+    "prefix_assertions_matched": 172,
+    "raw_sha256": "900d98c69cf9b72f20313aa562b8da5e18e9c3e3def423fa6f618b4b1bafb3cb",
+    "raw_size": 22071,
+    "ready_for_import": false,
+    "status": "RUN_EVIDENCE_FIXED_EXCEPTION",
+    "strict_inventory_complete": false,
+    "tail_offset": 21945,
+    "trailing_nul_bytes": 126,
+    "valid_lines": 172,
+    "version": 1
+   }
+  },
+  "run_evidence_sha256": {
+   "chgis": "623723ff2c7c2fbd5b3daeab978ddf6eabea413dfdb76dfdadc14fb910c2157f",
+   "nul": "5dd1739c326d4cc5e5760c72742f7bb7a35b3247e0f260fee6d23847fb8eab2e"
+  },
+  "status": "WRITEOFF_RESULT_DERIVED",
+  "version": 1
+ }
+}

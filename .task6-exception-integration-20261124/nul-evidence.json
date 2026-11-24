@@ -1,0 +1,17 @@
+{
+ "contract_sha256": "ba8118fb5188478c7a891c37a0ae9d84687910c472946fe44709f3533843bd62",
+ "exception_code": "checksum_nul",
+ "exception_rule_id": "r-sha256sums-b2",
+ "inventory_sha256": "fb5e6b334b898d62dc0e5c77094fdb50e0946300e6e3009f447b2ecd1bc216db",
+ "ledger": "SHA256SUMS-b2",
+ "prefix_assertions_matched": 172,
+ "raw_sha256": "900d98c69cf9b72f20313aa562b8da5e18e9c3e3def423fa6f618b4b1bafb3cb",
+ "raw_size": 22071,
+ "ready_for_import": false,
+ "status": "RUN_EVIDENCE_FIXED_EXCEPTION",
+ "strict_inventory_complete": false,
+ "tail_offset": 21945,
+ "trailing_nul_bytes": 126,
+ "valid_lines": 172,
+ "version": 1
+}

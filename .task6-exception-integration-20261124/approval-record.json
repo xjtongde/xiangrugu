@@ -1,0 +1,40 @@
+{
+ "version": 1,
+ "event": "real_approval_two_exceptions_integration",
+ "approver": "茶香",
+ "approval_channel": "用户消息直接批准（DSH lead 接收登记）",
+ "registered_at_utc": "2026-11-24 17:42:32",
+ "baseline_commit": "0e7fed12d335a080c2a62e4c8553d937c7d0a049",
+ "approval_text_verbatim": "第 6/6 块｜两条例外接入与装载前核验｜30 分钟。基线 0e7fed12d335a080c2a62e4c8553d937c7d0a049。lead 收口，a03 独立复核。只在候选分支和 32 隔离环境执行。1. 本盒批准范围仅限两条已审固定例外：SHA256SUMS-b2 固定摘要下的末尾 126 个 NUL；harvard/chgis/SHA256SUMS.txt 第 4 行与 chgis-v6 目标的固定路径关联。按本次批准登记 review，生成更新的冻结候选。核对七项业务规则、正式名称、映射和源侧期望与已批准版本逐项一致。2. 用 32 只读快照和原清单 fb5e6b33…，按新合同重新生成两份运行证据，调用正式核销入口。通过条件：恰好核销三条历史 issue，两份证据摘要可重算，原清单字节及 complete=false 保持，其他阻断如实保留。3. 核对首批七项的正式装载入口，列出仍未覆盖的成员及首个实际阻断，给出它的关闭条件。保持现有装载门，不将核销结果视作写库批准。交付更新的候选及摘要、两份例外证据、派生核销结果、装载入口核验记录和完整 Gitea 提交号。a03 独立复核后报 PASS／PARTIAL／BLOCKED。本盒不再更新 deploy、不改镜像或服务、不写数据库。",
+ "approved_scope": {
+  "exception_nul": "SHA256SUMS-b2 固定摘要 900d98c6… 下末尾 126 NUL（raw 22071B/valid 172 行/tail_offset 21945）",
+  "exception_path_binding": "harvard/chgis/SHA256SUMS.txt 第 4 行 China_Periods_ReignDates.zip → chgis-v6/China_Periods_ReignDates.zip 固定路径关联（ledger raw 694c101f…/551B；目标 7452ae6c…/155774B）",
+  "register_review_and_update_frozen_candidate": true,
+  "regenerate_run_evidence_and_call_formal_writeoff": true,
+  "load_entry_precheck": true
+ },
+ "explicitly_not_authorized": {
+  "deploy_update": "本盒不再更新 deploy",
+  "image_or_service_change": "不改镜像或服务",
+  "database_write": "不写数据库；核销结果≠写库批准",
+  "other_exceptions": "批准范围仅限两条已审固定例外"
+ },
+ "previous_frozen_candidate": {
+  "path": ".task6-approval-freeze-20261124/frozen-candidate.json",
+  "canonical_sha256": "2dd4064250e6c4a9e88b74452a13a9b3a0ee79b6ee81905e3794d4f18d73e9d1",
+  "review": {"approved_by": "茶香", "approved_at": "2026-11-24T16:10:50Z",
+              "approval_ref": "chaxiang-approval-20261124-first-batch-seven@c250e03acc25843740fce974bf3f8b9bf1cfcc68"}
+ },
+ "contract_review": {
+  "approved_by": "茶香",
+  "approved_at": "2026-11-24T17:42:32Z",
+  "approval_ref": "chaxiang-approval-20261124-two-exceptions-integration@0e7fed12d335a080c2a62e4c8553d937c7d0a049"
+ },
+ "seven_business_rules_unchanged_required": true,
+ "writeoff_pass_conditions": {
+  "exactly_three_historical_issues_closed": ["checksum_line line=173 SHA256SUMS-b2", "checksum_nul count=126 SHA256SUMS-b2", "checksum_missing line=4 harvard/chgis/SHA256SUMS.txt"],
+  "both_evidence_digests_recomputable": true,
+  "original_inventory_bytes_and_complete_false_preserved": "fb5e6b334b898d62dc0e5c77094fdb50e0946300e6e3009f447b2ecd1bc216db",
+  "other_blockers_retained": true
+ }
+}

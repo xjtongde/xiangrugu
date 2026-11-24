@@ -255,6 +255,9 @@ class ReleaseContract(ContractRecord):
                 raise ValueError("Frozen contracts require an explicit review record")
             if any(target.expected_count is None or target.expected_sha256 is None for rule in self.rules for target in rule.targets):
                 raise ValueError("Frozen contracts require complete logical object expectations")
+            for rule in self.rules:
+                if rule.rule_id in FIRST_BATCH_RULES:
+                    _check_first_batch_rule(rule)
         return self
 
     def canonical_bytes(self):
@@ -264,6 +267,11 @@ class ReleaseContract(ContractRecord):
         for rule in document["rules"]:
             rule["targets"].sort(key=lambda target: target["object_name"])
             rule["encodings"].sort(key=lambda encoding: (encoding["object_name"], encoding["column"]))
+            for target in rule["targets"]:
+                # Digest compatibility: absent optional extensions must not alter pre-extension digests.
+                for key in ("columns", "derived_rownum", "duplicate_reconciliation", "geometry"):
+                    if target.get(key) is None:
+                        target.pop(key, None)
         return json.dumps(document, ensure_ascii=True, sort_keys=True, separators=(",", ":")).encode("utf-8")
 
     @property
@@ -276,6 +284,32 @@ FIRST_BATCH_SPATIAL_RULES = ("m002709", "m002717")
 FIRST_BATCH_APPROVED_SRID = 4326
 
 
+def _check_first_batch_rule(rule) -> None:
+    """Per-rule first-batch extension requirements; shared by candidate and frozen gates."""
+    if rule.disposition != Disposition.IMPORT:
+        raise ContractError(f"{rule.rule_id}: first-batch rules must be IMPORT")
+    if len(rule.targets) != 1:
+        raise ContractError(f"{rule.rule_id}: exactly one logical target per first-batch rule")
+    target = rule.targets[0]
+    for field in ("columns", "derived_rownum", "duplicate_reconciliation"):
+        if getattr(target, field) is None:
+            raise ContractError(f"{rule.rule_id}: missing required extension field {field}")
+    if not target.columns:
+        raise ContractError(f"{rule.rule_id}: column mapping must not be empty")
+    if target.expected_count is None or target.expected_sha256 is None:
+        raise ContractError(f"{rule.rule_id}: expected_count and expected_sha256 are required")
+    reconciliation = target.duplicate_reconciliation
+    if target.expected_count < reconciliation.expected_groups + reconciliation.expected_extra_rows:
+        raise ContractError(f"{rule.rule_id}: duplicate reconciliation exceeds expected_count")
+    if rule.rule_id in FIRST_BATCH_SPATIAL_RULES:
+        if target.geometry is None:
+            raise ContractError(f"{rule.rule_id}: spatial object requires a geometry expectation")
+        if target.geometry.srid != FIRST_BATCH_APPROVED_SRID:
+            raise ContractError(f"{rule.rule_id}: geometry SRID must be the approved 4326")
+    elif target.geometry is not None:
+        raise ContractError(f"{rule.rule_id}: text object must not carry a geometry expectation")
+
+
 def validate_first_batch_seven(contract: ReleaseContract) -> None:
     """Dedicated first-batch validation: missing or contradictory extension fields fail closed.
 
@@ -286,28 +320,7 @@ def validate_first_batch_seven(contract: ReleaseContract) -> None:
     if sorted(rule.rule_id for rule in contract.rules) != sorted(FIRST_BATCH_RULES):
         raise ContractError("Exactly the seven first-batch rules are required")
     for rule in contract.rules:
-        if rule.disposition != Disposition.IMPORT:
-            raise ContractError(f"{rule.rule_id}: first-batch rules must be IMPORT")
-        if len(rule.targets) != 1:
-            raise ContractError(f"{rule.rule_id}: exactly one logical target per first-batch rule")
-        target = rule.targets[0]
-        for field in ("columns", "derived_rownum", "duplicate_reconciliation"):
-            if getattr(target, field) is None:
-                raise ContractError(f"{rule.rule_id}: missing required extension field {field}")
-        if not target.columns:
-            raise ContractError(f"{rule.rule_id}: column mapping must not be empty")
-        if target.expected_count is None or target.expected_sha256 is None:
-            raise ContractError(f"{rule.rule_id}: expected_count and expected_sha256 are required")
-        reconciliation = target.duplicate_reconciliation
-        if target.expected_count < reconciliation.expected_groups + reconciliation.expected_extra_rows:
-            raise ContractError(f"{rule.rule_id}: duplicate reconciliation exceeds expected_count")
-        if rule.rule_id in FIRST_BATCH_SPATIAL_RULES:
-            if target.geometry is None:
-                raise ContractError(f"{rule.rule_id}: spatial object requires a geometry expectation")
-            if target.geometry.srid != FIRST_BATCH_APPROVED_SRID:
-                raise ContractError(f"{rule.rule_id}: geometry SRID must be the approved 4326")
-        elif target.geometry is not None:
-            raise ContractError(f"{rule.rule_id}: text object must not carry a geometry expectation")
+        _check_first_batch_rule(rule)
 
 
 def contract_schema():

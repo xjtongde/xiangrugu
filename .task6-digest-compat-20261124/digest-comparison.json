@@ -1,0 +1,32 @@
+{
+ "baseline_commit": "450d68dd86a8ad594ecf13ad3e6d3f007f9b9c7a",
+ "baseline_probe": {
+  "candidate_parse": "REJECTED: ValidationError",
+  "legacy_draft_canonical_bytes_len": 899,
+  "legacy_draft_sha256": "156b6354d509bfd6cb5730ee890df8bc5c40eca93ac0489132cfd008ac3cace8",
+  "legacy_frozen_canonical_bytes_len": 1020,
+  "legacy_frozen_sha256": "db5e163df3d970c03fad922b358ac97de7155af1a24826bf49e6891d3eff7530",
+  "version_label": "baseline"
+ },
+ "baseline_rejects_extended_candidate": true,
+ "database_written": false,
+ "deploy_received": false,
+ "extended_probe": {
+  "candidate_mutated_target_sha256": "62022257d181df52636f504fcfae293fceea04c2d0b85af5282db642051545fb",
+  "candidate_mutated_width_sha256": "5edcf43e4582bf6a305533a7292cef36ae0790a89a915dbb3a73f98136f2273c",
+  "candidate_sha256": "bb7157992e131479877eb985a717dba6ab53af8ccdcb491e623a35e785dc8f82",
+  "legacy_draft_canonical_bytes_len": 899,
+  "legacy_draft_sha256": "156b6354d509bfd6cb5730ee890df8bc5c40eca93ac0489132cfd008ac3cace8",
+  "legacy_frozen_canonical_bytes_len": 1020,
+  "legacy_frozen_sha256": "db5e163df3d970c03fad922b358ac97de7155af1a24826bf49e6891d3eff7530",
+  "version_label": "extended"
+ },
+ "extension_values_participate": true,
+ "fix": "canonical_bytes 对 target 四扩展键值为 None 时剔除（缺省扩展不改旧摘要）；实际值参与摘要",
+ "formal_contract_frozen": false,
+ "legacy_draft_identical": true,
+ "legacy_frozen_identical": true,
+ "method": "同容器双 PYTHONPATH（/tmp/dcb 基线 contracts.py vs /tmp/dc 新树）对同一旧合同文档（draft+frozen 面，隔离测试合成 review 非真实审批）与候选/突变体跑 digest_compat_probe.py",
+ "real_approval_entered": false,
+ "version": 1
+}

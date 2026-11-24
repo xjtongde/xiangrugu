@@ -1,0 +1,67 @@
+{
+ "approval": {
+  "approval_ref": "isolated-test-only-not-a-production-approval@698a07138b6265d1b16f704d0b73e634049a7ee8",
+  "approved_at": "2026-11-24T18:13:02Z",
+  "approved_by": "isolated-test (DSH lead, 本盒授权范围)"
+ },
+ "contract_sha256": "ba8118fb5188478c7a891c37a0ae9d84687910c472946fe44709f3533843bd62",
+ "distinction": "isolated-test 范围批准≠生产装载授权；全量 ready_for_import=false 保持，7995 未覆盖不动",
+ "full_ready_for_import": false,
+ "instance_policy": {
+  "host_ports": "none",
+  "image": "pg32b-full:18-pgdg",
+  "image_id": "sha256:d562e43664f996da0e4208b375c00c111a543d996475188d852e9189b2a8cd05",
+  "network": "none",
+  "production_instances_forbidden": [
+   "pg32",
+   "pg32b"
+  ],
+  "unique_name_required": true
+ },
+ "inventory_sha256": "fb5e6b334b898d62dc0e5c77094fdb50e0946300e6e3009f447b2ecd1bc216db",
+ "mode": "isolated-test",
+ "objects": [
+  {
+   "rule_id": "m002709",
+   "schema_name": "chgis",
+   "table": "ca1884route_przh_1251"
+  },
+  {
+   "rule_id": "m002717",
+   "schema_name": "chgis",
+   "table": "ca1884route_przh_utf8"
+  },
+  {
+   "rule_id": "m004812",
+   "schema_name": "harv",
+   "table": "harvard_u2d_full_u2f_doi_u5f_10_u5f_7910_u2f_dvn_u2f___1334a175"
+  },
+  {
+   "rule_id": "m006642",
+   "schema_name": "chgis",
+   "table": "harvard_u2d_full_u2f_doi_u5f_10_u5f_7910_u2f_dvn_u2f___9784b044"
+  },
+  {
+   "rule_id": "m008002",
+   "schema_name": "harv",
+   "table": "harvard_u2f_tab__academy_u5f_data_u2e_tab"
+  },
+  {
+   "rule_id": "m008003",
+   "schema_name": "harv",
+   "table": "harvard_u2f_tab__index_u5f_of_u5f_the_u5f_complete_u5__300c7027"
+  },
+  {
+   "rule_id": "m008004",
+   "schema_name": "harv",
+   "table": "harvard_u2f_tab__writings_u20_of_u20_the_u20_19c_u20___7866bf2d"
+  }
+ ],
+ "scope_id": "first-batch-seven-isolated-trial-20261124",
+ "uncovered_members": 7995,
+ "version": 1,
+ "writeoff_evidence_sha256": {
+  "chgis": "623723ff2c7c2fbd5b3daeab978ddf6eabea413dfdb76dfdadc14fb910c2157f",
+  "nul": "5dd1739c326d4cc5e5760c72742f7bb7a35b3247e0f260fee6d23847fb8eab2e"
+ }
+}

@@ -1,0 +1,94 @@
+{
+ "blob_binding": {
+  "files_checked": 2099,
+  "mismatch": 0,
+  "result": "BLOB_BINDING_OK"
+ },
+ "database_written": false,
+ "event": "controlled_reception_32_deploy",
+ "exceptions_and_writeoff": {
+  "exceptions_added_this_box": false,
+  "formal_writeoff_issued": false,
+  "note": "NUL 与 CHGIS line4 路径两例外尚未进入冻结候选；本盒不补录例外、不签发正式核销",
+  "two_exceptions_in_frozen_candidate": false
+ },
+ "executed_at_utc": "2026-11-24 17:25:30",
+ "fetch_method": "32 无 Gitea 凭据；经 38 认证 clone 自 Gitea fetch+ls-remote 核固定提交，git archive 管道直传 32 隔离目录（不落中间件），逐文件 git blob sha1 对账",
+ "formation_is_ancestor_of_incoming": true,
+ "frozen_candidate_formation_commit": "6eb7691bd4dddcc689bd12a63fc8b18890414ca5",
+ "gates_before_reception": {
+  "incoming_frozen_candidate_canonical_sha256": "2dd4064250e6c4a9e88b74452a13a9b3a0ee79b6ee81905e3794d4f18d73e9d1",
+  "incoming_validation": "INC_VF_EXIT=0 FROZEN_VALIDATION PASS total 47725 all_match True（容器内以来件 src+来件候选复算）",
+  "no_active_service_change_needed": true,
+  "r0_verifiable": true,
+  "scope_clear": true,
+  "seven_items_complete": true
+ },
+ "gitea_remote_head_verified": "f546783f88b8cc0440d4288fc40f22765094ff27",
+ "image_changed": false,
+ "incoming_archive_sha256_prefix": "43ad4f7bf81666ae",
+ "incoming_commit_fixed": "f546783f88b8cc0440d4288fc40f22765094ff27",
+ "post_reception": {
+  "boundary_check": {
+   "added": 1459,
+   "changed": 123,
+   "removed": 0,
+   "result": "BOUNDARY_OK"
+  },
+  "file_count": 9178,
+  "frozen_candidate_deploy_equals_incoming": true,
+  "frozen_candidate_file_sha256_prefix": "43f2cb2b8b59bed1",
+  "manifest_sha256": "474d111399943ff43501337d4cc44deda4f92e81e0517e75cbe94d0e32cfc3c3",
+  "service_state": {
+   "image_changed": false,
+   "image_id": "sha256:89f1a0978cb817871d50d6468f3dec19e3ea1e67d5bc73457a62fd10b5b8732d",
+   "pg32b": "Up healthy untouched",
+   "restarted": false,
+   "started_at_after": "2026-11-24T14:58:59.33940574Z",
+   "started_at_before": "2026-11-24T14:58:59.33940574Z",
+   "xiangrugu_dev": "running"
+  }
+ },
+ "pre_reception": {
+  "drift": false,
+  "equals_precheck_manifest": true,
+  "file_count": 7719,
+  "manifest_recomputed_sha256": "62737bd0c16ac23f1c9ba4fd92e73abadb6a6eace014494f605f29e6aa00396f"
+ },
+ "r0_snapshot": {
+  "archive_file_count": 7719,
+  "bytes": 14976032,
+  "gzip_integrity": "GZIP_OK",
+  "outside_deploy": true,
+  "path": "/opt/mydocker/xiangrugu/reception-20261124/R0.tgz",
+  "permissions_recorded": {
+   "deploy_dir_mode": "755",
+   "dirs_700": 65,
+   "dirs_755": 959,
+   "files_644": 453,
+   "files_666": 7266,
+   "owner": "root:root"
+  },
+  "restore_dry_run": {
+   "cmp_identical": true,
+   "extracted_to": "/tmp/r0-verify",
+   "restored_manifest_sha256": "62737bd0c16ac23f1c9ba4fd92e73abadb6a6eace014494f605f29e6aa00396f",
+   "result": "R0_RESTORE_VERIFIED"
+  },
+  "rollback_basis": "实测 R0（本快照为回退依据，全量还原+sha256sum -c 校验）",
+  "sha256": "4833c60d9bce179043db0ee068fbf8e780f98d1cb40c8b859f95ba5ea48175e2"
+ },
+ "reception_actually_performed": true,
+ "reception_scope": {
+  "added": 1459,
+  "boundary": "接收路径集==固定提交 f546783 树路径集；deploy-only 历史证据（git 未跟踪）全部保全",
+  "changed": 123,
+  "deleted": 0,
+  "deploy_only_preserved": 7079,
+  "identical_overwrite": 517,
+  "incoming_tree_files": 2099,
+  "mode": "overlay（仅写入来件路径集，零删除）"
+ },
+ "service_restarted": false,
+ "version": 1
+}

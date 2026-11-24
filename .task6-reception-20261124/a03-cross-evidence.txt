@@ -1,0 +1,17 @@
+== ROUND 48（32 受控接收·独立复核，a03，硬停 17:50 内）==
+总判定 PASS；32 已实际接收（reception_actually_performed true 与 host 实测一致）；无首个不一致。交付提交 ba9faeb4a76dc20ab0b6491611fff1435b9f35b4。
+
+1. R0 与漂移门 PASS：pre-manifest sha 62737bd0 重算逐字==预检锚；接收前 deploy 全量重算 NO_DRIFT（cmp 等值）。R0.tgz sha 4833c60d9bce1790…/14976032B/gzip -t OK/tar -tzf 计数 8743（7719 文件+目录成员）/落 deploy 之外。恢复干跑独立做：自解 R0 至 /tmp/a03r0→find 7719→全量 sha256 重算 sort cmp pre-manifest RESTORE_MANIFEST_IDENTICAL 逐字节——R0 可验证回退依据成立。
+
+2. 来件绑定 PASS：incoming.tar 非目录成员 2099==git ls-tree f546783 树路径数；archive sha 43ad4f7b 在账；blob 对账独立全量（非抽样）：git blob sha1 含 header 法 2099/2099 mismatches 0（首轮全 mismatch 系 a03 误用裸文件 sha1sum 无 header——更正记录，改 git-hash 法一次全过）；6eb7691 为 f546783 祖先 merge-base --is-ancestor True。
+
+3. 冻结候选独立复算 PASS：以来件 incoming.tar 解出 src+deploy 侧 frozen-candidate.json（blob-sha1 e1ee32a0 三处互等：@ba9faeb==@f546783 incoming==deploy 现件；deploy 内容 sha 43f2cb2b==lead 声称）容器正式入口 INC_VF_EXIT=0 canonical 2dd4064250e6c4a9…（44390B）==已审；total 47725。
+
+4. 接收边界 PASS：change-scope 123 changed+1459 added+517 identical==2099 恰来件路径集（identical+changed==common 640、added==1459 算术闭合 ALL accounted True）；post-manifest 9178==7719+1459、文件 sha 474d111399943ff4 重算逐字；deploy 现状 vs post-manifest dict join：overlap 9178 digest mismatches 0/only-now 0/only-post 0→零删除+内容全等（deploy-only 7079 保全实证）。诊断披露：中途 comm/cmp 乱序假差系 a03 管道格式面（awk 双空格/stdin heredoc 吃行），修正后收敛——非交付缺陷。
+
+5. 服务/纪律核 PASS：xiangrugu-dev StartedAt 2026-11-24T14:58:59Z 不变/RestartCount 0/镜像 89f1a097 不变；pg32b running+pg_isready accepting 未触；两例外未入冻结候选 verbatim「本盒不补录例外、不签发正式核销」/exceptions_added false/formal_writeoff_issued false；database_written/image_changed/service_restarted 全 false；M 核心 0、共享工作树零 checkout（全程 git show）。
+
+口径判定：overlay 接收口径判 PASS 不 BLOCKED——范围==固定提交 f546783 路径集完备、零删除保全审计面 deploy-only 历史证据、R0 可验证回退在手，边界明确且可逆，符合预检方案分列语义。
+
+首个剩余缺口：装载授权链（loader GAP）——冻结候选已在 deploy 但 load_authorized=false×7、NUL/CHGIS line4 两例外未入候选承接、正式合同集成证据再生待批；下一步须另行批准事件（装载授权或例外处置）。
+ROUND 48 PASS。

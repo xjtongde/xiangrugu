@@ -19,3 +19,8 @@
 
 ## 首个剩余缺口
 生产装载授权事件（另批）+装载器候选经 Codex 独立验收→正式接收链；7995 未覆盖成员处置扩展。
+
+## a03 复核与清理收口
+- R50b PARTIAL interim（通道问题非交付缺陷）→lead 单跳管道配方+容器保留+窗口延至 19:10→**R50 终报 PASS**：独立真回读 6/6（47725/七摘要重建全等/geom 全等/63/74/XY dup 0/列元）+FakeSession 反例 11 例全 fail-closed zero-writes+范围核（deploy diff 0/服务未动/生产 PG 零连接）。
+- **cleanup_execution 19:04:17 UTC**：试装容器经 Id 全号核一致后清除（CLEANUP_OK，loader-trial 计数 0）。
+- 超盒披露：a03 回读通道排障致盒时超 18:43 硬停（终报 19:04 前），交付质量未降，如实记录。

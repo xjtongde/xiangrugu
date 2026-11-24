@@ -1,0 +1,17 @@
+== ROUND 47 一期（a03）==
+已可核面全 PASS：批准原文逐字全等（批准 c250e03 所锚定首批七项正式名称、字段映射和源侧验收期望…限于候选交付，受控接收和数据库写入另行批准）；锚完整号==本地 HEAD；review 三面真实（茶香/2026-11-24T16:10:50Z 与 registered_at_utc 同刻/chaxiang-approval-20261124-first-batch-seven@c250e03…）非 isolated-test；approved_scope 五 true+explicitly_not_authorized 四件 verbatim；pending-seven sha 23e44d12 重算逐字；draft canonical bb715799 全 64 与 R46b 容器实测一致；items 七件齐。二期预置：仅差两面 deep-equal/正式入口 parse/对账/ledgers 翻正/七套回归。
+
+== ROUND 47b 二期（a03，16:41 硬停内）==
+总判定 PASS；无首个不一致。交付提交 6eb7691bd4dddcc689bd12a63fc8b18890414ca5 本地检出 HEAD==该号。
+
+1. 审批记录核 PASS：approval-record.json sha 1074f60a 在账；channel 用户消息直接批准。
+2. 冻结候选独立核 PASS：
+- 仅差两面：draft(c250e03 版)→frozen deep-equal True；changed_top_level_keys [review,status]==freeze-delta-report；rules_identical True；review 三面==AR.contract_review verbatim 非 isolated-test。
+- 正式入口独立 parse：容器 fresh newu(6eb7691 src) ReleaseContract.model_validate(frozen) VF_EXIT=0 PASS；canonical sha 独立复算 2dd4064250e6c4a9e88b74452a13a9b3a0ee79b6ee81905e3794d4f18d73e9d1（44390B）逐字==VR/AT 声称；validate_first_batch_seven(frozen) 仍拒 must be unfrozen 语义不变。
+- 逐项对账 ALL MATCH：total 47725/m008003 63/74/attr×7（五文本+空间 3519649f/a2ad2d24）/geom ff7081a0/3c606784+SRID4326+dims2/DBF 身份 0b4b86cb/eb9dfed2@16937B 互异各自绑定/文本逐列 column_key/target/type/nullable+rownum 尾项 5/5/空间 multiset text×7+numeric(19,5)×2+bigint×3 count14 True×2——pending-seven+源侧期望三方一致。
+3. 审批包/ledgers 翻正核 PASS：status FIRST_BATCH_SEVEN_APPROVED_FROZEN_CANDIDATE_DELIVERY；approval_event 批准原文逐字+approved_scope；frozen_delivery_candidate candidate_delivery_only True/controlled_reception_and_db_write 另行批准/controlled_reception_performed False/database_written False/delta [review,status]；七件 ledgers table_name_approved=true+formal_contract_frozen=true+load_authorized=false×7；三账 load_authorization false（loader GAP）verbatim；AT sha bfde4531f1a21a69 重算逐字等/生成器 2bbf659961a12cff 双跑字节全等。
+4. 七套回归独立跑 PASS：fresh tree 标准配方 R8_EXIT=0 172 passed in 48.62s==lead 口径。诊断披露：中途 12/11/47 failed 均 a03 暂存面（曾误以 frozen-candidate 顶替 anchor 版 draft→CANDIDATE_SHA 锚 bb715799 不符即错置所致；git show c250e03 恢复后全过）——测试锚定正确性反获旁证（frozen≠draft sha 被门捕获），非交付缺陷。
+5. 范围 PASS：src+config diff c250e03..6eb7691 空（模型零改动）；交付恰 freeze 目录 8 件+审批包 2 件；M 核心 0/entry py 668900d4 未触；受控接收未 perform/库未写/deploy 未替换/服务未改全程遵守；临时面已清。
+
+首个剩余缺口：受控接收批准事件（promotion 步骤 1：32 受控运行目录接收转正——按预检方案来件完整提交锚 6eb7691…/恢复点内容快照 62737bd0/R0 tar/停手五条执行）→其后装载授权链（loader GAP）。
+ROUND 47b PASS。

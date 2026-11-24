@@ -1,5 +1,49 @@
 {
+ "approval_event": {
+  "anchored_commit": "c250e03acc25843740fce974bf3f8b9bf1cfcc68",
+  "approval_text_verbatim": "批准 c250e03acc25843740fce974bf3f8b9bf1cfcc68 所锚定的首批七项正式名称、字段映射和源侧验收期望。授权 DSH 在候选分支登记本次真实审批并生成冻结交付候选。本次授权限于候选交付，受控接收和数据库写入另行批准。",
+  "approved_scope": {
+   "field_mappings": true,
+   "formal_names": true,
+   "generate_frozen_delivery_candidate": true,
+   "register_real_approval_on_candidate_branch": true,
+   "source_side_acceptance_expectations": true
+  },
+  "approver": "茶香",
+  "contract_review": {
+   "approval_ref": "chaxiang-approval-20261124-first-batch-seven@c250e03acc25843740fce974bf3f8b9bf1cfcc68",
+   "approved_at": "2026-11-24T16:10:50Z",
+   "approved_by": "茶香"
+  },
+  "event": "real_approval_first_batch_seven",
+  "evidence_ref": ".task6-approval-freeze-20261124/approval-record.json",
+  "explicitly_not_authorized": {
+   "controlled_reception": "另行批准",
+   "database_write": "另行批准",
+   "deploy_replacement": "不在本次授权",
+   "service_change": "不在本次授权"
+  },
+  "registered_at_utc": "2026-11-24 16:10:50"
+ },
  "baseline_git": "8f3d014",
+ "frozen_delivery_candidate": {
+  "all_items_match_pending_and_source_side": true,
+  "candidate_delivery_only": true,
+  "canonical_sha256": "2dd4064250e6c4a9e88b74452a13a9b3a0ee79b6ee81905e3794d4f18d73e9d1",
+  "controlled_reception_and_db_write": "另行批准",
+  "controlled_reception_performed": false,
+  "database_written": false,
+  "draft_to_frozen_delta": [
+   "review",
+   "status"
+  ],
+  "evidence_ref": ".task6-approval-freeze-20261124/frozen-validation-report.json",
+  "formal_frozen_parse": "PASS",
+  "frozen_candidate_ref": ".task6-approval-freeze-20261124/frozen-candidate.json",
+  "rules_identical_to_approved_draft": true,
+  "status": "FROZEN_DELIVERY_CANDIDATE_GENERATED",
+  "total_expected_rows": 47725
+ },
  "items": [
   {
    "approval_basis": {
@@ -43,13 +87,13 @@
     "表名批准事件（分账）+ 正式合同 frozen+review",
     "装载授权事件（分账）后 loader 实施"
    ],
-   "formal_contract_integration_status": "NOT_INTEGRATED（expected_count/expected_sha256 待生成接入；contract_frozen=false）",
+   "formal_contract_integration_status": "FROZEN_CANDIDATE_INTEGRATED（expected_count/expected_sha256+几何期望已入冻结交付候选；受控接收与写库另批）",
    "formal_contract_pending": true,
    "kind": "spatial",
    "ledgers": {
-    "formal_contract_frozen": false,
+    "formal_contract_frozen": true,
     "load_authorized": false,
-    "table_name_approved": false
+    "table_name_approved": true
    },
    "new_source_read_or_impl_scope_for_approval": [
     "真源读取（新授权面）：1884route.zip 内 .shp/.dbf 独立解析（容器隔离，源件只读，逐组件 sha 对账）",
@@ -96,7 +140,7 @@
     "geometry_expected_hash=null（规范几何投影摘要未生成）",
     "装载侧行数含重复计数未生成（source_record_count=59 为观测值）",
     "production geometry reader 未实现（production_readers_implemented=false）",
-    "table_names_approved=false（目标名未批）"
+    "table_names_approved=true（茶香 2026-11-24 批准事件，锚 c250e03）"
    ]
   },
   {
@@ -141,13 +185,13 @@
     "表名批准事件（分账）+ 正式合同 frozen+review",
     "装载授权事件（分账）后 loader 实施"
    ],
-   "formal_contract_integration_status": "NOT_INTEGRATED（expected_count/expected_sha256 待生成接入；contract_frozen=false）",
+   "formal_contract_integration_status": "FROZEN_CANDIDATE_INTEGRATED（expected_count/expected_sha256+几何期望已入冻结交付候选；受控接收与写库另批）",
    "formal_contract_pending": true,
    "kind": "spatial",
    "ledgers": {
-    "formal_contract_frozen": false,
+    "formal_contract_frozen": true,
     "load_authorized": false,
-    "table_name_approved": false
+    "table_name_approved": true
    },
    "new_source_read_or_impl_scope_for_approval": [
     "真源读取（新授权面）：1884route.zip 内 .shp/.dbf 独立解析（容器隔离，源件只读，逐组件 sha 对账）",
@@ -194,7 +238,7 @@
     "geometry_expected_hash=null（规范几何投影摘要未生成）",
     "装载侧行数含重复计数未生成（source_record_count=59 为观测值）",
     "production geometry reader 未实现（production_readers_implemented=false）",
-    "table_names_approved=false（目标名未批）"
+    "table_names_approved=true（茶香 2026-11-24 批准事件，锚 c250e03）"
    ]
   },
   {
@@ -224,13 +268,13 @@
     "表名批准事件 + target_mapping 批准事件（分账）",
     "正式合同 frozen+review 后 DispositionLedger 目标门通过"
    ],
-   "formal_contract_integration_status": "NOT_INTEGRATED（expected_count/expected_sha256 待生成接入；contract_frozen=false）",
+   "formal_contract_integration_status": "FROZEN_CANDIDATE_INTEGRATED（expected_count/expected_sha256 已入冻结交付候选 frozen-candidate.json；受控接收与写库另批）",
    "formal_contract_pending": true,
    "kind": "text",
    "ledgers": {
-    "formal_contract_frozen": false,
+    "formal_contract_frozen": true,
     "load_authorized": false,
-    "table_name_approved": false
+    "table_name_approved": true
    },
    "pending_value_expectations": {
     "formal_contract_expected_count": "待生成（装载侧行数含重复计数）",
@@ -265,7 +309,7 @@
     "loader GAP：production PostgreSQL loader 未实现（importer/load.py 为 staging 原型）",
     "expected_count MISSING：装载侧行数含重复计数未生成（源侧期望 29 已批）",
     "expected_sha256 MISSING：规范值投影摘要待接入正式合同（源侧 XRGVALUE-v1 期望 b3f6ceb609a853cb… 已批）",
-    "table_names_approved=false / target_mapping_approved=false（表名与映射待批）"
+    "table_names_approved=true / target_mapping_approved=true（茶香 2026-11-24 批准事件，锚 c250e03）"
    ]
   },
   {
@@ -295,13 +339,13 @@
     "表名批准事件 + target_mapping 批准事件（分账）",
     "正式合同 frozen+review 后 DispositionLedger 目标门通过"
    ],
-   "formal_contract_integration_status": "NOT_INTEGRATED（expected_count/expected_sha256 待生成接入；contract_frozen=false）",
+   "formal_contract_integration_status": "FROZEN_CANDIDATE_INTEGRATED（expected_count/expected_sha256 已入冻结交付候选 frozen-candidate.json；受控接收与写库另批）",
    "formal_contract_pending": true,
    "kind": "text",
    "ledgers": {
-    "formal_contract_frozen": false,
+    "formal_contract_frozen": true,
     "load_authorized": false,
-    "table_name_approved": false
+    "table_name_approved": true
    },
    "pending_value_expectations": {
     "formal_contract_expected_count": "待生成（装载侧行数含重复计数）",
@@ -336,7 +380,7 @@
     "loader GAP：production PostgreSQL loader 未实现（importer/load.py 为 staging 原型）",
     "expected_count MISSING：装载侧行数含重复计数未生成（源侧期望 3389 已批）",
     "expected_sha256 MISSING：规范值投影摘要待接入正式合同（源侧 XRGVALUE-v1 期望 3bad44a0482c1bc2… 已批）",
-    "table_names_approved=false / target_mapping_approved=false（表名与映射待批）"
+    "table_names_approved=true / target_mapping_approved=true（茶香 2026-11-24 批准事件，锚 c250e03）"
    ]
   },
   {
@@ -366,13 +410,13 @@
     "表名批准事件 + target_mapping 批准事件（分账）",
     "正式合同 frozen+review 后 DispositionLedger 目标门通过"
    ],
-   "formal_contract_integration_status": "NOT_INTEGRATED（expected_count/expected_sha256 待生成接入；contract_frozen=false）",
+   "formal_contract_integration_status": "FROZEN_CANDIDATE_INTEGRATED（expected_count/expected_sha256 已入冻结交付候选 frozen-candidate.json；受控接收与写库另批）",
    "formal_contract_pending": true,
    "kind": "text",
    "ledgers": {
-    "formal_contract_frozen": false,
+    "formal_contract_frozen": true,
     "load_authorized": false,
-    "table_name_approved": false
+    "table_name_approved": true
    },
    "pending_value_expectations": {
     "formal_contract_expected_count": "待生成（装载侧行数含重复计数）",
@@ -407,7 +451,7 @@
     "loader GAP：production PostgreSQL loader 未实现（importer/load.py 为 staging 原型）",
     "expected_count MISSING：装载侧行数含重复计数未生成（源侧期望 2957 已批）",
     "expected_sha256 MISSING：规范值投影摘要待接入正式合同（源侧 XRGVALUE-v1 期望 475ea1d8b400939c… 已批）",
-    "table_names_approved=false / target_mapping_approved=false（表名与映射待批）"
+    "table_names_approved=true / target_mapping_approved=true（茶香 2026-11-24 批准事件，锚 c250e03）"
    ]
   },
   {
@@ -437,13 +481,13 @@
     "表名批准事件 + target_mapping 批准事件（分账）",
     "正式合同 frozen+review 后 DispositionLedger 目标门通过"
    ],
-   "formal_contract_integration_status": "NOT_INTEGRATED（expected_count/expected_sha256 待生成接入；contract_frozen=false）",
+   "formal_contract_integration_status": "FROZEN_CANDIDATE_INTEGRATED（expected_count/expected_sha256 已入冻结交付候选 frozen-candidate.json；受控接收与写库另批）",
    "formal_contract_pending": true,
    "kind": "text",
    "ledgers": {
-    "formal_contract_frozen": false,
+    "formal_contract_frozen": true,
     "load_authorized": false,
-    "table_name_approved": false
+    "table_name_approved": true
    },
    "pending_value_expectations": {
     "formal_contract_expected_count": "待生成（装载侧行数含重复计数）",
@@ -478,7 +522,7 @@
     "loader GAP：production PostgreSQL loader 未实现（importer/load.py 为 staging 原型）",
     "expected_count MISSING：装载侧行数含重复计数未生成（源侧期望 40199 已批）",
     "expected_sha256 MISSING：规范值投影摘要待接入正式合同（源侧 XRGVALUE-v1 期望 dcbedb5a5073a6b9… 已批）",
-    "table_names_approved=false / target_mapping_approved=false（表名与映射待批）"
+    "table_names_approved=true / target_mapping_approved=true（茶香 2026-11-24 批准事件，锚 c250e03）"
    ]
   },
   {
@@ -508,13 +552,13 @@
     "表名批准事件 + target_mapping 批准事件（分账）",
     "正式合同 frozen+review 后 DispositionLedger 目标门通过"
    ],
-   "formal_contract_integration_status": "NOT_INTEGRATED（expected_count/expected_sha256 待生成接入；contract_frozen=false）",
+   "formal_contract_integration_status": "FROZEN_CANDIDATE_INTEGRATED（expected_count/expected_sha256 已入冻结交付候选 frozen-candidate.json；受控接收与写库另批）",
    "formal_contract_pending": true,
    "kind": "text",
    "ledgers": {
-    "formal_contract_frozen": false,
+    "formal_contract_frozen": true,
     "load_authorized": false,
-    "table_name_approved": false
+    "table_name_approved": true
    },
    "pending_value_expectations": {
     "formal_contract_expected_count": "待生成（装载侧行数含重复计数）",
@@ -549,21 +593,21 @@
     "loader GAP：production PostgreSQL loader 未实现（importer/load.py 为 staging 原型）",
     "expected_count MISSING：装载侧行数含重复计数未生成（源侧期望 1033 已批）",
     "expected_sha256 MISSING：规范值投影摘要待接入正式合同（源侧 XRGVALUE-v1 期望 d233ed9c81ad6f8f… 已批）",
-    "table_names_approved=false / target_mapping_approved=false（表名与映射待批）"
+    "table_names_approved=true / target_mapping_approved=true（茶香 2026-11-24 批准事件，锚 c250e03）"
    ]
   }
  ],
  "scope": "first-batch-seven-objects-approval-package-only",
- "status": "APPROVAL_PACKAGE_DRAFT_NOT_APPROVED",
+ "status": "FIRST_BATCH_SEVEN_APPROVED_FROZEN_CANDIDATE_DELIVERY",
  "text_row_total_check": {
   "equal": true,
   "sum_of_expected_row_count": 47607,
   "totals_data_record_count": 47607
  },
  "three_ledgers_separate": {
-  "formal_contract_freeze": "false（contract_frozen=false，冻结事件另录）",
+  "formal_contract_freeze": "冻结交付候选已生成（frozen+真实 review 三面；候选交付为止，受控接收另批）",
   "load_authorization": "false（loader GAP，装载授权另录）",
-  "table_name_approval": "七件均 false（候选名 DRAFT，批准事件另录）"
+  "table_name_approval": "七件均 true（茶香 2026-11-24 真实批准事件，锚 c250e03）"
  },
  "trial_load_result": {
   "columns_meta_match": true,
@@ -697,7 +741,7 @@
   "unique_run_identity": true
  },
  "value_expectations_ledger": {
-  "formal_contract_integration": "七件均待接入正式合同 frozen 目标（expected_count/expected_sha256）",
+  "formal_contract_integration": "七件 expected_count/expected_sha256（空间含几何期望）已入冻结交付候选；受控接收与写库另批",
   "spatial_source_side": "两件源侧期望已生成（59 行/零重复/属性+几何摘要，.task6-spatial-values-20261123/）",
   "text_source_side": "五件引用既有已批期望（text-value-contract-approved.draft.json，47607 行）"
  },

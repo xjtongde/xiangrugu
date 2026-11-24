@@ -1,0 +1,42 @@
+{
+ "version": 1,
+ "event": "real_approval_first_batch_seven",
+ "approver": "茶香",
+ "approval_channel": "用户消息直接批准（DSH lead 接收登记）",
+ "registered_at_utc": "2026-11-24 16:10:50",
+ "anchored_commit": "c250e03acc25843740fce974bf3f8b9bf1cfcc68",
+ "approval_text_verbatim": "批准 c250e03acc25843740fce974bf3f8b9bf1cfcc68 所锚定的首批七项正式名称、字段映射和源侧验收期望。授权 DSH 在候选分支登记本次真实审批并生成冻结交付候选。本次授权限于候选交付，受控接收和数据库写入另行批准。",
+ "approved_scope": {
+  "formal_names": true,
+  "field_mappings": true,
+  "source_side_acceptance_expectations": true,
+  "register_real_approval_on_candidate_branch": true,
+  "generate_frozen_delivery_candidate": true
+ },
+ "explicitly_not_authorized": {
+  "controlled_reception": "另行批准",
+  "database_write": "另行批准",
+  "deploy_replacement": "不在本次授权",
+  "service_change": "不在本次授权"
+ },
+ "approved_artifacts": {
+  "pending_approval_table": {
+   "path": ".task6-reception-precheck-20261123/pending-approval-seven-20261123.json",
+   "sha256_prefix": "23e44d12bbd6dd50"
+  },
+  "draft_candidate_contract": {
+   "path": ".task6-contract-extension-20261123/candidate-contract.json",
+   "canonical_sha256": "bb7157992e131479877eb985a717dba6ab53af8ccdcb491e623a35e785dc8f82"
+  },
+  "items": ["m002709", "m002717", "m004812", "m006642", "m008002", "m008003", "m008004"],
+  "total_expected_rows": 47725,
+  "m008003_duplicates": {"expected_groups": 63, "expected_extra_rows": 74},
+  "spatial_geometry": {"srid": 4326, "dimensions": 2, "type": "Point", "canonical_format": "XRGGEOM-v1"}
+ },
+ "contract_review": {
+  "approved_by": "茶香",
+  "approved_at": "2026-11-24T16:10:50Z",
+  "approval_ref": "chaxiang-approval-20261124-first-batch-seven@c250e03acc25843740fce974bf3f8b9bf1cfcc68"
+ },
+ "delivery_boundary": "候选交付为止；冻结交付候选在候选分支生成，受控接收（32 deploy）与数据库写入须另行批准事件"
+}

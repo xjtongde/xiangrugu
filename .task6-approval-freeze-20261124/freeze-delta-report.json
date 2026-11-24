@@ -1,0 +1,15 @@
+{
+ "anchored_commit": "c250e03acc25843740fce974bf3f8b9bf1cfcc68",
+ "changed_top_level_keys": [
+  "review",
+  "status"
+ ],
+ "only_status_and_review_changed": true,
+ "real_approval": true,
+ "review": {
+  "approval_ref": "chaxiang-approval-20261124-first-batch-seven@c250e03acc25843740fce974bf3f8b9bf1cfcc68",
+  "approved_at": "2026-11-24T16:10:50Z",
+  "approved_by": "茶香"
+ },
+ "rules_identical": true
+}

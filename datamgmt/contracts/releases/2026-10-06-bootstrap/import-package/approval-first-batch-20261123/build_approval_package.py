@@ -81,15 +81,15 @@ def main():
                 "loader GAP：production PostgreSQL loader 未实现（importer/load.py 为 staging 原型）",
                 "expected_count MISSING：装载侧行数含重复计数未生成（源侧期望 " + str(o["expected"]["row_count"]) + " 已批）",
                 "expected_sha256 MISSING：规范值投影摘要待接入正式合同（源侧 XRGVALUE-v1 期望 " + o["expected"]["sha256"][:16] + "… 已批）",
-                "table_names_approved=false / target_mapping_approved=false（表名与映射待批）"],
+                "table_names_approved=true / target_mapping_approved=true（茶香 2026-11-24 批准事件，锚 c250e03）"],
             "closure_evidence": [
                 "装载侧 expected_count（含重复次数对账）生成并绑定正式合同",
                 "规范值投影 expected_sha256 接入正式合同 frozen 目标",
                 "表名批准事件 + target_mapping 批准事件（分账）",
                 "正式合同 frozen+review 后 DispositionLedger 目标门通过"],
-            "ledgers": {"table_name_approved": False, "formal_contract_frozen": False,
+            "ledgers": {"table_name_approved": True, "formal_contract_frozen": True,
                         "load_authorized": False},
-            "formal_contract_integration_status": "NOT_INTEGRATED（expected_count/expected_sha256 待生成接入；contract_frozen=false）"})
+            "formal_contract_integration_status": "FROZEN_CANDIDATE_INTEGRATED（expected_count/expected_sha256 已入冻结交付候选 frozen-candidate.json；受控接收与写库另批）"})
     for s in fb["spatial_items"]:
         sid = s["source_object_id"]
         c, a, b = crs_by_sid[sid], attrs_by_sid[sid], binding_by_sid[sid]
@@ -147,15 +147,15 @@ def main():
                 "geometry_expected_hash=null（规范几何投影摘要未生成）",
                 "装载侧行数含重复计数未生成（source_record_count=59 为观测值）",
                 "production geometry reader 未实现（production_readers_implemented=false）",
-                "table_names_approved=false（目标名未批）"],
+                "table_names_approved=true（茶香 2026-11-24 批准事件，锚 c250e03）"],
             "closure_evidence": [
                 "独立读件 + 双投影摘要生成（geometry_expected_hash 非空）",
                 "重复次数对账证据（59 记录）绑定正式合同",
                 "表名批准事件（分账）+ 正式合同 frozen+review",
                 "装载授权事件（分账）后 loader 实施"],
-            "ledgers": {"table_name_approved": False, "formal_contract_frozen": False,
+            "ledgers": {"table_name_approved": True, "formal_contract_frozen": True,
                         "load_authorized": False},
-            "formal_contract_integration_status": "NOT_INTEGRATED（expected_count/expected_sha256 待生成接入；contract_frozen=false）"})
+            "formal_contract_integration_status": "FROZEN_CANDIDATE_INTEGRATED（expected_count/expected_sha256+几何期望已入冻结交付候选；受控接收与写库另批）"})
 
     trial_path = REPO / ".task6-trial-load-m004812-20261123" / "trial-evidence.json"
     trial_node = {"status": "NOT_RUN"}
@@ -228,19 +228,47 @@ def main():
                     "evidence_ref": ".task6-trial-spatial2-20261123/trial-evidence.json",
                     "distinction": "以临时试装为终点；试装通过≠正式合同接入≠生产装载授权；pg32/pg32b/deploy/正式落盘不在本轮"}
 
-    table = {"version": 1, "status": "APPROVAL_PACKAGE_DRAFT_NOT_APPROVED",
+    approval_record = json.loads((REPO / ".task6-approval-freeze-20261124" / "approval-record.json").read_text())
+    frozen_validation = json.loads((REPO / ".task6-approval-freeze-20261124" / "frozen-validation-report.json").read_text())
+    freeze_delta = json.loads((REPO / ".task6-approval-freeze-20261124" / "freeze-delta-report.json").read_text())
+    approval_event_node = {
+        "event": approval_record["event"], "approver": approval_record["approver"],
+        "registered_at_utc": approval_record["registered_at_utc"],
+        "anchored_commit": approval_record["anchored_commit"],
+        "approval_text_verbatim": approval_record["approval_text_verbatim"],
+        "approved_scope": approval_record["approved_scope"],
+        "explicitly_not_authorized": approval_record["explicitly_not_authorized"],
+        "contract_review": approval_record["contract_review"],
+        "evidence_ref": ".task6-approval-freeze-20261124/approval-record.json"}
+    frozen_candidate_node = {
+        "status": "FROZEN_DELIVERY_CANDIDATE_GENERATED",
+        "candidate_delivery_only": True,
+        "frozen_candidate_ref": ".task6-approval-freeze-20261124/frozen-candidate.json",
+        "canonical_sha256": frozen_validation["frozen_candidate_canonical_sha256"],
+        "formal_frozen_parse": frozen_validation["formal_frozen_parse"],
+        "draft_to_frozen_delta": freeze_delta["changed_top_level_keys"],
+        "rules_identical_to_approved_draft": freeze_delta["rules_identical"],
+        "total_expected_rows": frozen_validation["total_expected_rows"],
+        "all_items_match_pending_and_source_side": frozen_validation["all_items_match"],
+        "controlled_reception_performed": False, "database_written": False,
+        "controlled_reception_and_db_write": "另行批准",
+        "evidence_ref": ".task6-approval-freeze-20261124/frozen-validation-report.json"}
+
+    table = {"version": 1, "status": "FIRST_BATCH_SEVEN_APPROVED_FROZEN_CANDIDATE_DELIVERY",
              "baseline_git": VCS_REF, "scope": "first-batch-seven-objects-approval-package-only",
              "text_row_total_check": {"sum_of_expected_row_count": row_sum,
                                       "totals_data_record_count": approved["totals"]["data_record_count"],
                                       "equal": row_sum == 47607},
              "three_ledgers_separate": {
-                 "table_name_approval": "七件均 false（候选名 DRAFT，批准事件另录）",
-                 "formal_contract_freeze": "false（contract_frozen=false，冻结事件另录）",
+                 "table_name_approval": "七件均 true（茶香 2026-11-24 真实批准事件，锚 c250e03）",
+                 "formal_contract_freeze": "冻结交付候选已生成（frozen+真实 review 三面；候选交付为止，受控接收另批）",
                  "load_authorization": "false（loader GAP，装载授权另录）"},
              "value_expectations_ledger": {
                  "text_source_side": "五件引用既有已批期望（text-value-contract-approved.draft.json，47607 行）",
                  "spatial_source_side": "两件源侧期望已生成（59 行/零重复/属性+几何摘要，.task6-spatial-values-20261123/）",
-                 "formal_contract_integration": "七件均待接入正式合同 frozen 目标（expected_count/expected_sha256）"},
+                 "formal_contract_integration": "七件 expected_count/expected_sha256（空间含几何期望）已入冻结交付候选；受控接收与写库另批"},
+             "approval_event": approval_event_node,
+             "frozen_delivery_candidate": frozen_candidate_node,
              "trial_load_result": trial_node,
              "trial_text5_result": t5_node,
              "trial_spatial2_result": sp2_node,

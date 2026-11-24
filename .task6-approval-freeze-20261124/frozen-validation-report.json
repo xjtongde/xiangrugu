@@ -1,0 +1,84 @@
+{
+ "all_items_match": true,
+ "controlled_reception_performed": false,
+ "database_written": false,
+ "formal_frozen_parse": "PASS",
+ "frozen_candidate_canonical_sha256": "2dd4064250e6c4a9e88b74452a13a9b3a0ee79b6ee81905e3794d4f18d73e9d1",
+ "item_checks": [
+  {
+   "all_match": true,
+   "attr_sha_match": true,
+   "attr_source_side_match": true,
+   "count_match": true,
+   "dbf_identity_match": true,
+   "geom_sha_match": true,
+   "name_match": true,
+   "rule_id": "m002709",
+   "srid_match": true
+  },
+  {
+   "all_match": true,
+   "attr_sha_match": true,
+   "attr_source_side_match": true,
+   "count_match": true,
+   "dbf_identity_match": true,
+   "geom_sha_match": true,
+   "name_match": true,
+   "rule_id": "m002717",
+   "srid_match": true
+  },
+  {
+   "all_match": true,
+   "attr_sha_match": true,
+   "count_match": true,
+   "dup_match": true,
+   "mapping_match": true,
+   "name_match": true,
+   "rule_id": "m004812"
+  },
+  {
+   "all_match": true,
+   "attr_sha_match": true,
+   "count_match": true,
+   "dup_match": true,
+   "mapping_match": true,
+   "name_match": true,
+   "rule_id": "m006642"
+  },
+  {
+   "all_match": true,
+   "attr_sha_match": true,
+   "count_match": true,
+   "dup_match": true,
+   "mapping_match": true,
+   "name_match": true,
+   "rule_id": "m008002"
+  },
+  {
+   "all_match": true,
+   "attr_sha_match": true,
+   "count_match": true,
+   "dup_match": true,
+   "mapping_match": true,
+   "name_match": true,
+   "rule_id": "m008003"
+  },
+  {
+   "all_match": true,
+   "attr_sha_match": true,
+   "count_match": true,
+   "dup_match": true,
+   "mapping_match": true,
+   "name_match": true,
+   "rule_id": "m008004"
+  }
+ ],
+ "review": {
+  "approval_ref": "chaxiang-approval-20261124-first-batch-seven@c250e03acc25843740fce974bf3f8b9bf1cfcc68",
+  "approved_at": "2026-11-24T16:10:50Z",
+  "approved_by": "茶香"
+ },
+ "status": "frozen",
+ "total_expected_rows": 47725,
+ "total_matches_47725": true
+}

@@ -16,3 +16,8 @@
 
 ## 首个剩余缺口
 受控接收批准事件（promotion 步骤 1：32 受控运行目录接收转正，按预检方案来件锚/恢复点/备份/停手条件执行）→ 装载授权链（loader GAP）。
+
+## 共享工作树事件披露与修复（16:18-16:19 UTC）
+- a03 R47b 暂存错置恢复操作在共享工作树执行 checkout 致 HEAD 分离（自 6eb7691）；lead 复核记录提交 600c32b 落于分离头指针，首推 Everything up-to-date。
+- 修复（非破坏性，无 reset/clean/stash）：核实 600c32b 父==分支头 6eb7691→`git update-ref` CAS 快进分支引用至 600c32b→`git symbolic-ref` 重附 HEAD→推送 6eb7691..600c32b，ls-remote==600c32bd5b73110fc1426cb24722a8c30038f8b7。M=2 全程未触。
+- 纪律重申：共享工作树内取历史版本一律 `git show <commit>:<path>`，禁止 checkout 切换（已告 a03）。

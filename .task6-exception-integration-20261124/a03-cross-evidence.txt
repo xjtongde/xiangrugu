@@ -1,0 +1,16 @@
+== ROUND 49 一期（a03）==
+期望基线锁定：前 frozen canonical 2dd40642 锚（R48 实测复算过）；两固定例外身份 verbatim（NUL 126@SHA256SUMS-b2/line4↔chgis-v6）；第三核销对象 line173；原清单 fb5e6b33 双锁。独立核方案四路预置（deep-equal/自构 run_writeoff 驱动含 None-sha 目录项教训/装载读码+未覆盖计数/范围含 deploy 未更新抽核）。
+
+== ROUND 49b 二期（a03，硬停 18:10 内）==
+总判定 PASS；无首个不一致。交付提交 3655952b086482a111df380bb838498ebe53e85d。
+
+1. 新候选 deep-equal+review+canonical PASS：前 frozen（git show ba9faeb 取件禁 checkout 纪律遵守）vs updated：top-level（除 rules/exceptions/review）等值 True；七业务规则逐字段 deep-equal True；差面恰 exceptions 0→2、rules +2 账本锚（r-sha256sums-b2 NON_TABULAR SHA256SUMS-b2/r-chgis-sha256sums NON_TABULAR harvard/chgis/SHA256SUMS.txt）、review 三面==approval-record verbatim（茶香/2026-11-24T17:42:32Z/chaxiang-approval-…two-exceptions-integration@0e7fed12d335a080c2a62e4c8553d937c7d0a049 完整锚号非 isolated-test）。例外两条固定身份核：checksum_nul raw 900d98c6==host 快照只读 sha256sum SHA256SUMS-b2 逐字；checksum_path_binding raw 694c101f==harvard/chgis/SHA256SUMS.txt 实测逐字（code 名 path_binding 为合同枚举既有码，line4↔chgis-v6 declared/resolved_target 在件）。canonical 容器正式入口独立复算：updated ba8118fb5188478c…（45839B）==声称；old 同树回归点 2dd40642（44390B）不变——双锚自洽 CANON_EXIT=0。
+
+2. 核销面独立对账 PASS：closed 恰三条 {checksum_line line=173/checksum_nul count=126/checksum_missing line=4} blocking×3；derived [unmatched_member]（incomplete_inventory 已减扣）；ready_for_import False/original complete=false 保持；inventory_sha256 fb5e6b33…16db 双锁（repo 副本 sha 重算逐字==）；driver 零写面（open 'w' 计数 0，run_writeoff 正式入口引用在码）。两证据摘要本地 canonical JSON 重算：nul 5dd1739c326d4cc5 ✓ chgis 623723ff2c7c2fbd ✓ 全等；nul trailing_nul_bytes=126/chgis line4 resolved chgis-v6 语义字段在件。call report 十锚（WO_EXIT=0/exactly_three_fixed_closed True/inventory_bytes_untouched True/formal_frozen_parse PASS）齐。
+
+3. 装载入口独立核 PASS：formal_batch_entry=batch_execution.execute_batch（approved-readonly-batch-v1）门 verbatim：postgresql_authorized=False/ready_for_import=False/postgresql_connected=False/consequence PG 写入路径结构性关闭；首个阻断 loader GAP 原文+叠加双因在文；未覆盖成员独立复现：按 rule-path greedy 一对一消耗语义（每规则匹配一条未消费 inventory entry，E7HDYD zip 双规则共享 selector 计 2）自算 matched 9/uncovered 7995==lead，uncovered-members.txt 7995 行与 multiset equality True；关闭条件四条 verbatim（授权事件/loader 实现验收/全成员处置覆盖或范围合同/例外已入+核销≠写库批准）。
+
+4. 回归+范围 PASS：fresh tree 七套独立跑 R9_EXIT=0 172 passed in 49.72s==lead 口径（首轮 11 failed 系 a03 暂存缺 anchor draft/pending 路径件补齐即过——环境性披露）；src/config/tests diff 空；交付 13 files +10330 全在证据目录；deploy 未更新实证：frozen-candidate deploy 侧仍 43f2cb2b（旧版）blob e1ee32a0 面未动；xiangrugu-dev StartedAt 14:58:59Z/RestartCount 0 不变；pg32b running 未触；库未写；M 核心 0、entry py 668900d4 未触；临时面已清。
+
+首个剩余缺口：装载授权链三前置——①装载授权批准事件（postgresql_authorized 翻正）②loader GAP 关闭（生产装载器实现+隔离试装→正式验收）③其余 7995 未覆盖成员处置（逐批扩展合同或经批准处置范围合同）；三者任一未到位则 execute_batch 门保持关闭。
+ROUND 49b PASS。

@@ -1,0 +1,14 @@
+{
+ "incoming_commit": "4c2eb31ce218404cc3b385b340873f2d3e1baca1",
+ "incoming_tar_sha256": "8e9070c61eb2423bd691a3bd06b49f16c3436cc954af527f41bc7fd3a2a1bce6",
+ "git_files": 2175,
+ "git_verified": 2175,
+ "bad": [],
+ "extra_preserved": 7079,
+ "post_files": 9254,
+ "stage_agg": "61574edc3e9e306597ec8256b2cb19d8c46393dc3f6eb8ff1b3f9330d7e48add",
+ "snapshot_sha256": "59617d83c6bd583128d99ee3e5539d12d148bcc38ad20a643783180c09a78a73",
+ "pre_files": 9225,
+ "pre_agg": "e1bc754fda2cccd987ad05f6617145ca3bcec10eb750e664d96456267eb0947c",
+ "mode": "overlay_preserve_historical_evidence"
+}

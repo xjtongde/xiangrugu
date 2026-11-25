@@ -1,0 +1,140 @@
+{
+ "assertions": [
+  {
+   "archive_chain": [],
+   "archive_ordinals": [],
+   "expected_sha256": "bd62ab07aea5ce91845e7bf6fac3e3b291b2dcda8c792dab60648c16536b56d9",
+   "ledger": "harvard/SHA256SUMS",
+   "line": 1,
+   "matched": true,
+   "raw_name": "./cbdb/cbdb_20260919.json",
+   "target": "harvard/cbdb/cbdb_20260919.json"
+  },
+  {
+   "archive_chain": [],
+   "archive_ordinals": [],
+   "expected_sha256": "bde1bb8eece3820d9e236c1d6b0f07d847d339669d4a85d79cd7252d58d83400",
+   "ledger": "harvard/SHA256SUMS",
+   "line": 2,
+   "matched": true,
+   "raw_name": "./cbdb/cbdb_20260919.sqlite3",
+   "target": "harvard/cbdb/cbdb_20260919.sqlite3"
+  },
+  {
+   "archive_chain": [],
+   "archive_ordinals": [],
+   "expected_sha256": "77592074e1de4d082ab2e0141a3337598cac13fdaed30ef8409368ac7b52e505",
+   "ledger": "harvard/SHA256SUMS",
+   "line": 3,
+   "matched": true,
+   "raw_name": "./chgis/CHGIS_data_dictionary.zip",
+   "target": "harvard/chgis/CHGIS_data_dictionary.zip"
+  },
+  {
+   "archive_chain": [],
+   "archive_ordinals": [],
+   "expected_sha256": "988aaa0467f8f1d447acbc4f3237e0d9f4667e52f4b86d8504487d8005204a85",
+   "ledger": "harvard/SHA256SUMS",
+   "line": 4,
+   "matched": true,
+   "raw_name": "./chgis/CHGIS_V6_EULA.txt",
+   "target": "harvard/chgis/CHGIS_V6_EULA.txt"
+  },
+  {
+   "archive_chain": [],
+   "archive_ordinals": [],
+   "expected_sha256": "8f31213af43fa47e72288d771b8e03e3a49fcc68155b6e64fa6f61ba3bae1bfb",
+   "ledger": "harvard/SHA256SUMS",
+   "line": 5,
+   "matched": true,
+   "raw_name": "./chgis/CHGIS_V6_README.txt",
+   "target": "harvard/chgis/CHGIS_V6_README.txt"
+  },
+  {
+   "archive_chain": [],
+   "archive_ordinals": [],
+   "expected_sha256": "694c101f04e636012e752c87958c8065c8e6926633c8b542e89978d8f8451a60",
+   "ledger": "harvard/SHA256SUMS",
+   "line": 6,
+   "matched": true,
+   "raw_name": "./chgis/SHA256SUMS.txt",
+   "target": "harvard/chgis/SHA256SUMS.txt"
+  },
+  {
+   "archive_chain": [],
+   "archive_ordinals": [],
+   "expected_sha256": "3b431d2e587bcb738e632385703824d252e0b4744ddd726fc5eb10364dd2d8c5",
+   "ledger": "harvard/SHA256SUMS",
+   "line": 7,
+   "matched": true,
+   "raw_name": "./chgis/v6_time_cnty_pts_utf_wgs84.zip",
+   "target": "harvard/chgis/v6_time_cnty_pts_utf_wgs84.zip"
+  },
+  {
+   "archive_chain": [],
+   "archive_ordinals": [],
+   "expected_sha256": "d3aa9f397916f3ca017b9b6379854796846e2348d7303afc47375984a7e12f72",
+   "ledger": "harvard/SHA256SUMS",
+   "line": 8,
+   "matched": true,
+   "raw_name": "./chgis/v6_time_pref_pgn_utf_wgs84.zip",
+   "target": "harvard/chgis/v6_time_pref_pgn_utf_wgs84.zip"
+  },
+  {
+   "archive_chain": [],
+   "archive_ordinals": [],
+   "expected_sha256": "48f6a50bcc3dd9cf4391efab2153f0e333f2040a08cf96c4d4b950cf9977d1fc",
+   "ledger": "harvard/SHA256SUMS",
+   "line": 9,
+   "matched": true,
+   "raw_name": "./chgis/v6_time_pref_pts_utf_wgs84.zip",
+   "target": "harvard/chgis/v6_time_pref_pts_utf_wgs84.zip"
+  },
+  {
+   "archive_chain": [],
+   "archive_ordinals": [],
+   "expected_sha256": "c9d2d0aadfa3035aede207da1ab320afea41d2aca6e3e5166678246d64a63445",
+   "ledger": "harvard/SHA256SUMS",
+   "line": 10,
+   "matched": true,
+   "raw_name": "./chgis/VERIFICATION.md",
+   "target": "harvard/chgis/VERIFICATION.md"
+  },
+  {
+   "archive_chain": [],
+   "archive_ordinals": [],
+   "expected_sha256": "d21bd9f625acd85e66298fd8635b64c54f380d36b8f44f5d1d9734a0bf55c256",
+   "ledger": "harvard/SHA256SUMS",
+   "line": 11,
+   "matched": true,
+   "raw_name": "./tab/ACADEMY_Data.tab",
+   "target": "harvard/tab/ACADEMY_Data.tab"
+  },
+  {
+   "archive_chain": [],
+   "archive_ordinals": [],
+   "expected_sha256": "b720bff1d328e93726822910cbe361778667e414c24de4ab5f61082a0316623d",
+   "ledger": "harvard/SHA256SUMS",
+   "line": 12,
+   "matched": true,
+   "raw_name": "./tab/Index_of_the_Complete_Prose_of_the_Yuan_Dynasty_vol_1-60.tab",
+   "target": "harvard/tab/Index_of_the_Complete_Prose_of_the_Yuan_Dynasty_vol_1-60.tab"
+  },
+  {
+   "archive_chain": [],
+   "archive_ordinals": [],
+   "expected_sha256": "23b23f6fdd8c8c3d070fe0d215bc643beef8742c06801ee861fb9255d77e5fe7",
+   "ledger": "harvard/SHA256SUMS",
+   "line": 13,
+   "matched": true,
+   "raw_name": "./tab/writings of the 19c missionaries in China.tab",
+   "target": "harvard/tab/writings of the 19c missionaries in China.tab"
+  }
+ ],
+ "assertions_matched": 13,
+ "assertions_total": 13,
+ "ledger": "harvard/SHA256SUMS",
+ "member_rule_id": "m007903",
+ "source_file": "datamgmt/contracts/releases/2026-10-06-bootstrap/assertions.yaml",
+ "source_file_sha256": "54f813f763dbe0700f27a9173e53e5b0aad07efeef28fec8ef196130d1326a87"
+}

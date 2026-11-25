@@ -1,0 +1,54 @@
+{
+ "actual_uncovered_still": 7995,
+ "baseline_commit": "fe38f3ace463045c743fc208c7d0585c0a0878d5",
+ "candidate_ids_unique": true,
+ "candidate_member_ids": [
+  "m002704",
+  "m002705",
+  "m002707",
+  "m002708",
+  "m002709",
+  "m002710",
+  "m002711",
+  "m002713",
+  "m002715",
+  "m002716",
+  "m002717",
+  "m002718",
+  "m004860",
+  "m007903"
+ ],
+ "candidates_status": "CANDIDATE_NOT_ADOPTED（本盒不冻结新合同，候选未接入正式账）",
+ "candidates_total": 14,
+ "digests_recomputed_this_box": {
+  "contract_sha256": "ba8118fb5188478c7a891c37a0ae9d84687910c472946fe44709f3533843bd62",
+  "inventory_sha256": "fb5e6b334b898d62dc0e5c77094fdb50e0946300e6e3009f447b2ecd1bc216db",
+  "method": "xiangrugu-dev 容器 ReleaseContract.model_validate + production_entry._inventory_sha 正式重算",
+  "unchanged": true
+ },
+ "first_batch_rules_unchanged": [
+  "m002709",
+  "m002717",
+  "m004812",
+  "m006642",
+  "m008002",
+  "m008003",
+  "m008004",
+  "r-chgis-sha256sums",
+  "r-sha256sums-b2"
+ ],
+ "full_ready_for_import": false,
+ "identity_note": "候选 m002709/m002717 为清单 SHP 成员；首批同名合同规则绑定的是 m002706/m002714 两份 DBF（已验收，不动）",
+ "inventory_cross_check": "14/14 成员 (relative_path,archive_chain,archive_ordinals) 对 inventory.json 逐件 sha256+size 全等",
+ "non_tabular_boundaries": {
+  "m004860": "仅内层 Thumbs.db 精确链 [KML/CHGIS_v4_1911_KML.zip, V4_1911_KML_metadata/Thumbs.db] 序号[5,11]；不扩展外层 ZIP/其他子件",
+  "m007903": "溯源账本保留附 13/13 断言；两条均零目标表、零新增校验例外"
+ },
+ "projected_after_adoption": {
+  "covered": 23,
+  "delta": -14,
+  "note": "预计变化单列：14 件候选接入后 8004−23=7981；非本盒事实",
+  "uncovered": 7981
+ },
+ "version": 1
+}

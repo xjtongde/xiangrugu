@@ -1,0 +1,390 @@
+{
+ "approval_ref": "a-batch-approval-20261125.txt sha256:127bd83bd057b11632470270c75296f83d52898c0684a376882bcbd0d20b1abb",
+ "baseline_commit": "fe38f3ace463045c743fc208c7d0585c0a0878d5",
+ "candidates": [
+  {
+   "associated_targets": [
+    "chgis.ca1884route_przh_1251",
+    "chgis.ca1884route_przh_utf8"
+   ],
+   "authority": "approved-spatial-binding-context.json + approved-dbf-character/numeric-reading.json",
+   "candidate_id": "a1-m002704",
+   "creates_target_table": false,
+   "disposition": "NON_TABULAR",
+   "inventory_cross_check": "matched",
+   "member_rule_id": "m002704",
+   "new_checksum_exception": false,
+   "reason": "首批空间已批上下文文档伴生件（source_context_members，business_reading_approved=False）；非独立装载，原件保留，关联两首批目标作溯源",
+   "role": "provenance_documentation",
+   "selector": {
+    "archive_chain": [
+     "5_1884route/ca1884_przh_Tarim_README.txt"
+    ],
+    "archive_ordinals": [
+     1
+    ],
+    "relative_path": "harvard-full/doi_10_7910/DVN/E7HDYD/1884route.zip"
+   },
+   "sha256": "67ff2b7a32b934b07bc280c4e39419f7566a05f44aa0bc9641ad3446bcdd9646",
+   "size": 1052,
+   "subtype": "companion_bound_non_independent",
+   "targets": []
+  },
+  {
+   "associated_targets": [
+    "chgis.ca1884route_przh_1251"
+   ],
+   "authority": "approved-spatial-binding-context.json + approved-dbf-character/numeric-reading.json",
+   "candidate_id": "a1-m002705",
+   "creates_target_table": false,
+   "disposition": "NON_TABULAR",
+   "inventory_cross_check": "matched",
+   "member_rule_id": "m002705",
+   "new_checksum_exception": false,
+   "reason": "首批空间已批绑定伴生件（approved-spatial-binding-context）；非独立装载成员，字节身份已批/几何已随首批装载（shp）或声明件保留；不建独立表",
+   "role": "character_encoding_declaration",
+   "selector": {
+    "archive_chain": [
+     "5_1884route/Ca1884route_przh_1251.cpg"
+    ],
+    "archive_ordinals": [
+     2
+    ],
+    "relative_path": "harvard-full/doi_10_7910/DVN/E7HDYD/1884route.zip"
+   },
+   "sha256": "ea80b523f4585374b7c94e7b9b420166e845e318f0efb4bafd6f51d3e8b1f72a",
+   "size": 4,
+   "subtype": "companion_bound_non_independent",
+   "targets": []
+  },
+  {
+   "associated_targets": [
+    "chgis.ca1884route_przh_1251"
+   ],
+   "authority": "approved-spatial-binding-context.json + approved-dbf-character/numeric-reading.json",
+   "candidate_id": "a1-m002707",
+   "creates_target_table": false,
+   "disposition": "NON_TABULAR",
+   "inventory_cross_check": "matched",
+   "member_rule_id": "m002707",
+   "new_checksum_exception": false,
+   "reason": "首批空间已批绑定伴生件（approved-spatial-binding-context）；非独立装载成员，字节身份已批/几何已随首批装载（shp）或声明件保留；不建独立表",
+   "role": "crs_declaration",
+   "selector": {
+    "archive_chain": [
+     "5_1884route/Ca1884route_przh_1251.prj"
+    ],
+    "archive_ordinals": [
+     4
+    ],
+    "relative_path": "harvard-full/doi_10_7910/DVN/E7HDYD/1884route.zip"
+   },
+   "sha256": "98aaf3d1c0ecadf1a424a4536de261c3daf4e373697cb86c40c43b989daf52eb",
+   "size": 143,
+   "subtype": "companion_bound_non_independent",
+   "targets": []
+  },
+  {
+   "associated_targets": [
+    "chgis.ca1884route_przh_1251"
+   ],
+   "authority": "approved-spatial-binding-context.json + approved-dbf-character/numeric-reading.json",
+   "candidate_id": "a1-m002708",
+   "creates_target_table": false,
+   "disposition": "NON_TABULAR",
+   "inventory_cross_check": "matched",
+   "member_rule_id": "m002708",
+   "new_checksum_exception": false,
+   "reason": "首批空间已批绑定伴生件（approved-spatial-binding-context）；非独立装载成员，字节身份已批/几何已随首批装载（shp）或声明件保留；不建独立表",
+   "role": "additional_crs_declaration_candidate",
+   "selector": {
+    "archive_chain": [
+     "5_1884route/Ca1884route_przh_1251.qpj"
+    ],
+    "archive_ordinals": [
+     5
+    ],
+    "relative_path": "harvard-full/doi_10_7910/DVN/E7HDYD/1884route.zip"
+   },
+   "sha256": "1de411dcdeedce3219242306fc29bfa1d7fa08883e4ff6779baf798ec50d1657",
+   "size": 257,
+   "subtype": "companion_bound_non_independent",
+   "targets": []
+  },
+  {
+   "associated_targets": [
+    "chgis.ca1884route_przh_1251"
+   ],
+   "authority": "approved-spatial-binding-context.json + approved-dbf-character/numeric-reading.json",
+   "candidate_id": "a1-m002709",
+   "creates_target_table": false,
+   "disposition": "NON_TABULAR",
+   "inventory_cross_check": "matched",
+   "member_rule_id": "m002709",
+   "new_checksum_exception": false,
+   "reason": "首批空间已批绑定伴生件（approved-spatial-binding-context）；非独立装载成员，字节身份已批/几何已随首批装载（shp）或声明件保留；不建独立表",
+   "role": "primary_geometry",
+   "selector": {
+    "archive_chain": [
+     "5_1884route/Ca1884route_przh_1251.shp"
+    ],
+    "archive_ordinals": [
+     6
+    ],
+    "relative_path": "harvard-full/doi_10_7910/DVN/E7HDYD/1884route.zip"
+   },
+   "sha256": "109d74b1e5cefcd1b32ad81e90fa94d150dd719b4fd530651b4dbdfff869eac7",
+   "size": 1752,
+   "subtype": "companion_bound_non_independent",
+   "targets": []
+  },
+  {
+   "associated_targets": [
+    "chgis.ca1884route_przh_1251"
+   ],
+   "authority": "approved-spatial-binding-context.json + approved-dbf-character/numeric-reading.json",
+   "candidate_id": "a1-m002710",
+   "creates_target_table": false,
+   "disposition": "NON_TABULAR",
+   "inventory_cross_check": "matched",
+   "member_rule_id": "m002710",
+   "new_checksum_exception": false,
+   "reason": "首批空间已批绑定伴生件（approved-spatial-binding-context）；非独立装载成员，字节身份已批/几何已随首批装载（shp）或声明件保留；不建独立表",
+   "role": "geometry_index",
+   "selector": {
+    "archive_chain": [
+     "5_1884route/Ca1884route_przh_1251.shx"
+    ],
+    "archive_ordinals": [
+     7
+    ],
+    "relative_path": "harvard-full/doi_10_7910/DVN/E7HDYD/1884route.zip"
+   },
+   "sha256": "d46d5729d1ac95b1d12820347129bd8a98b21410cd77e936c5995329d4309ccc",
+   "size": 572,
+   "subtype": "companion_bound_non_independent",
+   "targets": []
+  },
+  {
+   "associated_targets": [
+    "chgis.ca1884route_przh_1251",
+    "chgis.ca1884route_przh_utf8"
+   ],
+   "authority": "approved-spatial-binding-context.json + approved-dbf-character/numeric-reading.json",
+   "candidate_id": "a1-m002711",
+   "creates_target_table": false,
+   "disposition": "NON_TABULAR",
+   "inventory_cross_check": "matched",
+   "member_rule_id": "m002711",
+   "new_checksum_exception": false,
+   "reason": "首批空间已批上下文文档伴生件（source_context_members，business_reading_approved=False）；非独立装载，原件保留，关联两首批目标作溯源",
+   "role": "provenance_documentation",
+   "selector": {
+    "archive_chain": [
+     "5_1884route/Ca1884route_przh_ru.htm"
+    ],
+    "archive_ordinals": [
+     8
+    ],
+    "relative_path": "harvard-full/doi_10_7910/DVN/E7HDYD/1884route.zip"
+   },
+   "sha256": "478d515c832ddf07ef08fabef0898f34fd6f7895ba28a4d61df01c7e7369b4d3",
+   "size": 13483,
+   "subtype": "companion_bound_non_independent",
+   "targets": []
+  },
+  {
+   "associated_targets": [
+    "chgis.ca1884route_przh_utf8"
+   ],
+   "authority": "approved-spatial-binding-context.json + approved-dbf-character/numeric-reading.json",
+   "candidate_id": "a1-m002713",
+   "creates_target_table": false,
+   "disposition": "NON_TABULAR",
+   "inventory_cross_check": "matched",
+   "member_rule_id": "m002713",
+   "new_checksum_exception": false,
+   "reason": "首批空间已批绑定伴生件（approved-spatial-binding-context）；非独立装载成员，字节身份已批/几何已随首批装载（shp）或声明件保留；不建独立表",
+   "role": "character_encoding_declaration",
+   "selector": {
+    "archive_chain": [
+     "5_1884route/Ca1884route_przh_utf8.cpg"
+    ],
+    "archive_ordinals": [
+     10
+    ],
+    "relative_path": "harvard-full/doi_10_7910/DVN/E7HDYD/1884route.zip"
+   },
+   "sha256": "3ad3031f5503a4404af825262ee8232cc04d4ea6683d42c5dd0a2f2a27ac9824",
+   "size": 5,
+   "subtype": "companion_bound_non_independent",
+   "targets": []
+  },
+  {
+   "associated_targets": [
+    "chgis.ca1884route_przh_utf8"
+   ],
+   "authority": "approved-spatial-binding-context.json + approved-dbf-character/numeric-reading.json",
+   "candidate_id": "a1-m002715",
+   "creates_target_table": false,
+   "disposition": "NON_TABULAR",
+   "inventory_cross_check": "matched",
+   "member_rule_id": "m002715",
+   "new_checksum_exception": false,
+   "reason": "首批空间已批绑定伴生件（approved-spatial-binding-context）；非独立装载成员，字节身份已批/几何已随首批装载（shp）或声明件保留；不建独立表",
+   "role": "crs_declaration",
+   "selector": {
+    "archive_chain": [
+     "5_1884route/Ca1884route_przh_utf8.prj"
+    ],
+    "archive_ordinals": [
+     12
+    ],
+    "relative_path": "harvard-full/doi_10_7910/DVN/E7HDYD/1884route.zip"
+   },
+   "sha256": "98aaf3d1c0ecadf1a424a4536de261c3daf4e373697cb86c40c43b989daf52eb",
+   "size": 143,
+   "subtype": "companion_bound_non_independent",
+   "targets": []
+  },
+  {
+   "associated_targets": [
+    "chgis.ca1884route_przh_utf8"
+   ],
+   "authority": "approved-spatial-binding-context.json + approved-dbf-character/numeric-reading.json",
+   "candidate_id": "a1-m002716",
+   "creates_target_table": false,
+   "disposition": "NON_TABULAR",
+   "inventory_cross_check": "matched",
+   "member_rule_id": "m002716",
+   "new_checksum_exception": false,
+   "reason": "首批空间已批绑定伴生件（approved-spatial-binding-context）；非独立装载成员，字节身份已批/几何已随首批装载（shp）或声明件保留；不建独立表",
+   "role": "additional_crs_declaration_candidate",
+   "selector": {
+    "archive_chain": [
+     "5_1884route/Ca1884route_przh_utf8.qpj"
+    ],
+    "archive_ordinals": [
+     13
+    ],
+    "relative_path": "harvard-full/doi_10_7910/DVN/E7HDYD/1884route.zip"
+   },
+   "sha256": "1de411dcdeedce3219242306fc29bfa1d7fa08883e4ff6779baf798ec50d1657",
+   "size": 257,
+   "subtype": "companion_bound_non_independent",
+   "targets": []
+  },
+  {
+   "associated_targets": [
+    "chgis.ca1884route_przh_utf8"
+   ],
+   "authority": "approved-spatial-binding-context.json + approved-dbf-character/numeric-reading.json",
+   "candidate_id": "a1-m002717",
+   "creates_target_table": false,
+   "disposition": "NON_TABULAR",
+   "inventory_cross_check": "matched",
+   "member_rule_id": "m002717",
+   "new_checksum_exception": false,
+   "reason": "首批空间已批绑定伴生件（approved-spatial-binding-context）；非独立装载成员，字节身份已批/几何已随首批装载（shp）或声明件保留；不建独立表",
+   "role": "primary_geometry",
+   "selector": {
+    "archive_chain": [
+     "5_1884route/Ca1884route_przh_utf8.shp"
+    ],
+    "archive_ordinals": [
+     14
+    ],
+    "relative_path": "harvard-full/doi_10_7910/DVN/E7HDYD/1884route.zip"
+   },
+   "sha256": "109d74b1e5cefcd1b32ad81e90fa94d150dd719b4fd530651b4dbdfff869eac7",
+   "size": 1752,
+   "subtype": "companion_bound_non_independent",
+   "targets": []
+  },
+  {
+   "associated_targets": [
+    "chgis.ca1884route_przh_utf8"
+   ],
+   "authority": "approved-spatial-binding-context.json + approved-dbf-character/numeric-reading.json",
+   "candidate_id": "a1-m002718",
+   "creates_target_table": false,
+   "disposition": "NON_TABULAR",
+   "inventory_cross_check": "matched",
+   "member_rule_id": "m002718",
+   "new_checksum_exception": false,
+   "reason": "首批空间已批绑定伴生件（approved-spatial-binding-context）；非独立装载成员，字节身份已批/几何已随首批装载（shp）或声明件保留；不建独立表",
+   "role": "geometry_index",
+   "selector": {
+    "archive_chain": [
+     "5_1884route/Ca1884route_przh_utf8.shx"
+    ],
+    "archive_ordinals": [
+     15
+    ],
+    "relative_path": "harvard-full/doi_10_7910/DVN/E7HDYD/1884route.zip"
+   },
+   "sha256": "d46d5729d1ac95b1d12820347129bd8a98b21410cd77e936c5995329d4309ccc",
+   "size": 572,
+   "subtype": "companion_bound_non_independent",
+   "targets": []
+  },
+  {
+   "authority": "disposition-ledger-metadata-review.json m004860 NON_TABULAR 提案 + 本盒茶香授权",
+   "candidate_id": "a1-m004860",
+   "creates_target_table": false,
+   "disposition": "NON_TABULAR",
+   "inventory_cross_check": "matched",
+   "member_rule_id": "m004860",
+   "new_checksum_exception": false,
+   "reason": "DESIGN §5 非业务缩略图成员；仅登记此精确内层成员链 KML/CHGIS_v4_1911_KML.zip→V4_1911_KML_metadata/Thumbs.db 序号[5,11]；不扩展到外层 V4_Data_Archive.zip 或其他子件；不因 OLE 签名当作 XLS",
+   "scope_limit": "exact_inner_member_only",
+   "selector": {
+    "archive_chain": [
+     "KML/CHGIS_v4_1911_KML.zip",
+     "V4_1911_KML_metadata/Thumbs.db"
+    ],
+    "archive_ordinals": [
+     5,
+     11
+    ],
+    "relative_path": "harvard-full/doi_10_7910/DVN/PDGOZ0/V4_Data_Archive.zip"
+   },
+   "sha256": "c68ef43f7fcccea503189bb4bd15ab9764008d7872fec4606745f61aad2bb001",
+   "size": 24576,
+   "subtype": "original_retention_exact_member",
+   "targets": []
+  },
+  {
+   "authority": "disposition-ledger-metadata-review.json m007903 NON_TABULAR 提案 + assertions.yaml 13/13 + 本盒茶香授权",
+   "candidate_id": "a1-m007903",
+   "creates_target_table": false,
+   "disposition": "NON_TABULAR",
+   "inventory_cross_check": "matched",
+   "member_rule_id": "m007903",
+   "new_checksum_exception": false,
+   "reason": "DESIGN §5 校验文件；既有严格清点 13/13 匹配断言（m007903-checksum-13of13.json）；保留完整原账作溯源材料，不建业务表，不新增校验例外",
+   "selector": {
+    "archive_chain": [],
+    "archive_ordinals": [],
+    "relative_path": "harvard/SHA256SUMS"
+   },
+   "sha256": "5ad06d6dcf6dfa5e6ecfad707f0e59c53b3a4a21e657b334297aba6c26b453a3",
+   "size": 1307,
+   "subtype": "provenance_ledger_retention",
+   "targets": []
+  }
+ ],
+ "first_batch_rules_unchanged": [
+  "m002709",
+  "m002717",
+  "m004812",
+  "m006642",
+  "m008002",
+  "m008003",
+  "m008004",
+  "r-chgis-sha256sums",
+  "r-sha256sums-b2"
+ ],
+ "status": "CANDIDATE_NOT_ADOPTED",
+ "version": 1
+}

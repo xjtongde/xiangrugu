@@ -1,0 +1,32 @@
+{
+ "auth": {
+  "method": "scram-sha-256 via published port",
+  "password_committed": false,
+  "password_source": "container env runtime only"
+ },
+ "command": "formal_first_batch.py",
+ "cwd": "/opt/mydocker/xiangrugu/formal-exec-20261125",
+ "database_switch_forbidden": true,
+ "endpoint_mapping_independent": {
+  "container_id": "1344201972de2dd820c8e6d6cf7b79ced4b0d5ec87e957ad3c163d1b222f7b77",
+  "docker_port_output": "127.0.0.1:32771",
+  "external_port": 32771,
+  "internal_port": 5432
+ },
+ "exit": 2,
+ "gate_code": "readback_mismatch",
+ "injected_failure": "m006642",
+ "probe_via_external_path": {
+  "dbname": "xiangrugu",
+  "inet_server_addr": "172.17.0.2/32",
+  "internal_port": "5432"
+ },
+ "refused": true,
+ "role": "xiangrugu_loader",
+ "same_session_current_user": "xiangrugu_loader",
+ "single_session_single_connection": true,
+ "source_gates": "PASS (source sha/rows/attr/geom/DBF identity asserted before write)",
+ "source_read_only": true,
+ "status": "REFUSED_readback_mismatch",
+ "version": 1
+}

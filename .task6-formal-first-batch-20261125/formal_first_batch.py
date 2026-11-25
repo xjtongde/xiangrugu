@@ -237,7 +237,7 @@ def main():
         session.close()
     Path(a.out).write_text(json.dumps(ev, ensure_ascii=False, indent=1, sort_keys=True) + "\n")
     print(ev["status"], "exit", ev["exit"], "| port", a.port, "->5432 | current_user", ev.get("same_session_current_user"),
-          "| total", (ev.get("result") or {}).get("readback", {}).get("total_rows"))
+          "| total", (ev.get("result") or {}).get("total_rows"))
     sys.exit(ev["exit"])
 
 

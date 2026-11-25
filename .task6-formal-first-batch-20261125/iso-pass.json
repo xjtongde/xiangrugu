@@ -1,0 +1,171 @@
+{
+ "auth": {
+  "method": "scram-sha-256 via published port",
+  "password_committed": false,
+  "password_source": "container env runtime only"
+ },
+ "command": "formal_first_batch.py",
+ "cwd": "/opt/mydocker/xiangrugu/formal-exec-20261125",
+ "database_switch_forbidden": true,
+ "endpoint_mapping_independent": {
+  "container_id": "1344201972de2dd820c8e6d6cf7b79ced4b0d5ec87e957ad3c163d1b222f7b77",
+  "docker_port_output": "127.0.0.1:32771",
+  "external_port": 32771,
+  "internal_port": 5432
+ },
+ "exit": 0,
+ "probe_via_external_path": {
+  "dbname": "xiangrugu",
+  "inet_server_addr": "172.17.0.2/32",
+  "internal_port": "5432"
+ },
+ "result": {
+  "approval_class": "test",
+  "committed": true,
+  "gates": [
+   "single_formal_parse_drives_load",
+   "evidence_exactly_nul_chgis",
+   "artifact_digest_recomputed_in_entry",
+   "write_approval_independent_bound_seven",
+   "target_identity_positive_in_ddl_session",
+   "prerequisites_verified_not_created",
+   "targets_absent",
+   "digest_bindings",
+   "instance_identity",
+   "targets_absent"
+  ],
+  "items": {
+   "m002709": {
+    "attr_sha256": "3519649f663f8a6d65659fb00b4456c1f2a282ed095545795e1a2bb3b00a7cd8",
+    "attr_sha_match": true,
+    "columns_meta_match": true,
+    "duplicate_extra_rows": 0,
+    "duplicate_groups": 0,
+    "duplicates_match": true,
+    "geom_meta_ok": true,
+    "geom_sha256": "ff7081a0013d721f22fb12ec00edc85de98e9cef7f75426db6254dbabdb632da",
+    "geom_sha_match": true,
+    "pass": true,
+    "row_count": 59,
+    "row_count_match": true,
+    "xy_bytes_match": true
+   },
+   "m002717": {
+    "attr_sha256": "a2ad2d24ff4cae8c2e0315af0278d6286ef27510911a2f81ee1f4aa6c4b9b1d0",
+    "attr_sha_match": true,
+    "columns_meta_match": true,
+    "duplicate_extra_rows": 0,
+    "duplicate_groups": 0,
+    "duplicates_match": true,
+    "geom_meta_ok": true,
+    "geom_sha256": "3c6067845a7938e8e4e1946d96c46dc4d57bab6aba236d3857b0967c10c73722",
+    "geom_sha_match": true,
+    "pass": true,
+    "row_count": 59,
+    "row_count_match": true,
+    "xy_bytes_match": true
+   },
+   "m004812": {
+    "attr_sha256": "b3f6ceb609a853cbb06eb7f8004a39f676d1ff5e95fbb46fc0381abbf722f667",
+    "attr_sha_match": true,
+    "columns_meta_match": true,
+    "duplicate_extra_rows": 0,
+    "duplicate_groups": 0,
+    "duplicates_match": true,
+    "pass": true,
+    "row_count": 29,
+    "row_count_match": true,
+    "stream_bytes": 5605
+   },
+   "m006642": {
+    "attr_sha256": "3bad44a0482c1bc2479a541d2d9c9d405187eb1caeb177479fb69f7954b313fc",
+    "attr_sha_match": true,
+    "columns_meta_match": true,
+    "duplicate_extra_rows": 0,
+    "duplicate_groups": 0,
+    "duplicates_match": true,
+    "pass": true,
+    "row_count": 3389,
+    "row_count_match": true,
+    "stream_bytes": 361678
+   },
+   "m008002": {
+    "attr_sha256": "475ea1d8b400939cb79b46b47d641d83685bc8d1a3e4478bec1cdfdd562c429a",
+    "attr_sha_match": true,
+    "columns_meta_match": true,
+    "duplicate_extra_rows": 0,
+    "duplicate_groups": 0,
+    "duplicates_match": true,
+    "pass": true,
+    "row_count": 2957,
+    "row_count_match": true,
+    "stream_bytes": 1778794
+   },
+   "m008003": {
+    "attr_sha256": "dcbedb5a5073a6b980d82156ffb3fa7dbaf3ca9906c2928534793b3e0a43a039",
+    "attr_sha_match": true,
+    "columns_meta_match": true,
+    "duplicate_extra_rows": 74,
+    "duplicate_groups": 63,
+    "duplicates_match": true,
+    "pass": true,
+    "row_count": 40199,
+    "row_count_match": true,
+    "stream_bytes": 4709809
+   },
+   "m008004": {
+    "attr_sha256": "d233ed9c81ad6f8ff22c1f8c89786dcae90b0fffaf5657666d98e6212edec5fd",
+    "attr_sha_match": true,
+    "columns_meta_match": true,
+    "duplicate_extra_rows": 0,
+    "duplicate_groups": 0,
+    "duplicates_match": true,
+    "pass": true,
+    "row_count": 1033,
+    "row_count_match": true,
+    "stream_bytes": 292942
+   }
+  },
+  "prerequisites_not_loader_actions": [
+   "database xiangrugu exists on pg32b:5433 (CREATE DATABASE — separate authorization, not a loader action)",
+   "CREATE EXTENSION postgis in database xiangrugu (prerequisite, not a loader action)",
+   "CREATE SCHEMA harv; CREATE SCHEMA chgis (prerequisite, not a loader action)",
+   "public.xrg_instance_marker(instance_id text) with EXACTLY ONE row holding the independently verified instance Id (docker inspect out-of-band; prerequisite, not a loader action)"
+  ],
+  "production_target_constant": {
+   "dbname": "xiangrugu",
+   "host": "pg32b",
+   "port": 5433
+  },
+  "recomputed_digests": {
+   "contract_sha256": "ba8118fb5188478c7a891c37a0ae9d84687910c472946fe44709f3533843bd62",
+   "evidence_shas": {
+    "chgis": "623723ff2c7c2fbd5b3daeab978ddf6eabea413dfdb76dfdadc14fb910c2157f",
+    "nul": "5dd1739c326d4cc5e5760c72742f7bb7a35b3247e0f260fee6d23847fb8eab2e"
+   },
+   "inventory_sha256": "fb5e6b334b898d62dc0e5c77094fdb50e0946300e6e3009f447b2ecd1bc216db"
+  },
+  "status": "FIRST_BATCH_TRIAL_LOAD_PASS",
+  "target_identity_in_session": {
+   "databases": "postgres,template0,template1,xiangrugu",
+   "dbname": "xiangrugu",
+   "inet_server_addr": "172.17.0.2/32",
+   "instance_marker_verified": "1344201972de2dd820c8e6d6cf7b79ced4b0d5ec87e957ad3c163d1b222f7b77",
+   "legacy_databases_visible": [],
+   "port": "5432",
+   "postgis": "present",
+   "postmaster_start": "2026-11-25 16:13:02.472802+00",
+   "schemas": "harv,chgis",
+   "server_version": "18.6 (Debian 18.6-1.pgdg12+2)"
+  },
+  "total_rows": 47725,
+  "transaction": "single"
+ },
+ "role": "xiangrugu_loader",
+ "same_session_current_user": "xiangrugu_loader",
+ "single_session_single_connection": true,
+ "source_gates": "PASS (source sha/rows/attr/geom/DBF identity asserted before write)",
+ "source_read_only": true,
+ "status": "FIRST_BATCH_TRIAL_LOAD_PASS",
+ "version": 1
+}

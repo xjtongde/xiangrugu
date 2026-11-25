@@ -12,8 +12,15 @@
 - PREFLIGHT_EXIT=0：dbname xiangrugu/**内部 port 5432**/marker 恰一行==pg32b Id 3d93fc7741f6…/loader NOLOGIN（canlogin f）/harv CREATE=f chgis CREATE=f（授权属第二阶段）/marker SELECT=t UPDATE=f/**七表 present 0**/旧库 ACL default-public-connect 现状录（不动）。
 - harv/chgis 所需最小权限（第二阶段授予）：GRANT USAGE, CREATE ON SCHEMA harv, chgis TO xiangrugu_loader；标记保持仅 SELECT。
 
-## 3. 同一命令隔离验证
-（待跑：git archive 绑定提交→临时容器 loopback 端口→--isolated 整批+--inject-failure 回滚）
+## 3. 同一命令隔离验证（绑定提交 3ab337e419d462abe5df6c0a8184ee0f77d45b3d）
+- git archive 3ab337e → /opt/mydocker/xiangrugu/formal-exec-20261125（受控执行根，版本绑定）；临时容器 **xiangrugu-formal-iso-20261125-161259-8cfc7467**（Id 1344201972de2dd8…，镜像 d562e436 核，-p 127.0.0.1:32771->5432 loopback）；先决+角色授权（隔离内）分录 exit 0。
+- **--inject-failure m006642：ISO_FAIL_EXIT=2 REFUSED_readback_mismatch，harv/chgis 表计数 0（整批回滚零残留）**。
+- **--isolated 干净重试：ISO_PASS_EXIT=0 FIRST_BATCH_TRIAL_LOAD_PASS，total_rows 47725（独立 SQL 复核 47725），tableowner==xiangrugu_loader**；current_user 同会话==角色；gates 单解析/证据恰二/入口重算/审批绑七/正向身份/先决不代建/目标 absent 全在证。
+- 披露：①首跑映射核解析 docker port 输出格式瑕疵（ENDPOINT_MAPPING_MISMATCH）→修正提交 3ab337e 重跑，非门缺陷；②反例须净面——正例先跑后七表已在，隔离夹具 DROP 七表重置（FIXTURE_RESET_OK 在账，仅临时实例，生产零触）再按 fail→pass 序重跑。
+- 证据：iso-pass.json/iso-fail.json（本目录）；容器保留供 a03 独立核，复核后经 Id 清理。
+
+## 第一阶段判定
+**PASS**（正式命令+5433 只读预检+同一命令隔离整批/回滚全证）。**等 Codex 独立验收明确放行后才进第二阶段**；本阶段未更新 deploy/未改生产权限/未写正式库。
 
 ## 边界
 本阶段不更新 deploy/不改生产权限/不写正式库（预检仅 SELECT）；源件只读；旧库 ACL 不动；镜像/服务不改不重启；ready false/7995 保持；M=2 不提交。

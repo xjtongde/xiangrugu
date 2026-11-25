@@ -21,3 +21,7 @@ deploy 未更新；生产角色/授权未改（xiangrugu_loader 生产现状仍�
 
 ## 首个剩余缺口
 首批七表装载授权事件（approval_class=real+real_authority_ref 绑七目标）+生产角色 harv/chgis CREATE 授权与旧库 CONNECT REVOKE（另批）；其后按校准 runbook 执行。
+
+## a03 复核与清理收口
+- **R55 终报 PASS（16:06 UTC 盒内）**：diff 恰九件/M=2 不在 diff；端口分离门+角色切换读码 ✓；独立反例 6/6+活体角色权限逐项与 G2 一致；外部→内部自复现（SHOW port 5432/错端点拒）；真回读 47725/七摘要/EWKB/63·74/**owner==角色×7**；NOLOGIN FATAL 自证；旧库互等；回归 212 自洽；**生产角色现状只读核（harv CREATE=f/CONNECT cbdb=t PUBLIC 未动）与另批划界一致**；deploy 未更新。
+- **cleanup_execution 16:05:56 UTC**：试装容器经 Id 全号+名核一致后清除（CLEANUP_OK，计数 0）。

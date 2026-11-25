@@ -1,0 +1,15 @@
+== ROUND 55 终报（a03，16:06 UTC 盒内）：PASS ==
+全程 pg32b 只 SELECT；生产角色授权未触。
+①范围核：diff bc7cb15..61984d6 恰九件（fbl M/pe M/test M/证据六件）；M=2 不在 diff；committed pe==读码版逐字节。
+②补正读码：端口分离门（wrong_port 旧缺陷删；port!=internal_port→wrong_internal_port；mapping internal/external/verified/container_id 三方一致→endpoint_mapping_mismatch 含 container binding 子码；scope 侧 internal_port_not_declared_5432+endpoint_mapping_not_verified 两前置门）；PsqlSession(role=…) 构造即 SET ROLE，NOLOGIN 切换路径成立。
+③独立反例 6/6（隔离树真实入口直调）：P 正例 ext=15433/int=5432 分离通过 47725；CE1 外部映射篡改→endpoint_mapping_mismatch；CE2 会话内部端口错→wrong_internal_port:6666；CE3 internal_port≠5432 声明拒；CE4 mapping_verified 缺拒；CE5 container_id 绑定不符→container binding（全 begins=0）。活体角色反例（SET ROLE xiangrugu_loader）：marker UPDATE/INSERT/DELETE 三写全 permission denied for table；CREATE EXTENSION cube 拒（无库 CREATE）；has_database_privilege CONNECT cbdb/cbdb_reh=f,f；has_table_privilege SELECT=t/UPDATE=f、harv CREATE=t/public CREATE=f——与 runbook G2 逐项一致。
+④外部→内部路径自复现：客户端容器 --network host psql -h 127.0.0.1 -p 32770（docker port 自核 loopback only）经成员登录角色→SET ROLE xiangrugu_loader current_user 实测==角色；会话内 SHOW port=5432；错端点 5433 连试装库拒（WRONG_EXT_EXIT=2）。
+⑤独立真回读（角色装载后）：总 47725；attr 五文本+两空间 N 重建七摘要全等（475ea1d8/dcbedb5a/d233ed9c/b3f6ceb6/3bad44a0/3519649f/a2ad2d24）；geom ff7081a0/3c606784 POINT/2D/4326；m008003 63/74；XY dup 0×2；rownum 连续；七表 owner==xiangrugu_loader 实测×7。
+⑥NOLOGIN 直连 FATAL：本地 trust 通道 -U xiangrugu_loader→FATAL role is not permitted to log in 实证。
+⑦旧库未动：哨兵 COPY sha cbdb=611c4eae…/cbdb_reh=aab5e169… 与 r55 证据 before/after 互等；表计数 1/1 不变。
+⑧回归与四不动：r14.out 212 passed=186+26 自洽（26 def）；deploy 未更新（冻结件在账）；pg32b 生产 xiangrugu_loader 现状只读核：角色存在、harv CREATE=f、CONNECT cbdb=t（PUBLIC 默认未动——与"生产 REVOKE 另批"划界一致）、七业务表 0；dev StartedAt 13:43:10Z/RestartCount 0 不变。
+判定 PASS。首个剩余缺口：正式首批装载仍待真实写库批准事件（含正式端点 pg32b:5433 下生产侧 REVOKE/授权批+七表创建授权）。实例可清。
+
+== cleanup_execution（lead，16:05:56 UTC）==
+docker inspect 全号 a1fe79f5651241d2f9ad1d3097b72f121537b05244bb12cfe8ce685e83fab657 + 名核一致→docker rm -f 经 Id→CLEANUP_OK；r55-trial 计数 0。
+ROUND 55 PASS。

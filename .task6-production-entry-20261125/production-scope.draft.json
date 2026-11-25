@@ -2,6 +2,8 @@
  "contract_sha256": "ba8118fb5188478c7a891c37a0ae9d84687910c472946fe44709f3533843bd62",
  "distinction": "本轮 test 审批≠真实写库批准；全量 ready_for_import=false 保持，7995 未覆盖不动；本盒不连生产 PG 不写正式库",
  "full_ready_for_import": false,
+ "identity_policy": "正向身份证明：cbdb/cbdb_reh 可见时正确目标仍通过；标记缺失/不符/错库/错端口→写入前拒",
+ "instance_fingerprint": "RUNTIME_VERIFIED_BY_DRIVER",
  "inventory_sha256": "fb5e6b334b898d62dc0e5c77094fdb50e0946300e6e3009f447b2ecd1bc216db",
  "mode": "production-candidate",
  "objects": [
@@ -44,7 +46,8 @@
  "prerequisites_not_loader_actions": [
   "database xiangrugu exists on pg32b:5433 (CREATE DATABASE — 另批授权)",
   "CREATE EXTENSION postgis in xiangrugu",
-  "CREATE SCHEMA harv; CREATE SCHEMA chgis"
+  "CREATE SCHEMA harv; CREATE SCHEMA chgis",
+  "public.xrg_instance_marker(instance_id text) 预置独立核实实例 Id（docker inspect 带外核；先决非装载器动作）"
  ],
  "production_target_constant": {
   "dbname": "xiangrugu",
@@ -52,7 +55,7 @@
   "port": 5433
  },
  "real_run_requires": "独立首批写库批准事件(approval_class=real+real_authority_ref)+runbook 先决+正式端点 pg32b:5433/xiangrugu",
- "scope_id": "first-batch-seven-production-candidate-20261125",
+ "scope_id": "first-batch-seven-production-candidate-r52-20261125",
  "target_endpoint": {
   "container_id": "RUNTIME_VERIFIED_BY_DRIVER",
   "dbname": "xiangrugu",
@@ -63,9 +66,18 @@
  "version": 1,
  "write_approval": {
   "approval_class": "test",
-  "approval_ref": "test-only-not-a-real-write-approval@a1bd50236efc6a8e15518d22cf95ac7eff88e93b",
-  "approved_at": "2026-11-25T13:47:55Z",
-  "approved_by": "isolated-test (DSH lead, 本盒授权范围)"
+  "approval_ref": "test-only-not-a-real-write-approval@16f94a6081cebde65ccde307913b5a78b18f904a",
+  "approved_at": "2026-11-25T14:17:28Z",
+  "approved_by": "isolated-test (DSH lead, 本盒授权范围)",
+  "bound_object_rule_ids": [
+   "m002709",
+   "m002717",
+   "m004812",
+   "m006642",
+   "m008002",
+   "m008003",
+   "m008004"
+  ]
  },
  "writeoff_evidence_sha256": {
   "chgis": "623723ff2c7c2fbd5b3daeab978ddf6eabea413dfdb76dfdadc14fb910c2157f",

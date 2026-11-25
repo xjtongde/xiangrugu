@@ -1,0 +1,243 @@
+{
+ "approval_class": "test",
+ "cleanup": "container retained for a03 independent readback; removal only by verified Id after review",
+ "container": {
+  "id": "4f48de901086eea2475cd7a85ad9061c8285b57573dcaa8b56e751c479946e36",
+  "image_id": "sha256:d562e43664f996da0e4208b375c00c111a543d996475188d852e9189b2a8cd05",
+  "name": "xiangrugu-r52-trial-20261125-142128-1bf48938",
+  "name_verified": true
+ },
+ "formal_database_written": false,
+ "host_ports": "none",
+ "image": "pg32b-full:18-pgdg",
+ "legacy_snapshots_after": {
+  "cbdb": {
+   "content_sha256": "611c4eae87ecd8bb586b44c7743471df48619da99c6b4013a9113ede85d32966",
+   "sentinel_rows": "2",
+   "tables": "sentinel"
+  },
+  "cbdb_reh": {
+   "content_sha256": "aab5e1695fc3a397667caedf3d409ec3db0566e93680df69066b3792e84f4600",
+   "sentinel_rows": "2",
+   "tables": "sentinel"
+  }
+ },
+ "legacy_snapshots_before": {
+  "cbdb": {
+   "content_sha256": "611c4eae87ecd8bb586b44c7743471df48619da99c6b4013a9113ede85d32966",
+   "sentinel_rows": "2",
+   "tables": "sentinel"
+  },
+  "cbdb_reh": {
+   "content_sha256": "aab5e1695fc3a397667caedf3d409ec3db0566e93680df69066b3792e84f4600",
+   "sentinel_rows": "2",
+   "tables": "sentinel"
+  }
+ },
+ "legacy_untouched": true,
+ "network": "none",
+ "phase_A_injected": {
+  "code": "readback_mismatch",
+  "label": "injected",
+  "refused": true
+ },
+ "phase_A_zero_residue": true,
+ "phase_B_retry": {
+  "label": "retry",
+  "result": {
+   "approval_class": "test",
+   "committed": true,
+   "gates": [
+    "artifact_digest_recomputed_in_entry",
+    "write_approval_independent_bound_seven",
+    "target_identity_positive_in_ddl_session",
+    "prerequisites_verified_not_created",
+    "targets_absent",
+    "digest_bindings",
+    "instance_identity",
+    "targets_absent"
+   ],
+   "items": {
+    "m002709": {
+     "attr_sha256": "3519649f663f8a6d65659fb00b4456c1f2a282ed095545795e1a2bb3b00a7cd8",
+     "attr_sha_match": true,
+     "columns_meta_match": true,
+     "duplicate_extra_rows": 0,
+     "duplicate_groups": 0,
+     "duplicates_match": true,
+     "geom_meta_ok": true,
+     "geom_sha256": "ff7081a0013d721f22fb12ec00edc85de98e9cef7f75426db6254dbabdb632da",
+     "geom_sha_match": true,
+     "pass": true,
+     "row_count": 59,
+     "row_count_match": true,
+     "xy_bytes_match": true
+    },
+    "m002717": {
+     "attr_sha256": "a2ad2d24ff4cae8c2e0315af0278d6286ef27510911a2f81ee1f4aa6c4b9b1d0",
+     "attr_sha_match": true,
+     "columns_meta_match": true,
+     "duplicate_extra_rows": 0,
+     "duplicate_groups": 0,
+     "duplicates_match": true,
+     "geom_meta_ok": true,
+     "geom_sha256": "3c6067845a7938e8e4e1946d96c46dc4d57bab6aba236d3857b0967c10c73722",
+     "geom_sha_match": true,
+     "pass": true,
+     "row_count": 59,
+     "row_count_match": true,
+     "xy_bytes_match": true
+    },
+    "m004812": {
+     "attr_sha256": "b3f6ceb609a853cbb06eb7f8004a39f676d1ff5e95fbb46fc0381abbf722f667",
+     "attr_sha_match": true,
+     "columns_meta_match": true,
+     "duplicate_extra_rows": 0,
+     "duplicate_groups": 0,
+     "duplicates_match": true,
+     "pass": true,
+     "row_count": 29,
+     "row_count_match": true,
+     "stream_bytes": 5605
+    },
+    "m006642": {
+     "attr_sha256": "3bad44a0482c1bc2479a541d2d9c9d405187eb1caeb177479fb69f7954b313fc",
+     "attr_sha_match": true,
+     "columns_meta_match": true,
+     "duplicate_extra_rows": 0,
+     "duplicate_groups": 0,
+     "duplicates_match": true,
+     "pass": true,
+     "row_count": 3389,
+     "row_count_match": true,
+     "stream_bytes": 361678
+    },
+    "m008002": {
+     "attr_sha256": "475ea1d8b400939cb79b46b47d641d83685bc8d1a3e4478bec1cdfdd562c429a",
+     "attr_sha_match": true,
+     "columns_meta_match": true,
+     "duplicate_extra_rows": 0,
+     "duplicate_groups": 0,
+     "duplicates_match": true,
+     "pass": true,
+     "row_count": 2957,
+     "row_count_match": true,
+     "stream_bytes": 1778794
+    },
+    "m008003": {
+     "attr_sha256": "dcbedb5a5073a6b980d82156ffb3fa7dbaf3ca9906c2928534793b3e0a43a039",
+     "attr_sha_match": true,
+     "columns_meta_match": true,
+     "duplicate_extra_rows": 74,
+     "duplicate_groups": 63,
+     "duplicates_match": true,
+     "pass": true,
+     "row_count": 40199,
+     "row_count_match": true,
+     "stream_bytes": 4709809
+    },
+    "m008004": {
+     "attr_sha256": "d233ed9c81ad6f8ff22c1f8c89786dcae90b0fffaf5657666d98e6212edec5fd",
+     "attr_sha_match": true,
+     "columns_meta_match": true,
+     "duplicate_extra_rows": 0,
+     "duplicate_groups": 0,
+     "duplicates_match": true,
+     "pass": true,
+     "row_count": 1033,
+     "row_count_match": true,
+     "stream_bytes": 292942
+    }
+   },
+   "prerequisites_not_loader_actions": [
+    "database xiangrugu exists on pg32b:5433 (CREATE DATABASE — separate authorization, not a loader action)",
+    "CREATE EXTENSION postgis in database xiangrugu (prerequisite, not a loader action)",
+    "CREATE SCHEMA harv; CREATE SCHEMA chgis (prerequisite, not a loader action)",
+    "public.xrg_instance_marker(instance_id text) populated with the independently verified instance Id (docker inspect out-of-band; prerequisite, not a loader action)"
+   ],
+   "production_target_constant": {
+    "dbname": "xiangrugu",
+    "host": "pg32b",
+    "port": 5433
+   },
+   "recomputed_digests": {
+    "contract_sha256": "ba8118fb5188478c7a891c37a0ae9d84687910c472946fe44709f3533843bd62",
+    "evidence_shas": {
+     "chgis": "623723ff2c7c2fbd5b3daeab978ddf6eabea413dfdb76dfdadc14fb910c2157f",
+     "nul": "5dd1739c326d4cc5e5760c72742f7bb7a35b3247e0f260fee6d23847fb8eab2e"
+    },
+    "inventory_sha256": "fb5e6b334b898d62dc0e5c77094fdb50e0946300e6e3009f447b2ecd1bc216db"
+   },
+   "status": "FIRST_BATCH_TRIAL_LOAD_PASS",
+   "target_identity_in_session": {
+    "databases": "cbdb,cbdb_reh,postgres,template0,template1,xiangrugu",
+    "dbname": "xiangrugu",
+    "inet_server_addr": "null",
+    "instance_marker_verified": "4f48de901086eea2475cd7a85ad9061c8285b57573dcaa8b56e751c479946e36",
+    "legacy_databases_visible": [
+     "cbdb",
+     "cbdb_reh"
+    ],
+    "port": "5432",
+    "postgis": "present",
+    "postmaster_start": "2026-11-25 14:21:30.509643+00",
+    "schemas": "harv,chgis",
+    "server_version": "18.6 (Debian 18.6-1.pgdg12+2)"
+   },
+   "total_rows": 47725,
+   "transaction": "single"
+  }
+ },
+ "phase_C_counts": {
+  "m002709": 59,
+  "m002717": 59,
+  "m004812": 29,
+  "m006642": 3389,
+  "m008002": 2957,
+  "m008003": 40199,
+  "m008004": 1033
+ },
+ "phase_C_total": 47725,
+ "phase_D_negatives": {
+  "artifact_changed_caller_consistent": "artifact_drift_recomputed",
+  "identity_unproven": "identity_unproven",
+  "target_exists": "target_already_exists",
+  "wrong_database": "wrong_database"
+ },
+ "phase_D_zero_mutation": true,
+ "prereq_check": {
+  "exit": 0,
+  "report": {
+   "all_pass": true,
+   "checks": {
+    "database_connectable": true,
+    "instance_marker_matches": true,
+    "postgis_present": true,
+    "schemas_present": true
+   },
+   "container": "xiangrugu-r52-trial-20261125-142128-1bf48938",
+   "database": "xiangrugu"
+  }
+ },
+ "prerequisite_steps_separate": {
+  "marker_table": 0,
+  "marker_value": 0,
+  "postgis": 0,
+  "schema_chgis": 0,
+  "schema_harv": 0
+ },
+ "production_pg_connected": false,
+ "recomputed_at_driver": {
+  "contract_sha256": "ba8118fb5188478c7a891c37a0ae9d84687910c472946fe44709f3533843bd62",
+  "evidence_shas": {
+   "chgis": "623723ff2c7c2fbd5b3daeab978ddf6eabea413dfdb76dfdadc14fb910c2157f",
+   "nul": "5dd1739c326d4cc5e5760c72742f7bb7a35b3247e0f260fee6d23847fb8eab2e"
+  },
+  "inventory_sha256": "fb5e6b334b898d62dc0e5c77094fdb50e0946300e6e3009f447b2ecd1bc216db"
+ },
+ "source_gates": "PASS (5 text sha/rows + 2 spatial attr/geom/DBF identity, before write)",
+ "status": "R52_TRIAL_PASS",
+ "trial_exit_pass": true,
+ "trial_only": true,
+ "version": 1
+}

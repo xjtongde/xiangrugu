@@ -26,3 +26,7 @@
 
 ## 修正披露（a03 R60 PARTIAL 抓出）
 - 首版 B 清单 m007906 sha/size 誊抄笔误（…8340a/586268672）→已按 inventory+ledger 权威值修正（…83400/586485760）；"双证据 78 表组"措辞降为"structure 全目录+types 3 表 canary"；verified_faces 注出处字段名。A 批 14 件落账面 a03 全 PASS 不受影响。
+
+## a03 复核收口
+- **R60 首报 PARTIAL**（A 批 14 件全 PASS；B 清单 m007906 sha/size 誊抄笔误+措辞过强被抓出）→**修正提交 f2487e6b0b6a390508914e9516e0cc022807508f→修正复核 PASS（18:29 UTC 盒内）**：权威值三方互等/structure 78 表 736 列 76 索引独立重数全等/types 3 表 canary 自数全等/A 批三件字节级不动/diff 恰三 M 无越界。
+- **终判 PASS**。首个剩余缺口：A 批候选待 Codex 裁定采纳+冻结新合同后接入正式账；B 批另需业务值读取批准+新审批原文。

@@ -1,0 +1,21 @@
+== ROUND 60 终报（a03）：PARTIAL→修正复核 PASS（18:29 UTC 盒内收口）==
+零 DB 零写。
+【PASS 面（首报 12/13 核毕）】
+①14 件身份逐件对账：候选 sha256+size+archive_chain+archive_ordinals 对 inventory.json entries[序号-1] 与 ledger member 三方全等 14/14（含 m004860 内层精确链 [5,11] 24576B c68ef43f…、m007903 1307B 5ad06d6d…）；伴生 12 件全在 5_1884route 链，prj/qpj/shp/shx 两份同名件 sha 互等（98aaf3d1/1de411dc/109d74b1/d46d5729×2）合理。
+②ID 唯一+首批不动：a1-* 14 无重；first_batch_rules_unchanged 恰列首批 9 规则；候选∩首批覆盖=∅；候选⊂7995。
+③两摘要不变：inventory@8b4f9d9 自算 fb5e6b334b898d62…全等；合同文件 diff 0 行；容器正式重算法在账。
+④13/13 断言逐条核：line 1..13 全 matched；13 target (path,sha) 对 inventory 逐一命中 13/13；assertions.yaml sha 54f813f7…==git show 实测。
+⑤NON_TABULAR 边界：14 候选 targets=[]/creates_target_table=false/new_checksum_exception=false；m004860 精确内层链不扩展（V4_KML zip 下 44 成员仅 1 入候选实证）；CANDIDATE_NOT_ADOPTED 不冻结。
+⑥算术：8004−9=7995 保持；接入后 9+14=23、8004−23=7981 单列口径与集合差自算一致；R59 待补证 7895 分布复算逐项全等。
+⑦四不动：deploy 未收新目录（计数 0）/dev StartedAt 13:43:10Z RestartCount 0/本盒 a03 零 PG/源件只读。
+【FAIL 面（首报首个缺口）】B 清单 m007906 sha 末位 …8340a≠权威 …83400、size 586268672≠586485760（差 217088B，誊抄笔误）；"types 双证据 78 表组"措辞过强（types 实为 3 表 canary⊂78）。
+【修正复核 PASS（f2487e6b0b6a390508914e9516e0cc022807508f）】
+①权威值三方互等：…d83400/586485760==inventory entries[7905]==ledger member 自算 True/True；sha_size_authority 注出处首版笔误明示已废；与双证据 source 面一致。
+②措辞与证据吻合：structure 独立重数 78 表/736 列/76 索引逐项全等；all_object_details_complete=true 确在 observation 顶层，source_note 出处标注准确。
+③types 3 表自数：profile.tables 实测 [ADDR_CODES, SOCIAL_INSTITUTION_ALTNAME_CODES, SOCIAL_INSTITUTION_ALTNAME_DATA]==types_faces.selected_tables 全等；⊂78 集合差空；status/type_mapping_approved=false/value_contract_approved=false 补齐在账。
+④A 批不动：候选/对账/13of13 三件 8b4f9d9↔f2487e6 字节级 unchanged；diff 恰三 M 无越界。
+⑤lead-record 修正披露+TODO 同步在账，缺口→修正链完整可追溯。
+**ROUND 60 终判改 PASS**。status 保持 CANDIDATE_NOT_ADOPTED/BOUNDARY_ONLY_NO_LOAD，未冻结未接入边界正确。首个缺口：A 批候选待 Codex 裁定采纳并冻结新合同后接入正式处置账；B 批装载另需业务值读取批准+新审批原文（88f4f1ac 钉死不可复用）。
+
+== lead 收口（18:31 UTC）==
+R60 PARTIAL→PASS 全链在账。A 批 14 件候选合格+B 批划界与权威账吻合。ready_for_import=false 全量保持；7995 保持；零 DB 零写；M=2 不提交。

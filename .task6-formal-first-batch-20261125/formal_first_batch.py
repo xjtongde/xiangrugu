@@ -212,9 +212,9 @@ def main():
     tar_p.wait()
     if cp.returncode != 0 or tar_p.returncode != 0:
         stop(ev, a.out, "PARSE_SRC_COPY_FAILED")
-    host_sum = run(["sh", "-c", f"cd {parse_src} && find . -name '*.py' | sort | xargs sha256sum"]).stdout
+    host_sum = run(["sh", "-c", f"cd {parse_src} && find . -name '*.py' | LC_ALL=C sort | xargs sha256sum"]).stdout
     cont_sum = run(["docker", "exec", "xiangrugu-dev", "sh", "-c",
-                    "cd /tmp/formal-parse-src && find . -name '*.py' | sort | xargs sha256sum"]).stdout
+                    "cd /tmp/formal-parse-src && find . -name '*.py' | LC_ALL=C sort | xargs sha256sum"]).stdout
     if host_sum != cont_sum or not host_sum:
         stop(ev, a.out, "PARSE_VERSION_BINDING_MISMATCH")
     ev["parse_version_binding"] = {"source": str(parse_src), "container_path": "/tmp/formal-parse-src",

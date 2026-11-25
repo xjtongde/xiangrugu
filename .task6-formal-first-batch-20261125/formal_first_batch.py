@@ -158,7 +158,7 @@ def main():
         Path(a.out).write_text(json.dumps(ev, ensure_ascii=False, indent=1, sort_keys=True) + "\n")
         sys.exit(2)
     ports = run(["docker", "port", a.password_container, "5432/tcp"]).stdout.strip()
-    if f":{a.port}->5432/tcp" not in ports:
+    if not any(line.endswith(f":{a.port}") for line in ports.splitlines()):
         ev["status"], ev["exit"], ev["ports"] = "ENDPOINT_MAPPING_MISMATCH", 2, ports
         Path(a.out).write_text(json.dumps(ev, ensure_ascii=False, indent=1, sort_keys=True) + "\n")
         sys.exit(2)

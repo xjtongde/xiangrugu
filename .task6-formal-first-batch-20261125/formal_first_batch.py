@@ -203,8 +203,14 @@ def main():
     if not (parse_src / "xiangrugu_datamgmt/contracts.py").exists():
         stop(ev, a.out, "PARSE_SRC_NOT_RECEIVED_TREE")
     run(["docker", "exec", "xiangrugu-dev", "rm", "-rf", "/tmp/formal-parse-src"])
-    cp = run(["docker", "cp", str(parse_src), "xiangrugu-dev:/tmp/formal-parse-src"])
-    if cp.returncode != 0:
+    tar_p = subprocess.Popen(["tar", "cf", "-", "-C", str(parse_src.parent), parse_src.name],
+                             stdout=subprocess.PIPE)
+    cp = subprocess.run(["docker", "exec", "-i", "xiangrugu-dev", "sh", "-c",
+                         "mkdir -p /tmp/formal-parse-src && tar xf - -C /tmp/formal-parse-src --strip-components=1"],
+                        stdin=tar_p.stdout, capture_output=True, text=True)
+    tar_p.stdout.close()
+    tar_p.wait()
+    if cp.returncode != 0 or tar_p.returncode != 0:
         stop(ev, a.out, "PARSE_SRC_COPY_FAILED")
     host_sum = run(["sh", "-c", f"cd {parse_src} && find . -name '*.py' | sort | xargs sha256sum"]).stdout
     cont_sum = run(["docker", "exec", "xiangrugu-dev", "sh", "-c",

@@ -1,0 +1,15 @@
+== ROUND 51 开局/中段（a03）==
+开局：交付 commit 未见，工作树只读在案观察（fbl 重构中间态重复 check_targets_absent 两行→lead 修去其一；M=2 二件询问→lead 划界：跨盒长期保留件早于基线即 M 非本盒新改）。
+中段：Track②读码 ✓（同会话身份/先决不代建/独立写批准门/死代码已清）；Track③反例 12/12 ✓（A 错库/B 错端口/C 缺批准/D 合同漂移/E 证据漂移/F 目标已存在/G postgis 缺零 CREATE EXTENSION/H schema 缺/I 生产库可见/J 注入 readback_mismatch begins=1 rollbacks=1 commits=0/K 干净重试 47725 committed/L 正例 prereq DDL=0）；Track⑤ runbook A-E 与代码逐条一致+scope 五锚全对。
+
+== ROUND 51 终报（a03，13:58 UTC 盒内）：PASS ==
+①范围核：git diff a1bd502..41cdc22 恰九件（production_entry A/test A 14 例/fbl M 仅重构 committed 版无重复/证据六件 A）；M=2 不在 diff；工作树读码件与 committed 逐字节一致（production_entry 6d3decfd==）。
+②独立真回读（容器 Id 全号 f4cfe330ff88a6eea0661d9c5f2f2356e3e509cfade3c2cc7cbe42dc633dbcc7 自核，--network none 无端口，库 xiangrugu，先决 postgis+plpgsql 实测在位）：逐表 2957/40199/1033/29/3389/59/59 总 47725/rownum 1..n 七表/列元 ncols 55/6/12/8/7/14/14；attr 重建五文本 475ea1d8/dcbedb5a/d233ed9c/b3f6ceb6/3bad44a0+两空间 N 定宽右对齐 3519649f/a2ad2d24 七摘要全等；EWKB geom ff7081a0/3c606784 全等 POINT/2D/4326 全 59 行 USER-DEFINED；m008003 63 组 74 额外；XY dup 0×2。
+③反例 12 例 ✓（J visible_after 脚本口径未取到，lead 活体 phase_A_zero_residue=True 与 to_regclass 零残留互证）。
+④runbook/scope 一致性 ✓（五锚/mode/class=test 完整锚@a1bd502/full_ready false/7995/real_run_requires 明列）。
+⑤回归 200=186+14 自洽；deploy 冻结件 ef9b4bc5 不变/prodentry 未接收 deploy/dev RestartCount 0（**StartedAt 13:43:10Z 系跨盒重启事实非本盒改动**，与前盒 14:58:59Z 不同日新值如实记）/pg32/pg32b healthy 未触/生产 PG 零连接。
+判定 PASS。首个剩余缺口：真实首批写库批准事件+先决建库授权（pg32b:5433 CREATE DATABASE xiangrugu）另批。容器可清。
+
+== cleanup_execution（lead，13:58:19 UTC）==
+docker inspect 全号==f4cfe330ff88a6eea0661d9c5f2f2356e3e509cfade3c2cc7cbe42dc633dbcc7 核一致→docker rm -f 经 Id→CLEANUP_OK；prodentry 容器计数 0。两失败运行容器（17f60939/0a56e891 前缀）本盒创建经 Id 核先清在案。
+ROUND 51 PASS。

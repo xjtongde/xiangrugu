@@ -19,3 +19,8 @@
 
 ## 首个剩余缺口
 真实首批写库批准事件（独立于合同评审，另批）+先决建库授权（pg32b:5433 CREATE DATABASE xiangrugu）；其后正式执行按 runbook。
+
+## a03 复核与清理收口
+- 中段 12/12 反例+读码+runbook+scope PASS；**R51 终报 PASS（13:58 UTC 盒内）**：diff 恰九件/M=2 不在 diff/独立真回读全过（47725/七摘要重建/EWKB 原始坐标字节/63·74/XY dup 0/列元）/回归 200 自洽/四不动实证。
+- **跨盒事实披露**：xiangrugu-dev StartedAt 2026-11-25T13:43:10Z（早于本盒起表 13:47:55，RestartCount 0）——跨盒重启，非本盒改动，a03 与 lead 如实记录。
+- **cleanup_execution 13:58:19 UTC**：试装容器经 Id 全号核一致后清除（CLEANUP_OK，计数 0）。

@@ -1,0 +1,12 @@
+== ROUND 59 终报（a03，18:17 UTC 盒内）：PASS ==
+全程文件面只读，零 DB 连接、零写（唯一一次既有只读 face：生产 harv/chgis 表计数 SELECT count=7 不变，自披露在案）。
+①算术自洽（独立自算）：l1 账 records=8004（BLOCKED 7918/NON_TABULAR 86 Counter 实测）；covered_detail 恰 9 条 ledger_member_rule_ids 无重（m002706/m002714 .dbf+五数据+核销 m000002/m007977）；8004−9=7995 ✓；每 record rule_ids 恰 1、distinct 8004 全覆盖无漏。
+②首批入账事实面：formal-real-ev.json PASS exit0/approval 88f4f1ac pinned/txn single committed 47725/probe xiangrugu|5432|172.29.0.2/pvb46/0/owner==loader/EWKB5262fe45×2——与入账记录七表完整名逐行互等（2957/40199/1033/29/3389/59/59）；R58 终报在账。
+③三分类对账（抽样 20+ 件全中）：98=86+12，NT member_ids 集合==l1 NON_TABULAR 成员集双向相等；SP 12 件全在 5_1884route/1884route.zip 伴生链（cpg/prj/qpj/shp/shx/htm/txt）与 NT 无交；两 SP id=m002709/m002717 为 .shp 主件身份注记与账一致；待裁定 2 m004860（chain KML zip→Thumbs.db ole）/m007903 确在 diff4 冲突路径表（另 2 条 m000002/m007977 属已覆盖核销不入 7995 处理正确）；待补证按 cov∪sp∪nt∪pend 排除自算 7895，signature unknown7266/zip551/tiff40/pdf20/ole17/sqlite1 逐项全等（ole17 精确：m004860 归待裁定故非 18）；l2 账同法亦 7895 全等；sqlite1==m007906 cbdb_20260919.sqlite3 实证；抽样 SP12 全列/pending2/NT 首中末 3/各签名类≥2 件路径实录无一错位。
+④下一批提案合理性：A 批 14 件零写库仅需茶香裁定+Codex 复核（依据已在账）；B 批新冻结合同+新审批原文（钉死 sha 不可复用）+Codex 放行三重前置；首个阻断与机器账 basis 逐字一致；TODO 新条目数字与 recon json 全等。
+⑤两本处置账差异：8004 同/keyset 同（member JSON 双向相等）；diff 恰 4 件 NON_TABULAR→BLOCKED，7918−7914=4、90−86=4 算术闭合；2 件已覆盖核销+2 件待裁定去向完整解释无悬空。
+快照/接收复验（承接 R58）：tgz sha 复算 59617d83c6bd5831…在位不变；reception git_verified2175/bad[]/extra7079/pre9225 与 R58 实测互洽；stage 关键四件 blob sha1 4/4 OK；deploy 未收新目录（.task6-acceptance-nextbatch 计数 0）/服务无重启/dev StartedAt13:43:10Z——四不动保持。
+判定 PASS。首个缺口：A 批 12 伴生件处置正式化待裁定+2 待裁定件需茶香裁定落账（B 批更远：无下批冻结合同）。a03 临时件交报后自清。
+
+== lead 收口（18:18 UTC）==
+R59 PASS 在账。首批验收入账+7995 三分类+下一批划界双通道确认。ready_for_import=false 全量保持；7995 保持；零 DB 零写（a03 一次只读计数自披露）。

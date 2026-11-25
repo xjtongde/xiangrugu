@@ -148,14 +148,20 @@ def run_first_batch(session, scope, contract, payloads, instance_observed, expec
                            "targets": targets_of(contract)})
     check_instance_identity(instance_observed, expected["instance_identity"])
     check_targets_absent(session, contract)
+    return _load_and_verify(session, contract, payloads, expected, create_prerequisites=True)
+
+
+def _load_and_verify(session, contract, payloads, expected, create_prerequisites):
+    """Shared single-transaction body: DDL+COPY x7 -> in-transaction readback -> COMMIT/ROLLBACK."""
     rules = {r["rule_id"]: r for r in contract["rules"] if r["rule_id"] in FIRST_BATCH_RULES}
     evidence = {"gates": ["scope_approval", "digest_bindings", "instance_identity", "targets_absent"],
                 "transaction": "single", "items": {}}
     session.begin()
     committed = False
     try:
-        session.execute("CREATE SCHEMA IF NOT EXISTS harv; CREATE SCHEMA IF NOT EXISTS chgis; "
-                        "CREATE EXTENSION IF NOT EXISTS postgis")
+        if create_prerequisites:
+            session.execute("CREATE SCHEMA IF NOT EXISTS harv; CREATE SCHEMA IF NOT EXISTS chgis; "
+                            "CREATE EXTENSION IF NOT EXISTS postgis")
         for rid in FIRST_BATCH_RULES:
             t = rules[rid]["targets"][0]
             session.execute(ddl_for(rules[rid]))

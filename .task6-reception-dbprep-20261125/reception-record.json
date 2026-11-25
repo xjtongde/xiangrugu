@@ -1,0 +1,88 @@
+{
+ "boundaries": {
+  "M2_preserved_uncommitted": true,
+  "first_batch_load_separately_approved": true,
+  "ready_for_import": false,
+  "uncovered_members": 7995
+ },
+ "box": "装载器受控接收与目标库准备",
+ "db_preparation": {
+  "business_tables_created": 0,
+  "cbdb_cbdb_reh_touched": false,
+  "copy_executed": false,
+  "created": [
+   "CREATE DATABASE xiangrugu",
+   "CREATE EXTENSION postgis",
+   "CREATE SCHEMA harv",
+   "CREATE SCHEMA chgis",
+   "CREATE TABLE public.xrg_instance_marker(instance_id text PRIMARY KEY)",
+   "INSERT marker 恰一行值=pg32b Id",
+   "CREATE ROLE xiangrugu_loader NOLOGIN",
+   "GRANT USAGE ON SCHEMA public TO xiangrugu_loader",
+   "GRANT SELECT ON public.xrg_instance_marker TO xiangrugu_loader"
+  ],
+  "loader_role_marker_read_verified": "SET ROLE xiangrugu_loader; SELECT instance_id → 值合",
+  "marker_rows": 1,
+  "marker_value_equals_pg32b_id": true,
+  "seven_business_tables_absent_count": 0
+ },
+ "hard_stop_utc": "2026-11-25T15:28:15Z",
+ "incoming_commit": "e1de476a21f11f0dba2720ab2748fa61aaba45d2",
+ "prereq_check_received_copy": {
+  "checks": {
+   "database_connectable": true,
+   "instance_marker_matches": true,
+   "marker_exactly_one_row": true,
+   "marker_table_present": true,
+   "postgis_present": true,
+   "schemas_present": true
+  },
+  "checks_all_true": true,
+  "exit": 0,
+  "path": "deploy/.task6-production-entry-20261125/prereq_check.py pg32b xiangrugu <Id>"
+ },
+ "reception": {
+  "R1_snapshot": {
+   "entries": 10369,
+   "path": "/opt/mydocker/xiangrugu/reception-20261125/R1.tgz",
+   "restore_verify": "R1_RESTORE_VERIFY_OK (sha256sum -c 9178 quiet)",
+   "sha256": "2935ce3acc90bbe2895a94cc0bf840f711543a3f7248ad74ac14e69a8761fa3e"
+  },
+  "blob_binding": {
+   "bad": 0,
+   "delta": "47/47",
+   "full_tree": "2146/2146"
+  },
+  "change_scope_files": 47,
+  "channel": "38 authenticated clone git archive e1de476 | ssh 32 pipe; per-file git blob sha1",
+  "deletions": 0,
+  "deploy_only_preserved": 7079,
+  "deploy_post_files": 9225,
+  "deploy_pre_files": 9178,
+  "incoming_tar_sha256": "c50a767a70dbf53355aad893dfe62c8b0ad584b611c22d8bf85ba1076f6a5211",
+  "post_manifest_sha256": "03da32110ded344d19ce56d0fcfbb96340df47c8233691715d0e2aaa9be7af99",
+  "pre_manifest_equals_R48_post": true,
+  "pre_manifest_sha256": "474d111399943ff43501337d4cc44deda4f92e81e0517e75cbe94d0e32cfc3c3",
+  "service_changed_for_reception": false
+ },
+ "runbook_calibration": "A5/A6 标记四态+恰一行+装载角色只读；F 节实际版本 e1de476+入口 run_production_load+先决检查器实跑记录",
+ "service_state": {
+  "image_changed": false,
+  "service_restarted": false,
+  "xiangrugu_dev_restart_count": 0,
+  "xiangrugu_dev_started_at": "2026-11-25T13:43:10.665314156Z"
+ },
+ "started_utc": "2026-11-25T14:58:15Z",
+ "target_identity": {
+  "databases_after": "cbdb,cbdb_reh,postgres,template0,template1,xiangrugu",
+  "databases_before": "cbdb,cbdb_reh,postgres,template0,template1",
+  "pg32_container_id": "98418cb6f08a3c550fb5d36261bc618c006f0a07912437399778fdd4370b1a72",
+  "pg32_health": "healthy",
+  "pg32_touched": false,
+  "pg32b_container_id": "3d93fc7741f66f1f01aa250b25c4959addfe4c84df22ecbd0d0f82c13920c1fc",
+  "pg32b_health": "healthy",
+  "pg32b_started_at": "2026-11-25T13:43:10.692262191Z",
+  "port_mapping_independent": "docker ps pg32b 0.0.0.0:5433->5432/tcp",
+  "xiangrugu_existed_before": false
+ }
+}

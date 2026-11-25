@@ -7,7 +7,10 @@
 2. 在 xiangrugu 内 `CREATE EXTENSION postgis`（镜像 pg32b-full:18-pgdg 已含 PostGIS 3）。
 3. `CREATE SCHEMA harv; CREATE SCHEMA chgis`。
 4. 执行前备份：若 xiangrugu 已有对象，`pg_dump` 全库至受控目录并记 sha（R0 式）。
+5. **实例标记（R53 补正规则）**：`public.xrg_instance_marker(instance_id text PRIMARY KEY)` **恰一行**，值=带外独立核实的实例 Id（docker inspect pg32b 全号）。装载器同会话四态核验：缺表→marker_table_missing / 空→marker_empty / 多行→marker_multiple_rows / 错值→marker_value_mismatch，均 BEGIN 前拒。cbdb/cbdb_reh 可见不拒（正向身份证明）。
+6. **装载角色仅读取标记**：`xiangrugu_loader`（NOLOGIN）仅 GRANT USAGE ON SCHEMA public + GRANT SELECT ON public.xrg_instance_marker；不授业务表写权限（装载写权限随首批写库批准另授）。
 装载器对先决**只核验不代建**：缺 postgis/schema → prerequisite_missing 拒写。
+**只读先决检查器**：`.task6-production-entry-20261125/prereq_check.py <container> <dbname> <expected_instance_id>`（exit 0/2，六查：库可连/postgis/schema×2/标记表在/恰一行/值合）。
 
 ## B. 批准链（独立于合同评审）
 1. 茶香独立**首批写库批准事件**（approval_class=real，real_authority_ref 指向该事件）。
@@ -27,3 +30,9 @@
 
 ## E. 本轮隔离测试映射
 临时唯一名容器（--network none）POSTGRES_DB=xiangrugu，先决预建（A2/A3 等价），test 审批+test 端点声明；注入回读失败证整批回滚零残留干净重试；反例证错库/错端口/缺审批/漂移/目标已存在/先决缺失均拒写。
+
+## F. 实际运行版本与入口记录（2026-11-25 受控接收盒）
+- **接收版本**：e1de476a21f11f0dba2720ab2748fa61aaba45d2（deploy 全树 2146/2146 git blob 逐字节绑定，变更 47/47）。
+- **正式入口**：`xiangrugu_datamgmt.production_entry.run_production_load(session, scope, contract, payloads, expected, artifacts, contract_parse_fn)`（单次正式解析驱动；证据恰 NUL+CHGIS；标记四态；同会话身份）。
+- **先决检查器实际运行**：deploy 受控件 `.task6-production-entry-20261125/prereq_check.py pg32b xiangrugu <pg32b Id>` → 六查全 True exit 0（2026-11-25 14:59 UTC）。
+- **目标库准备已执行**（本盒授权）：xiangrugu 新建 + PostGIS + harv/chgis + marker 恰一行（值=pg32b Id 3d93fc7741f6…）+ xiangrugu_loader 只读标记。**七业务表未建、COPY 未执行**——首批装载另批。

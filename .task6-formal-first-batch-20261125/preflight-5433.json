@@ -1,0 +1,17 @@
+{
+ "cbdb_acl": "default-public-connect",
+ "cbdb_reh_acl": "default-public-connect",
+ "dbname": "xiangrugu",
+ "internal_port": "5432",
+ "loader_canlogin": "f",
+ "loader_chgis_create": "f",
+ "loader_harv_create": "f",
+ "marker_rows": "1",
+ "marker_select": "t",
+ "marker_update": "f",
+ "marker_value": "3d93fc7741f66f1f01aa250b25c4959addfe4c84df22ecbd0d0f82c13920c1fc",
+ "marker_value_equals_pg32b_id": true,
+ "pg32b_id_prefix": "3d93fc7741f6",
+ "read_only": true,
+ "seven_tables_present": "0"
+}

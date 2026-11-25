@@ -1,0 +1,12 @@
+{
+ "command": "formal_first_batch.py",
+ "credentials_in_argv_or_evidence": false,
+ "cwd": "/opt/mydocker/xiangrugu/formal-exec-20261125",
+ "database_switch_forbidden": true,
+ "exit": 2,
+ "role": "xiangrugu_loader",
+ "single_session_single_connection": true,
+ "source_read_only": true,
+ "status": "FORMAL_INSTANCE_OR_ENDPOINT_IN_ISOLATED_MODE",
+ "version": 1
+}

@@ -1,0 +1,14 @@
+{
+ "approval_sha256": "85e3581824783249e91511070a8acfad197a634d40692ef143aafe1e2339324c",
+ "approval_sha256_pinned": "88f4f1acebbf03536a386d16d13ba8c229253a31eb02db11b56cef34170753b5",
+ "command": "formal_first_batch.py",
+ "credentials_in_argv_or_evidence": false,
+ "cwd": "/opt/mydocker/xiangrugu/formal-exec-20261125",
+ "database_switch_forbidden": true,
+ "exit": 2,
+ "role": "xiangrugu_loader",
+ "single_session_single_connection": true,
+ "source_read_only": true,
+ "status": "APPROVAL_SHA_MISMATCH",
+ "version": 1
+}

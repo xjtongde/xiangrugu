@@ -1,0 +1,272 @@
+{
+ "baseline_commit": "c28b9bbad7fca920f806f78ea73bd2282cb47a7a",
+ "classification": {
+  "已有处置提案": {
+   "NON_TABULAR_structural_retention": {
+    "count": 86,
+    "member_ids": [
+     "m000003",
+     "m000028",
+     "m000027",
+     "m000023",
+     "m000020",
+     "m000021",
+     "m000022",
+     "m000026",
+     "m000024",
+     "m000030",
+     "m000031",
+     "m000032",
+     "m000033",
+     "m000034",
+     "m000076",
+     "m000086",
+     "m002599",
+     "m002633",
+     "m002638",
+     "m002651",
+     "m002685",
+     "m002701",
+     "m002720",
+     "m002736",
+     "m002739",
+     "m002757",
+     "m002761",
+     "m002768",
+     "m002820",
+     "m003162",
+     "m003176",
+     "m003203",
+     "m004036",
+     "m004065",
+     "m004067",
+     "m004066",
+     "m004061",
+     "m004062",
+     "m004060",
+     "m004063",
+     "m004064",
+     "m004068",
+     "m004048",
+     "m004047",
+     "m004049",
+     "m004043",
+     "m004042",
+     "m004044",
+     "m004046",
+     "m004045",
+     "m004050",
+     "m004080",
+     "m004097",
+     "m004113",
+     "m004123",
+     "m004177",
+     "m004196",
+     "m004197",
+     "m004193",
+     "m004199",
+     "m004200",
+     "m004198",
+     "m004195",
+     "m004194",
+     "m004811",
+     "m004814",
+     "m005443",
+     "m005457",
+     "m005484",
+     "m006582",
+     "m006603",
+     "m006606",
+     "m006625",
+     "m006640",
+     "m006643",
+     "m006702",
+     "m006722",
+     "m006731",
+     "m006749",
+     "m006778",
+     "m007589",
+     "m007603",
+     "m007630",
+     "m007904",
+     "m007907",
+     "m008001"
+    ]
+   },
+   "count": 98,
+   "spatial_approved_context_companions": {
+    "basis": "approved-spatial-binding-context.json + approved-dbf-character/numeric-reading.json（读取/绑定已批，处置正式化待裁定）",
+    "count": 12,
+    "member_ids": [
+     "m002704",
+     "m002705",
+     "m002707",
+     "m002708",
+     "m002709",
+     "m002710",
+     "m002711",
+     "m002713",
+     "m002715",
+     "m002716",
+     "m002717",
+     "m002718"
+    ],
+    "note": "含 ledger m002709/m002717（.shp 主件）：其几何字节已随首批 dbf 绑定规则装载，账面上仍属 7995，处置需正式绑定为几何伴生件"
+   }
+  },
+  "待补证": {
+   "basis": "BLOCKED pending-independent-reader：无已批独立读取/编码/目标映射/独立期望",
+   "count": 7895,
+   "signature_distribution": {
+    "ole": 17,
+    "pdf": 20,
+    "sqlite": 1,
+    "tiff": 40,
+    "unknown": 7266,
+    "zip": 551
+   }
+  },
+  "待裁定": {
+   "basis": "metadata-review 账提案 NON_TABULAR，after-selector-fix 账保持 BLOCKED，两账冲突待裁定",
+   "count": 2,
+   "member_ids": [
+    "m004860",
+    "m007903"
+   ],
+   "paths": [
+    "harvard-full/doi_10_7910/DVN/PDGOZ0/V4_Data_Archive.zip",
+    "harvard/SHA256SUMS"
+   ]
+  }
+ },
+ "covered_detail": [
+  {
+   "archive_chain": [
+    "5_1884route/Ca1884route_przh_1251.dbf"
+   ],
+   "contract_rule_id": "m002709",
+   "ledger_member_rule_ids": [
+    "m002706"
+   ],
+   "relative_path": "harvard-full/doi_10_7910/DVN/E7HDYD/1884route.zip",
+   "targets": [
+    "chgis.ca1884route_przh_1251"
+   ]
+  },
+  {
+   "archive_chain": [
+    "5_1884route/Ca1884route_przh_utf8.dbf"
+   ],
+   "contract_rule_id": "m002717",
+   "ledger_member_rule_ids": [
+    "m002714"
+   ],
+   "relative_path": "harvard-full/doi_10_7910/DVN/E7HDYD/1884route.zip",
+   "targets": [
+    "chgis.ca1884route_przh_utf8"
+   ]
+  },
+  {
+   "archive_chain": [],
+   "contract_rule_id": "m004812",
+   "ledger_member_rule_ids": [
+    "m004812"
+   ],
+   "relative_path": "harvard-full/doi_10_7910/DVN/MI56KU/2001_Shanghai_0_INDEX_OF_PRESENTATIONS.tab",
+   "targets": [
+    "harv.harvard_u2d_full_u2f_doi_u5f_10_u5f_7910_u2f_dvn_u2f___1334a175"
+   ]
+  },
+  {
+   "archive_chain": [],
+   "contract_rule_id": "m006642",
+   "ledger_member_rule_ids": [
+    "m006642"
+   ],
+   "relative_path": "harvard-full/doi_10_7910/DVN/SK7KGK/GB_91_HZ_040201_UTF8.tab",
+   "targets": [
+    "chgis.harvard_u2d_full_u2f_doi_u5f_10_u5f_7910_u2f_dvn_u2f___9784b044"
+   ]
+  },
+  {
+   "archive_chain": [],
+   "contract_rule_id": "m008002",
+   "ledger_member_rule_ids": [
+    "m008002"
+   ],
+   "relative_path": "harvard/tab/ACADEMY_Data.tab",
+   "targets": [
+    "harv.harvard_u2f_tab__academy_u5f_data_u2e_tab"
+   ]
+  },
+  {
+   "archive_chain": [],
+   "contract_rule_id": "m008003",
+   "ledger_member_rule_ids": [
+    "m008003"
+   ],
+   "relative_path": "harvard/tab/Index_of_the_Complete_Prose_of_the_Yuan_Dynasty_vol_1-60.tab",
+   "targets": [
+    "harv.harvard_u2f_tab__index_u5f_of_u5f_the_u5f_complete_u5__300c7027"
+   ]
+  },
+  {
+   "archive_chain": [],
+   "contract_rule_id": "m008004",
+   "ledger_member_rule_ids": [
+    "m008004"
+   ],
+   "relative_path": "harvard/tab/writings of the 19c missionaries in China.tab",
+   "targets": [
+    "harv.harvard_u2f_tab__writings_u20_of_u20_the_u20_19c_u20___7866bf2d"
+   ]
+  },
+  {
+   "archive_chain": [],
+   "contract_rule_id": "r-sha256sums-b2",
+   "ledger_member_rule_ids": [
+    "m000002"
+   ],
+   "relative_path": "SHA256SUMS-b2",
+   "targets": []
+  },
+  {
+   "archive_chain": [],
+   "contract_rule_id": "r-chgis-sha256sums",
+   "ledger_member_rule_ids": [
+    "m007977"
+   ],
+   "relative_path": "harvard/chgis/SHA256SUMS.txt",
+   "targets": []
+  }
+ ],
+ "covered_members": 9,
+ "full_ready_for_import": false,
+ "identity_note": "合同 rule_id m002709/m002717 绑定的是 ledger 成员 m002706/m002714（.dbf）；ledger m002709/m002717 为 .shp 成员，属 7995 伴生件",
+ "ledger": "disposition-ledger-after-selector-fix.json",
+ "ledger_records": 8004,
+ "ledger_version_diff_4": [
+  {
+   "after_selector_fix": "BLOCKED",
+   "metadata_review": "NON_TABULAR",
+   "path": "SHA256SUMS-b2"
+  },
+  {
+   "after_selector_fix": "BLOCKED",
+   "metadata_review": "NON_TABULAR",
+   "path": "harvard-full/doi_10_7910/DVN/PDGOZ0/V4_Data_Archive.zip"
+  },
+  {
+   "after_selector_fix": "BLOCKED",
+   "metadata_review": "NON_TABULAR",
+   "path": "harvard/SHA256SUMS"
+  },
+  {
+   "after_selector_fix": "BLOCKED",
+   "metadata_review": "NON_TABULAR",
+   "path": "harvard/chgis/SHA256SUMS.txt"
+  }
+ ],
+ "uncovered_members": 7995,
+ "version": 1
+}

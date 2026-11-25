@@ -1,0 +1,9 @@
+{
+ "approval_scope": "候选生成授权；正式接收和写库另批；首批写库审批不得复用 B 批",
+ "approval_text_sha256": "8f988a202ca6054e9474e3eb91add674d917dec92e4e7e16dd878544f84f50a8",
+ "previous_review": {
+  "approval_ref": "chaxiang-approval-20261124-two-exceptions-integration@0e7fed12d335a080c2a62e4c8553d937c7d0a049",
+  "approved_at": "2026-11-24T17:42:32Z",
+  "approved_by": "茶香"
+ }
+}

@@ -1,0 +1,20 @@
+{
+ "contract_sha256": "fa28a878f48fed506700cbaaf91c6a8ee45bdc28e9fef05904b3c56f4c61929e",
+ "declared_target": "harvard/chgis/China_Periods_ReignDates.zip",
+ "exception_code": "checksum_path_binding",
+ "exception_rule_id": "r-chgis-sha256sums",
+ "expected_sha256": "7452ae6cf8d7dedbd0b06ea4e0e8343be9bac4075069ca8eb89e8ff0451c355e",
+ "expected_size": 155774,
+ "inventory_sha256": "fb5e6b334b898d62dc0e5c77094fdb50e0946300e6e3009f447b2ecd1bc216db",
+ "ledger": "harvard/chgis/SHA256SUMS.txt",
+ "line": 4,
+ "raw_name": "China_Periods_ReignDates.zip",
+ "raw_sha256": "694c101f04e636012e752c87958c8065c8e6926633c8b542e89978d8f8451a60",
+ "raw_size": 551,
+ "ready_for_import": false,
+ "resolved_target": "chgis-v6/China_Periods_ReignDates.zip",
+ "status": "RUN_EVIDENCE_FIXED_EXCEPTION",
+ "strict_assertion_matched": false,
+ "strict_inventory_complete": false,
+ "version": 1
+}

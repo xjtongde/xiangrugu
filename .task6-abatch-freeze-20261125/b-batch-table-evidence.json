@@ -1,0 +1,1231 @@
+{
+ "caliber_correction": "首版 B 清单 business_rows_read=0 仅指 2026-10-09 structure 观察轮；CBDB 导入包后续已生成 68/78 表源侧值期望（canary 3 已批准+small 55+medium 10 draft），本表逐表归并修正口径",
+ "counts": {
+  "canary": 3,
+  "declaration_only_columns": 36,
+  "expectations_tables": 68,
+  "medium": 10,
+  "medium_cells": 5430382,
+  "medium_columns": 156,
+  "observed_type_columns": 700,
+  "pending_columns": 235,
+  "pending_tables": 10,
+  "small": 55,
+  "small_cells": 76392,
+  "small_columns": 326
+ },
+ "declaration_only_36_columns": {
+  "columns": [
+   {
+    "confirmation_status": {
+     "basis_verified": true,
+     "type_mapping_approved_subbatch": true,
+     "whole_release_target_mapping_approved": false
+    },
+    "source_name": "c_admin_cat_code",
+    "table": "ADMIN_CAT_CODE_TYPE_REL",
+    "target_type": "bigint"
+   },
+   {
+    "confirmation_status": {
+     "basis_verified": true,
+     "type_mapping_approved_subbatch": true,
+     "whole_release_target_mapping_approved": false
+    },
+    "source_name": "c_admin_cat_type_code",
+    "table": "ADMIN_CAT_CODE_TYPE_REL",
+    "target_type": "text"
+   },
+   {
+    "confirmation_status": {
+     "basis_verified": true,
+     "type_mapping_approved_subbatch": true,
+     "whole_release_target_mapping_approved": false
+    },
+    "source_name": "c_admin_cat_type_code",
+    "table": "ADMIN_CAT_TYPES",
+    "target_type": "text"
+   },
+   {
+    "confirmation_status": {
+     "basis_verified": true,
+     "type_mapping_approved_subbatch": true,
+     "whole_release_target_mapping_approved": false
+    },
+    "source_name": "c_admin_cat_type_hz",
+    "table": "ADMIN_CAT_TYPES",
+    "target_type": "text"
+   },
+   {
+    "confirmation_status": {
+     "basis_verified": true,
+     "type_mapping_approved_subbatch": true,
+     "whole_release_target_mapping_approved": false
+    },
+    "source_name": "c_admin_cat_type_trans",
+    "table": "ADMIN_CAT_TYPES",
+    "target_type": "text"
+   },
+   {
+    "confirmation_status": {
+     "basis_verified": true,
+     "type_mapping_approved_subbatch": true,
+     "whole_release_target_mapping_approved": false
+    },
+    "source_name": "c_notes",
+    "table": "ADMIN_CAT_TYPES",
+    "target_type": "text"
+   },
+   {
+    "confirmation_status": {
+     "basis_verified": true,
+     "type_mapping_approved_subbatch": true,
+     "whole_release_target_mapping_approved": false
+    },
+    "source_name": "c_assoc_pair2",
+    "table": "ASSOC_CODES",
+    "target_type": "bigint"
+   },
+   {
+    "confirmation_status": {
+     "basis_verified": true,
+     "type_mapping_approved_subbatch": true,
+     "whole_release_target_mapping_approved": false
+    },
+    "source_name": "c_assoc_ly_day_gz",
+    "table": "ASSOC_DATA",
+    "target_type": "bigint"
+   },
+   {
+    "confirmation_status": {
+     "basis_verified": true,
+     "type_mapping_approved_subbatch": true,
+     "whole_release_target_mapping_approved": false
+    },
+    "source_name": "c_entry_dy",
+    "table": "ENTRY_DATA",
+    "target_type": "bigint"
+   },
+   {
+    "confirmation_status": {
+     "basis_verified": true,
+     "type_mapping_approved_subbatch": true,
+     "whole_release_target_mapping_approved": false
+    },
+    "source_name": "c_yr_range",
+    "table": "EVENTS_ADDR",
+    "target_type": "bigint"
+   },
+   {
+    "confirmation_status": {
+     "basis_verified": true,
+     "type_mapping_approved_subbatch": true,
+     "whole_release_target_mapping_approved": false
+    },
+    "source_name": "c_fy_range",
+    "table": "EVENT_CODES",
+    "target_type": "bigint"
+   },
+   {
+    "confirmation_status": {
+     "basis_verified": true,
+     "type_mapping_approved_subbatch": true,
+     "whole_release_target_mapping_approved": false
+    },
+    "source_name": "c_ly_range",
+    "table": "EVENT_CODES",
+    "target_type": "bigint"
+   },
+   {
+    "confirmation_status": {
+     "basis_verified": true,
+     "type_mapping_approved_subbatch": true,
+     "whole_release_target_mapping_approved": false
+    },
+    "source_name": "c_addr_id",
+    "table": "EVENT_CODES",
+    "target_type": "bigint"
+   },
+   {
+    "confirmation_status": {
+     "basis_verified": true,
+     "type_mapping_approved_subbatch": true,
+     "whole_release_target_mapping_approved": false
+    },
+    "source_name": "c_dy",
+    "table": "EVENT_CODES",
+    "target_type": "bigint"
+   },
+   {
+    "confirmation_status": {
+     "basis_verified": true,
+     "type_mapping_approved_subbatch": true,
+     "whole_release_target_mapping_approved": false
+    },
+    "source_name": "c_notes",
+    "table": "KINREL_REDUCTION",
+    "target_type": "text"
+   },
+   {
+    "confirmation_status": {
+     "basis_verified": true,
+     "type_mapping_approved_subbatch": true,
+     "whole_release_target_mapping_approved": false
+    },
+    "source_name": "c_mourning",
+    "table": "KIN_MOURNING",
+    "target_type": "text"
+   },
+   {
+    "confirmation_status": {
+     "basis_verified": true,
+     "type_mapping_approved_subbatch": true,
+     "whole_release_target_mapping_approved": false
+    },
+    "source_name": "c_modified_by",
+    "table": "MERGED_PERSON_DATA",
+    "target_type": "text"
+   },
+   {
+    "confirmation_status": {
+     "basis_verified": true,
+     "type_mapping_approved_subbatch": true,
+     "whole_release_target_mapping_approved": false
+    },
+    "source_name": "c_modified_date",
+    "table": "MERGED_PERSON_DATA",
+    "target_type": "text"
+   },
+   {
+    "confirmation_status": {
+     "basis_verified": true,
+     "type_mapping_approved_subbatch": true,
+     "whole_release_target_mapping_approved": false
+    },
+    "source_name": "c_notes",
+    "table": "SOCIAL_INSTITUTION_ADDR_TYPES",
+    "target_type": "text"
+   },
+   {
+    "confirmation_status": {
+     "basis_verified": true,
+     "type_mapping_approved_subbatch": true,
+     "whole_release_target_mapping_approved": false
+    },
+    "source_name": "c_notes",
+    "table": "SOCIAL_INSTITUTION_ALTNAME_CODES",
+    "target_type": "text"
+   },
+   {
+    "confirmation_status": {
+     "basis_verified": true,
+     "type_mapping_approved_subbatch": true,
+     "whole_release_target_mapping_approved": false
+    },
+    "source_name": "c_inst_name_code",
+    "table": "SOCIAL_INSTITUTION_ALTNAME_DATA",
+    "target_type": "bigint"
+   },
+   {
+    "confirmation_status": {
+     "basis_verified": true,
+     "type_mapping_approved_subbatch": true,
+     "whole_release_target_mapping_approved": false
+    },
+    "source_name": "c_inst_code",
+    "table": "SOCIAL_INSTITUTION_ALTNAME_DATA",
+    "target_type": "bigint"
+   },
+   {
+    "confirmation_status": {
+     "basis_verified": true,
+     "type_mapping_approved_subbatch": true,
+     "whole_release_target_mapping_approved": false
+    },
+    "source_name": "c_inst_altname_type",
+    "table": "SOCIAL_INSTITUTION_ALTNAME_DATA",
+    "target_type": "bigint"
+   },
+   {
+    "confirmation_status": {
+     "basis_verified": true,
+     "type_mapping_approved_subbatch": true,
+     "whole_release_target_mapping_approved": false
+    },
+    "source_name": "c_inst_altname_hz",
+    "table": "SOCIAL_INSTITUTION_ALTNAME_DATA",
+    "target_type": "text"
+   },
+   {
+    "confirmation_status": {
+     "basis_verified": true,
+     "type_mapping_approved_subbatch": true,
+     "whole_release_target_mapping_approved": false
+    },
+    "source_name": "c_inst_altname_py",
+    "table": "SOCIAL_INSTITUTION_ALTNAME_DATA",
+    "target_type": "text"
+   },
+   {
+    "confirmation_status": {
+     "basis_verified": true,
+     "type_mapping_approved_subbatch": true,
+     "whole_release_target_mapping_approved": false
+    },
+    "source_name": "c_source",
+    "table": "SOCIAL_INSTITUTION_ALTNAME_DATA",
+    "target_type": "bigint"
+   },
+   {
+    "confirmation_status": {
+     "basis_verified": true,
+     "type_mapping_approved_subbatch": true,
+     "whole_release_target_mapping_approved": false
+    },
+    "source_name": "c_pages",
+    "table": "SOCIAL_INSTITUTION_ALTNAME_DATA",
+    "target_type": "text"
+   },
+   {
+    "confirmation_status": {
+     "basis_verified": true,
+     "type_mapping_approved_subbatch": true,
+     "whole_release_target_mapping_approved": false
+    },
+    "source_name": "c_notes",
+    "table": "SOCIAL_INSTITUTION_ALTNAME_DATA",
+    "target_type": "text"
+   },
+   {
+    "confirmation_status": {
+     "basis_verified": true,
+     "type_mapping_approved_subbatch": true,
+     "whole_release_target_mapping_approved": false
+    },
+    "source_name": "c_inst_first_known_year",
+    "table": "SOCIAL_INSTITUTION_CODES",
+    "target_type": "bigint"
+   },
+   {
+    "confirmation_status": {
+     "basis_verified": true,
+     "type_mapping_approved_subbatch": true,
+     "whole_release_target_mapping_approved": false
+    },
+    "source_name": "c_inst_end_year",
+    "table": "SOCIAL_INSTITUTION_CODES",
+    "target_type": "bigint"
+   },
+   {
+    "confirmation_status": {
+     "basis_verified": true,
+     "type_mapping_approved_subbatch": true,
+     "whole_release_target_mapping_approved": false
+    },
+    "source_name": "c_ey_nianhao_code",
+    "table": "SOCIAL_INSTITUTION_CODES",
+    "target_type": "bigint"
+   },
+   {
+    "confirmation_status": {
+     "basis_verified": true,
+     "type_mapping_approved_subbatch": true,
+     "whole_release_target_mapping_approved": false
+    },
+    "source_name": "c_ey_nianhao_year",
+    "table": "SOCIAL_INSTITUTION_CODES",
+    "target_type": "bigint"
+   },
+   {
+    "confirmation_status": {
+     "basis_verified": true,
+     "type_mapping_approved_subbatch": true,
+     "whole_release_target_mapping_approved": false
+    },
+    "source_name": "c_ey_year_range",
+    "table": "SOCIAL_INSTITUTION_CODES",
+    "target_type": "bigint"
+   },
+   {
+    "confirmation_status": {
+     "basis_verified": true,
+     "type_mapping_approved_subbatch": true,
+     "whole_release_target_mapping_approved": false
+    },
+    "source_name": "c_inst_last_known_year",
+    "table": "SOCIAL_INSTITUTION_CODES",
+    "target_type": "bigint"
+   },
+   {
+    "confirmation_status": {
+     "basis_verified": true,
+     "type_mapping_approved_subbatch": true,
+     "whole_release_target_mapping_approved": false
+    },
+    "source_name": "c_text_cat_parent_id",
+    "table": "TEXT_BIBLCAT_CODES",
+    "target_type": "text"
+   },
+   {
+    "confirmation_status": {
+     "basis_verified": true,
+     "type_mapping_approved_subbatch": true,
+     "whole_release_target_mapping_approved": false
+    },
+    "source_name": "c_text_cat_level",
+    "table": "TEXT_BIBLCAT_CODES",
+    "target_type": "text"
+   }
+  ],
+  "evidence_file": "import-package/cbdb/field-mapping.json",
+  "evidence_sha256": "8a8fe4f37f23682eb55d0ec145a12cfddad2cb9337593cc3da07704620de8645",
+  "note": "PROPOSED_NOT_AUTHORIZED 按 unobserved-proposal 引用，approval_requested=false 未升级；其中落在 value-canary 三表者 5 列（最小批类型批准缺口）"
+ },
+ "full_ready_for_import": false,
+ "next_minimal_load_batch_3_canary": {
+  "constraint_note": "PK/UNIQUE/FK/INDEX/DEFAULT 执行未批准；哨兵值不清洗政策沿用 docs/cbdb.md",
+  "first_loader_gap": "PG 生产装载器未实现（production_adapter_implemented=false；importer/load.py 仅 staging 原型须修订，禁直跑）——CBDB sqlite 读取→PG 装载路径不存在",
+  "missing_approvals": [
+   "value-canary 三表含 5 个 SOURCE_DECLARATION_ONLY 列（类型未观察未批准，须先升级或排除）",
+   "target_mapping_approved=False（目标名仍 candidate，全版本命名碰撞检查未完成）",
+   "nullability_constraints_approved=False",
+   "value_contract_approved=False（期望 draft→正式值合同未冻结）",
+   "新冻结合同（B 批规则+目标）",
+   "新的茶香真实写库授权原文（首批 88f4f1ac 钉死不得复用）",
+   "Codex 独立验收放行"
+  ],
+  "note": "value-canary 三表（ADMIN_CAT_TYPES/SOCIAL_INSTITUTION_ADDR/SOCIAL_INSTITUTION_ALTNAME_CODES）≠types-profile 3 表 canary（ADDR_CODES/SOCIAL_INSTITUTION_ALTNAME_CODES/SOCIAL_INSTITUTION_ALTNAME_DATA），仅 SOCIAL_INSTITUTION_ALTNAME_CODES 重叠；类型面按 observed 700 列子批批准覆盖核对",
+  "tables": [
+   {
+    "decl_only_columns_in_table": 4,
+    "expected_rows": 0,
+    "expected_sha256": "05afdf0d0b42bbfd7afba5a1ac9df33d93cf316ea4cb4665622102b51b69d546",
+    "source_table": "ADMIN_CAT_TYPES",
+    "target_schema_candidate": "cbdb",
+    "target_table_candidate": "cbdb__admin_u5f_cat_u5f_types"
+   },
+   {
+    "decl_only_columns_in_table": 0,
+    "expected_rows": 3859,
+    "expected_sha256": "2cb8c354b0e75e6ae230e3b00540146e823eaa8de8def2abce89ad6179a07579",
+    "source_table": "SOCIAL_INSTITUTION_ADDR",
+    "target_schema_candidate": "cbdb",
+    "target_table_candidate": "cbdb__social_u5f_institution_u5f_addr"
+   },
+   {
+    "decl_only_columns_in_table": 1,
+    "expected_rows": 1,
+    "expected_sha256": "4e8d5f519950c88ec2fcbcf822320540f8e83ad6ece5498f6bfb8a6c88a9de0c",
+    "source_table": "SOCIAL_INSTITUTION_ALTNAME_CODES",
+    "target_schema_candidate": "cbdb",
+    "target_table_candidate": "cbdb__social_u5f_institution_u5f_altname_u5f_codes"
+   }
+  ],
+  "verdict": "源侧值期望已批准，但三表含声明-only 列+批准链未闭合——可作下一最小装载批候选方向，本盒不装载"
+ },
+ "pending_10_tables_235_columns": {
+  "evidence_file": "import-package/cbdb/remaining-value-verification.json",
+  "evidence_sha256": "2e8c1d409943685f29966cd8d1d2265efdcf60c011b273fa3731d40aaaa349cf",
+  "reason": "large 组资源冲突（1GiB scratch>64MiB 执行域）readonly_batch 拒绝 large；历史计数不作新期望；不开新大组读取（本盒授权复用）",
+  "tables": [
+   {
+    "column_count": 12,
+    "table": "ALTNAME_DATA"
+   },
+   {
+    "column_count": 42,
+    "table": "ASSOC_DATA"
+   },
+   {
+    "column_count": 29,
+    "table": "BIOG_ADDR_DATA"
+   },
+   {
+    "column_count": 55,
+    "table": "BIOG_MAIN"
+   },
+   {
+    "column_count": 10,
+    "table": "BIOG_SOURCE_DATA"
+   },
+   {
+    "column_count": 28,
+    "table": "ENTRY_DATA"
+   },
+   {
+    "column_count": 11,
+    "table": "KIN_DATA"
+   },
+   {
+    "column_count": 8,
+    "table": "POSTED_TO_ADDR_DATA"
+   },
+   {
+    "column_count": 34,
+    "table": "POSTED_TO_OFFICE_DATA"
+   },
+   {
+    "column_count": 6,
+    "table": "POSTING_DATA"
+   }
+  ]
+ },
+ "source_member": "m007906 harvard/cbdb/cbdb_20260919.sqlite3",
+ "source_sha256": "bde1bb8eece3820d9e236c1d6b0f07d847d339669d4a85d79cd7252d58d83400",
+ "source_size": 586485760,
+ "status": "EVIDENCE_MERGE_ONLY_NO_LOAD",
+ "value_expectations_68_tables": [
+  {
+   "approved_file_sha256": "6769af9a2910d3b3f2bb40813c2c86f8f6397965250c7e28c3b892c3a4da7e57",
+   "authorization": "sqlite-value-canary.approved.json（用户同意三表源侧期望）",
+   "evidence_file": "sqlite-value-canary.expected.draft.json",
+   "evidence_sha256": "f052dad41433cf7ce0604a98a958bf85c6dcdc7106710963003453f35740614e",
+   "expectation_status": "DRAFT_SOURCE_EXPECTATION",
+   "expected_rows": 0,
+   "expected_sha256": "05afdf0d0b42bbfd7afba5a1ac9df33d93cf316ea4cb4665622102b51b69d546",
+   "field_count": 0,
+   "group": "canary",
+   "table": "ADMIN_CAT_TYPES"
+  },
+  {
+   "approved_file_sha256": "6769af9a2910d3b3f2bb40813c2c86f8f6397965250c7e28c3b892c3a4da7e57",
+   "authorization": "sqlite-value-canary.approved.json（用户同意三表源侧期望）",
+   "evidence_file": "sqlite-value-canary.expected.draft.json",
+   "evidence_sha256": "f052dad41433cf7ce0604a98a958bf85c6dcdc7106710963003453f35740614e",
+   "expectation_status": "DRAFT_SOURCE_EXPECTATION",
+   "expected_rows": 3859,
+   "expected_sha256": "2cb8c354b0e75e6ae230e3b00540146e823eaa8de8def2abce89ad6179a07579",
+   "field_count": 42449,
+   "group": "canary",
+   "table": "SOCIAL_INSTITUTION_ADDR"
+  },
+  {
+   "approved_file_sha256": "6769af9a2910d3b3f2bb40813c2c86f8f6397965250c7e28c3b892c3a4da7e57",
+   "authorization": "sqlite-value-canary.approved.json（用户同意三表源侧期望）",
+   "evidence_file": "sqlite-value-canary.expected.draft.json",
+   "evidence_sha256": "f052dad41433cf7ce0604a98a958bf85c6dcdc7106710963003453f35740614e",
+   "expectation_status": "DRAFT_SOURCE_EXPECTATION",
+   "expected_rows": 1,
+   "expected_sha256": "4e8d5f519950c88ec2fcbcf822320540f8e83ad6ece5498f6bfb8a6c88a9de0c",
+   "field_count": 4,
+   "group": "canary",
+   "table": "SOCIAL_INSTITUTION_ALTNAME_CODES"
+  },
+  {
+   "authorization": "draft（未批准，仅期望生成）",
+   "evidence_file": "sqlite-value-small.expected.draft.json",
+   "evidence_sha256": "51351b58001a44413232fc80f92131d982caca0603ef24d9cad7db76b2acc416",
+   "expectation_status": "DRAFT_SOURCE_EXPECTATION",
+   "expected_rows": 60,
+   "expected_sha256": "88d57e94cb429eaaffb5b3e8c522453fe52dcfd5d560ad9b6ecc9754b353516e",
+   "field_count": 1200,
+   "group": "small",
+   "table": "POSSESSION_DATA"
+  },
+  {
+   "authorization": "draft（未批准，仅期望生成）",
+   "evidence_file": "sqlite-value-small.expected.draft.json",
+   "evidence_sha256": "51351b58001a44413232fc80f92131d982caca0603ef24d9cad7db76b2acc416",
+   "expectation_status": "DRAFT_SOURCE_EXPECTATION",
+   "expected_rows": 62,
+   "expected_sha256": "1d5a5b33a9b34e09b3e901c5be0f1f4d5f6310ecb5a5e2d02b9abbc2b1ad30eb",
+   "field_count": 186,
+   "group": "small",
+   "table": "POSSESSION_ADDR"
+  },
+  {
+   "authorization": "draft（未批准，仅期望生成）",
+   "evidence_file": "sqlite-value-small.expected.draft.json",
+   "evidence_sha256": "51351b58001a44413232fc80f92131d982caca0603ef24d9cad7db76b2acc416",
+   "expectation_status": "DRAFT_SOURCE_EXPECTATION",
+   "expected_rows": 4,
+   "expected_sha256": "95df512964fa910a1ade063b966c64ad586c4778b6f410ad70358849040318d8",
+   "field_count": 12,
+   "group": "small",
+   "table": "POSSESSION_ACT_CODES"
+  },
+  {
+   "authorization": "draft（未批准，仅期望生成）",
+   "evidence_file": "sqlite-value-small.expected.draft.json",
+   "evidence_sha256": "51351b58001a44413232fc80f92131d982caca0603ef24d9cad7db76b2acc416",
+   "expectation_status": "DRAFT_SOURCE_EXPECTATION",
+   "expected_rows": 7,
+   "expected_sha256": "f52bc9732df6f2565aea50dea4d64ee07ba3751a7be035736aaed292975a3220",
+   "field_count": 21,
+   "group": "small",
+   "table": "PARENTAL_STATUS_CODES"
+  },
+  {
+   "authorization": "draft（未批准，仅期望生成）",
+   "evidence_file": "sqlite-value-small.expected.draft.json",
+   "evidence_sha256": "51351b58001a44413232fc80f92131d982caca0603ef24d9cad7db76b2acc416",
+   "expectation_status": "DRAFT_SOURCE_EXPECTATION",
+   "expected_rows": 2742,
+   "expected_sha256": "ef9f125afa1115cdf841452e14525241464d085338e68bba9d7a0feede79335c",
+   "field_count": 10968,
+   "group": "small",
+   "table": "OFFICE_TYPE_TREE"
+  },
+  {
+   "authorization": "draft（未批准，仅期望生成）",
+   "evidence_file": "sqlite-value-small.expected.draft.json",
+   "evidence_sha256": "51351b58001a44413232fc80f92131d982caca0603ef24d9cad7db76b2acc416",
+   "expectation_status": "DRAFT_SOURCE_EXPECTATION",
+   "expected_rows": 15,
+   "expected_sha256": "736bd6642674c89d664f9935df65aea1bcb4f5ddb7abb6bf3c089b63ffe00c56",
+   "field_count": 60,
+   "group": "small",
+   "table": "OFFICE_CATEGORIES"
+  },
+  {
+   "authorization": "draft（未批准，仅期望生成）",
+   "evidence_file": "sqlite-value-small.expected.draft.json",
+   "evidence_sha256": "51351b58001a44413232fc80f92131d982caca0603ef24d9cad7db76b2acc416",
+   "expectation_status": "DRAFT_SOURCE_EXPECTATION",
+   "expected_rows": 10,
+   "expected_sha256": "b462003398227df634ffd7830458db499d7cd7aa9f7cc717d4789e309418b061",
+   "field_count": 40,
+   "group": "small",
+   "table": "OCCASION_CODES"
+  },
+  {
+   "authorization": "draft（未批准，仅期望生成）",
+   "evidence_file": "sqlite-value-small.expected.draft.json",
+   "evidence_sha256": "51351b58001a44413232fc80f92131d982caca0603ef24d9cad7db76b2acc416",
+   "expectation_status": "DRAFT_SOURCE_EXPECTATION",
+   "expected_rows": 682,
+   "expected_sha256": "35f92ea64aaf41607b264568b997071505d248ad22d7e6ae09965f4a49b4331b",
+   "field_count": 4774,
+   "group": "small",
+   "table": "NIAN_HAO"
+  },
+  {
+   "authorization": "draft（未批准，仅期望生成）",
+   "evidence_file": "sqlite-value-small.expected.draft.json",
+   "evidence_sha256": "51351b58001a44413232fc80f92131d982caca0603ef24d9cad7db76b2acc416",
+   "expectation_status": "DRAFT_SOURCE_EXPECTATION",
+   "expected_rows": 7,
+   "expected_sha256": "a668a5276115b3004264142b9feea37968e698fdd8c90e101b7d40353a18a465",
+   "field_count": 21,
+   "group": "small",
+   "table": "MEASURE_CODES"
+  },
+  {
+   "authorization": "draft（未批准，仅期望生成）",
+   "evidence_file": "sqlite-value-small.expected.draft.json",
+   "evidence_sha256": "51351b58001a44413232fc80f92131d982caca0603ef24d9cad7db76b2acc416",
+   "expectation_status": "DRAFT_SOURCE_EXPECTATION",
+   "expected_rows": 12,
+   "expected_sha256": "0e8f45e94354f108ef185916ed41fd9c96c2e09d7d619200cc47ddec38baf869",
+   "field_count": 48,
+   "group": "small",
+   "table": "LITERARYGENRE_CODES"
+  },
+  {
+   "authorization": "draft（未批准，仅期望生成）",
+   "evidence_file": "sqlite-value-small.expected.draft.json",
+   "evidence_sha256": "51351b58001a44413232fc80f92131d982caca0603ef24d9cad7db76b2acc416",
+   "expectation_status": "DRAFT_SOURCE_EXPECTATION",
+   "expected_rows": 159,
+   "expected_sha256": "58b9b54cd0064f2b5f14cb0ef619e85b976199b9aa6020c976eca63372976734",
+   "field_count": 795,
+   "group": "small",
+   "table": "KIN_MOURNING_STEPS"
+  },
+  {
+   "authorization": "draft（未批准，仅期望生成）",
+   "evidence_file": "sqlite-value-small.expected.draft.json",
+   "evidence_sha256": "51351b58001a44413232fc80f92131d982caca0603ef24d9cad7db76b2acc416",
+   "expectation_status": "DRAFT_SOURCE_EXPECTATION",
+   "expected_rows": 159,
+   "expected_sha256": "54efedda4a956d453f63aabe2b054aa87890e9df8667f54a7574136dd2bdc4fc",
+   "field_count": 1590,
+   "group": "small",
+   "table": "KIN_MOURNING"
+  },
+  {
+   "authorization": "draft（未批准，仅期望生成）",
+   "evidence_file": "sqlite-value-small.expected.draft.json",
+   "evidence_sha256": "51351b58001a44413232fc80f92131d982caca0603ef24d9cad7db76b2acc416",
+   "expectation_status": "DRAFT_SOURCE_EXPECTATION",
+   "expected_rows": 32,
+   "expected_sha256": "384095102579933c781bb30438a893c9f63216dd33ad7901eda846963583ef02",
+   "field_count": 224,
+   "group": "small",
+   "table": "SCHOLARLYTOPIC_CODES"
+  },
+  {
+   "authorization": "draft（未批准，仅期望生成）",
+   "evidence_file": "sqlite-value-small.expected.draft.json",
+   "evidence_sha256": "51351b58001a44413232fc80f92131d982caca0603ef24d9cad7db76b2acc416",
+   "expectation_status": "DRAFT_SOURCE_EXPECTATION",
+   "expected_rows": 12,
+   "expected_sha256": "62f423e1d6899ebd8283c2948f44f28b9b6c43d99c39ac2ff64cb7a27840317e",
+   "field_count": 36,
+   "group": "small",
+   "table": "TEXT_ROLE_CODES"
+  },
+  {
+   "authorization": "draft（未批准，仅期望生成）",
+   "evidence_file": "sqlite-value-small.expected.draft.json",
+   "evidence_sha256": "51351b58001a44413232fc80f92131d982caca0603ef24d9cad7db76b2acc416",
+   "expectation_status": "DRAFT_SOURCE_EXPECTATION",
+   "expected_rows": 51,
+   "expected_sha256": "a9e35aeef9cbd56d581331d49604431b4fda16fc2172afa0bda424bc22be82a7",
+   "field_count": 306,
+   "group": "small",
+   "table": "TEXT_BIBLCAT_TYPES"
+  },
+  {
+   "authorization": "draft（未批准，仅期望生成）",
+   "evidence_file": "sqlite-value-small.expected.draft.json",
+   "evidence_sha256": "51351b58001a44413232fc80f92131d982caca0603ef24d9cad7db76b2acc416",
+   "expectation_status": "DRAFT_SOURCE_EXPECTATION",
+   "expected_rows": 144,
+   "expected_sha256": "d3cd244505d287fd9a263a2afaf6f3238625fcbe84260b658c9302b70adfa24b",
+   "field_count": 288,
+   "group": "small",
+   "table": "TEXT_BIBLCAT_CODE_TYPE_REL"
+  },
+  {
+   "authorization": "draft（未批准，仅期望生成）",
+   "evidence_file": "sqlite-value-small.expected.draft.json",
+   "evidence_sha256": "51351b58001a44413232fc80f92131d982caca0603ef24d9cad7db76b2acc416",
+   "expectation_status": "DRAFT_SOURCE_EXPECTATION",
+   "expected_rows": 144,
+   "expected_sha256": "2037f7d697e5b43e1849f1282646e7b8f2080dcfd0806ac29803d4f386e5ff75",
+   "field_count": 1008,
+   "group": "small",
+   "table": "TEXT_BIBLCAT_CODES"
+  },
+  {
+   "authorization": "draft（未批准，仅期望生成）",
+   "evidence_file": "sqlite-value-small.expected.draft.json",
+   "evidence_sha256": "51351b58001a44413232fc80f92131d982caca0603ef24d9cad7db76b2acc416",
+   "expectation_status": "DRAFT_SOURCE_EXPECTATION",
+   "expected_rows": 14,
+   "expected_sha256": "22f21f37567d90aad7afebe58ab17e896eda1667321e29bbb5201e1b9937f1ce",
+   "field_count": 56,
+   "group": "small",
+   "table": "STATUS_TYPES"
+  },
+  {
+   "authorization": "draft（未批准，仅期望生成）",
+   "evidence_file": "sqlite-value-small.expected.draft.json",
+   "evidence_sha256": "51351b58001a44413232fc80f92131d982caca0603ef24d9cad7db76b2acc416",
+   "expectation_status": "DRAFT_SOURCE_EXPECTATION",
+   "expected_rows": 285,
+   "expected_sha256": "86aea2e03e4766399097f2e1d76cd693b4a19291c4246fd802bbce8d8ffd6090",
+   "field_count": 570,
+   "group": "small",
+   "table": "STATUS_CODE_TYPE_REL"
+  },
+  {
+   "authorization": "draft（未批准，仅期望生成）",
+   "evidence_file": "sqlite-value-small.expected.draft.json",
+   "evidence_sha256": "51351b58001a44413232fc80f92131d982caca0603ef24d9cad7db76b2acc416",
+   "expectation_status": "DRAFT_SOURCE_EXPECTATION",
+   "expected_rows": 285,
+   "expected_sha256": "f958ee244d8328d54e1cc1cc1ffa0067f9203c08334b379b03907b318fe70b39",
+   "field_count": 855,
+   "group": "small",
+   "table": "STATUS_CODES"
+  },
+  {
+   "authorization": "draft（未批准，仅期望生成）",
+   "evidence_file": "sqlite-value-small.expected.draft.json",
+   "evidence_sha256": "51351b58001a44413232fc80f92131d982caca0603ef24d9cad7db76b2acc416",
+   "expectation_status": "DRAFT_SOURCE_EXPECTATION",
+   "expected_rows": 7,
+   "expected_sha256": "0231c049c73e07be57b0084758b759b8b1637ccf3dfc8755865c6f13cfe9fdbc",
+   "field_count": 21,
+   "group": "small",
+   "table": "SOCIAL_INSTITUTION_TYPES"
+  },
+  {
+   "authorization": "draft（未批准，仅期望生成）",
+   "evidence_file": "sqlite-value-small.expected.draft.json",
+   "evidence_sha256": "51351b58001a44413232fc80f92131d982caca0603ef24d9cad7db76b2acc416",
+   "expectation_status": "DRAFT_SOURCE_EXPECTATION",
+   "expected_rows": 2603,
+   "expected_sha256": "036bbd78c1eb514d4c04e095c7da9520303b289d6d22825cfc1d8f0771d74adb",
+   "field_count": 7809,
+   "group": "small",
+   "table": "SOCIAL_INSTITUTION_NAME_CODES"
+  },
+  {
+   "authorization": "draft（未批准，仅期望生成）",
+   "evidence_file": "sqlite-value-small.expected.draft.json",
+   "evidence_sha256": "51351b58001a44413232fc80f92131d982caca0603ef24d9cad7db76b2acc416",
+   "expectation_status": "DRAFT_SOURCE_EXPECTATION",
+   "expected_rows": 0,
+   "expected_sha256": "301714c7cfc8bfe0e4fb1a5064b9665b842add76a08467f0bf5e2d370debe6b5",
+   "field_count": 0,
+   "group": "small",
+   "table": "SOCIAL_INSTITUTION_ALTNAME_DATA"
+  },
+  {
+   "authorization": "draft（未批准，仅期望生成）",
+   "evidence_file": "sqlite-value-small.expected.draft.json",
+   "evidence_sha256": "51351b58001a44413232fc80f92131d982caca0603ef24d9cad7db76b2acc416",
+   "expectation_status": "DRAFT_SOURCE_EXPECTATION",
+   "expected_rows": 2,
+   "expected_sha256": "cbdea67d41faef86968b695506cce1eb2e47778efd42a4219161b56bc3b0e1ce",
+   "field_count": 8,
+   "group": "small",
+   "table": "SOCIAL_INSTITUTION_ADDR_TYPES"
+  },
+  {
+   "authorization": "draft（未批准，仅期望生成）",
+   "evidence_file": "sqlite-value-small.expected.draft.json",
+   "evidence_sha256": "51351b58001a44413232fc80f92131d982caca0603ef24d9cad7db76b2acc416",
+   "expectation_status": "DRAFT_SOURCE_EXPECTATION",
+   "expected_rows": 126,
+   "expected_sha256": "db4e29cd9a3f096f6720c183480102e7d3ffe300d0fcf02d52fdb615274cead3",
+   "field_count": 756,
+   "group": "small",
+   "table": "TEXT_TYPE"
+  },
+  {
+   "authorization": "draft（未批准，仅期望生成）",
+   "evidence_file": "sqlite-value-small.expected.draft.json",
+   "evidence_sha256": "51351b58001a44413232fc80f92131d982caca0603ef24d9cad7db76b2acc416",
+   "expectation_status": "DRAFT_SOURCE_EXPECTATION",
+   "expected_rows": 488,
+   "expected_sha256": "382f41c1327734e8b06fe84b3ac757a2a29cf5c2d77858a3a05b8571c3cb75b6",
+   "field_count": 6344,
+   "group": "small",
+   "table": "KINSHIP_CODES"
+  },
+  {
+   "authorization": "draft（未批准，仅期望生成）",
+   "evidence_file": "sqlite-value-small.expected.draft.json",
+   "evidence_sha256": "51351b58001a44413232fc80f92131d982caca0603ef24d9cad7db76b2acc416",
+   "expectation_status": "DRAFT_SOURCE_EXPECTATION",
+   "expected_rows": 31,
+   "expected_sha256": "4d16efe79d58c7c0f18717debf6ab61c73e9c6168c91dbef673a753bb8503932",
+   "field_count": 124,
+   "group": "small",
+   "table": "INDEXYEAR_TYPE_CODES"
+  },
+  {
+   "authorization": "draft（未批准，仅期望生成）",
+   "evidence_file": "sqlite-value-small.expected.draft.json",
+   "evidence_sha256": "51351b58001a44413232fc80f92131d982caca0603ef24d9cad7db76b2acc416",
+   "expectation_status": "DRAFT_SOURCE_EXPECTATION",
+   "expected_rows": 22,
+   "expected_sha256": "e3316df00ad67591dda48bfc9efa56442efb9cf4be21dfc49f88c28264e738ac",
+   "field_count": 132,
+   "group": "small",
+   "table": "BIOG_ADDR_CODES"
+  },
+  {
+   "authorization": "draft（未批准，仅期望生成）",
+   "evidence_file": "sqlite-value-small.expected.draft.json",
+   "evidence_sha256": "51351b58001a44413232fc80f92131d982caca0603ef24d9cad7db76b2acc416",
+   "expectation_status": "DRAFT_SOURCE_EXPECTATION",
+   "expected_rows": 6,
+   "expected_sha256": "08d7e819d52a34082505cbac6ee98a0bdaf7e8fefed7a3d7fa76a1f874b23f95",
+   "field_count": 18,
+   "group": "small",
+   "table": "ASSUME_OFFICE_CODES"
+  },
+  {
+   "authorization": "draft（未批准，仅期望生成）",
+   "evidence_file": "sqlite-value-small.expected.draft.json",
+   "evidence_sha256": "51351b58001a44413232fc80f92131d982caca0603ef24d9cad7db76b2acc416",
+   "expectation_status": "DRAFT_SOURCE_EXPECTATION",
+   "expected_rows": 45,
+   "expected_sha256": "a9f66b5b859458239ffa0aa71f4a40c660dddd731a42eaeed45397195c76bb8b",
+   "field_count": 315,
+   "group": "small",
+   "table": "ASSOC_TYPES"
+  },
+  {
+   "authorization": "draft（未批准，仅期望生成）",
+   "evidence_file": "sqlite-value-small.expected.draft.json",
+   "evidence_sha256": "51351b58001a44413232fc80f92131d982caca0603ef24d9cad7db76b2acc416",
+   "expectation_status": "DRAFT_SOURCE_EXPECTATION",
+   "expected_rows": 463,
+   "expected_sha256": "26697eae00a0e6c7a514ab471759d75eff2abca60c0ee6719036470dc1a8f272",
+   "field_count": 926,
+   "group": "small",
+   "table": "ASSOC_CODE_TYPE_REL"
+  },
+  {
+   "authorization": "draft（未批准，仅期望生成）",
+   "evidence_file": "sqlite-value-small.expected.draft.json",
+   "evidence_sha256": "51351b58001a44413232fc80f92131d982caca0603ef24d9cad7db76b2acc416",
+   "expectation_status": "DRAFT_SOURCE_EXPECTATION",
+   "expected_rows": 498,
+   "expected_sha256": "bfcb9d852c6dd67046be797ec042987dea6f1c9e01b889589613355c01166654",
+   "field_count": 3984,
+   "group": "small",
+   "table": "ASSOC_CODES"
+  },
+  {
+   "authorization": "draft（未批准，仅期望生成）",
+   "evidence_file": "sqlite-value-small.expected.draft.json",
+   "evidence_sha256": "51351b58001a44413232fc80f92131d982caca0603ef24d9cad7db76b2acc416",
+   "expectation_status": "DRAFT_SOURCE_EXPECTATION",
+   "expected_rows": 13,
+   "expected_sha256": "0ab780b444137883895f05217cb4efe6d146e8335e3b89be3c2aa4feaa1c0d33",
+   "field_count": 39,
+   "group": "small",
+   "table": "APPOINTMENT_TYPES"
+  },
+  {
+   "authorization": "draft（未批准，仅期望生成）",
+   "evidence_file": "sqlite-value-small.expected.draft.json",
+   "evidence_sha256": "51351b58001a44413232fc80f92131d982caca0603ef24d9cad7db76b2acc416",
+   "expectation_status": "DRAFT_SOURCE_EXPECTATION",
+   "expected_rows": 109,
+   "expected_sha256": "f93099bd7e7e19a139f362727d0cf8a42f35acc17e88f4bbae49cba7fcf6a29a",
+   "field_count": 218,
+   "group": "small",
+   "table": "APPOINTMENT_CODE_TYPE_REL"
+  },
+  {
+   "authorization": "draft（未批准，仅期望生成）",
+   "evidence_file": "sqlite-value-small.expected.draft.json",
+   "evidence_sha256": "51351b58001a44413232fc80f92131d982caca0603ef24d9cad7db76b2acc416",
+   "expectation_status": "DRAFT_SOURCE_EXPECTATION",
+   "expected_rows": 116,
+   "expected_sha256": "2c813cc0b7b1e9ae77afe6a8daf66dbb77a7d89a1bfb63245269d86926498876",
+   "field_count": 696,
+   "group": "small",
+   "table": "APPOINTMENT_CODES"
+  },
+  {
+   "authorization": "draft（未批准，仅期望生成）",
+   "evidence_file": "sqlite-value-small.expected.draft.json",
+   "evidence_sha256": "51351b58001a44413232fc80f92131d982caca0603ef24d9cad7db76b2acc416",
+   "expectation_status": "DRAFT_SOURCE_EXPECTATION",
+   "expected_rows": 21,
+   "expected_sha256": "110d8776517a70391c75f03e278d790d2f8fb5b0a7e0780531b8772dda8f4a59",
+   "field_count": 63,
+   "group": "small",
+   "table": "ALTNAME_CODES"
+  },
+  {
+   "authorization": "draft（未批准，仅期望生成）",
+   "evidence_file": "sqlite-value-small.expected.draft.json",
+   "evidence_sha256": "51351b58001a44413232fc80f92131d982caca0603ef24d9cad7db76b2acc416",
+   "expectation_status": "DRAFT_SOURCE_EXPECTATION",
+   "expected_rows": 0,
+   "expected_sha256": "7621baa4b34b55a0f073c97aea4b70fa04bd37fa983d0088eaa2b039a25c8c60",
+   "field_count": 0,
+   "group": "small",
+   "table": "ADMIN_CAT_CODE_TYPE_REL"
+  },
+  {
+   "authorization": "draft（未批准，仅期望生成）",
+   "evidence_file": "sqlite-value-small.expected.draft.json",
+   "evidence_sha256": "51351b58001a44413232fc80f92131d982caca0603ef24d9cad7db76b2acc416",
+   "expectation_status": "DRAFT_SOURCE_EXPECTATION",
+   "expected_rows": 213,
+   "expected_sha256": "116db82fd8674c6390edad1feb027be432c9d1a0543e702fc2c3d3fc93d60d32",
+   "field_count": 1065,
+   "group": "small",
+   "table": "ADMIN_CAT_CODES"
+  },
+  {
+   "authorization": "draft（未批准，仅期望生成）",
+   "evidence_file": "sqlite-value-small.expected.draft.json",
+   "evidence_sha256": "51351b58001a44413232fc80f92131d982caca0603ef24d9cad7db76b2acc416",
+   "expectation_status": "DRAFT_SOURCE_EXPECTATION",
+   "expected_rows": 26,
+   "expected_sha256": "dc254a78011157a7aae093c8061bb162460e247ba209371c4511734584d8bd88",
+   "field_count": 104,
+   "group": "small",
+   "table": "BIOG_INST_CODES"
+  },
+  {
+   "authorization": "draft（未批准，仅期望生成）",
+   "evidence_file": "sqlite-value-small.expected.draft.json",
+   "evidence_sha256": "51351b58001a44413232fc80f92131d982caca0603ef24d9cad7db76b2acc416",
+   "expectation_status": "DRAFT_SOURCE_EXPECTATION",
+   "expected_rows": 8,
+   "expected_sha256": "257a8473ccb616d71af5f567a46e32d8a9fda52de45a9dc540ff1596faef13b5",
+   "field_count": 80,
+   "group": "small",
+   "table": "KINREL_REDUCTION"
+  },
+  {
+   "authorization": "draft（未批准，仅期望生成）",
+   "evidence_file": "sqlite-value-small.expected.draft.json",
+   "evidence_sha256": "51351b58001a44413232fc80f92131d982caca0603ef24d9cad7db76b2acc416",
+   "expectation_status": "DRAFT_SOURCE_EXPECTATION",
+   "expected_rows": 571,
+   "expected_sha256": "dbef1e65452c751a6e7a8a48d667c94a6f5a17b3697a1fa6f79440d0afc44c51",
+   "field_count": 10849,
+   "group": "small",
+   "table": "BIOG_INST_DATA"
+  },
+  {
+   "authorization": "draft（未批准，仅期望生成）",
+   "evidence_file": "sqlite-value-small.expected.draft.json",
+   "evidence_sha256": "51351b58001a44413232fc80f92131d982caca0603ef24d9cad7db76b2acc416",
+   "expectation_status": "DRAFT_SOURCE_EXPECTATION",
+   "expected_rows": 34,
+   "expected_sha256": "7553c9a44ad5d2cc574b59685a2b56c83fa4736e9e06112ba23baf6196682e9c",
+   "field_count": 102,
+   "group": "small",
+   "table": "HOUSEHOLD_STATUS_CODES"
+  },
+  {
+   "authorization": "draft（未批准，仅期望生成）",
+   "evidence_file": "sqlite-value-small.expected.draft.json",
+   "evidence_sha256": "51351b58001a44413232fc80f92131d982caca0603ef24d9cad7db76b2acc416",
+   "expectation_status": "DRAFT_SOURCE_EXPECTATION",
+   "expected_rows": 61,
+   "expected_sha256": "6c0603e722c0a11d1f4f958933b24e65325f2b908a66b4ef0ac861995e5c6a10",
+   "field_count": 183,
+   "group": "small",
+   "table": "GANZHI_CODES"
+  },
+  {
+   "authorization": "draft（未批准，仅期望生成）",
+   "evidence_file": "sqlite-value-small.expected.draft.json",
+   "evidence_sha256": "51351b58001a44413232fc80f92131d982caca0603ef24d9cad7db76b2acc416",
+   "expectation_status": "DRAFT_SOURCE_EXPECTATION",
+   "expected_rows": 4,
+   "expected_sha256": "2e6c0057fde56ea147f05365c47157eb37d41869f375a19b75d06b3dc3c990c2",
+   "field_count": 12,
+   "group": "small",
+   "table": "EXTANT_CODES"
+  },
+  {
+   "authorization": "draft（未批准，仅期望生成）",
+   "evidence_file": "sqlite-value-small.expected.draft.json",
+   "evidence_sha256": "51351b58001a44413232fc80f92131d982caca0603ef24d9cad7db76b2acc416",
+   "expectation_status": "DRAFT_SOURCE_EXPECTATION",
+   "expected_rows": 117,
+   "expected_sha256": "cb86424896cd6215892a7198214da9b6792f07b46ecd085df74a54d273dcac92",
+   "field_count": 2340,
+   "group": "small",
+   "table": "EVENT_CODES"
+  },
+  {
+   "authorization": "draft（未批准，仅期望生成）",
+   "evidence_file": "sqlite-value-small.expected.draft.json",
+   "evidence_sha256": "51351b58001a44413232fc80f92131d982caca0603ef24d9cad7db76b2acc416",
+   "expectation_status": "DRAFT_SOURCE_EXPECTATION",
+   "expected_rows": 427,
+   "expected_sha256": "e0117e8e78c1d81536acbdffaa0e57ad97a848df138551029fed54e6aefa3165",
+   "field_count": 8967,
+   "group": "small",
+   "table": "EVENTS_DATA"
+  },
+  {
+   "authorization": "draft（未批准，仅期望生成）",
+   "evidence_file": "sqlite-value-small.expected.draft.json",
+   "evidence_sha256": "51351b58001a44413232fc80f92131d982caca0603ef24d9cad7db76b2acc416",
+   "expectation_status": "DRAFT_SOURCE_EXPECTATION",
+   "expected_rows": 4,
+   "expected_sha256": "db33ae5aaeaeb33badcd2579d1c3ae4fd32ef8534f12f13228b972a02f2426bc",
+   "field_count": 48,
+   "group": "small",
+   "table": "EVENTS_ADDR"
+  },
+  {
+   "authorization": "draft（未批准，仅期望生成）",
+   "evidence_file": "sqlite-value-small.expected.draft.json",
+   "evidence_sha256": "51351b58001a44413232fc80f92131d982caca0603ef24d9cad7db76b2acc416",
+   "expectation_status": "DRAFT_SOURCE_EXPECTATION",
+   "expected_rows": 498,
+   "expected_sha256": "c84cd9559f62440f6e0c0df9112647d1e1bf46733808e0be63f78dac2386eca7",
+   "field_count": 5478,
+   "group": "small",
+   "table": "ETHNICITY_TRIBE_CODES"
+  },
+  {
+   "authorization": "draft（未批准，仅期望生成）",
+   "evidence_file": "sqlite-value-small.expected.draft.json",
+   "evidence_sha256": "51351b58001a44413232fc80f92131d982caca0603ef24d9cad7db76b2acc416",
+   "expectation_status": "DRAFT_SOURCE_EXPECTATION",
+   "expected_rows": 29,
+   "expected_sha256": "5f73008b57b6900ffaf31a52b75fc69b259acc399c1b0faccd82d3346febd884",
+   "field_count": 174,
+   "group": "small",
+   "table": "ENTRY_TYPES"
+  },
+  {
+   "authorization": "draft（未批准，仅期望生成）",
+   "evidence_file": "sqlite-value-small.expected.draft.json",
+   "evidence_sha256": "51351b58001a44413232fc80f92131d982caca0603ef24d9cad7db76b2acc416",
+   "expectation_status": "DRAFT_SOURCE_EXPECTATION",
+   "expected_rows": 284,
+   "expected_sha256": "89770e2e4a837509559f71b5ba6514ff3e2154c080ca9152c34eb92b660bec99",
+   "field_count": 568,
+   "group": "small",
+   "table": "ENTRY_CODE_TYPE_REL"
+  },
+  {
+   "authorization": "draft（未批准，仅期望生成）",
+   "evidence_file": "sqlite-value-small.expected.draft.json",
+   "evidence_sha256": "51351b58001a44413232fc80f92131d982caca0603ef24d9cad7db76b2acc416",
+   "expectation_status": "DRAFT_SOURCE_EXPECTATION",
+   "expected_rows": 273,
+   "expected_sha256": "2741049eb62d1ea0ed75ceea32e974b7c808180fe8137659e8026e42def0e89d",
+   "field_count": 819,
+   "group": "small",
+   "table": "ENTRY_CODES"
+  },
+  {
+   "authorization": "draft（未批准，仅期望生成）",
+   "evidence_file": "sqlite-value-small.expected.draft.json",
+   "evidence_sha256": "51351b58001a44413232fc80f92131d982caca0603ef24d9cad7db76b2acc416",
+   "expectation_status": "DRAFT_SOURCE_EXPECTATION",
+   "expected_rows": 85,
+   "expected_sha256": "3e86b919edc9461e893cce8c1382145a33f2640fd428687fb1e541279059d3b1",
+   "field_count": 510,
+   "group": "small",
+   "table": "DYNASTIES"
+  },
+  {
+   "authorization": "draft（未批准，仅期望生成）",
+   "evidence_file": "sqlite-value-small.expected.draft.json",
+   "evidence_sha256": "51351b58001a44413232fc80f92131d982caca0603ef24d9cad7db76b2acc416",
+   "expectation_status": "DRAFT_SOURCE_EXPECTATION",
+   "expected_rows": 11,
+   "expected_sha256": "1e23b088ded253b5b4b41247a92a33490e5332891433dc0db2d84d557bce90e4",
+   "field_count": 33,
+   "group": "small",
+   "table": "COUNTRY_CODES"
+  },
+  {
+   "authorization": "draft（未批准，仅期望生成）",
+   "evidence_file": "sqlite-value-small.expected.draft.json",
+   "evidence_sha256": "51351b58001a44413232fc80f92131d982caca0603ef24d9cad7db76b2acc416",
+   "expectation_status": "DRAFT_SOURCE_EXPECTATION",
+   "expected_rows": 173,
+   "expected_sha256": "4dd13a280d86959f91da7fbeda7ee5843c6fe2caac9926201f094b86ed494ef2",
+   "field_count": 519,
+   "group": "small",
+   "table": "CHORONYM_CODES"
+  },
+  {
+   "authorization": "draft（未批准，仅期望生成）",
+   "evidence_file": "sqlite-value-small.expected.draft.json",
+   "evidence_sha256": "51351b58001a44413232fc80f92131d982caca0603ef24d9cad7db76b2acc416",
+   "expectation_status": "DRAFT_SOURCE_EXPECTATION",
+   "expected_rows": 6,
+   "expected_sha256": "50e611e9fac0fa4ac915c10e45c45cbcd0b62d7953ee6dd05035121640fc160f",
+   "field_count": 30,
+   "group": "small",
+   "table": "YEAR_RANGE_CODES"
+  },
+  {
+   "authorization": "draft（未批准，仅期望生成）",
+   "evidence_file": "sqlite-value-medium.expected.draft.json",
+   "evidence_sha256": "49be4ef11ce3a2c0f177bed48b8942728f039da53873783d61a4bc0d3c80efb2",
+   "expectation_status": "DRAFT_SOURCE_EXPECTATION",
+   "expected_rows": 37177,
+   "expected_sha256": "768807b9989ad7b45f831b88c3cd5c380b964dda66104efdbdaafb63d0f36a38",
+   "field_count": 408947,
+   "group": "medium",
+   "table": "ADDR_BELONGS_DATA"
+  },
+  {
+   "authorization": "draft（未批准，仅期望生成）",
+   "evidence_file": "sqlite-value-medium.expected.draft.json",
+   "evidence_sha256": "49be4ef11ce3a2c0f177bed48b8942728f039da53873783d61a4bc0d3c80efb2",
+   "expectation_status": "DRAFT_SOURCE_EXPECTATION",
+   "expected_rows": 43783,
+   "expected_sha256": "b65994d38e1f7c746db8a74338c7ade6a4fc1337931df222ee82345cf129e678",
+   "field_count": 87566,
+   "group": "medium",
+   "table": "OFFICE_CODE_TYPE_REL"
+  },
+  {
+   "authorization": "draft（未批准，仅期望生成）",
+   "evidence_file": "sqlite-value-medium.expected.draft.json",
+   "evidence_sha256": "49be4ef11ce3a2c0f177bed48b8942728f039da53873783d61a4bc0d3c80efb2",
+   "expectation_status": "DRAFT_SOURCE_EXPECTATION",
+   "expected_rows": 34162,
+   "expected_sha256": "b3b3b8a26932a3804b77ae2f5ff01bab45228cdb505a6b6da26835ddb0d2c415",
+   "field_count": 375782,
+   "group": "medium",
+   "table": "OFFICE_CODES"
+  },
+  {
+   "authorization": "draft（未批准，仅期望生成）",
+   "evidence_file": "sqlite-value-medium.expected.draft.json",
+   "evidence_sha256": "49be4ef11ce3a2c0f177bed48b8942728f039da53873783d61a4bc0d3c80efb2",
+   "expectation_status": "DRAFT_SOURCE_EXPECTATION",
+   "expected_rows": 5994,
+   "expected_sha256": "a217cfb5f8c85e9d123a4eaf957b73ccd9498b3c333cf0b5ac741e8945644aa3",
+   "field_count": 53946,
+   "group": "medium",
+   "table": "MERGED_PERSON_DATA"
+  },
+  {
+   "authorization": "draft（未批准，仅期望生成）",
+   "evidence_file": "sqlite-value-medium.expected.draft.json",
+   "evidence_sha256": "49be4ef11ce3a2c0f177bed48b8942728f039da53873783d61a4bc0d3c80efb2",
+   "expectation_status": "DRAFT_SOURCE_EXPECTATION",
+   "expected_rows": 9817,
+   "expected_sha256": "8d0d31e5c3a228bdf01d39a4366154060f30dae79e672ca494278d4339dbc79e",
+   "field_count": 304327,
+   "group": "medium",
+   "table": "TEXT_INSTANCE_DATA"
+  },
+  {
+   "authorization": "draft（未批准，仅期望生成）",
+   "evidence_file": "sqlite-value-medium.expected.draft.json",
+   "evidence_sha256": "49be4ef11ce3a2c0f177bed48b8942728f039da53873783d61a4bc0d3c80efb2",
+   "expectation_status": "DRAFT_SOURCE_EXPECTATION",
+   "expected_rows": 62377,
+   "expected_sha256": "43297b4a87a1e468c67e9b1239d18cb0ee704659c5a0bae02ef5e4358bdc5c96",
+   "field_count": 1497048,
+   "group": "medium",
+   "table": "TEXT_CODES"
+  },
+  {
+   "authorization": "draft（未批准，仅期望生成）",
+   "evidence_file": "sqlite-value-medium.expected.draft.json",
+   "evidence_sha256": "49be4ef11ce3a2c0f177bed48b8942728f039da53873783d61a4bc0d3c80efb2",
+   "expectation_status": "DRAFT_SOURCE_EXPECTATION",
+   "expected_rows": 73530,
+   "expected_sha256": "51c1d916247a8455f901f29c15f8f1afb1203726e86ed16bb556ac0367cbffbf",
+   "field_count": 1397070,
+   "group": "medium",
+   "table": "STATUS_DATA"
+  },
+  {
+   "authorization": "draft（未批准，仅期望生成）",
+   "evidence_file": "sqlite-value-medium.expected.draft.json",
+   "evidence_sha256": "49be4ef11ce3a2c0f177bed48b8942728f039da53873783d61a4bc0d3c80efb2",
+   "expectation_status": "DRAFT_SOURCE_EXPECTATION",
+   "expected_rows": 4012,
+   "expected_sha256": "9f7b9f4c7fad229b3b6979752865e8e736d915227cc26ae3eae9f93664e12fe0",
+   "field_count": 76228,
+   "group": "medium",
+   "table": "SOCIAL_INSTITUTION_CODES"
+  },
+  {
+   "authorization": "draft（未批准，仅期望生成）",
+   "evidence_file": "sqlite-value-medium.expected.draft.json",
+   "evidence_sha256": "49be4ef11ce3a2c0f177bed48b8942728f039da53873783d61a4bc0d3c80efb2",
+   "expectation_status": "DRAFT_SOURCE_EXPECTATION",
+   "expected_rows": 30157,
+   "expected_sha256": "dfa619a7c3ca6cb04763abfe0867a538dba6474cd88244bdfcbcffddc9d8027b",
+   "field_count": 482512,
+   "group": "medium",
+   "table": "ADDR_CODES"
+  },
+  {
+   "authorization": "draft（未批准，仅期望生成）",
+   "evidence_file": "sqlite-value-medium.expected.draft.json",
+   "evidence_sha256": "49be4ef11ce3a2c0f177bed48b8942728f039da53873783d61a4bc0d3c80efb2",
+   "expectation_status": "DRAFT_SOURCE_EXPECTATION",
+   "expected_rows": 53354,
+   "expected_sha256": "976667be96d3895d82bdad5511a91134bba6c8e20b6f0dac018144b059438cf0",
+   "field_count": 746956,
+   "group": "medium",
+   "table": "BIOG_TEXT_DATA"
+  }
+ ],
+ "version": 1
+}

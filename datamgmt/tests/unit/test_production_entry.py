@@ -18,10 +18,11 @@ FP = "d" * 64
 class ProdFake(FakeSession):
     def __init__(self, contract, existing=(), corrupt=None, dbname="xiangrugu", port="5432",
                  ext="1", ns="chgis,harv", dbs="postgres,template0,template1,xiangrugu,cbdb,cbdb_reh",
-                 marker=FP):
+                 marker=FP, marker_rows=1, marker_table=True):
         super().__init__(contract, existing=existing, corrupt=corrupt)
         self.identity = [dbname, port, "172.17.0.9", "18.6", "2026-11-25 14:00:00+00"]
         self.ext, self.ns, self.dbs, self.marker = ext, ns, dbs, marker
+        self.marker_rows, self.marker_table = marker_rows, marker_table
         self.sqls = []
 
     def execute(self, sql):
@@ -31,7 +32,11 @@ class ProdFake(FakeSession):
     def query_csv(self, sql):
         if "current_database()" in sql:
             return _csv([self.identity])
-        if "xrg_instance_marker" in sql:
+        if "to_regclass('public.xrg_instance_marker')" in sql:
+            return "1" if self.marker_table else "0"
+        if "count(*) FROM public.xrg_instance_marker" in sql:
+            return str(self.marker_rows)
+        if "SELECT instance_id FROM public.xrg_instance_marker" in sql:
             return _csv([[self.marker]])
         if "pg_extension" in sql:
             return self.ext
@@ -70,8 +75,16 @@ def _artifacts(contract):
     return {"contract": contract, "inventory": copy.deepcopy(INV_DOC), "evidence": copy.deepcopy(EV_DOCS)}
 
 
+class FakeParsed:
+    def __init__(self, doc, sha="c" * 64):
+        self.doc, self.sha256 = doc, sha
+
+    def model_dump(self, by_alias=False):
+        return copy.deepcopy(self.doc)
+
+
 def _fn(contract):
-    return lambda d: "c" * 64 if d is contract else "f" * 64
+    return lambda d: FakeParsed(d) if d is contract else FakeParsed(d, "f" * 64)
 
 
 def _run(s, contract=None, scope=None, expected=None, artifacts=None, fn=None):
@@ -111,20 +124,78 @@ def test_wrong_port_refused():
     assert e.value.code == "wrong_port" and s.begins == 0
 
 
-def test_identity_unproven_marker_missing():
+def test_marker_table_missing_refused():
     contract = _contract()
-    s = ProdFake(contract, marker="")
+    s = ProdFake(contract, marker_table=False)
     with pytest.raises(fbl.LoaderGateError) as e:
         _run(s, contract)
-    assert e.value.code == "identity_unproven" and s.begins == 0
+    assert e.value.code == "marker_table_missing" and s.begins == 0
 
 
-def test_identity_unproven_marker_mismatch():
+def test_marker_empty_refused():
+    contract = _contract()
+    s = ProdFake(contract, marker_rows=0)
+    with pytest.raises(fbl.LoaderGateError) as e:
+        _run(s, contract)
+    assert e.value.code == "marker_empty" and s.begins == 0
+
+
+def test_marker_multiple_rows_refused():
+    contract = _contract()
+    s = ProdFake(contract, marker_rows=2)
+    with pytest.raises(fbl.LoaderGateError) as e:
+        _run(s, contract)
+    assert e.value.code == "marker_multiple_rows" and s.begins == 0
+
+
+def test_marker_value_mismatch_refused():
     contract = _contract()
     s = ProdFake(contract, marker="9" * 64)
     with pytest.raises(fbl.LoaderGateError) as e:
         _run(s, contract)
-    assert e.value.code == "identity_unproven" and s.begins == 0
+    assert e.value.code == "marker_value_mismatch" and s.begins == 0
+
+
+def test_validated_contract_differs_from_execution_object_refused():
+    contract = _contract()
+    execution = copy.deepcopy(contract)
+    execution["rules"][0]["targets"][0]["table"] = "different_execution_table"
+    s = ProdFake(contract)
+    with pytest.raises(fbl.LoaderGateError) as e:
+        pe.run_production_load(s, _pscope(contract), execution,
+                               {rid: _payload(rid) for rid in fbl.FIRST_BATCH_RULES},
+                               _pexpected(contract), _artifacts(contract), _fn(contract))
+    assert e.value.code == "contract_execution_mismatch" and s.begins == 0
+
+
+def test_evidence_missing_nul_refused():
+    contract = _contract()
+    arts = _artifacts(contract)
+    del arts["evidence"]["nul"]
+    s = ProdFake(contract)
+    with pytest.raises(fbl.LoaderGateError) as e:
+        _run(s, contract, artifacts=arts)
+    assert e.value.code == "evidence_set_invalid" and s.begins == 0
+
+
+def test_evidence_missing_chgis_refused():
+    contract = _contract()
+    arts = _artifacts(contract)
+    del arts["evidence"]["chgis"]
+    s = ProdFake(contract)
+    with pytest.raises(fbl.LoaderGateError) as e:
+        _run(s, contract, artifacts=arts)
+    assert e.value.code == "evidence_set_invalid" and s.begins == 0
+
+
+def test_evidence_extra_document_refused():
+    contract = _contract()
+    arts = _artifacts(contract)
+    arts["evidence"]["extra"] = {"x": 3}
+    s = ProdFake(contract)
+    with pytest.raises(fbl.LoaderGateError) as e:
+        _run(s, contract, artifacts=arts)
+    assert e.value.code == "evidence_set_invalid" and s.begins == 0
 
 
 def test_fingerprint_drift_scope_vs_expected():

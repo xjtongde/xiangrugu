@@ -23,8 +23,11 @@ def main():
     out["checks"]["postgis_present"] = rc == 0 and so == "1"
     rc, so, se = q(container, db, "SELECT count(*) FROM pg_namespace WHERE nspname IN ('harv','chgis')")
     out["checks"]["schemas_present"] = rc == 0 and so == "2"
-    rc, so, se = q(container, db, "SELECT CASE WHEN to_regclass('public.xrg_instance_marker') IS NULL THEN '' "
-                   "ELSE coalesce((SELECT instance_id FROM public.xrg_instance_marker LIMIT 1),'') END")
+    rc, so, se = q(container, db, "SELECT (to_regclass('public.xrg_instance_marker') IS NOT NULL)::int")
+    out["checks"]["marker_table_present"] = rc == 0 and so == "1"
+    rc, so, se = q(container, db, "SELECT count(*) FROM public.xrg_instance_marker")
+    out["checks"]["marker_exactly_one_row"] = rc == 0 and so == "1"
+    rc, so, se = q(container, db, "SELECT instance_id FROM public.xrg_instance_marker")
     out["checks"]["instance_marker_matches"] = rc == 0 and so == fp
     out["all_pass"] = all(out["checks"].values())
     print(json.dumps(out, ensure_ascii=False, indent=1, sort_keys=True))

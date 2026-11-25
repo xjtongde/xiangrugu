@@ -39,8 +39,8 @@ PREREQUISITES = [
     "database xiangrugu exists on pg32b:5433 (CREATE DATABASE — separate authorization, not a loader action)",
     "CREATE EXTENSION postgis in database xiangrugu (prerequisite, not a loader action)",
     "CREATE SCHEMA harv; CREATE SCHEMA chgis (prerequisite, not a loader action)",
-    "public.xrg_instance_marker(instance_id text) populated with the independently verified instance Id "
-    "(docker inspect out-of-band; prerequisite, not a loader action)",
+    "public.xrg_instance_marker(instance_id text) with EXACTLY ONE row holding the independently verified "
+    "instance Id (docker inspect out-of-band; prerequisite, not a loader action)",
 ]
 FIRST_BATCH_RULES = fbl.FIRST_BATCH_RULES
 LEGACY_DATABASES = ("cbdb", "cbdb_reh")
@@ -71,6 +71,14 @@ def _inventory_sha(doc):
         for c in doc["checksums"])
     limits = tuple(sorted((k, int(v)) for k, v in doc["limits"]))
     return InventoryManifest(entries=entries, issues=issues, checksums=checksums, limits=limits).sha256
+
+
+def _strip_none(obj):
+    if isinstance(obj, dict):
+        return {k: _strip_none(v) for k, v in obj.items() if v is not None}
+    if isinstance(obj, list):
+        return [_strip_none(v) for v in obj]
+    return obj
 
 
 def recompute_artifact_digests(artifacts, contract_digest_fn):
@@ -139,11 +147,17 @@ def verify_target_in_session(session, scope, expected):
     if not version.startswith("18"):
         raise LoaderGateError("server_version_mismatch", version)
     # Positive identity: legacy cbdb/cbdb_reh visibility is allowed; the marker proves the instance.
-    marker = fbl._rows_csv(session.query_csv(
-        "SELECT CASE WHEN to_regclass('public.xrg_instance_marker') IS NULL THEN '' "
-        "ELSE coalesce((SELECT instance_id FROM public.xrg_instance_marker LIMIT 1),'') END"))[0][0]
-    if not marker or marker != scope["instance_fingerprint"]:
-        raise LoaderGateError("identity_unproven", "instance marker missing or mismatched")
+    has = session.query_csv("SELECT (to_regclass('public.xrg_instance_marker') IS NOT NULL)::int").strip()
+    if has != "1":
+        raise LoaderGateError("marker_table_missing")
+    cnt = session.query_csv("SELECT count(*) FROM public.xrg_instance_marker").strip()
+    if cnt == "0":
+        raise LoaderGateError("marker_empty")
+    if cnt != "1":
+        raise LoaderGateError("marker_multiple_rows", cnt)
+    marker = fbl._rows_csv(session.query_csv("SELECT instance_id FROM public.xrg_instance_marker"))[0][0]
+    if marker != scope["instance_fingerprint"]:
+        raise LoaderGateError("marker_value_mismatch")
     dbs = fbl._rows_csv(session.query_csv("SELECT string_agg(datname, ',' ORDER BY datname) FROM pg_database"))[0][0]
     if scope["write_approval"]["approval_class"] == "real":
         if addr != expected.get("server_addr"):
@@ -162,24 +176,36 @@ def verify_target_in_session(session, scope, expected):
             "postgis": "present", "schemas": "harv,chgis"}
 
 
-def run_production_load(session, scope, contract, payloads, expected, artifacts, contract_digest_fn):
-    """Production candidate entry: recompute -> gates in the DDL session -> shared transaction."""
-    recomputed = recompute_artifact_digests(artifacts, contract_digest_fn)
+def run_production_load(session, scope, contract, payloads, expected, artifacts, contract_parse_fn):
+    """Production candidate entry: ONE formal parse drives digest/targets/load; gates in the DDL session."""
+    if set(artifacts["evidence"]) != {"nul", "chgis"}:
+        raise LoaderGateError("evidence_set_invalid", "exactly NUL and CHGIS writeoff evidences required")
+    parsed = contract_parse_fn(artifacts["contract"])
+    parsed_doc = _strip_none(parsed.model_dump(by_alias=True))
+    recomputed = {"contract_sha256": parsed.sha256,
+                  "inventory_sha256": _inventory_sha(artifacts["inventory"]),
+                  "evidence_shas": {k: _evidence_sha(v) for k, v in artifacts["evidence"].items()}}
     for key in ("contract_sha256", "inventory_sha256"):
         if recomputed[key] != scope.get(key) or recomputed[key] != expected.get(key):
             raise LoaderGateError("artifact_drift_recomputed", key)
     for k, v in recomputed["evidence_shas"].items():
         if v != scope.get("writeoff_evidence_sha256", {}).get(k) or v != expected.get("evidence_shas", {}).get(k):
             raise LoaderGateError("artifact_drift_recomputed", "evidence:" + k)
+    if _strip_none(contract) != parsed_doc:
+        raise LoaderGateError("contract_execution_mismatch", "validated contract differs from execution object")
+    targets = fbl.targets_of(parsed_doc)
+    if set(targets) != set(FIRST_BATCH_RULES):
+        raise LoaderGateError("target_set_mismatch")
     validate_production_scope(scope, {"contract_sha256": expected["contract_sha256"],
                                       "inventory_sha256": expected["inventory_sha256"],
                                       "evidence_shas": expected["evidence_shas"],
                                       "instance_fingerprint": expected["instance_fingerprint"],
-                                      "targets": fbl.targets_of(contract)})
+                                      "targets": targets})
     identity = verify_target_in_session(session, scope, expected)
-    fbl.check_targets_absent(session, contract)
-    evidence = fbl._load_and_verify(session, contract, payloads, expected, create_prerequisites=False)
-    evidence["gates"] = ["artifact_digest_recomputed_in_entry", "write_approval_independent_bound_seven",
+    fbl.check_targets_absent(session, parsed_doc)
+    evidence = fbl._load_and_verify(session, parsed_doc, payloads, expected, create_prerequisites=False)
+    evidence["gates"] = ["single_formal_parse_drives_load", "evidence_exactly_nul_chgis",
+                          "artifact_digest_recomputed_in_entry", "write_approval_independent_bound_seven",
                           "target_identity_positive_in_ddl_session", "prerequisites_verified_not_created",
                           "targets_absent"] + evidence["gates"][1:]
     evidence["target_identity_in_session"] = identity

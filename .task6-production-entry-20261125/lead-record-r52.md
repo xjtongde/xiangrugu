@@ -16,3 +16,7 @@
 
 ## 首个剩余缺口
 真实首批写库批准事件（绑七目标）+先决建库与标记预置授权（pg32b:5433）另批；其后按 runbook 正式执行。
+
+## a03 复核与清理收口
+- **R52 终报 PASS（14:27 UTC 盒内）**：diff 恰八件/M=2 不在 diff；补正读码三面 ✓；独立反例 9/9（含工件变-调用方一致 honest 反例 begins=0）；独立真回读全过（47725/七摘要/EWKB/63·74/marker==Id）；**旧库未动独立快照互证**（cbdb 611c4eae/cbdb_reh aab5e169 与证据逐字全等，零写面）；prereq_check 正例 exit 0/错指纹 exit 2；回归 203 自洽；四不动实证。
+- **cleanup_execution 14:27:52 UTC**：试装容器经 Id 全号核一致后清除（CLEANUP_OK，计数 0）。

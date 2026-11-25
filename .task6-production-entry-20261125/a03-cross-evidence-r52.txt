@@ -1,0 +1,13 @@
+== ROUND 52 终报（a03，14:27 UTC 盒内）：PASS ==
+①范围核：git diff 16f94a6..d38c13a 恰八件（production_entry M/test M/证据六件）；M=2 不在 diff；committed 与读码工作树版逐字节一致。
+②补正读码：正向身份门（一刀切 cbdb 拒已删；marker 正向证明 to_regclass 防缺表；值≠指纹或缺→identity_unproven 写前拒；LEGACY_DATABASES 仅记录）；入口内重算（artifacts+contract_digest_fn 新签名；合同注入正式 parse/清单 InventoryManifest sha/证据 compact canonical；三方比对 recomputed vs scope vs expected 任一不符 artifact_drift_recomputed）；审批绑七全等校验；test 指正式端点拒；指纹缺失/漂移门在。
+③独立反例 9/9（git show 提取真实入口直调）：P 正例 legacy cbdb/cbdb_reh 可见仍通过 47725（旧缺陷修复实证）；CE1-honest 工件变-调用方一致（digest_fn 对实际文档产新摘要而 scope/expected 互相同意旧值）→artifact_drift_recomputed begins=0；CE-inv 清单变异同型拒；CE2 证据篡改拒；CE3 marker 缺/CE4 不符→identity_unproven；CE5 test 指 pg32b:5433/xiangrugu 拒；CE6 未绑七拒；CE7 指纹漂移拒。
+④独立真回读（Id 全号 4f48de901086eea2475cd7a85ad9061c8285b57573dcaa8b56e751c479946e36 自核/--network none/Ports {}）：总 47725 逐表 2957/40199/1033/29/3389/59/59；rownum 1..n；列元齐；attr 五文本 475ea1d8/dcbedb5a/d233ed9c/b3f6ceb6/3bad44a0+两空间 N 重建 3519649f/a2ad2d24 全等；geom ff7081a0/3c606784 全等 POINT/2D/4326；m008003 63/74；XY dup 0×2；marker 实测==容器 Id。
+⑤旧库未动独立快照：自驱 COPY csv sha256 cbdb=611c4eae…/cbdb_reh=aab5e169… 与证据 before/after 逐字全等（读取即 after 态证装载后未动）；两库仍在 sentinel 各 2 行表清单不变；通道只 SELECT/COPY TO STDOUT 零写面。
+⑥先决检查可执行：prereq_check.py 自跑正例 PREREQ_EXIT=0/错指纹 NEG_EXIT=2（read-only 不代建）。
+⑦回归 203=186+17 自洽（新测试 17 def）；deploy ef9b4bc5 不变/prodentry 未接收/dev RestartCount 0/pg32·pg32b healthy/prodentry-trial 计数 0（R51 已清在案）。
+判定 PASS。首个剩余缺口：真实首批写库批准事件+先决建库授权另批。实例可清。
+
+== cleanup_execution（lead，14:27:52 UTC）==
+docker inspect 全号==4f48de901086eea2475cd7a85ad9061c8285b57573dcaa8b56e751c479946e36 核一致→docker rm -f 经 Id→CLEANUP_OK；r52-trial 计数 0。
+ROUND 52 PASS。

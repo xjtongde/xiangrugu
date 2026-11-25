@@ -1,0 +1,13 @@
+== ROUND 53 终报（a03，14:47 UTC 盒内）：PASS ==
+①范围核：git diff 37a51f2..4560287 恰七件（production_entry M/test M/prereq_check M/证据四件 A）；M=2 不在 diff；committed 与读码工作树版逐字节一致。
+②补正读码：单次解析驱动（contract_parse_fn→parsed 一次；sha256 对锚；_strip_none(contract)!=parsed_doc→contract_execution_mismatch；check_targets_absent 与 _load_and_verify 均吃 parsed_doc；target_set_mismatch 门；gates[0]=single_formal_parse_drives_load）；证据恰二硬门（入口首行先于 parse）；标记四态序（to_regclass→count==0→>1→值≠指纹）；prereq_check 同步三查询四态。
+③独立反例 8/8（git show 提取真实入口直调）：P 正例 47725 gates[0] marker=True；CE1 执行对象不一致（MutParsed.model_dump 篡改 table）→contract_execution_mismatch begins=0；CE2 缺 nul/CE3 多第三份→evidence_set_invalid×2；CE4 多行/CE5 表缺/CE6 空/CE7 值不符→四态各归其位全 begins=0。
+④独立真回读（Id 全号 deaaa982586b68daa9ad70c32a13c2faef4539cc702f92665fca3e7983fa3a62 自核/--network none/Ports {}）：总 47725 逐表齐；rownum 1..n；attr 五文本 475ea1d8/dcbedb5a/d233ed9c/b3f6ceb6/3bad44a0+两空间 N 重建 3519649f/a2ad2d24 全等；geom ff7081a0/3c606784 全等 POINT/2D/4326；m008003 63/74；XY dup 0×2；列元齐。
+⑤旧库未动互证：自驱 COPY csv sha cbdb=611c4eae…/cbdb_reh=aab5e169… 与 r53 证据 before/after 逐字全等（before==after True untouched True；读取即装载后态）；marker 现恰 1 行（四态反例后恢复在账实证）。
+⑥prereq_check 自跑：正例 POS_EXIT=0；错指纹 NEGVAL_EXIT=2；错库(cbdb) NEGLIB_EXIT=2——只读零建。
+⑦回归 209=186+23 自洽（test_production_entry 23 def）；deploy ef9b4bc5 不变/dev RestartCount 0/pg32·pg32b healthy/前两试装实例计数 0（已清在案）。
+判定 PASS。首个剩余缺口：真实首批写库批准事件+先决建库授权另批。实例可清。
+
+== cleanup_execution（lead，14:47:35 UTC）==
+docker inspect 全号==deaaa982586b68daa9ad70c32a13c2faef4539cc702f92665fca3e7983fa3a62 核一致→docker rm -f 经 Id→CLEANUP_OK；r53-trial 计数 0。
+ROUND 53 PASS。

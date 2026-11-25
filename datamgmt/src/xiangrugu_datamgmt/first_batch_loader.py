@@ -174,7 +174,7 @@ def _load_and_verify(session, contract, payloads, expected, create_prerequisites
             nc = len(t["columns"])
             sel = ", ".join(c["target_column"] for c in t["columns"])
             if t.get("geometry"):
-                sel += ", ST_X(geom), ST_Y(geom), GeometryType(geom), ST_NDims(geom), ST_SRID(geom)"
+                sel += ", ST_X(geom), ST_Y(geom), GeometryType(geom), ST_NDims(geom), ST_SRID(geom), ST_AsEWKB(geom)"
             sel += f", {ROWNUM}"
             recs = _rows_csv(session.query_csv(f"SELECT {sel} FROM {table} ORDER BY {ROWNUM}"))
             meta = _rows_csv(session.query_csv(
@@ -192,17 +192,18 @@ def _load_and_verify(session, contract, payloads, expected, create_prerequisites
                     "duplicates_match": (int(dup_groups), int(dup_extra)) == (exp["dup_groups"], exp["dup_extra"])}
             if t.get("geometry"):
                 fields = exp["fields"]
-                rebuilt, points, geom_meta_ok = [], [], True
+                rebuilt, points, geom_meta_ok, ewkb_parts = [], [], True, []
                 for rec in recs:
                     vals = list(rec[:nc])
                     for j, f in enumerate(fields):
                         if f["type"] == "N":
                             vals[j] = _reconstruct_n(rec[j], f)
                     rebuilt.append(tuple(vals))
-                    points.append({"rownum": int(rec[nc + 5]),
+                    points.append({"rownum": int(rec[nc + 6]),
                                    "x_bytes": struct.pack("<d", float(rec[nc])).hex(),
                                    "y_bytes": struct.pack("<d", float(rec[nc + 1])).hex()})
                     geom_meta_ok &= (rec[nc + 2] == "POINT" and rec[nc + 3] == "2" and rec[nc + 4] == "4326")
+                    ewkb_parts.append(bytes.fromhex(rec[nc + 5][2:]))
                 attr_cols = tuple(canonical.ValueColumn(column_key=c["column_id"], target_name=c["target_name"],
                                                         pg_type="text", nullable=False)
                                   for c in exp["attr_columns"]) \
@@ -212,14 +213,18 @@ def _load_and_verify(session, contract, payloads, expected, create_prerequisites
                 s = canonical.summarize_rows(attr_schema, (tuple(r) + (i + 1,) for i, r in enumerate(rebuilt)),
                                              limits=canonical.ValueLimits())
                 gs = _geom_stream(exp["source_object_id"], points)
+                ewkb_sha = sha(b"".join(ewkb_parts))
                 item.update({"attr_sha256": s.sha256, "attr_sha_match": s.sha256 == exp["attr_sha"],
                              "geom_sha256": sha(gs), "geom_sha_match": sha(gs) == exp["geom_sha"],
+                             "geom_ewkb_sha256": ewkb_sha,
+                             "geom_ewkb_sha_match": ewkb_sha == exp.get("geom_ewkb_sha"),
                              "geom_meta_ok": geom_meta_ok,
                              "xy_bytes_match": all(points[i]["x_bytes"] == exp["points"][i]["x_bytes"]
                                                    and points[i]["y_bytes"] == exp["points"][i]["y_bytes"]
                                                    for i in range(len(points)))})
                 ok = (item["row_count_match"] and item["columns_meta_match"] and item["duplicates_match"]
-                      and item["attr_sha_match"] and item["geom_sha_match"] and geom_meta_ok and item["xy_bytes_match"])
+                      and item["attr_sha_match"] and item["geom_sha_match"] and geom_meta_ok
+                      and item["xy_bytes_match"] and item["geom_ewkb_sha_match"])
             else:
                 s = _text_stream(exp["source_object_id"], rule, recs)
                 item.update({"attr_sha256": s.sha256, "attr_sha_match": s.sha256 == exp["attr_sha"],
@@ -248,10 +253,10 @@ def _load_and_verify(session, contract, payloads, expected, create_prerequisites
 class PsqlSession:
     """Persistent single psql coprocess; sentinel protocol keeps one transaction."""
 
-    def __init__(self, cmd_prefix, role=None):
+    def __init__(self, cmd_prefix, role=None, env=None):
         self._p = subprocess.Popen(cmd_prefix + ["-X", "-q", "-t", "--csv", "-v", "ON_ERROR_STOP=1"],
                                    stdin=subprocess.PIPE, stdout=subprocess.PIPE,
-                                   stderr=subprocess.PIPE, text=True, bufsize=1)
+                                   stderr=subprocess.PIPE, text=True, bufsize=1, env=env)
         self._seq = 0
         self._err = []
         self._t = threading.Thread(target=self._drain, daemon=True)

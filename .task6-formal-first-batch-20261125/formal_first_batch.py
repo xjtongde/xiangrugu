@@ -8,7 +8,13 @@
   第二阶段正式执行: python3 formal_first_batch.py --real --port 5433 \
       --instance-id <pg32b Id> --password-container pg32b \
       --approval-ref <审批原文路径> --out ev.json
-密码仅运行时取自容器 env（scram），绝不入 Git/证据。
+安全定点（R57）：
+  - --real 审批原文完整 SHA-256 钉死 88f4f1ac…；任意/篡改/测试审批连接前拒。
+  - 正式模式固定 pg32b 实例+外部 5433；隔离模式拒绝正式实例与端点。
+  - 禁止正式模式注入测试故障。
+  - 合同解析用受控接收版本（--parse-src，默认 deploy），逐文件 sha 绑定入证；无 /tmp/lb 默认。
+  - 凭据仅经进程 env 传递（docker run -e PGPASSWORD 无值形式），不入 argv/日志/证据。
+  - 空间几何事务内 ST_AsEWKB 字节重算摘要（geom_ewkb_sha）后再决定提交。
 """
 import argparse
 import copy
@@ -16,6 +22,7 @@ import csv
 import hashlib
 import io
 import json
+import os
 import subprocess
 import sys
 import zipfile
@@ -42,17 +49,26 @@ SV_BY_SID = {o["source_object_id"]: o for o in SV["objects"]}
 SCOPE_BASE = json.loads((ROOT / ".task6-production-entry-20261125/production-scope.draft.json").read_text())
 ANCHOR_CONTRACT = "ba8118fb5188478c7a891c37a0ae9d84687910c472946fe44709f3533843bd62"
 ANCHOR_INVENTORY = "fb5e6b334b898d62dc0e5c77094fdb50e0946300e6e3009f447b2ecd1bc216db"
+APPROVAL_SHA256 = "88f4f1acebbf03536a386d16d13ba8c229253a31eb02db11b56cef34170753b5"
 SEVEN = ["m002709", "m002717", "m004812", "m006642", "m008002", "m008003", "m008004"]
 ROLE = "xiangrugu_loader"
 IMAGE = "pg32b-full:18-pgdg"
+FORMAL_CONTAINERS = ("pg32b", "pg32")
 
 
 def sha(b):
     return hashlib.sha256(b).hexdigest()
 
 
-def run(cmd, **kw):
-    return subprocess.run(cmd, capture_output=True, text=True, **kw)
+def run(cmd, env=None, **kw):
+    return subprocess.run(cmd, capture_output=True, text=True, env=env, **kw)
+
+
+def stop(ev, out, status, code=2):
+    ev["status"], ev["exit"] = status, code
+    Path(out).write_text(json.dumps(ev, ensure_ascii=False, indent=1, sort_keys=True) + "\n")
+    print(status, "exit", code)
+    sys.exit(code)
 
 
 def text_payloads_expected():
@@ -100,6 +116,7 @@ def spatial_payloads_expected():
             sv = SV_BY_SID[obj["source_object_id"]]
             assert s.sha256 == sv["attribute_expectation"]["sha256"], rid
             assert sha(gs) == sv["geometry_expectation"]["sha256"], rid
+            ewkb_expected = sha(b"".join(bytes.fromhex(sp.ewkb_hex(p["x_bytes"], p["y_bytes"])) for p in points))
             buf = io.StringIO()
             w = csv.writer(buf, delimiter="\t", quotechar='"', quoting=csv.QUOTE_ALL, lineterminator="\n")
             for i, r in enumerate(rows):
@@ -114,6 +131,7 @@ def spatial_payloads_expected():
             expected[rid] = {"row_count": 59, "meta": meta,
                              "attr_sha": sv["attribute_expectation"]["sha256"],
                              "geom_sha": sv["geometry_expectation"]["sha256"],
+                             "geom_ewkb_sha": ewkb_expected,
                              "source_object_id": obj["source_object_id"],
                              "fields": fields, "points": points,
                              "attr_columns": [{"column_id": c["column_id"], "target_name": c["target_name"]}
@@ -144,40 +162,75 @@ def main():
     ap.add_argument("--approval-ref")
     ap.add_argument("--inject-failure")
     ap.add_argument("--out", required=True)
-    ap.add_argument("--parse-pythonpath", default="/tmp/lb/datamgmt/src")
+    ap.add_argument("--parse-src", default="/opt/mydocker/xiangrugu/deploy/datamgmt/src")
     a = ap.parse_args()
-    assert a.real != a.isolated, "exactly one of --real / --isolated"
-    assert (ROOT / "datamgmt/contracts/releases/2026-10-06-bootstrap/inventory.json").exists(), "CWD must be repo root"
     ev = {"version": 1, "command": "formal_first_batch.py", "cwd": str(ROOT),
           "single_session_single_connection": True, "database_switch_forbidden": True,
-          "source_read_only": True, "role": ROLE}
-    # independent identity + mapping verification BEFORE any load connection
+          "source_read_only": True, "role": ROLE, "credentials_in_argv_or_evidence": False}
+    # ---- pre-connection gates (no PG connection, docker metadata only) ----
+    if a.real == a.isolated:
+        stop(ev, a.out, "MODE_MUTUALLY_EXCLUSIVE")
+    pg32b_id = run(["docker", "inspect", "--format", "{{.Id}}", "pg32b"]).stdout.strip()
+    if a.real:
+        if a.inject_failure:
+            stop(ev, a.out, "INJECTION_FORBIDDEN_IN_REAL")
+        if a.password_container != "pg32b" or a.port != 5433:
+            stop(ev, a.out, "REAL_MODE_FIXED_TO_PG32B_5433")
+        if a.instance_id != pg32b_id:
+            stop(ev, a.out, "REAL_INSTANCE_ID_MISMATCH")
+        if not a.approval_ref or not Path(a.approval_ref).exists():
+            stop(ev, a.out, "APPROVAL_FILE_MISSING")
+        approval_sha = sha(Path(a.approval_ref).read_bytes())
+        ev["approval_sha256"] = approval_sha
+        ev["approval_sha256_pinned"] = APPROVAL_SHA256
+        if approval_sha != APPROVAL_SHA256:
+            stop(ev, a.out, "APPROVAL_SHA_MISMATCH")
+        ev["approval_verified_before_connect"] = True
+    else:
+        if a.password_container in FORMAL_CONTAINERS or a.port == 5433 or a.instance_id == pg32b_id:
+            stop(ev, a.out, "FORMAL_INSTANCE_OR_ENDPOINT_IN_ISOLATED_MODE")
     cid = run(["docker", "inspect", "--format", "{{.Id}}", a.password_container]).stdout.strip()
     if cid != a.instance_id:
-        ev["status"], ev["exit"] = "INSTANCE_ID_MISMATCH", 2
-        Path(a.out).write_text(json.dumps(ev, ensure_ascii=False, indent=1, sort_keys=True) + "\n")
-        sys.exit(2)
+        stop(ev, a.out, "INSTANCE_ID_MISMATCH")
     ports = run(["docker", "port", a.password_container, "5432/tcp"]).stdout.strip()
     if not any(line.endswith(f":{a.port}") for line in ports.splitlines()):
-        ev["status"], ev["exit"], ev["ports"] = "ENDPOINT_MAPPING_MISMATCH", 2, ports
-        Path(a.out).write_text(json.dumps(ev, ensure_ascii=False, indent=1, sort_keys=True) + "\n")
-        sys.exit(2)
+        ev["ports"] = ports
+        stop(ev, a.out, "ENDPOINT_MAPPING_MISMATCH")
     ev["endpoint_mapping_independent"] = {"docker_port_output": ports, "external_port": a.port,
                                            "internal_port": 5432, "container_id": cid}
+    # ---- parse version binding: controlled received src, per-file sha verified ----
+    parse_src = Path(a.parse_src)
+    if not (parse_src / "xiangrugu_datamgmt/contracts.py").exists():
+        stop(ev, a.out, "PARSE_SRC_NOT_RECEIVED_TREE")
+    run(["docker", "exec", "xiangrugu-dev", "rm", "-rf", "/tmp/formal-parse-src"])
+    cp = run(["docker", "cp", str(parse_src), "xiangrugu-dev:/tmp/formal-parse-src"])
+    if cp.returncode != 0:
+        stop(ev, a.out, "PARSE_SRC_COPY_FAILED")
+    host_sum = run(["sh", "-c", f"cd {parse_src} && find . -name '*.py' | sort | xargs sha256sum"]).stdout
+    cont_sum = run(["docker", "exec", "xiangrugu-dev", "sh", "-c",
+                    "cd /tmp/formal-parse-src && find . -name '*.py' | sort | xargs sha256sum"]).stdout
+    if host_sum != cont_sum or not host_sum:
+        stop(ev, a.out, "PARSE_VERSION_BINDING_MISMATCH")
+    ev["parse_version_binding"] = {"source": str(parse_src), "container_path": "/tmp/formal-parse-src",
+                                    "files_verified": len(host_sum.splitlines()), "mismatch": 0,
+                                    "contracts_py_sha256": sha((parse_src / "xiangrugu_datamgmt/contracts.py").read_bytes())}
+    parse_pp = "/tmp/formal-parse-src"
+    # ---- runtime credential: process env only, never argv ----
     pw = run(["docker", "inspect", "--format", "{{range .Config.Env}}{{println .}}{{end}}",
               a.password_container]).stdout
     pw = next(l.split("=", 1)[1] for l in pw.splitlines() if l.startswith("POSTGRES_PASSWORD="))
-    ev["auth"] = {"method": "scram-sha-256 via published port", "password_source": "container env runtime only",
+    cred_env = {**os.environ, "PGPASSWORD": pw}
+    ev["auth"] = {"method": "scram-sha-256 via published port",
+                  "password_channel": "process env only (docker run -e PGPASSWORD valueless)",
                   "password_committed": False}
 
     def prefix(db="xiangrugu"):
-        return ["docker", "run", "--rm", "-i", "--network", "host", "-e", f"PGPASSWORD={pw}",
+        return ["docker", "run", "--rm", "-i", "--network", "host", "-e", "PGPASSWORD",
                 IMAGE, "psql", "-h", "127.0.0.1", "-p", str(a.port), "-U", "postgres", "-d", db]
 
-    # read-only probe via the SAME external path: server_addr binding + preflight facts
     probe = run(prefix() + ["-X", "-q", "-t", "--csv", "-c",
                             "SELECT current_database() || '|' || current_setting('port') || '|' || "
-                            "coalesce(inet_server_addr()::text,'null')"])
+                            "coalesce(inet_server_addr()::text,'null')"], env=cred_env)
     assert probe.returncode == 0, probe.stderr[-200:]
     pdb, pport, paddr = probe.stdout.strip().split("|")
     ev["probe_via_external_path"] = {"dbname": pdb, "internal_port": pport, "inet_server_addr": paddr}
@@ -187,7 +240,7 @@ def main():
     payloads = {**tp, **sp_p}
     items = {**te, **sp_e}
     assert sorted(items) == sorted(SEVEN)
-    ev["source_gates"] = "PASS (source sha/rows/attr/geom/DBF identity asserted before write)"
+    ev["source_gates"] = "PASS (source sha/rows/attr/geom/DBF/EWKB-expected identity asserted before write)"
     scope = copy.deepcopy(SCOPE_BASE)
     scope["instance_fingerprint"] = cid
     scope["endpoint_mapping_verified"] = f"docker port {a.password_container} 5432/tcp = {ports}; inspect Id=={cid[:12]}"
@@ -199,15 +252,11 @@ def main():
     assert scope["contract_sha256"] == ANCHOR_CONTRACT and scope["inventory_sha256"] == ANCHOR_INVENTORY
     assert scope["writeoff_evidence_sha256"] == WO["run_evidence_sha256"]
     if a.real:
-        assert a.approval_ref and Path(a.approval_ref).exists()
-        approval_sha = sha(Path(a.approval_ref).read_bytes())
         scope["target_endpoint"] = {"host": "pg32b", "port": 5433, "internal_port": 5432, "dbname": "xiangrugu"}
         scope["write_approval"] = {"approved_by": "茶香", "approved_at": "2026-11-25T16:09:11Z",
-                                    "approval_ref": f"real-write-approval-20261125.txt sha256:{approval_sha}",
+                                    "approval_ref": f"real-write-approval-20261125.txt sha256:{APPROVAL_SHA256}",
                                     "approval_class": "real", "bound_object_rule_ids": SEVEN}
-        scope["real_authority_ref"] = f"sha256:{approval_sha} (茶香授权原文，禁止测试审批代替)"
-        ev["approval_sha256"] = approval_sha
-        assert a.port == 5433
+        scope["real_authority_ref"] = f"sha256:{APPROVAL_SHA256} (茶香授权原文，禁止测试审批代替)"
     else:
         scope["target_endpoint"] = {"dbname": "xiangrugu", "port": a.port, "internal_port": 5432,
                                      "container_id": cid, "test_only": True}
@@ -217,16 +266,14 @@ def main():
         items[a.inject_failure]["attr_sha"] = "0" * 64
         ev["injected_failure"] = a.inject_failure
     artifacts = {"contract": CONTRACT, "inventory": INV_DOC, "evidence": EV_DOCS}
-    session = fbl.PsqlSession(prefix(), role=ROLE)
+    session = fbl.PsqlSession(prefix(), role=ROLE, env=cred_env)
     try:
         cu = fbl._rows_csv(session.query_csv("SELECT current_user"))[0][0]
         ev["same_session_current_user"] = cu
         if cu != ROLE:
-            ev["status"], ev["exit"] = "ROLE_SWITCH_FAILED", 2
-            Path(a.out).write_text(json.dumps(ev, ensure_ascii=False, indent=1, sort_keys=True) + "\n")
-            sys.exit(2)
+            stop(ev, a.out, "ROLE_SWITCH_FAILED")
         res = pe.run_production_load(session, scope, CONTRACT, payloads, expected, artifacts,
-                                     lambda d: contract_parse_fn(d, a.parse_pythonpath))
+                                     lambda d: contract_parse_fn(d, parse_pp))
         ev["result"] = res
         ev["status"] = res.get("status")
         ev["exit"] = 0 if res.get("status") == "FIRST_BATCH_TRIAL_LOAD_PASS" else 3

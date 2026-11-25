@@ -1,0 +1,12 @@
+== ROUND 58 第二阶段终报（a03，17:53 UTC 盒内）：PASS ==
+全程只读零写；差异 0。
+①快照与恢复验证：deploy-recovery-phase2-20261125-174902.tgz sha 59617d83c6bd5831…全等声称；独立 tar xzf→9225 文件逐件 sha256 对 phase2-pre-manifest checked 9225/mismatch 0——回退能力实证。
+②接收核 4c2eb31：stage find=2175==git ls-tree -r 计数；关键四件 blob sha1（header 法）对 git rev-parse 4/4 OK（formal_first_batch 95de3464/fbl b625bba0/pe 64043c3d/contracts 3406a369）；phase2-reception.json git_verified 2175/bad[]/extra_preserved 7079/pre_files 9225 与实测集合差互洽；deploy 现件 formal_first_batch.py sha db77a8f3==git show 同法互等。
+③授权 face：after harv=true chgis=true、marker SELECT=t/UPDATE=f 不变、cbdb/cbdb_reh datacl (default)(default) 原样；before false,false 在账（R56/R54 亲测记录连续可比）。
+④COMMIT 后全量独立回读（生产 pg32b/xiangrugu）：总 47725；逐表 2957/40199/1033/29/3389/59/59；五文本 attr 475ea1d8/dcbedb5a/d233ed9c/b3f6ceb6/3bad44a0+两空间 N 重建 3519649f/a2ad2d24 全等；geom ff7081a0/3c606784 POINT/2D/4326；ST_AsEWKB 字节拼接自算 5262fe452df361ff×2 全等（各 1475B）；m008003 63/74；XY dup 0×2；rownum 连续；ncols 齐；owner==xiangrugu_loader DISTINCT 实测；marker 恰一行==pg32b Id 3d93fc77…不变。
+⑤real 证据读码：formal-real-ev.json status FIRST_BATCH_TRIAL_LOAD_PASS exit0/approval 88f4f1ac pinned True/txn single committed true total 47725/probe xiangrugu|5432|172.29.0.2/pvb 46 件 mismatch0 contracts_py 94a1e564/current_user==role/gates[0] single_formal_parse_drives_load。活体反例加验：--real 缺审批→APPROVAL_FILE_MISSING exit2、篡改原文(+tamper)→APPROVAL_SHA_MISMATCH（算得 56268c24≠钉死）exit2，拒于连接前（生产七表当时仍 0 时跑，未触库面）。
+⑥四不动：源件只读（命令内 assert sha 链）；pg32 healthy RestartCount 0；cbdb 90 表/cbdb_reh 81 表原样（sentinel 哨兵表为历次隔离试装夹具，生产旧库本无此表——按表计数+ACL 双 face 核未动，如实录）；镜像/dev StartedAt 13:43:10Z RestartCount 0 不变；deploy ef9b4bc5 冻结合同不变。
+判定 PASS——首批七表正式装载已由独立复核确认落库一致。首个剩余缺口：IMPORT-PACKAGE-TODO 后续块（7995 未覆盖处置/其余批次），与本批边界无关。a03 临时件（host /tmp/a03r58*、pg32b:/tmp/m.sql·f.sql、workspace .a03-evidence-20261124/r58*）交报后自清。
+
+== lead 收口（17:54 UTC）==
+R58 PASS 在账。第二批提交（a03 记录+收口）后分支头见 ls-remote。无差异停报条款未触发；未删表/覆盖/重跑。ready_for_import=false 全量保持；7995 未覆盖保持。

@@ -1,0 +1,600 @@
+{
+ "approved": {
+  "columns": [
+   {
+    "allow_null_value": false,
+    "column_key": "8611be4191be6d740a58c4b6f4f872f30a8b004f8165268e93f5e5b6caca60a2",
+    "pg_type": "bigint",
+    "source_ordinal": 0
+   },
+   {
+    "allow_null_value": false,
+    "column_key": "79ef189ee64657af916fa4c981d5b4a72b63f94ef340001abf60d3c4e0c9e85a",
+    "pg_type": "bigint",
+    "source_ordinal": 1
+   },
+   {
+    "allow_null_value": false,
+    "column_key": "28462a548d0302919350de6d6ae66c2fc9cc71fada7370b192ff41b9ae054da4",
+    "pg_type": "bigint",
+    "source_ordinal": 2
+   },
+   {
+    "allow_null_value": true,
+    "column_key": "429108f89e2ab6226397c5a180af08d03818719779b67ce9629048b326f9b437",
+    "pg_type": "bigint",
+    "source_ordinal": 3
+   },
+   {
+    "allow_null_value": true,
+    "column_key": "7741dc123614e56255517024d40b5ea82bfe03fb6818aec87f5ffa3b1126259d",
+    "pg_type": "bigint",
+    "source_ordinal": 4
+   },
+   {
+    "allow_null_value": false,
+    "column_key": "26ec69e6d968ccc07fd1748d14ee5ef0a40a46c63d454d83d570a49d174d8b72",
+    "pg_type": "bigint",
+    "source_ordinal": 5
+   },
+   {
+    "allow_null_value": false,
+    "column_key": "ab37a5d7fefbf1cd7cdb9a514654b7616a6d5e95a48d1c111115b9fb0e4e01ff",
+    "pg_type": "double precision",
+    "source_ordinal": 6
+   },
+   {
+    "allow_null_value": false,
+    "column_key": "1907d925ee8337d710ddd0518c8003d13ad576863c59b1d887c867c5aa1e3721",
+    "pg_type": "double precision",
+    "source_ordinal": 7
+   },
+   {
+    "allow_null_value": true,
+    "column_key": "099afc0e43b932e0d0695599c35c7009f6902c221a6e294589db23621e1b0fe5",
+    "pg_type": "bigint",
+    "source_ordinal": 8
+   },
+   {
+    "allow_null_value": true,
+    "column_key": "36e66effde25baaa43bdb3ec65be152d8d83ed3f1faf9ae271a57f6bc5ed3f54",
+    "pg_type": "text",
+    "source_ordinal": 9
+   },
+   {
+    "allow_null_value": true,
+    "column_key": "3218e753b0eaff528af25b69b2357cbe401f00b125741e04f88a91b9bae82f00",
+    "pg_type": "text",
+    "source_ordinal": 10
+   }
+  ],
+  "previous_observed_rows": 3859,
+  "schema_hash": "1f88cd8039ae3dbdc411864c52d5bbb1aa5dc20c59ff61dabf8b709f7382d1f9",
+  "source_columns": [
+   "c_inst_name_code",
+   "c_inst_code",
+   "c_inst_addr_type_code",
+   "c_inst_addr_begin_year",
+   "c_inst_addr_end_year",
+   "c_inst_addr_id",
+   "inst_xcoord",
+   "inst_ycoord",
+   "c_source",
+   "c_pages",
+   "c_notes"
+  ],
+  "source_object_id": "3cf1a3286982ab392f3f0bed1a0dcc723f3a04205be610a6ec992ae66047c6cf",
+  "source_object_name": "SOCIAL_INSTITUTION_ADDR"
+ },
+ "expected": {
+  "cleanup_complete": true,
+  "contract_frozen": false,
+  "expected_count": 3859,
+  "expected_sha256": "2cb8c354b0e75e6ae230e3b00540146e823eaa8de8def2abce89ad6179a07579",
+  "field_count": 42449,
+  "format": "sqlite-unordered-values-v1",
+  "postgresql_connected": false,
+  "read_limits": {
+   "max_cell_bytes": 1048576,
+   "max_cells": 50000,
+   "max_columns": 19,
+   "max_file_bytes": 1073741824,
+   "max_rows": 4000,
+   "max_seconds": 300,
+   "max_value_bytes": 8388608,
+   "max_vm_steps": 20000000
+  },
+  "ready_for_import": false,
+  "schema_hash": "1f88cd8039ae3dbdc411864c52d5bbb1aa5dc20c59ff61dabf8b709f7382d1f9",
+  "sort_limits": {
+   "chunk_bytes": 2097152,
+   "chunk_rows": 4096,
+   "max_columns": 19,
+   "max_differences": 100,
+   "max_field_bytes": 1048576,
+   "max_row_bytes": 1048576,
+   "max_rows": 4000,
+   "max_seconds": 300,
+   "max_stream_bytes": 8388608,
+   "max_temp_bytes": 67108864,
+   "max_temp_files": 1024,
+   "merge_fan_in": 16,
+   "workers": 1
+  },
+  "sort_stats": {
+   "elapsed_seconds": 3.566997291000007,
+   "peak_chunk_bytes": 45896,
+   "peak_chunk_rows": 279,
+   "peak_temp_bytes": 1260184,
+   "peak_temp_files": 17
+  },
+  "source_object_id": "3cf1a3286982ab392f3f0bed1a0dcc723f3a04205be610a6ec992ae66047c6cf",
+  "source_object_name": "SOCIAL_INSTITUTION_ADDR",
+  "source_read": {
+   "cells_read": 42449,
+   "complete": true,
+   "error_code": null,
+   "postgresql_connected": false,
+   "rows_read": 3859,
+   "source_sha256_after": "bde1bb8eece3820d9e236c1d6b0f07d847d339669d4a85d79cd7252d58d83400",
+   "source_sha256_before": "bde1bb8eece3820d9e236c1d6b0f07d847d339669d4a85d79cd7252d58d83400",
+   "value_bytes": 484420
+  },
+  "status": "DRAFT_SOURCE_EXPECTATION",
+  "stream_bytes": 630173,
+  "version": 1
+ },
+ "mapping": [
+  {
+   "confirmation_basis": {
+    "files": [
+     {
+      "path": "datamgmt/contracts/releases/2026-10-06-bootstrap/sqlite-types-approved.draft.json",
+      "sha256": "f4e9c753f0cfacf08dc8309a7f5b78a59916eb3c85ea2dda4fc832aba7fc76ad"
+     },
+     {
+      "path": "datamgmt/contracts/releases/2026-10-06-bootstrap/sqlite-type-decisions.draft.json",
+      "sha256": "4f1bab33da75ae83cd54568ad407d6f90632de746bbab58baf5bea92d09440fa"
+     },
+     {
+      "path": "datamgmt/contracts/releases/2026-10-06-bootstrap/sqlite-unobserved-type-proposal.draft.json",
+      "sha256": "6e02cfdd8267accb5939f3f24f4b39de699006d5e5096ac5bedeeedf06142752"
+     },
+     {
+      "path": "datamgmt/contracts/releases/2026-10-06-bootstrap/sqlite-target-mapping-proposal.draft.json",
+      "sha256": "297b7c766baa40cc660f262e1ac433973d5d8bdde8c28eb2aca90733bfaec7d9"
+     }
+    ]
+   },
+   "confirmation_status": {
+    "basis_verified": true,
+    "type_mapping_approved_subbatch": true,
+    "whole_release_target_mapping_approved": false
+   },
+   "null_policy": {
+    "observed_null": false,
+    "policy": "source explicit nullability only; constraint execution NOT approved (nullability_constraints_approved=false)",
+    "source_notnull": 1,
+    "target_nullable_candidate": false
+   },
+   "source_name": "c_inst_name_code",
+   "source_ordinal": 0,
+   "source_type_declared": "bigint",
+   "table": "SOCIAL_INSTITUTION_ADDR",
+   "target_column": "c_u5f_inst_u5f_name_u5f_code",
+   "target_table": "cbdb__social_u5f_institution_u5f_addr",
+   "target_type": "bigint",
+   "type_basis": "OBSERVED_API_STORAGE_CLASS"
+  },
+  {
+   "confirmation_basis": {
+    "files": [
+     {
+      "path": "datamgmt/contracts/releases/2026-10-06-bootstrap/sqlite-types-approved.draft.json",
+      "sha256": "f4e9c753f0cfacf08dc8309a7f5b78a59916eb3c85ea2dda4fc832aba7fc76ad"
+     },
+     {
+      "path": "datamgmt/contracts/releases/2026-10-06-bootstrap/sqlite-type-decisions.draft.json",
+      "sha256": "4f1bab33da75ae83cd54568ad407d6f90632de746bbab58baf5bea92d09440fa"
+     },
+     {
+      "path": "datamgmt/contracts/releases/2026-10-06-bootstrap/sqlite-unobserved-type-proposal.draft.json",
+      "sha256": "6e02cfdd8267accb5939f3f24f4b39de699006d5e5096ac5bedeeedf06142752"
+     },
+     {
+      "path": "datamgmt/contracts/releases/2026-10-06-bootstrap/sqlite-target-mapping-proposal.draft.json",
+      "sha256": "297b7c766baa40cc660f262e1ac433973d5d8bdde8c28eb2aca90733bfaec7d9"
+     }
+    ]
+   },
+   "confirmation_status": {
+    "basis_verified": true,
+    "type_mapping_approved_subbatch": true,
+    "whole_release_target_mapping_approved": false
+   },
+   "null_policy": {
+    "observed_null": false,
+    "policy": "source explicit nullability only; constraint execution NOT approved (nullability_constraints_approved=false)",
+    "source_notnull": 1,
+    "target_nullable_candidate": false
+   },
+   "source_name": "c_inst_code",
+   "source_ordinal": 1,
+   "source_type_declared": "bigint",
+   "table": "SOCIAL_INSTITUTION_ADDR",
+   "target_column": "c_u5f_inst_u5f_code",
+   "target_table": "cbdb__social_u5f_institution_u5f_addr",
+   "target_type": "bigint",
+   "type_basis": "OBSERVED_API_STORAGE_CLASS"
+  },
+  {
+   "confirmation_basis": {
+    "files": [
+     {
+      "path": "datamgmt/contracts/releases/2026-10-06-bootstrap/sqlite-types-approved.draft.json",
+      "sha256": "f4e9c753f0cfacf08dc8309a7f5b78a59916eb3c85ea2dda4fc832aba7fc76ad"
+     },
+     {
+      "path": "datamgmt/contracts/releases/2026-10-06-bootstrap/sqlite-type-decisions.draft.json",
+      "sha256": "4f1bab33da75ae83cd54568ad407d6f90632de746bbab58baf5bea92d09440fa"
+     },
+     {
+      "path": "datamgmt/contracts/releases/2026-10-06-bootstrap/sqlite-unobserved-type-proposal.draft.json",
+      "sha256": "6e02cfdd8267accb5939f3f24f4b39de699006d5e5096ac5bedeeedf06142752"
+     },
+     {
+      "path": "datamgmt/contracts/releases/2026-10-06-bootstrap/sqlite-target-mapping-proposal.draft.json",
+      "sha256": "297b7c766baa40cc660f262e1ac433973d5d8bdde8c28eb2aca90733bfaec7d9"
+     }
+    ]
+   },
+   "confirmation_status": {
+    "basis_verified": true,
+    "type_mapping_approved_subbatch": true,
+    "whole_release_target_mapping_approved": false
+   },
+   "null_policy": {
+    "observed_null": false,
+    "policy": "source explicit nullability only; constraint execution NOT approved (nullability_constraints_approved=false)",
+    "source_notnull": 1,
+    "target_nullable_candidate": false
+   },
+   "source_name": "c_inst_addr_type_code",
+   "source_ordinal": 2,
+   "source_type_declared": "bigint",
+   "table": "SOCIAL_INSTITUTION_ADDR",
+   "target_column": "c_u5f_inst_u5f_addr_u5f_type_u5f_code",
+   "target_table": "cbdb__social_u5f_institution_u5f_addr",
+   "target_type": "bigint",
+   "type_basis": "OBSERVED_API_STORAGE_CLASS"
+  },
+  {
+   "confirmation_basis": {
+    "files": [
+     {
+      "path": "datamgmt/contracts/releases/2026-10-06-bootstrap/sqlite-types-approved.draft.json",
+      "sha256": "f4e9c753f0cfacf08dc8309a7f5b78a59916eb3c85ea2dda4fc832aba7fc76ad"
+     },
+     {
+      "path": "datamgmt/contracts/releases/2026-10-06-bootstrap/sqlite-type-decisions.draft.json",
+      "sha256": "4f1bab33da75ae83cd54568ad407d6f90632de746bbab58baf5bea92d09440fa"
+     },
+     {
+      "path": "datamgmt/contracts/releases/2026-10-06-bootstrap/sqlite-unobserved-type-proposal.draft.json",
+      "sha256": "6e02cfdd8267accb5939f3f24f4b39de699006d5e5096ac5bedeeedf06142752"
+     },
+     {
+      "path": "datamgmt/contracts/releases/2026-10-06-bootstrap/sqlite-target-mapping-proposal.draft.json",
+      "sha256": "297b7c766baa40cc660f262e1ac433973d5d8bdde8c28eb2aca90733bfaec7d9"
+     }
+    ]
+   },
+   "confirmation_status": {
+    "basis_verified": true,
+    "type_mapping_approved_subbatch": true,
+    "whole_release_target_mapping_approved": false
+   },
+   "null_policy": {
+    "observed_null": true,
+    "policy": "source explicit nullability only; constraint execution NOT approved (nullability_constraints_approved=false)",
+    "source_notnull": 0,
+    "target_nullable_candidate": true
+   },
+   "source_name": "c_inst_addr_begin_year",
+   "source_ordinal": 3,
+   "source_type_declared": "bigint",
+   "table": "SOCIAL_INSTITUTION_ADDR",
+   "target_column": "c_u5f_inst_u5f_addr_u5f_begin_u5f_year",
+   "target_table": "cbdb__social_u5f_institution_u5f_addr",
+   "target_type": "bigint",
+   "type_basis": "OBSERVED_API_STORAGE_CLASS"
+  },
+  {
+   "confirmation_basis": {
+    "files": [
+     {
+      "path": "datamgmt/contracts/releases/2026-10-06-bootstrap/sqlite-types-approved.draft.json",
+      "sha256": "f4e9c753f0cfacf08dc8309a7f5b78a59916eb3c85ea2dda4fc832aba7fc76ad"
+     },
+     {
+      "path": "datamgmt/contracts/releases/2026-10-06-bootstrap/sqlite-type-decisions.draft.json",
+      "sha256": "4f1bab33da75ae83cd54568ad407d6f90632de746bbab58baf5bea92d09440fa"
+     },
+     {
+      "path": "datamgmt/contracts/releases/2026-10-06-bootstrap/sqlite-unobserved-type-proposal.draft.json",
+      "sha256": "6e02cfdd8267accb5939f3f24f4b39de699006d5e5096ac5bedeeedf06142752"
+     },
+     {
+      "path": "datamgmt/contracts/releases/2026-10-06-bootstrap/sqlite-target-mapping-proposal.draft.json",
+      "sha256": "297b7c766baa40cc660f262e1ac433973d5d8bdde8c28eb2aca90733bfaec7d9"
+     }
+    ]
+   },
+   "confirmation_status": {
+    "basis_verified": true,
+    "type_mapping_approved_subbatch": true,
+    "whole_release_target_mapping_approved": false
+   },
+   "null_policy": {
+    "observed_null": true,
+    "policy": "source explicit nullability only; constraint execution NOT approved (nullability_constraints_approved=false)",
+    "source_notnull": 0,
+    "target_nullable_candidate": true
+   },
+   "source_name": "c_inst_addr_end_year",
+   "source_ordinal": 4,
+   "source_type_declared": "bigint",
+   "table": "SOCIAL_INSTITUTION_ADDR",
+   "target_column": "c_u5f_inst_u5f_addr_u5f_end_u5f_year",
+   "target_table": "cbdb__social_u5f_institution_u5f_addr",
+   "target_type": "bigint",
+   "type_basis": "OBSERVED_API_STORAGE_CLASS"
+  },
+  {
+   "confirmation_basis": {
+    "files": [
+     {
+      "path": "datamgmt/contracts/releases/2026-10-06-bootstrap/sqlite-types-approved.draft.json",
+      "sha256": "f4e9c753f0cfacf08dc8309a7f5b78a59916eb3c85ea2dda4fc832aba7fc76ad"
+     },
+     {
+      "path": "datamgmt/contracts/releases/2026-10-06-bootstrap/sqlite-type-decisions.draft.json",
+      "sha256": "4f1bab33da75ae83cd54568ad407d6f90632de746bbab58baf5bea92d09440fa"
+     },
+     {
+      "path": "datamgmt/contracts/releases/2026-10-06-bootstrap/sqlite-unobserved-type-proposal.draft.json",
+      "sha256": "6e02cfdd8267accb5939f3f24f4b39de699006d5e5096ac5bedeeedf06142752"
+     },
+     {
+      "path": "datamgmt/contracts/releases/2026-10-06-bootstrap/sqlite-target-mapping-proposal.draft.json",
+      "sha256": "297b7c766baa40cc660f262e1ac433973d5d8bdde8c28eb2aca90733bfaec7d9"
+     }
+    ]
+   },
+   "confirmation_status": {
+    "basis_verified": true,
+    "type_mapping_approved_subbatch": true,
+    "whole_release_target_mapping_approved": false
+   },
+   "null_policy": {
+    "observed_null": false,
+    "policy": "source explicit nullability only; constraint execution NOT approved (nullability_constraints_approved=false)",
+    "source_notnull": 1,
+    "target_nullable_candidate": false
+   },
+   "source_name": "c_inst_addr_id",
+   "source_ordinal": 5,
+   "source_type_declared": "bigint",
+   "table": "SOCIAL_INSTITUTION_ADDR",
+   "target_column": "c_u5f_inst_u5f_addr_u5f_id",
+   "target_table": "cbdb__social_u5f_institution_u5f_addr",
+   "target_type": "bigint",
+   "type_basis": "OBSERVED_API_STORAGE_CLASS"
+  },
+  {
+   "confirmation_basis": {
+    "files": [
+     {
+      "path": "datamgmt/contracts/releases/2026-10-06-bootstrap/sqlite-types-approved.draft.json",
+      "sha256": "f4e9c753f0cfacf08dc8309a7f5b78a59916eb3c85ea2dda4fc832aba7fc76ad"
+     },
+     {
+      "path": "datamgmt/contracts/releases/2026-10-06-bootstrap/sqlite-type-decisions.draft.json",
+      "sha256": "4f1bab33da75ae83cd54568ad407d6f90632de746bbab58baf5bea92d09440fa"
+     },
+     {
+      "path": "datamgmt/contracts/releases/2026-10-06-bootstrap/sqlite-unobserved-type-proposal.draft.json",
+      "sha256": "6e02cfdd8267accb5939f3f24f4b39de699006d5e5096ac5bedeeedf06142752"
+     },
+     {
+      "path": "datamgmt/contracts/releases/2026-10-06-bootstrap/sqlite-target-mapping-proposal.draft.json",
+      "sha256": "297b7c766baa40cc660f262e1ac433973d5d8bdde8c28eb2aca90733bfaec7d9"
+     }
+    ]
+   },
+   "confirmation_status": {
+    "basis_verified": true,
+    "type_mapping_approved_subbatch": true,
+    "whole_release_target_mapping_approved": false
+   },
+   "null_policy": {
+    "observed_null": false,
+    "policy": "source explicit nullability only; constraint execution NOT approved (nullability_constraints_approved=false)",
+    "source_notnull": 1,
+    "target_nullable_candidate": false
+   },
+   "source_name": "inst_xcoord",
+   "source_ordinal": 6,
+   "source_type_declared": "double precision",
+   "table": "SOCIAL_INSTITUTION_ADDR",
+   "target_column": "inst_u5f_xcoord",
+   "target_table": "cbdb__social_u5f_institution_u5f_addr",
+   "target_type": "double precision",
+   "type_basis": "OBSERVED_API_STORAGE_CLASS"
+  },
+  {
+   "confirmation_basis": {
+    "files": [
+     {
+      "path": "datamgmt/contracts/releases/2026-10-06-bootstrap/sqlite-types-approved.draft.json",
+      "sha256": "f4e9c753f0cfacf08dc8309a7f5b78a59916eb3c85ea2dda4fc832aba7fc76ad"
+     },
+     {
+      "path": "datamgmt/contracts/releases/2026-10-06-bootstrap/sqlite-type-decisions.draft.json",
+      "sha256": "4f1bab33da75ae83cd54568ad407d6f90632de746bbab58baf5bea92d09440fa"
+     },
+     {
+      "path": "datamgmt/contracts/releases/2026-10-06-bootstrap/sqlite-unobserved-type-proposal.draft.json",
+      "sha256": "6e02cfdd8267accb5939f3f24f4b39de699006d5e5096ac5bedeeedf06142752"
+     },
+     {
+      "path": "datamgmt/contracts/releases/2026-10-06-bootstrap/sqlite-target-mapping-proposal.draft.json",
+      "sha256": "297b7c766baa40cc660f262e1ac433973d5d8bdde8c28eb2aca90733bfaec7d9"
+     }
+    ]
+   },
+   "confirmation_status": {
+    "basis_verified": true,
+    "type_mapping_approved_subbatch": true,
+    "whole_release_target_mapping_approved": false
+   },
+   "null_policy": {
+    "observed_null": false,
+    "policy": "source explicit nullability only; constraint execution NOT approved (nullability_constraints_approved=false)",
+    "source_notnull": 1,
+    "target_nullable_candidate": false
+   },
+   "source_name": "inst_ycoord",
+   "source_ordinal": 7,
+   "source_type_declared": "double precision",
+   "table": "SOCIAL_INSTITUTION_ADDR",
+   "target_column": "inst_u5f_ycoord",
+   "target_table": "cbdb__social_u5f_institution_u5f_addr",
+   "target_type": "double precision",
+   "type_basis": "OBSERVED_API_STORAGE_CLASS"
+  },
+  {
+   "confirmation_basis": {
+    "files": [
+     {
+      "path": "datamgmt/contracts/releases/2026-10-06-bootstrap/sqlite-types-approved.draft.json",
+      "sha256": "f4e9c753f0cfacf08dc8309a7f5b78a59916eb3c85ea2dda4fc832aba7fc76ad"
+     },
+     {
+      "path": "datamgmt/contracts/releases/2026-10-06-bootstrap/sqlite-type-decisions.draft.json",
+      "sha256": "4f1bab33da75ae83cd54568ad407d6f90632de746bbab58baf5bea92d09440fa"
+     },
+     {
+      "path": "datamgmt/contracts/releases/2026-10-06-bootstrap/sqlite-unobserved-type-proposal.draft.json",
+      "sha256": "6e02cfdd8267accb5939f3f24f4b39de699006d5e5096ac5bedeeedf06142752"
+     },
+     {
+      "path": "datamgmt/contracts/releases/2026-10-06-bootstrap/sqlite-target-mapping-proposal.draft.json",
+      "sha256": "297b7c766baa40cc660f262e1ac433973d5d8bdde8c28eb2aca90733bfaec7d9"
+     }
+    ]
+   },
+   "confirmation_status": {
+    "basis_verified": true,
+    "type_mapping_approved_subbatch": true,
+    "whole_release_target_mapping_approved": false
+   },
+   "null_policy": {
+    "observed_null": true,
+    "policy": "source explicit nullability only; constraint execution NOT approved (nullability_constraints_approved=false)",
+    "source_notnull": 0,
+    "target_nullable_candidate": true
+   },
+   "source_name": "c_source",
+   "source_ordinal": 8,
+   "source_type_declared": "bigint",
+   "table": "SOCIAL_INSTITUTION_ADDR",
+   "target_column": "c_u5f_source",
+   "target_table": "cbdb__social_u5f_institution_u5f_addr",
+   "target_type": "bigint",
+   "type_basis": "OBSERVED_API_STORAGE_CLASS"
+  },
+  {
+   "confirmation_basis": {
+    "files": [
+     {
+      "path": "datamgmt/contracts/releases/2026-10-06-bootstrap/sqlite-types-approved.draft.json",
+      "sha256": "f4e9c753f0cfacf08dc8309a7f5b78a59916eb3c85ea2dda4fc832aba7fc76ad"
+     },
+     {
+      "path": "datamgmt/contracts/releases/2026-10-06-bootstrap/sqlite-type-decisions.draft.json",
+      "sha256": "4f1bab33da75ae83cd54568ad407d6f90632de746bbab58baf5bea92d09440fa"
+     },
+     {
+      "path": "datamgmt/contracts/releases/2026-10-06-bootstrap/sqlite-unobserved-type-proposal.draft.json",
+      "sha256": "6e02cfdd8267accb5939f3f24f4b39de699006d5e5096ac5bedeeedf06142752"
+     },
+     {
+      "path": "datamgmt/contracts/releases/2026-10-06-bootstrap/sqlite-target-mapping-proposal.draft.json",
+      "sha256": "297b7c766baa40cc660f262e1ac433973d5d8bdde8c28eb2aca90733bfaec7d9"
+     }
+    ]
+   },
+   "confirmation_status": {
+    "basis_verified": true,
+    "type_mapping_approved_subbatch": true,
+    "whole_release_target_mapping_approved": false
+   },
+   "null_policy": {
+    "observed_null": true,
+    "policy": "source explicit nullability only; constraint execution NOT approved (nullability_constraints_approved=false)",
+    "source_notnull": 0,
+    "target_nullable_candidate": true
+   },
+   "source_name": "c_pages",
+   "source_ordinal": 9,
+   "source_type_declared": "text",
+   "table": "SOCIAL_INSTITUTION_ADDR",
+   "target_column": "c_u5f_pages",
+   "target_table": "cbdb__social_u5f_institution_u5f_addr",
+   "target_type": "text",
+   "type_basis": "OBSERVED_API_STORAGE_CLASS"
+  },
+  {
+   "confirmation_basis": {
+    "files": [
+     {
+      "path": "datamgmt/contracts/releases/2026-10-06-bootstrap/sqlite-types-approved.draft.json",
+      "sha256": "f4e9c753f0cfacf08dc8309a7f5b78a59916eb3c85ea2dda4fc832aba7fc76ad"
+     },
+     {
+      "path": "datamgmt/contracts/releases/2026-10-06-bootstrap/sqlite-type-decisions.draft.json",
+      "sha256": "4f1bab33da75ae83cd54568ad407d6f90632de746bbab58baf5bea92d09440fa"
+     },
+     {
+      "path": "datamgmt/contracts/releases/2026-10-06-bootstrap/sqlite-unobserved-type-proposal.draft.json",
+      "sha256": "6e02cfdd8267accb5939f3f24f4b39de699006d5e5096ac5bedeeedf06142752"
+     },
+     {
+      "path": "datamgmt/contracts/releases/2026-10-06-bootstrap/sqlite-target-mapping-proposal.draft.json",
+      "sha256": "297b7c766baa40cc660f262e1ac433973d5d8bdde8c28eb2aca90733bfaec7d9"
+     }
+    ]
+   },
+   "confirmation_status": {
+    "basis_verified": true,
+    "type_mapping_approved_subbatch": true,
+    "whole_release_target_mapping_approved": false
+   },
+   "null_policy": {
+    "observed_null": true,
+    "policy": "source explicit nullability only; constraint execution NOT approved (nullability_constraints_approved=false)",
+    "source_notnull": 0,
+    "target_nullable_candidate": true
+   },
+   "source_name": "c_notes",
+   "source_ordinal": 10,
+   "source_type_declared": "text",
+   "table": "SOCIAL_INSTITUTION_ADDR",
+   "target_column": "c_u5f_notes",
+   "target_table": "cbdb__social_u5f_institution_u5f_addr",
+   "target_type": "text",
+   "type_basis": "OBSERVED_API_STORAGE_CLASS"
+  }
+ ]
+}

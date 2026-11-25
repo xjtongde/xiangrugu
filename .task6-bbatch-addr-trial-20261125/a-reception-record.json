@@ -1,0 +1,43 @@
+{
+ "added_rules": 14,
+ "added_zero_business_targets": true,
+ "byte_equal_to_git": [
+  "abatch-frozen-candidate.json",
+  "writeoff-result.json",
+  "nul-evidence.json",
+  "chgis-evidence.json",
+  "writeoff-call-report.json",
+  "load-entry-check.json",
+  "freeze-delta-report.json",
+  "uncovered-members.txt"
+ ],
+ "candidate_file_sha256": "95eb741cd31e41ca56cd8676a923d663f08a8865a04205ac0c3c5b62714ae43a",
+ "contract_canonical_sha256": "fa28a878f48fed506700cbaaf91c6a8ee45bdc28e9fef05904b3c56f4c61929e",
+ "contract_rules_total": 23,
+ "deploy_recovery_snapshot": {
+  "path": "/opt/mydocker/xiangrugu/reception-20261125/deploy-recovery-phase2-20261125-174902.tgz",
+  "sha256": "59617d83c6bd583128d99ee3e5539d12d148bcc38ad20a643783180c09a78a73",
+  "verified_before_reception": true
+ },
+ "exceptions_unchanged": true,
+ "first_batch_loader_scope_uncovered_gate_unchanged": 7995,
+ "full_ready_for_import": false,
+ "incoming_tar_bytes": 593920,
+ "incoming_tar_sha256": "3b2e8e8514fc453c1ba29b0106e3976c628250a08886629a669a083f5dd8fa40",
+ "inventory_sha256": "fb5e6b334b898d62dc0e5c77094fdb50e0946300e6e3009f447b2ecd1bc216db",
+ "note": "first-batch production scope gate (7995) belongs to the accepted seven-table batch and is unchanged; project-level current uncovered is 7981 because 14 A-batch rules are now received. ready_for_import remains false.",
+ "original_9_rules_unchanged": true,
+ "production_write": false,
+ "received_at": "2026-11-25T19:02:00Z",
+ "reception": "A_BATCH_CONTROLLED_RECEPTION",
+ "source": {
+  "branch": "dsh/p01-real-prep-20261113",
+  "channel": "Gitea",
+  "commit": "e1cded98a23b2e0b310a6f378e71bdfdc8949694",
+  "tree_path": ".task6-abatch-freeze-20261125"
+ },
+ "uncovered_members_before": 7995,
+ "uncovered_members_current": 7981,
+ "verified_files": 13,
+ "version": 1
+}

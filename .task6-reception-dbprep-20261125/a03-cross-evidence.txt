@@ -1,0 +1,10 @@
+== ROUND 54 终报（a03，15:02 UTC 盒内）：PASS ==
+全程 pg32b 只 SELECT/psql -f 只读通道，未触 cbdb/cbdb_reh 写面、未触 pg32。
+①接收版本核：deploy vs e1de476 47/47 changed 路径全存在 git blob sha1（header 法）mismatch=0；post/pre manifest comm 差 +47/-0 与 git diff f546783..e1de476 PATHSETS_EQUAL；抽查 first_batch_loader 4471cc43==/prereq_check 6df43386==（host sha256sum vs git show|sha256sum 双口径）；冻结合同 ef9b4bc5 不变在位；post-manifest sha 03da3211 自算==、9225 行、9178→9225 自洽；blob-binding 47/47+2146/2146 bad=[]。
+②R1 可恢复性独立解包重验：R1.tgz sha 2935ce3acc90bbe2 自算==、10369 条目；独立 tar xzf /tmp/a03-r1check→find 9178→逐件 sha256 对 pre-manifest checked 9178/mismatch 0——可验证回退成立（非纸面）。
+③同会话只读先决检查自跑：带外 docker inspect pg32b Id 全号 3d93fc7741f66f1f01aa250b25c4959addfe4c84df22ecbd0d0f82c13920c1fc（Ports 0.0.0.0:5433->5432/tcp 自核 5433==pg32b）；deploy prereq_check.py exit 0 六查全 true；负例错指纹 exit 2/错库 cbdb exit 2；marker 恰一行值==Id。
+④七业务表不存在+净面：to_regclass SEVEN_EXIST 0；pg_tables(harv,chgis,public)=仅 spatial_ref_sys+xrg_instance_marker（PostGIS 先决自带+标记）无他物；xiangrugu_loader canlogin=false grants 仅 SELECT（A6 一致）；SCHEMAS chgis,harv POSTGIS 1。
+⑤旧库与服务：cbdb/cbdb_reh 仍在库面（before/after 与实测 DBS 串逐字一致）表计数 90/81 只读观察未动；dev StartedAt 13:43:10.665Z RestartCount 0 不变；pg32/pg32b healthy Up About an hour 无重启；镜像未改。
+⑥runbook 校准一致性：A5 四态码与 production_entry.py L152-160 逐码一致；A6 角色只读与实测一致；F 节入口签名与代码一致；检查器实跑记录与自跑一致。
+判定 PASS。首个剩余缺口：首批七表装载另批（business_tables_created=0/copy_executed=false 实证）+真实首批写库批准事件仍待。a03 临时件自清（host /tmp/a03r54*、/tmp/a03-r1check、pg32b:/tmp/a03r54chk.sql·a03r54t.sql）。
+ROUND 54 PASS。

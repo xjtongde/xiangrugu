@@ -22,3 +22,7 @@ ready_for_import=false/7995 保持；M=2 不提交不触碰；镜像/服务未�
 
 ## 首个剩余缺口
 首批七表装载授权事件（独立写库批准 approval_class=real+real_authority_ref，绑七目标）另批；其后按校准 runbook 执行。
+
+## a03 复核收口
+- **R54 终报 PASS（15:02 UTC 盒内）**：接收 47/47 blob 逐字节+PATHSETS_EQUAL；**R1 独立解包重验 9178/0 mismatch**；先决检查自跑 exit 0+双负例 exit 2；marker 恰一行==独立核实 Id；七业务表 0+库净面（仅 spatial_ref_sys+marker）；loader 角色 NOLOGIN 仅 SELECT；旧库表计数 90/81 只读未动；服务无重启镜像未改；runbook A5/A6/F 逐码一致。
+- 本盒无试装容器（目标库准备为批准持久态）；a03 临时件自清在案。

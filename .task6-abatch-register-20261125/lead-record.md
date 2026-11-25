@@ -16,9 +16,13 @@
 - 候选恰 14；**合同 ba8118fb/清单 fb5e6b33 容器正式重算不变**；实际未覆盖仍 **7995**（候选 CANDIDATE_NOT_ADOPTED 未接入）；**接入后预计 7981（8004−23）单列**。
 
 ## 4. B 批最小可装载候选（只划界不装载）
-- **m007906 cbdb_20260919.sqlite3**（586268672B bde1bb8e…）：**78 已验证表组**（2026-10-09 sqlite-structure+sqlite-types 双证据，catalog/详情/表元数据完整，sqlite 3.40.1）；**business_rows_read=0/values_verified=false/import_approved=false**。
-- 源侧期望：结构/类型目录已验，业务值期望未生成未批准。缺失批准：独立值读取器/列编码目标映射/源侧值期望/新冻结合同/新写库授权原文（88f4f1ac 不可复用）/Codex 放行。
+- **m007906 cbdb_20260919.sqlite3**（**586485760B bde1bb8e…83400，权威账值**）：**structure 全目录 78 表组**（78 表/736 列/76 索引，catalog 完整，sqlite 3.40.1）+ **types 3 表 canary 子集**（⊂78，type_mapping_approved=false/value_contract_approved=false）；**business_rows_read=0/values_verified=false/import_approved=false**。
+- 源侧期望：structure 全目录已验+types 3 表 canary 观察，业务值期望未生成未批准。缺失批准：独立值读取器/列编码目标映射/源侧值期望/新冻结合同/新写库授权原文（88f4f1ac 不可复用）/Codex 放行。
 - **首个阻断：业务值读取未实施未批准，结构证据不构成装载授权**。m007905 json 伴生件另裁不入清单。
 
 ## 首个剩余缺口
 候选 14 件接入正式账需新合同冻结授权（本盒不冻结）；B 批首个阻断=CBDB 业务值读取未批准。
+
+
+## 修正披露（a03 R60 PARTIAL 抓出）
+- 首版 B 清单 m007906 sha/size 誊抄笔误（…8340a/586268672）→已按 inventory+ledger 权威值修正（…83400/586485760）；"双证据 78 表组"措辞降为"structure 全目录+types 3 表 canary"；verified_faces 注出处字段名。A 批 14 件落账面 a03 全 PASS 不受影响。

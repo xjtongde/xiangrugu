@@ -3,16 +3,42 @@
  "full_ready_for_import": false,
  "minimal_loadable_candidates": [
   {
+   "evidence_scope_correction": "78 表组完整目录（78 tables/736 columns/76 indexes）仅出自 structure 证据；types 证据为 3 表 canary 子集（⊂78），非全量双证据",
    "existing_evidence": {
     "structure": "docs/superpowers/evidence/2026-10-09-sqlite-structure/sqlite-structure-observation.draft.json",
+    "structure_faces": {
+     "all_object_details_complete_top_level": true,
+     "business_rows_read": 0,
+     "catalog_complete": true,
+     "columns": 736,
+     "import_approved": false,
+     "indexes": 76,
+     "per_object_detail_status": "TABLE_METADATA_OBSERVED",
+     "sqlite_version": "3.40.1",
+     "tables": 78,
+     "values_verified": false
+    },
     "structure_sha256": "f29f8e138192ccf05ccc53e6175ae246fb6da19f1a90184e72000d61e2291b40",
     "types": "docs/superpowers/evidence/2026-10-09-sqlite-types/sqlite-types-observation.draft.json",
+    "types_faces": {
+     "scope": "SELECTED_TABLES_PROFILED（3 表 canary，非 78 表全量）",
+     "selected_tables": [
+      "ADDR_CODES",
+      "SOCIAL_INSTITUTION_ALTNAME_CODES",
+      "SOCIAL_INSTITUTION_ALTNAME_DATA"
+     ],
+     "selected_tables_subset_of_78": true,
+     "status": "DRAFT_SELECTED_TABLE_TYPE_PROFILE",
+     "type_mapping_approved": false,
+     "value_contract_approved": false
+    },
     "types_sha256": "8298fbbc97c2272c6e79f0dd4aac3cd4930bc6c9fbe3991148d84c4311059635",
     "verified_faces": {
      "all_object_details_complete": true,
      "business_rows_read": 0,
      "catalog_complete": true,
      "import_approved": false,
+     "source_note": "键名出自 structure observation 顶层字段；逐对象 detail_status=TABLE_METADATA_OBSERVED；types 面另见 types_faces",
      "sqlite_version": "3.40.1",
      "table_metadata_complete": true,
      "values_verified": false
@@ -29,10 +55,11 @@
     "Codex 独立验收放行"
    ],
    "relative_path": "harvard/cbdb/cbdb_20260919.sqlite3",
-   "sha256": "bde1bb8eece3820d9e236c1d6b0f07d847d339669d4a85d79cd7252d58d8340a",
+   "sha256": "bde1bb8eece3820d9e236c1d6b0f07d847d339669d4a85d79cd7252d58d83400",
+   "sha_size_authority": "inventory.json + disposition-ledger-after-selector-fix.json m007906（本盒修正：首版誊抄笔误 …8340a/586268672 已废）",
    "sidecar_note": "m007905 cbdb_20260919.json（385B）为伴生元数据件，处置另裁，不入最小装载清单",
-   "size": 586268672,
-   "source_side_expectations": "结构/类型目录已验（78 表组 catalog+columns+indexes+foreign_keys 完整）；业务值期望未生成未批准",
+   "size": 586485760,
+   "source_side_expectations": "structure 全目录已验（78 表/736 列/76 索引）+ types 3 表 canary 子集观察；业务值期望未生成未批准（type_mapping_approved=false/value_contract_approved=false）",
    "verified_table_groups": [
     "ADDR_BELONGS_DATA",
     "ADDR_CODES",

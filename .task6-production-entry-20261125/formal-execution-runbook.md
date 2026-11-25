@@ -36,3 +36,22 @@
 - **正式入口**：`xiangrugu_datamgmt.production_entry.run_production_load(session, scope, contract, payloads, expected, artifacts, contract_parse_fn)`（单次正式解析驱动；证据恰 NUL+CHGIS；标记四态；同会话身份）。
 - **先决检查器实际运行**：deploy 受控件 `.task6-production-entry-20261125/prereq_check.py pg32b xiangrugu <pg32b Id>` → 六查全 True exit 0（2026-11-25 14:59 UTC）。
 - **目标库准备已执行**（本盒授权）：xiangrugu 新建 + PostGIS + harv/chgis + marker 恰一行（值=pg32b Id 3d93fc7741f6…）+ xiangrugu_loader 只读标记。**七业务表未建、COPY 未执行**——首批装载另批。
+
+## G. 端口分离与装载角色校准（R55 补正，2026-11-25）
+### G1. 外部端点 vs 会话内端口（分开验证）
+- **外部端点**：pg32b:**5433**/xiangrugu（docker ports `0.0.0.0:5433->5432/tcp` 独立核实）；**会话内端口恒 5432**。
+- scope 声明 `target_endpoint.internal_port=5432` + `endpoint_mapping_verified`（docker port 输出+inspect Id）；expected 携 `endpoint_mapping{external_port,internal_port,container_id,verified}`。
+- 入口门：会话 port==internal_port（错→wrong_internal_port）；映射三方一致（错→endpoint_mapping_mismatch）；均 BEGIN 前拒。旧版拿会话 port 比外部 5433 会拒正确目标——已废。
+- 隔离复现路径：临时容器 `-p 127.0.0.1::<ephemeral>:5432`（loopback 发布）；客户端容器 `--network host` 走外部端口，会话内见 5432。
+### G2. NOLOGIN 装载角色实际切换路径与最小权限
+- **切换路径**：NOLOGIN 不可直连（本地 trust 通道实测 `FATAL: role "xiangrugu_loader" is not permitted to log in`；外部 host 通道先经密码认证）。实际路径=postgres（或成员）连接后 `SET ROLE xiangrugu_loader`；PsqlSession(role=…) 自动执行；current_user 实测==角色。
+- **最小权限清单**（隔离实证）：`CREATE ROLE xiangrugu_loader NOLOGIN`；`GRANT USAGE, CREATE ON SCHEMA harv, chgis`；`GRANT USAGE ON SCHEMA public`；`GRANT SELECT ON public.xrg_instance_marker`。
+- **实证能力**：角色下 CREATE+COPY 七表成功（tableowner==xiangrugu_loader，47725 行）；读标记 ✓。
+- **实证拒绝**：marker UPDATE/INSERT/DELETE → permission denied（has_table_privilege SELECT,UPDATE=true,false）；CREATE EXTENSION → 拒（无数据库 CREATE 权限）；`has_database_privilege(角色,cbdb/cbdb_reh,CONNECT)=false`（隔离演示 REVOKE CONNECT FROM PUBLIC；**生产授权本盒未动，正式 REVOKE 另批**）。
+### G3. 实际调用命令（隔离试装实录）
+```
+docker run --rm -i --network host -e PGPASSWORD=<trial> pg32b-full:18-pgdg \
+  psql -h 127.0.0.1 -p <external> -U postgres -d xiangrugu -X -q -t --csv -v ON_ERROR_STOP=1
+# 会话内：SET ROLE xiangrugu_loader;  （随后同一会话 BEGIN…COMMIT）
+```
+正式执行时外部端点换 pg32b:5433（映射独立核实），角色切换同路径；写权限随首批写库批准另授。

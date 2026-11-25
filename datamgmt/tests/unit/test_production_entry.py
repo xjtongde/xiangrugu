@@ -53,7 +53,9 @@ def _pscope(contract):
                                 "approval_ref": "test-only-not-a-real-write-approval@16f94a6",
                                 "approval_class": "test",
                                 "bound_object_rule_ids": sorted(fbl.FIRST_BATCH_RULES)},
-            "target_endpoint": {"dbname": "xiangrugu", "port": 5432, "container_id": FP, "test_only": True},
+            "target_endpoint": {"dbname": "xiangrugu", "port": 15433, "internal_port": 5432,
+                                 "container_id": FP, "test_only": True},
+            "endpoint_mapping_verified": "docker ports 127.0.0.1:15433->5432/tcp (isolated test)",
             "instance_fingerprint": FP,
             "contract_sha256": "c" * 64, "inventory_sha256": INV_SHA,
             "writeoff_evidence_sha256": dict(EV_SHAS),
@@ -68,6 +70,7 @@ def _pexpected(contract):
     exp["inventory_sha256"] = INV_SHA
     exp["evidence_shas"] = dict(EV_SHAS)
     exp["instance_fingerprint"] = FP
+    exp["endpoint_mapping"] = {"external_port": 15433, "internal_port": 5432, "container_id": FP, "verified": True}
     return exp
 
 
@@ -116,12 +119,40 @@ def test_wrong_database_refused():
     assert e.value.code == "wrong_database" and s.begins == 0
 
 
-def test_wrong_port_refused():
+def test_wrong_internal_port_refused():
     contract = _contract()
     s = ProdFake(contract, port="5433")
     with pytest.raises(fbl.LoaderGateError) as e:
         _run(s, contract)
-    assert e.value.code == "wrong_port" and s.begins == 0
+    assert e.value.code == "wrong_internal_port" and s.begins == 0
+
+
+def test_external_mapping_mismatch_refused():
+    contract = _contract()
+    exp = _pexpected(contract)
+    exp["endpoint_mapping"]["external_port"] = 9999
+    s = ProdFake(contract)
+    with pytest.raises(fbl.LoaderGateError) as e:
+        _run(s, contract, expected=exp)
+    assert e.value.code == "endpoint_mapping_mismatch" and s.begins == 0
+
+
+def test_internal_port_not_declared_refused():
+    contract = _contract()
+    scope = _pscope(contract)
+    del scope["target_endpoint"]["internal_port"]
+    with pytest.raises(fbl.LoaderGateError) as e:
+        _run(ProdFake(contract), contract, scope)
+    assert e.value.code == "internal_port_not_declared_5432"
+
+
+def test_mapping_not_verified_refused():
+    contract = _contract()
+    scope = _pscope(contract)
+    scope["endpoint_mapping_verified"] = ""
+    with pytest.raises(fbl.LoaderGateError) as e:
+        _run(ProdFake(contract), contract, scope)
+    assert e.value.code == "endpoint_mapping_not_verified"
 
 
 def test_marker_table_missing_refused():
@@ -261,7 +292,7 @@ def test_approval_not_bound_to_seven_refused():
 def test_test_approval_cannot_target_production_endpoint():
     contract = _contract()
     scope = _pscope(contract)
-    scope["target_endpoint"] = {"host": "pg32b", "port": 5433, "dbname": "xiangrugu",
+    scope["target_endpoint"] = {"host": "pg32b", "port": 5433, "internal_port": 5432, "dbname": "xiangrugu",
                                  "test_only": True, "container_id": FP}
     with pytest.raises(fbl.LoaderGateError) as e:
         _run(ProdFake(contract), contract, scope)
@@ -275,7 +306,7 @@ def test_real_approval_requires_formal_target_and_authority():
     with pytest.raises(fbl.LoaderGateError) as e:
         _run(ProdFake(contract), contract, scope)
     assert e.value.code == "real_approval_target_not_pg32b_xiangrugu"
-    scope["target_endpoint"] = dict(pe.PRODUCTION_TARGET)
+    scope["target_endpoint"] = dict(pe.PRODUCTION_TARGET, internal_port=5432)
     with pytest.raises(fbl.LoaderGateError) as e:
         _run(ProdFake(contract), contract, scope)
     assert e.value.code == "real_authority_ref_missing"

@@ -1,6 +1,7 @@
 {
  "contract_sha256": "ba8118fb5188478c7a891c37a0ae9d84687910c472946fe44709f3533843bd62",
  "distinction": "本轮 test 审批≠真实写库批准；全量 ready_for_import=false 保持，7995 未覆盖不动；本盒不连生产 PG 不写正式库",
+ "endpoint_mapping_verified": "RUNTIME: docker port <container> 5432/tcp + docker inspect Id (driver fills)",
  "full_ready_for_import": false,
  "identity_policy": "正向身份证明：cbdb/cbdb_reh 可见时正确目标仍通过；标记缺失/不符/错库/错端口→写入前拒",
  "instance_fingerprint": "RUNTIME_VERIFIED_BY_DRIVER",
@@ -55,11 +56,13 @@
   "port": 5433
  },
  "real_run_requires": "独立首批写库批准事件(approval_class=real+real_authority_ref)+runbook 先决+正式端点 pg32b:5433/xiangrugu",
- "scope_id": "first-batch-seven-production-candidate-r52-20261125",
+ "scope_id": "r55-port-role-correction",
  "target_endpoint": {
   "container_id": "RUNTIME_VERIFIED_BY_DRIVER",
   "dbname": "xiangrugu",
-  "port": 5432,
+  "host": "pg32b",
+  "internal_port": 5432,
+  "port": 5433,
   "test_only": true
  },
  "uncovered_members": 7995,

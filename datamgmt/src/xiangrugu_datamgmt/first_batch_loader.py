@@ -248,7 +248,7 @@ def _load_and_verify(session, contract, payloads, expected, create_prerequisites
 class PsqlSession:
     """Persistent single psql coprocess; sentinel protocol keeps one transaction."""
 
-    def __init__(self, cmd_prefix):
+    def __init__(self, cmd_prefix, role=None):
         self._p = subprocess.Popen(cmd_prefix + ["-X", "-q", "-t", "--csv", "-v", "ON_ERROR_STOP=1"],
                                    stdin=subprocess.PIPE, stdout=subprocess.PIPE,
                                    stderr=subprocess.PIPE, text=True, bufsize=1)
@@ -256,6 +256,8 @@ class PsqlSession:
         self._err = []
         self._t = threading.Thread(target=self._drain, daemon=True)
         self._t.start()
+        if role:
+            self.execute(f'SET ROLE "{role}"')
 
     def _drain(self):
         for line in self._p.stderr:

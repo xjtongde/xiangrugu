@@ -35,6 +35,7 @@ from .inventory import ChecksumAssertion, InventoryEntry, InventoryIssue, Invent
 LoaderGateError = fbl.LoaderGateError
 
 PRODUCTION_TARGET = {"host": "pg32b", "port": 5433, "dbname": "xiangrugu"}
+PRODUCTION_INTERNAL_PORT = 5432
 PREREQUISITES = [
     "database xiangrugu exists on pg32b:5433 (CREATE DATABASE — separate authorization, not a loader action)",
     "CREATE EXTENSION postgis in database xiangrugu (prerequisite, not a loader action)",
@@ -99,6 +100,10 @@ def validate_production_scope(scope, presented):
     if sorted(wa.get("bound_object_rule_ids", [])) != sorted(FIRST_BATCH_RULES):
         raise LoaderGateError("write_approval_not_bound_to_seven_targets")
     endpoint = scope.get("target_endpoint") or {}
+    if endpoint.get("internal_port") != PRODUCTION_INTERNAL_PORT:
+        raise LoaderGateError("internal_port_not_declared_5432")
+    if not scope.get("endpoint_mapping_verified"):
+        raise LoaderGateError("endpoint_mapping_not_verified")
     if wa["approval_class"] == "real":
         if endpoint.get("host") != PRODUCTION_TARGET["host"] or endpoint.get("port") != PRODUCTION_TARGET["port"] \
                 or endpoint.get("dbname") != PRODUCTION_TARGET["dbname"]:
@@ -142,8 +147,14 @@ def verify_target_in_session(session, scope, expected):
     endpoint = scope["target_endpoint"]
     if dbname != endpoint.get("dbname"):
         raise LoaderGateError("wrong_database", dbname)
-    if port != str(endpoint.get("port")):
-        raise LoaderGateError("wrong_port", port)
+    if port != str(endpoint.get("internal_port")):
+        raise LoaderGateError("wrong_internal_port", port)
+    mapping = expected.get("endpoint_mapping") or {}
+    if mapping.get("internal_port") != int(port) or mapping.get("external_port") != endpoint.get("port") \
+            or mapping.get("verified") is not True:
+        raise LoaderGateError("endpoint_mapping_mismatch")
+    if endpoint.get("container_id") and mapping.get("container_id") != endpoint.get("container_id"):
+        raise LoaderGateError("endpoint_mapping_mismatch", "container binding")
     if not version.startswith("18"):
         raise LoaderGateError("server_version_mismatch", version)
     # Positive identity: legacy cbdb/cbdb_reh visibility is allowed; the marker proves the instance.

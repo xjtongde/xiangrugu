@@ -1,0 +1,21 @@
+== ROUND 62 终报（a03，19:12 UTC 盒内）：PASS ==
+生产零连接写、旧库零触碰。
+
+【A 受控接收面】
+①快照先验：59617d83c6bd5831… 在位复验全等；incoming-abatch.tar 3b2e8e85…/593920B 实测全等。
+②解包件逐字节核：8 件关键产物 sha 与 git e1cded9 blob 逐一全等（candidate 95eb741c/freeze-delta 31467257/writeoff f623430f/nul f4fa7675/chgis a6bfddc5/check 32b2d5a7/call-report 04d2915e/uncovered 65678311）；a03 披露首轮误用 b7b84b6 ref 致 False（该目录不在其中），改用正确基线 e1cded9 后 8/8 全等，属其探针失误非交付缺陷。
+③合同摘要独立重算：dev 隔离正式 ReleaseContract 对接收副本内容（与 95eb741c 同字节）→ fa28a878f48fed50…全等；原 9 规则+两例外 deep-equal、14 新增 targets=0/exceptions=0/全 NON_TABULAR、inventory fb5e6b33 不变、ID 23 唯一。
+④账更新口径：集合差自算 before 7995 / after 7981 双真；正式 ledger 文件 e1cded9↔b7b84b6 字节不变（接收记录为进度账，未偷改正式账）；首批 scope 门 7995 保持披露合理；ready=false 在账。
+
+【B 单表隔离试装面（零复用自建环境）】
+⑤独立复跑：全新容器 a03-trial-addr-030927（--network none、ro 挂载源快照+ro src，快照 sha bde1bb8e…83400 实测）、独立建库装载回读：TRIAL_PASS；3859 行/重复 0/字段 42449/source=target=2cb8c354…/schema_hash 1f88cd80…/NULL 分布 11 列逐项/结构 11 列 YES-nullable/rollback table_dropped True——与 lead trial-pass.json 12 个顶层面 FULL_FACE_EQUAL True。
+⑥反例独立复现：回读前注入 DELETE 1 行 → TRIAL_FAIL/comparison_failed/missing 1/excess 0/pg_rows 3858/sha_eq False/仍回滚——与 lead trial-negative.json 完全同构（门非空转实证）；另做 pre-load 截断变体呈 excess 1（方向相反同为 FAIL 门），不影响结论。
+⑦生产/旧库未触：pg32b Id 3d93fc77…/StartedAt 13:43:10Z/R0；xiangrugu 库 user 表恰 7+marker+spatial 系统表，无 social_u5f 泄漏；chgis.ca1884route_przh_1251 仍 59 行；cbdb/cbdb_reh datacl 仍空（默认）；roles 仅 xiangrugu_loader 无新角色。
+⑧服务不动：dev/pg32b/pg32 StartedAt 全稳 R0。
+
+判定 PASS。a03 4 个试验容器按名销毁（inspect→[]）、scratch 4 目录 files=0 后删除、host/workspace r62-* 临时件已清；lead 的 abatch-addr-trial-20261125 scratch 已由 lead 清理（GONE 实证）。
+
+首个剩余缺口：B 批正式写库仍未授权——目标映射 candidate、NOT NULL/PK/约束未执行、值合同未冻结、无新茶香写库批准原文（首批 88f4f1ac 不得复用）；且 PG 生产装载器仍缺（本次为最小试装 driver，非 production loader）。A 批接收完成≠正式账迁移：disposition-ledger 正式接入需下一批授权动作。
+
+== lead 收口（19:14 UTC）==
+R62 PASS 在账。A 受控接收与 B 单表隔离试装双通道确认（a03 独立复跑 12 面 FULL_FACE_EQUAL、反例同构）。现行未覆盖 7981 / 首批 scope 门 7995 双口径在账；ready=false 保持；生产零写；全队静默 standby。

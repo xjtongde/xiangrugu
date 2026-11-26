@@ -150,3 +150,62 @@ def test_preflight_rejects_a_relabelled_authorization_text(tmp_path, pinned_expo
 def test_exit_code_constants_match_the_documented_contract():
     """The operator-facing contract must not drift silently."""
     assert (R.EXIT_COMMITTED, R.EXIT_REFUSED, R.EXIT_ERROR, R.EXIT_PREFLIGHT) == (0, 2, 3, 4)
+
+def test_expected_must_bind_the_approval_table(tmp_path, pinned_export):
+    """Omitting the key must refuse, not silently skip the approval-table check."""
+    root, commit, _pkg = pinned_export
+    table = tmp_path / "approval-table.json"
+    table.write_text('{"tables": []}\n', encoding="utf-8")
+    text = tmp_path / "approval.txt"
+    text.write_bytes(b"body\n")
+    expected = tmp_path / "expected.json"
+    expected.write_text(json.dumps({}), encoding="utf-8")  # no approval_table_sha256
+    contract = tmp_path / "contract.json"
+    contract.write_text("{}", encoding="utf-8")
+
+    args = R.argparse.Namespace(
+        phase="phase1-isolated", code_root=str(root), code_commit=commit,
+        contract=str(contract), approval_table=str(table), approval_text=str(text),
+        approval_text_sha256=_sha(text), scope=str(contract), expected=str(expected),
+        payload=str(tmp_path / "p.bin"), scratch=str(tmp_path),
+        evidence_out=str(tmp_path / "ev.json"))
+    code, evidence = R.run(args)
+    assert code == R.EXIT_PREFLIGHT
+    assert evidence["refusal"]["error_code"] == "approval_table_binding_missing"
+
+
+class _FakeSession:
+    def __init__(self, present):
+        self.present, self.queries = present, []
+
+    def query_csv(self, sql):
+        self.queries.append(sql)
+        if "to_regclass" in sql:
+            return "cbdb.cbdb__social_u5f_institution_u5f_addr" if self.present else ""
+        return "7"
+
+
+def test_probe_measures_absence_after_a_refusal():
+    """"Rolled back, nothing left behind" must be OBSERVED, not inferred."""
+    session = _FakeSession(present=False)
+    probe = R._probe_target(session)
+    assert probe["measured"] is True
+    assert probe["target_table_present"] is False
+    assert probe["residue_rows"] == 0
+
+
+def test_probe_reports_residue_when_a_table_survives():
+    session = _FakeSession(present=True)
+    probe = R._probe_target(session)
+    assert probe["target_table_present"] is True
+    assert probe["residue_rows"] == 7
+
+
+def test_probe_failure_is_visible_not_silent():
+    class Boom:
+        def query_csv(self, _sql):
+            raise RuntimeError("connection gone")
+
+    probe = R._probe_target(Boom())
+    assert probe["measured"] is False
+    assert "connection gone" in probe["probe_error"]

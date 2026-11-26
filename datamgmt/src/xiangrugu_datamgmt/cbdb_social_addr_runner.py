@@ -167,6 +167,32 @@ def build_scope(args, expected, contract_sha256, approval_text_sha256):
     return scope, raw
 
 
+def _probe_target(session):
+    """Observe what is actually left behind after a refusal or an error.
+
+    "The failed load rolled back and left no half-built table" is a claim about
+    database state, so it must be measured, not inferred from the transaction
+    structure. This runs on the SAME session after the failure.
+    """
+    probe = {"measured": False}
+    try:
+        rel = session.query_csv(
+            "SELECT COALESCE(to_regclass('cbdb.cbdb__social_u5f_institution_u5f_addr')::text, '')"
+        ).strip()
+        probe["target_table_present"] = bool(rel)
+        if rel:
+            probe["residue_rows"] = int(
+                session.query_csv(
+                    "SELECT count(*) FROM cbdb.cbdb__social_u5f_institution_u5f_addr"
+                ).strip())
+        else:
+            probe["residue_rows"] = 0
+        probe["measured"] = True
+    except Exception as exc:  # noqa: BLE001 - a probe failure must be visible
+        probe["probe_error"] = type(exc).__name__ + ": " + str(exc)[:200]
+    return probe
+
+
 def run(args):
     evidence = {"format": "xiangrugu.b-batch.single-table-load-evidence.v1",
                 "phase": args.phase, "command": sys.argv[1:], "outcome": None}
@@ -192,7 +218,11 @@ def run(args):
         # checking it would advertise a check that does not exist.
         approval_table_sha256 = _sha_file(args.approval_table)
         declared_approval_table = expected.get("approval_table_sha256")
-        if declared_approval_table and approval_table_sha256 != declared_approval_table:
+        if not declared_approval_table:
+            # An expected file that does not bind the approval table would silently
+            # disable this check, so absence is itself a refusal.
+            raise PreflightError("approval_table_binding_missing")
+        if approval_table_sha256 != declared_approval_table:
             raise PreflightError("approval_table_digest_mismatch", approval_table_sha256)
         evidence["approval_table"] = {"path": args.approval_table,
                                       "sha256": approval_table_sha256}
@@ -291,11 +321,13 @@ def run(args):
         evidence["outcome"] = "REFUSED"
         evidence["refusal"] = {"error_code": getattr(exc, "code", "gate_error"),
                               "detail": str(exc)[:600]}
+        evidence["target_probe_after"] = _probe_target(session)
         return EXIT_REFUSED, evidence
     except Exception as exc:  # noqa: BLE001 - evidence must record anything
         evidence["outcome"] = "ERROR"
         evidence["refusal"] = {"error_code": "unexpected_error",
                               "detail": type(exc).__name__ + ": " + str(exc)[:600]}
+        evidence["target_probe_after"] = _probe_target(session)
         return EXIT_ERROR, evidence
     finally:
         try:

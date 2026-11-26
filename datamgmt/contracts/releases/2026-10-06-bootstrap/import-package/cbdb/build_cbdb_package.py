@@ -98,8 +98,10 @@ members = {
              if d["member"]["relative_path"] == SRC_SQLITE),
          "relationship": "main source carrier: 78 tables / 736 columns per the "
                          "confirmed structure sub-batch",
-         "handling": "BLOCKED in ledger (full-release freeze pending); block-1 "
-                     "organizing target for table/field mapping below"}],
+         "handling": "IMPORT in ledger (fa28a878 contract, 2026-11-26 migration): "
+                     "rule m007904 imports this cbdb sqlite member; full-release freeze "
+                     "and write authorization still pending; block-1 organizing target "
+                     "for table/field mapping below"}],
     "nested_members_under_cbdb": 0,
     "companion_materials_note": (
         "sqlite-*.draft/approved files, sqlite-review.md, "

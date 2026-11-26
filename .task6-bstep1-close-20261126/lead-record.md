@@ -48,3 +48,24 @@
 
 B 面：G3（无 `default_value`）与 UNIQUE/INDEX/FK 未建模 → 六项约束的执行仍 `NOT_EXECUTED`，需下一批写库授权原文（不得复用 `88f4f1ac`）。
 A 面：7981 未覆盖成员仍为 `unmatched_member`，全量 `ready_for_import=false`。
+
+## a03 独立复核结论（零复用，8/8 项复现）
+
+**B = PASS｜A = PASS**。硬条件均独立证实：
+- 摘要不漂移：同一候选在旧模型(608d191 blob)/新模型/work 副本三向 canonical 全等 = `fa28a878…`，len 57339。
+- 冻结候选：11 列原序 1..11、双坐标 double precision、PK 六列源序==目标序，canonical `d3cdb81c…`/3529 逐字复现；旧模型拒绝它（补丁必需性实证）。
+- 最小扩展：diff 仅 4 处语义点；对抗探针（空 PK/额外字段/nullable/未映射列/重复列/float4/real/大小写变体）全部正确拒绝。
+- A 面：evaluate 重算 8004=23+7981、multiple 0；committed 账 records 逐条 deep-equal；run_writeoff 恰闭 3 条、派生仅剩 unmatched_member、ready=false；证据摘要 `679dca4d…`/`fae3502e…` 全等。
+- 边界：全程只读，未连库/未重跑试装/未改 deploy/未动服务，临时件已删并实证 GONE。
+
+### 已采纳的 3 条修正（本轮已提交）
+- **P2（需更正的披露）**：我曾写"全量基线 87 项预存失败"，该数不可复现。同环境实测为**基线 203 failed / 补丁后 201 failed**，仅 2 项被补丁修好、**零新增回归**。已更正证据文件。
+- **P1（低）**：PK 校验仅在 columns 存在时生效，纯非表格 target 带 PK 会被静默忽略 → 已加守卫 `primary_key requires an explicit columns mapping`，实证拒绝。
+- **P3（低）**：cbdb build 脚本 `BLOCKED in ledger` 文案与新账 disposition 不符 → 已更正为 IMPORT 事实。
+
+### 复核后摘要复验
+`fa28a878…` 与 `d3cdb81c…` 在 P1/P3 修改后**均未漂移**，142 项定向回归仍全绿。
+
+## 判定
+
+**B: PASS**｜**A: PASS**

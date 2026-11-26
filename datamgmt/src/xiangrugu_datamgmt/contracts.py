@@ -170,6 +170,8 @@ class ObjectTarget(ContractRecord):
 
     @model_validator(mode="after")
     def extended_mapping_consistency(self):
+        if self.primary_key is not None and self.columns is None:
+            raise ValueError("primary_key requires an explicit columns mapping")
         if self.columns is not None:
             ordinals = [column.ordinal for column in self.columns]
             if ordinals != list(range(1, len(ordinals) + 1)):

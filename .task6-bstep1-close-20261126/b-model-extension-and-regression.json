@@ -1,4 +1,12 @@
 {
+ "corrections_log": [
+  {
+   "action": "更正为同环境实测 203（旧）/201（补丁后），补丁净减 2、零新增",
+   "finding": "基线预存失败数 87 不实",
+   "id": "P2",
+   "raised_by": "a03"
+  }
+ ],
  "digest_no_drift": {
   "all_byte_identical": true,
   "cases": {
@@ -60,17 +68,52 @@
  ],
  "modified_files": {
   "datamgmt/config/contract.schema.json": "0c1a2e749b0d17585295355e8b5e3fddfc125eb52fedee8c248135154ee03820",
-  "datamgmt/src/xiangrugu_datamgmt/contracts.py": "a2ca0d814a6bfca3b59796e0b01aeb8ca4512e12b5e9a6b3bfe038a8c27e5359"
+  "datamgmt/src/xiangrugu_datamgmt/contracts.py": "e6145ba70fbff4fe72e7fbda6d3a64396ac1551fb9f3c771531e4f4ebe8ce7a7"
  },
  "not_modified": [
   "inventory.json",
   "disposition-ledger-after-selector-fix.json"
  ],
+ "post_review_fixes": {
+  "P1": "新增守卫 primary_key requires an explicit columns mapping（无 columns 时带 PK 直接被拒）；实证 pk_without_columns_rejected=YES",
+  "P2": "基线预存失败数 87→同环境实测 203/201（净减 2、零新增）",
+  "P3": "cbdb build 脚本 handling 文案由 BLOCKED in ledger 更正为 fa28a878 下 IMPORT 事实",
+  "digest_rechecked_after_fixes": {
+   "d3cdb81c_unchanged": true,
+   "fa28a878_unchanged": true,
+   "regression_142_passed": true
+  }
+ },
  "regression": {
-  "baseline_same_env_old_code": "2 failed, 140 passed（schema/runtime 不匹配，证明补丁必需）",
-  "command": "pytest test_contracts/test_contract_extension/test_contract_schema_validation/test_contract_freeze_compat/test_disposition -q",
-  "full_suite_note": "全量 unit 在容器基线本身有 87 项预存失败（非本补丁引入）；补丁后差异仅 2 项 schema 一致性测试，同步新 schema 后消失",
-  "observed_tail": "......................................................................   [100%]\n142 passed in 1.96s",
-  "with_patch_and_new_schema": "142 passed"
+  "command": "pytest datamgmt/tests/unit/{test_contracts,test_contract_extension,test_contract_schema_validation,test_contract_freeze_compat,test_disposition}.py -q",
+  "directive_suite": {
+   "interpretation": "补丁必需性实证",
+   "old_model_new_schema": "2 failed, 140 passed（两项为 published_schema==runtime 一致性）",
+   "patched_model_new_schema": "142 passed"
+  },
+  "full_unit_suite_same_env": {
+   "after_patch": "201 failed, 1235 passed, 8 skipped",
+   "baseline_old_model": "203 failed, 1235 passed, 8 skipped",
+   "correction": "v1 曾写「基线本身有 87 项预存失败」，该数字不可复现（系在 deploy 原目录跑出、fixture 缺失形态不同，非同一口径）。现更正为同环境实测 203/201。",
+   "environment": "/tmp/a01tree（/workspace 副本 + 新 schema），先收集全部 FAILED/ERROR 再逐行比对",
+   "net_effect": "补丁净减 2 项失败，零新增失败",
+   "only_in_baseline_fixed_by_patch": [
+    "test_contract_extension.py::test_published_schema_matches_extended_runtime_model",
+    "test_contracts.py::test_published_schema_matches_runtime_model_and_has_strict_structure"
+   ],
+   "only_in_patched_regressions": []
+  },
+  "gaps_closed": [
+   "G1 double precision",
+   "G2 有序复合主键（primary_key）"
+  ],
+  "gaps_remaining": [
+   "G3 ColumnMapping 无 default_value",
+   "G2 其余约束字段（UNIQUE/INDEX/FK）未建模"
+  ],
+  "not_modified": [
+   "inventory.json",
+   "disposition-ledger-after-selector-fix.json"
+  ]
  }
 }

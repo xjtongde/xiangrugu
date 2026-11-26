@@ -19,6 +19,8 @@
 
 两条分支共用 `loader.run_single_table`（DDL→COPY→回读→COMMIT/ROLLBACK）与会话内 instance/role 核验，**未复制第二份实现**。`evidence["execution_branch"]` 记录实际走的分支。
 
+**两条分支各自声明自己的方言**（a02 复核后修正）：正式分支 `mode="production-write"` + `test_only=False` + `approval_class="real"` + 授权原文摘要；隔离分支 `mode="isolated-test"` + `test_only=True`。正式写库不再向 loader 谎报自己是隔离测试。
+
 **保持不变**：冻结候选 `56b0076d…`、本次映射审批 `chaxiang-approval-social-institution-addr-bstep2-correction-20261126`、源侧摘要 `2cb8c354…`、3859 行、11 列。
 
 ## 二、正式分支的授权核验（仅填字符串不得通过）
@@ -38,11 +40,12 @@
 11. 端点必须是生产三元组，`test_only` 端点拒绝
 12. 复用首批写库审批 `88f4f1ac…` → `first_batch_approval_reuse_forbidden`
 
-## 三、正式分支隔离替身实测（7/7）
+## 三、正式分支隔离替身实测（8/8）
 
 | 用例 | 结果 | 残留 |
 |---|---|---|
-| F1 正式分支完整事务 | **LOADED** `branch=real`，3859 行 | 3859 |
+| FN0 缺 cbdb schema | REFUSED `prerequisite_schema_missing`，**未代建 schema** | 0 |
+| F1 正式分支完整事务 | **LOADED** `branch=real`、`mode=production-write`，3859 行 | 3859 |
 | FN1 目标已存在 | REFUSED `target_already_exists` | 3859（旧表原样保留）|
 | FN2 授权原文缺失 | REFUSED `real_authorization_text_missing` | 0 |
 | FN3 授权摘要错误 | REFUSED `real_authorization_digest_mismatch` | 0 |
@@ -50,7 +53,7 @@
 | FN5 错实例 | REFUSED `artifact_drift: instance_fingerprint` | 0 |
 | FN6 回读失败整表回滚 | REFUSED `row_count_mismatch`，表不存在 | **0** |
 
-**F1 正向指标**：3859 行、11 列、主键去重 3859、坐标往返偏差 0、非主索引 0、约束仅 `['n','p']`、`shared_single_transaction=True`。
+**F1 正向指标**：3859 行、11 列、主键去重 3859、`pk_null_free=True`、NULL 计数齐全（begin_year 3005 / end_year 3857 / notes 752 / pages 334 / source 219，其余 0）、坐标往返偏差 0、非主索引 0、约束仅 `['n','p']`、`shared_single_transaction=True`、`single_parse_drives_load=True`、`in_session_port=5432`、`load_role=xrg_loader`。
 
 **独立全量值比对**（项目 `compare_unordered`，源 sqlite 流 vs 目标行）：`comparison_equal`，源与目标摘要同为 `2cb8c354b0e75e6ae230e3b00540146e823eaa8de8def2abce89ad6179a07579`，3859/3859，缺失 0、多余 0、差异 0。
 
@@ -79,6 +82,17 @@
 
 详见 `real-branch.json`。
 
+## 五点五、a02 复核后的修正（本盒第二轮）
+
+a02 判 PARTIAL，指出两条实质问题，均已修正并有实证：
+
+1. **阻断项：正式分支向 loader 谎报运行模式**。原 `production_scope_from` 产出 `mode="isolated-test"` + `test_only=True`，注释辩称"real-ness 由 review_traceability 证明"——但 Gate 1b 只是字符串一致性，证明不了本次运行是正式授权。后果是正式写库的审计产物自我否认。修法：**给 loader 加 `production-write` 方言**，正式分支如实声明，loader 校验 `test_only is False` / `approval_class=="real"` / 必须带授权摘要。不再用谎报迁就。
+2. **实质不符：文档承诺与代码行为冲突**。`real-branch.json` 写"装载不得代建先决对象"，但 `ddl_for` 默认 `create_schema=True` 且无调用点传 False——装载确实会建 `CREATE SCHEMA IF NOT EXISTS cbdb`。修法：正式分支门控检查 schema 存在性，缺失抛 `prerequisite_schema_missing`，DDL 以 `create_schema=False` 下发。**FN0 实测证明**：schema 缺失时拒绝且未被创建。
+3. 同步 entry docstring（不再声称只跑 test 审批）。
+4. `check_instance_identity` 改为显式 `branch=` 关键字参数，不再借 `instance_identity` dict 夹带。
+5. 数据库集合比对的 lambda 改为具名 `_without_target_db`。
+6. 正式分支正向证据补齐 5 项（`pk_null_free`/`null_counts`/`single_parse_drives_load`/`in_session_port`/`load_role`）。
+
 ## 六、发现并修正的一个真实问题
 
 在替身上跑正式分支时，`xiangrugu` 这个名字在两条分支中语义相反：对隔离分支它是**禁止可见的生产库名**，对正式分支它是**目标库**。原实现只有一份硬编码禁止清单，导致要么正式分支永远打不通，要么必须削弱隔离校验。改为**按分支判定**——隔离分支仍禁止 `xiangrugu`，正式分支在禁止 `pg32b/cbdb/cbdb_reh` 之后把目标名从集合比对中剔除。这样两边都保住了正确语义，没有降低强度。
@@ -87,7 +101,7 @@
 
 ## 七、测试与回归
 
-- 新增单测总计 **59 项全通过**（loader 21 + entry 38，本盒新增 17 项正式分支用例）
+- 新增单测总计 **63 项全通过**（loader 21 + entry 42，本盒新增 21 项正式分支与方言用例）
 - 全量 unit 失败集 **228 → 228，新增 0**（228 为既有环境缺口）
 
 ## 八、边界

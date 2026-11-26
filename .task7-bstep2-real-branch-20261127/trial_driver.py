@@ -126,6 +126,12 @@ def main():
             rec["pk_null_free"] = ev.get("pk_null_free")
             rec["non_primary_index_count"] = ev.get("non_primary_index_count")
             rec["constraint_types"] = ev.get("constraint_types")
+            rec["pk_null_free"] = ev.get("pk_null_free")
+            rec["null_counts"] = ev.get("null_counts")
+            rec["single_parse_drives_load"] = ev.get("single_parse_drives_load")
+            rec["in_session_port"] = (ev.get("instance") or {}).get("in_session_port")
+            rec["load_role"] = (ev.get("instance") or {}).get("load_role")
+            rec["mode"] = ev.get("mode") or sc.get("mode")
 
             rec["column_count"] = len(ev.get("columns") or [])
             rec["coord_roundtrip_inexact"] = ev.get("coord_roundtrip_inexact_rows")
@@ -366,6 +372,12 @@ def main():
             rec["coord_roundtrip_inexact"] = ev.get("coord_roundtrip_inexact_rows")
             rec["non_primary_index_count"] = ev.get("non_primary_index_count")
             rec["constraint_types"] = ev.get("constraint_types")
+            rec["pk_null_free"] = ev.get("pk_null_free")
+            rec["null_counts"] = ev.get("null_counts")
+            rec["single_parse_drives_load"] = ev.get("single_parse_drives_load")
+            rec["in_session_port"] = (ev.get("instance") or {}).get("in_session_port")
+            rec["load_role"] = (ev.get("instance") or {}).get("load_role")
+            rec["mode"] = ev.get("mode") or sc.get("mode")
             rec["shared_single_transaction"] = ev.get("shared_single_transaction")
             rec["authorization"] = (ev.get("instance") is not None)
         except (L.LoaderGateError, ENTRY.LoaderGateError) as e:
@@ -409,7 +421,6 @@ def main():
     boot.query_csv('GRANT ALL ON DATABASE "%s" TO "%s"' % (FORMAL_DB, cfg["role"]))
     boot.close()
     prov = _fsess(cfg)
-    prov.query_csv("CREATE SCHEMA IF NOT EXISTS cbdb AUTHORIZATION CURRENT_USER")
     prov.query_csv("CREATE TABLE IF NOT EXISTS public.xrg_instance_marker(instance_id text)")
     prov.query_csv("DELETE FROM public.xrg_instance_marker")
     prov.query_csv("INSERT INTO public.xrg_instance_marker VALUES ('%s')"
@@ -417,6 +428,17 @@ def main():
     prov.query_csv("GRANT SELECT ON public.xrg_instance_marker TO \"%s\"" % cfg["role"])
     prov.query_csv("GRANT USAGE ON SCHEMA public TO \"%s\"" % cfg["role"])
     prov.close()
+
+    # FN0 must run FIRST, while cbdb does not yet exist: the formal load must refuse
+    # rather than create the prerequisite schema behind the declared privileges.
+    run_formal("FN0_prerequisite_schema_missing",
+               expect="REFUSED prerequisite_schema_missing, schema NOT created")
+
+    # Now the prerequisite exists (created by an administrator, as the runbook says),
+    # so the formal branch can prove the full transaction.
+    mk = _fsess(cfg)
+    mk.query_csv("CREATE SCHEMA IF NOT EXISTS cbdb AUTHORIZATION CURRENT_USER")
+    mk.close()
 
     run_formal("F1_formal_branch_full_transaction", expect="COMMITTED 3859 via real branch")
     run_formal("FN1_target_already_exists", expect="REFUSED, old table intact")

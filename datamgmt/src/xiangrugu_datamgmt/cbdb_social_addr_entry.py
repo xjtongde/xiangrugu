@@ -17,9 +17,21 @@ What this candidate enforces, in ONE session that also executes the DDL:
           targets and the load (no second, independent reading).
   Gate E  a TEST approval may never reach the formal production endpoint.
 
-A real database write needs a separate, independent authorization
-(``approval_class == "real"``); this module only ever runs with test approval in
-the isolated instance.
+This module has TWO branches, selected by ``write_approval.approval_class``:
+
+  test -> :func:`isolated_scope_from`, the isolated-test loader dialect
+          (``mode="isolated-test"``, ``test_only=True``); the endpoint must be an
+          isolated stand-in and production database names are forbidden.
+  real -> :func:`production_scope_from`, the production-write loader dialect
+          (``mode="production-write"``, ``test_only=False``). It additionally
+          requires the ORIGINAL authorization text, verifies its SHA-256 against
+          both the declared and the bound value, and requires that text to
+          authorize exactly this one table and this one rule.
+
+Both branches share the same single-transaction load and readback
+(``loader.run_single_table``); nothing is duplicated. A formal write still needs
+the user's separate write authorization -- this module proves the code path, it
+never supplies the authorization itself.
 """
 from __future__ import annotations
 
@@ -389,12 +401,16 @@ def production_scope_from(scope, target, expected):
     return {
         "version": 1,
         "scope_id": "production:" + str(wa["approval_ref"]),
-        "mode": "isolated-test",  # the loader's dialect; the APPROVAL below is real
+        # Unambiguous: a formal write records itself AS a formal write. Nothing in the
+        # artifacts the loader persists should claim this was an isolated test run.
+        "mode": "production-write",
         "approval": {
             "approved_by": wa["approved_by"],
             "approved_at": wa["approved_at"],
             "approval_ref": wa["approval_ref"],
-            "test_only": True,   # loader dialect flag; real-ness proven by review_traceability
+            "approval_class": "real",
+            "test_only": False,
+            "approval_text_sha256": actual,
         },
         "candidate_sha256": scope["contract_sha256"],
         "contract_sha256": scope["contract_sha256"],

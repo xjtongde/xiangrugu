@@ -2,6 +2,7 @@
 import pytest
 
 from xiangrugu_datamgmt import cbdb_social_addr_entry as E
+from xiangrugu_datamgmt import cbdb_social_addr_loader as L
 
 CAND = "56b0076d2e877be9fb34796e01b8ee2b37d5a817c8e80203fa21c95e4f3f8237"
 APPR = "a718b0c297501642dd105eb3797f96dc1de2edf8eb521bed6609ff78de1fb4a0"
@@ -34,6 +35,21 @@ def _presented(**over):
     p = {"contract_sha256": CAND, "inventory_sha256": "i",
          "approval_table_sha256": APPR, "approval_text_sha256": VTEXT,
          "instance_fingerprint": FP}
+    p.update(over)
+    return p
+
+
+def _loader_presented(scope, **over):
+    """What the LOADER gate expects to be told about this scope."""
+    rt = scope.get("review_traceability") or {}
+    p = {"candidate_sha256": scope["candidate_sha256"],
+         "contract_sha256": scope["contract_sha256"],
+         "inventory_sha256": scope["inventory_sha256"],
+         "source_sha256": scope["source_member"]["sha256"],
+         "approval_table_sha256": rt.get("approval_table_sha256"),
+         "approval_text_sha256": rt.get("approval_text_sha256"),
+         "contract_review_ref": rt.get("contract_review_ref"),
+         "forbidden": scope["target"]["databases_forbidden"]}
     p.update(over)
     return p
 
@@ -447,3 +463,36 @@ def test_isolated_branch_accepts_a_test_approval():
     s["expected_source_sha256"] = "2cb8c354b0e75e6ae230e3b00540146e823eaa8de8def2abce89ad6179a07579"
     sc = E.isolated_scope_from(s, _target())
     assert sc["approval"]["test_only"] is True
+
+
+def test_formal_branch_scope_declares_production_write_not_isolated_test():
+    """A formal write must not describe itself as an isolated test run."""
+    sc = E.production_scope_from(_real_scope(), _target(), {})
+    assert sc["mode"] == "production-write"
+    assert sc["approval"]["test_only"] is False
+    assert sc["approval"]["approval_class"] == "real"
+    assert sc["approval"]["approval_text_sha256"] == PROD_AUTH_SHA
+
+
+def test_loader_rejects_production_write_mode_marked_test_only():
+    sc = E.production_scope_from(_real_scope(), _target(), {})
+    sc["approval"]["test_only"] = True
+    with pytest.raises(L.LoaderGateError) as e:
+        L.validate_scope(sc, _loader_presented(sc))
+    assert e.value.code == "scope_mode_production_write_but_marked_test_only"
+
+
+def test_loader_rejects_production_write_mode_without_real_class():
+    sc = E.production_scope_from(_real_scope(), _target(), {})
+    sc["approval"]["approval_class"] = "test"
+    with pytest.raises(L.LoaderGateError) as e:
+        L.validate_scope(sc, _loader_presented(sc))
+    assert e.value.code == "scope_mode_production_write_without_real_class"
+
+
+def test_loader_rejects_production_write_mode_without_authorization_digest():
+    sc = E.production_scope_from(_real_scope(), _target(), {})
+    sc["approval"]["approval_text_sha256"] = ""
+    with pytest.raises(L.LoaderGateError) as e:
+        L.validate_scope(sc, _loader_presented(sc))
+    assert e.value.code == "scope_mode_production_write_without_authorization_digest"

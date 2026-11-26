@@ -57,10 +57,24 @@ def validate_scope(scope, presented):
     if not all(isinstance(ap.get(k), str) and ap.get(k) for k in
                ("approved_by", "approved_at", "approval_ref")):
         raise LoaderGateError("approval_missing")
-    if ap.get("test_only") is not True:
-        raise LoaderGateError("scope_not_marked_test_only")
-    if scope["mode"] != "isolated-test":
-        raise LoaderGateError("scope_mode_not_isolated_test")
+    # The loader has TWO dialects. A formal write must NOT masquerade as an isolated
+    # test run: an approval that claims to be a real production write has to say so in
+    # the very artifacts the loader records, otherwise the audit trail denies itself.
+    dialect = scope["mode"]
+    if dialect == "isolated-test":
+        if ap.get("test_only") is not True:
+            raise LoaderGateError("scope_not_marked_test_only")
+    elif dialect == "production-write":
+        if ap.get("test_only") is not False:
+            raise LoaderGateError("scope_mode_production_write_but_marked_test_only")
+        if ap.get("approval_class") != "real":
+            raise LoaderGateError("scope_mode_production_write_without_real_class")
+        if not ap.get("approval_text_sha256"):
+            raise LoaderGateError("scope_mode_production_write_without_authorization_digest")
+    else:
+        # Kept as the historical code for an unknown dialect so existing callers and
+        # tests that probed with mode="production" still see the same refusal.
+        raise LoaderGateError("scope_mode_not_isolated_test", str(dialect))
     if scope["full_ready_for_import"] is not False:
         raise LoaderGateError("full_ready_gate_flipped")
     if scope["candidate_sha256"] != presented["candidate_sha256"]:
@@ -111,13 +125,22 @@ def validate_scope(scope, presented):
         raise LoaderGateError("approval_text_missing")
 
 
-def scope_approval_is_isolated(expected):
-    """True when this run is the isolated-test branch (never a formal write)."""
-    return (expected or {}).get("execution_branch") != "real"
+def _without_target_db(value):
+    """Drop the formal target's own database name from a database-set listing."""
+    names = {n.strip() for n in str(value).split(",") if n.strip()}
+    names.discard("xiangrugu")
+    return ",".join(sorted(names))
 
 
-def check_instance_identity(observed, expected):
-    """Gate 2: the connected instance must be the approved temporary isolated one."""
+def check_instance_identity(observed, expected, *, branch=None):
+    """Gate 2: the connected instance must be the approved one for THIS branch.
+
+    ``branch`` is passed explicitly rather than smuggled inside the identity dict:
+    an instance-identity snapshot should not double as a semantic carrier, or a
+    caller that forgets the extra key silently falls back to isolated semantics.
+    """
+    if branch is None:
+        branch = expected.get("execution_branch")
     dbs = str(observed.get("databases", ""))
     names = {n.strip() for n in dbs.split(",") if n.strip()}
     # An ISOLATED instance must not even see a production database name. On the FORMAL
@@ -125,7 +148,7 @@ def check_instance_identity(observed, expected):
     # destination rather than a contamination signal -- but the production INSTANCE
     # names remain forbidden either way, and the marker still binds the container.
     forbidden = ("pg32b", "cbdb", "cbdb_reh")
-    if scope_approval_is_isolated(expected):
+    if not (branch == "real"):
         forbidden = forbidden + ("xiangrugu",)
     for f in forbidden:
         if f in names:
@@ -137,11 +160,8 @@ def check_instance_identity(observed, expected):
     keys = ("container_id", "image_id", "server_version", "inet_server_addr", "databases")
     for key in keys:
         got, want = observed.get(key), expected.get(key)
-        if key == "databases" and not scope_approval_is_isolated(
-                {"execution_branch": expected.get("execution_branch")}):
-            strip = lambda v: ",".join(sorted({n.strip() for n in str(v).split(",")
-                                               if n.strip() and n.strip() != "xiangrugu"}))
-            got, want = strip(got), strip(want)
+        if key == "databases" and branch == "real":
+            got, want = _without_target_db(got), _without_target_db(want)
         if got != want:
             raise LoaderGateError("instance_identity_mismatch", key)
 
@@ -199,20 +219,30 @@ def run_single_table(session, scope, contract, target, data, instance_observed, 
     validate_scope(scope, presented)
     # Carry the branch marker alongside the identity so the "production database
     # visible" check can tell a formal write's own target from leakage into a trial.
-    identity_expect = dict(expected["instance_identity"])
-    identity_expect["execution_branch"] = expected.get("execution_branch")
-    check_instance_identity(instance_observed, identity_expect)
+    check_instance_identity(instance_observed, expected["instance_identity"],
+                            branch=expected.get("execution_branch"))
+    # A formal write may only touch its one table. The prerequisite schema must already
+    # exist; the load must never create it, or the declared least-privilege surface
+    # (no CREATE on the database) would be a fiction.
+    is_formal = expected.get("execution_branch") == "real"
+    if is_formal:
+        rows = _rows_csv(session.query_csv(
+            "SELECT to_regnamespace('%s') IS NOT NULL" % TARGET_SCHEMA))
+        if not (rows and rows[0] and rows[0][0] == "t"):
+            raise LoaderGateError("prerequisite_schema_missing", TARGET_SCHEMA)
     check_target_absent(session)
-    return _load_and_verify(session, contract, target, data, expected, corrupt=corrupt)
+    return _load_and_verify(session, contract, target, data, expected, corrupt=corrupt,
+                            create_schema=not is_formal)
 
 
-def _load_and_verify(session, contract, target, data, expected, corrupt=None):
+def _load_and_verify(session, contract, target, data, expected, corrupt=None,
+                     *, create_schema=True):
     cols = target_column_names(target)
     evidence = {
         "gates": ["scope_approval", "digest_bindings", "review_traceability",
                   "instance_identity", "target_absent"],
         "transaction": "single",
-        "ddl": ddl_for(target),
+        "ddl": ddl_for(target, create_schema=create_schema),
         "columns": cols,
         "constraints_created": ["primary_key", "not_null"],
         "constraints_not_created": ["unique", "index", "foreign_key", "default"],

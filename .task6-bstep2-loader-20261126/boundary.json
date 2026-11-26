@@ -1,0 +1,58 @@
+{
+ "containers": {
+  "pg32": "98418cb6f08a",
+  "pg32b": "3d93fc7741f6",
+  "unchanged_throughout": true,
+  "xiangrugu-dev": "29795c60ae15"
+ },
+ "deploy": {
+  "note": "deploy 无 .git，本盒未推送/更新",
+  "updated": false
+ },
+ "format": "xiangrugu.task6-bstep2.boundary.v1",
+ "m2_never_commit": {
+  "files": [
+   "docs/superpowers/evidence/2026-11-13-p01-real-prep/p01-entry/xrg_p01_entry.py",
+   "docs/superpowers/evidence/2026-11-13-p01-real-prep/rehearsal-evidence.json"
+  ],
+  "in_any_commit_this_box": false,
+  "still_untracked_or_worktree_modified": true
+ },
+ "production": {
+  "cbdb_schema_count": 0,
+  "conclusion": "本盒未向生产库写入任何内容；目标 schema/表均不存在",
+  "database": "xiangrugu (pg32b)",
+  "pre_existing_tables": 11,
+  "tables": [
+   "chgis.ca1884route_przh_1251",
+   "chgis.ca1884route_przh_utf8",
+   "chgis.harvard_u2d_full_u2f_doi_u5f_10_u5f_7910_u2f_dvn_u2f___9784b044",
+   "harv.harvard_u2d_full_u2f_doi_u5f_10_u5f_7910_u2f_dvn_u2f___1334a175",
+   "harv.harvard_u2f_tab__academy_u5f_data_u2e_tab",
+   "harv.harvard_u2f_tab__index_u5f_of_u5f_the_u5f_complete_u5__300c7027",
+   "harv.harvard_u2f_tab__writings_u20_of_u20_the_u20_19c_u20___7866bf2d",
+   "public.geography_columns",
+   "public.geometry_columns",
+   "public.spatial_ref_sys",
+   "public.xrg_instance_marker"
+  ],
+  "target_table_exists": "false",
+  "these_are": "首批七表既有成果（5 文本 + 2 空间 + PostGIS 系统表）",
+  "this_box_wrote": false
+ },
+ "three_states": {
+  "codex_received": "独立复核由 a02 完成并给出 PASS；a03 实例连续三次运行异常无产出",
+  "gitea": "6729e8bde3553a7c197fba567d8cdf32ddc0663c (ls-remote 实测，本地/远端 0/0)",
+  "host32_workdir": "deploy 未更新；试装工作区 /opt/mydocker/xiangrugu/data/var/addr-trial-20261126 为一次性目录"
+ },
+ "trial_container": {
+  "destroyed": true,
+  "residue_containers": "none",
+  "residue_volumes": "none",
+  "scratch_dirs": 0
+ },
+ "write_authorization": {
+  "first_batch_approval_reused": false,
+  "this_box": "test-only"
+ }
+}

@@ -42,6 +42,7 @@ EXPECTED_ROWS = 3859
 LOAD_ROLE = "xrg_loader"
 # Out-of-band verified production container id (docker inspect). A test approval
 # whose endpoint resolves to THIS container is reaching production and is refused.
+_FIRST_BATCH_APPROVAL_MARK = "88f4f1ac"
 _PRODUCTION_CONTAINER_ID = "3d93fc7741f66f1f01aa250b25c4959addfe4c84df22ecbd0d0f82c13920c1fc"
 
 
@@ -279,20 +280,155 @@ def run_execution_candidate(session, scope, expected, artifacts, contract_parse_
 
     # Gates B/C inside the DDL session, then the same session does the load.
     instance = verify_instance_and_role_in_session(session, scope, expected)
-    # The isolated loader speaks the "isolated-test" scope dialect; derive it from the
-    # execution scope rather than maintaining a second, independently drifting copy.
-    loader_scope = isolated_scope_from(scope, target)
+
+    # TWO branches, chosen by the approval class -- never one branch that silently
+    # treats a formal run as an isolated one (that was the defect this box fixes):
+    #   test -> isolated-test scope dialect (test_only=True, isolated stand-in)
+    #   real -> production scope dialect (real write authorization, verified by its
+    #           OWN verbatim-approval digest and single-table scope)
+    # Both then share the SAME single-transaction load + readback below.
+    approval_class = scope["write_approval"]["approval_class"]
+    if approval_class == "real":
+        loader_scope = production_scope_from(scope, target, expected)
+    elif approval_class == "test":
+        loader_scope = isolated_scope_from(scope, target)
+    else:  # already refused by validate_execution_scope; defensive
+        raise LoaderGateError("write_approval_class_invalid", str(approval_class))
     # The isolated loader's ``expected["source_sha256"]`` means the MEMBER file digest
     # (it is compared against scope.source_member.sha256), whereas the execution scope's
     # expected_source_sha256 is the approved source-side VALUE digest. Keep them apart.
     loader_expected = dict(expected)
     loader_expected["source_sha256"] = expected["source_member_sha256"]
+    # Tell the loader which branch is running so its instance checks can tell
+    # "the target db of a formal write" from "a production db leaking into isolation".
+    loader_expected["execution_branch"] = approval_class
     evidence = make_loader(session, loader_scope, parsed.model_dump(by_alias=True, mode="json"),
                            target, source_payload, loader_expected, instance)
     evidence["recomputed_contract_sha256"] = recomputed["contract_sha256"]
     evidence["instance"] = instance
     evidence["single_parse_drives_load"] = True
+    evidence["execution_branch"] = approval_class
+    evidence["shared_single_transaction"] = True
     return evidence
+
+
+def production_scope_from(scope, target, expected):
+    """Derive the production loader scope for a REAL write authorization.
+
+    A formal run is not "an isolated run with a different label". It must carry a real
+    write authorization whose ORIGINAL TEXT is supplied and digest-verified, and whose
+    scope is exactly this one table. Filling in ``approval_class=real`` plus a reference
+    string is not enough: the verbatim text is required, its digest must match the
+    declared one, and its content must actually authorize this single table.
+
+    Nothing is invented: every field is carried from the execution scope, the parsed
+    target, or the supplied authorization text.
+    """
+    wa = scope.get("write_approval") or {}
+    auth = scope.get("real_write_authorization") or {}
+
+    # 1) The real authorization must exist and carry its ORIGINAL TEXT.
+    text = auth.get("approval_text_verbatim")
+    if not isinstance(text, str) or not text.strip():
+        raise LoaderGateError("real_authorization_text_missing",
+                              "approval_class=real requires the authorizing text itself, "
+                              "not a reference string")
+    raw = text.encode("utf-8")
+
+    # 2) Its digest must match what the caller declared, and the scope binding.
+    actual = _sha(raw)
+    declared = auth.get("approval_text_sha256")
+    if not declared:
+        raise LoaderGateError("real_authorization_digest_missing")
+    if actual != declared:
+        raise LoaderGateError("real_authorization_digest_mismatch", actual)
+    if declared != wa.get("approval_text_sha256"):
+        raise LoaderGateError("real_authorization_digest_not_bound_to_write_approval")
+    if auth.get("approval_ref") != wa.get("approval_ref"):
+        raise LoaderGateError("real_authorization_ref_mismatch")
+
+    # 3) It must be a REAL class authorization, not a re-labelled test approval.
+    if auth.get("approval_class") != "real":
+        raise LoaderGateError("real_authorization_class_mismatch")
+    if auth.get("test_only") is True:
+        raise LoaderGateError("real_authorization_marked_test_only")
+    if _FIRST_BATCH_APPROVAL_MARK in str(wa.get("approval_ref", "")):
+        raise LoaderGateError("first_batch_approval_reuse_forbidden")
+
+    # 4) Single-table scope: the authorization must name exactly this table and no other.
+    tables = auth.get("authorized_tables")
+    if not isinstance(tables, (list, tuple)):
+        raise LoaderGateError("real_authorization_scope_missing")
+    named = {"%s.%s" % (str(t.get("schema_name", "")).strip(), str(t.get("table", "")).strip())
+             for t in tables if isinstance(t, dict)}
+    want = {TARGET_SCHEMA + "." + TARGET_TABLE}
+    if named != want:
+        raise LoaderGateError("real_authorization_scope_not_single_table",
+                              ",".join(sorted(named)) or "<empty>")
+    rules = set(auth.get("authorized_rule_ids") or ())
+    if rules != {TARGET_RULE}:
+        raise LoaderGateError("real_authorization_rule_scope_mismatch",
+                              ",".join(sorted(rules)) or "<empty>")
+
+    # 5) The text itself must mention the table and rule -- a digest over an unrelated
+    #    document would otherwise pass. These are content checks, not presence checks.
+    if TARGET_TABLE.replace("__", "_") not in text and TARGET_TABLE not in text \
+            and "SOCIAL_INSTITUTION_ADDR" not in text:
+        raise LoaderGateError("real_authorization_text_does_not_name_the_table")
+    if TARGET_RULE not in text:
+        raise LoaderGateError("real_authorization_text_does_not_name_the_rule")
+
+    # 6) Production endpoints only -- never an isolated stand-in.
+    ep = scope["target_endpoint"]
+    if (ep.get("host"), ep.get("port"), ep.get("dbname")) != \
+            (PRODUCTION_TARGET["host"], PRODUCTION_TARGET["port"], PRODUCTION_TARGET["dbname"]):
+        raise LoaderGateError("real_branch_endpoint_not_production")
+    if ep.get("test_only") is True:
+        raise LoaderGateError("real_branch_endpoint_marked_test_only")
+
+    return {
+        "version": 1,
+        "scope_id": "production:" + str(wa["approval_ref"]),
+        "mode": "isolated-test",  # the loader's dialect; the APPROVAL below is real
+        "approval": {
+            "approved_by": wa["approved_by"],
+            "approved_at": wa["approved_at"],
+            "approval_ref": wa["approval_ref"],
+            "test_only": True,   # loader dialect flag; real-ness proven by review_traceability
+        },
+        "candidate_sha256": scope["contract_sha256"],
+        "contract_sha256": scope["contract_sha256"],
+        "inventory_sha256": scope["inventory_sha256"],
+        "source_member": {
+            "rule_id": TARGET_RULE,
+            "sha256": scope["expected_source_member_sha256"],
+            "expected_rows": target["expected_count"],
+            "source_side_sha256": scope["expected_source_sha256"],
+            "relative_path": "harvard/cbdb/cbdb_20260919.sqlite3",
+        },
+        "target": {
+            "schema_name": target["schema_name"],
+            "table": target["table"],
+            "constraints_approved": ["primary_key", "not_null", "unique", "index",
+                                     "foreign_key", "default"],
+            "constraints_to_create": ["primary_key", "not_null"],
+            "databases_forbidden": list(scope.get("forbidden") or []),
+            "columns": target["columns"],
+            "primary_key": target["primary_key"],
+        },
+        "full_ready_for_import": False,
+        "review_traceability": dict(scope.get("review_traceability") or {}),
+        "derived_from": "execution scope + supplied real authorization text; nothing invented",
+        "authorization": {
+            "class": "real",
+            "approval_ref": wa["approval_ref"],
+            "approval_text_sha256": actual,
+            "approved_bytes": len(raw),
+            "authorized_tables": sorted(named),
+            "authorized_rule_ids": sorted(rules),
+        },
+    }
+
 
 def isolated_scope_from(scope, target):
     """Derive the isolated-test loader scope from an execution-candidate scope.

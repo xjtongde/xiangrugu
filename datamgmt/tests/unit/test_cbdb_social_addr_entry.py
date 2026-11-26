@@ -267,3 +267,183 @@ def test_active_set_role_override_is_refused():
     with pytest.raises(E.LoaderGateError) as e:
         E.verify_instance_and_role_in_session(sess, _scope(), {})
     assert e.value.code == "load_role_override_active"
+
+
+# ---------------------------------------------------------- formal (real) branch
+import hashlib as _hashlib
+
+PROD_AUTH_TEXT = (
+    "\u8336\u9999\u6279\u51c6\u539f\u6587\uff08\u6b63\u5f0f\u5199\u5e93\uff09\n"
+    "\u6211\u6279\u51c6\u5c06\u6e90\u6210\u5458 m007906 \u7684 SOCIAL_INSTITUTION_ADDR "
+    "\u6620\u5c04\u5230 cbdb.cbdb__social_u5f_institution_u5f_addr\u3002\n"
+    "\u4ec5\u9650\u8be5\u5355\u8868\u3002")
+PROD_AUTH_SHA = _hashlib.sha256(PROD_AUTH_TEXT.encode("utf-8")).hexdigest()
+
+
+def _target():
+    return {
+        "schema_name": "cbdb", "table": "cbdb__social_u5f_institution_u5f_addr",
+        "columns": [{"ordinal": i, "source_column": "s%d" % i, "target_column": "t%d" % i,
+                     "pg_type": "text", "nullable": True} for i in range(1, 12)],
+        "primary_key": {"columns": ["t1", "t2", "t3", "t4", "t5", "t6"]},
+        "expected_count": 3859, "expected_sha256": "x" * 64,
+    }
+
+
+def _real_scope(**over):
+    s = _scope()
+    s["write_approval"] = {
+        "approved_by": "\u8336\u9999", "approved_at": "2026-11-27T01:10:00Z",
+        "approval_ref": "chaxiang-real-write-social-institution-addr-20261127",
+        "approval_class": "real",
+        "approval_text_sha256": PROD_AUTH_SHA,
+        "bound_object_rule_ids": ["m007906"],
+    }
+    s["target_endpoint"] = {"host": "pg32b", "port": 5433, "dbname": "xiangrugu",
+                            "in_session_port": 5432}
+    s["real_authority_ref"] = "chaxiang-real-write-social-institution-addr-20261127"
+    s["expected_source_member_sha256"] = "m" * 64
+    s["expected_source_sha256"] = "2cb8c354b0e75e6ae230e3b00540146e823eaa8de8def2abce89ad6179a07579"
+    s["real_write_authorization"] = {
+        "approval_class": "real",
+        "approval_ref": "chaxiang-real-write-social-institution-addr-20261127",
+        "approval_text_verbatim": PROD_AUTH_TEXT,
+        "approval_text_sha256": PROD_AUTH_SHA,
+        "authorized_tables": [{"schema_name": "cbdb",
+                               "table": "cbdb__social_u5f_institution_u5f_addr"}],
+        "authorized_rule_ids": ["m007906"],
+    }
+    s.update(over)
+    return s
+
+
+def test_formal_branch_accepts_a_real_verbatim_authorization():
+    sc = E.production_scope_from(_real_scope(), _target(), {})
+    assert sc["authorization"]["class"] == "real"
+    assert sc["authorization"]["authorized_tables"] == [
+        "cbdb.cbdb__social_u5f_institution_u5f_addr"]
+    assert sc["candidate_sha256"] == CAND
+
+
+def test_filling_only_approval_class_real_is_refused():
+    """The defect this box fixes: a bare approval_class=real must not get through."""
+    s = _real_scope()
+    del s["real_write_authorization"]
+    with pytest.raises(E.LoaderGateError) as e:
+        E.production_scope_from(s, _target(), {})
+    assert e.value.code == "real_authorization_text_missing"
+
+
+def test_real_authorization_reference_string_without_text_is_refused():
+    s = _real_scope()
+    s["real_write_authorization"]["approval_text_verbatim"] = "   "
+    with pytest.raises(E.LoaderGateError) as e:
+        E.production_scope_from(s, _target(), {})
+    assert e.value.code == "real_authorization_text_missing"
+
+
+def test_real_authorization_digest_mismatch_is_refused():
+    s = _real_scope()
+    s["real_write_authorization"]["approval_text_sha256"] = "0" * 64
+    with pytest.raises(E.LoaderGateError) as e:
+        E.production_scope_from(s, _target(), {})
+    assert e.value.code == "real_authorization_digest_mismatch"
+
+
+def test_real_authorization_digest_must_be_bound_to_write_approval():
+    s = _real_scope()
+    s["write_approval"]["approval_text_sha256"] = "1" * 64
+    with pytest.raises(E.LoaderGateError) as e:
+        E.production_scope_from(s, _target(), {})
+    assert e.value.code == "real_authorization_digest_not_bound_to_write_approval"
+
+
+def test_real_authorization_ref_must_match_write_approval_ref():
+    s = _real_scope()
+    s["real_write_authorization"]["approval_ref"] = "another-ref"
+    with pytest.raises(E.LoaderGateError) as e:
+        E.production_scope_from(s, _target(), {})
+    assert e.value.code == "real_authorization_ref_mismatch"
+
+
+def test_relabelled_test_approval_cannot_become_real():
+    s = _real_scope()
+    s["real_write_authorization"]["approval_class"] = "test"
+    with pytest.raises(E.LoaderGateError) as e:
+        E.production_scope_from(s, _target(), {})
+    assert e.value.code == "real_authorization_class_mismatch"
+
+
+def test_real_authorization_marked_test_only_is_refused():
+    s = _real_scope()
+    s["real_write_authorization"]["test_only"] = True
+    with pytest.raises(E.LoaderGateError) as e:
+        E.production_scope_from(s, _target(), {})
+    assert e.value.code == "real_authorization_marked_test_only"
+
+
+def test_real_authorization_must_cover_exactly_one_table():
+    s = _real_scope()
+    s["real_write_authorization"]["authorized_tables"] = [
+        {"schema_name": "cbdb", "table": "cbdb__social_u5f_institution_u5f_addr"},
+        {"schema_name": "harv", "table": "harvard_u2f_tab__academy_u5f_data_u2e_tab"}]
+    with pytest.raises(E.LoaderGateError) as e:
+        E.production_scope_from(s, _target(), {})
+    assert e.value.code == "real_authorization_scope_not_single_table"
+
+
+def test_real_authorization_rule_scope_must_be_exactly_m007906():
+    s = _real_scope()
+    s["real_write_authorization"]["authorized_rule_ids"] = ["m007906", "m008002"]
+    with pytest.raises(E.LoaderGateError) as e:
+        E.production_scope_from(s, _target(), {})
+    assert e.value.code == "real_authorization_rule_scope_mismatch"
+
+
+def test_real_authorization_text_must_actually_name_the_table():
+    """A digest over an unrelated document must not pass."""
+    unrelated = "\u8336\u9999\u6279\u51c6\u5176\u4ed6\u4e8b\u9879\u3002"
+    s = _real_scope()
+    s["real_write_authorization"]["approval_text_verbatim"] = unrelated
+    s["real_write_authorization"]["approval_text_sha256"] = _hashlib.sha256(
+        unrelated.encode("utf-8")).hexdigest()
+    s["write_approval"]["approval_text_sha256"] = s["real_write_authorization"]["approval_text_sha256"]
+    with pytest.raises(E.LoaderGateError) as e:
+        E.production_scope_from(s, _target(), {})
+    assert e.value.code == "real_authorization_text_does_not_name_the_table"
+
+
+def test_real_branch_refuses_an_isolated_endpoint():
+    s = _real_scope()
+    s["target_endpoint"]["dbname"] = "trialdb"
+    with pytest.raises(E.LoaderGateError) as e:
+        E.production_scope_from(s, _target(), {})
+    assert e.value.code == "real_branch_endpoint_not_production"
+
+
+def test_real_branch_refuses_test_only_endpoint():
+    s = _real_scope()
+    s["target_endpoint"]["test_only"] = True
+    with pytest.raises(E.LoaderGateError) as e:
+        E.production_scope_from(s, _target(), {})
+    assert e.value.code == "real_branch_endpoint_marked_test_only"
+
+
+def test_isolated_branch_still_requires_test_approval():
+    """The isolated path must not silently accept a real approval either.
+
+    A real approval reaching the isolated path is exactly the mirror image of the
+    defect this box fixes, so the isolated branch must refuse it too.
+    """
+    s = _real_scope()
+    with pytest.raises(E.LoaderGateError) as e:
+        E.isolated_scope_from(s, _target())
+    assert e.value.code == "isolated_scope_requires_test_approval"
+
+
+def test_isolated_branch_accepts_a_test_approval():
+    s = _scope()
+    s["expected_source_member_sha256"] = "m" * 64
+    s["expected_source_sha256"] = "2cb8c354b0e75e6ae230e3b00540146e823eaa8de8def2abce89ad6179a07579"
+    sc = E.isolated_scope_from(s, _target())
+    assert sc["approval"]["test_only"] is True

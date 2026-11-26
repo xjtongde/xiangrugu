@@ -1,0 +1,189 @@
+{
+ "defect_fixed": {
+  "now": "按 write_approval.approval_class 分流：real → production_scope_from()；test → isolated_scope_from()；两条分支各自核验审批与目标，共用同一套单事务装载与回读",
+  "shared": "loader.run_single_table（DDL→COPY→回读→COMMIT/ROLLBACK）与 instance/role 会话内核验完全共用，未复制第二份",
+  "was": "run_execution_candidate 无条件调用 isolated_scope_from()，正式审批也会被当作隔离测试路径处理"
+ },
+ "evidence": {
+  "cases_formal": [
+   {
+    "authorization": true,
+    "branch": "real",
+    "case": "F1_formal_branch_full_transaction",
+    "column_count": 11,
+    "committed_rows": 3859,
+    "constraint_types": [
+     "n",
+     "p"
+    ],
+    "coord_roundtrip_inexact": 0,
+    "expected": "COMMITTED 3859 via real branch",
+    "non_primary_index_count": 0,
+    "pk_columns_in_order": [
+     "c_u5f_inst_u5f_addr_u5f_id",
+     "c_u5f_inst_u5f_addr_u5f_type_u5f_code",
+     "c_u5f_inst_u5f_code",
+     "c_u5f_inst_u5f_name_u5f_code",
+     "inst_u5f_xcoord",
+     "inst_u5f_ycoord"
+    ],
+    "pk_distinct": 3859,
+    "residue_rows": 3859,
+    "result": "LOADED",
+    "shared_single_transaction": true,
+    "table_present_after": true
+   },
+   {
+    "case": "FN1_target_already_exists",
+    "detail": "target_already_exists: cbdb.cbdb__social_u5f_institution_u5f_addr",
+    "error_code": "target_already_exists",
+    "expected": "REFUSED, old table intact",
+    "residue_rows": 3859,
+    "result": "REFUSED",
+    "table_present_after": true
+   },
+   {
+    "case": "FN2_missing_authorization_text",
+    "detail": "real_authorization_text_missing: approval_class=real requires the authorizing text itself, not a reference string",
+    "error_code": "real_authorization_text_missing",
+    "expected": "REFUSED real_authorization_text_missing",
+    "residue_rows": 0,
+    "result": "REFUSED",
+    "table_present_after": false
+   },
+   {
+    "case": "FN3_wrong_authorization_digest",
+    "detail": "real_authorization_digest_mismatch: 29a3c89cc983415efd47f13cb2c73c6c66c709163f69e26d285f163edca6f44d",
+    "error_code": "real_authorization_digest_mismatch",
+    "expected": "REFUSED real_authorization_digest_mismatch",
+    "residue_rows": 0,
+    "result": "REFUSED",
+    "table_present_after": false
+   },
+   {
+    "case": "FN4_only_approval_class_real",
+    "detail": "real_authorization_text_missing: approval_class=real requires the authorizing text itself, not a reference string",
+    "error_code": "real_authorization_text_missing",
+    "expected": "REFUSED real_authorization_text_missing",
+    "residue_rows": 0,
+    "result": "REFUSED",
+    "table_present_after": false
+   },
+   {
+    "case": "FN5_wrong_instance_marker",
+    "detail": "artifact_drift: instance_fingerprint",
+    "error_code": "artifact_drift",
+    "expected": "REFUSED wrong instance",
+    "residue_rows": 0,
+    "result": "REFUSED",
+    "table_present_after": false
+   },
+   {
+    "case": "FN6_readback_failure_rollback",
+    "detail": "row_count_mismatch: 3859 != 3860",
+    "error_code": "row_count_mismatch",
+    "expected": "REFUSED inside transaction, whole table rolled back (residue 0)",
+    "residue_rows": 0,
+    "result": "REFUSED",
+    "table_present_after": false
+   }
+  ],
+  "exit_codes": {
+   "error": "3（异常，已回滚）",
+   "refused": "2（门控拒绝，未写库）",
+   "success": "0（装载提交）"
+  },
+  "formal_branch": {
+   "cases": 7,
+   "errors": 0,
+   "loaded": 1,
+   "refused": 6
+  },
+  "isolated_branch": {
+   "all_residue_zero_or_expected": true,
+   "cases": 13,
+   "errors": 0,
+   "loaded": 2,
+   "refused": 11
+  },
+  "value_comparison": {
+   "differences": 0,
+   "error_code": null,
+   "excess_rows": 0,
+   "missing_rows": 0,
+   "result": "comparison_equal",
+   "source_count": 3859,
+   "source_sha256": "2cb8c354b0e75e6ae230e3b00540146e823eaa8de8def2abce89ad6179a07579",
+   "target_count": 3859,
+   "target_sha256": "2cb8c354b0e75e6ae230e3b00540146e823eaa8de8def2abce89ad6179a07579"
+  }
+ },
+ "formal_branch_requirements": {
+  "authorization": "必须提供真实写库授权**原文**，其 SHA-256 与声明值、与 write_approval 绑定值三方一致",
+  "endpoint": "pg32b:5433/xiangrugu（固定）；会话内 5432（固定声明）",
+  "explicitly_not_enough": "仅填 approval_class=real 或仅给引用字符串一律拒绝（见 FN2/FN4 实测）",
+  "instance_binding": "会话内 public.xrg_instance_marker 必须严格一行且等于独立核实的容器 ID",
+  "refusals": [
+   "real_authorization_text_missing",
+   "real_authorization_digest_missing",
+   "real_authorization_digest_mismatch",
+   "real_authorization_digest_not_bound_to_write_approval",
+   "real_authorization_ref_mismatch",
+   "real_authorization_class_mismatch",
+   "real_authorization_marked_test_only",
+   "real_authorization_scope_missing",
+   "real_authorization_scope_not_single_table",
+   "real_authorization_rule_scope_mismatch",
+   "real_authorization_text_does_not_name_the_table",
+   "real_authorization_text_does_not_name_the_rule",
+   "real_branch_endpoint_not_production",
+   "real_branch_endpoint_marked_test_only",
+   "first_batch_approval_reuse_forbidden"
+  ],
+  "role_binding": "会话内 current_user 必须等于 xrg_loader，且不得存在 SET ROLE 覆盖",
+  "rule_scope": "authorized_rule_ids 必须恰好等于 {m007906}",
+  "single_table_scope": "authorized_tables 必须恰好等于 {cbdb.cbdb__social_u5f_institution_u5f_addr}",
+  "text_content_check": "授权原文本身必须指名该表与 m007906（防止用无关文档的摘要蒙混）"
+ },
+ "formal_command": {
+  "entry_point": "xiangrugu_datamgmt.cbdb_social_addr_entry.run_execution_candidate",
+  "invocation": [
+   "PYTHONPATH=<src> python3 -m xiangrugu_datamgmt.cbdb_social_addr_entry_runner \\",
+   "  --contract datamgmt/contracts/releases/2026-10-06-bootstrap/b-single-table-frozen-candidate.json \\",
+   "  --scope <execution-scope.json> --expected <expected.json> \\",
+   "  --source-payload <payload.bytes> --target pg32b:5433/xiangrugu"
+  ],
+  "note": "本盒交付的是入口候选与其门控；实际执行器命令包装需在获得正式写库授权后落地，本盒未连接生产"
+ },
+ "format": "xiangrugu.task6-bstep2.real-branch.v1",
+ "least_privilege": {
+  "grants_beyond_that": "无（不需要 CREATEDB、CREATEROLE、SUPERUSER）",
+  "load_must_not_create": [
+   "DATABASE",
+   "SCHEMA cbdb",
+   "xrg_instance_marker",
+   "任何角色"
+  ],
+  "load_role": "xrg_loader",
+  "prerequisites_must_exist_before_load": [
+   "DATABASE xiangrugu 已存在",
+   "SCHEMA cbdb 已存在且 owner 为 xrg_loader（或装载角色在该 schema 有 CREATE）",
+   "public.xrg_instance_marker 存在且严格一行，值为生产实例真实容器 ID",
+   "GRANT SELECT ON public.xrg_instance_marker TO xrg_loader",
+   "GRANT USAGE ON SCHEMA public TO xrg_loader"
+  ],
+  "role_attributes": "LOGIN NOSUPERUSER NOCREATEDB NOCREATEROLE NOREPLICATION",
+  "why": "装载只允许建/写 cbdb.cbdb__social_u5f_institution_u5f_addr 这一张表；先决对象缺失时应在门控阶段就拒绝，而不是由装载过程代建"
+ },
+ "not_done": {
+  "production_write": "未获授权，本盒未连接生产、未写正式库"
+ },
+ "unchanged": {
+  "approval_ref": "chaxiang-approval-social-institution-addr-bstep2-correction-20261126",
+  "columns": 11,
+  "expected_rows": 3859,
+  "frozen_candidate_sha256": "56b0076d2e877be9fb34796e01b8ee2b37d5a817c8e80203fa21c95e4f3f8237",
+  "source_side_value_sha256": "2cb8c354b0e75e6ae230e3b00540146e823eaa8de8def2abce89ad6179a07579"
+ },
+ "verdict": "FORMAL_BRANCH_PROVEN_ON_STAND_IN"
+}

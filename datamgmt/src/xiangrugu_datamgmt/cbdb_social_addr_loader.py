@@ -111,15 +111,38 @@ def validate_scope(scope, presented):
         raise LoaderGateError("approval_text_missing")
 
 
+def scope_approval_is_isolated(expected):
+    """True when this run is the isolated-test branch (never a formal write)."""
+    return (expected or {}).get("execution_branch") != "real"
+
+
 def check_instance_identity(observed, expected):
     """Gate 2: the connected instance must be the approved temporary isolated one."""
     dbs = str(observed.get("databases", ""))
     names = {n.strip() for n in dbs.split(",") if n.strip()}
-    for forbidden in ("pg32b", "cbdb", "cbdb_reh", "xiangrugu"):
-        if forbidden in names:
-            raise LoaderGateError("production_database_visible", forbidden)
-    for key in ("container_id", "image_id", "server_version", "inet_server_addr", "databases"):
-        if observed.get(key) != expected.get(key):
+    # An ISOLATED instance must not even see a production database name. On the FORMAL
+    # branch the target database IS ``xiangrugu`` by definition, so that name is the
+    # destination rather than a contamination signal -- but the production INSTANCE
+    # names remain forbidden either way, and the marker still binds the container.
+    forbidden = ("pg32b", "cbdb", "cbdb_reh")
+    if scope_approval_is_isolated(expected):
+        forbidden = forbidden + ("xiangrugu",)
+    for f in forbidden:
+        if f in names:
+            raise LoaderGateError("production_database_visible", f)
+    # The exact database SET is only fixed for an isolated run (a fixed stand-in
+    # snapshot). A formal write adds its target database, so for that branch the set
+    # is compared after removing the target name -- the forbidden-name check above
+    # already guarantees nothing production-like else is visible.
+    keys = ("container_id", "image_id", "server_version", "inet_server_addr", "databases")
+    for key in keys:
+        got, want = observed.get(key), expected.get(key)
+        if key == "databases" and not scope_approval_is_isolated(
+                {"execution_branch": expected.get("execution_branch")}):
+            strip = lambda v: ",".join(sorted({n.strip() for n in str(v).split(",")
+                                               if n.strip() and n.strip() != "xiangrugu"}))
+            got, want = strip(got), strip(want)
+        if got != want:
             raise LoaderGateError("instance_identity_mismatch", key)
 
 
@@ -174,7 +197,11 @@ def run_single_table(session, scope, contract, target, data, instance_observed, 
         "forbidden": expected["forbidden"],
     }
     validate_scope(scope, presented)
-    check_instance_identity(instance_observed, expected["instance_identity"])
+    # Carry the branch marker alongside the identity so the "production database
+    # visible" check can tell a formal write's own target from leakage into a trial.
+    identity_expect = dict(expected["instance_identity"])
+    identity_expect["execution_branch"] = expected.get("execution_branch")
+    check_instance_identity(instance_observed, identity_expect)
     check_target_absent(session)
     return _load_and_verify(session, contract, target, data, expected, corrupt=corrupt)
 

@@ -1,0 +1,328 @@
+{
+ "cases": [
+  {
+   "case": "P1_positive_full_load",
+   "column_count": 11,
+   "committed_flag": true,
+   "committed_rows": 3859,
+   "constraint_types": [
+    "n",
+    "p"
+   ],
+   "coord_roundtrip_inexact": 0,
+   "expected": "COMMITTED 3859",
+   "in_session_port": "5432",
+   "load_role": "xrg_loader",
+   "marker_verified": "0ad96bdb4dd151ea4ed14bdb3c15cbdc533c1956a235243206d93988c65a01c2",
+   "non_primary_index_count": 0,
+   "null_counts": {
+    "c_u5f_inst_u5f_addr_u5f_begin_u5f_year": 3005,
+    "c_u5f_inst_u5f_addr_u5f_end_u5f_year": 3857,
+    "c_u5f_inst_u5f_addr_u5f_id": 0,
+    "c_u5f_inst_u5f_addr_u5f_type_u5f_code": 0,
+    "c_u5f_inst_u5f_code": 0,
+    "c_u5f_inst_u5f_name_u5f_code": 0,
+    "c_u5f_notes": 752,
+    "c_u5f_pages": 334,
+    "c_u5f_source": 219,
+    "inst_u5f_xcoord": 0,
+    "inst_u5f_ycoord": 0
+   },
+   "pk_columns_in_order": [
+    "c_u5f_inst_u5f_addr_u5f_id",
+    "c_u5f_inst_u5f_addr_u5f_type_u5f_code",
+    "c_u5f_inst_u5f_code",
+    "c_u5f_inst_u5f_name_u5f_code",
+    "inst_u5f_xcoord",
+    "inst_u5f_ycoord"
+   ],
+   "pk_distinct": 3859,
+   "pk_null_free": true,
+   "residue_rows": 3859,
+   "result": "LOADED",
+   "rolled_back": false,
+   "single_parse_drives_load": true,
+   "table_present_after": true,
+   "xfail": ""
+  },
+  {
+   "case": "N1_target_already_exists",
+   "detail": "target_already_exists: cbdb.cbdb__social_u5f_institution_u5f_addr",
+   "error_code": "target_already_exists",
+   "expected": "REFUSED, untouched",
+   "residue_rows": 3859,
+   "result": "REFUSED",
+   "table_present_after": true,
+   "xfail": ""
+  },
+  {
+   "case": "N2_row_count_mismatch",
+   "detail": "row_count_mismatch: 3859 != 3860",
+   "error_code": "row_count_mismatch",
+   "expected": "ROLLBACK 0 residue",
+   "residue_rows": 0,
+   "result": "REFUSED",
+   "table_present_after": false,
+   "xfail": "row_count"
+  },
+  {
+   "case": "N3_structure_mismatch",
+   "detail": "structure_readback_mismatch",
+   "error_code": "structure_readback_mismatch",
+   "expected": "ROLLBACK 0 residue",
+   "residue_rows": 0,
+   "result": "REFUSED",
+   "table_present_after": false,
+   "xfail": "structure"
+  },
+  {
+   "case": "N4_coord_roundtrip_inexact",
+   "detail": "coordinate_roundtrip_inexact",
+   "error_code": "coordinate_roundtrip_inexact",
+   "expected": "ROLLBACK 0 residue",
+   "residue_rows": 0,
+   "result": "REFUSED",
+   "table_present_after": false,
+   "xfail": "coord"
+  },
+  {
+   "case": "N5_review_traceability_incomplete",
+   "detail": "review_traceability_incomplete",
+   "error_code": "review_traceability_incomplete",
+   "expected": "REFUSED before write",
+   "residue_rows": 0,
+   "result": "REFUSED",
+   "table_present_after": false,
+   "xfail": ""
+  },
+  {
+   "case": "N5b_approval_text_digest_mismatch",
+   "detail": "approval_text_digest_mismatch",
+   "error_code": "approval_text_digest_mismatch",
+   "expected": "REFUSED before write (approval_text_digest_mismatch)",
+   "residue_rows": 0,
+   "result": "REFUSED",
+   "table_present_after": false,
+   "xfail": ""
+  },
+  {
+   "case": "N5c_contract_review_ref_mismatch",
+   "detail": "contract_review_ref_mismatch",
+   "error_code": "contract_review_ref_mismatch",
+   "expected": "REFUSED before write (contract_review_ref_mismatch)",
+   "residue_rows": 0,
+   "result": "REFUSED",
+   "table_present_after": false,
+   "xfail": ""
+  },
+  {
+   "case": "N5d_approval_record_ref_mismatch",
+   "detail": "approval_record_ref_mismatch",
+   "error_code": "approval_record_ref_mismatch",
+   "expected": "REFUSED before write (approval_record_ref_mismatch)",
+   "residue_rows": 0,
+   "result": "REFUSED",
+   "table_present_after": false,
+   "xfail": ""
+  },
+  {
+   "case": "N5e_approval_text_missing",
+   "detail": "approval_text_missing",
+   "error_code": "approval_text_missing",
+   "expected": "REFUSED before write (approval_text_missing)",
+   "residue_rows": 0,
+   "result": "REFUSED",
+   "table_present_after": false,
+   "xfail": ""
+  },
+  {
+   "case": "N6_test_approval_bound_to_production_container",
+   "detail": "marker_container_binding_mismatch",
+   "error_code": "marker_container_binding_mismatch",
+   "expected": "REFUSED, never connects",
+   "residue_rows": 0,
+   "result": "REFUSED",
+   "table_present_after": false,
+   "xfail": ""
+  },
+  {
+   "case": "N7_target_port_is_in_session_5432",
+   "detail": "target_port_not_5433: 5432",
+   "error_code": "target_port_not_5433",
+   "expected": "REFUSED",
+   "residue_rows": 0,
+   "result": "REFUSED",
+   "table_present_after": false,
+   "xfail": ""
+  },
+  {
+   "case": "P2_clean_retry",
+   "column_count": 11,
+   "committed_flag": true,
+   "committed_rows": 3859,
+   "constraint_types": [
+    "n",
+    "p"
+   ],
+   "coord_roundtrip_inexact": 0,
+   "expected": "COMMITTED 3859",
+   "in_session_port": "5432",
+   "load_role": "xrg_loader",
+   "marker_verified": "0ad96bdb4dd151ea4ed14bdb3c15cbdc533c1956a235243206d93988c65a01c2",
+   "non_primary_index_count": 0,
+   "null_counts": {
+    "c_u5f_inst_u5f_addr_u5f_begin_u5f_year": 3005,
+    "c_u5f_inst_u5f_addr_u5f_end_u5f_year": 3857,
+    "c_u5f_inst_u5f_addr_u5f_id": 0,
+    "c_u5f_inst_u5f_addr_u5f_type_u5f_code": 0,
+    "c_u5f_inst_u5f_code": 0,
+    "c_u5f_inst_u5f_name_u5f_code": 0,
+    "c_u5f_notes": 752,
+    "c_u5f_pages": 334,
+    "c_u5f_source": 219,
+    "inst_u5f_xcoord": 0,
+    "inst_u5f_ycoord": 0
+   },
+   "pk_columns_in_order": [
+    "c_u5f_inst_u5f_addr_u5f_id",
+    "c_u5f_inst_u5f_addr_u5f_type_u5f_code",
+    "c_u5f_inst_u5f_code",
+    "c_u5f_inst_u5f_name_u5f_code",
+    "inst_u5f_xcoord",
+    "inst_u5f_ycoord"
+   ],
+   "pk_distinct": 3859,
+   "pk_null_free": true,
+   "residue_rows": 3859,
+   "result": "LOADED",
+   "rolled_back": false,
+   "single_parse_drives_load": true,
+   "table_present_after": true,
+   "xfail": ""
+  }
+ ],
+ "formal_branch": {
+  "cases": [
+   {
+    "authorization": true,
+    "branch": "real",
+    "case": "F1_formal_branch_full_transaction",
+    "column_count": 11,
+    "committed_rows": 3859,
+    "constraint_types": [
+     "n",
+     "p"
+    ],
+    "coord_roundtrip_inexact": 0,
+    "expected": "COMMITTED 3859 via real branch",
+    "non_primary_index_count": 0,
+    "pk_columns_in_order": [
+     "c_u5f_inst_u5f_addr_u5f_id",
+     "c_u5f_inst_u5f_addr_u5f_type_u5f_code",
+     "c_u5f_inst_u5f_code",
+     "c_u5f_inst_u5f_name_u5f_code",
+     "inst_u5f_xcoord",
+     "inst_u5f_ycoord"
+    ],
+    "pk_distinct": 3859,
+    "residue_rows": 3859,
+    "result": "LOADED",
+    "shared_single_transaction": true,
+    "table_present_after": true
+   },
+   {
+    "case": "FN1_target_already_exists",
+    "detail": "target_already_exists: cbdb.cbdb__social_u5f_institution_u5f_addr",
+    "error_code": "target_already_exists",
+    "expected": "REFUSED, old table intact",
+    "residue_rows": 3859,
+    "result": "REFUSED",
+    "table_present_after": true
+   },
+   {
+    "case": "FN2_missing_authorization_text",
+    "detail": "real_authorization_text_missing: approval_class=real requires the authorizing text itself, not a reference string",
+    "error_code": "real_authorization_text_missing",
+    "expected": "REFUSED real_authorization_text_missing",
+    "residue_rows": 0,
+    "result": "REFUSED",
+    "table_present_after": false
+   },
+   {
+    "case": "FN3_wrong_authorization_digest",
+    "detail": "real_authorization_digest_mismatch: 29a3c89cc983415efd47f13cb2c73c6c66c709163f69e26d285f163edca6f44d",
+    "error_code": "real_authorization_digest_mismatch",
+    "expected": "REFUSED real_authorization_digest_mismatch",
+    "residue_rows": 0,
+    "result": "REFUSED",
+    "table_present_after": false
+   },
+   {
+    "case": "FN4_only_approval_class_real",
+    "detail": "real_authorization_text_missing: approval_class=real requires the authorizing text itself, not a reference string",
+    "error_code": "real_authorization_text_missing",
+    "expected": "REFUSED real_authorization_text_missing",
+    "residue_rows": 0,
+    "result": "REFUSED",
+    "table_present_after": false
+   },
+   {
+    "case": "FN5_wrong_instance_marker",
+    "detail": "artifact_drift: instance_fingerprint",
+    "error_code": "artifact_drift",
+    "expected": "REFUSED wrong instance",
+    "residue_rows": 0,
+    "result": "REFUSED",
+    "table_present_after": false
+   },
+   {
+    "case": "FN6_readback_failure_rollback",
+    "detail": "row_count_mismatch: 3859 != 3860",
+    "error_code": "row_count_mismatch",
+    "expected": "REFUSED inside transaction, whole table rolled back (residue 0)",
+    "residue_rows": 0,
+    "result": "REFUSED",
+    "table_present_after": false
+   }
+  ],
+  "summary": {
+   "cases": 7,
+   "errors": 0,
+   "loaded": 1,
+   "refused": 6
+  }
+ },
+ "format": "xrg.cbdb.addr.entry-trial.v1",
+ "independent_readback": {
+  "column_count": 11,
+  "comparison": {
+   "differences": 0,
+   "error_code": null,
+   "excess_rows": 0,
+   "missing_rows": 0,
+   "result": "comparison_equal",
+   "source_count": 3859,
+   "source_sha256": "2cb8c354b0e75e6ae230e3b00540146e823eaa8de8def2abce89ad6179a07579",
+   "target_count": 3859,
+   "target_sha256": "2cb8c354b0e75e6ae230e3b00540146e823eaa8de8def2abce89ad6179a07579"
+  },
+  "method": "project unordered comparator (source sqlite vs target PG)",
+  "table": "cbdb.cbdb__social_u5f_institution_u5f_addr",
+  "target_row_count": 3859
+ },
+ "isolated": {
+  "hostname": "0ad96bdb4dd1",
+  "net_none": true,
+  "outer_port_declared": 5433,
+  "pg_port": 5432,
+  "production_container_bound": "0ad96bdb4dd151ea4ed14bdb3c15cbdc533c1956a235243206d93988c65a01c2"
+ },
+ "payload_bytes": 417981,
+ "summary": {
+  "all_residue_zero_or_expected": true,
+  "cases": 13,
+  "errors": 0,
+  "loaded": 2,
+  "refused": 11
+ }
+}

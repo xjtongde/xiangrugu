@@ -13,7 +13,7 @@
    "expected": "COMMITTED 3859",
    "in_session_port": "5432",
    "load_role": "xrg_loader",
-   "marker_verified": "164c5abc08cb27ec6a969ab116dc7970bd35a95228fdc05f1f2ba5743e183173",
+   "marker_verified": "e7d57aae1e22fa3f76723b9a8cd40f858c6516d5a283f7b23f9d1f58a6088b5b",
    "non_primary_index_count": 0,
    "null_counts": {
     "c_u5f_inst_u5f_addr_u5f_begin_u5f_year": 3005,
@@ -41,11 +41,8 @@
    "residue_rows": 3859,
    "result": "LOADED",
    "rolled_back": false,
-   "sha_equal": false,
    "single_parse_drives_load": true,
-   "source_sha256": "2cb8c354b0e75e6ae230e3b00540146e823eaa8de8def2abce89ad6179a07579",
    "table_present_after": true,
-   "target_sha256": null,
    "xfail": ""
   },
   {
@@ -99,6 +96,46 @@
    "xfail": ""
   },
   {
+   "case": "N5b_approval_text_digest_mismatch",
+   "detail": "approval_text_digest_mismatch",
+   "error_code": "approval_text_digest_mismatch",
+   "expected": "REFUSED before write (approval_text_digest_mismatch)",
+   "residue_rows": 0,
+   "result": "REFUSED",
+   "table_present_after": false,
+   "xfail": ""
+  },
+  {
+   "case": "N5c_contract_review_ref_mismatch",
+   "detail": "contract_review_ref_mismatch",
+   "error_code": "contract_review_ref_mismatch",
+   "expected": "REFUSED before write (contract_review_ref_mismatch)",
+   "residue_rows": 0,
+   "result": "REFUSED",
+   "table_present_after": false,
+   "xfail": ""
+  },
+  {
+   "case": "N5d_approval_record_ref_mismatch",
+   "detail": "approval_record_ref_mismatch",
+   "error_code": "approval_record_ref_mismatch",
+   "expected": "REFUSED before write (approval_record_ref_mismatch)",
+   "residue_rows": 0,
+   "result": "REFUSED",
+   "table_present_after": false,
+   "xfail": ""
+  },
+  {
+   "case": "N5e_approval_text_missing",
+   "detail": "approval_text_missing",
+   "error_code": "approval_text_missing",
+   "expected": "REFUSED before write (approval_text_missing)",
+   "residue_rows": 0,
+   "result": "REFUSED",
+   "table_present_after": false,
+   "xfail": ""
+  },
+  {
    "case": "N6_test_approval_bound_to_production_container",
    "detail": "marker_container_binding_mismatch",
    "error_code": "marker_container_binding_mismatch",
@@ -131,7 +168,7 @@
    "expected": "COMMITTED 3859",
    "in_session_port": "5432",
    "load_role": "xrg_loader",
-   "marker_verified": "164c5abc08cb27ec6a969ab116dc7970bd35a95228fdc05f1f2ba5743e183173",
+   "marker_verified": "e7d57aae1e22fa3f76723b9a8cd40f858c6516d5a283f7b23f9d1f58a6088b5b",
    "non_primary_index_count": 0,
    "null_counts": {
     "c_u5f_inst_u5f_addr_u5f_begin_u5f_year": 3005,
@@ -159,11 +196,8 @@
    "residue_rows": 3859,
    "result": "LOADED",
    "rolled_back": false,
-   "sha_equal": false,
    "single_parse_drives_load": true,
-   "source_sha256": "2cb8c354b0e75e6ae230e3b00540146e823eaa8de8def2abce89ad6179a07579",
    "table_present_after": true,
-   "target_sha256": null,
    "xfail": ""
   }
  ],
@@ -186,18 +220,18 @@
   "target_row_count": 3859
  },
  "isolated": {
-  "hostname": "164c5abc08cb",
+  "hostname": "e7d57aae1e22",
   "net_none": true,
   "outer_port_declared": 5433,
   "pg_port": 5432,
-  "production_container_bound": "164c5abc08cb27ec6a969ab116dc7970bd35a95228fdc05f1f2ba5743e183173"
+  "production_container_bound": "e7d57aae1e22fa3f76723b9a8cd40f858c6516d5a283f7b23f9d1f58a6088b5b"
  },
  "payload_bytes": 417981,
  "summary": {
   "all_residue_zero_or_expected": true,
-  "cases": 9,
+  "cases": 13,
   "errors": 0,
   "loaded": 2,
-  "refused": 7
+  "refused": 11
  }
 }

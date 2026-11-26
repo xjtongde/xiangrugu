@@ -229,3 +229,12 @@ def test_loader_binds_the_new_frozen_candidate_digest():
     """After the review update the contract digest moved to 56b0076d…."""
     assert L.EXPECTED_CANDIDATE_SHA == (
         "56b0076d2e877be9fb34796e01b8ee2b37d5a817c8e80203fa21c95e4f3f8237")
+
+
+def test_scope_blocks_when_approval_record_event_differs_from_contract_review_ref():
+    """The approval-record event id 与合同 review ref 必须同源；否则拒绝。"""
+    scope = _scope()
+    scope["review_traceability"]["approval_record_event"] = "some-other-event"
+    with pytest.raises(L.LoaderGateError) as e:
+        L.validate_scope(scope, _presented())
+    assert e.value.code == "approval_record_ref_mismatch"

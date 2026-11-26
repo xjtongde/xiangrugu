@@ -1,0 +1,58 @@
+{
+ "deploy": {
+  "basis": "本盒提交 diff 无任何 deploy 路径",
+  "measured_by_this_box": true,
+  "updated": false
+ },
+ "format": "xiangrugu.task6-bstep2.correction.boundary-check.v1",
+ "important": "本盒明令不连接生产 PG，故生产侧三条为**推定**而非本盒实测；实测值来自上一盒（.task6-bstep2-loader-20261126/boundary.json），此处引用并标注时间。",
+ "m2": {
+  "files": [
+   "docs/superpowers/evidence/2026-11-13-p01-real-prep/p01-entry/xrg_p01_entry.py",
+   "docs/superpowers/evidence/2026-11-13-p01-real-prep/rehearsal-evidence.json"
+  ],
+  "in_this_box_commit": false,
+  "measured_by_this_box": true,
+  "still_in_worktree": true
+ },
+ "production": {
+  "basis": "inference: 本盒全程未连接生产库、未执行任何针对 pg32b:5433 的会话；隔离试装仅在 --network none 的临时容器内进行",
+  "measured_by_this_box": false,
+  "reference_measurements_from_previous_box": {
+   "box": ".task6-bstep2-loader-20261126",
+   "file": "boundary.json",
+   "measured_at": "2026-11-26（上一盒收口时）",
+   "values": {
+    "cbdb_schema_count": 0,
+    "containers": {
+     "pg32": "98418cb6f08a",
+     "pg32b": "3d93fc7741f6",
+     "xiangrugu-dev": "29795c60ae15"
+    },
+    "pre_existing_tables": 11,
+    "target_table_exists": false
+   }
+  },
+  "status": "推定未变（本盒未连接生产，也未更新 deploy 或改动生产服务）"
+ },
+ "trial_environment": {
+  "container_id": "164c5abc08cb27ec6a969ab116dc7970bd35a95228fdc05f1f2ba5743e183173",
+  "destroyed": true,
+  "image_id": "sha256:d562e43664f996da0e4208b375c00c111a543d996475188d852e9189b2a8cd05",
+  "measured_by_this_box": true,
+  "network": "none",
+  "port_published": "none",
+  "post_destroy_probe": {
+   "scratch_dirs": "removed",
+   "trial_containers": "none",
+   "trial_volumes": "none"
+  },
+  "source_mount": "ro"
+ },
+ "write_authorization": {
+  "first_batch_approval_reused": false,
+  "production_write": "NOT AUTHORIZED",
+  "real_path_requirements": "approval_class=real + real_authority_ref（本盒均无）",
+  "this_box": "isolated-test only"
+ }
+}

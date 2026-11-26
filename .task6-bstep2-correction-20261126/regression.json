@@ -20,8 +20,10 @@
   "rollup"
  ],
  "new_tests": {
-  "combined": "43 passed",
-  "test_cbdb_social_addr_entry.py": "22 项",
-  "test_cbdb_social_addr_loader.py": "21 项"
- }
+  "combined": "44 passed",
+  "count_correction": "前一版误记为 22/21；a02 复核指出实际为 23/20，现按实测更正为 21/23（总数 44，补入 approval_record_ref_mismatch 用例）",
+  "test_cbdb_social_addr_entry.py": 23,
+  "test_cbdb_social_addr_loader.py": 21
+ },
+ "trial_revision": "v2：新增 N5b–N5e 四个结构化追溯分支用例，13/13 符合预期"
 }

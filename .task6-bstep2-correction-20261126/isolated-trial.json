@@ -13,7 +13,7 @@
    "expected": "COMMITTED 3859",
    "in_session_port": "5432",
    "load_role": "xrg_loader",
-   "marker_verified": "164c5abc08cb27ec6a969ab116dc7970bd35a95228fdc05f1f2ba5743e183173",
+   "marker_verified": "e7d57aae1e22fa3f76723b9a8cd40f858c6516d5a283f7b23f9d1f58a6088b5b",
    "non_primary_index_count": 0,
    "null_counts": {
     "c_u5f_inst_u5f_addr_u5f_begin_u5f_year": 3005,
@@ -41,11 +41,8 @@
    "residue_rows": 3859,
    "result": "LOADED",
    "rolled_back": false,
-   "sha_equal": false,
    "single_parse_drives_load": true,
-   "source_sha256": "2cb8c354b0e75e6ae230e3b00540146e823eaa8de8def2abce89ad6179a07579",
    "table_present_after": true,
-   "target_sha256": null,
    "xfail": ""
   },
   {
@@ -99,6 +96,46 @@
    "xfail": ""
   },
   {
+   "case": "N5b_approval_text_digest_mismatch",
+   "detail": "approval_text_digest_mismatch",
+   "error_code": "approval_text_digest_mismatch",
+   "expected": "REFUSED before write (approval_text_digest_mismatch)",
+   "residue_rows": 0,
+   "result": "REFUSED",
+   "table_present_after": false,
+   "xfail": ""
+  },
+  {
+   "case": "N5c_contract_review_ref_mismatch",
+   "detail": "contract_review_ref_mismatch",
+   "error_code": "contract_review_ref_mismatch",
+   "expected": "REFUSED before write (contract_review_ref_mismatch)",
+   "residue_rows": 0,
+   "result": "REFUSED",
+   "table_present_after": false,
+   "xfail": ""
+  },
+  {
+   "case": "N5d_approval_record_ref_mismatch",
+   "detail": "approval_record_ref_mismatch",
+   "error_code": "approval_record_ref_mismatch",
+   "expected": "REFUSED before write (approval_record_ref_mismatch)",
+   "residue_rows": 0,
+   "result": "REFUSED",
+   "table_present_after": false,
+   "xfail": ""
+  },
+  {
+   "case": "N5e_approval_text_missing",
+   "detail": "approval_text_missing",
+   "error_code": "approval_text_missing",
+   "expected": "REFUSED before write (approval_text_missing)",
+   "residue_rows": 0,
+   "result": "REFUSED",
+   "table_present_after": false,
+   "xfail": ""
+  },
+  {
    "case": "N6_test_approval_bound_to_production_container",
    "detail": "marker_container_binding_mismatch",
    "error_code": "marker_container_binding_mismatch",
@@ -131,7 +168,7 @@
    "expected": "COMMITTED 3859",
    "in_session_port": "5432",
    "load_role": "xrg_loader",
-   "marker_verified": "164c5abc08cb27ec6a969ab116dc7970bd35a95228fdc05f1f2ba5743e183173",
+   "marker_verified": "e7d57aae1e22fa3f76723b9a8cd40f858c6516d5a283f7b23f9d1f58a6088b5b",
    "non_primary_index_count": 0,
    "null_counts": {
     "c_u5f_inst_u5f_addr_u5f_begin_u5f_year": 3005,
@@ -159,34 +196,25 @@
    "residue_rows": 3859,
    "result": "LOADED",
    "rolled_back": false,
-   "sha_equal": false,
    "single_parse_drives_load": true,
-   "source_sha256": "2cb8c354b0e75e6ae230e3b00540146e823eaa8de8def2abce89ad6179a07579",
    "table_present_after": true,
-   "target_sha256": null,
    "xfail": ""
   }
  ],
- "format": "xiangrugu.task6-bstep2.correction.isolated-trial.v1",
+ "format": "xiangrugu.task6-bstep2.correction.isolated-trial.v2",
  "independent_value_comparison": {
-  "column_count": 11,
-  "comparison": {
-   "differences": 0,
-   "error_code": null,
-   "excess_rows": 0,
-   "missing_rows": 0,
-   "result": "comparison_equal",
-   "source_count": 3859,
-   "source_sha256": "2cb8c354b0e75e6ae230e3b00540146e823eaa8de8def2abce89ad6179a07579",
-   "target_count": 3859,
-   "target_sha256": "2cb8c354b0e75e6ae230e3b00540146e823eaa8de8def2abce89ad6179a07579"
-  },
-  "method": "project unordered comparator (source sqlite vs target PG)",
-  "table": "cbdb.cbdb__social_u5f_institution_u5f_addr",
-  "target_row_count": 3859
+  "differences": 0,
+  "error_code": null,
+  "excess_rows": 0,
+  "missing_rows": 0,
+  "result": "comparison_equal",
+  "source_count": 3859,
+  "source_sha256": "2cb8c354b0e75e6ae230e3b00540146e823eaa8de8def2abce89ad6179a07579",
+  "target_count": 3859,
+  "target_sha256": "2cb8c354b0e75e6ae230e3b00540146e823eaa8de8def2abce89ad6179a07579"
  },
  "isolation": {
-  "container_id": "164c5abc08cb27ec6a969ab116dc7970bd35a95228fdc05f1f2ba5743e183173",
+  "container_id": "e7d57aae1e22fa3f76723b9a8cd40f858c6516d5a283f7b23f9d1f58a6088b5b",
   "databases": "postgres,template0,template1,trialdb",
   "destroyed": true,
   "image_id": "sha256:d562e43664f996da0e4208b375c00c111a543d996475188d852e9189b2a8cd05",
@@ -199,25 +227,27 @@
   "residue": "none",
   "source_mount": "ro"
  },
+ "revision_note": "v2：按 a02 复核意见新增 N5b–N5e 四个结构化追溯分支用例（v1 只测 status 字符串）；并移除会误读的 sha_equal 字段。证据由重建的隔离实例实测。",
  "summary": {
   "all_residue_zero_or_expected": true,
-  "cases": 9,
+  "cases": 13,
   "errors": 0,
   "loaded": 2,
-  "refused": 7
+  "refused": 11
  },
  "test_approval_cannot_reach_production": {
   "gates": [
    "Gate A 端点固定 pg32b:5433/xiangrugu；测试端点必须 test_only=True 且带容器绑定",
-   "Gate A 若测试审批绑定 pg32b 生产容器 ID 则拒绝",
-   "Gate B 会话内 xrg_instance_marker 必须等于独立核实的容器 ID（生产库无此 marker）",
+   "Gate A 测试审批绑定生产容器 ID 3d93fc77… 则拒绝",
+   "Gate B 会话内 xrg_instance_marker 必须等于独立核实的容器 ID",
    "Gate E 测试审批不得复用首批写库审批 88f4f1ac…"
   ],
-  "negative_case": "N6：把容器绑定改成生产 pg32b 的 3d93fc77… → 被 marker_container_binding_mismatch 拒绝，零写入",
-  "positive_case": "P1/P2：绑定隔离容器 → 正常装载",
+  "n6_actual_intercept_code": "marker_container_binding_mismatch",
+  "n6_note": "N6 实际在会话内被 marker 比对拦截，而非 Gate E 的 test_approval_cannot_target_production；两道门各自都能拦，实测先命中的是会话内 marker，属纵深防御。零写入。",
   "production_never_connected": true
  },
  "trial_kind": "isolated instance, test approval only",
+ "value_equality_source": "项目自身 compare_unordered（源 sqlite 流 vs 目标 PG 行）；loader 不产出本地摘要（撤回自造口径）",
  "verdict": "TRIAL_PASS",
- "verdict_basis": "9/9 用例符合预期：2 LOADED、7 REFUSED、0 ERROR；负例全部零残留"
+ "verdict_basis": "13/13 用例符合预期：2 LOADED、11 REFUSED、0 ERROR；负例全部零残留"
 }

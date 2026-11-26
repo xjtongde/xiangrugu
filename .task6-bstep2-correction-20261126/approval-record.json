@@ -23,14 +23,7 @@
   "note": "茶香明确：以该表为批准依据",
   "sha256": "a718b0c297501642dd105eb3797f96dc1de2edf8eb521bed6609ff78de1fb4a0"
  },
- "box_scope_limits": {
-  "deploy_updated": false,
-  "m2_preserved": true,
-  "production_db_written": false,
-  "production_permissions_changed": false,
-  "production_pg_connected": false,
-  "production_service_changed": false
- },
+ "boundary_note": "本登记件只承载茶香批准原文与其元数据（原文、摘要、时间、锚定提交、绑定审批表）。执行侧的边界声明（未连接生产库、未更新 deploy 等）见 lead-record.md 与 boundary-check.json，不属于批准原文内容。",
  "duration_authorized": "30 分钟",
  "event": "chaxiang-approval-social-institution-addr-bstep2-correction-20261126",
  "explicitly_not_authorized": [

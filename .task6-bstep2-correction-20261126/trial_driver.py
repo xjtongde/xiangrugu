@@ -98,9 +98,10 @@ def main():
                 session, sc, ex, artifacts, parse, make_loader, payload_bytes)
             rec["result"] = "LOADED"
             rec["committed_rows"] = ev.get("row_count")
-            rec["sha_equal"] = ev.get("value_sha256_matches") is True
-            rec["target_sha256"] = ev.get("value_sha256")
-            rec["source_sha256"] = scope["expected_source_sha256"]
+            # NOTE: whole-table value equality is NOT asserted here. The loader no
+            # longer invents a digest; it is proven by the project's unordered
+            # comparator below (independent_readback.comparison). Emitting a
+            # `sha_equal: false` placeholder here would read as a failed check.
             rec["pk_distinct"] = ev.get("pk_distinct")
             rec["pk_null_free"] = ev.get("pk_null_free")
             rec["non_primary_index_count"] = ev.get("non_primary_index_count")
@@ -165,6 +166,26 @@ def main():
         if "review_traceability" in s else s.__setitem__(
             "review_traceability", {"status": "INCOMPLETE", "missing_chain": "approval text absent"}),
         expect="REFUSED before write")
+    # N5b–N5e: the four STRUCTURED traceability branches (not just the status string).
+    run_case(
+        "N5b_approval_text_digest_mismatch",
+        mutate_scope=lambda s: s["review_traceability"].__setitem__(
+            "approval_text_sha256", "0" * 64),
+        expect="REFUSED before write (approval_text_digest_mismatch)")
+    run_case(
+        "N5c_contract_review_ref_mismatch",
+        mutate_scope=lambda s: s["review_traceability"].__setitem__(
+            "contract_review_ref", "some-other-ref"),
+        expect="REFUSED before write (contract_review_ref_mismatch)")
+    run_case(
+        "N5d_approval_record_ref_mismatch",
+        mutate_scope=lambda s: s["review_traceability"].__setitem__(
+            "approval_record_event", "some-other-event"),
+        expect="REFUSED before write (approval_record_ref_mismatch)")
+    run_case(
+        "N5e_approval_text_missing",
+        mutate_scope=lambda s: s["review_traceability"].__setitem__("approval_text_bytes", 0),
+        expect="REFUSED before write (approval_text_missing)")
     run_case(
         "N6_test_approval_bound_to_production_container",
         mutate_scope=lambda s: s["target_endpoint"].__setitem__(

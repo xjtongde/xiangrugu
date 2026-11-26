@@ -1,0 +1,7 @@
+{
+ "gap1_double_precision": "1 validation error for ColumnMapping\npg_type\n  String should match pattern '^(text|bigint|numeric\\([1-9][0-9]*,[0-9]+\\))$' [type=string_pattern_mismatch]\n    For further information visit https://errors.pydantic.dev/2.13/v/string_pattern_mismatch",
+ "gap2_objecttarget_primary_key": "2 validation errors for ObjectTarget\nexpected_sha256\n  Field required [type=missing]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing\nprimary_key\n  Extra inputs are not permitted [type=extra_forbidden]\n    For further information visit https://errors.pydantic.dev/2.13/v/extra_forbidden",
+ "gap3_objecttarget_unique": "2 validation errors for ObjectTarget\nexpected_sha256\n  Field required [type=missing]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing\nunique_constraints\n  Extra inputs are not permitted [type=extra_forbidden]\n    For further information visit https://errors.pydantic.dev/2.13/v/extra_forbidden",
+ "gap4_objecttarget_index": "2 validation errors for ObjectTarget\nexpected_sha256\n  Field required [type=missing]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing\nindexes\n  Extra inputs are not permitted [type=extra_forbidden]\n    For further information visit https://errors.pydantic.dev/2.13/v/extra_forbidden",
+ "gap5_columndefault": "1 validation error for ColumnMapping\ndefault_value\n  Extra inputs are not permitted [type=extra_forbidden]\n    For further information visit https://errors.pydantic.dev/2.13/v/extra_forbidden"
+}

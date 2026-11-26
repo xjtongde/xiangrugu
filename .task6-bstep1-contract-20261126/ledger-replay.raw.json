@@ -1,0 +1,415 @@
+{
+ "inventory_sha256": "fb5e6b334b898d62dc0e5c77094fdb50e0946300e6e3009f447b2ecd1bc216db",
+ "inventory_complete": false,
+ "inventory_entries": 8004,
+ "frozen_candidate_canonical_sha256": "fa28a878f48fed506700cbaaf91c6a8ee45bdc28e9fef05904b3c56f4c61929e",
+ "frozen_rules": 23,
+ "frozen_exceptions": 2,
+ "disposition_counts": {
+  "IMPORT": 7,
+  "NON_TABULAR": 16
+ },
+ "migrated": {
+  "contract_sha256": "fa28a878f48fed506700cbaaf91c6a8ee45bdc28e9fef05904b3c56f4c61929e",
+  "issue_codes": [
+   "exception_not_implemented",
+   "incomplete_inventory",
+   "unmatched_member"
+  ],
+  "records": 8004,
+  "unmatched": 7981,
+  "multiple": 0,
+  "unexplained": 0,
+  "dispositions": {
+   "NON_TABULAR": 16,
+   "IMPORT": 7
+  },
+  "unmatched_members": 7981
+ },
+ "rule_reverse_lookup": [
+  {
+   "rule_id": "a1-m002704",
+   "disposition": "NON_TABULAR",
+   "targets": 0,
+   "matched_member_count": 1,
+   "matched_locations": [
+    {
+     "relative_path": "harvard-full/doi_10_7910/DVN/E7HDYD/1884route.zip",
+     "archive_chain": [
+      "5_1884route/ca1884_przh_Tarim_README.txt"
+     ],
+     "archive_ordinals": [
+      1
+     ]
+    }
+   ],
+   "exclusive": true
+  },
+  {
+   "rule_id": "a1-m002705",
+   "disposition": "NON_TABULAR",
+   "targets": 0,
+   "matched_member_count": 1,
+   "matched_locations": [
+    {
+     "relative_path": "harvard-full/doi_10_7910/DVN/E7HDYD/1884route.zip",
+     "archive_chain": [
+      "5_1884route/Ca1884route_przh_1251.cpg"
+     ],
+     "archive_ordinals": [
+      2
+     ]
+    }
+   ],
+   "exclusive": true
+  },
+  {
+   "rule_id": "a1-m002707",
+   "disposition": "NON_TABULAR",
+   "targets": 0,
+   "matched_member_count": 1,
+   "matched_locations": [
+    {
+     "relative_path": "harvard-full/doi_10_7910/DVN/E7HDYD/1884route.zip",
+     "archive_chain": [
+      "5_1884route/Ca1884route_przh_1251.prj"
+     ],
+     "archive_ordinals": [
+      4
+     ]
+    }
+   ],
+   "exclusive": true
+  },
+  {
+   "rule_id": "a1-m002708",
+   "disposition": "NON_TABULAR",
+   "targets": 0,
+   "matched_member_count": 1,
+   "matched_locations": [
+    {
+     "relative_path": "harvard-full/doi_10_7910/DVN/E7HDYD/1884route.zip",
+     "archive_chain": [
+      "5_1884route/Ca1884route_przh_1251.qpj"
+     ],
+     "archive_ordinals": [
+      5
+     ]
+    }
+   ],
+   "exclusive": true
+  },
+  {
+   "rule_id": "a1-m002709",
+   "disposition": "NON_TABULAR",
+   "targets": 0,
+   "matched_member_count": 1,
+   "matched_locations": [
+    {
+     "relative_path": "harvard-full/doi_10_7910/DVN/E7HDYD/1884route.zip",
+     "archive_chain": [
+      "5_1884route/Ca1884route_przh_1251.shp"
+     ],
+     "archive_ordinals": [
+      6
+     ]
+    }
+   ],
+   "exclusive": true
+  },
+  {
+   "rule_id": "a1-m002710",
+   "disposition": "NON_TABULAR",
+   "targets": 0,
+   "matched_member_count": 1,
+   "matched_locations": [
+    {
+     "relative_path": "harvard-full/doi_10_7910/DVN/E7HDYD/1884route.zip",
+     "archive_chain": [
+      "5_1884route/Ca1884route_przh_1251.shx"
+     ],
+     "archive_ordinals": [
+      7
+     ]
+    }
+   ],
+   "exclusive": true
+  },
+  {
+   "rule_id": "a1-m002711",
+   "disposition": "NON_TABULAR",
+   "targets": 0,
+   "matched_member_count": 1,
+   "matched_locations": [
+    {
+     "relative_path": "harvard-full/doi_10_7910/DVN/E7HDYD/1884route.zip",
+     "archive_chain": [
+      "5_1884route/Ca1884route_przh_ru.htm"
+     ],
+     "archive_ordinals": [
+      8
+     ]
+    }
+   ],
+   "exclusive": true
+  },
+  {
+   "rule_id": "a1-m002713",
+   "disposition": "NON_TABULAR",
+   "targets": 0,
+   "matched_member_count": 1,
+   "matched_locations": [
+    {
+     "relative_path": "harvard-full/doi_10_7910/DVN/E7HDYD/1884route.zip",
+     "archive_chain": [
+      "5_1884route/Ca1884route_przh_utf8.cpg"
+     ],
+     "archive_ordinals": [
+      10
+     ]
+    }
+   ],
+   "exclusive": true
+  },
+  {
+   "rule_id": "a1-m002715",
+   "disposition": "NON_TABULAR",
+   "targets": 0,
+   "matched_member_count": 1,
+   "matched_locations": [
+    {
+     "relative_path": "harvard-full/doi_10_7910/DVN/E7HDYD/1884route.zip",
+     "archive_chain": [
+      "5_1884route/Ca1884route_przh_utf8.prj"
+     ],
+     "archive_ordinals": [
+      12
+     ]
+    }
+   ],
+   "exclusive": true
+  },
+  {
+   "rule_id": "a1-m002716",
+   "disposition": "NON_TABULAR",
+   "targets": 0,
+   "matched_member_count": 1,
+   "matched_locations": [
+    {
+     "relative_path": "harvard-full/doi_10_7910/DVN/E7HDYD/1884route.zip",
+     "archive_chain": [
+      "5_1884route/Ca1884route_przh_utf8.qpj"
+     ],
+     "archive_ordinals": [
+      13
+     ]
+    }
+   ],
+   "exclusive": true
+  },
+  {
+   "rule_id": "a1-m002717",
+   "disposition": "NON_TABULAR",
+   "targets": 0,
+   "matched_member_count": 1,
+   "matched_locations": [
+    {
+     "relative_path": "harvard-full/doi_10_7910/DVN/E7HDYD/1884route.zip",
+     "archive_chain": [
+      "5_1884route/Ca1884route_przh_utf8.shp"
+     ],
+     "archive_ordinals": [
+      14
+     ]
+    }
+   ],
+   "exclusive": true
+  },
+  {
+   "rule_id": "a1-m002718",
+   "disposition": "NON_TABULAR",
+   "targets": 0,
+   "matched_member_count": 1,
+   "matched_locations": [
+    {
+     "relative_path": "harvard-full/doi_10_7910/DVN/E7HDYD/1884route.zip",
+     "archive_chain": [
+      "5_1884route/Ca1884route_przh_utf8.shx"
+     ],
+     "archive_ordinals": [
+      15
+     ]
+    }
+   ],
+   "exclusive": true
+  },
+  {
+   "rule_id": "a1-m004860",
+   "disposition": "NON_TABULAR",
+   "targets": 0,
+   "matched_member_count": 1,
+   "matched_locations": [
+    {
+     "relative_path": "harvard-full/doi_10_7910/DVN/PDGOZ0/V4_Data_Archive.zip",
+     "archive_chain": [
+      "KML/CHGIS_v4_1911_KML.zip",
+      "V4_1911_KML_metadata/Thumbs.db"
+     ],
+     "archive_ordinals": [
+      5,
+      11
+     ]
+    }
+   ],
+   "exclusive": true
+  },
+  {
+   "rule_id": "a1-m007903",
+   "disposition": "NON_TABULAR",
+   "targets": 0,
+   "matched_member_count": 1,
+   "matched_locations": [
+    {
+     "relative_path": "harvard/SHA256SUMS",
+     "archive_chain": [],
+     "archive_ordinals": []
+    }
+   ],
+   "exclusive": true
+  },
+  {
+   "rule_id": "m002709",
+   "disposition": "IMPORT",
+   "targets": 1,
+   "matched_member_count": 1,
+   "matched_locations": [
+    {
+     "relative_path": "harvard-full/doi_10_7910/DVN/E7HDYD/1884route.zip",
+     "archive_chain": [
+      "5_1884route/Ca1884route_przh_1251.dbf"
+     ],
+     "archive_ordinals": [
+      3
+     ]
+    }
+   ],
+   "exclusive": true
+  },
+  {
+   "rule_id": "m002717",
+   "disposition": "IMPORT",
+   "targets": 1,
+   "matched_member_count": 1,
+   "matched_locations": [
+    {
+     "relative_path": "harvard-full/doi_10_7910/DVN/E7HDYD/1884route.zip",
+     "archive_chain": [
+      "5_1884route/Ca1884route_przh_utf8.dbf"
+     ],
+     "archive_ordinals": [
+      11
+     ]
+    }
+   ],
+   "exclusive": true
+  },
+  {
+   "rule_id": "m004812",
+   "disposition": "IMPORT",
+   "targets": 1,
+   "matched_member_count": 1,
+   "matched_locations": [
+    {
+     "relative_path": "harvard-full/doi_10_7910/DVN/MI56KU/2001_Shanghai_0_INDEX_OF_PRESENTATIONS.tab",
+     "archive_chain": [],
+     "archive_ordinals": []
+    }
+   ],
+   "exclusive": true
+  },
+  {
+   "rule_id": "m006642",
+   "disposition": "IMPORT",
+   "targets": 1,
+   "matched_member_count": 1,
+   "matched_locations": [
+    {
+     "relative_path": "harvard-full/doi_10_7910/DVN/SK7KGK/GB_91_HZ_040201_UTF8.tab",
+     "archive_chain": [],
+     "archive_ordinals": []
+    }
+   ],
+   "exclusive": true
+  },
+  {
+   "rule_id": "m008002",
+   "disposition": "IMPORT",
+   "targets": 1,
+   "matched_member_count": 1,
+   "matched_locations": [
+    {
+     "relative_path": "harvard/tab/ACADEMY_Data.tab",
+     "archive_chain": [],
+     "archive_ordinals": []
+    }
+   ],
+   "exclusive": true
+  },
+  {
+   "rule_id": "m008003",
+   "disposition": "IMPORT",
+   "targets": 1,
+   "matched_member_count": 1,
+   "matched_locations": [
+    {
+     "relative_path": "harvard/tab/Index_of_the_Complete_Prose_of_the_Yuan_Dynasty_vol_1-60.tab",
+     "archive_chain": [],
+     "archive_ordinals": []
+    }
+   ],
+   "exclusive": true
+  },
+  {
+   "rule_id": "m008004",
+   "disposition": "IMPORT",
+   "targets": 1,
+   "matched_member_count": 1,
+   "matched_locations": [
+    {
+     "relative_path": "harvard/tab/writings of the 19c missionaries in China.tab",
+     "archive_chain": [],
+     "archive_ordinals": []
+    }
+   ],
+   "exclusive": true
+  },
+  {
+   "rule_id": "r-chgis-sha256sums",
+   "disposition": "NON_TABULAR",
+   "targets": 0,
+   "matched_member_count": 1,
+   "matched_locations": [
+    {
+     "relative_path": "harvard/chgis/SHA256SUMS.txt",
+     "archive_chain": [],
+     "archive_ordinals": []
+    }
+   ],
+   "exclusive": true
+  },
+  {
+   "rule_id": "r-sha256sums-b2",
+   "disposition": "NON_TABULAR",
+   "targets": 0,
+   "matched_member_count": 1,
+   "matched_locations": [
+    {
+     "relative_path": "SHA256SUMS-b2",
+     "archive_chain": [],
+     "archive_ordinals": []
+    }
+   ],
+   "exclusive": true
+  }
+ ]
+}

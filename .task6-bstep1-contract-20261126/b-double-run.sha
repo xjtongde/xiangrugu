@@ -1,0 +1,10 @@
+{
+ "__canonical": {
+  "b-approval-table.json": "02c520e8a78645fe26840047ba64c1da06a2fb1e7ff949bec4457ccdd86c77df",
+  "b-contract-draft.json": "ea7fc09930d803332bd831c0f1d4e0f58a0cde2c47a337b8ea8c1357cc8d810f",
+  "model-gaps.json": "8d46b6f9b4a376c69788b811eb49d83bff3905c29771ba5cbf96a3d16c7e2895"
+ },
+ "b-approval-table.json": "016bda86619de88b7f7b82af27ea96e6fefed964144b51df54ee2c2049b80673",
+ "b-contract-draft.json": "845ebb6129a44a42e0845c4a73f63da75881fdf507556640d8ac555edb5c842a",
+ "model-gaps.json": "24ee8859dd299c45cde4c4fa99cf98aff86405d748710b18ae54ce153feb2d28"
+}

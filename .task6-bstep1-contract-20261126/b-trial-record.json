@@ -1,0 +1,101 @@
+{
+ "approved_expectation": {
+  "evidence": "datamgmt/contracts/releases/2026-10-06-bootstrap/sqlite-value-canary.approved.json",
+  "expected_count": 3859,
+  "expected_sha256": "2cb8c354b0e75e6ae230e3b00540146e823eaa8de8def2abce89ad6179a07579",
+  "field_count": 42449,
+  "schema_hash": "1f88cd8039ae3dbdc411864c52d5bbb1aa5dc20c59ff61dabf8b709f7382d1f9",
+  "source_object_id": "3cf1a3286982ab392f3f0bed1a0dcc723f3a04205be610a6ec992ae66047c6cf"
+ },
+ "batch": "B_SINGLE_TABLE_ISOLATED_TRIAL",
+ "candidate_target": "cbdb.cbdb__social_u5f_institution_u5f_addr",
+ "evidence_sha256": {
+  "trial-negative.json": "0acc5674cb4a651c091d22d4d777df13db8e213087e9b604affcfadd80f75054",
+  "trial-pass.json": "c7e5cf7c71dffecdfef80b1f539d6ea075eb63700ff2f741bb79021494c54a3c",
+  "trial_driver.py": "ed5ab4411fc31bcc40a62199f8b929d539d9ac128b4c72ff951d64a2495fb927"
+ },
+ "full_ready_for_import": false,
+ "isolated_instance": {
+  "container": "xiangrugu-trial-cbdb-addr-20261125-190500",
+  "destroy_verified": "docker inspect -> []",
+  "destroyed_after_trial": true,
+  "id": "e15fbb22646074307f1ce75e20cd5640be15b854eb0aa784d3f45cfc3862cb6e",
+  "image": "pg32b-full:18-pgdg",
+  "network": "none",
+  "published_ports": []
+ },
+ "mounts": {
+  "scratch": "/opt/mydocker/xiangrugu/data/var/abatch-addr-trial-20261125 -> /data/var (tmp scratch, empty after)",
+  "snapshot": "ro",
+  "src": "ro"
+ },
+ "negative_control": {
+  "comparison_result": "comparison_failed",
+  "evidence": "trial-negative.json",
+  "injected": "delete 1 row before readback",
+  "missing_rows": 1,
+  "note": "proves the gate is not vacuous: a single missing row is detected and the table is still rolled back",
+  "result": "TRIAL_FAIL as expected",
+  "rollback": {
+   "table_dropped": true
+  },
+  "target_count": 3858
+ },
+ "not_approved_remains": [
+  "target_mapping_approved=false（cbdb.cbdb__social_u5f_institution_u5f_addr 仍为 candidate）",
+  "nullability_constraints_approved=false：本次 DDL 未加 NOT NULL 约束，按 source explicit nullability only",
+  "PK/UNIQUE/FK/INDEX/DEFAULT 未执行",
+  "value_contract_approved=false：期望仍为 draft（expectation 文件 status DRAFT_SOURCE_EXPECTATION）",
+  "production write authorization：首批 88f4f1ac 不复用，B 批未获写库授权"
+ ],
+ "null_counts": {
+  "c_u5f_inst_u5f_addr_u5f_begin_u5f_year": 3005,
+  "c_u5f_inst_u5f_addr_u5f_end_u5f_year": 3857,
+  "c_u5f_inst_u5f_addr_u5f_id": 0,
+  "c_u5f_inst_u5f_addr_u5f_type_u5f_code": 0,
+  "c_u5f_inst_u5f_code": 0,
+  "c_u5f_inst_u5f_name_u5f_code": 0,
+  "c_u5f_notes": 752,
+  "c_u5f_pages": 334,
+  "c_u5f_source": 219,
+  "inst_u5f_xcoord": 0,
+  "inst_u5f_ycoord": 0
+ },
+ "production_untouched": {
+  "connected": false,
+  "pg32b_id": "3d93fc7741f66f1f01aa250b25c4959addfe4c84df22ecbd0d0f82c13920c1fc",
+  "restart_count": 0,
+  "started_at": "2026-11-25T13:43:10Z"
+ },
+ "scope_limits": {
+  "batch_scope_expanded": false,
+  "cbdb_large_group_read": false
+ },
+ "source_snapshot": {
+  "path": "/opt/mydocker/xiangrugu/data/imports/usedata/2026-10-07-bootstrap/harvard/cbdb/cbdb_20260919.sqlite3",
+  "read_mode": "sqlite uri mode=ro&immutable=1 via ro bind mount",
+  "sha256": "bde1bb8eece3820d9e236c1d6b0f07d847d339669d4a85d79cd7252d58d83400",
+  "size": 586485760,
+  "verified_before_read": true
+ },
+ "table": "SOCIAL_INSTITUTION_ADDR",
+ "trial_result": {
+  "comparison_result": "comparison_equal",
+  "copied_rows": 3859,
+  "differences": 0,
+  "duplicate_rows": 0,
+  "excess_rows": 0,
+  "expectation_reproduced": true,
+  "missing_rows": 0,
+  "pg_row_count": 3859,
+  "result": "TRIAL_PASS",
+  "rollback": {
+   "table_dropped": true
+  },
+  "source_fields": 42449,
+  "source_sha256": "2cb8c354b0e75e6ae230e3b00540146e823eaa8de8def2abce89ad6179a07579",
+  "target_fields": 42449,
+  "target_sha256": "2cb8c354b0e75e6ae230e3b00540146e823eaa8de8def2abce89ad6179a07579"
+ },
+ "version": 1
+}

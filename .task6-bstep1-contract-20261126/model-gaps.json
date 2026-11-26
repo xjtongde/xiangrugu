@@ -1,0 +1,87 @@
+{
+ "gaps": [
+  {
+   "affected_columns": [
+    "inst_xcoord",
+    "inst_ycoord"
+   ],
+   "affected_target_types": [
+    "double precision"
+   ],
+   "empirical_proof": "ColumnMapping(pg_type='double precision') -> string_pattern_mismatch",
+   "gap_id": "G1",
+   "impact": "11 列中 2 列（inst_xcoord/inst_ycoord）无法写入合同",
+   "model_location": "contracts.ColumnMapping.pg_type",
+   "model_pattern": "^(text|bigint|numeric\\[[1-9][0-9]*,[0-9]+\\])$",
+   "proposed_resolution": "扩展 pg_type 枚举（最小增补建议：加入 double precision）；属模型修改，另批授权",
+   "title": "pg_type 无法表达 double precision"
+  },
+  {
+   "empirical_proof": "ObjectTarget(primary_key=[...]) -> extra_forbidden",
+   "existing_fields": [
+    "object_name",
+    "schema_name",
+    "table",
+    "expected_count",
+    "expected_sha256",
+    "columns",
+    "derived_rownum",
+    "duplicate_reconciliation",
+    "geometry"
+   ],
+   "gap_id": "G2",
+   "impact": "六项约束处置（PK/UNIQUE/INDEX/FK/DEFAULT/NOT NULL）在合同中无处安放，只能落在本盒审批表",
+   "missing_fields": [
+    "primary_key",
+    "unique_constraints",
+    "indexes",
+    "foreign_keys",
+    "column_defaults",
+    "not_null_constraints（仅 nullable 布尔）"
+   ],
+   "model_location": "contracts.ObjectTarget",
+   "proposed_resolution": "新增 ObjectTarget.primary_key/unique_constraints/indexes/foreign_keys 字段；属模型修改，另批授权",
+   "title": "无主键/约束表达字段"
+  },
+  {
+   "empirical_proof": "ColumnMapping(default_value=None) -> extra_forbidden",
+   "gap_id": "G3",
+   "impact": "源 5 列 DEFAULT NULL 无法在合同记录（本盒判为语义等价于无默认，影响低）",
+   "missing_fields": [
+    "default_value"
+   ],
+   "model_location": "contracts.ColumnMapping",
+   "proposed_resolution": "可选扩展 column_defaults；优先级低于 G1/G2",
+   "title": "ColumnMapping 无 default 字段"
+  },
+  {
+   "gap_id": "G4",
+   "impact": "无当前影响，仅记录以便复核",
+   "model_location": "contracts.DispositionRule.consistent_action",
+   "note": "IMPORT 分支允许 targets；本表以 IMPORT 表达，不受阻",
+   "proposed_resolution": "无需变更",
+   "title": "targets 仅在 IMPORT 处置下允许（B 批无阻塞）"
+  },
+  {
+   "gap_id": "G5",
+   "impact": "低；列名批准时需另行校验 ≤63 与保留字",
+   "model_location": "contracts.ObjectTarget.table",
+   "model_pattern": "^[a-z][a-z0-9_]{0,62}$",
+   "note": "表名模式已限制 63 字符，与 PG 标识符上限一致；目标列名无独立模式约束（跟随 PG 由执行层校验）",
+   "proposed_resolution": "在列名批准阶段补校验，不改模型",
+   "title": "合同无 schema 层命名约束（IDENTIFIER ≤63）"
+  },
+  {
+   "empirical_proof": "保留原序数剔除 inst_xcoord/inst_ycoord -> Column ordinals must be contiguous and ordered from 1；重建为 1..9 后才 VALIDATED_OK",
+   "gap_id": "G6",
+   "impact": "若 G1 未解决而采取「先排除两坐标列」的降级路径，则重建序数会丢失源列序证据（源列 7/8 位置无法在合同中表达）",
+   "model_location": "contracts.ObjectTarget.extended_mapping_consistency",
+   "model_rule": "ordinals != list(range(1, len(ordinals)+1)) -> Column ordinals must be contiguous and ordered from 1",
+   "proposed_resolution": "随 G1 一并解决（补齐 double precision 后无需剔除）；否则需新增 source_ordinal 保留字段",
+   "title": "列序数必须从 1 连续，无法表达「源列存在但目标不建列」的部分映射"
+  }
+ ],
+ "purpose": "现行合同模型无法表达的 B 批要素，逐项给出字段名与实证",
+ "reproduce_command": "见 model-gap-evidence.txt（dev 容器内实际执行 pydantic 校验）",
+ "version": 1
+}

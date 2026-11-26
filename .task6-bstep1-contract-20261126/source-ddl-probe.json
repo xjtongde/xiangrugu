@@ -1,0 +1,219 @@
+{
+ "table": "SOCIAL_INSTITUTION_ADDR",
+ "ddl": "CREATE TABLE \"SOCIAL_INSTITUTION_ADDR\" (\n    \"c_inst_name_code\" smallint(6) NOT NULL,\n    \"c_inst_code\" smallint(6) NOT NULL,\n    \"c_inst_addr_type_code\" smallint(6) NOT NULL,\n    \"c_inst_addr_begin_year\" smallint(6) DEFAULT NULL,\n    \"c_inst_addr_end_year\" smallint(6) DEFAULT NULL,\n    \"c_inst_addr_id\" INTEGER(11) NOT NULL,\n    \"inst_xcoord\" REAL NOT NULL,\n    \"inst_ycoord\" REAL NOT NULL,\n    \"c_source\" INTEGER(11) DEFAULT NULL,\n    \"c_pages\" varchar(255) DEFAULT NULL,\n    \"c_notes\" TEXT DEFAULT NULL,\n    PRIMARY KEY (\"c_inst_addr_id\", \"c_inst_addr_type_code\", \"c_inst_code\", \"c_inst_name_code\", \"inst_xcoord\", \"inst_ycoord\")\n)",
+ "ddl_sha256": "5c207e94c4f09a8e4fc22bf893e5a14b2fd1c7553854a29a40ef47b45d56ec6e",
+ "pragma_table_info": [
+  {
+   "cid": 0,
+   "name": "c_inst_name_code",
+   "type": "smallint(6)",
+   "notnull": 1,
+   "dflt_value": null,
+   "pk": 4
+  },
+  {
+   "cid": 1,
+   "name": "c_inst_code",
+   "type": "smallint(6)",
+   "notnull": 1,
+   "dflt_value": null,
+   "pk": 3
+  },
+  {
+   "cid": 2,
+   "name": "c_inst_addr_type_code",
+   "type": "smallint(6)",
+   "notnull": 1,
+   "dflt_value": null,
+   "pk": 2
+  },
+  {
+   "cid": 3,
+   "name": "c_inst_addr_begin_year",
+   "type": "smallint(6)",
+   "notnull": 0,
+   "dflt_value": "NULL",
+   "pk": 0
+  },
+  {
+   "cid": 4,
+   "name": "c_inst_addr_end_year",
+   "type": "smallint(6)",
+   "notnull": 0,
+   "dflt_value": "NULL",
+   "pk": 0
+  },
+  {
+   "cid": 5,
+   "name": "c_inst_addr_id",
+   "type": "INTEGER(11)",
+   "notnull": 1,
+   "dflt_value": null,
+   "pk": 1
+  },
+  {
+   "cid": 6,
+   "name": "inst_xcoord",
+   "type": "REAL",
+   "notnull": 1,
+   "dflt_value": null,
+   "pk": 5
+  },
+  {
+   "cid": 7,
+   "name": "inst_ycoord",
+   "type": "REAL",
+   "notnull": 1,
+   "dflt_value": null,
+   "pk": 6
+  },
+  {
+   "cid": 8,
+   "name": "c_source",
+   "type": "INTEGER(11)",
+   "notnull": 0,
+   "dflt_value": "NULL",
+   "pk": 0
+  },
+  {
+   "cid": 9,
+   "name": "c_pages",
+   "type": "varchar(255)",
+   "notnull": 0,
+   "dflt_value": "NULL",
+   "pk": 0
+  },
+  {
+   "cid": 10,
+   "name": "c_notes",
+   "type": "TEXT",
+   "notnull": 0,
+   "dflt_value": "NULL",
+   "pk": 0
+  }
+ ],
+ "index_list": [
+  {
+   "seq": 0,
+   "name": "sqlite_autoindex_SOCIAL_INSTITUTION_ADDR_1",
+   "unique": 1,
+   "origin": "pk",
+   "partial": 0
+  }
+ ],
+ "indexes_detail": [
+  {
+   "name": "sqlite_autoindex_SOCIAL_INSTITUTION_ADDR_1",
+   "unique": 1,
+   "origin": "pk",
+   "partial": 0,
+   "index_info": [
+    {
+     "seqno": 0,
+     "cid": 5,
+     "name": "c_inst_addr_id"
+    },
+    {
+     "seqno": 1,
+     "cid": 2,
+     "name": "c_inst_addr_type_code"
+    },
+    {
+     "seqno": 2,
+     "cid": 1,
+     "name": "c_inst_code"
+    },
+    {
+     "seqno": 3,
+     "cid": 0,
+     "name": "c_inst_name_code"
+    },
+    {
+     "seqno": 4,
+     "cid": 6,
+     "name": "inst_xcoord"
+    },
+    {
+     "seqno": 5,
+     "cid": 7,
+     "name": "inst_ycoord"
+    }
+   ],
+   "index_xinfo": [
+    {
+     "seqno": 0,
+     "cid": 5,
+     "name": "c_inst_addr_id",
+     "desc": 0,
+     "coll": "BINARY",
+     "key": 1
+    },
+    {
+     "seqno": 1,
+     "cid": 2,
+     "name": "c_inst_addr_type_code",
+     "desc": 0,
+     "coll": "BINARY",
+     "key": 1
+    },
+    {
+     "seqno": 2,
+     "cid": 1,
+     "name": "c_inst_code",
+     "desc": 0,
+     "coll": "BINARY",
+     "key": 1
+    },
+    {
+     "seqno": 3,
+     "cid": 0,
+     "name": "c_inst_name_code",
+     "desc": 0,
+     "coll": "BINARY",
+     "key": 1
+    },
+    {
+     "seqno": 4,
+     "cid": 6,
+     "name": "inst_xcoord",
+     "desc": 0,
+     "coll": "BINARY",
+     "key": 1
+    },
+    {
+     "seqno": 5,
+     "cid": 7,
+     "name": "inst_ycoord",
+     "desc": 0,
+     "coll": "BINARY",
+     "key": 1
+    },
+    {
+     "seqno": 6,
+     "cid": -1,
+     "name": null,
+     "desc": 0,
+     "coll": "BINARY",
+     "key": 0
+    }
+   ]
+  }
+ ],
+ "fk_list": [],
+ "rows": 3859,
+ "null_counts": {
+  "c_inst_name_code": 0,
+  "c_inst_code": 0,
+  "c_inst_addr_type_code": 0,
+  "c_inst_addr_begin_year": 3005,
+  "c_inst_addr_end_year": 3857,
+  "c_inst_addr_id": 0,
+  "inst_xcoord": 0,
+  "inst_ycoord": 0,
+  "c_source": 219,
+  "c_pages": 334,
+  "c_notes": 752
+ },
+ "pk_distinct": 3859,
+ "sqlite_version_read": "3.40.1"
+}

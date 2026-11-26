@@ -1,0 +1,882 @@
+{
+ "authorized_candidate": {
+  "canonical_sha256_authorized": "fa28a878f48fed506700cbaaf91c6a8ee45bdc28e9fef05904b3c56f4c61929e",
+  "canonical_sha256_recomputed": "fa28a878f48fed506700cbaaf91c6a8ee45bdc28e9fef05904b3c56f4c61929e",
+  "composition": {
+   "IMPORT_first_batch": 7,
+   "NON_TABULAR_a1_star": 14,
+   "NON_TABULAR_r_ledgers": 2
+  },
+  "exceptions": 2,
+  "file": ".task6-abatch-freeze-20261125/abatch-frozen-candidate.json",
+  "match": true,
+  "rules": 23
+ },
+ "baseline_commit": "93964182c04f1edf94c94859f611728c68997eee",
+ "batch": "A_FORMAL_LEDGER_MIGRATION_PLAN",
+ "box": "第6/6块后续·第1/6步",
+ "files_must_not_change": [
+  {
+   "file": "datamgmt/contracts/releases/2026-10-06-bootstrap/inventory.json",
+   "reason": "原清单字节不动（inventory_sha fb5e6b33 为全局绑定）",
+   "verification": "sha256 == fb5e6b334b898d62dc0e5c77094fdb50e0946300e6e3009f447b2ecd1bc216db"
+  },
+  {
+   "file": "datamgmt/contracts/releases/2026-10-06-bootstrap/disposition-ledger-after-selector-fix.json",
+   "reason": "现行账保留作历史与对照；迁移写新文件",
+   "verification": "sha256 迁移前后相等"
+  },
+  {
+   "file": "首批七表 IMPORT 规则（m002709/m002717/m004812/m006642/m008002/m008003/m008004）",
+   "reason": "已验收批次不变量，迁移不得改动其 selector/expected/targets",
+   "verification": "7 条规则 canonical 子串与 abatch-frozen-candidate 中同名规则逐字节相等"
+  },
+  {
+   "file": "两条例外（checksum_nul / checksum_path_binding）",
+   "reason": "保持原样",
+   "verification": "exceptions 数组 byte-identical；raw_sha256 分别 900d98c6…/694c101f…"
+  },
+  {
+   "file": "首批生产 scope 的 7995 门",
+   "reason": "属已验收七表批次自身不变量，与进度账 7981 双口径并存",
+   "verification": "该门数值保持 7995 不被迁移改写"
+  }
+ ],
+ "files_to_change_on_migration": [
+  {
+   "action": "新增正式处置账（不覆盖 disposition-ledger-after-selector-fix.json）",
+   "content": "由 DispositionLedger.evaluate(inventory, frozen_contract) 产出",
+   "expected_bindings": {
+    "contract_sha256": "fa28a878f48fed506700cbaaf91c6a8ee45bdc28e9fef05904b3c56f4c61929e",
+    "inventory_sha256": "fb5e6b334b898d62dc0e5c77094fdb50e0946300e6e3009f447b2ecd1bc216db",
+    "records": 8004
+   },
+   "file": "datamgmt/contracts/releases/2026-10-06-bootstrap/disposition-ledger-<new>.json",
+   "verification": "重算 contract_sha256/inventory_sha256 与文件内值逐字相等；records==8004；unmatched==7981"
+  },
+  {
+   "action": "以 fa28a878 候选替换现行 ba8118fb 合同（需另批授权）",
+   "content": "abatch-frozen-candidate.json 原字节",
+   "file": "正式合同文件（deploy 冻结合同 + 仓内合同）",
+   "verification": "ReleaseContract.model_validate 通过且 .sha256==fa28a878…；原 9 规则 deep-equal 不变；两例外不变；inventory_sha256==fb5e6b33…"
+  },
+  {
+   "action": "新增迁移盒记录行（文档日志）",
+   "file": "datamgmt/docs/IMPORT-PACKAGE-TODO.md",
+   "verification": "记录实际提交号与证据路径；不改历史行"
+  },
+  {
+   "action": "按 R-05 记一行文档变动",
+   "file": "docs/log.md",
+   "verification": "单行 ≤300 字，含迁移事实与锚点"
+  }
+ ],
+ "full_ready_for_import": false,
+ "known_issue_codes_after_migration": [
+  {
+   "closure_condition": "冻结后在新合同下重跑 writeoff/checksum_reader 取证",
+   "code": "exception_not_implemented",
+   "reason": "两条例外账本需绑新合同摘要的运行证据；本轮未重跑（试装不重跑）"
+  },
+  {
+   "closure_condition": "按既有裁决保留，不因迁移消失",
+   "code": "incomplete_inventory",
+   "reason": "原清单 3 个 checksum issue + complete=false 恒门"
+  },
+  {
+   "closure_condition": "后续批次补证/提案",
+   "code": "unmatched_member",
+   "count": 7981,
+   "reason": "剩余 7981 无处置规则"
+  }
+ ],
+ "production_write": false,
+ "r59_baseline_cross_check": {
+  "file": ".task6-acceptance-nextbatch-20261125/uncovered-7995-reconciliation.json",
+  "file_sha256": "e0ba8c2bc8d4c7e303f1518f51935d0d194fed8cdc47218f393bbe9e3479c592",
+  "legacy_covered": 9,
+  "legacy_ledger_records": 8004,
+  "legacy_uncovered": 7995,
+  "三分类_sum_check": 7995
+ },
+ "reconciliation_preview": {
+  "bucket_breakdown": {
+   "legacy_7995": {
+    "sum": 7995,
+    "其中_spatial_approved_context_companions": 12,
+    "其中_structural_retention": 86,
+    "已有处置提案": 98,
+    "待补证": 7895,
+    "待裁定": 2
+   },
+   "migrated_7981": {
+    "already_disposed_structural": 86,
+    "newly_covered_by_this_plan": 14,
+    "note": "R59 的 98 个「已有处置提案」中，12 个空间伴生件原本仅是「读取/绑定已批、处置待正式化」，本方案把它们转为正式 NON_TABULAR 规则，因此从「未正式覆盖」移入「已覆盖」",
+    "remaining_pending_decision_after": 0,
+    "remaining_pending_evidence": 7895,
+    "sum": 7981
+   },
+   "migration_effect": {
+    "from_7995_breakdown": {
+     "previously_pending_decision": 2,
+     "spatial_approved_context_companions": 12
+    },
+    "from_7995_members": 14,
+    "note": "r-* 两条账本原本已在正式账中具名（BLOCKED），迁移不改变 7995 的分类成员",
+    "outside_7995_not_affecting_delta": 2,
+    "r_ledger_member_ids": [
+     "r-chgis-sha256sums",
+     "r-sha256sums-b2"
+    ],
+    "rules_migrated_total": 16
+   }
+  },
+  "covered_after_migration": 23,
+  "delta": 14,
+  "duplicate_attribution": {
+   "conclusion": "无重复归属",
+   "duplicate_inventory_location": 0,
+   "multiple_matches": 0,
+   "unexplained": 0
+  },
+  "equation": "23 + 7981 = 8004",
+  "equation_holds": true,
+  "issue_code_notes": {
+   "exception_not_implemented": "两条例外账本声明仍阻断：NUL/CHGIS 运行证据需绑新合同摘要，属冻结后动作",
+   "incomplete_inventory": "原清单 complete=false 恒门，按 R-08/既有裁决保持",
+   "unmatched_member": "7981 个成员无处置规则，即本方案要保留的未覆盖面"
+  },
+  "issue_codes_after_migration": [
+   "exception_not_implemented",
+   "incomplete_inventory",
+   "unmatched_member"
+  ],
+  "legacy_uncovered_before": 7995,
+  "total_members": 8004,
+  "uncovered_after_migration": 7981
+ },
+ "rule_reverse_lookup_summary": {
+  "exclusive_single_owner": 23,
+  "non_exclusive": 0,
+  "requirement_14_a1_star": {
+   "actual_all_exclusive": 14,
+   "expected": 14,
+   "hint": "题目所说 14 条 NON_TABULAR 指 a1-* 伴生件；另有 2 条 r-* 校验账本亦为 NON_TABULAR，一并列入以保持 23 总数闭合"
+  },
+  "total_rules": 23
+ },
+ "rule_to_ledger_mapping": [
+  {
+   "category": "A1_COMPANION_NON_TABULAR",
+   "disposition": "NON_TABULAR",
+   "expected": {
+    "kind": "file",
+    "sha256": "67ff2b7a32b934b07bc280c4e39419f7566a05f44aa0bc9641ad3446bcdd9646",
+    "signature": "unknown",
+    "size": 1052
+   },
+   "reason_head": "首批空间已批上下文文档伴生件（source_context_members，business_reading_approved=False）；非独立装载，原件保留，关联两首批目标作溯源",
+   "reverse_lookup": {
+    "exclusive_single_owner": true,
+    "matched_archive_chain": [
+     "5_1884route/ca1884_przh_Tarim_README.txt"
+    ],
+    "matched_archive_ordinals": [
+     1
+    ],
+    "matched_member_count": 1,
+    "matched_relative_path": "harvard-full/doi_10_7910/DVN/E7HDYD/1884route.zip"
+   },
+   "rule_id": "a1-m002704",
+   "selector": {
+    "archive_chain": [
+     "5_1884route/ca1884_przh_Tarim_README.txt"
+    ],
+    "archive_ordinals": [
+     1
+    ],
+    "relative_path": "harvard-full/doi_10_7910/DVN/E7HDYD/1884route.zip"
+   },
+   "targets_count": 0
+  },
+  {
+   "category": "A1_COMPANION_NON_TABULAR",
+   "disposition": "NON_TABULAR",
+   "expected": {
+    "kind": "file",
+    "sha256": "ea80b523f4585374b7c94e7b9b420166e845e318f0efb4bafd6f51d3e8b1f72a",
+    "signature": "unknown",
+    "size": 4
+   },
+   "reason_head": "首批空间已批绑定伴生件（approved-spatial-binding-context）；非独立装载成员，字节身份已批/几何已随首批装载（shp）或声明件保留；不建独立表",
+   "reverse_lookup": {
+    "exclusive_single_owner": true,
+    "matched_archive_chain": [
+     "5_1884route/Ca1884route_przh_1251.cpg"
+    ],
+    "matched_archive_ordinals": [
+     2
+    ],
+    "matched_member_count": 1,
+    "matched_relative_path": "harvard-full/doi_10_7910/DVN/E7HDYD/1884route.zip"
+   },
+   "rule_id": "a1-m002705",
+   "selector": {
+    "archive_chain": [
+     "5_1884route/Ca1884route_przh_1251.cpg"
+    ],
+    "archive_ordinals": [
+     2
+    ],
+    "relative_path": "harvard-full/doi_10_7910/DVN/E7HDYD/1884route.zip"
+   },
+   "targets_count": 0
+  },
+  {
+   "category": "A1_COMPANION_NON_TABULAR",
+   "disposition": "NON_TABULAR",
+   "expected": {
+    "kind": "file",
+    "sha256": "98aaf3d1c0ecadf1a424a4536de261c3daf4e373697cb86c40c43b989daf52eb",
+    "signature": "unknown",
+    "size": 143
+   },
+   "reason_head": "首批空间已批绑定伴生件（approved-spatial-binding-context）；非独立装载成员，字节身份已批/几何已随首批装载（shp）或声明件保留；不建独立表",
+   "reverse_lookup": {
+    "exclusive_single_owner": true,
+    "matched_archive_chain": [
+     "5_1884route/Ca1884route_przh_1251.prj"
+    ],
+    "matched_archive_ordinals": [
+     4
+    ],
+    "matched_member_count": 1,
+    "matched_relative_path": "harvard-full/doi_10_7910/DVN/E7HDYD/1884route.zip"
+   },
+   "rule_id": "a1-m002707",
+   "selector": {
+    "archive_chain": [
+     "5_1884route/Ca1884route_przh_1251.prj"
+    ],
+    "archive_ordinals": [
+     4
+    ],
+    "relative_path": "harvard-full/doi_10_7910/DVN/E7HDYD/1884route.zip"
+   },
+   "targets_count": 0
+  },
+  {
+   "category": "A1_COMPANION_NON_TABULAR",
+   "disposition": "NON_TABULAR",
+   "expected": {
+    "kind": "file",
+    "sha256": "1de411dcdeedce3219242306fc29bfa1d7fa08883e4ff6779baf798ec50d1657",
+    "signature": "unknown",
+    "size": 257
+   },
+   "reason_head": "首批空间已批绑定伴生件（approved-spatial-binding-context）；非独立装载成员，字节身份已批/几何已随首批装载（shp）或声明件保留；不建独立表",
+   "reverse_lookup": {
+    "exclusive_single_owner": true,
+    "matched_archive_chain": [
+     "5_1884route/Ca1884route_przh_1251.qpj"
+    ],
+    "matched_archive_ordinals": [
+     5
+    ],
+    "matched_member_count": 1,
+    "matched_relative_path": "harvard-full/doi_10_7910/DVN/E7HDYD/1884route.zip"
+   },
+   "rule_id": "a1-m002708",
+   "selector": {
+    "archive_chain": [
+     "5_1884route/Ca1884route_przh_1251.qpj"
+    ],
+    "archive_ordinals": [
+     5
+    ],
+    "relative_path": "harvard-full/doi_10_7910/DVN/E7HDYD/1884route.zip"
+   },
+   "targets_count": 0
+  },
+  {
+   "category": "A1_COMPANION_NON_TABULAR",
+   "disposition": "NON_TABULAR",
+   "expected": {
+    "kind": "file",
+    "sha256": "109d74b1e5cefcd1b32ad81e90fa94d150dd719b4fd530651b4dbdfff869eac7",
+    "signature": "unknown",
+    "size": 1752
+   },
+   "reason_head": "首批空间已批绑定伴生件（approved-spatial-binding-context）；非独立装载成员，字节身份已批/几何已随首批装载（shp）或声明件保留；不建独立表",
+   "reverse_lookup": {
+    "exclusive_single_owner": true,
+    "matched_archive_chain": [
+     "5_1884route/Ca1884route_przh_1251.shp"
+    ],
+    "matched_archive_ordinals": [
+     6
+    ],
+    "matched_member_count": 1,
+    "matched_relative_path": "harvard-full/doi_10_7910/DVN/E7HDYD/1884route.zip"
+   },
+   "rule_id": "a1-m002709",
+   "selector": {
+    "archive_chain": [
+     "5_1884route/Ca1884route_przh_1251.shp"
+    ],
+    "archive_ordinals": [
+     6
+    ],
+    "relative_path": "harvard-full/doi_10_7910/DVN/E7HDYD/1884route.zip"
+   },
+   "targets_count": 0
+  },
+  {
+   "category": "A1_COMPANION_NON_TABULAR",
+   "disposition": "NON_TABULAR",
+   "expected": {
+    "kind": "file",
+    "sha256": "d46d5729d1ac95b1d12820347129bd8a98b21410cd77e936c5995329d4309ccc",
+    "signature": "unknown",
+    "size": 572
+   },
+   "reason_head": "首批空间已批绑定伴生件（approved-spatial-binding-context）；非独立装载成员，字节身份已批/几何已随首批装载（shp）或声明件保留；不建独立表",
+   "reverse_lookup": {
+    "exclusive_single_owner": true,
+    "matched_archive_chain": [
+     "5_1884route/Ca1884route_przh_1251.shx"
+    ],
+    "matched_archive_ordinals": [
+     7
+    ],
+    "matched_member_count": 1,
+    "matched_relative_path": "harvard-full/doi_10_7910/DVN/E7HDYD/1884route.zip"
+   },
+   "rule_id": "a1-m002710",
+   "selector": {
+    "archive_chain": [
+     "5_1884route/Ca1884route_przh_1251.shx"
+    ],
+    "archive_ordinals": [
+     7
+    ],
+    "relative_path": "harvard-full/doi_10_7910/DVN/E7HDYD/1884route.zip"
+   },
+   "targets_count": 0
+  },
+  {
+   "category": "A1_COMPANION_NON_TABULAR",
+   "disposition": "NON_TABULAR",
+   "expected": {
+    "kind": "file",
+    "sha256": "478d515c832ddf07ef08fabef0898f34fd6f7895ba28a4d61df01c7e7369b4d3",
+    "signature": "unknown",
+    "size": 13483
+   },
+   "reason_head": "首批空间已批上下文文档伴生件（source_context_members，business_reading_approved=False）；非独立装载，原件保留，关联两首批目标作溯源",
+   "reverse_lookup": {
+    "exclusive_single_owner": true,
+    "matched_archive_chain": [
+     "5_1884route/Ca1884route_przh_ru.htm"
+    ],
+    "matched_archive_ordinals": [
+     8
+    ],
+    "matched_member_count": 1,
+    "matched_relative_path": "harvard-full/doi_10_7910/DVN/E7HDYD/1884route.zip"
+   },
+   "rule_id": "a1-m002711",
+   "selector": {
+    "archive_chain": [
+     "5_1884route/Ca1884route_przh_ru.htm"
+    ],
+    "archive_ordinals": [
+     8
+    ],
+    "relative_path": "harvard-full/doi_10_7910/DVN/E7HDYD/1884route.zip"
+   },
+   "targets_count": 0
+  },
+  {
+   "category": "A1_COMPANION_NON_TABULAR",
+   "disposition": "NON_TABULAR",
+   "expected": {
+    "kind": "file",
+    "sha256": "3ad3031f5503a4404af825262ee8232cc04d4ea6683d42c5dd0a2f2a27ac9824",
+    "signature": "unknown",
+    "size": 5
+   },
+   "reason_head": "首批空间已批绑定伴生件（approved-spatial-binding-context）；非独立装载成员，字节身份已批/几何已随首批装载（shp）或声明件保留；不建独立表",
+   "reverse_lookup": {
+    "exclusive_single_owner": true,
+    "matched_archive_chain": [
+     "5_1884route/Ca1884route_przh_utf8.cpg"
+    ],
+    "matched_archive_ordinals": [
+     10
+    ],
+    "matched_member_count": 1,
+    "matched_relative_path": "harvard-full/doi_10_7910/DVN/E7HDYD/1884route.zip"
+   },
+   "rule_id": "a1-m002713",
+   "selector": {
+    "archive_chain": [
+     "5_1884route/Ca1884route_przh_utf8.cpg"
+    ],
+    "archive_ordinals": [
+     10
+    ],
+    "relative_path": "harvard-full/doi_10_7910/DVN/E7HDYD/1884route.zip"
+   },
+   "targets_count": 0
+  },
+  {
+   "category": "A1_COMPANION_NON_TABULAR",
+   "disposition": "NON_TABULAR",
+   "expected": {
+    "kind": "file",
+    "sha256": "98aaf3d1c0ecadf1a424a4536de261c3daf4e373697cb86c40c43b989daf52eb",
+    "signature": "unknown",
+    "size": 143
+   },
+   "reason_head": "首批空间已批绑定伴生件（approved-spatial-binding-context）；非独立装载成员，字节身份已批/几何已随首批装载（shp）或声明件保留；不建独立表",
+   "reverse_lookup": {
+    "exclusive_single_owner": true,
+    "matched_archive_chain": [
+     "5_1884route/Ca1884route_przh_utf8.prj"
+    ],
+    "matched_archive_ordinals": [
+     12
+    ],
+    "matched_member_count": 1,
+    "matched_relative_path": "harvard-full/doi_10_7910/DVN/E7HDYD/1884route.zip"
+   },
+   "rule_id": "a1-m002715",
+   "selector": {
+    "archive_chain": [
+     "5_1884route/Ca1884route_przh_utf8.prj"
+    ],
+    "archive_ordinals": [
+     12
+    ],
+    "relative_path": "harvard-full/doi_10_7910/DVN/E7HDYD/1884route.zip"
+   },
+   "targets_count": 0
+  },
+  {
+   "category": "A1_COMPANION_NON_TABULAR",
+   "disposition": "NON_TABULAR",
+   "expected": {
+    "kind": "file",
+    "sha256": "1de411dcdeedce3219242306fc29bfa1d7fa08883e4ff6779baf798ec50d1657",
+    "signature": "unknown",
+    "size": 257
+   },
+   "reason_head": "首批空间已批绑定伴生件（approved-spatial-binding-context）；非独立装载成员，字节身份已批/几何已随首批装载（shp）或声明件保留；不建独立表",
+   "reverse_lookup": {
+    "exclusive_single_owner": true,
+    "matched_archive_chain": [
+     "5_1884route/Ca1884route_przh_utf8.qpj"
+    ],
+    "matched_archive_ordinals": [
+     13
+    ],
+    "matched_member_count": 1,
+    "matched_relative_path": "harvard-full/doi_10_7910/DVN/E7HDYD/1884route.zip"
+   },
+   "rule_id": "a1-m002716",
+   "selector": {
+    "archive_chain": [
+     "5_1884route/Ca1884route_przh_utf8.qpj"
+    ],
+    "archive_ordinals": [
+     13
+    ],
+    "relative_path": "harvard-full/doi_10_7910/DVN/E7HDYD/1884route.zip"
+   },
+   "targets_count": 0
+  },
+  {
+   "category": "A1_COMPANION_NON_TABULAR",
+   "disposition": "NON_TABULAR",
+   "expected": {
+    "kind": "file",
+    "sha256": "109d74b1e5cefcd1b32ad81e90fa94d150dd719b4fd530651b4dbdfff869eac7",
+    "signature": "unknown",
+    "size": 1752
+   },
+   "reason_head": "首批空间已批绑定伴生件（approved-spatial-binding-context）；非独立装载成员，字节身份已批/几何已随首批装载（shp）或声明件保留；不建独立表",
+   "reverse_lookup": {
+    "exclusive_single_owner": true,
+    "matched_archive_chain": [
+     "5_1884route/Ca1884route_przh_utf8.shp"
+    ],
+    "matched_archive_ordinals": [
+     14
+    ],
+    "matched_member_count": 1,
+    "matched_relative_path": "harvard-full/doi_10_7910/DVN/E7HDYD/1884route.zip"
+   },
+   "rule_id": "a1-m002717",
+   "selector": {
+    "archive_chain": [
+     "5_1884route/Ca1884route_przh_utf8.shp"
+    ],
+    "archive_ordinals": [
+     14
+    ],
+    "relative_path": "harvard-full/doi_10_7910/DVN/E7HDYD/1884route.zip"
+   },
+   "targets_count": 0
+  },
+  {
+   "category": "A1_COMPANION_NON_TABULAR",
+   "disposition": "NON_TABULAR",
+   "expected": {
+    "kind": "file",
+    "sha256": "d46d5729d1ac95b1d12820347129bd8a98b21410cd77e936c5995329d4309ccc",
+    "signature": "unknown",
+    "size": 572
+   },
+   "reason_head": "首批空间已批绑定伴生件（approved-spatial-binding-context）；非独立装载成员，字节身份已批/几何已随首批装载（shp）或声明件保留；不建独立表",
+   "reverse_lookup": {
+    "exclusive_single_owner": true,
+    "matched_archive_chain": [
+     "5_1884route/Ca1884route_przh_utf8.shx"
+    ],
+    "matched_archive_ordinals": [
+     15
+    ],
+    "matched_member_count": 1,
+    "matched_relative_path": "harvard-full/doi_10_7910/DVN/E7HDYD/1884route.zip"
+   },
+   "rule_id": "a1-m002718",
+   "selector": {
+    "archive_chain": [
+     "5_1884route/Ca1884route_przh_utf8.shx"
+    ],
+    "archive_ordinals": [
+     15
+    ],
+    "relative_path": "harvard-full/doi_10_7910/DVN/E7HDYD/1884route.zip"
+   },
+   "targets_count": 0
+  },
+  {
+   "category": "A1_COMPANION_NON_TABULAR",
+   "disposition": "NON_TABULAR",
+   "expected": {
+    "kind": "file",
+    "sha256": "c68ef43f7fcccea503189bb4bd15ab9764008d7872fec4606745f61aad2bb001",
+    "signature": "ole",
+    "size": 24576
+   },
+   "reason_head": "DESIGN §5 非业务缩略图成员；仅登记此精确内层成员链 KML/CHGIS_v4_1911_KML.zip→V4_1911_KML_metadata/Thumbs.db 序号[5,11]；不扩展到外层 V4_Data_Archive.",
+   "reverse_lookup": {
+    "exclusive_single_owner": true,
+    "matched_archive_chain": [
+     "KML/CHGIS_v4_1911_KML.zip",
+     "V4_1911_KML_metadata/Thumbs.db"
+    ],
+    "matched_archive_ordinals": [
+     5,
+     11
+    ],
+    "matched_member_count": 1,
+    "matched_relative_path": "harvard-full/doi_10_7910/DVN/PDGOZ0/V4_Data_Archive.zip"
+   },
+   "rule_id": "a1-m004860",
+   "selector": {
+    "archive_chain": [
+     "KML/CHGIS_v4_1911_KML.zip",
+     "V4_1911_KML_metadata/Thumbs.db"
+    ],
+    "archive_ordinals": [
+     5,
+     11
+    ],
+    "relative_path": "harvard-full/doi_10_7910/DVN/PDGOZ0/V4_Data_Archive.zip"
+   },
+   "targets_count": 0
+  },
+  {
+   "category": "A1_COMPANION_NON_TABULAR",
+   "disposition": "NON_TABULAR",
+   "expected": {
+    "kind": "file",
+    "sha256": "5ad06d6dcf6dfa5e6ecfad707f0e59c53b3a4a21e657b334297aba6c26b453a3",
+    "signature": "unknown",
+    "size": 1307
+   },
+   "reason_head": "DESIGN §5 校验文件；既有严格清点 13/13 匹配断言（m007903-checksum-13of13.json）；保留完整原账作溯源材料，不建业务表，不新增校验例外",
+   "reverse_lookup": {
+    "exclusive_single_owner": true,
+    "matched_archive_chain": [],
+    "matched_archive_ordinals": [],
+    "matched_member_count": 1,
+    "matched_relative_path": "harvard/SHA256SUMS"
+   },
+   "rule_id": "a1-m007903",
+   "selector": {
+    "archive_chain": [],
+    "archive_ordinals": [],
+    "relative_path": "harvard/SHA256SUMS"
+   },
+   "targets_count": 0
+  },
+  {
+   "category": "FIRST_BATCH_IMPORT",
+   "disposition": "IMPORT",
+   "expected": {
+    "kind": "file",
+    "sha256": "0b4b86cb8b6dc892d70c9a4ede9adf6ed0a72bf8884376ae207a1075be9a692c",
+    "signature": "unknown",
+    "size": 16937
+   },
+   "reason_head": "first-batch seven candidate; names and mappings pending approval",
+   "reverse_lookup": {
+    "exclusive_single_owner": true,
+    "matched_archive_chain": [
+     "5_1884route/Ca1884route_przh_1251.dbf"
+    ],
+    "matched_archive_ordinals": [
+     3
+    ],
+    "matched_member_count": 1,
+    "matched_relative_path": "harvard-full/doi_10_7910/DVN/E7HDYD/1884route.zip"
+   },
+   "rule_id": "m002709",
+   "selector": {
+    "archive_chain": [
+     "5_1884route/Ca1884route_przh_1251.dbf"
+    ],
+    "archive_ordinals": [
+     3
+    ],
+    "relative_path": "harvard-full/doi_10_7910/DVN/E7HDYD/1884route.zip"
+   },
+   "targets_count": 1
+  },
+  {
+   "category": "FIRST_BATCH_IMPORT",
+   "disposition": "IMPORT",
+   "expected": {
+    "kind": "file",
+    "sha256": "eb9dfed2745641ac0ce91bf6f0f732fafe907192897eed0de42d16997044c724",
+    "signature": "unknown",
+    "size": 16937
+   },
+   "reason_head": "first-batch seven candidate; names and mappings pending approval",
+   "reverse_lookup": {
+    "exclusive_single_owner": true,
+    "matched_archive_chain": [
+     "5_1884route/Ca1884route_przh_utf8.dbf"
+    ],
+    "matched_archive_ordinals": [
+     11
+    ],
+    "matched_member_count": 1,
+    "matched_relative_path": "harvard-full/doi_10_7910/DVN/E7HDYD/1884route.zip"
+   },
+   "rule_id": "m002717",
+   "selector": {
+    "archive_chain": [
+     "5_1884route/Ca1884route_przh_utf8.dbf"
+    ],
+    "archive_ordinals": [
+     11
+    ],
+    "relative_path": "harvard-full/doi_10_7910/DVN/E7HDYD/1884route.zip"
+   },
+   "targets_count": 1
+  },
+  {
+   "category": "FIRST_BATCH_IMPORT",
+   "disposition": "IMPORT",
+   "expected": {
+    "kind": "file",
+    "sha256": "cdc6d3e5d6d85e139305efe9c617c756f0eb668c19ce34efc4eca4f6cc8c2728",
+    "signature": "unknown",
+    "size": 3727
+   },
+   "reason_head": "first-batch seven candidate; names and mappings pending approval",
+   "reverse_lookup": {
+    "exclusive_single_owner": true,
+    "matched_archive_chain": [],
+    "matched_archive_ordinals": [],
+    "matched_member_count": 1,
+    "matched_relative_path": "harvard-full/doi_10_7910/DVN/MI56KU/2001_Shanghai_0_INDEX_OF_PRESENTATIONS.tab"
+   },
+   "rule_id": "m004812",
+   "selector": {
+    "archive_chain": [],
+    "archive_ordinals": [],
+    "relative_path": "harvard-full/doi_10_7910/DVN/MI56KU/2001_Shanghai_0_INDEX_OF_PRESENTATIONS.tab"
+   },
+   "targets_count": 1
+  },
+  {
+   "category": "FIRST_BATCH_IMPORT",
+   "disposition": "IMPORT",
+   "expected": {
+    "kind": "file",
+    "sha256": "58ef3cb445ef4b0e70a8716aad3463915320c64ee7fa257ea88eb0c93fe1cec0",
+    "signature": "unknown",
+    "size": 137961
+   },
+   "reason_head": "first-batch seven candidate; names and mappings pending approval",
+   "reverse_lookup": {
+    "exclusive_single_owner": true,
+    "matched_archive_chain": [],
+    "matched_archive_ordinals": [],
+    "matched_member_count": 1,
+    "matched_relative_path": "harvard-full/doi_10_7910/DVN/SK7KGK/GB_91_HZ_040201_UTF8.tab"
+   },
+   "rule_id": "m006642",
+   "selector": {
+    "archive_chain": [],
+    "archive_ordinals": [],
+    "relative_path": "harvard-full/doi_10_7910/DVN/SK7KGK/GB_91_HZ_040201_UTF8.tab"
+   },
+   "targets_count": 1
+  },
+  {
+   "category": "FIRST_BATCH_IMPORT",
+   "disposition": "IMPORT",
+   "expected": {
+    "kind": "file",
+    "sha256": "d21bd9f625acd85e66298fd8635b64c54f380d36b8f44f5d1d9734a0bf55c256",
+    "signature": "unknown",
+    "size": 714962
+   },
+   "reason_head": "first-batch seven candidate; names and mappings pending approval",
+   "reverse_lookup": {
+    "exclusive_single_owner": true,
+    "matched_archive_chain": [],
+    "matched_archive_ordinals": [],
+    "matched_member_count": 1,
+    "matched_relative_path": "harvard/tab/ACADEMY_Data.tab"
+   },
+   "rule_id": "m008002",
+   "selector": {
+    "archive_chain": [],
+    "archive_ordinals": [],
+    "relative_path": "harvard/tab/ACADEMY_Data.tab"
+   },
+   "targets_count": 1
+  },
+  {
+   "category": "FIRST_BATCH_IMPORT",
+   "disposition": "IMPORT",
+   "expected": {
+    "kind": "file",
+    "sha256": "b720bff1d328e93726822910cbe361778667e414c24de4ab5f61082a0316623d",
+    "signature": "unknown",
+    "size": 2619410
+   },
+   "reason_head": "first-batch seven candidate; names and mappings pending approval",
+   "reverse_lookup": {
+    "exclusive_single_owner": true,
+    "matched_archive_chain": [],
+    "matched_archive_ordinals": [],
+    "matched_member_count": 1,
+    "matched_relative_path": "harvard/tab/Index_of_the_Complete_Prose_of_the_Yuan_Dynasty_vol_1-60.tab"
+   },
+   "rule_id": "m008003",
+   "selector": {
+    "archive_chain": [],
+    "archive_ordinals": [],
+    "relative_path": "harvard/tab/Index_of_the_Complete_Prose_of_the_Yuan_Dynasty_vol_1-60.tab"
+   },
+   "targets_count": 1
+  },
+  {
+   "category": "FIRST_BATCH_IMPORT",
+   "disposition": "IMPORT",
+   "expected": {
+    "kind": "file",
+    "sha256": "23b23f6fdd8c8c3d070fe0d215bc643beef8742c06801ee861fb9255d77e5fe7",
+    "signature": "unknown",
+    "size": 193811
+   },
+   "reason_head": "first-batch seven candidate; names and mappings pending approval",
+   "reverse_lookup": {
+    "exclusive_single_owner": true,
+    "matched_archive_chain": [],
+    "matched_archive_ordinals": [],
+    "matched_member_count": 1,
+    "matched_relative_path": "harvard/tab/writings of the 19c missionaries in China.tab"
+   },
+   "rule_id": "m008004",
+   "selector": {
+    "archive_chain": [],
+    "archive_ordinals": [],
+    "relative_path": "harvard/tab/writings of the 19c missionaries in China.tab"
+   },
+   "targets_count": 1
+  },
+  {
+   "category": "R_CHECKSUM_LEDGER_NON_TABULAR",
+   "disposition": "NON_TABULAR",
+   "expected": {
+    "kind": "file",
+    "sha256": "694c101f04e636012e752c87958c8065c8e6926633c8b542e89978d8f8451a60",
+    "signature": "unknown",
+    "size": 551
+   },
+   "reason_head": "checksum ledger retained as evidence",
+   "reverse_lookup": {
+    "exclusive_single_owner": true,
+    "matched_archive_chain": [],
+    "matched_archive_ordinals": [],
+    "matched_member_count": 1,
+    "matched_relative_path": "harvard/chgis/SHA256SUMS.txt"
+   },
+   "rule_id": "r-chgis-sha256sums",
+   "selector": {
+    "archive_chain": [],
+    "archive_ordinals": [],
+    "relative_path": "harvard/chgis/SHA256SUMS.txt"
+   },
+   "targets_count": 0
+  },
+  {
+   "category": "R_CHECKSUM_LEDGER_NON_TABULAR",
+   "disposition": "NON_TABULAR",
+   "expected": {
+    "kind": "file",
+    "sha256": "900d98c69cf9b72f20313aa562b8da5e18e9c3e3def423fa6f618b4b1bafb3cb",
+    "signature": "unknown",
+    "size": 22071
+   },
+   "reason_head": "checksum ledger retained as evidence",
+   "reverse_lookup": {
+    "exclusive_single_owner": true,
+    "matched_archive_chain": [],
+    "matched_archive_ordinals": [],
+    "matched_member_count": 1,
+    "matched_relative_path": "SHA256SUMS-b2"
+   },
+   "rule_id": "r-sha256sums-b2",
+   "selector": {
+    "archive_chain": [],
+    "archive_ordinals": [],
+    "relative_path": "SHA256SUMS-b2"
+   },
+   "targets_count": 0
+  }
+ ],
+ "scope_note": "本盒只出迁移方案与对账预览；不改正式账、不冻结合同、不写库",
+ "status": "PLAN_ONLY_NOT_EXECUTED",
+ "verification_method": {
+  "step_1": "用正式模型重算候选摘要：ReleaseContract.model_validate(candidate).sha256 必须 == fa28a878…",
+  "step_2": "用正式模型重算清单摘要：InventoryManifest(...).sha256 必须 == fb5e6b33…",
+  "step_3": "DispositionLedger.evaluate(inventory, candidate)：records==8004，unmatched==7981，multiple==0，unexplained==0",
+  "step_4": "逐规则反查：23 条规则每条恰命中 1 个清单成员（exclusive），且成员-规则构成 1:1 双射",
+  "step_5": "等式闭合：已覆盖 23 + 未覆盖 7981 == 8004",
+  "step_6": "不可变面复核：原清单 sha、现行账 sha、首批七表规则、两条例外、7995 门 全部不变",
+  "step_7": "双跑确定性：同一输入两次运行，全部产物 sha 逐字相等"
+ },
+ "version": 1
+}

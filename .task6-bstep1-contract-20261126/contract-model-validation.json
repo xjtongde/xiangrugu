@@ -1,0 +1,23 @@
+{
+ "columns_rejected_by_model": [
+  {
+   "column": "inst_xcoord",
+   "pg_type": "double precision",
+   "error": [
+    "  String should match pattern '^(text|bigint|numeric\\([1-9][0-9]*,[0-9]+\\))$' [type=string_pattern_mismatch]"
+   ]
+  },
+  {
+   "column": "inst_ycoord",
+   "pg_type": "double precision",
+   "error": [
+    "  String should match pattern '^(text|bigint|numeric\\([1-9][0-9]*,[0-9]+\\))$' [type=string_pattern_mismatch]"
+   ]
+  }
+ ],
+ "ordinal_contiguity_required_by_model": true,
+ "subset_without_double_precision": "VALIDATED_OK",
+ "subset_column_count": 9,
+ "subset_canonical_sha256": "0ee3717d9c5205b6d2b7ff34a8266648613e6efd268bc544d7702809d3b108e6",
+ "full_draft": "REJECTED_AS_EXPECTED: ['rules.0.targets.0.columns.6.pg_type', \"  String should match pattern '^(text|bigint|numeric\\\\([1-9][0-9]*,[0-9]+\\\\))$' [type=string_pattern_mismatch]\"]"
+}

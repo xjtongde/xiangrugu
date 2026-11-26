@@ -1,0 +1,9 @@
+茶香授权原文｜B 批单表正式装载
+
+我批准在 Codex 独立验收并明确放行后，从源成员 m007906 的
+SOCIAL_INSTITUTION_ADDR 导入恰好一张表：
+pg32b:5433/xiangrugu 的 cbdb.cbdb__social_u5f_institution_u5f_addr。
+以冻结合同 56b0076d… 为准，验收 3859 行、11 列、有序六列复合主键、
+NULL 与源侧规范值 SHA-256 2cb8c354b0e75e6ae230e3b00540146e823eaa8de8def2abce89ad6179a07579。
+批准为这一张表受控接收装载器、准备 cbdb schema 和配置专用装载角色的最小权限。
+授权仅限这一张表。现有表、旧库 ACL、pg32、现役镜像和服务不得改动。

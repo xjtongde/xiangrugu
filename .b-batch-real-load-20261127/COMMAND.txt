@@ -1,0 +1,13 @@
+python3 -m xiangrugu_datamgmt.cbdb_social_addr_runner \
+  --phase phase1-isolated \
+  --code-root /workspace \
+  --code-commit <FIXED_COMMIT> \
+  --contract datamgmt/contracts/releases/2026-10-06-bootstrap/b-single-table-frozen-candidate.json \
+  --approval-table datamgmt/contracts/releases/2026-10-06-bootstrap/b-approval-table-v2.json \
+  --approval-text .b-batch-real-load-20261127/approval-text-verbatim.txt \
+  --approval-text-sha256 4d250c8e08ea8136e29e35aa436812f11b5eec59a100847f130c11f39b7e2946 \
+  --scope .b-batch-real-load-20261127/execution-scope.json \
+  --expected .b-batch-real-load-20261127/expected.json \
+  --payload <payload.bin> \
+  --scratch /data/var/<real-dir> \
+  --evidence-out <evidence.json>

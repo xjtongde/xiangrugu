@@ -49,10 +49,55 @@ small = load("sqlite-value-small.expected.draft.json")
 medium = load("sqlite-value-medium.expected.draft.json")
 large = load("sqlite-value-large-readiness.draft.json")
 
+# B 批单表冻结候选（本轮授权：IMPORT 状态单列，而非并入 A 账处置）
+BATCH_B_CANDIDATE = "b-single-table-frozen-candidate.json"
+BATCH_B_SHA = "d3cdb81c4caf75c92a96e548025c39aab1d1d8a301b0f0d7b4e30286243d8bef"
+
 SRC_SQLITE = "harvard/cbdb/cbdb_20260919.sqlite3"
 SRC_JSON = "harvard/cbdb/cbdb_20260919.json"
 SRC_DIR = "harvard/cbdb"
 SQLITE_SHA = "bde1bb8eece3820d9e236c1d6b0f07d847d339669d4a85d79cd7252d58d83400"
+
+# ------------------------------------------------- 账本派生态（禁止硬编码）
+def ledger_record(relative_path):
+    """A 账中该成员的记录；未匹配时返回 None（不臆造处置）。"""
+    return next((d for d in ledger["records"]
+                 if d["member"]["relative_path"] == relative_path), None)
+
+
+def ledger_state(relative_path):
+    """从 A 账实际记录派生状态，未匹配即如实标记 UNMATCHED_IN_A_LEDGER。"""
+    rec = ledger_record(relative_path)
+    if rec is None:
+        return {"disposition": None, "rule_ids": [], "matched_in_a_ledger": False,
+                "derived_state": "UNMATCHED_IN_A_LEDGER"}
+    return {"disposition": rec["disposition"], "rule_ids": rec["rule_ids"],
+            "matched_in_a_ledger": True,
+            "derived_state": rec["disposition"] or "UNMATCHED_IN_A_LEDGER"}
+
+
+def batch_b_import_state(relative_path):
+    """B 批单表冻结候选对该成员的 IMPORT 意图（单列，不并入 A 账处置）。"""
+    cand_path = REL / BATCH_B_CANDIDATE
+    if not cand_path.exists():
+        return {"present": False}
+    cand = load(BATCH_B_CANDIDATE)
+    h = hashlib.sha256(canon_path_bytes := (REL / BATCH_B_CANDIDATE).read_bytes()).hexdigest()
+    hit = [r for r in cand["rules"] if r["selector"]["relative_path"] == relative_path]
+    if not hit:
+        return {"present": False, "candidate_file_sha256": h}
+    rule = hit[0]
+    return {
+        "present": True,
+        "candidate_release_id": cand["release_id"],
+        "candidate_file_sha256": h,
+        "rule_id": rule["rule_id"],
+        "disposition_in_candidate": rule["disposition"],
+        "status": "FROZEN_CANDIDATE_NOT_IN_A_LEDGER",
+        "targets": [f'{t["schema"]}.{t["table"]}' for t in rule["targets"]],
+        "note": "B 批单表冻结候选状态单列；A 账仍为未匹配，冻结≠写库授权",
+    }
+
 
 # ---------------------------------------------------------------- members
 ents = {e["relative_path"]: e for e in inventory["entries"] if not e["archive_chain"]}
@@ -64,17 +109,15 @@ members = {
     "members": [
         {"relative_path": SRC_DIR, "kind": "directory", "size": None, "sha256": None,
          "signature": "unknown", "rule_ids": ["m007904"],
-         "disposition_from_ledger": next(
-             d["disposition"] for d in ledger["records"]
-             if d["member"]["relative_path"] == SRC_DIR),
+         "ledger_state": ledger_state(SRC_DIR),
          "relationship": "container of the two files below; structural only",
-         "handling": "NON_TABULAR retained explicitly (ledger reason quoted)"},
+         "handling": ("NON_TABULAR retained explicitly (ledger reason quoted)"
+                      if ledger_state(SRC_DIR)["derived_state"] == "NON_TABULAR"
+                      else "state derived from A ledger: " + ledger_state(SRC_DIR)["derived_state"])},
         {"relative_path": SRC_JSON, "kind": "file", "size": 385,
          "sha256": ents[SRC_JSON]["sha256"], "signature": "unknown",
          "rule_ids": ["m007905"],
-         "disposition_from_ledger": next(
-             d["disposition"] for d in ledger["records"]
-             if d["member"]["relative_path"] == SRC_JSON),
+         "ledger_state": ledger_state(SRC_JSON),
          "content_judgement": {
              "method": "read-only SSH cat on host 32 (root@192.168.3.32) this round; "
                        "digest verified equal to inventory sha bd62ab07…",
@@ -93,15 +136,14 @@ members = {
                      "metadata role recorded here for the release draft"},
         {"relative_path": SRC_SQLITE, "kind": "file", "size": 586485760,
          "sha256": SQLITE_SHA, "signature": "sqlite", "rule_ids": ["m007906"],
-         "disposition_from_ledger": next(
-             d["disposition"] for d in ledger["records"]
-             if d["member"]["relative_path"] == SRC_SQLITE),
+         "ledger_state": ledger_state(SRC_SQLITE),
          "relationship": "main source carrier: 78 tables / 736 columns per the "
                          "confirmed structure sub-batch",
-         "handling": "IMPORT in ledger (fa28a878 contract, 2026-11-26 migration): "
-                     "rule m007904 imports this cbdb sqlite member; full-release freeze "
-                     "and write authorization still pending; block-1 organizing target "
-                     "for table/field mapping below"}],
+         "batch_b_import_state": batch_b_import_state(SRC_SQLITE),
+         "handling": ("state derived from A ledger: "
+                      + ledger_state(SRC_SQLITE)["derived_state"]
+                      + "; B 批单表冻结候选另列（见 batch_b_import_state），冻结≠写库授权；"
+                        "block-1 organizing target for table/field mapping below")}],
     "nested_members_under_cbdb": 0,
     "companion_materials_note": (
         "sqlite-*.draft/approved files, sqlite-review.md, "
@@ -273,9 +315,9 @@ summary = f"""# CBDB 导入包整理摘要（第 1/6 块，仅整理不写库）
 ## 成员（inventory 全量 8004 中 CBDB 路径恰 3，嵌套链 0）
 | 成员 | kind | size | sha256 | 账本处置 | 关系/判定 |
 |---|---|---|---|---|---|
-| harvard/cbdb | directory | — | — | NON_TABULAR | 容器，显式保留 |
-| cbdb_20260919.json | file | 385 | {nb('bd62ab07aea5ce91')} | BLOCKED | 出版方元数据：声明 sqlite 文件名+sha256（与实测成员一致）+HF zip 路径；**非重复表载体**，单独处置不入表 |
-| cbdb_20260919.sqlite3 | file | 586,485,760 | {nb(SQLITE_SHA)} | BLOCKED | 主源载体：78 表/736 列 |
+| harvard/cbdb | directory | — | — | {ledger_state(SRC_DIR)["derived_state"]} | 容器，显式保留 |
+| cbdb_20260919.json | file | 385 | {nb('bd62ab07aea5ce91')} | {ledger_state(SRC_JSON)["derived_state"]} | 出版方元数据：声明 sqlite 文件名+sha256（与实测成员一致）+HF zip 路径；**非重复表载体**，单独处置不入表 |
+| cbdb_20260919.sqlite3 | file | 586,485,760 | {nb(SQLITE_SHA)} | {ledger_state(SRC_SQLITE)["derived_state"]} | 主源载体：78 表/736 列 |
 
 JSON 内容取证：本轮经 SSH 在 32 只读 cat（R-07 合规），digest 复核等于账本值。
 
@@ -284,7 +326,9 @@ JSON 内容取证：本轮经 SSH 在 32 只读 cat（R-07 合规），digest �
 - 类型：子批 type_mapping_approved=true（observed 700 + declaration-only 36，后者按 unobserved-proposal 的 PROPOSED_NOT_AUTHORIZED 确认态引用，approval_requested=false 未升级）。
 - 角色：78 表 tabular-source、76 索引 source-schema-metadata（roles_approved=true）。
 - 命名：naming_scope={proposal['naming_scope']}；**全版本名称分配未完成**（碰撞检查缺口）。
-- 顶层提案 flags 原样保留：target_mapping_approved=False、nullability_constraints_approved=False、value_contract_approved=False、ready_for_import=False、contract_frozen=False、disposition_retained=BLOCKED。
+- 顶层提案 flags 原样保留：target_mapping_approved=False、nullability_constraints_approved=False、value_contract_approved=False、ready_for_import=False、contract_frozen=False。
+- **账本口径（2026-11-26 起，从 A 账实际记录派生，禁硬编码）**：三成员在 A 账 `fa28a878` 均为 `{ledger_state(SRC_JSON)["derived_state"]}`（未匹配），故 `disposition_retained` 不再写作 BLOCKED。
+- **B 批单表冻结候选 IMPORT 状态单列**：`{batch_b_import_state(SRC_SQLITE)}`。
 
 ## 值验证覆盖（与映射分别计数）
 - 已生成源侧期望：68/78 表（canary 3 + small 55 + medium 10）。

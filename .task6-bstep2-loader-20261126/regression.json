@@ -1,0 +1,25 @@
+{
+ "after_this_box": {
+  "failed_or_error": 228,
+  "fixed": 0,
+  "new_failure_list": [],
+  "new_failures": 0,
+  "note": "失败集合逐条一致（comm 双向差集为空）"
+ },
+ "baseline": {
+  "failed_or_error": 228
+ },
+ "deterministic_shadowing": {
+  "baseline_failures": "均由 deploy /workspace 缺失隐藏证据目录造成，属既有环境缺口，非本盒引入"
+ },
+ "environment": "容器 xiangrugu-dev，/tmp 重建树（/workspace/datamgmt/tests + config + src）",
+ "format": "xiangrugu.task6-bstep2.regression.v1",
+ "generators": {
+  "cbdb": "build_cbdb_package.py 重跑产物 sha 不变",
+  "idempotent": true,
+  "tabular": "build_tabular_package.py 重跑产物 sha 不变"
+ },
+ "new_tests": "datamgmt/tests/unit/test_cbdb_social_addr_loader.py -> 16 passed",
+ "scope": "datamgmt/tests/unit 全量",
+ "verdict": "NO_REGRESSION"
+}

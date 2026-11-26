@@ -1,0 +1,81 @@
+{
+ "batch_b_single_table_import_status": {
+  "candidate_file_sha256": "0a6b59a9f7ad85e768dcfd1e0f6741a5991292a67142f8a0aa57c08f033e4685",
+  "candidate_release_id": "2026-11-26-bstep1-addr-single-table-frozen-candidate",
+  "disposition_in_candidate": "IMPORT",
+  "note": "B 批单表冻结候选状态单列；A 账仍为未匹配，冻结≠写库授权",
+  "present": true,
+  "rule_id": "m007906",
+  "status": "FROZEN_CANDIDATE_NOT_IN_A_LEDGER",
+  "targets": [
+   "cbdb.cbdb__social_u5f_institution_u5f_addr"
+  ]
+ },
+ "cbdb_members_a_ledger": {
+  "harvard/cbdb": {
+   "disposition": null,
+   "explained": false,
+   "rule_ids": []
+  },
+  "harvard/cbdb/cbdb_20260919.json": {
+   "disposition": null,
+   "explained": false,
+   "rule_ids": []
+  },
+  "harvard/cbdb/cbdb_20260919.sqlite3": {
+   "disposition": null,
+   "explained": false,
+   "rule_ids": []
+  }
+ },
+ "cbdb_members_generated": {
+  "harvard/cbdb": {
+   "derived_state": "UNMATCHED_IN_A_LEDGER",
+   "disposition": null,
+   "matched_in_a_ledger": true,
+   "rule_ids": []
+  },
+  "harvard/cbdb/cbdb_20260919.json": {
+   "derived_state": "UNMATCHED_IN_A_LEDGER",
+   "disposition": null,
+   "matched_in_a_ledger": true,
+   "rule_ids": []
+  },
+  "harvard/cbdb/cbdb_20260919.sqlite3": {
+   "derived_state": "UNMATCHED_IN_A_LEDGER",
+   "disposition": null,
+   "matched_in_a_ledger": true,
+   "rule_ids": []
+  }
+ },
+ "format": "xiangrugu.task6-bstep2.ledger-semantics.v1",
+ "generator_hardcoded_status_removed": {
+  "after": "全部由 ledger_state()/batch_b_import_state() 从 A 账实际记录派生；rule 引用为 m007906（候选内事实）",
+  "before": "members.json/S<a>-SUMMARY 表格与 handling 硬编码 NON_TABULAR/BLOCKED，且 rule 误写 m007904"
+ },
+ "idempotent": true,
+ "ledger": {
+  "blocked_count": 0,
+  "distribution": {
+   "IMPORT": 7,
+   "NON_TABULAR": 16,
+   "None": 7981
+  },
+  "file": "disposition-ledger-fa28a878-20261126.json",
+  "records": 8004,
+  "sha256": "e9f5e289c779cbd7ac2dab2c0395c4a312be79ef3a921dc3cf498f985ac86151"
+ },
+ "m007906_fact": {
+  "in_current_a_ledger": "UNMATCHED (disposition=null, rule_ids=[])",
+  "member": "harvard/cbdb/cbdb_20260919.sqlite3",
+  "statement": "m007906 在现行 A 账中仍未匹配；B 批单表冻结候选的 IMPORT 状态单列，不并入 A 账处置"
+ },
+ "tabular_generated": {
+  "ledger_disposition_distribution": {
+   "IMPORT": 7,
+   "NON_TABULAR": 2,
+   "None": 1631
+  },
+  "members": 1640
+ }
+}

@@ -5,9 +5,9 @@
 ## 成员（inventory 全量 8004 中 CBDB 路径恰 3，嵌套链 0）
 | 成员 | kind | size | sha256 | 账本处置 | 关系/判定 |
 |---|---|---|---|---|---|
-| harvard/cbdb | directory | — | — | NON_TABULAR | 容器，显式保留 |
-| cbdb_20260919.json | file | 385 | bd62ab07… | BLOCKED | 出版方元数据：声明 sqlite 文件名+sha256（与实测成员一致）+HF zip 路径；**非重复表载体**，单独处置不入表 |
-| cbdb_20260919.sqlite3 | file | 586,485,760 | bde1bb8e… | BLOCKED | 主源载体：78 表/736 列 |
+| harvard/cbdb | directory | — | — | UNMATCHED_IN_A_LEDGER | 容器，显式保留 |
+| cbdb_20260919.json | file | 385 | bd62ab07… | UNMATCHED_IN_A_LEDGER | 出版方元数据：声明 sqlite 文件名+sha256（与实测成员一致）+HF zip 路径；**非重复表载体**，单独处置不入表 |
+| cbdb_20260919.sqlite3 | file | 586,485,760 | bde1bb8e… | UNMATCHED_IN_A_LEDGER | 主源载体：78 表/736 列 |
 
 JSON 内容取证：本轮经 SSH 在 32 只读 cat（R-07 合规），digest 复核等于账本值。
 
@@ -16,7 +16,9 @@ JSON 内容取证：本轮经 SSH 在 32 只读 cat（R-07 合规），digest �
 - 类型：子批 type_mapping_approved=true（observed 700 + declaration-only 36，后者按 unobserved-proposal 的 PROPOSED_NOT_AUTHORIZED 确认态引用，approval_requested=false 未升级）。
 - 角色：78 表 tabular-source、76 索引 source-schema-metadata（roles_approved=true）。
 - 命名：naming_scope=SQLITE_78_TABLE_SUBBATCH_NOT_FULL_RELEASE_ALLOCATION；**全版本名称分配未完成**（碰撞检查缺口）。
-- 顶层提案 flags 原样保留：target_mapping_approved=False、nullability_constraints_approved=False、value_contract_approved=False、ready_for_import=False、contract_frozen=False、disposition_retained=BLOCKED。
+- 顶层提案 flags 原样保留：target_mapping_approved=False、nullability_constraints_approved=False、value_contract_approved=False、ready_for_import=False、contract_frozen=False。
+- **账本口径（2026-11-26 起，从 A 账实际记录派生，禁硬编码）**：三成员在 A 账 `fa28a878` 均为 `UNMATCHED_IN_A_LEDGER`（未匹配），故 `disposition_retained` 不再写作 BLOCKED。
+- **B 批单表冻结候选 IMPORT 状态单列**：`{'present': True, 'candidate_release_id': '2026-11-26-bstep1-addr-single-table-frozen-candidate', 'candidate_file_sha256': '0a6b59a9f7ad85e768dcfd1e0f6741a5991292a67142f8a0aa57c08f033e4685', 'rule_id': 'm007906', 'disposition_in_candidate': 'IMPORT', 'status': 'FROZEN_CANDIDATE_NOT_IN_A_LEDGER', 'targets': ['cbdb.cbdb__social_u5f_institution_u5f_addr'], 'note': 'B 批单表冻结候选状态单列；A 账仍为未匹配，冻结≠写库授权'}`。
 
 ## 值验证覆盖（与映射分别计数）
 - 已生成源侧期望：68/78 表（canary 3 + small 55 + medium 10）。

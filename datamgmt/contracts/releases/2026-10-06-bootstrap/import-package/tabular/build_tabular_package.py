@@ -166,7 +166,9 @@ for e in inv:
     else:
         continue
     key = (e["relative_path"], tuple(e["archive_chain"]))
-    led = ledger[key]
+    led = ledger.get(key)
+    if led is None:
+        raise SystemExit(f"tabular member missing from A ledger: {key[0]}")
     base = {"source_identity": {
         "relative_path": e["relative_path"], "archive_chain": e["archive_chain"],
         "archive_ordinals": e["archive_ordinals"], "kind": e["kind"],
@@ -843,8 +845,9 @@ handoffs = {"format": "xiangrugu.import-package.tabular.handoffs.v1",
             "block5_documentation": {
                 "count": len(handoff5),
                 "classification_basis": "documentary NAME pattern only (content unread this "
-                                        "round); every item still carries its BLOCKED ledger "
-                                        "disposition until block-5 review confirms",
+                                        "round); ledger disposition is derived from the A ledger "
+                                        "(fa28a878) per member, not asserted as BLOCKED "
+                                        "until block-5 review confirms",
                 "objects": handoff5,
                 "content_verified_this_round": sum(
                     1 for o in handoff5 if o.get("content_verdict")),

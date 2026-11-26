@@ -1,0 +1,102 @@
+{
+ "bindings": {
+  "approval_table": {
+   "columns_approved": 11,
+   "constraints_approved": [
+    "PRIMARY KEY",
+    "UNIQUE",
+    "INDEX",
+    "FOREIGN KEY",
+    "DEFAULT",
+    "NOT NULL"
+   ],
+   "file": "b-approval-table-v2.json",
+   "sha256": "a718b0c297501642dd105eb3797f96dc1de2edf8eb521bed6609ff78de1fb4a0",
+   "target_execution": [
+    "NOT_EXECUTED",
+    "NOT_EXECUTED",
+    "NOT_EXECUTED",
+    "NOT_EXECUTED",
+    "NOT_EXECUTED",
+    "NOT_EXECUTED"
+   ]
+  },
+  "collision_check": {
+   "file": "b-collision-check.json",
+   "sha256": "cae690a7b77d187d827f5d561abbb14adfc3cdba0a88e03f4635aa57629a4452",
+   "verdict": "PASS_NO_COLLISION_STOP_NOT_TRIGGERED"
+  },
+  "frozen_candidate": {
+   "contract_canonical_sha256": "d3cdb81c4caf75c92a96e548025c39aab1d1d8a301b0f0d7b4e30286243d8bef",
+   "file": "b-single-table-frozen-candidate.json",
+   "file_sha256": "0a6b59a9f7ad85e768dcfd1e0f6741a5991292a67142f8a0aa57c08f033e4685",
+   "release_id": "2026-11-26-bstep1-addr-single-table-frozen-candidate",
+   "status": "frozen"
+  },
+  "inventory_sha256": "fb5e6b334b898d62dc0e5c77094fdb50e0946300e6e3009f447b2ecd1bc216db",
+  "source_member": {
+   "approved_source_side_sha256": "2cb8c354b0e75e6ae230e3b00540146e823eaa8de8def2abce89ad6179a07579",
+   "relative_path": "harvard/cbdb/cbdb_20260919.sqlite3",
+   "rows": 3859,
+   "rule_id": "m007906",
+   "schema_hash": "1f88cd8039ae3dbdc411864c52d5bbb1aa5dc20c59ff61dabf8b709f7382d1f9",
+   "sha256": "bde1bb8eece3820d9e236c1d6b0f07d847d339669d4a85d79cd7252d58d83400",
+   "size_bytes": 586485760,
+   "source_object_id": "3cf1a3286982ab392f3f0bed1a0dcc723f3a04205be610a6ec992ae66047c6cf"
+  }
+ },
+ "constraints": {
+  "created": [
+   "primary_key(ordered 6 columns)",
+   "not_null(per approved flags)"
+  ],
+  "no_constraint_beyond_source": true,
+  "not_created": [
+   "unique",
+   "index",
+   "foreign_key",
+   "default"
+  ],
+  "source_facts": {
+   "default_null_columns": 5,
+   "foreign_keys": 0,
+   "indexes": [
+    "sqlite_autoindex_SOCIAL_INSTITUTION_ADDR_1 (origin=pk)"
+   ],
+   "pk_declared": 6
+  }
+ },
+ "entry": {
+  "formal_call": "cbdb_social_addr_loader.run_single_table(session, scope, contract, target, copy_payload, instance_observed, expected)",
+  "module": "datamgmt/src/xiangrugu_datamgmt/cbdb_social_addr_loader.py",
+  "sha256": "c8a37611f79ad41f017300c4062134699cac3fcaba08b2e26a72b331991f02de",
+  "single_target": "cbdb.cbdb__social_u5f_institution_u5f_addr",
+  "test_module": "datamgmt/tests/unit/test_cbdb_social_addr_loader.py",
+  "test_sha256": "6d6b43c735e40fb8adef59affbd7334c9162781b0ec6f573d21883f69f7a08b0",
+  "unit_tests": "16 passed"
+ },
+ "format": "xiangrugu.task6-bstep2.load-entry-candidate.v1",
+ "review_traceability": {
+  "absent_link": "茶香批准原文逐字登记件",
+  "action_taken": "按茶香指令列为阻断项，未自行补写原文；loader 门控 review_traceability_incomplete 已实测能阻断（见 negative_review_traceability）。",
+  "chain": "合同 review.approval_ref -> 审批内容(b-approval-table-v2.json: 11 列 + 六项约束) -> 批准原文",
+  "contract_review": {
+   "approval_ref": "chaxiang-authorized-20261126-bstep1-close-batch",
+   "approved_at": "2026-11-26T14:30:00Z",
+   "approved_by": "茶香"
+  },
+  "present_links": [
+   "b-approval-table-v2.json（批准内容，11 列 APPROVED + 六项约束 APPROVED_BY_CHAXIANG_20261126）",
+   "b-collision-check.json（目标名碰撞 PASS）",
+   "b-single-table-frozen-candidate.json（合同 review 记录）"
+  ],
+  "verdict": "BLOCKED",
+  "why_blocked": "review.approval_ref='chaxiang-authorized-20261126-bstep1-close-batch' 是标识串，仓库内无任何文件以 approval_text_verbatim 形式登记该次批准原文（对照 .task6-exception-integration-20261124/approval-record.json 的惯例）。故'能追溯到本次映射与约束批准原文'不能成立。"
+ },
+ "write_authorization": {
+  "first_batch_approval_reuse": false,
+  "full_ready_for_import": false,
+  "production_db_written": false,
+  "this_box": "test-only (isolated test approval)"
+ }
+}

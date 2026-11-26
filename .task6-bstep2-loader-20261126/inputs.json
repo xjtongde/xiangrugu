@@ -1,0 +1,471 @@
+{
+ "approved": {
+  "columns": [
+   {
+    "allow_null_value": false,
+    "column_key": "8611be4191be6d740a58c4b6f4f872f30a8b004f8165268e93f5e5b6caca60a2",
+    "pg_type": "bigint",
+    "source_ordinal": 0
+   },
+   {
+    "allow_null_value": false,
+    "column_key": "79ef189ee64657af916fa4c981d5b4a72b63f94ef340001abf60d3c4e0c9e85a",
+    "pg_type": "bigint",
+    "source_ordinal": 1
+   },
+   {
+    "allow_null_value": false,
+    "column_key": "28462a548d0302919350de6d6ae66c2fc9cc71fada7370b192ff41b9ae054da4",
+    "pg_type": "bigint",
+    "source_ordinal": 2
+   },
+   {
+    "allow_null_value": true,
+    "column_key": "429108f89e2ab6226397c5a180af08d03818719779b67ce9629048b326f9b437",
+    "pg_type": "bigint",
+    "source_ordinal": 3
+   },
+   {
+    "allow_null_value": true,
+    "column_key": "7741dc123614e56255517024d40b5ea82bfe03fb6818aec87f5ffa3b1126259d",
+    "pg_type": "bigint",
+    "source_ordinal": 4
+   },
+   {
+    "allow_null_value": false,
+    "column_key": "26ec69e6d968ccc07fd1748d14ee5ef0a40a46c63d454d83d570a49d174d8b72",
+    "pg_type": "bigint",
+    "source_ordinal": 5
+   },
+   {
+    "allow_null_value": false,
+    "column_key": "ab37a5d7fefbf1cd7cdb9a514654b7616a6d5e95a48d1c111115b9fb0e4e01ff",
+    "pg_type": "double precision",
+    "source_ordinal": 6
+   },
+   {
+    "allow_null_value": false,
+    "column_key": "1907d925ee8337d710ddd0518c8003d13ad576863c59b1d887c867c5aa1e3721",
+    "pg_type": "double precision",
+    "source_ordinal": 7
+   },
+   {
+    "allow_null_value": true,
+    "column_key": "099afc0e43b932e0d0695599c35c7009f6902c221a6e294589db23621e1b0fe5",
+    "pg_type": "bigint",
+    "source_ordinal": 8
+   },
+   {
+    "allow_null_value": true,
+    "column_key": "36e66effde25baaa43bdb3ec65be152d8d83ed3f1faf9ae271a57f6bc5ed3f54",
+    "pg_type": "text",
+    "source_ordinal": 9
+   },
+   {
+    "allow_null_value": true,
+    "column_key": "3218e753b0eaff528af25b69b2357cbe401f00b125741e04f88a91b9bae82f00",
+    "pg_type": "text",
+    "source_ordinal": 10
+   }
+  ],
+  "schema_hash": "1f88cd8039ae3dbdc411864c52d5bbb1aa5dc20c59ff61dabf8b709f7382d1f9",
+  "source_columns": [
+   "c_inst_name_code",
+   "c_inst_code",
+   "c_inst_addr_type_code",
+   "c_inst_addr_begin_year",
+   "c_inst_addr_end_year",
+   "c_inst_addr_id",
+   "inst_xcoord",
+   "inst_ycoord",
+   "c_source",
+   "c_pages",
+   "c_notes"
+  ],
+  "source_object_id": "3cf1a3286982ab392f3f0bed1a0dcc723f3a04205be610a6ec992ae66047c6cf",
+  "source_object_name": "SOCIAL_INSTITUTION_ADDR"
+ },
+ "container_id": "c0ce44c81ebed56227ac945af6466cc54ff2c5034fa304a3c9ac0d8eb4ef3c19",
+ "contract": {
+  "exceptions": [],
+  "inventory_sha256": "fb5e6b334b898d62dc0e5c77094fdb50e0946300e6e3009f447b2ecd1bc216db",
+  "release_id": "2026-11-26-bstep1-addr-single-table-frozen-candidate",
+  "review": {
+   "approval_ref": "chaxiang-authorized-20261126-bstep1-close-batch",
+   "approved_at": "2026-11-26T14:30:00Z",
+   "approved_by": "茶香"
+  },
+  "rules": [
+   {
+    "disposition": "IMPORT",
+    "encodings": [],
+    "expected": {
+     "kind": "file",
+     "sha256": "bde1bb8eece3820d9e236c1d6b0f07d847d339669d4a85d79cd7252d58d83400",
+     "signature": "sqlite",
+     "size": 586485760
+    },
+    "format_family": "sqlite",
+    "mirror_evidence_sha256": null,
+    "mirror_of": null,
+    "reason": "B 批单表导入：SOCIAL_INSTITUTION_ADDR 11 列映射与六项约束处置经茶香 2026-11-26 授权批准；R62 隔离试装 TRIAL_PASS（复用未重跑）；目标名已完成全量碰撞检查无冲突",
+    "rule_id": "m007906",
+    "selector": {
+     "archive_chain": [],
+     "archive_ordinals": [],
+     "relative_path": "harvard/cbdb/cbdb_20260919.sqlite3"
+    },
+    "targets": [
+     {
+      "columns": [
+       {
+        "nullable": false,
+        "ordinal": 1,
+        "pg_type": "bigint",
+        "source_column": "c_inst_name_code",
+        "target_column": "c_u5f_inst_u5f_name_u5f_code"
+       },
+       {
+        "nullable": false,
+        "ordinal": 2,
+        "pg_type": "bigint",
+        "source_column": "c_inst_code",
+        "target_column": "c_u5f_inst_u5f_code"
+       },
+       {
+        "nullable": false,
+        "ordinal": 3,
+        "pg_type": "bigint",
+        "source_column": "c_inst_addr_type_code",
+        "target_column": "c_u5f_inst_u5f_addr_u5f_type_u5f_code"
+       },
+       {
+        "nullable": true,
+        "ordinal": 4,
+        "pg_type": "bigint",
+        "source_column": "c_inst_addr_begin_year",
+        "target_column": "c_u5f_inst_u5f_addr_u5f_begin_u5f_year"
+       },
+       {
+        "nullable": true,
+        "ordinal": 5,
+        "pg_type": "bigint",
+        "source_column": "c_inst_addr_end_year",
+        "target_column": "c_u5f_inst_u5f_addr_u5f_end_u5f_year"
+       },
+       {
+        "nullable": false,
+        "ordinal": 6,
+        "pg_type": "bigint",
+        "source_column": "c_inst_addr_id",
+        "target_column": "c_u5f_inst_u5f_addr_u5f_id"
+       },
+       {
+        "nullable": false,
+        "ordinal": 7,
+        "pg_type": "double precision",
+        "source_column": "inst_xcoord",
+        "target_column": "inst_u5f_xcoord"
+       },
+       {
+        "nullable": false,
+        "ordinal": 8,
+        "pg_type": "double precision",
+        "source_column": "inst_ycoord",
+        "target_column": "inst_u5f_ycoord"
+       },
+       {
+        "nullable": true,
+        "ordinal": 9,
+        "pg_type": "bigint",
+        "source_column": "c_source",
+        "target_column": "c_u5f_source"
+       },
+       {
+        "nullable": true,
+        "ordinal": 10,
+        "pg_type": "text",
+        "source_column": "c_pages",
+        "target_column": "c_u5f_pages"
+       },
+       {
+        "nullable": true,
+        "ordinal": 11,
+        "pg_type": "text",
+        "source_column": "c_notes",
+        "target_column": "c_u5f_notes"
+       }
+      ],
+      "expected_count": 3859,
+      "expected_sha256": "2cb8c354b0e75e6ae230e3b00540146e823eaa8de8def2abce89ad6179a07579",
+      "object_name": "SOCIAL_INSTITUTION_ADDR",
+      "primary_key": {
+       "columns": [
+        "c_u5f_inst_u5f_addr_u5f_id",
+        "c_u5f_inst_u5f_addr_u5f_type_u5f_code",
+        "c_u5f_inst_u5f_code",
+        "c_u5f_inst_u5f_name_u5f_code",
+        "inst_u5f_xcoord",
+        "inst_u5f_ycoord"
+       ]
+      },
+      "schema": "cbdb",
+      "table": "cbdb__social_u5f_institution_u5f_addr"
+     }
+    ],
+    "validator": "canonical_value_v1"
+   }
+  ],
+  "source_version": "usedata-wd61-verified-snapshot",
+  "status": "frozen",
+  "version": 1
+ },
+ "expected": {
+  "approval_table_sha256": "a718b0c297501642dd105eb3797f96dc1de2edf8eb521bed6609ff78de1fb4a0",
+  "candidate_sha256": "d3cdb81c4caf75c92a96e548025c39aab1d1d8a301b0f0d7b4e30286243d8bef",
+  "contract_sha256": "2026-11-26-bstep1-addr-single-table-frozen-candidate",
+  "forbidden": [
+   "pg32b",
+   "cbdb",
+   "cbdb_reh"
+  ],
+  "instance_identity": {
+   "container_id": "c0ce44c81ebed56227ac945af6466cc54ff2c5034fa304a3c9ac0d8eb4ef3c19",
+   "databases": "postgres,template0,template1,trialdb",
+   "image_id": "sha256:d562e43664f996da0e4208b375c00c111a543d996475188d852e9189b2a8cd05",
+   "inet_server_addr": "unix-socket",
+   "server_version": "18.6 (Debian 18.6-1.pgdg12+2)"
+  },
+  "inventory_sha256": "fb5e6b334b898d62dc0e5c77094fdb50e0946300e6e3009f447b2ecd1bc216db",
+  "null_counts": {
+   "c_u5f_inst_u5f_addr_u5f_begin_u5f_year": 3005,
+   "c_u5f_inst_u5f_addr_u5f_end_u5f_year": 3857,
+   "c_u5f_inst_u5f_addr_u5f_id": 0,
+   "c_u5f_inst_u5f_addr_u5f_type_u5f_code": 0,
+   "c_u5f_inst_u5f_code": 0,
+   "c_u5f_inst_u5f_name_u5f_code": 0,
+   "c_u5f_notes": 752,
+   "c_u5f_pages": 334,
+   "c_u5f_source": 219,
+   "inst_u5f_xcoord": 0,
+   "inst_u5f_ycoord": 0
+  },
+  "row_count": 3859,
+  "source_sha256": "bde1bb8eece3820d9e236c1d6b0f07d847d339669d4a85d79cd7252d58d83400"
+ },
+ "image_id": "sha256:d562e43664f996da0e4208b375c00c111a543d996475188d852e9189b2a8cd05",
+ "scope": {
+  "approval": {
+   "approval_ref": "chaxiang-authorized-20261126-bstep2-cbdb-single-table-loader",
+   "approved_at": "2026-11-26T15:28:37Z",
+   "approved_by": "茶香",
+   "test_only": true
+  },
+  "candidate_sha256": "d3cdb81c4caf75c92a96e548025c39aab1d1d8a301b0f0d7b4e30286243d8bef",
+  "contract_sha256": "2026-11-26-bstep1-addr-single-table-frozen-candidate",
+  "full_ready_for_import": false,
+  "inventory_sha256": "fb5e6b334b898d62dc0e5c77094fdb50e0946300e6e3009f447b2ecd1bc216db",
+  "mode": "isolated-test",
+  "review_traceability": {
+   "absent_link": "茶香批准原文逐字登记件",
+   "approval_table_sha256": "a718b0c297501642dd105eb3797f96dc1de2edf8eb521bed6609ff78de1fb4a0",
+   "missing_chain": "合同 review.approval_ref(chaxiang-authorized-20261126-bstep1-close-batch) 为标识串，仓库内无茶香批准原文逐字登记件（对照 .task6-exception-integration-20261124/approval-record.json 的 approval_text_verbatim 惯例）。故'原文'一环缺失。",
+   "present_links": [
+    "b-approval-table-v2.json（11 列 + 六项约束批准内容）",
+    "b-collision-check.json（目标名碰撞 PASS）",
+    "b-single-table-frozen-candidate.json（合同 review 记录）"
+   ],
+   "status": "INCOMPLETE"
+  },
+  "scope_id": "2026-11-26-bstep2-addr-isolated-test",
+  "source_member": {
+   "expected_rows": 3859,
+   "rule_id": "m007906",
+   "sha256": "bde1bb8eece3820d9e236c1d6b0f07d847d339669d4a85d79cd7252d58d83400",
+   "size_bytes": 586485760,
+   "source_side_sha256": "2cb8c354b0e75e6ae230e3b00540146e823eaa8de8def2abce89ad6179a07579"
+  },
+  "target": {
+   "constraints_approved": [
+    "primary_key",
+    "not_null",
+    "unique",
+    "index",
+    "foreign_key",
+    "default"
+   ],
+   "constraints_to_create": [
+    "primary_key",
+    "not_null"
+   ],
+   "databases_forbidden": [
+    "pg32b",
+    "cbdb",
+    "cbdb_reh"
+   ],
+   "schema_name": "cbdb",
+   "table": "cbdb__social_u5f_institution_u5f_addr"
+  },
+  "version": 1
+ },
+ "scope_technical_probe": {
+  "approval": {
+   "approval_ref": "chaxiang-authorized-20261126-bstep2-cbdb-single-table-loader",
+   "approved_at": "2026-11-26T15:28:37Z",
+   "approved_by": "茶香",
+   "test_only": true
+  },
+  "candidate_sha256": "d3cdb81c4caf75c92a96e548025c39aab1d1d8a301b0f0d7b4e30286243d8bef",
+  "contract_sha256": "2026-11-26-bstep1-addr-single-table-frozen-candidate",
+  "full_ready_for_import": false,
+  "inventory_sha256": "fb5e6b334b898d62dc0e5c77094fdb50e0946300e6e3009f447b2ecd1bc216db",
+  "mode": "isolated-test",
+  "review_traceability": {
+   "REAL_STATUS_OVERRIDDEN_FOR_TECHNICAL_PROBE_ONLY": true,
+   "REAL_missing_chain": "合同 review.approval_ref(chaxiang-authorized-20261126-bstep1-close-batch) 为标识串，仓库内无茶香批准原文逐字登记件（对照 .task6-exception-integration-20261124/approval-record.json 的 approval_text_verbatim 惯例）。故'原文'一环缺失。",
+   "approval_table_sha256": "a718b0c297501642dd105eb3797f96dc1de2edf8eb521bed6609ff78de1fb4a0",
+   "probe_purpose": "仅证明装载器正例/负例的技术行为正确；不构成正式放行，正式结论仍以 review_traceability=INCOMPLETE 阻断为准",
+   "status": "COMPLETE"
+  },
+  "scope_id": "2026-11-26-bstep2-addr-isolated-TECHNICAL-PROBE",
+  "source_member": {
+   "expected_rows": 3859,
+   "rule_id": "m007906",
+   "sha256": "bde1bb8eece3820d9e236c1d6b0f07d847d339669d4a85d79cd7252d58d83400",
+   "size_bytes": 586485760,
+   "source_side_sha256": "2cb8c354b0e75e6ae230e3b00540146e823eaa8de8def2abce89ad6179a07579"
+  },
+  "target": {
+   "constraints_approved": [
+    "primary_key",
+    "not_null",
+    "unique",
+    "index",
+    "foreign_key",
+    "default"
+   ],
+   "constraints_to_create": [
+    "primary_key",
+    "not_null"
+   ],
+   "databases_forbidden": [
+    "pg32b",
+    "cbdb",
+    "cbdb_reh"
+   ],
+   "schema_name": "cbdb",
+   "table": "cbdb__social_u5f_institution_u5f_addr"
+  },
+  "version": 1
+ },
+ "target": {
+  "columns": [
+   {
+    "nullable": false,
+    "ordinal": 1,
+    "pg_type": "bigint",
+    "source_column": "c_inst_name_code",
+    "target_column": "c_u5f_inst_u5f_name_u5f_code"
+   },
+   {
+    "nullable": false,
+    "ordinal": 2,
+    "pg_type": "bigint",
+    "source_column": "c_inst_code",
+    "target_column": "c_u5f_inst_u5f_code"
+   },
+   {
+    "nullable": false,
+    "ordinal": 3,
+    "pg_type": "bigint",
+    "source_column": "c_inst_addr_type_code",
+    "target_column": "c_u5f_inst_u5f_addr_u5f_type_u5f_code"
+   },
+   {
+    "nullable": true,
+    "ordinal": 4,
+    "pg_type": "bigint",
+    "source_column": "c_inst_addr_begin_year",
+    "target_column": "c_u5f_inst_u5f_addr_u5f_begin_u5f_year"
+   },
+   {
+    "nullable": true,
+    "ordinal": 5,
+    "pg_type": "bigint",
+    "source_column": "c_inst_addr_end_year",
+    "target_column": "c_u5f_inst_u5f_addr_u5f_end_u5f_year"
+   },
+   {
+    "nullable": false,
+    "ordinal": 6,
+    "pg_type": "bigint",
+    "source_column": "c_inst_addr_id",
+    "target_column": "c_u5f_inst_u5f_addr_u5f_id"
+   },
+   {
+    "nullable": false,
+    "ordinal": 7,
+    "pg_type": "double precision",
+    "source_column": "inst_xcoord",
+    "target_column": "inst_u5f_xcoord"
+   },
+   {
+    "nullable": false,
+    "ordinal": 8,
+    "pg_type": "double precision",
+    "source_column": "inst_ycoord",
+    "target_column": "inst_u5f_ycoord"
+   },
+   {
+    "nullable": true,
+    "ordinal": 9,
+    "pg_type": "bigint",
+    "source_column": "c_source",
+    "target_column": "c_u5f_source"
+   },
+   {
+    "nullable": true,
+    "ordinal": 10,
+    "pg_type": "text",
+    "source_column": "c_pages",
+    "target_column": "c_u5f_pages"
+   },
+   {
+    "nullable": true,
+    "ordinal": 11,
+    "pg_type": "text",
+    "source_column": "c_notes",
+    "target_column": "c_u5f_notes"
+   }
+  ],
+  "constraints_approved": [
+   "primary_key",
+   "not_null",
+   "unique",
+   "index",
+   "foreign_key",
+   "default"
+  ],
+  "constraints_to_create": [
+   "primary_key",
+   "not_null"
+  ],
+  "databases_forbidden": [
+   "pg32b",
+   "cbdb",
+   "cbdb_reh"
+  ],
+  "primary_key": {
+   "columns": [
+    "c_u5f_inst_u5f_addr_u5f_id",
+    "c_u5f_inst_u5f_addr_u5f_type_u5f_code",
+    "c_u5f_inst_u5f_code",
+    "c_u5f_inst_u5f_name_u5f_code",
+    "inst_u5f_xcoord",
+    "inst_u5f_ycoord"
+   ]
+  },
+  "schema_name": "cbdb",
+  "table": "cbdb__social_u5f_institution_u5f_addr"
+ }
+}

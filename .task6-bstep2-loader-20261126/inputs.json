@@ -269,7 +269,7 @@
   "review_traceability": {
    "absent_link": "茶香批准原文逐字登记件",
    "approval_table_sha256": "a718b0c297501642dd105eb3797f96dc1de2edf8eb521bed6609ff78de1fb4a0",
-   "missing_chain": "合同 review.approval_ref(chaxiang-authorized-20261126-bstep1-close-batch) 为标识串，仓库内无茶香批准原文逐字登记件（对照 .task6-exception-integration-20261124/approval-record.json 的 approval_text_verbatim 惯例）。故'原文'一环缺失。",
+   "missing_chain": "合同 review.approval_ref 为标识串；仓库内无任何文件登记该次批准原文。仓库虽有 3 份 approval_text_verbatim 登记件，但均属 20261123/1124 更早批准，无一份对应本次 bstep1-close-batch，故'原文'一环缺失。",
    "present_links": [
     "b-approval-table-v2.json（11 列 + 六项约束批准内容）",
     "b-collision-check.json（目标名碰撞 PASS）",

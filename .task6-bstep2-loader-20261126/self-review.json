@@ -1,0 +1,98 @@
+{
+ "artifact_sha256": {
+  "build_cbdb_package.py": "24aada6aa30cf8d5eb7a2f87212eb6fa375184783ef2e5423d5e67145fac2aac",
+  "build_tabular_package.py": "e35d1dfde9f8d6b240766e1237c86b38fbc6fa145c02b8e26a41ddce4fdeae87",
+  "cbdb_social_addr_loader.py": "c8a37611f79ad41f017300c4062134699cac3fcaba08b2e26a72b331991f02de",
+  "test_cbdb_social_addr_loader.py": "6d6b43c735e40fb8adef59affbd7334c9162781b0ec6f573d21883f69f7a08b0"
+ },
+ "final_verdict": "PARTIAL",
+ "format": "xiangrugu.task6-bstep2.self-review.v1",
+ "independent_review": {
+  "a02_self_correction": "a02 无法用 stdlib 复算 d3cdb81c；本盒已在容器内用正式 ReleaseContract 终证一致",
+  "confirmed_block": "a02 先假设可能有原文，再逐一否证 3 份 approval_text_verbatim 的归属 ref，确认均不属本次",
+  "corrected": "load-entry-candidate.json 措辞已按 a02 建议改正（'无任何文件登记该次批准原文'）",
+  "items_passed": "5/5",
+  "reviewer": "a02",
+  "verdict": "PASS"
+ },
+ "items": {
+  "1_review_traceability_block": {
+   "action": "列为阻断，未自补写",
+   "evidence": {
+    "approval_table_gives": "authorization_text_summary（摘要，非逐字原文）",
+    "approval_table_has_verbatim": false,
+    "conclusion": "本次无可比照先例的逐字原文登记件 → 追溯链'原文'一环缺失，判定成立",
+    "contract_review": "b-single-table-frozen-candidate.json review.approval_ref=chaxiang-authorized-20261126-bstep1-close-batch",
+    "greps": "全仓 grep approval_text_verbatim 仅命中 .task6-exception-integration-20261124 与 .task6-approval-freeze-20261124 两个先例",
+    "precedent_1": ".task6-exception-integration-20261124/approval-record.json 含 approval_text_verbatim（逐字原文）",
+    "precedent_2": ".task6-approval-freeze-20261124/approval-record.json 含 approval_text_verbatim"
+   },
+   "verdict": "BLOCKED_确认成立"
+  },
+  "2_ledger_facts": {
+   "blocked_count": 0,
+   "distribution": {
+    "IMPORT": 7,
+    "NON_TABULAR": 16,
+    "None": 7981
+   },
+   "m007906_member": {
+    "disposition": null,
+    "path": "harvard/cbdb/cbdb_20260919.sqlite3",
+    "rule_ids": []
+   },
+   "note": "124 个压缩包路径，内部成员由 archive_chain 区分；仅用 relative_path 建字典会漏 7772 条",
+   "records": 8004,
+   "unique_relative_paths": 232
+  },
+  "3_generators_no_hardcoded_current_assertion": {
+   "cbdb_generator": "已改 ledger_state()/batch_b_import_state() 派生",
+   "tabular_generator": "五件 .tab 改 disposition_from_ledger 派生，保留 disposition_retained_in_upstream_approval 上溯",
+   "verdict": "PASS"
+  },
+  "4_first_batch_identity_intact": {
+   "first_batch_scope_unchanged": true,
+   "primary_sha256_unchanged": true,
+   "spatial_items": 2,
+   "spatial_objects": [
+    "Ca1884route_przh_1251",
+    "Ca1884route_przh_utf8"
+   ],
+   "status": "DRAFT_NOT_APPROVED",
+   "table_names_unchanged": true,
+   "text_items": 5,
+   "text_rules": [
+    "m004812",
+    "m006642",
+    "m008002",
+    "m008003",
+    "m008004"
+   ],
+   "verdict": "PASS"
+  },
+  "5_loader_constraint_boundary": {
+   "ddl_contains": [
+    "PRIMARY KEY",
+    "NOT NULL"
+   ],
+   "ddl_excludes": [
+    "UNIQUE",
+    "INDEX",
+    "FOREIGN KEY",
+    "DEFAULT"
+   ],
+   "gate_order": [
+    "validate_scope",
+    "check_instance_identity",
+    "check_target_absent",
+    "_load_and_verify"
+   ],
+   "gates_before_write": true,
+   "pk_order_from_frozen_candidate": true,
+   "verdict": "PASS"
+  }
+ },
+ "note": "a03 未产出独立复核结论；以下为 Lead 逐项自复核，待 a03 可用时补独立复核",
+ "partial_reason": "B–E 各项 PASS；唯一未闭合项为合同 review 的批准原文缺证（不可由执行方自补），故整体 PARTIAL 而非 PASS",
+ "reviewer": "Lead 自复核（a03 实例连续三次运行失败，无产出）"
+}

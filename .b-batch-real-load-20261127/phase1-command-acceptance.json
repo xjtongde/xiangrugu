@@ -49,6 +49,14 @@
   ],
   "why": "正式要求生产代码与解析器来自核对过的固定版本；runner 在 import 之前完成钉扎校验，证据记录提交号与模块摘要"
  },
+ "corrections": {
+  "I2_count_apology": {
+   "actual": "present=False 二例（FN0_schema_missing、N7_readback_rollback）；present=True 五例；无 probe 五例（N4 + P1–P4）",
+   "found_by": "a02 第八轮复核",
+   "impact": "仅叙述数字错误，底层证据文件本身正确未受影响；已按证据重算改写入件",
+   "wrong_claim": "probe 覆盖：present=False 三例"
+  }
+ },
  "dual_approval_note": {
   "mapping_and_constraint_approval": {
    "ref": "…bstep2-correction-20261126",
@@ -325,12 +333,13 @@
    "was": "--contract 未在 preflight 比对"
   },
   "I1_single_pin_single_instance": {
+   "marker_precision": "marker 为单值 61418c89… 的样本是 P1–P4 四例（仅成功装载才会返回 instance 对象）；8 份拒绝件的 result 为空、marker 为 null，因为门控在身份核验前抛出时没有 result 对象；N4 为预检失败，同样无 result。此前的措辞把缺失只归于 N4，不准确。",
    "measured": "12 份证据的 code_pin 集合 = {58e93e31f4c5524fe69642ac900d9398efca5614}（单值）；用例涉及会话的 marker 集合 = {61418c896522…}；汇总件每条 case 各自记录其 code_pin",
    "now": "在固定提交 58e93e3、单一新替身 61418c896522 上把 11 例全部重跑，无一复用",
    "was": "汇总件把 11 条统一标成 c2dd123f，实际 6 条是 v2 复用件（--code-commit 实为 c2dd123f）；且 P1/P3 与新用例分属 a4b9681f 与 783ddd4c 两个替身，跨实例混证"
   },
   "I2_probe_in_cases": {
-   "measured": "probe 覆盖全部 11 例：8 例 measured=True（其中 present=True residue=3859 五例、present=False residue=0 三例），N4 预检失败未建会话故无 probe、P1–P4 成功用例无 probe",
+   "measured": "probe 覆盖 7 例 measured=True（present=True residue=3859 五例：N1_target_exists, N2_test_class_only, N3_fake_approval, N5_wrong_role, N6_wrong_instance；present=False residue=0 二例：FN0_schema_missing, N7_readback_rollback）；无 probe 五例：N4_forged_approval_table, P1_positive, P2_retry, P3_final, P4_final（N4 预检失败未建会话；P1–P4 为成功装载，探测只在 REFUSED/ERROR 分支执行）",
    "now": "每条 case 透传 target_probe_after",
    "was": "probe 只在顶层摘要与叙述里，cases[] 主索引无该字段"
   },
@@ -351,6 +360,10 @@
    "measured": "单测 test_expected_must_bind_the_approval_table",
    "now": "改为 approval_table_binding_missing 拒绝",
    "was": "expected 缺 approval_table_sha256 时静默跳过核验"
+  },
+  "L1_p4_purpose": {
+   "purpose": "N7 回读不符会把表整表回滚（表不存在），因此回滚用例之后必须再跑一次正向装载，让库回到已装载终态，value-comparison 才有可读的对象。P3 是回滚前的正向（供 N1 有旧表可撞），P4 是回滚后的恢复装载，两者用途不同、不可合并。",
+   "verifiable": "P4 与 P3 的 command 数组仅 --evidence-out 路径不同，其余参数一致；P4 的 .rc=0、row_count=3859；value-comparison 在 P4 状态下取得 comparison_equal"
   }
  },
  "revision": "v4：11 用例在同一定义提交、同一实例上全部重跑（修 a02 第七轮 I-1/I-3）",

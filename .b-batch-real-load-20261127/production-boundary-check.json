@@ -1,0 +1,50 @@
+{
+ "cbdb_schema_count": 0,
+ "containers": {
+  "all_unchanged_from_box_start": true,
+  "pg32": "98418cb6f08a3c550fb5d36261bc618c006f0a07912437399778fdd4370b1a72",
+  "pg32b": "3d93fc7741f66f1f01aa250b25c4959addfe4c84df22ecbd0d0f82c13920c1fc",
+  "xiangrugu_dev": "29795c60ae15d85c4ba877dad78dcbd288d792a2d0df6e2d4d72f677201788e6"
+ },
+ "deploy_updated": false,
+ "disclaimer": "本件仅记录只读观测，不构成任何对生产库的连接或写入授权",
+ "format": "xiangrugu.b-batch.phase1.production-boundary-check.v1",
+ "m2_in_this_box_commit": false,
+ "measured_at_utc": "2026-11-26T18:58:39Z",
+ "measured_by_this_box": true,
+ "method": "ssh -F ~/.ssh/config 32 + docker exec pg32b psql（只读 SELECT）",
+ "non_system_table_count": 9,
+ "not_a_connection_authorization": true,
+ "production_privileges_changed": false,
+ "production_write_authorization": "NOT AUTHORIZED — 等 Codex 明确放行",
+ "purpose": "本盒在隔离替身 61418c89… 上完成 11 例重跑与两次值比对之后，复核生产库与三容器仍未被触碰",
+ "queries": [
+  {
+   "meaning": "cbdb schema 仍不存在 → 未在生产建 schema",
+   "result": 0,
+   "sql": "select count(*) from pg_namespace where nspname='cbdb'"
+  },
+  {
+   "meaning": "目标表仍不存在 → 未生产写入",
+   "result": null,
+   "sql": "select to_regclass('cbdb.cbdb__social_u5f_institution_u5f_addr')"
+  },
+  {
+   "meaning": "非系统表数量与盒初一致，现有表未被改动",
+   "result": 9,
+   "sql": "select count(*) from pg_tables where schemaname not in ('pg_catalog','information_schema')"
+  }
+ ],
+ "read_only": true,
+ "supersedes": ".task7-bstep2-real-branch-20261127/production-boundary-check.json（上一盒快照，数值一致）",
+ "target_to_regclass": null,
+ "trial_env": {
+  "destroyed": true,
+  "note": "替身 ID 每轮重建都会变（a4b9681f→783ddd4c→61418c89），均非生产实例",
+  "residue_containers": 0,
+  "residue_scratch": false,
+  "residue_volumes": 0,
+  "standin_container_id": "61418c896522f3fa609e5c3816129a9f7bf1bdf40febea83e19304a89d9a77ad"
+ },
+ "write_performed": false
+}

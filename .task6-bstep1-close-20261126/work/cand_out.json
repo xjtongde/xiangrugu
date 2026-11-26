@@ -1,0 +1,384 @@
+{
+ "binding": {
+  "approval_reference": {
+   "approval_table": "b-approval-table-v2.json",
+   "approval_table_sha256": "a718b0c297501642dd105eb3797f96dc1de2edf8eb521bed6609ff78de1fb4a0",
+   "authorized_at": "2026-11-26",
+   "authorized_by": "茶香",
+   "columns_approved": 11,
+   "scope": "11 列映射 + 六项约束处置（PK/UNIQUE/INDEX/FK/DEFAULT/NOT NULL）批准"
+  },
+  "collision_check": {
+   "ref": "collision-check.json",
+   "sha256": "cae690a7b77d187d827f5d561abbb14adfc3cdba0a88e03f4635aa57629a4452",
+   "verdict": "PASS_NO_COLLISION_STOP_NOT_TRIGGERED"
+  },
+  "columns_count": 11,
+  "columns_preserve_source_order": true,
+  "constraint_and_default_sources": {
+   "DEFAULT": {
+    "approval_status": "APPROVED_BY_CHAXIANG_20261126",
+    "basis_digests": {
+     "fk_list_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+     "index_list_sha256": "fc2ab0216b371ca53894c7499820396977b08cbe432aa48ddf7eaa8a7da813d9",
+     "indexes_detail_sha256": "0c7281efb58b570bf834394af7dda7be9610c9e34cf2fbc98c15af4d2fe477d3",
+     "pragma_table_info_sha256": "6bbf26fc65be5674d5147386b46ddead8a2b9c99de760fd229d542b351045301",
+     "source_ddl_sha256": "5c207e94c4f09a8e4fc22bf893e5a14b2fd1c7553854a29a40ef47b45d56ec6e"
+    },
+    "source_declared": true,
+    "source_definition": {
+     "columns_with_default": {
+      "c_inst_addr_begin_year": "NULL",
+      "c_inst_addr_end_year": "NULL",
+      "c_notes": "NULL",
+      "c_pages": "NULL",
+      "c_source": "NULL"
+     },
+     "columns_with_default_count": 5,
+     "note": "5 列声明 DEFAULT NULL；DEFAULT NULL 在 PostgreSQL 中等价于无显式默认值"
+    },
+    "source_fact_verified_live": true,
+    "target_execution": "NOT_EXECUTED",
+    "target_proposal": "不写 DEFAULT 子句（源仅 DEFAULT NULL，语义等价于无默认值）"
+   },
+   "FOREIGN KEY": {
+    "approval_status": "APPROVED_BY_CHAXIANG_20261126",
+    "basis_digests": {
+     "fk_list_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+     "index_list_sha256": "fc2ab0216b371ca53894c7499820396977b08cbe432aa48ddf7eaa8a7da813d9",
+     "indexes_detail_sha256": "0c7281efb58b570bf834394af7dda7be9610c9e34cf2fbc98c15af4d2fe477d3",
+     "pragma_table_info_sha256": "6bbf26fc65be5674d5147386b46ddead8a2b9c99de760fd229d542b351045301",
+     "source_ddl_sha256": "5c207e94c4f09a8e4fc22bf893e5a14b2fd1c7553854a29a40ef47b45d56ec6e"
+    },
+    "source_declared": false,
+    "source_definition": {
+     "fk_count": 0,
+     "fk_list": []
+    },
+    "source_fact_verified_live": true,
+    "target_execution": "NOT_EXECUTED",
+    "target_proposal": "源端无外键声明，不建 FK"
+   },
+   "INDEX": {
+    "approval_status": "APPROVED_BY_CHAXIANG_20261126",
+    "basis_digests": {
+     "fk_list_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+     "index_list_sha256": "fc2ab0216b371ca53894c7499820396977b08cbe432aa48ddf7eaa8a7da813d9",
+     "indexes_detail_sha256": "0c7281efb58b570bf834394af7dda7be9610c9e34cf2fbc98c15af4d2fe477d3",
+     "pragma_table_info_sha256": "6bbf26fc65be5674d5147386b46ddead8a2b9c99de760fd229d542b351045301",
+     "source_ddl_sha256": "5c207e94c4f09a8e4fc22bf893e5a14b2fd1c7553854a29a40ef47b45d56ec6e"
+    },
+    "source_declared": false,
+    "source_definition": {
+     "all_indexes": [
+      {
+       "columns_in_order": [
+        "c_inst_addr_id",
+        "c_inst_addr_type_code",
+        "c_inst_code",
+        "c_inst_name_code",
+        "inst_xcoord",
+        "inst_ycoord"
+       ],
+       "name": "sqlite_autoindex_SOCIAL_INSTITUTION_ADDR_1",
+       "origin": "pk",
+       "partial": false,
+       "unique": true
+      }
+     ],
+     "catalog_index_total_for_db": 76,
+     "non_pk_index_count": 0
+    },
+    "source_fact_verified_live": true,
+    "target_execution": "NOT_EXECUTED",
+    "target_proposal": "本表除 PK autoindex 外无独立二级索引，故不建额外索引；PK 索引由 PK 约束隐含"
+   },
+   "NOT NULL": {
+    "approval_status": "APPROVED_BY_CHAXIANG_20261126",
+    "basis_digests": {
+     "fk_list_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+     "index_list_sha256": "fc2ab0216b371ca53894c7499820396977b08cbe432aa48ddf7eaa8a7da813d9",
+     "indexes_detail_sha256": "0c7281efb58b570bf834394af7dda7be9610c9e34cf2fbc98c15af4d2fe477d3",
+     "pragma_table_info_sha256": "6bbf26fc65be5674d5147386b46ddead8a2b9c99de760fd229d542b351045301",
+     "source_ddl_sha256": "5c207e94c4f09a8e4fc22bf893e5a14b2fd1c7553854a29a40ef47b45d56ec6e"
+    },
+    "source_declared": true,
+    "source_definition": {
+     "not_null_columns": [
+      "c_inst_name_code",
+      "c_inst_code",
+      "c_inst_addr_type_code",
+      "c_inst_addr_id",
+      "inst_xcoord",
+      "inst_ycoord"
+     ],
+     "nullable_columns": [
+      "c_inst_addr_begin_year",
+      "c_inst_addr_end_year",
+      "c_source",
+      "c_pages",
+      "c_notes"
+     ]
+    },
+    "source_fact_verified_live": true,
+    "target_execution": "NOT_EXECUTED",
+    "target_proposal": "NOT NULL 列建 NOT NULL 约束；可空列保持可空"
+   },
+   "PRIMARY KEY": {
+    "approval_status": "APPROVED_BY_CHAXIANG_20261126",
+    "basis_digests": {
+     "fk_list_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+     "index_list_sha256": "fc2ab0216b371ca53894c7499820396977b08cbe432aa48ddf7eaa8a7da813d9",
+     "indexes_detail_sha256": "0c7281efb58b570bf834394af7dda7be9610c9e34cf2fbc98c15af4d2fe477d3",
+     "pragma_table_info_sha256": "6bbf26fc65be5674d5147386b46ddead8a2b9c99de760fd229d542b351045301",
+     "source_ddl_sha256": "5c207e94c4f09a8e4fc22bf893e5a14b2fd1c7553854a29a40ef47b45d56ec6e"
+    },
+    "source_declared": true,
+    "source_definition": {
+     "autoindex": "sqlite_autoindex_SOCIAL_INSTITUTION_ADDR_1",
+     "kind": "composite",
+     "source_columns_in_pk_order": [
+      "c_inst_addr_id",
+      "c_inst_addr_type_code",
+      "c_inst_code",
+      "c_inst_name_code",
+      "inst_xcoord",
+      "inst_ycoord"
+     ],
+     "type": "sqlite_rowid_table_declared_pk_backed_by_unique_autoindex"
+    },
+    "source_fact_verified_live": true,
+    "target_execution": "NOT_EXECUTED",
+    "target_proposal": "在目标表建立同列同序 PRIMARY KEY，并把 PK 值列一律 NOT NULL"
+   },
+   "UNIQUE": {
+    "approval_status": "APPROVED_BY_CHAXIANG_20261126",
+    "basis_digests": {
+     "fk_list_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+     "index_list_sha256": "fc2ab0216b371ca53894c7499820396977b08cbe432aa48ddf7eaa8a7da813d9",
+     "indexes_detail_sha256": "0c7281efb58b570bf834394af7dda7be9610c9e34cf2fbc98c15af4d2fe477d3",
+     "pragma_table_info_sha256": "6bbf26fc65be5674d5147386b46ddead8a2b9c99de760fd229d542b351045301",
+     "source_ddl_sha256": "5c207e94c4f09a8e4fc22bf893e5a14b2fd1c7553854a29a40ef47b45d56ec6e"
+    },
+    "source_declared": true,
+    "source_definition": {
+     "indexes": [
+      {
+       "columns_in_order": [
+        "c_inst_addr_id",
+        "c_inst_addr_type_code",
+        "c_inst_code",
+        "c_inst_name_code",
+        "inst_xcoord",
+        "inst_ycoord"
+       ],
+       "name": "sqlite_autoindex_SOCIAL_INSTITUTION_ADDR_1",
+       "origin": "pk",
+       "partial": false,
+       "unique": true
+      }
+     ],
+     "note": "唯一性仅由 PK 隐式唯一索引提供；无额外独立 UNIQUE 约束",
+     "unique_index_count": 1
+    },
+    "source_fact_verified_live": true,
+    "target_execution": "NOT_EXECUTED",
+    "target_proposal": "不另建 UNIQUE 约束；PK 已覆盖唯一性，重复约束无源依据"
+   }
+  },
+  "default_sources": {
+   "basis": "pragma table_info dflt_value 实测（source-ddl-probe.json:pragma_table_info）",
+   "basis_digest": "6bbf26fc65be5674d5147386b46ddead8a2b9c99de760fd229d542b351045301",
+   "columns_with_default_null": [
+    "c_inst_addr_begin_year",
+    "c_inst_addr_end_year",
+    "c_source",
+    "c_pages",
+    "c_notes"
+   ],
+   "columns_without_default": [
+    "c_inst_name_code",
+    "c_inst_code",
+    "c_inst_addr_type_code",
+    "c_inst_addr_id",
+    "inst_xcoord",
+    "inst_ycoord"
+   ],
+   "defaults_are_literal_null": true
+  },
+  "double_precision_columns": [
+   "inst_xcoord",
+   "inst_ycoord"
+  ],
+  "duplicate_rows": 0,
+  "expected_rows": 3859,
+  "field_count": 42449,
+  "full_ready_for_import": false,
+  "inventory_sha256": "fb5e6b334b898d62dc0e5c77094fdb50e0946300e6e3009f447b2ecd1bc216db",
+  "model_extension": {
+   "old_contract_digest_preserved": "fa28a878f48fed506700cbaaf91c6a8ee45bdc28e9fef05904b3c56f4c61929e",
+   "pg_type_added": "double precision",
+   "primary_key_field_added": "ObjectTarget.primary_key（有序目标列元组）"
+  },
+  "note": "单表冻结候选；不等于写库授权，六项约束 target_execution 仍为 NOT_EXECUTED",
+  "primary_key_ordered": true,
+  "primary_key_source_order": [
+   "c_inst_addr_id",
+   "c_inst_addr_type_code",
+   "c_inst_code",
+   "c_inst_name_code",
+   "inst_xcoord",
+   "inst_ycoord"
+  ],
+  "primary_key_target_order": [
+   "c_u5f_inst_u5f_addr_u5f_id",
+   "c_u5f_inst_u5f_addr_u5f_type_u5f_code",
+   "c_u5f_inst_u5f_code",
+   "c_u5f_inst_u5f_name_u5f_code",
+   "inst_u5f_xcoord",
+   "inst_u5f_ycoord"
+  ],
+  "production_write": false,
+  "source_member_rule_id": "m007906",
+  "source_object_id": "3cf1a3286982ab392f3f0bed1a0dcc723f3a04205be610a6ec992ae66047c6cf",
+  "source_relative_path": "harvard/cbdb/cbdb_20260919.sqlite3",
+  "source_schema_hash": "1f88cd8039ae3dbdc411864c52d5bbb1aa5dc20c59ff61dabf8b709f7382d1f9",
+  "source_sha256": "bde1bb8eece3820d9e236c1d6b0f07d847d339669d4a85d79cd7252d58d83400",
+  "source_side_sha256": "2cb8c354b0e75e6ae230e3b00540146e823eaa8de8def2abce89ad6179a07579",
+  "source_size_bytes": 586485760
+ },
+ "candidate": {
+  "exceptions": [],
+  "inventory_sha256": "fb5e6b334b898d62dc0e5c77094fdb50e0946300e6e3009f447b2ecd1bc216db",
+  "release_id": "2026-11-26-bstep1-addr-single-table-frozen-candidate",
+  "review": {
+   "approval_ref": "chaxiang-authorized-20261126-bstep1-close-batch",
+   "approved_at": "2026-11-26T14:30:00Z",
+   "approved_by": "茶香"
+  },
+  "rules": [
+   {
+    "disposition": "IMPORT",
+    "encodings": [],
+    "expected": {
+     "kind": "file",
+     "sha256": "bde1bb8eece3820d9e236c1d6b0f07d847d339669d4a85d79cd7252d58d83400",
+     "signature": "sqlite",
+     "size": 586485760
+    },
+    "format_family": "sqlite",
+    "mirror_evidence_sha256": null,
+    "mirror_of": null,
+    "reason": "B 批单表导入：SOCIAL_INSTITUTION_ADDR 11 列映射与六项约束处置经茶香 2026-11-26 授权批准；R62 隔离试装 TRIAL_PASS（复用未重跑）；目标名已完成全量碰撞检查无冲突",
+    "rule_id": "m007906",
+    "selector": {
+     "archive_chain": [],
+     "archive_ordinals": [],
+     "relative_path": "harvard/cbdb/cbdb_20260919.sqlite3"
+    },
+    "targets": [
+     {
+      "columns": [
+       {
+        "nullable": false,
+        "ordinal": 1,
+        "pg_type": "bigint",
+        "source_column": "c_inst_name_code",
+        "target_column": "c_u5f_inst_u5f_name_u5f_code"
+       },
+       {
+        "nullable": false,
+        "ordinal": 2,
+        "pg_type": "bigint",
+        "source_column": "c_inst_code",
+        "target_column": "c_u5f_inst_u5f_code"
+       },
+       {
+        "nullable": false,
+        "ordinal": 3,
+        "pg_type": "bigint",
+        "source_column": "c_inst_addr_type_code",
+        "target_column": "c_u5f_inst_u5f_addr_u5f_type_u5f_code"
+       },
+       {
+        "nullable": true,
+        "ordinal": 4,
+        "pg_type": "bigint",
+        "source_column": "c_inst_addr_begin_year",
+        "target_column": "c_u5f_inst_u5f_addr_u5f_begin_u5f_year"
+       },
+       {
+        "nullable": true,
+        "ordinal": 5,
+        "pg_type": "bigint",
+        "source_column": "c_inst_addr_end_year",
+        "target_column": "c_u5f_inst_u5f_addr_u5f_end_u5f_year"
+       },
+       {
+        "nullable": false,
+        "ordinal": 6,
+        "pg_type": "bigint",
+        "source_column": "c_inst_addr_id",
+        "target_column": "c_u5f_inst_u5f_addr_u5f_id"
+       },
+       {
+        "nullable": false,
+        "ordinal": 7,
+        "pg_type": "double precision",
+        "source_column": "inst_xcoord",
+        "target_column": "inst_u5f_xcoord"
+       },
+       {
+        "nullable": false,
+        "ordinal": 8,
+        "pg_type": "double precision",
+        "source_column": "inst_ycoord",
+        "target_column": "inst_u5f_ycoord"
+       },
+       {
+        "nullable": true,
+        "ordinal": 9,
+        "pg_type": "bigint",
+        "source_column": "c_source",
+        "target_column": "c_u5f_source"
+       },
+       {
+        "nullable": true,
+        "ordinal": 10,
+        "pg_type": "text",
+        "source_column": "c_pages",
+        "target_column": "c_u5f_pages"
+       },
+       {
+        "nullable": true,
+        "ordinal": 11,
+        "pg_type": "text",
+        "source_column": "c_notes",
+        "target_column": "c_u5f_notes"
+       }
+      ],
+      "expected_count": 3859,
+      "expected_sha256": "2cb8c354b0e75e6ae230e3b00540146e823eaa8de8def2abce89ad6179a07579",
+      "object_name": "SOCIAL_INSTITUTION_ADDR",
+      "primary_key": {
+       "columns": [
+        "c_u5f_inst_u5f_addr_u5f_id",
+        "c_u5f_inst_u5f_addr_u5f_type_u5f_code",
+        "c_u5f_inst_u5f_code",
+        "c_u5f_inst_u5f_name_u5f_code",
+        "inst_u5f_xcoord",
+        "inst_u5f_ycoord"
+       ]
+      },
+      "schema": "cbdb",
+      "table": "cbdb__social_u5f_institution_u5f_addr"
+     }
+    ],
+    "validator": "canonical_value_v1"
+   }
+  ],
+  "source_version": "usedata-wd61-verified-snapshot",
+  "status": "frozen",
+  "version": 1
+ }
+}

@@ -45,8 +45,9 @@ def write(name, v):
 
 
 inv = load("inventory.json")["entries"]
+# 账本引用更新（2026-11-26）：指向 fa28a878 合同生成的新版正式账；旧账仅保留不覆盖
 ledger = {(r["member"]["relative_path"], tuple(r["member"]["archive_chain"])): r
-          for r in load("disposition-ledger-after-selector-fix.json")["records"]}
+          for r in load("disposition-ledger-fa28a878-20261126.json")["records"]}
 schema5 = load("text-schema-approved.draft.yaml")
 rd_orig = (REL / "text-reading-decisions.draft.yaml").read_text(encoding="utf-8")
 rd_add = (REL / "additional-text-reading-decisions.draft.yaml").read_text(encoding="utf-8")

@@ -1,0 +1,76 @@
+{
+ "digest_no_drift": {
+  "all_byte_identical": true,
+  "cases": {
+   "abatch-frozen-candidate": {
+    "byte_identical": true,
+    "identical_to_authorized_fa28a878": true,
+    "len_new": 57339,
+    "len_old": 57339,
+    "new_sha256": "fa28a878f48fed506700cbaaf91c6a8ee45bdc28e9fef05904b3c56f4c61929e",
+    "old_sha256": "fa28a878f48fed506700cbaaf91c6a8ee45bdc28e9fef05904b3c56f4c61929e"
+   }
+  },
+  "format": "compat.v1"
+ },
+ "expressive_power": {
+  "all_11_columns_accepted": true,
+  "columns_rejected": [],
+  "double_precision_columns": [
+   "inst_xcoord",
+   "inst_ycoord"
+  ],
+  "duplicate_pk_rejected": "YES",
+  "full_contract_canonical_len": 3195,
+  "full_contract_columns": 11,
+  "full_contract_sha256": "a5545939f9fc36913d07619eb7cc5a3adab1c6d58b5b0745249f0d3ad212ab0f",
+  "full_contract_validated": true,
+  "nullable_pk_rejected": "YES",
+  "object_target_accepted": true,
+  "pk_column_count": 6,
+  "pk_preserved_order": true,
+  "primary_key_accepted": true,
+  "source_pk_order": [
+   "c_inst_addr_id",
+   "c_inst_addr_type_code",
+   "c_inst_code",
+   "c_inst_name_code",
+   "inst_xcoord",
+   "inst_ycoord"
+  ],
+  "target_pk_order": [
+   "c_u5f_inst_u5f_addr_u5f_id",
+   "c_u5f_inst_u5f_addr_u5f_type_u5f_code",
+   "c_u5f_inst_u5f_code",
+   "c_u5f_inst_u5f_name_u5f_code",
+   "inst_u5f_xcoord",
+   "inst_u5f_ycoord"
+  ],
+  "unmapped_pk_rejected": "YES"
+ },
+ "extension_scope": "最小扩展：pg_type 增补 double precision；ObjectTarget 增 primary_key（有序目标列元组）",
+ "format": "xiangrugu.model-extension-evidence.v1",
+ "gaps_closed": [
+  "G1 double precision",
+  "G2 有序复合主键（primary_key）"
+ ],
+ "gaps_remaining": [
+  "G3 ColumnMapping 无 default_value",
+  "G2 其余约束字段（UNIQUE/INDEX/FK）未建模"
+ ],
+ "modified_files": {
+  "datamgmt/config/contract.schema.json": "0c1a2e749b0d17585295355e8b5e3fddfc125eb52fedee8c248135154ee03820",
+  "datamgmt/src/xiangrugu_datamgmt/contracts.py": "a2ca0d814a6bfca3b59796e0b01aeb8ca4512e12b5e9a6b3bfe038a8c27e5359"
+ },
+ "not_modified": [
+  "inventory.json",
+  "disposition-ledger-after-selector-fix.json"
+ ],
+ "regression": {
+  "baseline_same_env_old_code": "2 failed, 140 passed（schema/runtime 不匹配，证明补丁必需）",
+  "command": "pytest test_contracts/test_contract_extension/test_contract_schema_validation/test_contract_freeze_compat/test_disposition -q",
+  "full_suite_note": "全量 unit 在容器基线本身有 87 项预存失败（非本补丁引入）；补丁后差异仅 2 项 schema 一致性测试，同步新 schema 后消失",
+  "observed_tail": "......................................................................   [100%]\n142 passed in 1.96s",
+  "with_patch_and_new_schema": "142 passed"
+ }
+}

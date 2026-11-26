@@ -1,0 +1,35 @@
+{
+ "columns_rejected": [],
+ "all_11_columns_accepted": true,
+ "double_precision_columns": [
+  "inst_xcoord",
+  "inst_ycoord"
+ ],
+ "source_pk_order": [
+  "c_inst_addr_id",
+  "c_inst_addr_type_code",
+  "c_inst_code",
+  "c_inst_name_code",
+  "inst_xcoord",
+  "inst_ycoord"
+ ],
+ "target_pk_order": [
+  "c_u5f_inst_u5f_addr_u5f_id",
+  "c_u5f_inst_u5f_addr_u5f_type_u5f_code",
+  "c_u5f_inst_u5f_code",
+  "c_u5f_inst_u5f_name_u5f_code",
+  "inst_u5f_xcoord",
+  "inst_u5f_ycoord"
+ ],
+ "primary_key_accepted": true,
+ "pk_column_count": 6,
+ "object_target_accepted": true,
+ "pk_preserved_order": true,
+ "nullable_pk_rejected": "YES",
+ "unmapped_pk_rejected": "YES",
+ "duplicate_pk_rejected": "YES",
+ "full_contract_validated": true,
+ "full_contract_columns": 11,
+ "full_contract_sha256": "a5545939f9fc36913d07619eb7cc5a3adab1c6d58b5b0745249f0d3ad212ab0f",
+ "full_contract_canonical_len": 3195
+}

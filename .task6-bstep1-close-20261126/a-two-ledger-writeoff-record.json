@@ -1,0 +1,80 @@
+{
+ "contract_sha256": "fa28a878f48fed506700cbaaf91c6a8ee45bdc28e9fef05904b3c56f4c61929e",
+ "derived_writeoff": {
+  "chgis_evidence_sha256": "fae3502e3894864e7770ddc07264bb9ff475763f56fe1f48643dccf868964b1d",
+  "closed_issue_count": 3,
+  "closed_issues_identity": [
+   [
+    "checksum_line",
+    "line=173",
+    "SHA256SUMS-b2"
+   ],
+   [
+    "checksum_missing",
+    "line=4",
+    "harvard/chgis/SHA256SUMS.txt"
+   ],
+   [
+    "checksum_nul",
+    "count=126",
+    "SHA256SUMS-b2"
+   ]
+  ],
+  "contract_sha256": "fa28a878f48fed506700cbaaf91c6a8ee45bdc28e9fef05904b3c56f4c61929e",
+  "derived_issue_codes": [
+   "unmatched_member"
+  ],
+  "exactly_three_fixed_closed": true,
+  "incomplete_inventory_written_off": true,
+  "inventory_sha256": "fb5e6b334b898d62dc0e5c77094fdb50e0946300e6e3009f447b2ecd1bc216db",
+  "nul_evidence_sha256": "679dca4d2a86deeb6e9344c9bf5d90be98a1b99bc6562970e9b9710ce18fe3ca",
+  "original_inventory_complete": false,
+  "original_ledger_ready_for_import": false,
+  "ready_for_import": false,
+  "run_evidence_sha256": {
+   "chgis": "fae3502e3894864e7770ddc07264bb9ff475763f56fe1f48643dccf868964b1d",
+   "nul": "679dca4d2a86deeb6e9344c9bf5d90be98a1b99bc6562970e9b9710ce18fe3ca"
+  },
+  "status": "WRITEOFF_RESULT_DERIVED"
+ },
+ "format": "xiangrugu.abatcher.writeoff-two-ledgers.v1",
+ "invariants": {
+  "full_ready_for_import": false,
+  "inventory_bytes_untouched": true,
+  "inventory_complete_false_preserved": true,
+  "other_blockers_retained": true,
+  "same_contract_both_evidence": true,
+  "writeoff_is_not_db_write_approval": true
+ },
+ "new_formal_ledger": {
+  "contract_sha256": "fa28a878f48fed506700cbaaf91c6a8ee45bdc28e9fef05904b3c56f4c61929e",
+  "coverage": {
+   "blocked": 0,
+   "matched": 23,
+   "multiple": 0,
+   "unmatched": 7981
+  },
+  "file": "disposition-ledger-fa28a878-20261126.json",
+  "issue_codes": [
+   "exception_not_implemented",
+   "incomplete_inventory",
+   "unmatched_member"
+  ],
+  "issue_count": 7983,
+  "ready_for_import": false,
+  "records": 8004,
+  "sha256": "e9f5e289c779cbd7ac2dab2c0395c4a312be79ef3a921dc3cf498f985ac86151"
+ },
+ "original_ledger": {
+  "contract_sha256": "2a3efbfc736d8ced5053c1f023b4d8f8f70c5dc202084d64ac38bb8163fa2a9c",
+  "file": "disposition-ledger-after-selector-fix.json",
+  "issue_codes": [
+   "incomplete_inventory"
+  ],
+  "issue_count": 1,
+  "preserved_unmodified": true,
+  "records": 8004,
+  "sha256": "0b093077ff8ca2b51e7f40d4b219bafa894f5c935b63c9573e50625c4efbc7ce"
+ },
+ "purpose": "同一合同 fa28a878 下：原账（2a3efbfc 合同）与派生核销结果的分别记录"
+}

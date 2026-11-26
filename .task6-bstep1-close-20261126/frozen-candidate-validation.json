@@ -1,0 +1,35 @@
+{
+ "validated": true,
+ "sha256": "d3cdb81c4caf75c92a96e548025c39aab1d1d8a301b0f0d7b4e30286243d8bef",
+ "canonical_len": 3529,
+ "columns": 11,
+ "ordinals": [
+  1,
+  2,
+  3,
+  4,
+  5,
+  6,
+  7,
+  8,
+  9,
+  10,
+  11
+ ],
+ "double_precision": [
+  "inst_xcoord",
+  "inst_ycoord"
+ ],
+ "nullable_count": 5,
+ "pk": [
+  "c_u5f_inst_u5f_addr_u5f_id",
+  "c_u5f_inst_u5f_addr_u5f_type_u5f_code",
+  "c_u5f_inst_u5f_code",
+  "c_u5f_inst_u5f_name_u5f_code",
+  "inst_u5f_xcoord",
+  "inst_u5f_ycoord"
+ ],
+ "expected_count": 3859,
+ "expected_sha256": "2cb8c354b0e75e6ae230e3b00540146e823eaa8de8def2abce89ad6179a07579",
+ "schema_domain_ok": true
+}

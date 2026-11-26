@@ -50,7 +50,7 @@
           "type": "integer"
         },
         "pg_type": {
-          "pattern": "^(text|bigint|numeric\\([1-9][0-9]*,[0-9]+\\))$",
+          "pattern": "^(text|bigint|numeric\\([1-9][0-9]*,[0-9]+\\)|double precision)$",
           "title": "Pg Type",
           "type": "string"
         },
@@ -556,6 +556,17 @@
           "title": "Object Name",
           "type": "string"
         },
+        "primary_key": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/PrimaryKey"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
         "schema": {
           "enum": [
             "cbdb",
@@ -579,6 +590,27 @@
         "expected_sha256"
       ],
       "title": "ObjectTarget",
+      "type": "object"
+    },
+    "PrimaryKey": {
+      "additionalProperties": false,
+      "description": "Ordered composite primary key: target columns in declared source PK order.\n\nThe order is semantically significant (it mirrors the source PK declaration order),\nso it is stored as an explicit ordered tuple rather than a set.",
+      "properties": {
+        "columns": {
+          "items": {
+            "minLength": 1,
+            "pattern": "\\S",
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Columns",
+          "type": "array"
+        }
+      },
+      "required": [
+        "columns"
+      ],
+      "title": "PrimaryKey",
       "type": "object"
     }
   },

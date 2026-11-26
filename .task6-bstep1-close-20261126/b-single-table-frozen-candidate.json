@@ -1,0 +1,134 @@
+{
+ "exceptions": [],
+ "inventory_sha256": "fb5e6b334b898d62dc0e5c77094fdb50e0946300e6e3009f447b2ecd1bc216db",
+ "release_id": "2026-11-26-bstep1-addr-single-table-frozen-candidate",
+ "review": {
+  "approval_ref": "chaxiang-authorized-20261126-bstep1-close-batch",
+  "approved_at": "2026-11-26T14:30:00Z",
+  "approved_by": "茶香"
+ },
+ "rules": [
+  {
+   "disposition": "IMPORT",
+   "encodings": [],
+   "expected": {
+    "kind": "file",
+    "sha256": "bde1bb8eece3820d9e236c1d6b0f07d847d339669d4a85d79cd7252d58d83400",
+    "signature": "sqlite",
+    "size": 586485760
+   },
+   "format_family": "sqlite",
+   "mirror_evidence_sha256": null,
+   "mirror_of": null,
+   "reason": "B 批单表导入：SOCIAL_INSTITUTION_ADDR 11 列映射与六项约束处置经茶香 2026-11-26 授权批准；R62 隔离试装 TRIAL_PASS（复用未重跑）；目标名已完成全量碰撞检查无冲突",
+   "rule_id": "m007906",
+   "selector": {
+    "archive_chain": [],
+    "archive_ordinals": [],
+    "relative_path": "harvard/cbdb/cbdb_20260919.sqlite3"
+   },
+   "targets": [
+    {
+     "columns": [
+      {
+       "nullable": false,
+       "ordinal": 1,
+       "pg_type": "bigint",
+       "source_column": "c_inst_name_code",
+       "target_column": "c_u5f_inst_u5f_name_u5f_code"
+      },
+      {
+       "nullable": false,
+       "ordinal": 2,
+       "pg_type": "bigint",
+       "source_column": "c_inst_code",
+       "target_column": "c_u5f_inst_u5f_code"
+      },
+      {
+       "nullable": false,
+       "ordinal": 3,
+       "pg_type": "bigint",
+       "source_column": "c_inst_addr_type_code",
+       "target_column": "c_u5f_inst_u5f_addr_u5f_type_u5f_code"
+      },
+      {
+       "nullable": true,
+       "ordinal": 4,
+       "pg_type": "bigint",
+       "source_column": "c_inst_addr_begin_year",
+       "target_column": "c_u5f_inst_u5f_addr_u5f_begin_u5f_year"
+      },
+      {
+       "nullable": true,
+       "ordinal": 5,
+       "pg_type": "bigint",
+       "source_column": "c_inst_addr_end_year",
+       "target_column": "c_u5f_inst_u5f_addr_u5f_end_u5f_year"
+      },
+      {
+       "nullable": false,
+       "ordinal": 6,
+       "pg_type": "bigint",
+       "source_column": "c_inst_addr_id",
+       "target_column": "c_u5f_inst_u5f_addr_u5f_id"
+      },
+      {
+       "nullable": false,
+       "ordinal": 7,
+       "pg_type": "double precision",
+       "source_column": "inst_xcoord",
+       "target_column": "inst_u5f_xcoord"
+      },
+      {
+       "nullable": false,
+       "ordinal": 8,
+       "pg_type": "double precision",
+       "source_column": "inst_ycoord",
+       "target_column": "inst_u5f_ycoord"
+      },
+      {
+       "nullable": true,
+       "ordinal": 9,
+       "pg_type": "bigint",
+       "source_column": "c_source",
+       "target_column": "c_u5f_source"
+      },
+      {
+       "nullable": true,
+       "ordinal": 10,
+       "pg_type": "text",
+       "source_column": "c_pages",
+       "target_column": "c_u5f_pages"
+      },
+      {
+       "nullable": true,
+       "ordinal": 11,
+       "pg_type": "text",
+       "source_column": "c_notes",
+       "target_column": "c_u5f_notes"
+      }
+     ],
+     "expected_count": 3859,
+     "expected_sha256": "2cb8c354b0e75e6ae230e3b00540146e823eaa8de8def2abce89ad6179a07579",
+     "object_name": "SOCIAL_INSTITUTION_ADDR",
+     "primary_key": {
+      "columns": [
+       "c_u5f_inst_u5f_addr_u5f_id",
+       "c_u5f_inst_u5f_addr_u5f_type_u5f_code",
+       "c_u5f_inst_u5f_code",
+       "c_u5f_inst_u5f_name_u5f_code",
+       "inst_u5f_xcoord",
+       "inst_u5f_ycoord"
+      ]
+     },
+     "schema": "cbdb",
+     "table": "cbdb__social_u5f_institution_u5f_addr"
+    }
+   ],
+   "validator": "canonical_value_v1"
+  }
+ ],
+ "source_version": "usedata-wd61-verified-snapshot",
+ "status": "frozen",
+ "version": 1
+}

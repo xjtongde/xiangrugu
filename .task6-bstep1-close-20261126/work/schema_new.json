@@ -1,0 +1,688 @@
+{
+  "$defs": {
+    "ColumnEncoding": {
+      "additionalProperties": false,
+      "properties": {
+        "codec": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "title": "Codec",
+          "type": "string"
+        },
+        "column": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "title": "Column",
+          "type": "string"
+        },
+        "errors": {
+          "const": "strict",
+          "default": "strict",
+          "title": "Errors",
+          "type": "string"
+        },
+        "object_name": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "title": "Object Name",
+          "type": "string"
+        }
+      },
+      "required": [
+        "object_name",
+        "column",
+        "codec"
+      ],
+      "title": "ColumnEncoding",
+      "type": "object"
+    },
+    "ColumnMapping": {
+      "additionalProperties": false,
+      "description": "Ordered source->target column mapping with approved width/scale (optional extension).",
+      "properties": {
+        "nullable": {
+          "title": "Nullable",
+          "type": "boolean"
+        },
+        "ordinal": {
+          "minimum": 0,
+          "title": "Ordinal",
+          "type": "integer"
+        },
+        "pg_type": {
+          "pattern": "^(text|bigint|numeric\\([1-9][0-9]*,[0-9]+\\)|double precision)$",
+          "title": "Pg Type",
+          "type": "string"
+        },
+        "source_column": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "title": "Source Column",
+          "type": "string"
+        },
+        "source_decimals": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Source Decimals"
+        },
+        "source_width_bytes": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Source Width Bytes"
+        },
+        "target_column": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "title": "Target Column",
+          "type": "string"
+        }
+      },
+      "required": [
+        "ordinal",
+        "source_column",
+        "target_column",
+        "pg_type",
+        "nullable"
+      ],
+      "title": "ColumnMapping",
+      "type": "object"
+    },
+    "ContractException": {
+      "additionalProperties": false,
+      "properties": {
+        "code": {
+          "enum": [
+            "checksum_nul",
+            "checksum_path_binding"
+          ],
+          "title": "Code",
+          "type": "string"
+        },
+        "raw_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Raw Sha256",
+          "type": "string"
+        },
+        "reason": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "title": "Reason",
+          "type": "string"
+        },
+        "rule_id": {
+          "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._-]*$",
+          "title": "Rule Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "rule_id",
+        "code",
+        "raw_sha256",
+        "reason"
+      ],
+      "title": "ContractException",
+      "type": "object"
+    },
+    "ContractReview": {
+      "additionalProperties": false,
+      "properties": {
+        "approval_ref": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "title": "Approval Ref",
+          "type": "string"
+        },
+        "approved_at": {
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}Z$",
+          "title": "Approved At",
+          "type": "string"
+        },
+        "approved_by": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "title": "Approved By",
+          "type": "string"
+        }
+      },
+      "required": [
+        "approved_by",
+        "approved_at",
+        "approval_ref"
+      ],
+      "title": "ContractReview",
+      "type": "object"
+    },
+    "DerivedRownum": {
+      "additionalProperties": false,
+      "description": "Fixed semantics: one-based physical source row number, never nullable.",
+      "properties": {
+        "nullable": {
+          "const": false,
+          "title": "Nullable",
+          "type": "boolean"
+        },
+        "origin": {
+          "const": "one_based_physical_source_row",
+          "title": "Origin",
+          "type": "string"
+        },
+        "pg_type": {
+          "const": "bigint",
+          "title": "Pg Type",
+          "type": "string"
+        },
+        "target_column": {
+          "const": "__src_rownum",
+          "title": "Target Column",
+          "type": "string"
+        }
+      },
+      "required": [
+        "target_column",
+        "pg_type",
+        "nullable",
+        "origin"
+      ],
+      "title": "DerivedRownum",
+      "type": "object"
+    },
+    "Disposition": {
+      "enum": [
+        "IMPORT",
+        "MIRROR",
+        "NON_TABULAR",
+        "BLOCKED"
+      ],
+      "title": "Disposition",
+      "type": "string"
+    },
+    "DispositionRule": {
+      "additionalProperties": false,
+      "properties": {
+        "disposition": {
+          "$ref": "#/$defs/Disposition"
+        },
+        "encodings": {
+          "items": {
+            "$ref": "#/$defs/ColumnEncoding"
+          },
+          "title": "Encodings",
+          "type": "array"
+        },
+        "expected": {
+          "$ref": "#/$defs/MemberExpectation"
+        },
+        "format_family": {
+          "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._-]*$",
+          "title": "Format Family",
+          "type": "string"
+        },
+        "mirror_evidence_sha256": {
+          "anyOf": [
+            {
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Mirror Evidence Sha256"
+        },
+        "mirror_of": {
+          "anyOf": [
+            {
+              "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._-]*$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Mirror Of"
+        },
+        "reason": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "title": "Reason",
+          "type": "string"
+        },
+        "rule_id": {
+          "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._-]*$",
+          "title": "Rule Id",
+          "type": "string"
+        },
+        "selector": {
+          "$ref": "#/$defs/MemberSelector"
+        },
+        "targets": {
+          "items": {
+            "$ref": "#/$defs/ObjectTarget"
+          },
+          "title": "Targets",
+          "type": "array"
+        },
+        "validator": {
+          "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._-]*$",
+          "title": "Validator",
+          "type": "string"
+        }
+      },
+      "required": [
+        "rule_id",
+        "selector",
+        "expected",
+        "disposition",
+        "reason",
+        "format_family",
+        "encodings",
+        "targets",
+        "validator"
+      ],
+      "title": "DispositionRule",
+      "type": "object"
+    },
+    "DuplicateReconciliation": {
+      "additionalProperties": false,
+      "description": "Duplicate accounting on actual value columns, excluding the unique source rownum.",
+      "properties": {
+        "count_includes_duplicates": {
+          "const": true,
+          "title": "Count Includes Duplicates",
+          "type": "boolean"
+        },
+        "expected_extra_rows": {
+          "minimum": 0,
+          "title": "Expected Extra Rows",
+          "type": "integer"
+        },
+        "expected_groups": {
+          "minimum": 0,
+          "title": "Expected Groups",
+          "type": "integer"
+        },
+        "key": {
+          "const": "value_columns_excluding_src_rownum",
+          "title": "Key",
+          "type": "string"
+        }
+      },
+      "required": [
+        "key",
+        "expected_groups",
+        "expected_extra_rows",
+        "count_includes_duplicates"
+      ],
+      "title": "DuplicateReconciliation",
+      "type": "object"
+    },
+    "GeometryExpectation": {
+      "additionalProperties": false,
+      "description": "Spatial geometry expectation with canonical digest and original-coordinate storage.",
+      "properties": {
+        "canonical_format": {
+          "const": "XRGGEOM-v1",
+          "title": "Canonical Format",
+          "type": "string"
+        },
+        "coordinate_storage": {
+          "const": "preserve_original_ieee754_xy_no_swap_or_transform",
+          "title": "Coordinate Storage",
+          "type": "string"
+        },
+        "dimensions": {
+          "const": 2,
+          "title": "Dimensions",
+          "type": "integer"
+        },
+        "expected_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Expected Sha256",
+          "type": "string"
+        },
+        "geometry_type": {
+          "const": "Point",
+          "title": "Geometry Type",
+          "type": "string"
+        },
+        "srid": {
+          "minimum": 1,
+          "title": "Srid",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "geometry_type",
+        "dimensions",
+        "srid",
+        "canonical_format",
+        "expected_sha256",
+        "coordinate_storage"
+      ],
+      "title": "GeometryExpectation",
+      "type": "object"
+    },
+    "MemberExpectation": {
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "enum": [
+            "file",
+            "directory",
+            "symlink",
+            "special"
+          ],
+          "title": "Kind",
+          "type": "string"
+        },
+        "sha256": {
+          "anyOf": [
+            {
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Sha256"
+        },
+        "signature": {
+          "enum": [
+            "unknown",
+            "zip",
+            "sqlite",
+            "ole",
+            "tiff",
+            "pdf"
+          ],
+          "title": "Signature",
+          "type": "string"
+        },
+        "size": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Size"
+        }
+      },
+      "required": [
+        "kind",
+        "sha256",
+        "size",
+        "signature"
+      ],
+      "title": "MemberExpectation",
+      "type": "object"
+    },
+    "MemberSelector": {
+      "additionalProperties": false,
+      "properties": {
+        "archive_chain": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "pattern": "\\S",
+            "type": "string"
+          },
+          "title": "Archive Chain",
+          "type": "array"
+        },
+        "archive_ordinals": {
+          "default": [],
+          "items": {
+            "minimum": 0,
+            "type": "integer"
+          },
+          "title": "Archive Ordinals",
+          "type": "array"
+        },
+        "relative_path": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "title": "Relative Path",
+          "type": "string"
+        }
+      },
+      "required": [
+        "relative_path"
+      ],
+      "title": "MemberSelector",
+      "type": "object"
+    },
+    "ObjectTarget": {
+      "additionalProperties": false,
+      "properties": {
+        "columns": {
+          "anyOf": [
+            {
+              "items": {
+                "$ref": "#/$defs/ColumnMapping"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Columns"
+        },
+        "derived_rownum": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/DerivedRownum"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "duplicate_reconciliation": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/DuplicateReconciliation"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "expected_count": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Expected Count"
+        },
+        "expected_sha256": {
+          "anyOf": [
+            {
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Expected Sha256"
+        },
+        "geometry": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/GeometryExpectation"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "object_name": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "title": "Object Name",
+          "type": "string"
+        },
+        "primary_key": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/PrimaryKey"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "schema": {
+          "enum": [
+            "cbdb",
+            "chgis",
+            "harv"
+          ],
+          "title": "Schema",
+          "type": "string"
+        },
+        "table": {
+          "pattern": "^[a-z][a-z0-9_]{0,62}$",
+          "title": "Table",
+          "type": "string"
+        }
+      },
+      "required": [
+        "object_name",
+        "schema",
+        "table",
+        "expected_count",
+        "expected_sha256"
+      ],
+      "title": "ObjectTarget",
+      "type": "object"
+    },
+    "PrimaryKey": {
+      "additionalProperties": false,
+      "description": "Ordered composite primary key: target columns in declared source PK order.\n\nThe order is semantically significant (it mirrors the source PK declaration order),\nso it is stored as an explicit ordered tuple rather than a set.",
+      "properties": {
+        "columns": {
+          "items": {
+            "minLength": 1,
+            "pattern": "\\S",
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Columns",
+          "type": "array"
+        }
+      },
+      "required": [
+        "columns"
+      ],
+      "title": "PrimaryKey",
+      "type": "object"
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "exceptions": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/ContractException"
+      },
+      "title": "Exceptions",
+      "type": "array"
+    },
+    "inventory_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Inventory Sha256",
+      "type": "string"
+    },
+    "release_id": {
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}-[a-z0-9][a-z0-9-]*$",
+      "title": "Release Id",
+      "type": "string"
+    },
+    "review": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/ContractReview"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "rules": {
+      "items": {
+        "$ref": "#/$defs/DispositionRule"
+      },
+      "minItems": 1,
+      "title": "Rules",
+      "type": "array"
+    },
+    "source_version": {
+      "minLength": 1,
+      "pattern": "\\S",
+      "title": "Source Version",
+      "type": "string"
+    },
+    "status": {
+      "enum": [
+        "draft",
+        "frozen"
+      ],
+      "title": "Status",
+      "type": "string"
+    },
+    "version": {
+      "maximum": 1,
+      "minimum": 1,
+      "title": "Version",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "version",
+    "release_id",
+    "source_version",
+    "inventory_sha256",
+    "status",
+    "review",
+    "rules"
+  ],
+  "title": "ReleaseContract",
+  "type": "object"
+}

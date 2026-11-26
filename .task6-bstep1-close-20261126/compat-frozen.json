@@ -1,0 +1,14 @@
+{
+ "format": "compat.v1",
+ "cases": {
+  "abatch-frozen-candidate": {
+   "old_sha256": "fa28a878f48fed506700cbaaf91c6a8ee45bdc28e9fef05904b3c56f4c61929e",
+   "new_sha256": "fa28a878f48fed506700cbaaf91c6a8ee45bdc28e9fef05904b3c56f4c61929e",
+   "byte_identical": true,
+   "len_old": 57339,
+   "len_new": 57339,
+   "identical_to_authorized_fa28a878": true
+  }
+ },
+ "all_byte_identical": true
+}

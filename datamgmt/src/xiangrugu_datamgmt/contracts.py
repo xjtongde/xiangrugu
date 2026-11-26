@@ -87,7 +87,7 @@ class ColumnMapping(ContractRecord):
     ordinal: Count
     source_column: Text
     target_column: Text
-    pg_type: Annotated[str, Field(pattern=r"^(text|bigint|numeric\([1-9][0-9]*,[0-9]+\))$")]
+    pg_type: Annotated[str, Field(pattern=r"^(text|bigint|numeric\([1-9][0-9]*,[0-9]+\)|double precision)$")]
     nullable: bool
     source_width_bytes: Count | None = None
     source_decimals: Count | None = None
@@ -141,6 +141,21 @@ class GeometryExpectation(ContractRecord):
     coordinate_storage: Literal["preserve_original_ieee754_xy_no_swap_or_transform"]
 
 
+class PrimaryKey(ContractRecord):
+    """Ordered composite primary key: target columns in declared source PK order.
+
+    The order is semantically significant (it mirrors the source PK declaration order),
+    so it is stored as an explicit ordered tuple rather than a set.
+    """
+    columns: Annotated[tuple[Text, ...], Field(min_length=1)]
+
+    @model_validator(mode="after")
+    def unique_columns(self):
+        if len(set(self.columns)) != len(self.columns):
+            raise ValueError("Primary key columns must be unique")
+        return self
+
+
 class ObjectTarget(ContractRecord):
     object_name: Text
     schema_name: Literal["cbdb", "chgis", "harv"] = Field(alias="schema")
@@ -151,6 +166,7 @@ class ObjectTarget(ContractRecord):
     derived_rownum: DerivedRownum | None = None
     duplicate_reconciliation: DuplicateReconciliation | None = None
     geometry: GeometryExpectation | None = None
+    primary_key: PrimaryKey | None = None
 
     @model_validator(mode="after")
     def extended_mapping_consistency(self):
@@ -165,6 +181,14 @@ class ObjectTarget(ContractRecord):
             if self.derived_rownum is not None and any(
                     column.target_column == self.derived_rownum.target_column for column in self.columns):
                 raise ValueError("Derived rownum column must not collide with mapped source columns")
+            if self.primary_key is not None:
+                mapped = {column.target_column: column for column in self.columns}
+                missing = [name for name in self.primary_key.columns if name not in mapped]
+                if missing:
+                    raise ValueError(f"Primary key columns must be mapped target columns: {missing}")
+                nullable_pk = [name for name in self.primary_key.columns if mapped[name].nullable]
+                if nullable_pk:
+                    raise ValueError(f"Primary key columns must be NOT NULL: {nullable_pk}")
         return self
 
 
@@ -269,7 +293,8 @@ class ReleaseContract(ContractRecord):
             rule["encodings"].sort(key=lambda encoding: (encoding["object_name"], encoding["column"]))
             for target in rule["targets"]:
                 # Digest compatibility: absent optional extensions must not alter pre-extension digests.
-                for key in ("columns", "derived_rownum", "duplicate_reconciliation", "geometry"):
+                for key in ("columns", "derived_rownum", "duplicate_reconciliation", "geometry",
+                            "primary_key"):
                     if target.get(key) is None:
                         target.pop(key, None)
         return json.dumps(document, ensure_ascii=True, sort_keys=True, separators=(",", ":")).encode("utf-8")

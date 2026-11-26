@@ -1,0 +1,31 @@
+{
+ "all_pass": true,
+ "checks": {
+  "A_all_rules_exclusive": true,
+  "A_contract_is_authorized": true,
+  "A_covered_23": true,
+  "A_derived_closes_exactly_3": true,
+  "A_duplicate_attribution_0": true,
+  "A_full_ready_false": true,
+  "A_inventory_untouched": true,
+  "A_old_ledger_preserved": true,
+  "A_rule_count_23": true,
+  "A_uncovered_7981": true
+ },
+ "format": "xiangrugu.abatcher.verification.v1",
+ "issue_codes": [
+  "exception_not_implemented",
+  "incomplete_inventory",
+  "unmatched_member"
+ ],
+ "numbers": {
+  "covered": 23,
+  "multiple": 0,
+  "records": 8004,
+  "uncovered": 7981
+ },
+ "writeoff_evidence_sha256": {
+  "chgis": "fae3502e3894864e7770ddc07264bb9ff475763f56fe1f48643dccf868964b1d",
+  "nul": "679dca4d2a86deeb6e9344c9bf5d90be98a1b99bc6562970e9b9710ce18fe3ca"
+ }
+}

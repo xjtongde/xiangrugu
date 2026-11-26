@@ -197,14 +197,13 @@ def run(args):
         evidence["approval_table"] = {"path": args.approval_table,
                                       "sha256": approval_table_sha256}
 
-        # Catch a wrong contract file BEFORE opening a session, rather than relying
-        # on the entry's Gate D to notice it later.
-        contract_file_sha256 = _sha_file(args.contract)
+        # Record the contract FILE bytes for traceability. It is deliberately NOT
+        # compared to contract_sha256 here: that value is the CANONICAL digest
+        # (pydantic model_dump, sorted, optional extensions dropped), not a file
+        # hash -- verified: file a718... vs canonical 56b0076d... The canonical
+        # digest is recomputed from the parsed document by the entry's Gate D.
         evidence["contract_file"] = {"path": args.contract,
-                                     "file_sha256": contract_file_sha256}
-        declared_contract = expected.get("contract_sha256")
-        if declared_contract and contract_file_sha256 != declared_contract:
-            raise PreflightError("contract_file_digest_mismatch", contract_file_sha256)
+                                     "file_sha256": _sha_file(args.contract)}
 
         scope, _raw = build_scope(args, expected, expected.get("contract_sha256"),
                                   approval_text_sha256)

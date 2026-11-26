@@ -79,132 +79,187 @@
    {
     "approval_table_sha256": "a718b0c297501642dd105eb3797f96dc1de2edf8eb521bed6609ff78de1fb4a0",
     "case": "FN0_schema_missing",
-    "code_pin": "c2dd123f08e8052292fb282069c5ffd653ec6746",
+    "code_pin": "58e93e31f4c5524fe69642ac900d9398efca5614",
     "committed": null,
     "error_code": "prerequisite_schema_missing",
     "exit_code": 2,
     "outcome": "REFUSED",
     "pin_shape": "export",
-    "row_count": null
+    "row_count": null,
+    "target_probe_after": {
+     "measured": true,
+     "residue_rows": 0,
+     "target_table_present": false
+    }
    },
    {
     "approval_table_sha256": "a718b0c297501642dd105eb3797f96dc1de2edf8eb521bed6609ff78de1fb4a0",
     "case": "N1_target_exists",
-    "code_pin": "c2dd123f08e8052292fb282069c5ffd653ec6746",
+    "code_pin": "58e93e31f4c5524fe69642ac900d9398efca5614",
     "committed": null,
     "error_code": "target_already_exists",
     "exit_code": 2,
     "outcome": "REFUSED",
     "pin_shape": "export",
-    "row_count": null
+    "row_count": null,
+    "target_probe_after": {
+     "measured": true,
+     "residue_rows": 3859,
+     "target_table_present": true
+    }
    },
    {
     "approval_table_sha256": "a718b0c297501642dd105eb3797f96dc1de2edf8eb521bed6609ff78de1fb4a0",
     "case": "N2_test_class_only",
-    "code_pin": "c2dd123f08e8052292fb282069c5ffd653ec6746",
+    "code_pin": "58e93e31f4c5524fe69642ac900d9398efca5614",
     "committed": null,
     "error_code": "test_approval_cannot_target_production",
     "exit_code": 2,
     "outcome": "REFUSED",
     "pin_shape": "export",
-    "row_count": null
+    "row_count": null,
+    "target_probe_after": {
+     "measured": true,
+     "residue_rows": 3859,
+     "target_table_present": true
+    }
    },
    {
     "approval_table_sha256": "a718b0c297501642dd105eb3797f96dc1de2edf8eb521bed6609ff78de1fb4a0",
     "case": "N3_fake_approval",
-    "code_pin": "c2dd123f08e8052292fb282069c5ffd653ec6746",
+    "code_pin": "58e93e31f4c5524fe69642ac900d9398efca5614",
     "committed": null,
     "error_code": "real_authorization_digest_not_bound_to_write_approval",
     "exit_code": 2,
     "outcome": "REFUSED",
     "pin_shape": "export",
-    "row_count": null
+    "row_count": null,
+    "target_probe_after": {
+     "measured": true,
+     "residue_rows": 3859,
+     "target_table_present": true
+    }
    },
    {
     "approval_table_sha256": null,
     "case": "N4_forged_approval_table",
-    "code_pin": "c2dd123f08e8052292fb282069c5ffd653ec6746",
+    "code_pin": "58e93e31f4c5524fe69642ac900d9398efca5614",
     "committed": null,
     "error_code": "approval_table_digest_mismatch",
     "exit_code": 4,
     "outcome": "PREFLIGHT_FAILED",
     "pin_shape": "export",
-    "row_count": null
+    "row_count": null,
+    "target_probe_after": null
    },
    {
     "approval_table_sha256": "a718b0c297501642dd105eb3797f96dc1de2edf8eb521bed6609ff78de1fb4a0",
     "case": "N5_wrong_role",
-    "code_pin": "c2dd123f08e8052292fb282069c5ffd653ec6746",
+    "code_pin": "58e93e31f4c5524fe69642ac900d9398efca5614",
     "committed": null,
     "error_code": "load_role_mismatch",
     "exit_code": 2,
     "outcome": "REFUSED",
     "pin_shape": "export",
-    "row_count": null
+    "row_count": null,
+    "target_probe_after": {
+     "measured": true,
+     "residue_rows": 3859,
+     "target_table_present": true
+    }
    },
    {
     "approval_table_sha256": "a718b0c297501642dd105eb3797f96dc1de2edf8eb521bed6609ff78de1fb4a0",
     "case": "N6_wrong_instance",
-    "code_pin": "c2dd123f08e8052292fb282069c5ffd653ec6746",
+    "code_pin": "58e93e31f4c5524fe69642ac900d9398efca5614",
     "committed": null,
     "error_code": "instance_identity_mismatch",
     "exit_code": 2,
     "outcome": "REFUSED",
     "pin_shape": "export",
-    "row_count": null
+    "row_count": null,
+    "target_probe_after": {
+     "measured": true,
+     "residue_rows": 3859,
+     "target_table_present": true
+    }
    },
    {
     "approval_table_sha256": "a718b0c297501642dd105eb3797f96dc1de2edf8eb521bed6609ff78de1fb4a0",
     "case": "N7_readback_rollback",
-    "code_pin": "c2dd123f08e8052292fb282069c5ffd653ec6746",
+    "code_pin": "58e93e31f4c5524fe69642ac900d9398efca5614",
     "committed": null,
     "error_code": "row_count_mismatch",
     "exit_code": 2,
     "outcome": "REFUSED",
     "pin_shape": "export",
-    "row_count": null
+    "row_count": null,
+    "target_probe_after": {
+     "measured": true,
+     "residue_rows": 0,
+     "target_table_present": false
+    }
    },
    {
     "approval_table_sha256": "a718b0c297501642dd105eb3797f96dc1de2edf8eb521bed6609ff78de1fb4a0",
     "case": "P1_positive",
-    "code_pin": "c2dd123f08e8052292fb282069c5ffd653ec6746",
+    "code_pin": "58e93e31f4c5524fe69642ac900d9398efca5614",
     "committed": true,
     "error_code": null,
     "exit_code": 0,
     "outcome": "COMMITTED",
     "pin_shape": "export",
-    "row_count": 3859
+    "row_count": 3859,
+    "target_probe_after": null
    },
    {
     "approval_table_sha256": "a718b0c297501642dd105eb3797f96dc1de2edf8eb521bed6609ff78de1fb4a0",
     "case": "P2_retry",
-    "code_pin": "c2dd123f08e8052292fb282069c5ffd653ec6746",
+    "code_pin": "58e93e31f4c5524fe69642ac900d9398efca5614",
     "committed": true,
     "error_code": null,
     "exit_code": 0,
     "outcome": "COMMITTED",
     "pin_shape": "export",
-    "row_count": 3859
+    "row_count": 3859,
+    "target_probe_after": null
    },
    {
     "approval_table_sha256": "a718b0c297501642dd105eb3797f96dc1de2edf8eb521bed6609ff78de1fb4a0",
     "case": "P3_final",
-    "code_pin": "c2dd123f08e8052292fb282069c5ffd653ec6746",
+    "code_pin": "58e93e31f4c5524fe69642ac900d9398efca5614",
     "committed": true,
     "error_code": null,
     "exit_code": 0,
     "outcome": "COMMITTED",
     "pin_shape": "export",
-    "row_count": 3859
+    "row_count": 3859,
+    "target_probe_after": null
+   },
+   {
+    "approval_table_sha256": "a718b0c297501642dd105eb3797f96dc1de2edf8eb521bed6609ff78de1fb4a0",
+    "case": "P4_final",
+    "code_pin": "58e93e31f4c5524fe69642ac900d9398efca5614",
+    "committed": true,
+    "error_code": null,
+    "exit_code": 0,
+    "outcome": "COMMITTED",
+    "pin_shape": "export",
+    "row_count": 3859,
+    "target_probe_after": null
    }
   ],
   "environment": "--network none、无端口发布、源 ro 挂载、PG 18.6、xrg_loader NOSUPERUSER",
   "exit_code_distribution": {
-   "0": 3,
+   "0": 4,
    "2": 7,
    "4": 1
   },
-  "total": 11
+  "reused_cases": 0,
+  "single_commit": "58e93e31f4c5524fe69642ac900d9398efca5614",
+  "single_instance": true,
+  "standin_container_id": "61418c896522f3fa609e5c3816129a9f7bf1bdf40febea83e19304a89d9a77ad",
+  "total": 12
  },
  "least_privilege": {
   "database": "xiangrugu（必须已存在，装载不建）",
@@ -269,6 +324,19 @@
    "now": "撤回：contract_sha256 是规范摘要（pydantic 序列化后算），不是文件字节哈希——实测文件 5281cfce… vs 规范 56b0076d…。误加比对曾致全部用例 exit 4，已撤回并在代码注释写明原因；合同仍由 Gate D 重算把关",
    "was": "--contract 未在 preflight 比对"
   },
+  "I1_single_pin_single_instance": {
+   "measured": "12 份证据的 code_pin 集合 = {58e93e31f4c5524fe69642ac900d9398efca5614}（单值）；用例涉及会话的 marker 集合 = {61418c896522…}；汇总件每条 case 各自记录其 code_pin",
+   "now": "在固定提交 58e93e3、单一新替身 61418c896522 上把 11 例全部重跑，无一复用",
+   "was": "汇总件把 11 条统一标成 c2dd123f，实际 6 条是 v2 复用件（--code-commit 实为 c2dd123f）；且 P1/P3 与新用例分属 a4b9681f 与 783ddd4c 两个替身，跨实例混证"
+  },
+  "I2_probe_in_cases": {
+   "measured": "probe 覆盖全部 11 例：8 例 measured=True（其中 present=True residue=3859 五例、present=False residue=0 三例），N4 预检失败未建会话故无 probe、P1–P4 成功用例无 probe",
+   "now": "每条 case 透传 target_probe_after",
+   "was": "probe 只在顶层摘要与叙述里，cases[] 主索引无该字段"
+  },
+  "I3_standin_note": {
+   "note": "替身每次重跑都重建，故容器 ID 会变（历史值 a4b9681f→783ddd4c→61418c89）。本轮全部用例统一在 61418c896522f3fa609e5c3816129a9f7bf1bdf40febea83e19304a89d9a77ad 上完成；该值不是生产实例——生产 pg32b 仍为 3d93fc7741f6…、pg32 98418cb6…、dev 29795c60…，均未变。"
+  },
   "I_rollback_residue_measured": {
    "bidirectionality": "三条用例给出两种结果，probe 是真实观测而非常量",
    "measured": {
@@ -285,7 +353,7 @@
    "was": "expected 缺 approval_table_sha256 时静默跳过核验"
   }
  },
- "revision": "v3：补回滚残留实测（a02 第六轮唯一实质保留）",
+ "revision": "v4：11 用例在同一定义提交、同一实例上全部重跑（修 a02 第七轮 I-1/I-3）",
  "rollback_residue_observation": {
   "FN0_schema_missing": {
    "measured": true,
@@ -338,22 +406,9 @@
   "method": "source sqlite /mnt/wd61workmetadata/usedata/harvard/cbdb/cbdb_20260919.sqlite3 SOCIAL_INSTITUTION_ADDR vs target PostgreSQL xiangrugu.cbdb.cbdb__social_u5f_institution_u5f_addr read back via independent psql COPY",
   "missing_rows": 0,
   "partial": false,
-  "readback_proof": {
-   "claim": "target_sha256 由从 PostgreSQL 读回的行算出，不是预置值，也不是 payload 字节",
-   "decisive_structural_argument": "compare_unordered 内部从不读取 evidence.sha256 参与判定：该字段仅在 __post_init__ 做格式校验、并被 asdict 抄进 source_evidence/target_evidence 元数据；报告的 source_sha256/target_sha256 只有一处赋值点，来自对实际流过的每一行 frame 累加 digest。因此预置值在结构上不可能成为报告值。",
-   "evidence": [
-    "payload.bin 为 417981 字节、制表符分隔；读回 CSV stream 为 630173 字节，格式与长度均不同",
-    "target_fields = 42449 = 3859 行 × 11 列",
-    "target_progress.accepted_rows = 3859，comparison_complete = true",
-    "target_read.used_copy_payload = false"
-   ],
-   "how_to_reproduce": "psql -U xrg_loader -d xiangrugu -c \"COPY (SELECT <11 列> FROM cbdb.cbdb__social_u5f_institution_u5f_addr) TO STDOUT WITH (FORMAT csv)\" 后以同一 compare_unordered 复算",
-   "independence_note": "装载走 loader 的 PsqlSession，本次读回另开 psql 进程；读到的是已 COMMIT 的持久状态",
-   "known_limitation": "\"\" 与 \\N 均映射为 NULL；本表 11 列为 bigint/double precision/text，NULL 计数与源侧相符，无歧义；phase2 扩表前需收紧"
-  },
   "residual_directory": null,
   "resource_stats": {
-   "elapsed_seconds": 24.54502694400071,
+   "elapsed_seconds": 26.14529212799971,
    "peak_chunk_bytes": 45896,
    "peak_chunk_rows": 279,
    "peak_temp_bytes": 1890276,

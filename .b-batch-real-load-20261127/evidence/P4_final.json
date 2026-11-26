@@ -1,0 +1,236 @@
+{
+ "approval_table": {
+  "path": "/data/var/in/contracts/b-approval-table-v2.json",
+  "sha256": "a718b0c297501642dd105eb3797f96dc1de2edf8eb521bed6609ff78de1fb4a0"
+ },
+ "approval_text": {
+  "bytes": 641,
+  "path": "/data/var/in/approval-text-verbatim.txt",
+  "sha256": "4d250c8e08ea8136e29e35aa436812f11b5eec59a100847f130c11f39b7e2946"
+ },
+ "code_pin": {
+  "commit": "58e93e31f4c5524fe69642ac900d9398efca5614",
+  "modules": {
+   "cbdb_social_addr_entry.py": "dcbfa6add94fbf1550a3705806ab285ef981da26391c5c3fadce8fc82c535a15",
+   "cbdb_social_addr_loader.py": "8969a7e69c13159a2e89cf680a80d955cccb7283fecc747841aada995c802420",
+   "contracts.py": "e6145ba70fbff4fe72e7fbda6d3a64396ac1551fb9f3c771531e4f4ebe8ce7a7",
+   "sqlite_values.py": "23fe4e891f1bce55e504462c6dc73e27bcbf8961b6d72a4a8dca0b5ae1305993",
+   "unordered_validate.py": "615b75708df4564b34cdae7df03858a961899756e3d9421e13a506bc4e3241a9",
+   "unordered_values.py": "25c7f7339b5d901460f0e0389b78fa1357778001a10574265fd72c2eba3f3ddd",
+   "value_sort.py": "23d464c4d816084f21cde72f21e6e557ee8d1ff52e54b04770e0a8aa14bcb24a"
+  },
+  "shape": "export"
+ },
+ "command": [
+  "--phase",
+  "phase1-isolated",
+  "--code-root",
+  "/workspace",
+  "--code-commit",
+  "58e93e31f4c5524fe69642ac900d9398efca5614",
+  "--contract",
+  "/data/var/in/contracts/b-single-table-frozen-candidate.json",
+  "--approval-table",
+  "/data/var/in/contracts/b-approval-table-v2.json",
+  "--approval-text",
+  "/data/var/in/approval-text-verbatim.txt",
+  "--approval-text-sha256",
+  "4d250c8e08ea8136e29e35aa436812f11b5eec59a100847f130c11f39b7e2946",
+  "--scope",
+  "/data/var/in/execution-scope.json",
+  "--expected",
+  "/data/var/in/expected.json",
+  "--payload",
+  "/data/var/work/payload.bin",
+  "--scratch",
+  "/data/var",
+  "--evidence-out",
+  "/data/var/work/ev-P4_final.json",
+  "--connect-host",
+  "127.0.0.1",
+  "--connect-port",
+  "5432",
+  "--load-role",
+  "xrg_loader"
+ ],
+ "contract_file": {
+  "file_sha256": "5281cfcedfe1473c54ab102d7d5fe993ca8b1b2e1865efaff5f24fa5d507c904",
+  "path": "/data/var/in/contracts/b-single-table-frozen-candidate.json"
+ },
+ "format": "xiangrugu.b-batch.single-table-load-evidence.v1",
+ "imported_modules": {
+  "entry": "/workspace/datamgmt/src/xiangrugu_datamgmt/cbdb_social_addr_entry.py",
+  "loader": "/workspace/datamgmt/src/xiangrugu_datamgmt/cbdb_social_addr_loader.py"
+ },
+ "outcome": "COMMITTED",
+ "payload": {
+  "bytes": 417981,
+  "path": "/data/var/work/payload.bin",
+  "sha256": "5ca84bdc9bb4d28f4be0922e86d6f60d9ad5e3f487b7fc63c117bc2de1f968ff"
+ },
+ "phase": "phase1-isolated",
+ "result": {
+  "columns": [
+   "c_u5f_inst_u5f_name_u5f_code",
+   "c_u5f_inst_u5f_code",
+   "c_u5f_inst_u5f_addr_u5f_type_u5f_code",
+   "c_u5f_inst_u5f_addr_u5f_begin_u5f_year",
+   "c_u5f_inst_u5f_addr_u5f_end_u5f_year",
+   "c_u5f_inst_u5f_addr_u5f_id",
+   "inst_u5f_xcoord",
+   "inst_u5f_ycoord",
+   "c_u5f_source",
+   "c_u5f_pages",
+   "c_u5f_notes"
+  ],
+  "committed": true,
+  "constraint_types": [
+   "n",
+   "p"
+  ],
+  "constraints_created": [
+   "primary_key",
+   "not_null"
+  ],
+  "constraints_not_created": [
+   "unique",
+   "index",
+   "foreign_key",
+   "default"
+  ],
+  "coord_columns": [
+   "inst_u5f_xcoord",
+   "inst_u5f_ycoord"
+  ],
+  "coord_roundtrip_inexact_rows": 0,
+  "ddl": "CREATE TABLE cbdb.cbdb__social_u5f_institution_u5f_addr (\n  \"c_u5f_inst_u5f_name_u5f_code\" bigint NOT NULL,\n  \"c_u5f_inst_u5f_code\" bigint NOT NULL,\n  \"c_u5f_inst_u5f_addr_u5f_type_u5f_code\" bigint NOT NULL,\n  \"c_u5f_inst_u5f_addr_u5f_begin_u5f_year\" bigint,\n  \"c_u5f_inst_u5f_addr_u5f_end_u5f_year\" bigint,\n  \"c_u5f_inst_u5f_addr_u5f_id\" bigint NOT NULL,\n  \"inst_u5f_xcoord\" double precision NOT NULL,\n  \"inst_u5f_ycoord\" double precision NOT NULL,\n  \"c_u5f_source\" bigint,\n  \"c_u5f_pages\" text,\n  \"c_u5f_notes\" text,\n  PRIMARY KEY (\"c_u5f_inst_u5f_addr_u5f_id\", \"c_u5f_inst_u5f_addr_u5f_type_u5f_code\", \"c_u5f_inst_u5f_code\", \"c_u5f_inst_u5f_name_u5f_code\", \"inst_u5f_xcoord\", \"inst_u5f_ycoord\")\n)",
+  "execution_branch": "real",
+  "gates": [
+   "scope_approval",
+   "digest_bindings",
+   "review_traceability",
+   "instance_identity",
+   "target_absent"
+  ],
+  "instance": {
+   "container_id": "61418c896522f3fa609e5c3816129a9f7bf1bdf40febea83e19304a89d9a77ad",
+   "databases": "postgres,template0,template1,xiangrugu",
+   "dbname": "xiangrugu",
+   "image_id": "sha256:d562e43664f996da0e4208b375c00c111a543d996475188d852e9189b2a8cd05",
+   "in_session_port": "5432",
+   "inet_server_addr": "127.0.0.1/32",
+   "instance_marker_verified": "61418c896522f3fa609e5c3816129a9f7bf1bdf40febea83e19304a89d9a77ad",
+   "load_role": "xrg_loader",
+   "load_role_can_create_in_target_schema": true,
+   "load_role_superuser": false,
+   "server_version": "18.6 (Debian 18.6-1.pgdg12+2)",
+   "target_outer_port": 5433
+  },
+  "mode": "production-write",
+  "non_primary_index_count": 0,
+  "null_counts": {
+   "c_u5f_inst_u5f_addr_u5f_begin_u5f_year": 3005,
+   "c_u5f_inst_u5f_addr_u5f_end_u5f_year": 3857,
+   "c_u5f_inst_u5f_addr_u5f_id": 0,
+   "c_u5f_inst_u5f_addr_u5f_type_u5f_code": 0,
+   "c_u5f_inst_u5f_code": 0,
+   "c_u5f_inst_u5f_name_u5f_code": 0,
+   "c_u5f_notes": 752,
+   "c_u5f_pages": 334,
+   "c_u5f_source": 219,
+   "inst_u5f_xcoord": 0,
+   "inst_u5f_ycoord": 0
+  },
+  "pk_catalog_readback": [
+   "c_u5f_inst_u5f_addr_u5f_id",
+   "c_u5f_inst_u5f_addr_u5f_type_u5f_code",
+   "c_u5f_inst_u5f_code",
+   "c_u5f_inst_u5f_name_u5f_code",
+   "inst_u5f_xcoord",
+   "inst_u5f_ycoord"
+  ],
+  "pk_columns_in_order": [
+   "c_u5f_inst_u5f_addr_u5f_id",
+   "c_u5f_inst_u5f_addr_u5f_type_u5f_code",
+   "c_u5f_inst_u5f_code",
+   "c_u5f_inst_u5f_name_u5f_code",
+   "inst_u5f_xcoord",
+   "inst_u5f_ycoord"
+  ],
+  "pk_distinct": 3859,
+  "pk_null_free": true,
+  "recomputed_contract_sha256": "56b0076d2e877be9fb34796e01b8ee2b37d5a817c8e80203fa21c95e4f3f8237",
+  "rolled_back": false,
+  "row_count": 3859,
+  "shared_single_transaction": true,
+  "single_parse_drives_load": true,
+  "structure_readback": [
+   [
+    "c_u5f_inst_u5f_name_u5f_code",
+    "bigint",
+    "NO"
+   ],
+   [
+    "c_u5f_inst_u5f_code",
+    "bigint",
+    "NO"
+   ],
+   [
+    "c_u5f_inst_u5f_addr_u5f_type_u5f_code",
+    "bigint",
+    "NO"
+   ],
+   [
+    "c_u5f_inst_u5f_addr_u5f_begin_u5f_year",
+    "bigint",
+    "YES"
+   ],
+   [
+    "c_u5f_inst_u5f_addr_u5f_end_u5f_year",
+    "bigint",
+    "YES"
+   ],
+   [
+    "c_u5f_inst_u5f_addr_u5f_id",
+    "bigint",
+    "NO"
+   ],
+   [
+    "inst_u5f_xcoord",
+    "double precision",
+    "NO"
+   ],
+   [
+    "inst_u5f_ycoord",
+    "double precision",
+    "NO"
+   ],
+   [
+    "c_u5f_source",
+    "bigint",
+    "YES"
+   ],
+   [
+    "c_u5f_pages",
+    "text",
+    "YES"
+   ],
+   [
+    "c_u5f_notes",
+    "text",
+    "YES"
+   ]
+  ],
+  "transaction": "single"
+ },
+ "session": {
+  "connect_host": "127.0.0.1",
+  "connect_port": 5432,
+  "dbname": "xiangrugu",
+  "declared_in_session_port": 5432,
+  "declared_target_port": 5433,
+  "load_role": "xrg_loader",
+  "no_db_switch": true,
+  "no_reconnect": true
+ }
+}

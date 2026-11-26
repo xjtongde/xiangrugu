@@ -225,6 +225,12 @@ def main():
             "equation_holds": covered + migrated["unmatched"] == TOTAL_MEMBERS,
             "legacy_uncovered_before": LEGACY_UNCOVERED,
             "delta": LEGACY_UNCOVERED - migrated["unmatched"],
+            "unexplained_semantics": {
+                "coverage_unexplained": migrated["unmatched"],
+                "coverage_unexplained_note": "coverage.unexplained = 全部 explained=False 的记录，含无规则成员，故等于未覆盖数 7981",
+                "explained_among_matched": 23,
+                "explained_among_matched_note": "23 个有规则成员全部 explained=True（有规则成员中未解释数=0）",
+            },
             "duplicate_attribution": {
                 "multiple_matches": migrated["multiple"],
                 "unexplained": migrated["unexplained"],

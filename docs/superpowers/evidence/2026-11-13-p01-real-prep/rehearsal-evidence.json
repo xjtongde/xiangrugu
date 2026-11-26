@@ -1,5 +1,5 @@
 {
- "as_of": "2026-11-14T14:35:01Z",
+ "as_of": "2026-11-16T18:19:59Z",
  "cases": [
   "local_rehearsal_image",
   "fixture_metadata_built",
@@ -9,11 +9,7 @@
   "mount_table_closed",
   "mount_table_closed",
   "readonly_probe_passed",
-  "unified_failure_receipt",
-  "readonly_probe_passed",
-  "wrong_pin_stops_before_source_read",
-  "readonly_probe_passed",
-  "timeout_terminal_state",
+  "supervisor_success_terminal",
   "one_shot_registration_refusal",
   "failure_trace_roundtrip"
  ],
@@ -58,6 +54,11 @@
   "workspace root mirrored subtree layouts, no symlinks",
   "container identity: production pins image user 10001:10001; this sandbox cannot bind host files to uid 10001, so containers ran with explicit --user <host uid> (the daemon drops uid bits under cap-drop ALL without it); the real runner on 32 uses the image USER plus the same posture flags"
  ],
- "real_batch_result": null,
+ "real_batch_result": {
+  "expected_count": 40,
+  "expected_sha256": "68d8f310da3eee64d379ca80e4dd19e0b6b2ccaa5514066813932e698d6b8771",
+  "schema_hash": "a054ed1430212eebea17ec059a444ef17e61e113a95c107a39116251a273dce9",
+  "source_sha256": "097d9b7e6a26187422891102a74cc7b7bd4e0f6c838345fefe3b353bd7462229"
+ },
  "status": "P01_REAL_PREP_REHEARSAL_OK"
 }

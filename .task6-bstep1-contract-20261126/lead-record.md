@@ -38,13 +38,13 @@
 **模型不可表达（具体字段）** —— 用正式模型在 dev 容器实跑 pydantic 校验取证：
 | ID | 缺口 | 位置 | 实证 | 影响 |
 |---|---|---|---|---|
-| G1 | `double precision` 无法表达 | `contracts.ColumnMapping.pg_type` 正则 `^(text\|bigint\|numeric\(…\))$` | `string_pattern_mismatch` | **2 列（inst_xcoord/inst_ycoord）无法写入合同** |
+| G1 | `double precision` 无法表达（本批唯一硬阻塞） | `contracts.ColumnMapping.pg_type` 正则 `^(text\|bigint\|numeric\(…\))$` | `string_pattern_mismatch` | **2 列（inst_xcoord/inst_ycoord）无法写入合同** |
 | G2 | 无约束字段 | `contracts.ObjectTarget` | `extra_forbidden`（primary_key/unique_constraints/indexes） | 六项约束只能落在本盒审批表 |
 | G3 | 无 default 字段 | `contracts.ColumnMapping` | `extra_forbidden`（default_value） | 5 列 DEFAULT NULL 无法入合同（影响低） |
 | G6 | 列序数必须 1..N 连续 | `ObjectTarget.extended_mapping_consistency` | 剔除两列后报 `Column ordinals must be contiguous` | 降级路径会丢失源列序证据 |
 | G4/G5 | targets 仅 IMPORT 允许 / 表名 ≤63 | `DispositionRule` / `ObjectTarget.table` | 本表为 IMPORT，不受阻 | 无当前影响，登记在案 |
 
-- 校验结论：`contract-model-validation.json` —— 全量草案**仅因 G1 失败**；剔除两坐标列并按 1..9 重排序数后 **VALIDATED_OK**（9 列，canonical `0ee3717d…`）。即 **G1 是本批唯一的硬阻塞**。
+- 校验结论：`contract-model-validation.json` —— 全量草案**全部叶子错误均为两列 pg_type 模式不匹配**（另有其级联触发的 `rules: Tuple should have at least 1 item` 次级报错，根因同为 G1，无第二个独立硬阻塞）；剔除两坐标列并按 1..9 重排序数后 **VALIDATED_OK**（9 列，canonical `0ee3717d…`）。即 **G1 是本批唯一的硬阻塞**。
 
 ## A. 正式处置账迁移方案（PLAN_ONLY_NOT_EXECUTED）
 
@@ -52,7 +52,8 @@
 - 用正式模型重算 `abatch-frozen-candidate.json` → canonical **`fa28a878f48fed506700cbaaf91c6a8ee45bdc28e9fef05904b3c56f4c61929e`**，与授权值**逐字相等**；23 规则（7 IMPORT + 14 a1-* + 2 r-*）、2 例外、`inventory_sha256 fb5e6b33…`。
 
 **对账预览（通过条件 2）**
-- `DispositionLedger.evaluate(inventory, 候选)` 实跑：records **8004**，unmatched **7981**，multiple **0**，unexplained **0**。
+- `DispositionLedger.evaluate(inventory, 候选)` 实跑：records **8004**，unmatched **7981**，multiple **0**；**有规则成员 23/23 全部 explained=True**。
+  - 措辞澄清（a03 复核提出）：`coverage().unexplained` = 全部 explained=False 记录（含无规则成员），故实为 **7981**，等于未覆盖面本身；本盒此前写的 `unexplained: 0` 是「有规则成员中未解释数」的自定义口径，已在 `a-migration-plan.json` 的 `unexplained_semantics` 中分列澄清。
 - **23 + 7981 = 8004 ✅**
 - **16 条 NON_TABULAR 逐条反查：每条恰命中 1 个成员、互斥；23/23 规则 exclusive_single_owner，non_exclusive 0 → 无重复归属。**
 
@@ -89,3 +90,8 @@
 ## 首个剩余缺口
 - **B 批**：目标是 G1 —— 合同模型 `pg_type` 不支持 `double precision`，2 个坐标列无法入合同；**G2** 缺约束字段。须另批授权做模型扩展后才能冻结包含完整 11 列的合同。此外仍缺：目标名批准（碰撞检查）、值合同冻结、新写库授权原文、Codex 放行、**PG 生产装载器未实现**。
 - **A 批**：方案与对账预览已 PASS，但**正式账迁移本身未执行**（本盒只出方案）；执行需另批授权，且需接受 `exception_not_implemented` 在冻结后重跑取证。
+## a03 独立复核收口（R63 PASS）
+- **总判定 PASS，8/8 项通过，无翻案项**。a03 零复用：源探针、模型校验、账本复算、反查与归属全部用正式模型现跑现算。
+- 独立复现：源 sha/586485760B/3859/DDL 5c207e94/PK 六列序/pk_distinct/单 origin=pk 索引/FK 空/NULL 分布全等；审批表 11 列 0 处不符；**null_counts 键陷阱专项**按其自身映射对齐后 11/11 全等，确认 lead 的 `true` 成立；候选 canonical `fa28a878` 复现；`evaluate` 实跑 8004=23+7981、multiple=0；23/23 规则互斥反查（a1-* 14/14）；**a1-* 14 条映射出的成员集合恰等于 R59「空间伴生件 12 ∪ 待裁定 2」（集合相等）**，r-* 2 账本不在 7995 桶内 → 7995−14=7981、86+7895=7981 精确闭合。
+- 两条**非阻塞精度建议**已采纳并修正：①`coverage().unexplained` 实为 7981（非 0），已分列澄清；②全量草案除两列 pg_type 外还有级联的 rules_too_short 次级报错，根因同为 G1，已改写为"无第二个独立硬阻塞"。
+- 边界：a03 全程只读、零写库、零重跑试装、临时件已删并实证 GONE，仓库状态与开工一致。

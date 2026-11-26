@@ -48,6 +48,9 @@ READBACK_BUDGET_S, READBACK_POLL_S = 10.0, 0.2
 GO_DELIVERY_WINDOW_S, GO_DEADLINE_S = 5.0, 20.0
 INIT_WAIT_S = float(os.environ.get("XRG_P01_INIT_WAIT", "8"))
 STAGE_A_SECONDS, STAGE_B_SECONDS = 300, 1830
+# run-real.sh:351 — worker --failure-evidence and supervisor --worker-failure
+# are the SAME path so the correlation reader sees one receipt's bytes twice.
+FAILURE_REPORT = "/data/var/run/failure-report.json"
 PACKET_FILES = 48
 DOCKER_TIMEOUT = 10
 # v14 §2: the sudoers whitelist pins fixed paths + subcommands only; the
@@ -458,14 +461,22 @@ def build_generation(gen, original_sha):
     gd.mkdir(parents=True)
     gopath.mkdir(parents=True)
     fifo = gopath / "go"
+    gid = int(os.environ.get("XRG_P01_WORKER_GID", "10001"))
+    dgid = int(os.environ.get("XRG_P01_GO_DIR_GID", "10001"))
+    if real_docker_mode() and (gid != 10001 or dgid != 10001):
+        raise Refused("go_gid_override",
+                      f"formal mode fixes GO channel owner root:10001; "
+                      f"XRG_P01_WORKER_GID={gid}, XRG_P01_GO_DIR_GID={dgid}")
     if not fifo.exists():
+        if os.path.lexists(str(fifo)):
+            # dangling symlink (exists False, lexists True): mkfifo would
+            # die with a bare FileExistsError instead of a locatable Refused
+            raise Refused("go_fifo_symlink", f"dangling link at {fifo}")
         os.mkfifo(str(fifo))
         try:
             os.chmod(fifo, 0o640)
         except OSError:
             pass
-    gid = int(os.environ.get("XRG_P01_WORKER_GID", "10001"))
-    dgid = int(os.environ.get("XRG_P01_GO_DIR_GID", "10001"))
     # Ownership/mode hardening is best-effort under the local sandbox and
     # mandatory on the real host (install script enforces it there).
     # Ownership/mode hardening: mandatory on the real host (root context);
@@ -483,6 +494,11 @@ def build_generation(gen, original_sha):
         except OSError:
             if not os.environ.get("XRG_P01_FIXTURE"):
                 raise
+    if real_docker_mode():
+        # v14 permission gate: verify the ACTUAL lstat results — a
+        # swallowed chown error or a substituted file must refuse BEFORE
+        # any docker create can run against the channel.
+        _verify_go_channel(gopath, fifo, dgid, gid)
     src = read_bytes_nofollow(p["original"])
     if sha_bytes(src) != original_sha:
         raise Refused("authz_race", "original changed mid-generation")
@@ -496,6 +512,31 @@ def build_generation(gen, original_sha):
     write_durable(gen_record_path(gen), canon(gen_doc), mode=0o644)
     record("GENERATION_BUILT", gen=gen, confirmed=confirmed)
     return gen_doc
+
+
+def _verify_go_channel(gopath, fifo, dgid, gid):
+    """lstat-based v14 permission gate for the GO channel. Every check
+    reads the actual inode (never follows symlinks); inability to verify
+    is itself a refusal. Runs only in real mode, before any create."""
+    for path, want_type, want_mode, label, want_owner in (
+            (gopath, stat.S_ISDIR, 0o710, "go_dir", (0, dgid)),
+            (fifo, stat.S_ISFIFO, 0o640, "go_fifo", (0, gid))):
+        try:
+            st = os.lstat(str(path))
+        except OSError as error:
+            raise Refused(f"{label}_stat_failed", f"{path}: {error}")
+        if stat.S_ISLNK(st.st_mode):
+            raise Refused(f"{label}_symlink", str(path))
+        if not want_type(st.st_mode):
+            raise Refused(f"{label}_type", f"{path}: {oct(st.st_mode)}")
+        if (st.st_uid, st.st_gid) != want_owner:
+            raise Refused(f"{label}_owner",
+                          f"{path}: {st.st_uid}:{st.st_gid} != "
+                          f"{want_owner[0]}:{want_owner[1]}")
+        if stat.S_IMODE(st.st_mode) != want_mode:
+            raise Refused(f"{label}_mode",
+                          f"{path}: {oct(stat.S_IMODE(st.st_mode))} != "
+                          f"{oct(want_mode)}")
 
 
 def bind_container(gen, container_id):
@@ -1155,7 +1196,10 @@ def create_args(gen, plan_lines, suffix, role):
         argv.extend(shlexish(line))
     if real_docker_mode():
         ref = os.environ.get("XRG_P01_IMAGE_REF") or image_id()
-        return [*argv, ref, *real_container_argv(gen, role, suffix)]
+        # v14: the formal candidate runs pinned to the worker uid/gid; the
+        # GO reader then opens the host FIFO through the /control ro bind.
+        return [*argv, "--user", "10001:10001", ref,
+                *real_container_argv(gen, role, suffix)]
     return [*argv, image_id(), role]
 
 
@@ -1174,8 +1218,33 @@ def real_container_argv(gen, role, suffix):
     # run-real.sh passes "$image"/"$revision" as the worker's identity argv:
     # the pinned IMAGE ID (a sha256: digest), not the repository tag. The
     # materializer asserts that shape byte-exactly.
-    worker = ["python", "/installed-origin.py", "/materialize-real.py",
-              image_id(), GIT_REVISION]
+    if role == "stage-b" and real_docker_mode():
+        # Real chain stage-b worker: the adjudicated task_control tuple,
+        # byte-for-byte from TIMEBOX-EVIDENCE.json worker_argv_actual
+        # (.reh-timebox-30m2, rc=0 SOURCE_ONLY_WORKER_COMPLETED). Only the
+        # argv tail is swapped here; GO delivery and host verification gates
+        # are untouched. request/approval pins come from this gen's own
+        # PREPARED doc; roots/image/git use the fixed constants.
+        pdoc, _ = read_json_strict(prepared_path(gen))
+        worker = ["python", "/installed-origin.py", "-m",
+                  "xiangrugu_datamgmt.task_control",
+                  "--request",
+                  "/data/var/snapshots/materialization/request.json",
+                  "--request-sha256", pdoc["request_pin"],
+                  "--approval-sha256", pdoc["approval_pin"],
+                  "--roots-sha256", pdoc["roots_pin"],
+                  "--image-id", IMAGE_ID,
+                  "--git-revision", GIT_REVISION,
+                  "--image-user", "10001:10001",
+                  "--source-status", "dirty",
+                  "--lifecycle-seconds", str(STAGE_B_SECONDS - 30),
+                  # run-real.sh:367 unified failure receipt path; identical
+                  # to the supervisor --worker-failure below.
+                  "--failure-evidence", FAILURE_REPORT,
+                  "--authorized-source-mode", "project_snapshot"]
+    else:
+        worker = ["python", "/installed-origin.py", "/materialize-real.py",
+                  image_id(), GIT_REVISION]
     evidence = "/data/var/run/monitor.json"
     # run-real.sh §: the monitor input is the HOST-FED lease file bound at
     # /control/lease (ro); a /control DIRECTORY bind would shadow a lease
@@ -1196,32 +1265,11 @@ def real_container_argv(gen, role, suffix):
                 "--lease", lease_arg, "--evidence", evidence,
                 "--seconds", "120",
                 "--", *worker]
-    # Real chain: the daemon refuses to bind-mount a FIFO, so /control/go
-    # is created INSIDE the container's mount namespace by this prelude
-    # before runpy hands control to the gate. The gate still opens it
-    # NONBLOCK and tolerates EOF/EAGAIN zero phases until the one-shot
-    # frame arrives via deliver_go's exec path. Fixture parity unaffected.
+    # v14 §4e: /control is a ro bind of the HOST go dir, so the host FIFO
+    # inode IS /control/go inside the container — no in-namespace prelude.
+    # The gate opens it NONBLOCK and tolerates EOF/EAGAIN zero phases until
+    # the one-shot frame arrives from the host writer. Fixture parity too.
     listener = ""
-    if real_docker_mode():
-        # Single-line argv element: exec(compile(<repr of prelude>)). The
-        # repr uses double quotes so the single-quoted FIFO path nests
-        # safely; no raw newline token ever reaches docker.
-        # /control is a READ-ONLY bind; the FIFO lives on the container's
-        # private tmpfs and only its path travels through argv.
-        # The container-init runs as uid 10001 (image user), same as the
-        # gate process; mode 0644 suffices and matches the §4e posture.
-        prelude = ("import os\n"
-                   "try:\n"
-                   "    os.mkfifo('/gochan/go')\n"
-                   "except FileExistsError:\n"
-                   "    pass\n"
-                   # Reader and writer of the FIFO are the same process
-                   # (container init == supervisor); 0666 merely makes the
-                   # rendezvous uid-agnostic across rehearsal vs pinned
-                   # images. The frame itself is a public derivation.
-                   "os.chmod('/gochan/go', 0o666)\n")
-        listener = ("exec(compile(%r, '<go-prelude>', 'exec'));"
-                    % prelude)
     # The bound lib is a package overlay: __init__.py re-exports the
     # supervisor module from the installed product package, so running the
     # overlay module by name keeps relative imports valid.
@@ -1231,12 +1279,31 @@ def real_container_argv(gen, role, suffix):
              "run_name='__main__')")
     return ["-B", "-c", gated,
             "--lease", lease_arg, "--evidence", evidence,
-            "--seconds", str(STAGE_B_SECONDS),
-            # artificial rehearsal mode: _publication_selection requires the
-            # request pin to be ABSENT (project_snapshot carries it in the
-            # real plan; that stays locked behind real_stage_b_locked).
-            "--go-frame-file",
-            ("/gochan/go" if real_docker_mode() else "/control/go"),
+            # run-real.sh:291 seconds=1800 (host_seconds=1830 is the HOST
+            # wait, which stays in await_container(STAGE_B_SECONDS) — the
+            # recovery/wait plane is untouched this round). Fixture/stub
+            # parity keeps the previous value.
+            "--seconds", str(STAGE_B_SECONDS - 30 if real_docker_mode()
+                              else STAGE_B_SECONDS),
+            # artificial rehearsal mode (fixture/stub): _publication_selection
+            # requires the request pin to be ABSENT. The real chain runs the
+            # project_snapshot task_control tuple above, so it passes the
+            # full run-real.sh Stage B supervisor set (§362-367): --final at
+            # the request's own output path inside executions/<attempt>, the
+            # controller-pin pair, and the worker-failure correlation pair.
+            # The materialization ro bind + /metadata bind that these paths
+            # depend on are wired in stage_b_mount_plan below.
+            *(["--final", f"/data/var/snapshots/executions/{ATTEMPT}/batch.staged.json",
+               "--authorized-source-mode", "project_snapshot",
+               "--request-sha256", pdoc["request_pin"],
+               "--controller-request-file",
+               "/data/var/snapshots/materialization/request.json",
+               "--controller-request-sha256", pdoc["request_pin"],
+               "--worker-failure", FAILURE_REPORT,
+               "--worker-request-sha256", pdoc["request_pin"]]
+              if (role == "stage-b" and real_docker_mode()) else []),
+            # request pin ABSENT for artificial mode:
+            "--go-frame-file", "/control/go",
             "--go-deadline-seconds", str(int(GO_DEADLINE_S)),
             "--authorization-copy", "/authorization/authorization.json",
             "--confirmed-sha256", confirmed_sha_of(gen),
@@ -1346,6 +1413,61 @@ def stage_a_materialization_dir():
         return None
     cand = output_dir(gen) / "durable" / "materialization"
     return cand if cand.is_dir() else None
+
+
+def _stage_a_view_binds(prior):
+    """Explicit XRG_P01_STAGE_A_VIEW channel (SNAPSHOT_HOST precedent):
+    locate the Stage A view tree, digest-gate EVERY request-referenced
+    input against the request's own pins, and emit the three readonly
+    binds (/metadata, /data/var/run/preparation, /data/var/run/review).
+    No worktree or hand-filled fallback: missing/empty/mismatch all
+    refuse BEFORE create."""
+    view = os.environ.get("XRG_P01_STAGE_A_VIEW")
+    if not view:
+        raise Refused("stage_a_view_missing",
+                      "XRG_P01_STAGE_A_VIEW unset; metadata/preparation/"
+                      "review segments untraceable")
+    view = Path(view)
+    segs = {"metadata": view / "metadata",
+            "preparation": view / "a" / "preparation",
+            "review": view / "a" / "review"}
+    for name, d in segs.items():
+        if not d.is_dir() or not any(d.iterdir()):
+            raise Refused("stage_a_view_empty", name)
+    try:
+        request, _ = read_json_strict(prior / "request.json")
+    except Exception as error:
+        raise Refused("stage_a_view_request_unreadable", str(error)[:120])
+    prefix_map = {"/metadata/": segs["metadata"],
+                  "/data/var/run/preparation/": segs["preparation"],
+                  "/data/var/run/review/": segs["review"]}
+
+    def host_for(container_path):
+        for pre, base in prefix_map.items():
+            if container_path.startswith(pre):
+                return base / container_path[len(pre):]
+        return None
+    # canonical reference set straight from the request document:
+    # roots/certificate are plain path strings pinned by top-level fields;
+    # bindings entries carry their own {path, sha256} pairs.
+    refs = [(request["roots"], request["roots_sha256"]),
+            (request["certificate"], request["certificate_sha256"])]
+    refs += [(b["path"], b["sha256"]) for b in request["bindings"].values()]
+    for cp, want in refs:
+        local = host_for(cp)
+        if local is None:
+            raise Refused("stage_a_view_missing", f"unmapped path {cp}")
+        if not local.is_file():
+            raise Refused("stage_a_view_empty", cp)
+        got = sha_bytes(read_bytes_nofollow(local))
+        if got != want:
+            raise Refused("stage_a_view_digest_mismatch",
+                          f"{cp}: expected {want} got {got}")
+    return [f"--mount type=bind,src={segs['metadata']},dst=/metadata,readonly",
+            f"--mount type=bind,src={segs['preparation']},"
+            f"dst=/data/var/run/preparation,readonly",
+            f"--mount type=bind,src={segs['review']},"
+            f"dst=/data/var/run/review,readonly"]
 
 
 class MonitorFeeder:
@@ -1788,7 +1910,11 @@ def cmd_stage_b(args):
             update_consumed_state(gen, container_id, "INVALID_READBACK")
             raise Refused("readback_timeout", scope)
         try:
-            delivered = deliver_go(gen, values, reader_waited)
+            if real_docker_mode():
+                delivered = deliver_go(gen, values, reader_waited,
+                                       deadline=time.monotonic() + GO_DELIVERY_WINDOW_S)
+            else:
+                delivered = deliver_go(gen, values, reader_waited)
         except NoGoDelivery:
             if not reader_ready:
                 cleanup_running(container_id, gen)
@@ -1855,29 +1981,18 @@ def stage_b_mount_plan(gen, args):
         for need in ("go_gated_supervisor.py", "go_gated_overlay.py"):
             if not (lib / need).is_file():
                 raise Refused("supervisor_overlay_missing", str(lib / need))
-        # The daemon refuses to bind-mount a FIFO (file-level or via its
-        # containing directory) and /control is read-only besides, so the
-        # §4e channel is created INSIDE the container's mount namespace on
-        # a private tmpfs (/gochan) by the argv prelude. deliver_go below
-        # writes the one-shot frame through `docker exec` into that FIFO.
-        # The gate semantics are unchanged: NONBLOCK open, EOF/EAGAIN zero
-        # phases, exactly one "GO <hex64>" frame, writer close. No socket
-        # plane exists anywhere: --network none stays intact.
+        # v14 §4e: /control is a read-only bind of the HOST go dir, so
+        # the container sees the host FIFO inode AS /control/go (R12:
+        # directory binds carry FIFOs fine; the earlier daemon-refusal
+        # claim was disproved). The gate opens it NONBLOCK, tolerates
+        # EOF/EAGAIN zero phases, and reads exactly one "GO <hex64>"
+        # frame before the writer closes. The lease keeps its single-file
+        # ro bind below: same source file, in-place updates propagate.
+        # No socket plane exists anywhere: --network none stays intact.
+        base.append(f"--mount type=bind,src={go_dir(gen)},"
+                    f"dst=/control,readonly")
         base.append(f"--mount type=bind,src={go_dir(gen) / 'lease'},"
                     f"dst=/control/lease,readonly")
-        # mode 777 + sticky mirrors /tmp: the container init runs as root
-        # (creates the FIFO), the gate process runs as uid 10001 and must
-        # open it. Same posture as run-real.sh's scratch tmpfs family.
-        # Permission model: the GO channel carries exactly one public
-        # value — the nonce, which §4e defines as derivable from bytes the
-        # container ALREADY holds (confirmed ‖ GEN-ID ‖ attempt). It is not
-        # a secret and needs no cross-uid confidentiality plane. The
-        # rehearsal image ships no USER directive (init uid 0), so a
-        # uid-pinned tmpfs would be unreadable to its owner's own gate;
-        # mode=1777 (sticky, like the /tmp mount below) keeps the single
-        # creator==reader invariant while working under both uids. size
-        # caps it at 64 KiB; only the FIFO inode ever lives there.
-        base.append("--tmpfs /gochan:rw,nosuid,nodev,size=65536,mode=1777")
         # Stage B input closure: the Stage A materialization dir becomes a
         # read-only bind (run-real.sh: $mat_run/.../materialization). The
         # rehearsal snapshot plane replaces the real one via SNAPSHOT_HOST.
@@ -1885,11 +2000,25 @@ def stage_b_mount_plan(gen, args):
         if prior is None:
             raise Refused("materialization_missing",
                           "real chain requires completed stage-a outputs")
-        # run-real.sh binds the Stage A materialization directory READ-
-        # WRITE into Stage B (the worker writes its request.json there);
-        # read-only would break the product contract.
+        # run-real.sh:340 binds the Stage A materialization directory into
+        # Stage B READ-ONLY; the worker never writes there — its outputs go
+        # to /data/var/run (evidence) and executions/<attempt> (batch). The
+        # request/approval pair inside it is what task_control reads through
+        # this ro bind, which also satisfies _require_readonly_mount.
         base.append(f"--mount type=bind,src={prior},"
-                    f"dst=/data/var/snapshots/materialization")
+                    f"dst=/data/var/snapshots/materialization,readonly")
+        # Stage A view closure: /metadata + preparation + review inputs the
+        # request references must be bindable AND digest-verified against
+        # the request's own pins before they ever reach create.
+        base.extend(_stage_a_view_binds(prior))
+        # --final's parent must exist BEFORE create (publish_batch resolves
+        # it strict), and the product requires request.output.parent plus
+        # scratch_parent to be present directories owned for uid 10001
+        # (run-real.sh:322-325). output_bind already created these under
+        # executions/<attempt>; re-assert and hand ownership over.
+        attempt_exec = output_dir(gen) / "executions" / ATTEMPT
+        (attempt_exec / "scratch").mkdir(parents=True, exist_ok=True)
+        _chown_tree(output_dir(gen) / "executions")
         base.append(f"--mount type=bind,src={output_dir(gen) / 'executions'},"
                     f"dst=/data/var/snapshots/executions")
     return base + ["--cpus 0.5", "--memory 768m", "--memory-swap 768m",
@@ -2070,45 +2199,65 @@ def process_priority_evidence(container_id):
                 return process_priority_evidence_via_exec(container_id)
             return dict(ok=False, reason=f"proc_read:{type(error).__name__}")
     offenders, seen = [], []
+    if not tasks:
+        # An empty task list means NOTHING was observed; ok=True by vacuity
+        # would be a silent pass. Fail explicitly instead.
+        return dict(ok=False, reason="no_task_rows")
     for tid in tasks:
         try:
             stat = raw[tid]
             # field 19 (nice) after comm which may contain spaces/parens
             after = stat.rpartition(")")[2].split()
             nice = int(after[16])
-            with open(f"/proc/{pid}/task/{tid}/status") as fh:
-                io_line = ""
-                for line in fh:
-                    if line.startswith("IoPriority:"):
-                        io_line = line.strip()
-                        break
-            pol = int(io_line.split()[1], 8) >> 13 if len(io_line.split()) > 1 else -1
-        except (OSError, IndexError, ValueError) as error:
+            # I/O class read-back: /usr/bin/ionice -p <tid> — the kernel
+            # ioprio_get through util-linux. This kernel family (6.12.x)
+            # exposes no IoPriority line in /proc status at all, and raw
+            # syscall numbers are banned here (no system headers), so the
+            # CLI is the only auditable source. util-linux reports
+            # classless as "none: prio 0"; rc!=0 / unparsable output =>
+            # pol=-1 => _priority_offender fails closed with an explicit
+            # ioprio_query_failed reason, never a silent pass.
+            r = subprocess.run(["/usr/bin/ionice", "-p", str(tid)],
+                               capture_output=True, text=True, timeout=5)
+            pol = -1
+            if r.returncode == 0:
+                head = r.stdout.strip().split(":")[0]
+                pol = {"idle": 3, "best-effort": 2, "realtime": 1,
+                       "none": 0, "null": 0}.get(head, -1)
+        except (OSError, IndexError, ValueError,
+                subprocess.SubprocessError) as error:
             return dict(ok=False, reason=f"proc_read:{type(error).__name__}")
         seen.append(dict(tid=tid, nice=nice, ionice_class=pol))
-        # IDLE(3) passes; NONE(0) is kernel-equivalent for IO scheduling.
-        if nice != 19 or pol not in (0, 3):
-            offenders.append(dict(tid=tid, nice=nice, ionice_class=pol))
+        # Shared judgement: only nice==19 with IDLE(3) passes (docstring
+        # stance); classless NONE(0) is NOT accepted; pol<0 is an
+        # explicit query failure.
+        verdict = _priority_offender(nice, pol)
+        if verdict is not None:
+            offenders.append(dict(tid=tid, nice=nice, ionice_class=pol,
+                                  why=verdict))
     return dict(ok=not offenders, tasks=len(seen), offenders=offenders[:8],
                 evidence="host_procfs", sample=seen[:4])
 
 
-# Python one-liner inside the container: prints "<tid> <nice> <ionice_class>"
-# per task. nice is field 19 of /proc/<pid>/task/<tid>/stat (after the
-# comm paren); ionice class is bits 13+ of the octal IoPriority policy from
-# status. The gate process runs as uid 10001 and sees ONLY its own
-# namespace — a kernel fact, not a supervisor self-report.
-# x86_64: __NR_ioprio_get is 31 and takes (which, who) — NOT the generic
-# syscall(3) shape; ctypes' variadic .syscall() adds a dummy arg, so 32
-# lands on the real entry (verified against the rehearsal image: after
-# `ionice -c3`, rc>>13 == 3 == IOPRIO_CLASS_IDLE). nice comes from field
-# 19 of task stat. Kernel facts only, never the supervisor's self-report.
-# Snapshot discipline: open every task's stat handle FIRST (one atomic-ish
-# sweep), then parse. A helper thread that exits mid-scan can no longer
-# poison the audit with defaults; its row simply never materialises.
+# Snapshot one-liner inside the container: prints "<tid> <nice> <pol>" per
+# task, pol being the ionice class (0 none/classless, 1 realtime, 2
+# best-effort, 3 idle) or -1 when the query failed. nice is field 19 of
+# /proc/<pid>/task/<tid>/stat (after the comm paren). The ionice class is
+# read through /usr/bin/ionice -p <tid> — the same kernel ioprio_get the
+# host path uses; on this kernel family (6.12.x here) /proc status exposes
+# no IoPriority line at all, and a raw syscall number would violate the
+# "numbers only from system headers" rule (this host has no headers), so
+# neither procfs nor ctypes/syscall is an option. util-linux reports
+# classless as "none: prio 0"; any rc!=0 or unparsable row becomes
+# QUERY_FAILED (-1) explicitly — never silently skipped, never defaulted
+# to a pass value. The gate process runs as uid 10001 and sees ONLY its
+# own namespace — a kernel fact, not a supervisor self-report.
+# Snapshot discipline: resolve every task's stat FIRST (one atomic-ish
+# sweep), then query priorities. A helper thread that exits mid-scan can
+# no longer poison the audit with defaults; its row surfaces as -1 and the
+# consumer fails closed.
 _PROC_SNAPSHOT = (
-    "import ctypes,glob,os\n"
-    "libc=ctypes.CDLL(None,use_errno=True)\n"
+    "import glob,subprocess\n"
     "handles=[]\n"
     "for d in sorted(glob.glob('/proc/[0-9]*/task/[0-9]*')):\n"
     "    try:\n"
@@ -2119,11 +2268,34 @@ _PROC_SNAPSHOT = (
     "    try:\n"
     "        tid=int(d.rsplit('/',1)[-1])\n"
     "        nice=int(st.rpartition(')')[2].split()[16])\n"
-    "        rc=libc.syscall(32,1,tid,0)\n"
-    "        pol=(rc>>13)&0x7 if rc>=0 else -1\n"
-    "        print(tid,nice,pol)\n"
-    "    except (OSError,IndexError,ValueError):\n"
-    "        pass")
+    "    except (IndexError,ValueError):\n"
+    "        continue\n"
+    "    pol=-1\n"
+    "    try:\n"
+    "        r=subprocess.run(['/usr/bin/ionice','-p',str(tid)],\n"
+    "                         capture_output=True,text=True,timeout=5)\n"
+    "        if r.returncode==0:\n"
+    "            head=r.stdout.strip().split(':')[0]\n"
+    "            pol={'idle':3,'best-effort':2,'realtime':1,\n"
+    "                 'none':0,'null':0}.get(head,-1)\n"
+    "    except Exception:\n"
+    "        pol=-1\n"
+    "    print(tid,nice,pol)")
+
+
+def _priority_offender(nice, pol):
+    """Single judgement shared by BOTH priority-evidence paths. Only
+    nice==19 with ionice class IDLE(3) passes — matching the docstring
+    stance ('only class 3 passes'); classless NONE(0) is NOT accepted.
+    pol<0 (QUERY_FAILED) fails closed with an explicit reason instead of
+    mixing into the ordinary offender rows."""
+    if pol < 0:
+        return "ioprio_query_failed"
+    if nice != 19:
+        return "nice_not_19"
+    if pol != 3:
+        return f"ionice_class={pol}"
+    return None
 
 
 def process_priority_evidence_via_exec(container_id):
@@ -2173,8 +2345,11 @@ def process_priority_evidence_via_exec(container_id):
     main = [r for r in rows if r["tid"] in supervisor_pids]
     if not main:
         return dict(ok=False, reason="exec_init_row_missing")
-    offenders = [r for r in main if r["nice"] != 19
-                 or r["ionice_class"] not in (0, 3)]
+    offenders = []
+    for r in main:
+        verdict = _priority_offender(r["nice"], r["ionice_class"])
+        if verdict is not None:
+            offenders.append(dict(**r, why=verdict))
     seen = rows
     return dict(ok=not offenders, tasks=len(seen), offenders=offenders[:8],
                 evidence="container_procfs_via_exec", sample=seen[:4])
@@ -2321,7 +2496,7 @@ def fifo_readers_present(gen, container_id=None):
             "        t=os.readlink(l)\n"
             "    except OSError:\n"
             "        continue\n"
-            "    if t in ('/gochan/go','/control/go'):\n"
+            "    if t in ('/control/go',):\n"
             "        print('READER'); break", timeout=8, capture=True)
         if code == 0 and "READER" in out:
             return True
@@ -2370,18 +2545,20 @@ class NoGoDelivery(Exception):
     pass
 
 
-def deliver_go(gen, values, reader_waited=0.0):
+def deliver_go(gen, values, reader_waited=0.0, deadline=None):
     p = paths()
     fifo = go_dir(gen) / "go"
     nonce = nonce_of(gen)
     frame = f"GO {nonce}\n".encode()
-    if real_docker_mode():
-        return deliver_go_exec(gen, values, reader_waited, nonce, frame)
-    # §4e: the delivery window starts when readback passed; the fixture
-    # harness may already have spent part of it waiting for the simulated
-    # container-init to come up, so the budget covers both.
-    deadline = time.monotonic() + max(GO_DELIVERY_WINDOW_S,
-                                      GO_DEADLINE_S - reader_waited)
+    # §4e wired: BOTH modes use this host writer against the same FIFO
+    # inode the container reads through the /control ro bind. The formal
+    # call site passes an absolute deadline (readback-passed + 5.0); the
+    # fixture call site does NOT and keeps the legacy window below:
+    # max(GO_DELIVERY_WINDOW_S, GO_DEADLINE_S - reader_waited).
+    explicit_deadline = deadline is not None
+    if deadline is None:
+        deadline = time.monotonic() + max(GO_DELIVERY_WINDOW_S,
+                                          GO_DEADLINE_S - reader_waited)
     fd = None
     while fd is None and time.monotonic() < deadline:
         probe = None
@@ -2396,9 +2573,18 @@ def deliver_go(gen, values, reader_waited=0.0):
                 raise
             if probe is not None:
                 os.close(probe)
-            time.sleep(0.1)
+            remaining = deadline - time.monotonic()
+            if remaining <= 0:
+                break
+            time.sleep(min(0.1, remaining))
     if fd is None:
         raise NoGoDelivery(f"no reader on {fifo}")
+    # Explicit-deadline mode only: a slow open that RETURNS at or after
+    # the deadline must not write — close the fd once (outside the write
+    # try, so no double close) and refuse before any receipt exists.
+    if explicit_deadline and time.monotonic() >= deadline:
+        os.close(fd)
+        raise NoGoDelivery(f"deadline reached before write on {fifo}")
     try:
         os.write(fd, frame)
     finally:
@@ -2418,46 +2604,6 @@ def _relax_outside_sandbox(path):
         os.chmod(str(path), 0o644)
     except OSError:
         pass
-
-
-def deliver_go_exec(gen, values, reader_waited, nonce, frame):
-    """Real-chain §4e delivery: the one-shot frame travels over `docker
-    exec` stdin into the container-local FIFO created by the argv prelude.
-    The writer blocks until the gate opens the read end (kernel-level
-    rendezvous identical to the fixture's host FIFO), writes exactly one
-    frame, closes. --network none stays intact: no socket plane exists."""
-    container_id = current_container(gen)
-    if not container_id:
-        raise NoGoDelivery(f"no live container for gen {gen}")
-    deadline = time.monotonic() + max(GO_DELIVERY_WINDOW_S,
-                                      GO_DEADLINE_S - reader_waited)
-    while True:
-        code, out, err = docker_stdin(
-            ["exec", "-i", container_id, "sh", "-c", "cat > /gochan/go"],
-            frame, DOCKER_TIMEOUT + 15)
-        if code == 0:
-            break
-        if time.monotonic() >= deadline:
-            raise NoGoDelivery(f"exec delivery failed rc={code}: "
-                               f"{(err or out)[:160]}")
-        time.sleep(0.25)
-    delivered = dict(gen_id=gen, nonce=nonce, readback=values,
-                     delivered_at=now_iso(),
-                     semantics="host wrote and closed only via docker exec")
-    write_durable(go_dir(gen) / "DELIVERED.json", canon(delivered), mode=0o640)
-    _relax_outside_sandbox(go_dir(gen) / "DELIVERED.json")
-    record("GO_DELIVERED", gen=gen)
-    return delivered
-
-
-def docker_stdin(args, payload, timeout):
-    """Run docker with bytes on stdin. Sanctioned only for deliver_go_exec
-    (§4e real-chain frame over exec); returns (rc, stdout, stderr)."""
-    result = subprocess.run([docker_bin(), *map(str, args)], input=payload,
-                            capture_output=True, text=False, timeout=timeout,
-                            check=False)
-    return (result.returncode, (result.stdout or b"").decode(errors="replace"),
-            (result.stderr or b"").decode(errors="replace"))
 
 
 def current_container(gen):

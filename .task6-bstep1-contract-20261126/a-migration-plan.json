@@ -154,7 +154,13 @@
   ],
   "legacy_uncovered_before": 7995,
   "total_members": 8004,
-  "uncovered_after_migration": 7981
+  "uncovered_after_migration": 7981,
+  "unexplained_semantics": {
+   "coverage_unexplained": 7981,
+   "coverage_unexplained_note": "coverage.unexplained = 全部 explained=False 的记录，含无规则成员，故等于未覆盖数 7981",
+   "explained_among_matched": 23,
+   "explained_among_matched_note": "23 个有规则成员全部 explained=True（有规则成员中未解释数=0）"
+  }
  },
  "rule_reverse_lookup_summary": {
   "exclusive_single_owner": 23,

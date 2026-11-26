@@ -1,7 +1,7 @@
 """SOCIAL_INSTITUTION_ADDR single-table PG loader candidate (stdlib-only).
 
 Scope: exactly one target, ``cbdb.cbdb__social_u5f_institution_u5f_addr``, bound to the
-B-batch single-table frozen candidate d3cdb81c… and approved source member m007906
+B-batch single-table frozen candidate 56b0076d… and approved source member m007906
 (3859 rows, approved source-side canonical sha 2cb8c354…).
 
 Design mirrors first_batch_loader: every gate runs BEFORE any write; the load is ONE
@@ -28,7 +28,7 @@ TARGET_SCHEMA = "cbdb"
 TARGET_TABLE = "cbdb__social_u5f_institution_u5f_addr"
 EXPECTED_ROWS = 3859
 EXPECTED_SOURCE_SHA = "2cb8c354b0e75e6ae230e3b00540146e823eaa8de8def2abce89ad6179a07579"
-EXPECTED_CANDIDATE_SHA = "d3cdb81c4caf75c92a96e548025c39aab1d1d8a301b0f0d7b4e30286243d8bef"
+EXPECTED_CANDIDATE_SHA = "56b0076d2e877be9fb34796e01b8ee2b37d5a817c8e80203fa21c95e4f3f8237"
 
 
 class LoaderGateError(Exception):
@@ -91,12 +91,24 @@ def validate_scope(scope, presented):
     if sorted(t.get("databases_forbidden") or []) != sorted(presented["forbidden"]):
         raise LoaderGateError("forbidden_database_set_drift")
     # Gate 1b: contract review must trace to THIS mapping + constraint approval.
-    # Missing evidence BLOCKS the run; it is never patched in by the loader.
+    # The chain is verified structurally, not by a self-declared status string:
+    #   contract.review.approval_ref  ==  approval record event id
+    #   approval record approval_text_verbatim_sha256 == presented digest
+    #   approval record bound approval-table digest  == presented digest
+    # Any missing link BLOCKS the run; the loader never patches evidence in.
     rt = scope["review_traceability"]
     if rt.get("status") != "COMPLETE":
         raise LoaderGateError("review_traceability_incomplete", rt.get("missing_chain", ""))
     if rt.get("approval_table_sha256") != presented["approval_table_sha256"]:
         raise LoaderGateError("approval_table_digest_mismatch")
+    if rt.get("approval_text_sha256") != presented["approval_text_sha256"]:
+        raise LoaderGateError("approval_text_digest_mismatch")
+    if rt.get("contract_review_ref") != presented["contract_review_ref"]:
+        raise LoaderGateError("contract_review_ref_mismatch")
+    if rt.get("approval_record_event") != presented["contract_review_ref"]:
+        raise LoaderGateError("approval_record_ref_mismatch")
+    if not isinstance(rt.get("approval_text_bytes"), int) or rt["approval_text_bytes"] <= 0:
+        raise LoaderGateError("approval_text_missing")
 
 
 def check_instance_identity(observed, expected):
@@ -157,6 +169,8 @@ def run_single_table(session, scope, contract, target, data, instance_observed, 
         "inventory_sha256": expected["inventory_sha256"],
         "source_sha256": expected["source_sha256"],
         "approval_table_sha256": expected["approval_table_sha256"],
+        "approval_text_sha256": expected["approval_text_sha256"],
+        "contract_review_ref": expected["contract_review_ref"],
         "forbidden": expected["forbidden"],
     }
     validate_scope(scope, presented)
@@ -245,6 +259,10 @@ def _load_and_verify(session, contract, target, data, expected, corrupt=None):
                 evidence["coord_roundtrip_inexact_rows"] = max(1, evidence["coord_roundtrip_inexact_rows"])
             if evidence["coord_roundtrip_inexact_rows"] != 0:
                 raise LoaderGateError("coordinate_roundtrip_inexact")
+
+        # Whole-table value verification is delegated to the project's unordered
+        # comparator (see the trial driver / acceptance step): inventing a local
+        # canonical digest here would silently diverge from the approved 2cb8c354…口径.
 
         session.commit()
         evidence["committed"] = True

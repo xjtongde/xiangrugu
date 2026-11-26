@@ -1,0 +1,50 @@
+{
+ "anchored_commit": "34c7cd4f403b2db6c667b294e015b224ba296449",
+ "anchored_commit_note": "批准原文所引用的 Gitea 提交，即本补正盒的基线",
+ "approval_channel": "茶香转发给 DSH（direct user message in session）",
+ "approval_text_verbatim": "茶香批准原文\n\n我批准以 Gitea 提交 34c7cd4f403b2db6c667b294e015b224ba296449\n中的 b-approval-table-v2.json 为依据，将源成员 m007906 的\nSOCIAL_INSTITUTION_ADDR 映射到 cbdb.cbdb__social_u5f_institution_u5f_addr。\n批准该表 11 列的名称、顺序、类型和可空性，按源顺序建立六列复合主键，\n保留六列 NOT NULL、五列可空。其余 UNIQUE、二级索引、外键不新增，\n五个 DEFAULT NULL 的源声明留证，目标 DDL 省略显式默认值。\n绑定 3859 行和已验收的源侧规范值摘要 2cb8c354…。\n本次授权登记审批、更新冻结候选、实现正式入口候选及隔离测试。\n不批准正式库写入。\n\n第 6/6 块后续·第 2/6 步补正｜30 分钟\nlead 执行并收口，a03 独立复核。\n\n1. 逐字登记上面的批准原文、真实转发时间和 SHA-256，绑定审批表摘要。\n   更新冻结候选 review 并重算规范摘要，核对与 d3cdb81c… 相比仅审批\n   记录变化。同步更新装载器绑定，不沿用旧时间或首批写库审批。\n2. 交付正式执行命令候选。固定目标 pg32b:5433/xiangrugu，区分会话内\n   5432；在执行 DDL 的同一会话核验实例标记和装载角色。从实际冻结合同\n   重算摘要，由同一解析结果驱动装载。正式写库须另有独立授权，本盒仅用\n   隔离测试审批，并证明测试审批无法触达正式目标。\n3. 用同一入口在隔离实例验证 3859 行、11 列、有序主键、NULL、坐标、\n   全量值摘要和失败后整表回滚。交付完整提交、审批追溯证据、正反例、\n   回归失败集合对照及首个缺口。到点报 PASS／PARTIAL／BLOCKED。\n\n不更新 deploy、不改生产权限或服务、不连接生产 PG、不写正式库。保留 M=2。",
+ "approval_text_verbatim_bytes": 1799,
+ "approval_text_verbatim_file": "approval-text-verbatim.txt",
+ "approval_text_verbatim_sha256": "ec0fa5cf029c37e1bdbb94102553d145bd4d901d74489ac7b98ecdb3d42d4f12",
+ "approved_scope": [
+  "源成员 m007906 的 SOCIAL_INSTITUTION_ADDR 映射到 cbdb.cbdb__social_u5f_institution_u5f_addr",
+  "11 列的名称、顺序、类型、可空性",
+  "按源顺序建立六列复合主键",
+  "六列 NOT NULL、五列可空",
+  "五个 DEFAULT NULL 源声明留证，目标 DDL 省略显式默认值",
+  "绑定 3859 行与源侧规范值摘要 2cb8c354…",
+  "登记审批、更新冻结候选、实现正式入口候选及隔离测试"
+ ],
+ "approver": "茶香",
+ "authorization_statement": "不批准正式库写入。",
+ "bound_approval_table": {
+  "columns_approved": 11,
+  "file": "datamgmt/contracts/releases/2026-10-06-bootstrap/b-approval-table-v2.json",
+  "note": "茶香明确：以该表为批准依据",
+  "sha256": "a718b0c297501642dd105eb3797f96dc1de2edf8eb521bed6609ff78de1fb4a0"
+ },
+ "box_scope_limits": {
+  "deploy_updated": false,
+  "m2_preserved": true,
+  "production_db_written": false,
+  "production_permissions_changed": false,
+  "production_pg_connected": false,
+  "production_service_changed": false
+ },
+ "duration_authorized": "30 分钟",
+ "event": "chaxiang-approval-social-institution-addr-bstep2-correction-20261126",
+ "explicitly_not_authorized": [
+  "正式库写入",
+  "新增 UNIQUE、二级索引、外键",
+  "沿用旧批准时间",
+  "复用首批写库审批 88f4f1ac…"
+ ],
+ "registered_at_utc": "2026-11-26T16:55:36Z",
+ "registered_by": "DSH/lead",
+ "roles": {
+  "executor": "lead",
+  "independent_reviewer": "a03"
+ },
+ "task_number": "第 6/6 块后续·第 2/6 步补正",
+ "version": 1
+}

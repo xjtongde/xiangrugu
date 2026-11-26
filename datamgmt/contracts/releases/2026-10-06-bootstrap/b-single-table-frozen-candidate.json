@@ -3,8 +3,8 @@
  "inventory_sha256": "fb5e6b334b898d62dc0e5c77094fdb50e0946300e6e3009f447b2ecd1bc216db",
  "release_id": "2026-11-26-bstep1-addr-single-table-frozen-candidate",
  "review": {
-  "approval_ref": "chaxiang-authorized-20261126-bstep1-close-batch",
-  "approved_at": "2026-11-26T14:30:00Z",
+  "approval_ref": "chaxiang-approval-social-institution-addr-bstep2-correction-20261126",
+  "approved_at": "2026-11-26T16:55:36Z",
   "approved_by": "茶香"
  },
  "rules": [

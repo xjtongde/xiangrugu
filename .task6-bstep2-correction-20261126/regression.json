@@ -1,0 +1,27 @@
+{
+ "entry_and_loader_changes_verified": [
+  "loader 绑定新冻结合同摘要 56b0076d…",
+  "审查追溯门升级为结构化校验（原文摘要、合同 review ref、审批记录事件 id 三方一致）",
+  "Gate E 修正：测试审批允许隔离替身、拒绝绑定生产容器",
+  "Gate A：正式库名固定 xiangrugu，仅 test_only 替身可用别名",
+  "装载角色改用 current_user 判定，并显式检出 SET ROLE 覆盖"
+ ],
+ "format": "xiangrugu.task6-bstep2.correction.regression.v1",
+ "full_unit_failset": {
+  "after": 228,
+  "baseline_note": "228 条为既有环境缺口（deploy 内缺 .task6-* 隐藏证据目录），非本盒引入",
+  "before": 228,
+  "fixed": 0,
+  "new_failures": 0
+ },
+ "generators_idempotent": [
+  "cbdb",
+  "tabular",
+  "rollup"
+ ],
+ "new_tests": {
+  "combined": "43 passed",
+  "test_cbdb_social_addr_entry.py": "22 项",
+  "test_cbdb_social_addr_loader.py": "21 项"
+ }
+}

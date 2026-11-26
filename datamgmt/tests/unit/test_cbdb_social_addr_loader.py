@@ -10,6 +10,9 @@ from xiangrugu_datamgmt import cbdb_social_addr_loader as L
 CAND = L.EXPECTED_CANDIDATE_SHA
 SRC = L.EXPECTED_SOURCE_SHA
 APPR = "a718b0c297501642dd105eb3797f96dc1de2edf8eb521bed6609ff78de1fb4a0"
+# 茶香逐字批准原文（本步补正登记件）的摘要
+VTEXT = "ec0fa5cf029c37e1bdbb94102553d145bd4d901d74489ac7b98ecdb3d42d4f12"
+REF = "chaxiang-approval-social-institution-addr-bstep2-correction-20261126"
 
 
 def _target():
@@ -41,7 +44,11 @@ def _scope(**over):
                     "constraints_to_create": _target()["constraints_to_create"],
                     "databases_forbidden": _target()["databases_forbidden"]},
          "full_ready_for_import": False,
-         "review_traceability": {"status": "COMPLETE", "approval_table_sha256": APPR}}
+         "review_traceability": {"status": "COMPLETE", "approval_table_sha256": APPR,
+                                 "approval_text_sha256": VTEXT,
+                                 "approval_text_bytes": 1799,
+                                 "contract_review_ref": REF,
+                                 "approval_record_event": REF}}
     s.update(over)
     return s
 
@@ -49,6 +56,7 @@ def _scope(**over):
 def _presented(**over):
     p = {"candidate_sha256": CAND, "contract_sha256": "c", "inventory_sha256": "i",
          "source_sha256": "m", "approval_table_sha256": APPR,
+         "approval_text_sha256": VTEXT, "contract_review_ref": REF,
          "forbidden": ["pg32b", "cbdb", "cbdb_reh"]}
     p.update(over)
     return p
@@ -191,3 +199,33 @@ def test_absent_target_passes_gate():
 def test_pg_type_name_is_exact():
     assert L._pg_type_name("double precision") == "double precision"
     assert L._pg_type_name("bigint") == "bigint"
+
+def test_scope_blocks_on_verbatim_text_digest_mismatch():
+    """The verbatim approval text digest must match, not just a status string."""
+    scope = _scope()
+    scope["review_traceability"]["approval_text_sha256"] = "f" * 64
+    with pytest.raises(L.LoaderGateError) as e:
+        L.validate_scope(scope, _presented())
+    assert e.value.code == "approval_text_digest_mismatch"
+
+
+def test_scope_blocks_when_contract_review_ref_differs_from_approval_record():
+    scope = _scope()
+    scope["review_traceability"]["contract_review_ref"] = "some-other-ref"
+    with pytest.raises(L.LoaderGateError) as e:
+        L.validate_scope(scope, _presented())
+    assert e.value.code == "contract_review_ref_mismatch"
+
+
+def test_scope_blocks_when_approval_text_missing():
+    scope = _scope()
+    scope["review_traceability"]["approval_text_bytes"] = 0
+    with pytest.raises(L.LoaderGateError) as e:
+        L.validate_scope(scope, _presented())
+    assert e.value.code == "approval_text_missing"
+
+
+def test_loader_binds_the_new_frozen_candidate_digest():
+    """After the review update the contract digest moved to 56b0076d…."""
+    assert L.EXPECTED_CANDIDATE_SHA == (
+        "56b0076d2e877be9fb34796e01b8ee2b37d5a817c8e80203fa21c95e4f3f8237")

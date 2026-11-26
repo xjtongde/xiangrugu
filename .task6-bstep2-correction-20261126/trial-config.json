@@ -1,0 +1,110 @@
+{
+ "conninfo": "host=/var/run/postgresql port=5432 dbname=trialdb user=xrg_loader password=loaderonly",
+ "contract_path": "/tmp/ut/cand.json",
+ "dbname": "trialdb",
+ "expected": {
+  "approval_table_sha256": "a718b0c297501642dd105eb3797f96dc1de2edf8eb521bed6609ff78de1fb4a0",
+  "approval_text_sha256": "ec0fa5cf029c37e1bdbb94102553d145bd4d901d74489ac7b98ecdb3d42d4f12",
+  "candidate_sha256": "56b0076d2e877be9fb34796e01b8ee2b37d5a817c8e80203fa21c95e4f3f8237",
+  "container_id": "164c5abc08cb27ec6a969ab116dc7970bd35a95228fdc05f1f2ba5743e183173",
+  "contract_review_ref": "chaxiang-approval-social-institution-addr-bstep2-correction-20261126",
+  "contract_sha256": "56b0076d2e877be9fb34796e01b8ee2b37d5a817c8e80203fa21c95e4f3f8237",
+  "expected_source_member_sha256": "bde1bb8eece3820d9e236c1d6b0f07d847d339669d4a85d79cd7252d58d83400",
+  "expected_source_sha256": "2cb8c354b0e75e6ae230e3b00540146e823eaa8de8def2abce89ad6179a07579",
+  "forbidden": [
+   "pg32b",
+   "cbdb",
+   "cbdb_reh",
+   "xiangrugu"
+  ],
+  "image_id": "sha256:d562e43664f996da0e4208b375c00c111a543d996475188d852e9189b2a8cd05",
+  "instance_fingerprint": "164c5abc08cb27ec6a969ab116dc7970bd35a95228fdc05f1f2ba5743e183173",
+  "instance_identity": {
+   "container_id": "164c5abc08cb27ec6a969ab116dc7970bd35a95228fdc05f1f2ba5743e183173",
+   "databases": "postgres,template0,template1,trialdb",
+   "image_id": "sha256:d562e43664f996da0e4208b375c00c111a543d996475188d852e9189b2a8cd05",
+   "inet_server_addr": "127.0.0.1/32",
+   "server_version": "18.6 (Debian 18.6-1.pgdg12+2)"
+  },
+  "inventory_sha256": "fb5e6b334b898d62dc0e5c77094fdb50e0946300e6e3009f447b2ecd1bc216db",
+  "null_counts": {
+   "c_u5f_inst_u5f_addr_u5f_begin_u5f_year": 3005,
+   "c_u5f_inst_u5f_addr_u5f_end_u5f_year": 3857,
+   "c_u5f_inst_u5f_addr_u5f_id": 0,
+   "c_u5f_inst_u5f_addr_u5f_type_u5f_code": 0,
+   "c_u5f_inst_u5f_code": 0,
+   "c_u5f_inst_u5f_name_u5f_code": 0,
+   "c_u5f_notes": 752,
+   "c_u5f_pages": 334,
+   "c_u5f_source": 219,
+   "inst_u5f_xcoord": 0,
+   "inst_u5f_ycoord": 0
+  },
+  "pk_columns": [
+   "c_u5f_inst_u5f_addr_u5f_id",
+   "c_u5f_inst_u5f_addr_u5f_type_u5f_code",
+   "c_u5f_inst_u5f_code",
+   "c_u5f_inst_u5f_name_u5f_code",
+   "inst_u5f_xcoord",
+   "inst_u5f_ycoord"
+  ],
+  "row_count": 3859,
+  "source_member_sha256": "bde1bb8eece3820d9e236c1d6b0f07d847d339669d4a85d79cd7252d58d83400",
+  "source_sha256": "2cb8c354b0e75e6ae230e3b00540146e823eaa8de8def2abce89ad6179a07579"
+ },
+ "password": "loaderonly",
+ "port": 5432,
+ "role": "xrg_loader",
+ "scope": {
+  "approval_table_sha256": "a718b0c297501642dd105eb3797f96dc1de2edf8eb521bed6609ff78de1fb4a0",
+  "approval_text_sha256": "ec0fa5cf029c37e1bdbb94102553d145bd4d901d74489ac7b98ecdb3d42d4f12",
+  "contract_review_ref": "chaxiang-approval-social-institution-addr-bstep2-correction-20261126",
+  "contract_sha256": "56b0076d2e877be9fb34796e01b8ee2b37d5a817c8e80203fa21c95e4f3f8237",
+  "endpoint_mapping_verified": true,
+  "expected_image_id": "sha256:d562e43664f996da0e4208b375c00c111a543d996475188d852e9189b2a8cd05",
+  "expected_source_member_sha256": "bde1bb8eece3820d9e236c1d6b0f07d847d339669d4a85d79cd7252d58d83400",
+  "expected_source_sha256": "2cb8c354b0e75e6ae230e3b00540146e823eaa8de8def2abce89ad6179a07579",
+  "forbidden": [
+   "pg32b",
+   "cbdb",
+   "cbdb_reh",
+   "xiangrugu"
+  ],
+  "full_ready_for_import": false,
+  "instance_fingerprint": "164c5abc08cb27ec6a969ab116dc7970bd35a95228fdc05f1f2ba5743e183173",
+  "inventory_sha256": "fb5e6b334b898d62dc0e5c77094fdb50e0946300e6e3009f447b2ecd1bc216db",
+  "mode": "execution-candidate",
+  "review_traceability": {
+   "approval_record_event": "chaxiang-approval-social-institution-addr-bstep2-correction-20261126",
+   "approval_table_sha256": "a718b0c297501642dd105eb3797f96dc1de2edf8eb521bed6609ff78de1fb4a0",
+   "approval_text_bytes": 1799,
+   "approval_text_sha256": "ec0fa5cf029c37e1bdbb94102553d145bd4d901d74489ac7b98ecdb3d42d4f12",
+   "contract_review_ref": "chaxiang-approval-social-institution-addr-bstep2-correction-20261126",
+   "status": "COMPLETE"
+  },
+  "target": {
+   "schema_name": "cbdb",
+   "table": "cbdb__social_u5f_institution_u5f_addr"
+  },
+  "target_endpoint": {
+   "container_id": "164c5abc08cb27ec6a969ab116dc7970bd35a95228fdc05f1f2ba5743e183173",
+   "dbname": "trialdb",
+   "host": "pg32b",
+   "in_session_port": 5432,
+   "port": 5433,
+   "test_only": true
+  },
+  "version": 1,
+  "write_approval": {
+   "approval_class": "test",
+   "approval_ref": "chaxiang-approval-social-institution-addr-bstep2-correction-20261126",
+   "approval_ref_note": "本盒仅隔离测试审批；正式写库须另有独立授权",
+   "approved_at": "2026-11-26T16:55:36Z",
+   "approved_by": "茶香",
+   "bound_object_rule_ids": [
+    "m007906"
+   ]
+  }
+ },
+ "source_payload": "/tmp/ut/payload.txt"
+}

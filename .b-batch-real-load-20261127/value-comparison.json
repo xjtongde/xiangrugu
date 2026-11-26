@@ -26,6 +26,17 @@
  "method": "source sqlite /mnt/wd61workmetadata/usedata/harvard/cbdb/cbdb_20260919.sqlite3 SOCIAL_INSTITUTION_ADDR vs target PostgreSQL xiangrugu.cbdb.cbdb__social_u5f_institution_u5f_addr read back via independent psql COPY",
  "missing_rows": 0,
  "partial": false,
+ "readback_proof": {
+  "claim": "target_sha256 由从 PostgreSQL 读回的行算出，不是预置值，也不是 payload 字节",
+  "evidence": [
+   "payload.bin（喂给 COPY 的载荷）为 417981 字节、制表符分隔；读回 CSV stream 为 630173 字节，格式与长度均不同 → 不是同一份数据",
+   "target_fields = 42449 = 3859 行 × 11 列，与装表行数/列数相符",
+   "target_progress.accepted_rows = 3859，comparison_complete = true",
+   "target_read.used_copy_payload = false"
+  ],
+  "how_to_reproduce": "psql -U xrg_loader -d xiangrugu -c \"COPY (SELECT <11 列> FROM cbdb.cbdb__social_u5f_institution_u5f_addr) TO STDOUT WITH (FORMAT csv)\" → 行数 3859、字节数应与 target_stream_bytes 同量级；再以同一 compare_unordered 复算摘要",
+  "independence_note": "读取与装载互不共享状态：装载走 loader 的 PsqlSession，本次读回另开一个 psql 进程，二者只用同一份已批准列清单"
+ },
  "residual_directory": null,
  "resource_stats": {
   "elapsed_seconds": 27.469355111999903,

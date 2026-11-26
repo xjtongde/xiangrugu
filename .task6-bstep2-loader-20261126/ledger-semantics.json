@@ -91,6 +91,25 @@
    "first-batch-preload-table.json",
    "manifest-draft.json"
   ],
+  "first_batch_identity_verified": {
+   "first_batch_scope_text_unchanged": true,
+   "spatial_items": 2,
+   "spatial_objects": [
+    "Ca1884route_przh_1251",
+    "Ca1884route_przh_utf8"
+   ],
+   "status_unchanged": "DRAFT_NOT_APPROVED",
+   "table_names_and_sha256_unchanged": true,
+   "text_items": 5,
+   "text_rules": [
+    "m004812",
+    "m006642",
+    "m008002",
+    "m008003",
+    "m008004"
+   ],
+   "verdict": "七表身份逐项一致，未被本步改动破坏"
+  },
   "first_batch_rules": [
    "m008002",
    "m008003",

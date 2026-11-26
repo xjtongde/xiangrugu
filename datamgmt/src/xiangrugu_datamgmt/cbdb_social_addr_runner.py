@@ -78,8 +78,18 @@ def _sha_file(path):
 
 
 def _git(root, *args):
-    return subprocess.run(["git", "-C", str(root), *args],
-                          capture_output=True, text=True, check=False)
+    """Run git, or report absence as a non-zero result rather than an exception.
+
+    A production container legitimately has no git; the export shape must still be
+    verifiable, so "git is missing" degrades to "not a git work tree" instead of
+    aborting the preflight with an opaque I/O error.
+    """
+    try:
+        return subprocess.run(["git", "-C", str(root), *args],
+                              capture_output=True, text=True, check=False)
+    except (FileNotFoundError, NotImplementedError):
+        return subprocess.CompletedProcess(args=["git", *args], returncode=127,
+                                           stdout="", stderr="git-not-available")
 
 
 def verify_code_pin(code_root, expected_commit):

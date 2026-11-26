@@ -185,11 +185,27 @@ def run(args):
                                      "sha256": approval_text_sha256,
                                      "bytes": Path(args.approval_text).stat().st_size}
 
-        contract_bytes_sha256 = _sha_file(args.contract)
-        evidence["contract_file"] = {"path": args.contract,
-                                     "file_sha256": contract_bytes_sha256}
-
         expected = read_json(args.expected)
+
+        # The approval TABLE is an argument of the formal command, so it must be
+        # verified here -- not merely passed through. Reading a file and never
+        # checking it would advertise a check that does not exist.
+        approval_table_sha256 = _sha_file(args.approval_table)
+        declared_approval_table = expected.get("approval_table_sha256")
+        if declared_approval_table and approval_table_sha256 != declared_approval_table:
+            raise PreflightError("approval_table_digest_mismatch", approval_table_sha256)
+        evidence["approval_table"] = {"path": args.approval_table,
+                                      "sha256": approval_table_sha256}
+
+        # Catch a wrong contract file BEFORE opening a session, rather than relying
+        # on the entry's Gate D to notice it later.
+        contract_file_sha256 = _sha_file(args.contract)
+        evidence["contract_file"] = {"path": args.contract,
+                                     "file_sha256": contract_file_sha256}
+        declared_contract = expected.get("contract_sha256")
+        if declared_contract and contract_file_sha256 != declared_contract:
+            raise PreflightError("contract_file_digest_mismatch", contract_file_sha256)
+
         scope, _raw = build_scope(args, expected, expected.get("contract_sha256"),
                                   approval_text_sha256)
         artifacts = {"contract": read_json(args.contract)}
@@ -200,9 +216,34 @@ def run(args):
         return EXIT_PREFLIGHT, evidence
 
     # ---- Import AFTER the pin is verified -----------------------------------
-    from xiangrugu_datamgmt import cbdb_social_addr_entry as E
-    from xiangrugu_datamgmt import cbdb_social_addr_loader as L
-    from xiangrugu_datamgmt.contracts import ReleaseContract
+    # Verifying one tree while importing from another would let us pin code A and
+    # run code B. Bind the import to the tree we just verified, and prove it by
+    # recording where each module was actually loaded from.
+    import importlib
+    import sys as _sys
+
+    code_src = str(Path(args.code_root) / "datamgmt" / "src")
+    for stale in [p for p in _sys.path if p.replace("\\", "/").endswith("/datamgmt/src")]:
+        _sys.path.remove(stale)
+    _sys.path.insert(0, code_src)
+    for mod in [m for m in list(_sys.modules) if m.split(".")[0] == "xiangrugu_datamgmt"]:
+        del _sys.modules[mod]
+
+    E = importlib.import_module("xiangrugu_datamgmt.cbdb_social_addr_entry")
+    L = importlib.import_module("xiangrugu_datamgmt.cbdb_social_addr_loader")
+    ReleaseContract = importlib.import_module(
+        "xiangrugu_datamgmt.contracts").ReleaseContract
+
+    loaded_from = {name: getattr(mod, "__file__", None) for name, mod in
+                   (("entry", E), ("loader", L))}
+    for name, path in loaded_from.items():
+        if not path or not str(Path(path).resolve()).startswith(
+                str((Path(args.code_root) / "datamgmt" / "src").resolve())):
+            evidence["outcome"] = "PREFLIGHT_FAILED"
+            evidence["refusal"] = {"error_code": "imported_module_outside_code_root",
+                                   "detail": f"{name}: {path}"}
+            return EXIT_PREFLIGHT, evidence
+    evidence["imported_modules"] = loaded_from
 
     def parse(doc):
         return ReleaseContract.model_validate(doc)

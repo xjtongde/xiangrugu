@@ -232,15 +232,19 @@ def run_single_table(session, scope, contract, target, data, instance_observed, 
             raise LoaderGateError("prerequisite_schema_missing", TARGET_SCHEMA)
     check_target_absent(session)
     return _load_and_verify(session, contract, target, data, expected, corrupt=corrupt,
-                            create_schema=not is_formal)
+                            create_schema=not is_formal, mode=scope["mode"])
 
 
 def _load_and_verify(session, contract, target, data, expected, corrupt=None,
-                     *, create_schema=True):
+                     *, create_schema=True, mode=None):
     cols = target_column_names(target)
     evidence = {
         "gates": ["scope_approval", "digest_bindings", "review_traceability",
                   "instance_identity", "target_absent"],
+        # Record which dialect ACTUALLY ran. Without this the artifacts cannot tell a
+        # formal write from a trial after the fact -- the whole point of the branch.
+        "mode": mode,
+        "execution_branch": "real" if mode == "production-write" else "test",
         "transaction": "single",
         "ddl": ddl_for(target, create_schema=create_schema),
         "columns": cols,

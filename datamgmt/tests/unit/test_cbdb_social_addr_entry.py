@@ -496,3 +496,11 @@ def test_loader_rejects_production_write_mode_without_authorization_digest():
     with pytest.raises(L.LoaderGateError) as e:
         L.validate_scope(sc, _loader_presented(sc))
     assert e.value.code == "scope_mode_production_write_without_authorization_digest"
+
+
+def test_loader_evidence_records_the_dialect_that_actually_ran():
+    """The persisted evidence must self-attest formal vs trial; a missing key is a leak."""
+    import inspect
+    src = inspect.getsource(L._load_and_verify)
+    assert '"mode": mode' in src
+    assert "production-write" in src

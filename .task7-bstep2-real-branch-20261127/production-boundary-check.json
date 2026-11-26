@@ -1,0 +1,46 @@
+{
+ "cbdb_schema_count": 0,
+ "checked_at_utc": "2026-11-26T18:30:00Z",
+ "containers": {
+  "all_unchanged_from_box_start": true,
+  "pg32": "98418cb6f08a3c550fb5d36261bc618c006f0a07912437399778fdd4370b1a72",
+  "pg32b": "3d93fc7741f66f1f01aa250b25c4959addfe4c84df22ecbd0d0f82c13920c1fc",
+  "xiangrugu_dev": "29795c60ae15d85c4ba877dad78dcbd288d792a2d0df6e2d4d72f677201788e6"
+ },
+ "deploy_updated": false,
+ "disclaimer": "本件仅记录只读观测，不构成任何对生产库的连接或写入授权",
+ "format": "xiangrugu.task6-bstep2.production-boundary-check.v1",
+ "m2_in_this_box_commit": false,
+ "method": "ssh -F ~/.ssh/config 32 + docker exec pg32b psql（只读 SELECT）",
+ "not_a_connection_authorization": true,
+ "not_mine_observed": {
+  "assessment": "创建早于本盒执行窗口，命名前缀 a03-trial，判定为 a03 实例失败尝试的残留，非本盒创建；未删除他人在制品",
+  "container": "a03-trial-pg-20261127",
+  "created_utc": "2026-11-26T16:12:52Z",
+  "id": "ab484c918005"
+ },
+ "production_write_authorization": "NOT AUTHORIZED",
+ "queries": [
+  {
+   "meaning": "cbdb schema 不存在 → 本盒未在生产建 schema",
+   "result": 0,
+   "sql": "select count(*) from pg_namespace where nspname='cbdb'"
+  },
+  {
+   "meaning": "目标表不存在 → 本盒未生产写入",
+   "result": null,
+   "sql": "select to_regclass('cbdb.cbdb__social_u5f_institution_u5f_addr')"
+  }
+ ],
+ "read_only": true,
+ "target_to_regclass": null,
+ "tmp_containers": [],
+ "trial_instances_destroyed_this_box": [
+  "xrg-real-trial",
+  "xrg-real2",
+  "xrg-final"
+ ],
+ "trial_residue_none": true,
+ "volumes": [],
+ "write_performed": false
+}

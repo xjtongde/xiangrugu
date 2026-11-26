@@ -99,9 +99,20 @@ a02 判 PARTIAL，指出两条实质问题，均已修正并有实证：
 
 （过程中还暴露过：正式分支的 `execution_branch` 标记一开始没传到 `check_instance_identity`，被 `production_database_visible` 误拦——已修正为随 `instance_identity` 一起传递。）
 
+## 六点五、a02 第四轮复核后的修正
+
+a02 判 PASS，但指出"修好了谎报，机器可读证据却仍没记录正式方言"——即审计闭环差最后一格。四条均已补：
+
+| # | 问题 | 修正 | 实测 |
+|---|---|---|---|
+| a | loader evidence 不含 mode，F1 记录成 `execution-candidate`，`production-write` 在 trial-out.json 零命中 | evidence 记录 `mode` 与 `execution_branch`，driver 只取 `ev["mode"]` | **F1 `mode='production-write'`** |
+| b | FN0 只测表存在性，「schema NOT created」无测量值 | probe 增加 `schema_present_after` | **FN0=False（未代建）、F1/FN1=True（管理员建的）** |
+| c | `rec["authorization"]` 恒真空壳、命名误导 | 改名 `entry_returned_instance` | — |
+| d | 生产边界只有叙述性表格，违背"机器可读证据"成功标准 | 新增 `production-boundary-check.json`，声明 `read_only=true` / `write_performed=false` | cbdb schema 0、目标表 null、三容器 ID 未变 |
+
 ## 七、测试与回归
 
-- 新增单测总计 **63 项全通过**（loader 21 + entry 42，本盒新增 21 项正式分支与方言用例）
+- 新增单测总计 **64 项全通过**（loader 21 + entry 43，本盒新增 22 项正式分支与方言用例）
 - 全量 unit 失败集 **228 → 228，新增 0**（228 为既有环境缺口）
 
 ## 八、边界
@@ -124,5 +135,5 @@ a02 判 PARTIAL，指出两条实质问题，均已修正并有实证：
 ## 十、三态
 
 - **Gitea**：见本次提交（独立 `ls-remote` 实测）
-- **Codex 已接收**：待独立复核人（a03 实例本盒未使用；a02 可选）
+- **Codex 已接收**：a02 独立复核四轮，第四轮 **PASS**；第四轮四条证据级意见已全部补齐
 - **32 工作目录**：deploy 未更新；隔离工作区已销毁

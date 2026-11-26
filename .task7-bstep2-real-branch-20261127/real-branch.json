@@ -13,10 +13,10 @@
     "expected": "REFUSED prerequisite_schema_missing, schema NOT created",
     "residue_rows": 0,
     "result": "REFUSED",
+    "schema_present_after": false,
     "table_present_after": false
    },
    {
-    "authorization": true,
     "branch": "real",
     "case": "F1_formal_branch_full_transaction",
     "column_count": 11,
@@ -26,10 +26,11 @@
      "p"
     ],
     "coord_roundtrip_inexact": 0,
+    "entry_returned_instance": true,
     "expected": "COMMITTED 3859 via real branch",
     "in_session_port": "5432",
     "load_role": "xrg_loader",
-    "mode": "execution-candidate",
+    "mode": "production-write",
     "non_primary_index_count": 0,
     "null_counts": {
      "c_u5f_inst_u5f_addr_u5f_begin_u5f_year": 3005,
@@ -56,6 +57,7 @@
     "pk_null_free": true,
     "residue_rows": 3859,
     "result": "LOADED",
+    "schema_present_after": true,
     "shared_single_transaction": true,
     "single_parse_drives_load": true,
     "table_present_after": true
@@ -67,6 +69,7 @@
     "expected": "REFUSED, old table intact",
     "residue_rows": 3859,
     "result": "REFUSED",
+    "schema_present_after": true,
     "table_present_after": true
    },
    {
@@ -76,6 +79,7 @@
     "expected": "REFUSED real_authorization_text_missing",
     "residue_rows": 0,
     "result": "REFUSED",
+    "schema_present_after": true,
     "table_present_after": false
    },
    {
@@ -85,6 +89,7 @@
     "expected": "REFUSED real_authorization_digest_mismatch",
     "residue_rows": 0,
     "result": "REFUSED",
+    "schema_present_after": true,
     "table_present_after": false
    },
    {
@@ -94,6 +99,7 @@
     "expected": "REFUSED real_authorization_text_missing",
     "residue_rows": 0,
     "result": "REFUSED",
+    "schema_present_after": true,
     "table_present_after": false
    },
    {
@@ -103,6 +109,7 @@
     "expected": "REFUSED wrong instance",
     "residue_rows": 0,
     "result": "REFUSED",
+    "schema_present_after": true,
     "table_present_after": false
    },
    {
@@ -112,6 +119,7 @@
     "expected": "REFUSED inside transaction, whole table rolled back (residue 0)",
     "residue_rows": 0,
     "result": "REFUSED",
+    "schema_present_after": true,
     "table_present_after": false
    }
   ],
@@ -231,10 +239,30 @@
   "5_named_helper": "databases 集合比对改为具名辅助函数 _without_target_db，去掉 lambda 赋值",
   "6_formal_evidence_widened": "正式分支正向证据补齐 pk_null_free / null_counts / single_parse_drives_load / in_session_port / load_role"
  },
- "revision": "v2：采纳 a02 复核 6 条，修掉两条实质问题",
+ "review_fixes_round3": {
+  "a_mode_self_attestation": {
+   "measured": "F1 实测 mode='production-write'",
+   "now": "loader evidence 记录 mode 与 execution_branch；driver 只取 ev['mode']",
+   "was": "loader evidence 不含 mode，driver 回落到执行 scope 的 'execution-candidate'；trial-out.json 里 production-write 0 命中，审计产物无法自证是正式写库"
+  },
+  "b_schema_presence_measured": {
+   "measured": "FN0 schema_present_after=False（缺 schema 拒绝且未代建）；F1/FN1 为 True（由管理员建，非装载建）",
+   "now": "probe 增加 schema_present_after",
+   "was": "FN0 只测表存在性，「schema NOT created」无对应测量值"
+  },
+  "c_vacuous_field_renamed": {
+   "now": "改名为 entry_returned_instance",
+   "was": "rec['authorization']=(instance is not None) 恒真、空壳且命名误导"
+  },
+  "d_production_boundary_artifact": {
+   "now": "production-boundary-check.json，机器可读，声明 read_only=true / write_performed=false",
+   "was": "生产边界只有叙述性表格"
+  }
+ },
+ "revision": "v3：补 a02 第四条复核意见",
  "test_totals": {
-  "combined": "63 passed",
-  "entry": 42,
+  "combined": "64 passed",
+  "entry": 43,
   "full_unit_failset": "228 → 228，新增 0",
   "loader": 21
  },

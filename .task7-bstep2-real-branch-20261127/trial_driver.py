@@ -131,7 +131,7 @@ def main():
             rec["single_parse_drives_load"] = ev.get("single_parse_drives_load")
             rec["in_session_port"] = (ev.get("instance") or {}).get("in_session_port")
             rec["load_role"] = (ev.get("instance") or {}).get("load_role")
-            rec["mode"] = ev.get("mode") or sc.get("mode")
+            rec["mode"] = ev.get("mode")   # the dialect the loader actually ran
 
             rec["column_count"] = len(ev.get("columns") or [])
             rec["coord_roundtrip_inexact"] = ev.get("coord_roundtrip_inexact_rows")
@@ -164,6 +164,8 @@ def main():
             present = probe.query_csv(
                 "SELECT (to_regclass('" + L.TARGET_SCHEMA + "." + tl + "') IS NOT NULL)::int").strip()
             rec["table_present_after"] = present == "1"
+            rec["schema_present_after"] = probe.query_csv(
+                "SELECT (to_regnamespace('cbdb') IS NOT NULL)::int").strip() == "1"
             rec["residue_rows"] = (
                 int(probe.query_csv('SELECT count(*) FROM "' + L.TARGET_SCHEMA + '".' + tl).strip())
                 if present == "1" else 0)
@@ -377,9 +379,9 @@ def main():
             rec["single_parse_drives_load"] = ev.get("single_parse_drives_load")
             rec["in_session_port"] = (ev.get("instance") or {}).get("in_session_port")
             rec["load_role"] = (ev.get("instance") or {}).get("load_role")
-            rec["mode"] = ev.get("mode") or sc.get("mode")
+            rec["mode"] = ev.get("mode")   # the dialect the loader actually ran
             rec["shared_single_transaction"] = ev.get("shared_single_transaction")
-            rec["authorization"] = (ev.get("instance") is not None)
+            rec["entry_returned_instance"] = (ev.get("instance") is not None)
         except (L.LoaderGateError, ENTRY.LoaderGateError) as e:
             rec["result"] = "REFUSED"
             rec["error_code"] = e.code
@@ -397,6 +399,8 @@ def main():
             present = probe.query_csv(
                 "SELECT (to_regclass('cbdb.cbdb__social_u5f_institution_u5f_addr') IS NOT NULL)::int").strip()
             rec["table_present_after"] = present == "1"
+            rec["schema_present_after"] = probe.query_csv(
+                "SELECT (to_regnamespace('cbdb') IS NOT NULL)::int").strip() == "1"
             rec["residue_rows"] = int(probe.query_csv(
                 'SELECT count(*) FROM "cbdb"."cbdb__social_u5f_institution_u5f_addr"').strip()) \
                 if present == "1" else 0

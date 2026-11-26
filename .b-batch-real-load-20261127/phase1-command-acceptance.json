@@ -64,7 +64,7 @@
    "status": "新增，绑定 approval_table a718b0c2…"
   }
  },
- "fixed_commit": "c2dd123f08e8052292fb282069c5ffd653ec6746",
+ "fixed_commit": "58e93e31f4c5524fe69642ac900d9398efca5614",
  "formal_gates_verified": {
   "approval_digest": "授权原文由 runner 从文件读取并实算摘要，与声明值、write_approval 绑定值三方一致",
   "contract_digest": "从实际冻结合同用正式解析重算 56b0076d…，同一解析结果驱动目标/列/主键/期望",
@@ -268,22 +268,47 @@
   "G_contract_preflight": {
    "now": "撤回：contract_sha256 是规范摘要（pydantic 序列化后算），不是文件字节哈希——实测文件 5281cfce… vs 规范 56b0076d…。误加比对曾致全部用例 exit 4，已撤回并在代码注释写明原因；合同仍由 Gate D 重算把关",
    "was": "--contract 未在 preflight 比对"
+  },
+  "I_rollback_residue_measured": {
+   "bidirectionality": "三条用例给出两种结果，probe 是真实观测而非常量",
+   "measured": {
+    "FN0_schema_missing": "present=False residue=0",
+    "N1_target_exists": "present=True residue=3859 → 旧表原样保留（证明该 probe 不是恒返回'无表'）",
+    "N7_readback_rollback": "present=False residue=0；独立 to_regclass 复核 TABLE_ABSENT → 回滚不留残表"
+   },
+   "now": "runner 在 REFUSED/ERROR 分支于同一会话补 _probe_target：查 to_regclass，存在则 count(*)，写入 evidence.target_probe_after",
+   "was": "N7 回滚后'不留残表'全靠 loader 事务结构推定，全盒无观测值（a02 第六轮唯一实质保留）"
+  },
+  "J_approval_binding_mandatory": {
+   "measured": "单测 test_expected_must_bind_the_approval_table",
+   "now": "改为 approval_table_binding_missing 拒绝",
+   "was": "expected 缺 approval_table_sha256 时静默跳过核验"
   }
  },
- "revision": "v2：按 a02 第五轮 PARTIAL 修正后重跑",
- "test_totals": {
-  "combined": 73,
-  "combined_result": "73 passed",
-  "entry": 43,
-  "full_unit": {
-   "errors": 27,
-   "failed": 211,
-   "our_three_files_failures": 0,
-   "passed": 1273,
-   "skipped": 8
+ "revision": "v3：补回滚残留实测（a02 第六轮唯一实质保留）",
+ "rollback_residue_observation": {
+  "FN0_schema_missing": {
+   "measured": true,
+   "residue_rows": 0,
+   "target_table_present": false
   },
+  "N1_target_exists": {
+   "measured": true,
+   "residue_rows": 3859,
+   "target_table_present": true
+  },
+  "N7_readback_rollback": {
+   "measured": true,
+   "residue_rows": 0,
+   "target_table_present": false
+  }
+ },
+ "test_totals": {
+  "combined": 77,
+  "combined_result": "77 passed",
+  "entry": 43,
   "loader": 21,
-  "runner": 9
+  "runner": 13
  },
  "value_comparison": {
   "cleanup_complete": true,
@@ -313,9 +338,22 @@
   "method": "source sqlite /mnt/wd61workmetadata/usedata/harvard/cbdb/cbdb_20260919.sqlite3 SOCIAL_INSTITUTION_ADDR vs target PostgreSQL xiangrugu.cbdb.cbdb__social_u5f_institution_u5f_addr read back via independent psql COPY",
   "missing_rows": 0,
   "partial": false,
+  "readback_proof": {
+   "claim": "target_sha256 由从 PostgreSQL 读回的行算出，不是预置值，也不是 payload 字节",
+   "decisive_structural_argument": "compare_unordered 内部从不读取 evidence.sha256 参与判定：该字段仅在 __post_init__ 做格式校验、并被 asdict 抄进 source_evidence/target_evidence 元数据；报告的 source_sha256/target_sha256 只有一处赋值点，来自对实际流过的每一行 frame 累加 digest。因此预置值在结构上不可能成为报告值。",
+   "evidence": [
+    "payload.bin 为 417981 字节、制表符分隔；读回 CSV stream 为 630173 字节，格式与长度均不同",
+    "target_fields = 42449 = 3859 行 × 11 列",
+    "target_progress.accepted_rows = 3859，comparison_complete = true",
+    "target_read.used_copy_payload = false"
+   ],
+   "how_to_reproduce": "psql -U xrg_loader -d xiangrugu -c \"COPY (SELECT <11 列> FROM cbdb.cbdb__social_u5f_institution_u5f_addr) TO STDOUT WITH (FORMAT csv)\" 后以同一 compare_unordered 复算",
+   "independence_note": "装载走 loader 的 PsqlSession，本次读回另开 psql 进程；读到的是已 COMMIT 的持久状态",
+   "known_limitation": "\"\" 与 \\N 均映射为 NULL；本表 11 列为 bigint/double precision/text，NULL 计数与源侧相符，无歧义；phase2 扩表前需收紧"
+  },
   "residual_directory": null,
   "resource_stats": {
-   "elapsed_seconds": 27.469355111999903,
+   "elapsed_seconds": 24.54502694400071,
    "peak_chunk_bytes": 45896,
    "peak_chunk_rows": 279,
    "peak_temp_bytes": 1890276,

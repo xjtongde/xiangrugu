@@ -28,18 +28,20 @@
  "partial": false,
  "readback_proof": {
   "claim": "target_sha256 由从 PostgreSQL 读回的行算出，不是预置值，也不是 payload 字节",
+  "decisive_structural_argument": "compare_unordered 内部从不读取 evidence.sha256 参与判定：该字段仅在 __post_init__ 做格式校验、并被 asdict 抄进 source_evidence/target_evidence 元数据；报告的 source_sha256/target_sha256 只有一处赋值点，来自对实际流过的每一行 frame 累加 digest。因此预置值在结构上不可能成为报告值。",
   "evidence": [
-   "payload.bin（喂给 COPY 的载荷）为 417981 字节、制表符分隔；读回 CSV stream 为 630173 字节，格式与长度均不同 → 不是同一份数据",
-   "target_fields = 42449 = 3859 行 × 11 列，与装表行数/列数相符",
+   "payload.bin 为 417981 字节、制表符分隔；读回 CSV stream 为 630173 字节，格式与长度均不同",
+   "target_fields = 42449 = 3859 行 × 11 列",
    "target_progress.accepted_rows = 3859，comparison_complete = true",
    "target_read.used_copy_payload = false"
   ],
-  "how_to_reproduce": "psql -U xrg_loader -d xiangrugu -c \"COPY (SELECT <11 列> FROM cbdb.cbdb__social_u5f_institution_u5f_addr) TO STDOUT WITH (FORMAT csv)\" → 行数 3859、字节数应与 target_stream_bytes 同量级；再以同一 compare_unordered 复算摘要",
-  "independence_note": "读取与装载互不共享状态：装载走 loader 的 PsqlSession，本次读回另开一个 psql 进程，二者只用同一份已批准列清单"
+  "how_to_reproduce": "psql -U xrg_loader -d xiangrugu -c \"COPY (SELECT <11 列> FROM cbdb.cbdb__social_u5f_institution_u5f_addr) TO STDOUT WITH (FORMAT csv)\" 后以同一 compare_unordered 复算",
+  "independence_note": "装载走 loader 的 PsqlSession，本次读回另开 psql 进程；读到的是已 COMMIT 的持久状态",
+  "known_limitation": "\"\" 与 \\N 均映射为 NULL；本表 11 列为 bigint/double precision/text，NULL 计数与源侧相符，无歧义；phase2 扩表前需收紧"
  },
  "residual_directory": null,
  "resource_stats": {
-  "elapsed_seconds": 27.469355111999903,
+  "elapsed_seconds": 24.54502694400071,
   "peak_chunk_bytes": 45896,
   "peak_chunk_rows": 279,
   "peak_temp_bytes": 1890276,

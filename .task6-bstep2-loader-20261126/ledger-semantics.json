@@ -48,6 +48,19 @@
    "rule_ids": []
   }
  },
+ "five_text_objects": {
+  "a_ledger_says": "IMPORT with rule_ids m008002/m008003/m008004/m004812/m006642",
+  "before": "若直接透传会与 A 账事实矛盾",
+  "fix": "tabular 生成器改为 disposition_from_ledger 派生 + 保留 disposition_retained_in_upstream_approval 上溯字段",
+  "objects": [
+   "ACADEMY_Data.tab",
+   "Index_of_the_Complete_Prose_of_the_Yuan_Dynasty_vol_1-60.tab",
+   "writings of the 19c missionaries in China.tab",
+   "2001_Shanghai_0_INDEX_OF_PRESENTATIONS.tab",
+   "GB_91_HZ_040201_UTF8.tab"
+  ],
+  "upstream_approval_said": "disposition_retained = BLOCKED (text-schema-approved.draft.yaml 等上游批准件)"
+ },
  "format": "xiangrugu.task6-bstep2.ledger-semantics.v1",
  "generator_hardcoded_status_removed": {
   "after": "全部由 ledger_state()/batch_b_import_state() 从 A 账实际记录派生；rule 引用为 m007906（候选内事实）",
@@ -69,6 +82,26 @@
   "in_current_a_ledger": "UNMATCHED (disposition=null, rule_ids=[])",
   "member": "harvard/cbdb/cbdb_20260919.sqlite3",
   "statement": "m007906 在现行 A 账中仍未匹配；B 批单表冻结候选的 IMPORT 状态单列，不并入 A 账处置"
+ },
+ "rollup_propagation": {
+  "all_members_diffs": 176,
+  "all_members_nature": "174 处 tabular(block2) 成员 ledger_disposition: BLOCKED -> None；2 处 cbdb/tab 子批处置文本随派生逻辑更新",
+  "changed_files": [
+   "all-members.json",
+   "first-batch-preload-table.json",
+   "manifest-draft.json"
+  ],
+  "first_batch_rules": [
+   "m008002",
+   "m008003",
+   "m008004",
+   "m004812",
+   "m006642"
+  ],
+  "first_batch_set_unchanged": true,
+  "manifest_nature": "仅摘要联动（sha 引用更新）",
+  "note": "rollup 不在本盒授权改动的两处生成器之列，但其输入含本盒产物，故记录传导并如实验证七表集合不变",
+  "trigger": "rollup/build_rollup.py 读取 cbdb/members.json 与 tabular/members.json（第 54-55 行）"
  },
  "tabular_generated": {
   "ledger_disposition_distribution": {

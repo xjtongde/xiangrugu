@@ -464,7 +464,21 @@ for o in schema5["objects"]:
                    ("schema_approved", "source_column_mapping_approved",
                     "derived_rownum_mapping_approved", "table_names_approved",
                     "target_mapping_approved", "global_name_allocation_complete",
-                    "ready_for_import")} | {"disposition_retained": o["disposition_retained"]}})
+                    "ready_for_import")} | {
+                # 账本口径自 2026-11-26 起从 A 账实际记录派生：五件 .tab 在
+                # fa28a878 账中即为 IMPORT，上游旧批准件里的 disposition_retained=BLOCKED
+                # 是历史快照，原样保留为上溯字段但不作为当前断言。
+                "disposition_retained_in_upstream_approval": o["disposition_retained"],
+                "disposition_from_ledger": (
+                    ledger[(o["selector"]["relative_path"],
+                            tuple(o["selector"]["archive_chain"]))]["disposition"]
+                    if (o["selector"]["relative_path"],
+                        tuple(o["selector"]["archive_chain"])) in ledger else None),
+                "ledger_rule_ids": (
+                    ledger[(o["selector"]["relative_path"],
+                            tuple(o["selector"]["archive_chain"]))]["rule_ids"]
+                    if (o["selector"]["relative_path"],
+                        tuple(o["selector"]["archive_chain"])) in ledger else [])}})
 # ---- proposed objects from this round's read-only snapshot verification ----
 sys.path.insert(0, str(ROOT / "datamgmt" / "src"))
 from xiangrugu_datamgmt.identity import source_object_id
@@ -682,7 +696,10 @@ def _emit_object(pkey, si, ext, carrier, ds, objname, headers_for_group,
         "status": {"confirmation_state": "PROPOSED_NOT_AUTHORIZED",
                    "schema_approved": False, "table_names_approved": False,
                    "target_mapping_approved": False, "value_contract_approved": False,
-                   "ready_for_import": False, "disposition_retained": "BLOCKED"}}
+                   "ready_for_import": False,
+                   "disposition_note": ("ledger disposition is derived per member from the "
+                                        "A ledger (fa28a878); no BLOCKED state is asserted "
+                                        "here because the A ledger carries none")}}
 
 
 HEADERLESS_TXT_KEY = "chgis-v6/China_Periods_ReignDates.zip!china_chron/china_chron.txt"
@@ -954,7 +971,7 @@ summary = f"""# 普通表格整理摘要（第 2/6 块，仅整理不写库）
 处置分布：organized={dc.get('organized',0)}、handoff-block3={dc.get('handoff_block3',0)}、handoff-block5={dc.get('handoff_block5',0)}、pending-evidence={dc.get('pending_evidence',0)}（合计 {sum(dc.values())}=candidates ✓）。
 
 ## 5 件文本/83 源字段/5 派生行号确证
-权威载体=text-schema-approved.draft.yaml（yaml 后缀 JSON 内容）：object_count=5、source_column_count=83、schema/column-mapping/nullable/types/derived-rownum approved=true；table_names/target_mapping/ready_for_import=false、global_name_allocation_complete=false、逐对象 disposition_retained=BLOCKED——原样保留未升级。5 对象：ACADEMY_Data.tab(m008002,harv,2957)、Index…Yuan_Dynasty_vol_1-60.tab(harv,40199)、writings…China.tab(m008004,harv,1033)、2001_Shanghai_0_INDEX_OF_PRESENTATIONS.tab(m004812,harv,29)、GB_91_HZ_040201_UTF8.tab(m006642,**chgis**,3389)。算术确证：54+5+11+7+6=83；每对象 1 列 __src_rownum bigint（one-based data record order excluding header）。读取规则两份 decisions 文件覆盖恰此五件（TAB/DOUBLE_QUOTE/doublequote/LF/empty_string=preserve_not_null/whitespace preserve/source_order preserve/**type_inference false**）。值合同 text-value-contract-approved.draft.json：XRGVALUE-v1、header_excluded、rownum_start=1，仅五对象范围。命名实现绑定 naming.py sha 13c0b910…（本地复核一致）；表名为候选，全量碰撞留块6。
+权威载体=text-schema-approved.draft.yaml（yaml 后缀 JSON 内容）：object_count=5、source_column_count=83、schema/column-mapping/nullable/types/derived-rownum approved=true；table_names/target_mapping/ready_for_import=false、global_name_allocation_complete=false、逐对象处置由 A 账（fa28a878）按成员派生、不再断⾔ BLOCKED——原样保留未升级。5 对象：ACADEMY_Data.tab(m008002,harv,2957)、Index…Yuan_Dynasty_vol_1-60.tab(harv,40199)、writings…China.tab(m008004,harv,1033)、2001_Shanghai_0_INDEX_OF_PRESENTATIONS.tab(m004812,harv,29)、GB_91_HZ_040201_UTF8.tab(m006642,**chgis**,3389)。算术确证：54+5+11+7+6=83；每对象 1 列 __src_rownum bigint（one-based data record order excluding header）。读取规则两份 decisions 文件覆盖恰此五件（TAB/DOUBLE_QUOTE/doublequote/LF/empty_string=preserve_not_null/whitespace preserve/source_order preserve/**type_inference false**）。值合同 text-value-contract-approved.draft.json：XRGVALUE-v1、header_excluded、rownum_start=1，仅五对象范围。命名实现绑定 naming.py sha 13c0b910…（本地复核一致）；表名为候选，全量碰撞留块6。
 
 ## DBF 归属与交接
 approved-dbf-{{character,numeric}}-reading.json 仅覆盖 1884route 两诊断件（且 limitations 自述非生产验证器），两者均为空间组件⇒随块3交接，块2 不重复认领。704 dbf 经同目录 shp/shx 兄弟扫描全部命中空间组件⇒块3 对象级清单见 handoffs.json。

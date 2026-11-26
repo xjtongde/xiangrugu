@@ -147,7 +147,7 @@
     "block": 2,
     "category": "txt",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -180,7 +180,7 @@
     "block": 2,
     "category": "xls",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -213,7 +213,7 @@
     "block": 2,
     "category": "xls",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -268,7 +268,7 @@
     "block": 2,
     "category": "csv",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -301,7 +301,7 @@
     "block": 2,
     "category": "ods",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -69326,7 +69326,7 @@
     "block": 2,
     "category": "txt",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -69359,7 +69359,7 @@
     "block": 2,
     "category": "txt",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -69650,7 +69650,7 @@
     "block": 2,
     "category": "csv",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -71511,7 +71511,7 @@
     "block": 2,
     "category": "xls",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -71657,7 +71657,7 @@
     "block": 2,
     "category": "txt",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -71875,7 +71875,7 @@
     "block": 2,
     "category": "xls",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [],
@@ -74667,7 +74667,7 @@
     "block": 2,
     "category": "xls",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -90489,7 +90489,7 @@
     "block": 2,
     "category": "txt",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -90811,7 +90811,7 @@
     "block": 2,
     "category": "txt",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -92257,7 +92257,7 @@
     "block": 2,
     "category": "txt",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -92796,7 +92796,7 @@
     "block": 2,
     "category": "txt",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -93275,7 +93275,7 @@
     "block": 2,
     "category": "txt",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -93573,7 +93573,7 @@
     "block": 2,
     "category": "txt",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -93704,7 +93704,7 @@
     "block": 2,
     "category": "txt",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -94132,7 +94132,7 @@
     "block": 2,
     "category": "txt",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -94311,7 +94311,7 @@
     "block": 2,
     "category": "txt",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -94609,7 +94609,7 @@
     "block": 2,
     "category": "txt",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -94907,7 +94907,7 @@
     "block": 2,
     "category": "txt",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -95753,7 +95753,7 @@
     "block": 2,
     "category": "txt",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -96075,7 +96075,7 @@
     "block": 2,
     "category": "txt",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -101161,7 +101161,7 @@
     "block": 2,
     "category": "txt",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -101407,7 +101407,7 @@
     "block": 2,
     "category": "txt",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -101627,7 +101627,7 @@
     "block": 2,
     "category": "txt",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -101873,7 +101873,7 @@
     "block": 2,
     "category": "txt",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -102093,7 +102093,7 @@
     "block": 2,
     "category": "txt",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -102198,7 +102198,7 @@
     "block": 2,
     "category": "txt",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -102444,7 +102444,7 @@
     "block": 2,
     "category": "txt",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -102664,7 +102664,7 @@
     "block": 2,
     "category": "txt",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -102999,7 +102999,7 @@
     "block": 2,
     "category": "txt",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -103245,7 +103245,7 @@
     "block": 2,
     "category": "txt",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -103465,7 +103465,7 @@
     "block": 2,
     "category": "txt",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -103711,7 +103711,7 @@
     "block": 2,
     "category": "txt",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -103816,7 +103816,7 @@
     "block": 2,
     "category": "txt",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -104036,7 +104036,7 @@
     "block": 2,
     "category": "txt",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -104397,7 +104397,7 @@
     "block": 2,
     "category": "txt",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -104643,7 +104643,7 @@
     "block": 2,
     "category": "txt",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -104904,7 +104904,7 @@
     "block": 2,
     "category": "txt",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -105174,7 +105174,7 @@
     "block": 2,
     "category": "txt",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -105418,7 +105418,7 @@
     "block": 2,
     "category": "txt",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -105664,7 +105664,7 @@
     "block": 2,
     "category": "txt",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -106569,7 +106569,7 @@
     "block": 2,
     "category": "csv",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -106602,7 +106602,7 @@
     "block": 2,
     "category": "ods",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -107513,7 +107513,7 @@
     "block": 2,
     "category": "txt",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -108600,7 +108600,7 @@
     "block": 2,
     "category": "csv",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -110201,7 +110201,7 @@
     "block": 2,
     "category": "ods",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -110642,7 +110642,7 @@
     "block": 2,
     "category": "xlsx",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -115750,7 +115750,7 @@
     "block": 2,
     "category": "csv",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -125749,7 +125749,7 @@
     "block": 2,
     "category": "tab-text",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED",
+    "ledger_disposition": "IMPORT",
     "text_owned_lane_note": "lane=text-owned-by-block2（归属块2，组证据在块3）"
    },
    "identity": {
@@ -128550,7 +128550,7 @@
     "block": 2,
     "category": "xls",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -129692,7 +129692,7 @@
     "block": 2,
     "category": "txt",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -129775,7 +129775,7 @@
     "block": 2,
     "category": "xls",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -129882,7 +129882,7 @@
     "block": 2,
     "category": "csv",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -129917,7 +129917,7 @@
     "block": 2,
     "category": "xls",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -130532,7 +130532,7 @@
     "block": 2,
     "category": "xls",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -130734,7 +130734,7 @@
     "block": 2,
     "category": "txt",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -130943,7 +130943,7 @@
     "block": 2,
     "category": "txt",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -131324,7 +131324,7 @@
     "block": 2,
     "category": "txt",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -131544,7 +131544,7 @@
     "block": 2,
     "category": "txt",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -131790,7 +131790,7 @@
     "block": 2,
     "category": "txt",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -132062,7 +132062,7 @@
     "block": 2,
     "category": "txt",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -132282,7 +132282,7 @@
     "block": 2,
     "category": "txt",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -132539,7 +132539,7 @@
     "block": 2,
     "category": "txt",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -132722,7 +132722,7 @@
     "block": 2,
     "category": "txt",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -132968,7 +132968,7 @@
     "block": 2,
     "category": "txt",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -133188,7 +133188,7 @@
     "block": 2,
     "category": "txt",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -133460,7 +133460,7 @@
     "block": 2,
     "category": "txt",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -133680,7 +133680,7 @@
     "block": 2,
     "category": "txt",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -133926,7 +133926,7 @@
     "block": 2,
     "category": "txt",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -134172,7 +134172,7 @@
     "block": 2,
     "category": "txt",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -134418,7 +134418,7 @@
     "block": 2,
     "category": "txt",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -134675,7 +134675,7 @@
     "block": 2,
     "category": "txt",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -134884,7 +134884,7 @@
     "block": 2,
     "category": "txt",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -135141,7 +135141,7 @@
     "block": 2,
     "category": "txt",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -135350,7 +135350,7 @@
     "block": 2,
     "category": "txt",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -135570,7 +135570,7 @@
     "block": 2,
     "category": "txt",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -135816,7 +135816,7 @@
     "block": 2,
     "category": "txt",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -136073,7 +136073,7 @@
     "block": 2,
     "category": "txt",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -136282,7 +136282,7 @@
     "block": 2,
     "category": "txt",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -136539,7 +136539,7 @@
     "block": 2,
     "category": "txt",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -136748,7 +136748,7 @@
     "block": 2,
     "category": "txt",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -137005,7 +137005,7 @@
     "block": 2,
     "category": "txt",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -137214,7 +137214,7 @@
     "block": 2,
     "category": "txt",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -137434,7 +137434,7 @@
     "block": 2,
     "category": "txt",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -137680,7 +137680,7 @@
     "block": 2,
     "category": "txt",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -137937,7 +137937,7 @@
     "block": 2,
     "category": "txt",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -138146,7 +138146,7 @@
     "block": 2,
     "category": "txt",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -138366,7 +138366,7 @@
     "block": 2,
     "category": "txt",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -138612,7 +138612,7 @@
     "block": 2,
     "category": "txt",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -138858,7 +138858,7 @@
     "block": 2,
     "category": "txt",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -139141,7 +139141,7 @@
     "block": 2,
     "category": "txt",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -139361,7 +139361,7 @@
     "block": 2,
     "category": "txt",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -139544,7 +139544,7 @@
     "block": 2,
     "category": "txt",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -139790,7 +139790,7 @@
     "block": 2,
     "category": "txt",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -140036,7 +140036,7 @@
     "block": 2,
     "category": "txt",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -140230,7 +140230,7 @@
     "block": 2,
     "category": "txt",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -140502,7 +140502,7 @@
     "block": 2,
     "category": "txt",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -140722,7 +140722,7 @@
     "block": 2,
     "category": "txt",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -140942,7 +140942,7 @@
     "block": 2,
     "category": "txt",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -141225,7 +141225,7 @@
     "block": 2,
     "category": "txt",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -141434,7 +141434,7 @@
     "block": 2,
     "category": "txt",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -141532,7 +141532,7 @@
     "block": 2,
     "category": "xlsx",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -141805,7 +141805,7 @@
     "block": 2,
     "category": "xlsx",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -142078,7 +142078,7 @@
     "block": 2,
     "category": "xlsx",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -142351,7 +142351,7 @@
     "block": 2,
     "category": "xlsx",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -142624,7 +142624,7 @@
     "block": 2,
     "category": "xlsx",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -142897,7 +142897,7 @@
     "block": 2,
     "category": "xlsx",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -144726,7 +144726,7 @@
     "block": 2,
     "category": "txt",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -144809,7 +144809,7 @@
     "block": 2,
     "category": "xls",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -144916,7 +144916,7 @@
     "block": 2,
     "category": "csv",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -144951,7 +144951,7 @@
     "block": 2,
     "category": "xls",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -145678,7 +145678,7 @@
     "block": 2,
     "category": "txt",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -146063,7 +146063,7 @@
     "block": 2,
     "category": "txt",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -146794,7 +146794,7 @@
     "block": 2,
     "category": "txt",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -147205,7 +147205,7 @@
     "block": 2,
     "category": "txt",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -147449,7 +147449,7 @@
     "block": 2,
     "category": "txt",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -147827,7 +147827,7 @@
     "block": 2,
     "category": "txt",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -147910,7 +147910,7 @@
     "block": 2,
     "category": "txt",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -148347,7 +148347,7 @@
     "block": 2,
     "category": "txt",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -148502,7 +148502,7 @@
     "block": 2,
     "category": "txt",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -148798,7 +148798,7 @@
     "block": 2,
     "category": "txt",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -149094,7 +149094,7 @@
     "block": 2,
     "category": "txt",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -149531,7 +149531,7 @@
     "block": 2,
     "category": "txt",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -149775,7 +149775,7 @@
     "block": 2,
     "category": "txt",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -150123,7 +150123,7 @@
     "block": 2,
     "category": "txt",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -150278,7 +150278,7 @@
     "block": 2,
     "category": "txt",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -150663,7 +150663,7 @@
     "block": 2,
     "category": "txt",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -150870,7 +150870,7 @@
     "block": 2,
     "category": "txt",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -151255,7 +151255,7 @@
     "block": 2,
     "category": "txt",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -151462,7 +151462,7 @@
     "block": 2,
     "category": "txt",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -151873,7 +151873,7 @@
     "block": 2,
     "category": "txt",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -152054,7 +152054,7 @@
     "block": 2,
     "category": "txt",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -152491,7 +152491,7 @@
     "block": 2,
     "category": "txt",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -152646,7 +152646,7 @@
     "block": 2,
     "category": "txt",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -153031,7 +153031,7 @@
     "block": 2,
     "category": "txt",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -153238,7 +153238,7 @@
     "block": 2,
     "category": "txt",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -153623,7 +153623,7 @@
     "block": 2,
     "category": "txt",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -153830,7 +153830,7 @@
     "block": 2,
     "category": "txt",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -154100,7 +154100,7 @@
     "block": 2,
     "category": "txt",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -154422,7 +154422,7 @@
     "block": 2,
     "category": "txt",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -154807,7 +154807,7 @@
     "block": 2,
     "category": "txt",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -155103,7 +155103,7 @@
     "block": 2,
     "category": "txt",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -155310,7 +155310,7 @@
     "block": 2,
     "category": "txt",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -155630,7 +155630,7 @@
     "block": 2,
     "category": "xls",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -169333,7 +169333,7 @@
     "block": 2,
     "category": "txt",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -169692,7 +169692,7 @@
     "block": 2,
     "category": "txt",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -169951,7 +169951,7 @@
     "block": 2,
     "category": "txt",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -170336,7 +170336,7 @@
     "block": 2,
     "category": "txt",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -170569,7 +170569,7 @@
     "block": 2,
     "category": "txt",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -170980,7 +170980,7 @@
     "block": 2,
     "category": "txt",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -171187,7 +171187,7 @@
     "block": 2,
     "category": "txt",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -171509,7 +171509,7 @@
     "block": 2,
     "category": "txt",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -171805,7 +171805,7 @@
     "block": 2,
     "category": "txt",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -172101,7 +172101,7 @@
     "block": 2,
     "category": "txt",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -172486,7 +172486,7 @@
     "block": 2,
     "category": "txt",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -172717,7 +172717,7 @@
     "block": 2,
     "category": "txt",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -172993,7 +172993,7 @@
     "block": 2,
     "category": "txt",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -173352,7 +173352,7 @@
     "block": 2,
     "category": "txt",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -174131,7 +174131,7 @@
     "block": 2,
     "category": "xls",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [],
@@ -175021,7 +175021,7 @@
     "block": 2,
     "category": "tab-text",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED",
+    "ledger_disposition": "IMPORT",
     "text_owned_lane_note": "lane=text-owned-by-block2（归属块2，组证据在块3）"
    },
    "identity": {
@@ -177857,7 +177857,7 @@
     "block": 2,
     "category": "xls",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -207852,7 +207852,7 @@
   {
    "disposition": {
     "block": 1,
-    "disposition": "NON_TABULAR retained explicitly (ledger reason quoted)"
+    "disposition": "state derived from A ledger: UNMATCHED_IN_A_LEDGER"
    },
    "identity": {
     "archive_chain": [],
@@ -207886,7 +207886,7 @@
   {
    "disposition": {
     "block": 1,
-    "disposition": "BLOCKED in ledger (full-release freeze pending); block-1 organizing target for table/field mapping below"
+    "disposition": "state derived from A ledger: UNMATCHED_IN_A_LEDGER; B 批单表冻结候选另列（见 batch_b_import_state），冻结≠写库授权；block-1 organizing target for table/field mapping below"
    },
    "identity": {
     "archive_chain": [],
@@ -208603,7 +208603,7 @@
     "block": 2,
     "category": "xlsx",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -208876,7 +208876,7 @@
     "block": 2,
     "category": "xlsx",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -209149,7 +209149,7 @@
     "block": 2,
     "category": "xlsx",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -209422,7 +209422,7 @@
     "block": 2,
     "category": "xlsx",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -209695,7 +209695,7 @@
     "block": 2,
     "category": "xlsx",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -209968,7 +209968,7 @@
     "block": 2,
     "category": "xlsx",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": null
    },
    "identity": {
     "archive_chain": [
@@ -210848,7 +210848,7 @@
     "block": 2,
     "category": "tab-text",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": "IMPORT"
    },
    "identity": {
     "archive_chain": [],
@@ -210883,7 +210883,7 @@
     "block": 2,
     "category": "tab-text",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": "IMPORT"
    },
    "identity": {
     "archive_chain": [],
@@ -210918,7 +210918,7 @@
     "block": 2,
     "category": "tab-text",
     "disposition": "organized",
-    "ledger_disposition": "BLOCKED"
+    "ledger_disposition": "IMPORT"
    },
    "identity": {
     "archive_chain": [],

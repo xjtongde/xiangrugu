@@ -104,8 +104,12 @@
   {
    "approvals_present": {
     "derived_rownum_mapping_approved": true,
-    "disposition_retained": "BLOCKED",
+    "disposition_from_ledger": "IMPORT",
+    "disposition_retained_in_upstream_approval": "BLOCKED",
     "global_name_allocation_complete": false,
+    "ledger_rule_ids": [
+     "m008002"
+    ],
     "ready_for_import": false,
     "schema_approved": true,
     "source_column_mapping_approved": true,
@@ -127,8 +131,12 @@
   {
    "approvals_present": {
     "derived_rownum_mapping_approved": true,
-    "disposition_retained": "BLOCKED",
+    "disposition_from_ledger": "IMPORT",
+    "disposition_retained_in_upstream_approval": "BLOCKED",
     "global_name_allocation_complete": false,
+    "ledger_rule_ids": [
+     "m008003"
+    ],
     "ready_for_import": false,
     "schema_approved": true,
     "source_column_mapping_approved": true,
@@ -150,8 +158,12 @@
   {
    "approvals_present": {
     "derived_rownum_mapping_approved": true,
-    "disposition_retained": "BLOCKED",
+    "disposition_from_ledger": "IMPORT",
+    "disposition_retained_in_upstream_approval": "BLOCKED",
     "global_name_allocation_complete": false,
+    "ledger_rule_ids": [
+     "m008004"
+    ],
     "ready_for_import": false,
     "schema_approved": true,
     "source_column_mapping_approved": true,
@@ -173,8 +185,12 @@
   {
    "approvals_present": {
     "derived_rownum_mapping_approved": true,
-    "disposition_retained": "BLOCKED",
+    "disposition_from_ledger": "IMPORT",
+    "disposition_retained_in_upstream_approval": "BLOCKED",
     "global_name_allocation_complete": false,
+    "ledger_rule_ids": [
+     "m004812"
+    ],
     "ready_for_import": false,
     "schema_approved": true,
     "source_column_mapping_approved": true,
@@ -196,8 +212,12 @@
   {
    "approvals_present": {
     "derived_rownum_mapping_approved": true,
-    "disposition_retained": "BLOCKED",
+    "disposition_from_ledger": "IMPORT",
+    "disposition_retained_in_upstream_approval": "BLOCKED",
     "global_name_allocation_complete": false,
+    "ledger_rule_ids": [
+     "m006642"
+    ],
     "ready_for_import": false,
     "schema_approved": true,
     "source_column_mapping_approved": true,

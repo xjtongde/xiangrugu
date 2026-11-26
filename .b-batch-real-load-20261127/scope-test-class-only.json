@@ -14,7 +14,7 @@
   "xiangrugu"
  ],
  "full_ready_for_import": false,
- "instance_fingerprint": "74f236538bef3ac920998ed315568e93799e08f23ad4207dc7e516251816d403",
+ "instance_fingerprint": "a4b9681f0de6138a380745291359054712d609b33a6284c749fc11c083b91832",
  "inventory_sha256": "fb5e6b334b898d62dc0e5c77094fdb50e0946300e6e3009f447b2ecd1bc216db",
  "load_role": "xrg_loader",
  "mode": "execution-candidate",
@@ -45,7 +45,7 @@
   "table": "cbdb__social_u5f_institution_u5f_addr"
  },
  "target_endpoint": {
-  "container_id": "74f236538bef3ac920998ed315568e93799e08f23ad4207dc7e516251816d403",
+  "container_id": "a4b9681f0de6138a380745291359054712d609b33a6284c749fc11c083b91832",
   "dbname": "xiangrugu",
   "host": "pg32b",
   "in_session_port": 5432,

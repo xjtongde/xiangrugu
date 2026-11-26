@@ -1,0 +1,86 @@
+{
+ "approval_table": {
+  "path": "/data/var/in/contracts/b-approval-table-v2.json",
+  "sha256": "a718b0c297501642dd105eb3797f96dc1de2edf8eb521bed6609ff78de1fb4a0"
+ },
+ "approval_text": {
+  "bytes": 641,
+  "path": "/data/var/in/approval-text-verbatim.txt",
+  "sha256": "4d250c8e08ea8136e29e35aa436812f11b5eec59a100847f130c11f39b7e2946"
+ },
+ "code_pin": {
+  "commit": "c2dd123f08e8052292fb282069c5ffd653ec6746",
+  "modules": {
+   "cbdb_social_addr_entry.py": "dcbfa6add94fbf1550a3705806ab285ef981da26391c5c3fadce8fc82c535a15",
+   "cbdb_social_addr_loader.py": "8969a7e69c13159a2e89cf680a80d955cccb7283fecc747841aada995c802420",
+   "contracts.py": "e6145ba70fbff4fe72e7fbda6d3a64396ac1551fb9f3c771531e4f4ebe8ce7a7",
+   "sqlite_values.py": "23fe4e891f1bce55e504462c6dc73e27bcbf8961b6d72a4a8dca0b5ae1305993",
+   "unordered_validate.py": "615b75708df4564b34cdae7df03858a961899756e3d9421e13a506bc4e3241a9",
+   "unordered_values.py": "25c7f7339b5d901460f0e0389b78fa1357778001a10574265fd72c2eba3f3ddd",
+   "value_sort.py": "23d464c4d816084f21cde72f21e6e557ee8d1ff52e54b04770e0a8aa14bcb24a"
+  },
+  "shape": "export"
+ },
+ "command": [
+  "--phase",
+  "phase1-isolated",
+  "--code-root",
+  "/workspace",
+  "--code-commit",
+  "c2dd123f08e8052292fb282069c5ffd653ec6746",
+  "--contract",
+  "/data/var/in/contracts/b-single-table-frozen-candidate.json",
+  "--approval-table",
+  "/data/var/in/contracts/b-approval-table-v2.json",
+  "--approval-text",
+  "/data/var/in/approval-text-verbatim.txt",
+  "--approval-text-sha256",
+  "4d250c8e08ea8136e29e35aa436812f11b5eec59a100847f130c11f39b7e2946",
+  "--scope",
+  "/data/var/in/execution-scope.json",
+  "--expected",
+  "/data/var/in/expected.json",
+  "--payload",
+  "/data/var/work/payload.bin",
+  "--scratch",
+  "/data/var",
+  "--evidence-out",
+  "/data/var/work/ev-FN0_schema_missing.json",
+  "--connect-host",
+  "127.0.0.1",
+  "--connect-port",
+  "5432",
+  "--load-role",
+  "xrg_loader"
+ ],
+ "contract_file": {
+  "file_sha256": "5281cfcedfe1473c54ab102d7d5fe993ca8b1b2e1865efaff5f24fa5d507c904",
+  "path": "/data/var/in/contracts/b-single-table-frozen-candidate.json"
+ },
+ "format": "xiangrugu.b-batch.single-table-load-evidence.v1",
+ "imported_modules": {
+  "entry": "/workspace/datamgmt/src/xiangrugu_datamgmt/cbdb_social_addr_entry.py",
+  "loader": "/workspace/datamgmt/src/xiangrugu_datamgmt/cbdb_social_addr_loader.py"
+ },
+ "outcome": "REFUSED",
+ "payload": {
+  "bytes": 417981,
+  "path": "/data/var/work/payload.bin",
+  "sha256": "5ca84bdc9bb4d28f4be0922e86d6f60d9ad5e3f487b7fc63c117bc2de1f968ff"
+ },
+ "phase": "phase1-isolated",
+ "refusal": {
+  "detail": "prerequisite_schema_missing: cbdb",
+  "error_code": "prerequisite_schema_missing"
+ },
+ "session": {
+  "connect_host": "127.0.0.1",
+  "connect_port": 5432,
+  "dbname": "xiangrugu",
+  "declared_in_session_port": 5432,
+  "declared_target_port": 5433,
+  "load_role": "xrg_loader",
+  "no_db_switch": true,
+  "no_reconnect": true
+ }
+}

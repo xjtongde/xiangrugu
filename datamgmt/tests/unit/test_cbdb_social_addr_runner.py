@@ -1,0 +1,152 @@
+"""Unit tests for the formal-load runner's preflight contract.
+
+The runner is the only entry point allowed to write the formal database, so the
+properties that make it trustworthy are tested directly rather than assumed:
+
+* it refuses to run code that is not the pinned commit;
+* it verifies the approval table it was handed instead of merely receiving it;
+* it imports from the tree it verified, not from whatever ``sys.path`` offers.
+"""
+
+from __future__ import annotations
+
+import hashlib
+import json
+import sys
+from pathlib import Path
+
+import pytest
+
+# Load the runner by path: the dev container's site-packages carries an older
+# copy of this package that shadows the source tree, and the runner must be tested
+# as the module that will actually run.
+import importlib.util
+
+_RUNNER_PATH = (Path(__file__).resolve().parents[2]
+                / "src" / "xiangrugu_datamgmt" / "cbdb_social_addr_runner.py")
+_spec = importlib.util.spec_from_file_location("_xrg_runner_under_test", _RUNNER_PATH)
+R = importlib.util.module_from_spec(_spec)
+_spec.loader.exec_module(R)
+
+
+def _sha(path):
+    return hashlib.sha256(Path(path).read_bytes()).hexdigest()
+
+
+@pytest.fixture()
+def pinned_export(tmp_path):
+    """A minimal export-shaped code root with a PIN_COMMIT and module manifests."""
+    root = tmp_path / "code"
+    pkg = root / "datamgmt" / "src" / "xiangrugu_datamgmt"
+    pkg.mkdir(parents=True)
+    (pkg / "cbdb_social_addr_entry.py").write_text("# entry\n", encoding="utf-8")
+    (pkg / "cbdb_social_addr_loader.py").write_text("# loader\n", encoding="utf-8")
+    commit = "a" * 40
+    (root / "PIN_COMMIT").write_text(commit + "\n", encoding="utf-8")
+    (root / "PIN_MODULES.json").write_text(json.dumps({
+        "cbdb_social_addr_entry.py": _sha(pkg / "cbdb_social_addr_entry.py"),
+        "cbdb_social_addr_loader.py": _sha(pkg / "cbdb_social_addr_loader.py"),
+    }), encoding="utf-8")
+    return root, commit, pkg
+
+
+def test_export_pin_accepts_a_matching_export(pinned_export):
+    root, commit, _pkg = pinned_export
+    pin = R.verify_code_pin(root, commit)
+    assert pin["commit"] == commit
+    assert pin["shape"] == "export"
+
+
+def test_export_pin_rejects_a_different_commit(pinned_export):
+    root, _commit, _pkg = pinned_export
+    with pytest.raises(R.PreflightError) as exc:
+        R.verify_code_pin(root, "b" * 40)
+    assert exc.value.code == "code_commit_mismatch"
+
+
+def test_export_pin_rejects_an_edited_module(pinned_export):
+    """A local edit to a pinned module means we are no longer running the review."""
+    root, commit, pkg = pinned_export
+    (pkg / "cbdb_social_addr_entry.py").write_text("# tampered\n", encoding="utf-8")
+    with pytest.raises(R.PreflightError) as exc:
+        R.verify_code_pin(root, commit)
+    assert exc.value.code == "pinned_module_digest_mismatch"
+
+
+def test_export_pin_requires_a_manifest(pinned_export):
+    root, commit, _pkg = pinned_export
+    (root / "PIN_MODULES.json").unlink()
+    with pytest.raises(R.PreflightError) as exc:
+        R.verify_code_pin(root, commit)
+    assert exc.value.code == "pin_manifest_missing"
+
+
+def test_unpinned_directory_is_refused(tmp_path):
+    """Neither .git nor PIN_COMMIT: the version cannot be proven, so refuse."""
+    with pytest.raises(R.PreflightError) as exc:
+        R.verify_code_pin(tmp_path, "c" * 40)
+    assert exc.value.code == "code_root_not_a_git_repo"
+
+
+def test_git_absence_is_reported_not_raised(tmp_path, monkeypatch):
+    """Production containers have no git; absence must degrade, not explode."""
+    def boom(*_a, **_k):
+        raise FileNotFoundError("git")
+
+    monkeypatch.setattr(R.subprocess, "run", boom)
+    result = R._git(tmp_path, "rev-parse", "HEAD")
+    assert result.returncode == 127
+
+
+def test_preflight_verifies_the_approval_table_it_was_given(tmp_path, pinned_export):
+    """--approval-table must be CHECKED, not merely accepted as an argument."""
+    root, commit, _pkg = pinned_export
+    table = tmp_path / "approval-table.json"
+    table.write_text('{"tables": []}\n', encoding="utf-8")
+    text = tmp_path / "approval.txt"
+    text.write_bytes(b"approval body\n")
+    expected = tmp_path / "expected.json"
+    expected.write_text(json.dumps({"approval_table_sha256": "0" * 64}), encoding="utf-8")
+    scope = tmp_path / "scope.json"
+    scope.write_text("{}", encoding="utf-8")
+
+    args = R.argparse.Namespace(
+        phase="phase1-isolated", code_root=str(root), code_commit=commit,
+        contract=str(tmp_path / "contract.json"),
+        approval_table=str(table), approval_text=str(text),
+        approval_text_sha256=_sha(text), scope=str(scope),
+        expected=str(expected), payload=str(tmp_path / "p.bin"),
+        scratch=str(tmp_path), evidence_out=str(tmp_path / "ev.json"))
+    (tmp_path / "contract.json").write_text("{}", encoding="utf-8")
+
+    code, evidence = R.run(args)
+    assert code == R.EXIT_PREFLIGHT
+    assert evidence["refusal"]["error_code"] == "approval_table_digest_mismatch"
+
+
+def test_preflight_rejects_a_relabelled_authorization_text(tmp_path, pinned_export):
+    """A caller-supplied digest that does not match the bytes is refused."""
+    root, commit, _pkg = pinned_export
+    table = tmp_path / "approval-table.json"
+    table.write_text('{"tables": []}\n', encoding="utf-8")
+    text = tmp_path / "approval.txt"
+    text.write_bytes(b"real body\n")
+    expected = tmp_path / "expected.json"
+    expected.write_text(json.dumps({"approval_table_sha256": _sha(table)}), encoding="utf-8")
+    contract = tmp_path / "contract.json"
+    contract.write_text("{}", encoding="utf-8")
+
+    args = R.argparse.Namespace(
+        phase="phase1-isolated", code_root=str(root), code_commit=commit,
+        contract=str(contract), approval_table=str(table), approval_text=str(text),
+        approval_text_sha256="f" * 64, scope=str(contract), expected=str(expected),
+        payload=str(tmp_path / "p.bin"), scratch=str(tmp_path),
+        evidence_out=str(tmp_path / "ev.json"))
+    code, evidence = R.run(args)
+    assert code == R.EXIT_PREFLIGHT
+    assert evidence["refusal"]["error_code"] == "approval_text_digest_mismatch"
+
+
+def test_exit_code_constants_match_the_documented_contract():
+    """The operator-facing contract must not drift silently."""
+    assert (R.EXIT_COMMITTED, R.EXIT_REFUSED, R.EXIT_ERROR, R.EXIT_PREFLIGHT) == (0, 2, 3, 4)

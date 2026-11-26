@@ -49,7 +49,22 @@
   ],
   "why": "正式要求生产代码与解析器来自核对过的固定版本；runner 在 import 之前完成钉扎校验，证据记录提交号与模块摘要"
  },
- "fixed_commit": "023b3bc56d01f5b4554533f3d2781ed74ba11050",
+ "dual_approval_note": {
+  "mapping_and_constraint_approval": {
+   "ref": "…bstep2-correction-20261126",
+   "scope": "映射与约束的批准（review_traceability）",
+   "sha256_prefix": "ec0fa5cf",
+   "status": "沿用，未改动"
+  },
+  "why_two_layers": "茶香原文要求「以冻结合同 56b0076d… 为准」，即映射与约束沿用既有批准，本次只新增写库这一层。ref 分属两次授权，不是漂移。",
+  "write_approval": {
+   "ref": "…b-batch-single-table-real-load-20261127",
+   "scope": "本次正式写库授权原文",
+   "sha256": "4d250c8e…",
+   "status": "新增，绑定 approval_table a718b0c2…"
+  }
+ },
+ "fixed_commit": "c2dd123f08e8052292fb282069c5ffd653ec6746",
  "formal_gates_verified": {
   "approval_digest": "授权原文由 runner 从文件读取并实算摘要，与声明值、write_approval 绑定值三方一致",
   "contract_digest": "从实际冻结合同用正式解析重算 56b0076d…，同一解析结果驱动目标/列/主键/期望",
@@ -62,213 +77,134 @@
  "isolated_acceptance": {
   "cases": [
    {
+    "approval_table_sha256": "a718b0c297501642dd105eb3797f96dc1de2edf8eb521bed6609ff78de1fb4a0",
+    "case": "FN0_schema_missing",
+    "code_pin": "c2dd123f08e8052292fb282069c5ffd653ec6746",
+    "committed": null,
+    "error_code": "prerequisite_schema_missing",
+    "exit_code": 2,
+    "outcome": "REFUSED",
+    "pin_shape": "export",
+    "row_count": null
+   },
+   {
+    "approval_table_sha256": "a718b0c297501642dd105eb3797f96dc1de2edf8eb521bed6609ff78de1fb4a0",
     "case": "N1_target_exists",
-    "code_pin": "023b3bc56d01f5b4554533f3d2781ed74ba11050",
+    "code_pin": "c2dd123f08e8052292fb282069c5ffd653ec6746",
     "committed": null,
     "error_code": "target_already_exists",
-    "exit_code": null,
+    "exit_code": 2,
     "outcome": "REFUSED",
     "pin_shape": "export",
-    "row_count": null,
-    "session": {
-     "connect_host": "127.0.0.1",
-     "connect_port": 5432,
-     "dbname": "xiangrugu",
-     "declared_in_session_port": 5432,
-     "declared_target_port": 5433,
-     "load_role": "xrg_loader",
-     "no_db_switch": true,
-     "no_reconnect": true
-    }
+    "row_count": null
    },
    {
-    "case": "N2_test_approval",
-    "code_pin": "023b3bc56d01f5b4554533f3d2781ed74ba11050",
+    "approval_table_sha256": "a718b0c297501642dd105eb3797f96dc1de2edf8eb521bed6609ff78de1fb4a0",
+    "case": "N2_test_class_only",
+    "code_pin": "c2dd123f08e8052292fb282069c5ffd653ec6746",
     "committed": null,
-    "error_code": "production_database_visible",
-    "exit_code": null,
+    "error_code": "test_approval_cannot_target_production",
+    "exit_code": 2,
     "outcome": "REFUSED",
     "pin_shape": "export",
-    "row_count": null,
-    "session": {
-     "connect_host": "127.0.0.1",
-     "connect_port": 5432,
-     "dbname": "xiangrugu",
-     "declared_in_session_port": 5432,
-     "declared_target_port": 5433,
-     "load_role": "xrg_loader",
-     "no_db_switch": true,
-     "no_reconnect": true
-    }
+    "row_count": null
    },
    {
+    "approval_table_sha256": "a718b0c297501642dd105eb3797f96dc1de2edf8eb521bed6609ff78de1fb4a0",
     "case": "N3_fake_approval",
-    "code_pin": "023b3bc56d01f5b4554533f3d2781ed74ba11050",
+    "code_pin": "c2dd123f08e8052292fb282069c5ffd653ec6746",
     "committed": null,
     "error_code": "real_authorization_digest_not_bound_to_write_approval",
-    "exit_code": null,
+    "exit_code": 2,
     "outcome": "REFUSED",
     "pin_shape": "export",
-    "row_count": null,
-    "session": {
-     "connect_host": "127.0.0.1",
-     "connect_port": 5432,
-     "dbname": "xiangrugu",
-     "declared_in_session_port": 5432,
-     "declared_target_port": 5433,
-     "load_role": "xrg_loader",
-     "no_db_switch": true,
-     "no_reconnect": true
-    }
+    "row_count": null
    },
    {
-    "case": "N4_wrong_port",
-    "code_pin": "023b3bc56d01f5b4554533f3d2781ed74ba11050",
+    "approval_table_sha256": null,
+    "case": "N4_forged_approval_table",
+    "code_pin": "c2dd123f08e8052292fb282069c5ffd653ec6746",
     "committed": null,
-    "error_code": "target_port_not_5433",
-    "exit_code": null,
-    "outcome": "REFUSED",
+    "error_code": "approval_table_digest_mismatch",
+    "exit_code": 4,
+    "outcome": "PREFLIGHT_FAILED",
     "pin_shape": "export",
-    "row_count": null,
-    "session": {
-     "connect_host": "127.0.0.1",
-     "connect_port": 5432,
-     "dbname": "xiangrugu",
-     "declared_in_session_port": 5432,
-     "declared_target_port": 5432,
-     "load_role": "xrg_loader",
-     "no_db_switch": true,
-     "no_reconnect": true
-    }
+    "row_count": null
    },
    {
-    "case": "N5_wrong_instance",
-    "code_pin": "023b3bc56d01f5b4554533f3d2781ed74ba11050",
-    "committed": null,
-    "error_code": "instance_identity_mismatch",
-    "exit_code": null,
-    "outcome": "REFUSED",
-    "pin_shape": "export",
-    "row_count": null,
-    "session": {
-     "connect_host": "127.0.0.1",
-     "connect_port": 5432,
-     "dbname": "xiangrugu",
-     "declared_in_session_port": 5432,
-     "declared_target_port": 5433,
-     "load_role": "xrg_loader",
-     "no_db_switch": true,
-     "no_reconnect": true
-    }
-   },
-   {
-    "case": "N6_wrong_role",
-    "code_pin": "023b3bc56d01f5b4554533f3d2781ed74ba11050",
+    "approval_table_sha256": "a718b0c297501642dd105eb3797f96dc1de2edf8eb521bed6609ff78de1fb4a0",
+    "case": "N5_wrong_role",
+    "code_pin": "c2dd123f08e8052292fb282069c5ffd653ec6746",
     "committed": null,
     "error_code": "load_role_mismatch",
-    "exit_code": null,
+    "exit_code": 2,
     "outcome": "REFUSED",
     "pin_shape": "export",
-    "row_count": null,
-    "session": {
-     "connect_host": "127.0.0.1",
-     "connect_port": 5432,
-     "dbname": "xiangrugu",
-     "declared_in_session_port": 5432,
-     "declared_target_port": 5433,
-     "load_role": "postgres",
-     "no_db_switch": true,
-     "no_reconnect": true
-    }
+    "row_count": null
    },
    {
-    "case": "N7_exists_again",
-    "code_pin": "023b3bc56d01f5b4554533f3d2781ed74ba11050",
+    "approval_table_sha256": "a718b0c297501642dd105eb3797f96dc1de2edf8eb521bed6609ff78de1fb4a0",
+    "case": "N6_wrong_instance",
+    "code_pin": "c2dd123f08e8052292fb282069c5ffd653ec6746",
     "committed": null,
-    "error_code": "target_already_exists",
-    "exit_code": null,
+    "error_code": "instance_identity_mismatch",
+    "exit_code": 2,
     "outcome": "REFUSED",
     "pin_shape": "export",
-    "row_count": null,
-    "session": {
-     "connect_host": "127.0.0.1",
-     "connect_port": 5432,
-     "dbname": "xiangrugu",
-     "declared_in_session_port": 5432,
-     "declared_target_port": 5433,
-     "load_role": "xrg_loader",
-     "no_db_switch": true,
-     "no_reconnect": true
-    }
+    "row_count": null
    },
    {
-    "case": "N8",
-    "code_pin": "023b3bc56d01f5b4554533f3d2781ed74ba11050",
+    "approval_table_sha256": "a718b0c297501642dd105eb3797f96dc1de2edf8eb521bed6609ff78de1fb4a0",
+    "case": "N7_readback_rollback",
+    "code_pin": "c2dd123f08e8052292fb282069c5ffd653ec6746",
     "committed": null,
     "error_code": "row_count_mismatch",
-    "exit_code": null,
+    "exit_code": 2,
     "outcome": "REFUSED",
     "pin_shape": "export",
-    "row_count": null,
-    "session": {
-     "connect_host": "127.0.0.1",
-     "connect_port": 5432,
-     "dbname": "xiangrugu",
-     "declared_in_session_port": 5432,
-     "declared_target_port": 5433,
-     "load_role": "xrg_loader",
-     "no_db_switch": true,
-     "no_reconnect": true
-    }
+    "row_count": null
    },
    {
+    "approval_table_sha256": "a718b0c297501642dd105eb3797f96dc1de2edf8eb521bed6609ff78de1fb4a0",
     "case": "P1_positive",
-    "code_pin": "023b3bc56d01f5b4554533f3d2781ed74ba11050",
+    "code_pin": "c2dd123f08e8052292fb282069c5ffd653ec6746",
     "committed": true,
     "error_code": null,
-    "exit_code": null,
+    "exit_code": 0,
     "outcome": "COMMITTED",
     "pin_shape": "export",
-    "row_count": 3859,
-    "session": {
-     "connect_host": "127.0.0.1",
-     "connect_port": 5432,
-     "dbname": "xiangrugu",
-     "declared_in_session_port": 5432,
-     "declared_target_port": 5433,
-     "load_role": "xrg_loader",
-     "no_db_switch": true,
-     "no_reconnect": true
-    }
+    "row_count": 3859
    },
    {
+    "approval_table_sha256": "a718b0c297501642dd105eb3797f96dc1de2edf8eb521bed6609ff78de1fb4a0",
     "case": "P2_retry",
-    "code_pin": "023b3bc56d01f5b4554533f3d2781ed74ba11050",
+    "code_pin": "c2dd123f08e8052292fb282069c5ffd653ec6746",
     "committed": true,
     "error_code": null,
-    "exit_code": null,
+    "exit_code": 0,
     "outcome": "COMMITTED",
     "pin_shape": "export",
-    "row_count": 3859,
-    "session": {
-     "connect_host": "127.0.0.1",
-     "connect_port": 5432,
-     "dbname": "xiangrugu",
-     "declared_in_session_port": 5432,
-     "declared_target_port": 5433,
-     "load_role": "xrg_loader",
-     "no_db_switch": true,
-     "no_reconnect": true
-    }
+    "row_count": 3859
+   },
+   {
+    "approval_table_sha256": "a718b0c297501642dd105eb3797f96dc1de2edf8eb521bed6609ff78de1fb4a0",
+    "case": "P3_final",
+    "code_pin": "c2dd123f08e8052292fb282069c5ffd653ec6746",
+    "committed": true,
+    "error_code": null,
+    "exit_code": 0,
+    "outcome": "COMMITTED",
+    "pin_shape": "export",
+    "row_count": 3859
    }
   ],
-  "environment": "--network none、无端口发布、源 ro 挂载、PG 18.6、角色 xrg_loader NOSUPERUSER",
-  "expected": {
-   "committed": 2,
-   "errors": 0,
-   "refused": 8
+  "environment": "--network none、无端口发布、源 ro 挂载、PG 18.6、xrg_loader NOSUPERUSER",
+  "exit_code_distribution": {
+   "0": 3,
+   "2": 7,
+   "4": 1
   },
-  "total": 10
+  "total": 11
  },
  "least_privilege": {
   "database": "xiangrugu（必须已存在，装载不建）",
@@ -287,7 +223,7 @@
   "prerequisite_grants": [
    "GRANT SELECT ON public.xrg_instance_marker TO xrg_loader",
    "GRANT USAGE ON SCHEMA public TO xrg_loader",
-   "cbdb schema owner = xrg_loader（或该角色在该 schema 有 CREATE）"
+   "cbdb schema owned by / USAGE+CREATE for xrg_loader（须预先由管理员建）"
   ],
   "role": "xrg_loader LOGIN NOSUPERUSER NOCREATEDB NOCREATEROLE NOREPLICATION",
   "schema": "cbdb（必须已存在；缺失即 prerequisite_schema_missing，装载不代建）"
@@ -298,14 +234,135 @@
   "production_privileges_changed": false,
   "production_written": false
  },
+ "review_fixes": {
+  "A_approval_table_verified": {
+   "measured": "N4_forged_approval_table → approval_table_digest_mismatch, exit 4",
+   "now": "preflight 实算文件摘要并与 expected.approval_table_sha256 比对",
+   "was": "--approval-table 被接收但从未读取"
+  },
+  "B_pin_matches_import": {
+   "measured": "所有用例 code_pin=c2dd123、shape=export，imported_modules 均位于 code_root",
+   "now": "pin 通过后把 code_root/datamgmt/src 置入 sys.path[0]、清已加载包、importlib 导入，并断言 __file__ 在 code_root 下；证据记录实际加载路径",
+   "was": "校验 code_root 但裸 from-import 走 sys.path，可能校验一份执行另一份"
+  },
+  "C_value_comparison_reads_db": {
+   "measured": "target_sha256=2cb8c354…、source_count=target_count=3859、missing/excess=0、comparison_equal",
+   "now": "target 侧开独立 psql 会话 COPY (SELECT 11 列 FROM 表) TO STDOUT 读回，交给同一 compare_unordered；恢复 method 并记录 used_copy_payload=false",
+   "was": "target 侧迭代 payload.bin，只证明载荷==源"
+  },
+  "D_exit_codes_recorded": {
+   "measured": "0(P1/P2/P3) / 2(FN0,N1,N2,N3,N5,N6,N7) / 4(N4) 三种均实测",
+   "now": "每例记录真实退出码（.rc 文件 + 证据）",
+   "was": "10 用例 exit_code 全 null"
+  },
+  "E_test_approval_gate": {
+   "measured": "N2_test_class_only → test_approval_cannot_target_production, exit 2",
+   "now": "scope-test-class-only.json 仅改 approval_class，生产端点与 test_only=False 不动",
+   "was": "N2 同时改 test_only，撞的是库名检查"
+  },
+  "F_runner_tests": {
+   "measured": "9 passed；覆盖 pin 不符/模块被改/缺清单/无钉扎/git 缺失降级/审批表不符/原文摘要不符/退出码契约",
+   "now": "datamgmt/tests/unit/test_cbdb_social_addr_runner.py 9 项",
+   "was": "303 行产品代码零单测"
+  },
+  "G_contract_preflight": {
+   "now": "撤回：contract_sha256 是规范摘要（pydantic 序列化后算），不是文件字节哈希——实测文件 5281cfce… vs 规范 56b0076d…。误加比对曾致全部用例 exit 4，已撤回并在代码注释写明原因；合同仍由 Gate D 重算把关",
+   "was": "--contract 未在 preflight 比对"
+  }
+ },
+ "revision": "v2：按 a02 第五轮 PARTIAL 修正后重跑",
+ "test_totals": {
+  "combined": 73,
+  "combined_result": "73 passed",
+  "entry": 43,
+  "full_unit": {
+   "errors": 27,
+   "failed": 211,
+   "our_three_files_failures": 0,
+   "passed": 1273,
+   "skipped": 8
+  },
+  "loader": 21,
+  "runner": 9
+ },
  "value_comparison": {
+  "cleanup_complete": true,
+  "column_key": null,
+  "details_truncated": false,
+  "difference_patterns": 0,
+  "differences": [],
+  "error_code": null,
+  "error_side": null,
   "excess_rows": 0,
+  "format_version": "sqlite-unordered-values-v1",
+  "limits": {
+   "chunk_bytes": 33554432,
+   "chunk_rows": 4096,
+   "max_columns": 512,
+   "max_differences": 100,
+   "max_field_bytes": 1048576,
+   "max_row_bytes": 8388608,
+   "max_rows": 100000,
+   "max_seconds": 120,
+   "max_stream_bytes": 268435456,
+   "max_temp_bytes": 2147483648,
+   "max_temp_files": 1024,
+   "merge_fan_in": 16,
+   "workers": 1
+  },
+  "method": "source sqlite /mnt/wd61workmetadata/usedata/harvard/cbdb/cbdb_20260919.sqlite3 SOCIAL_INSTITUTION_ADDR vs target PostgreSQL xiangrugu.cbdb.cbdb__social_u5f_institution_u5f_addr read back via independent psql COPY",
   "missing_rows": 0,
+  "partial": false,
+  "residual_directory": null,
+  "resource_stats": {
+   "elapsed_seconds": 27.469355111999903,
+   "peak_chunk_bytes": 45896,
+   "peak_chunk_rows": 279,
+   "peak_temp_bytes": 1890276,
+   "peak_temp_files": 18
+  },
   "result": "comparison_equal",
+  "scan_index": null,
+  "schema_hash": "1f88cd8039ae3dbdc411864c52d5bbb1aa5dc20c59ff61dabf8b709f7382d1f9",
   "source_count": 3859,
+  "source_evidence": {
+   "kind": "source",
+   "reference": "3cf1a3286982ab392f3f0bed1a0dcc723f3a04205be610a6ec992ae66047c6cf",
+   "sha256": "2cb8c354b0e75e6ae230e3b00540146e823eaa8de8def2abce89ad6179a07579"
+  },
+  "source_fields": 42449,
+  "source_object_id": "3cf1a3286982ab392f3f0bed1a0dcc723f3a04205be610a6ec992ae66047c6cf",
+  "source_progress": {
+   "accepted_rows": 3859,
+   "comparison_complete": true,
+   "field_count": 42449,
+   "frame_bytes": 630092,
+   "input_complete": true,
+   "sort_complete": true
+  },
   "source_sha256": "2cb8c354b0e75e6ae230e3b00540146e823eaa8de8def2abce89ad6179a07579",
+  "source_stream_bytes": 630173,
   "target_count": 3859,
-  "target_sha256": "2cb8c354b0e75e6ae230e3b00540146e823eaa8de8def2abce89ad6179a07579"
+  "target_evidence": {
+   "kind": "target",
+   "reference": "cbdb.cbdb__social_u5f_institution_u5f_addr",
+   "sha256": "2cb8c354b0e75e6ae230e3b00540146e823eaa8de8def2abce89ad6179a07579"
+  },
+  "target_fields": 42449,
+  "target_progress": {
+   "accepted_rows": 3859,
+   "comparison_complete": true,
+   "field_count": 42449,
+   "frame_bytes": 630092,
+   "input_complete": true,
+   "sort_complete": true
+  },
+  "target_read": {
+   "used_copy_payload": false,
+   "via": "psql COPY ... TO STDOUT (independent session)"
+  },
+  "target_sha256": "2cb8c354b0e75e6ae230e3b00540146e823eaa8de8def2abce89ad6179a07579",
+  "target_stream_bytes": 630173
  },
  "verdict": "PHASE1_COMPLETE_AWAITING_CODEX_RELEASE"
 }

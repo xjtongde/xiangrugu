@@ -333,9 +333,16 @@
    "was": "--contract 未在 preflight 比对"
   },
   "I1_single_pin_single_instance": {
+   "count_history": {
+    "current": "12 例",
+    "evidence_files": 12,
+    "self_consistency": "total / len(cases) / 证据文件数 三者均为 12",
+    "v3": "11 例",
+    "v4 起": "12 例（新增 P4_final）"
+   },
    "marker_precision": "marker 为单值 61418c89… 的样本是 P1–P4 四例（仅成功装载才会返回 instance 对象）；8 份拒绝件的 result 为空、marker 为 null，因为门控在身份核验前抛出时没有 result 对象；N4 为预检失败，同样无 result。此前的措辞把缺失只归于 N4，不准确。",
    "measured": "12 份证据的 code_pin 集合 = {58e93e31f4c5524fe69642ac900d9398efca5614}（单值）；用例涉及会话的 marker 集合 = {61418c896522…}；汇总件每条 case 各自记录其 code_pin",
-   "now": "在固定提交 58e93e3、单一新替身 61418c896522 上把 11 例全部重跑，无一复用",
+   "now": "在新固定提交 58e93e3、新替身 61418c896522 上把 12 例全部重跑，无一复用（v3 时为 11 例，v4 增设 P4_final 恢复装载后为 12 例）",
    "was": "汇总件把 11 条统一标成 c2dd123f，实际 6 条是 v2 复用件（--code-commit 实为 c2dd123f）；且 P1/P3 与新用例分属 a4b9681f 与 783ddd4c 两个替身，跨实例混证"
   },
   "I2_probe_in_cases": {

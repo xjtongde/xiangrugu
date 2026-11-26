@@ -1,0 +1,311 @@
+{
+ "actual_command": {
+  "connection_args": "--connect-host / --connect-port（默认取已批准端点：外 5433）；会话内 5432 由门控核对",
+  "entry": "python3 -m xiangrugu_datamgmt.cbdb_social_addr_runner",
+  "exit_codes": {
+   "0": "COMMITTED",
+   "2": "REFUSED（门控拒绝，未提交）",
+   "3": "ERROR（已回滚）",
+   "4": "PREFLIGHT_FAILED"
+  },
+  "password": "仅从环境变量 XNG_LOAD_PASSWORD 读取，不上命令行",
+  "required_args": [
+   "--phase",
+   "--code-root",
+   "--code-commit",
+   "--contract",
+   "--approval-table",
+   "--approval-text",
+   "--approval-text-sha256",
+   "--scope",
+   "--expected",
+   "--payload",
+   "--scratch",
+   "--evidence-out"
+  ]
+ },
+ "approval": {
+  "bound_approval_table_sha256": "a718b0c297501642dd105eb3797f96dc1de2edf8eb521bed6609ff78de1fb4a0",
+  "bound_frozen_contract_sha256": "56b0076d2e877be9fb34796e01b8ee2b37d5a817c8e80203fa21c95e4f3f8237",
+  "bytes": 641,
+  "event": "chaxiang-approval-b-batch-single-table-real-load-20261127",
+  "verbatim_sha256": "4d250c8e08ea8136e29e35aa436812f11b5eec59a100847f130c11f39b7e2946"
+ },
+ "blocked_on": "等 Codex 明确放行后方可进入第二阶段",
+ "code_provenance": {
+  "pin_shapes": [
+   "git（HEAD 必须等于钉扎提交且钉扎包无未提交改动）",
+   "export（PIN_COMMIT + PIN_MODULES.json 逐模块摘要）"
+  ],
+  "pinned_modules": [
+   "cbdb_social_addr_entry.py",
+   "cbdb_social_addr_loader.py",
+   "contracts.py",
+   "unordered_validate.py",
+   "unordered_values.py",
+   "sqlite_values.py",
+   "value_sort.py",
+   "cbdb_social_addr_runner.py"
+  ],
+  "why": "正式要求生产代码与解析器来自核对过的固定版本；runner 在 import 之前完成钉扎校验，证据记录提交号与模块摘要"
+ },
+ "fixed_commit": "023b3bc56d01f5b4554533f3d2781ed74ba11050",
+ "formal_gates_verified": {
+  "approval_digest": "授权原文由 runner 从文件读取并实算摘要，与声明值、write_approval 绑定值三方一致",
+  "contract_digest": "从实际冻结合同用正式解析重算 56b0076d…，同一解析结果驱动目标/列/主键/期望",
+  "endpoint": "目标固定 pg32b:5433/xiangrugu；会话内 5432 单独核对，禁止把 5432 当目标",
+  "instance_marker": "public.xrg_instance_marker 严格一行且等于独立核实的容器 ID",
+  "load_role": "current_user 必须为 xrg_loader，且无 SET ROLE 覆盖，非超级用户",
+  "no_db_switch": "单连接单会话完成身份核验与 DDL，不切库不重连"
+ },
+ "format": "xiangrugu.b-batch.phase1.command-acceptance.v1",
+ "isolated_acceptance": {
+  "cases": [
+   {
+    "case": "N1_target_exists",
+    "code_pin": "023b3bc56d01f5b4554533f3d2781ed74ba11050",
+    "committed": null,
+    "error_code": "target_already_exists",
+    "exit_code": null,
+    "outcome": "REFUSED",
+    "pin_shape": "export",
+    "row_count": null,
+    "session": {
+     "connect_host": "127.0.0.1",
+     "connect_port": 5432,
+     "dbname": "xiangrugu",
+     "declared_in_session_port": 5432,
+     "declared_target_port": 5433,
+     "load_role": "xrg_loader",
+     "no_db_switch": true,
+     "no_reconnect": true
+    }
+   },
+   {
+    "case": "N2_test_approval",
+    "code_pin": "023b3bc56d01f5b4554533f3d2781ed74ba11050",
+    "committed": null,
+    "error_code": "production_database_visible",
+    "exit_code": null,
+    "outcome": "REFUSED",
+    "pin_shape": "export",
+    "row_count": null,
+    "session": {
+     "connect_host": "127.0.0.1",
+     "connect_port": 5432,
+     "dbname": "xiangrugu",
+     "declared_in_session_port": 5432,
+     "declared_target_port": 5433,
+     "load_role": "xrg_loader",
+     "no_db_switch": true,
+     "no_reconnect": true
+    }
+   },
+   {
+    "case": "N3_fake_approval",
+    "code_pin": "023b3bc56d01f5b4554533f3d2781ed74ba11050",
+    "committed": null,
+    "error_code": "real_authorization_digest_not_bound_to_write_approval",
+    "exit_code": null,
+    "outcome": "REFUSED",
+    "pin_shape": "export",
+    "row_count": null,
+    "session": {
+     "connect_host": "127.0.0.1",
+     "connect_port": 5432,
+     "dbname": "xiangrugu",
+     "declared_in_session_port": 5432,
+     "declared_target_port": 5433,
+     "load_role": "xrg_loader",
+     "no_db_switch": true,
+     "no_reconnect": true
+    }
+   },
+   {
+    "case": "N4_wrong_port",
+    "code_pin": "023b3bc56d01f5b4554533f3d2781ed74ba11050",
+    "committed": null,
+    "error_code": "target_port_not_5433",
+    "exit_code": null,
+    "outcome": "REFUSED",
+    "pin_shape": "export",
+    "row_count": null,
+    "session": {
+     "connect_host": "127.0.0.1",
+     "connect_port": 5432,
+     "dbname": "xiangrugu",
+     "declared_in_session_port": 5432,
+     "declared_target_port": 5432,
+     "load_role": "xrg_loader",
+     "no_db_switch": true,
+     "no_reconnect": true
+    }
+   },
+   {
+    "case": "N5_wrong_instance",
+    "code_pin": "023b3bc56d01f5b4554533f3d2781ed74ba11050",
+    "committed": null,
+    "error_code": "instance_identity_mismatch",
+    "exit_code": null,
+    "outcome": "REFUSED",
+    "pin_shape": "export",
+    "row_count": null,
+    "session": {
+     "connect_host": "127.0.0.1",
+     "connect_port": 5432,
+     "dbname": "xiangrugu",
+     "declared_in_session_port": 5432,
+     "declared_target_port": 5433,
+     "load_role": "xrg_loader",
+     "no_db_switch": true,
+     "no_reconnect": true
+    }
+   },
+   {
+    "case": "N6_wrong_role",
+    "code_pin": "023b3bc56d01f5b4554533f3d2781ed74ba11050",
+    "committed": null,
+    "error_code": "load_role_mismatch",
+    "exit_code": null,
+    "outcome": "REFUSED",
+    "pin_shape": "export",
+    "row_count": null,
+    "session": {
+     "connect_host": "127.0.0.1",
+     "connect_port": 5432,
+     "dbname": "xiangrugu",
+     "declared_in_session_port": 5432,
+     "declared_target_port": 5433,
+     "load_role": "postgres",
+     "no_db_switch": true,
+     "no_reconnect": true
+    }
+   },
+   {
+    "case": "N7_exists_again",
+    "code_pin": "023b3bc56d01f5b4554533f3d2781ed74ba11050",
+    "committed": null,
+    "error_code": "target_already_exists",
+    "exit_code": null,
+    "outcome": "REFUSED",
+    "pin_shape": "export",
+    "row_count": null,
+    "session": {
+     "connect_host": "127.0.0.1",
+     "connect_port": 5432,
+     "dbname": "xiangrugu",
+     "declared_in_session_port": 5432,
+     "declared_target_port": 5433,
+     "load_role": "xrg_loader",
+     "no_db_switch": true,
+     "no_reconnect": true
+    }
+   },
+   {
+    "case": "N8",
+    "code_pin": "023b3bc56d01f5b4554533f3d2781ed74ba11050",
+    "committed": null,
+    "error_code": "row_count_mismatch",
+    "exit_code": null,
+    "outcome": "REFUSED",
+    "pin_shape": "export",
+    "row_count": null,
+    "session": {
+     "connect_host": "127.0.0.1",
+     "connect_port": 5432,
+     "dbname": "xiangrugu",
+     "declared_in_session_port": 5432,
+     "declared_target_port": 5433,
+     "load_role": "xrg_loader",
+     "no_db_switch": true,
+     "no_reconnect": true
+    }
+   },
+   {
+    "case": "P1_positive",
+    "code_pin": "023b3bc56d01f5b4554533f3d2781ed74ba11050",
+    "committed": true,
+    "error_code": null,
+    "exit_code": null,
+    "outcome": "COMMITTED",
+    "pin_shape": "export",
+    "row_count": 3859,
+    "session": {
+     "connect_host": "127.0.0.1",
+     "connect_port": 5432,
+     "dbname": "xiangrugu",
+     "declared_in_session_port": 5432,
+     "declared_target_port": 5433,
+     "load_role": "xrg_loader",
+     "no_db_switch": true,
+     "no_reconnect": true
+    }
+   },
+   {
+    "case": "P2_retry",
+    "code_pin": "023b3bc56d01f5b4554533f3d2781ed74ba11050",
+    "committed": true,
+    "error_code": null,
+    "exit_code": null,
+    "outcome": "COMMITTED",
+    "pin_shape": "export",
+    "row_count": 3859,
+    "session": {
+     "connect_host": "127.0.0.1",
+     "connect_port": 5432,
+     "dbname": "xiangrugu",
+     "declared_in_session_port": 5432,
+     "declared_target_port": 5433,
+     "load_role": "xrg_loader",
+     "no_db_switch": true,
+     "no_reconnect": true
+    }
+   }
+  ],
+  "environment": "--network none、无端口发布、源 ro 挂载、PG 18.6、角色 xrg_loader NOSUPERUSER",
+  "expected": {
+   "committed": 2,
+   "errors": 0,
+   "refused": 8
+  },
+  "total": 10
+ },
+ "least_privilege": {
+  "database": "xiangrugu（必须已存在，装载不建）",
+  "must_not_create_during_load": [
+   "DATABASE xiangrugu",
+   "SCHEMA cbdb",
+   "xrg_instance_marker",
+   "任何角色"
+  ],
+  "not_needed": [
+   "SUPERUSER",
+   "CREATEDB",
+   "CREATEROLE",
+   "对现有表或 pg32 的任何权限"
+  ],
+  "prerequisite_grants": [
+   "GRANT SELECT ON public.xrg_instance_marker TO xrg_loader",
+   "GRANT USAGE ON SCHEMA public TO xrg_loader",
+   "cbdb schema owner = xrg_loader（或该角色在该 schema 有 CREATE）"
+  ],
+  "role": "xrg_loader LOGIN NOSUPERUSER NOCREATEDB NOCREATEROLE NOREPLICATION",
+  "schema": "cbdb（必须已存在；缺失即 prerequisite_schema_missing，装载不代建）"
+ },
+ "not_done_in_phase1": {
+  "deploy_updated": false,
+  "production_connected": false,
+  "production_privileges_changed": false,
+  "production_written": false
+ },
+ "value_comparison": {
+  "excess_rows": 0,
+  "missing_rows": 0,
+  "result": "comparison_equal",
+  "source_count": 3859,
+  "source_sha256": "2cb8c354b0e75e6ae230e3b00540146e823eaa8de8def2abce89ad6179a07579",
+  "target_count": 3859,
+  "target_sha256": "2cb8c354b0e75e6ae230e3b00540146e823eaa8de8def2abce89ad6179a07579"
+ },
+ "verdict": "PHASE1_COMPLETE_AWAITING_CODEX_RELEASE"
+}

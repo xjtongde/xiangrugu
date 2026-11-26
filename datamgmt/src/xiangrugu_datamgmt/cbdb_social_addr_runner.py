@@ -83,22 +83,52 @@ def _git(root, *args):
 
 
 def verify_code_pin(code_root, expected_commit):
-    """Refuse to run unless the code on disk IS the reviewed commit."""
-    head = _git(code_root, "rev-parse", "HEAD")
-    if head.returncode != 0:
-        raise PreflightError("code_root_not_a_git_repo", str(code_root))
-    actual = head.stdout.strip()
-    if actual != expected_commit:
-        raise PreflightError("code_commit_mismatch", actual)
+    """Refuse to run unless the code on disk IS the reviewed commit.
 
-    # Uncommitted edits to the pinned modules would silently change behaviour.
-    pkg = Path(code_root) / "datamgmt" / "src" / "xiangrugu_datamgmt"
-    dirty = _git(code_root, "status", "--porcelain", "--",
-                 str(pkg.relative_to(code_root)))
-    if dirty.returncode == 0 and dirty.stdout.strip():
-        raise PreflightError("pinned_code_dirty", dirty.stdout.strip()[:400])
+    Two supported shapes, because production code is often staged as a read-only
+    artifact rather than a live checkout:
+
+      git     ``code_root`` is a git work tree; HEAD must equal the commit and the
+              pinned package must have no uncommitted edits.
+      export  ``code_root`` holds a ``git archive`` export of the commit plus a
+              ``PIN_COMMIT`` file containing that commit; the pinned modules are
+              then checked against the digests recorded in ``PIN_MODULES.json``.
+    """
+    root = Path(code_root)
+    pkg = root / "datamgmt" / "src" / "xiangrugu_datamgmt"
+
+    head = _git(root, "rev-parse", "HEAD")
+    if head.returncode == 0:
+        actual = head.stdout.strip()
+        if actual != expected_commit:
+            raise PreflightError("code_commit_mismatch", actual)
+        # Uncommitted edits to the pinned modules would silently change behaviour.
+        dirty = _git(root, "status", "--porcelain", "--",
+                     str(pkg.relative_to(root)))
+        if dirty.returncode == 0 and dirty.stdout.strip():
+            raise PreflightError("pinned_code_dirty", dirty.stdout.strip()[:400])
+        shape = "git"
+    else:
+        pin = root / "PIN_COMMIT"
+        if not pin.exists():
+            raise PreflightError("code_root_not_a_git_repo",
+                                 "no .git and no PIN_COMMIT: cannot prove the version")
+        actual = pin.read_text(encoding="utf-8").strip()
+        if actual != expected_commit:
+            raise PreflightError("code_commit_mismatch", actual)
+        manifest = root / "PIN_MODULES.json"
+        if not manifest.exists():
+            raise PreflightError("pin_manifest_missing", str(manifest))
+        recorded = read_json(manifest)
+        for name, want in recorded.items():
+            have = _sha_file(pkg / name) if (pkg / name).exists() else None
+            if have != want:
+                raise PreflightError("pinned_module_digest_mismatch", name)
+        shape = "export"
+
     return {
         "commit": actual,
+        "shape": shape,
         "modules": {name: _sha_file(pkg / name) for name in PINNED_MODULES
                     if (pkg / name).exists()},
     }

@@ -289,7 +289,16 @@ def test_runner_pins_itself():
 
 
 def R_PROD_ID():
-    src = Path(R.__file__).read_text(encoding="utf-8")
+    """The verified production container id, as defined in the entry module.
+
+    _PRODUCTION_CONTAINER_ID lives in cbdb_social_addr_entry.py; the runner only
+    references it as E._PRODUCTION_CONTAINER_ID. Read it from the module that
+    actually defines it rather than scanning the wrong file.
+    """
+    SRC = Path(R.__file__).resolve().parent
+    if str(SRC) not in sys.path:
+        sys.path.insert(0, str(SRC))
+    src = (SRC / "cbdb_social_addr_entry.py").read_text(encoding="utf-8")
     marker = '_PRODUCTION_CONTAINER_ID = "'
     start = src.index(marker) + len(marker)
     return src[start:src.index('"', start)]

@@ -43,9 +43,9 @@ docker exec xiangrugu-dev python3 -c \
 # 从固定导出树启动 runner：-m 用的 xiangrugu_datamgmt 必须解析到该导出树，
 # 不能落到已安装的 site-packages 版本。
 # 同样不用管道取退出码：先落盘再判，避免把 grep/tail 的状态当成被测结论。
-docker exec -i -e PYTHONPATH=/data/var/b-batch/code/xrg-batch/datamgmt/src \
+docker exec -w "$PWD" -e PYTHONPATH=/data/var/b-batch/code/xrg-batch/datamgmt/src \
   xiangrugu-dev python3 -c "import xiangrugu_datamgmt as m;print(m.__file__)" \
-  > /tmp/xrg-step0-probe.out
+  </dev/null > /tmp/xrg-step0-probe.out
 RC=$?
 if [ "$RC" -ne 0 ] || ! grep -q "^/data/var/b-batch/code/xrg-batch/datamgmt/src/" /tmp/xrg-step0-probe.out; then
   echo "RUNTIME_NOT_FROM_EXPORT_TREE rc=$RC observed=$(cat /tmp/xrg-step0-probe.out)"
@@ -77,6 +77,12 @@ export PAYLOAD=/data/var/b-batch/payload.bin
 #     -e PYTHONPATH="$CODE_ROOT/..."  给实际运行进程（不只是给探针）
 #   上一版只把 PYTHONPATH 给了探针，被测进程没拿到。
 #
+# ⚠ 命令调用**不加 -i**，并显式 </dev/null（本盒实测发现）：
+#   `docker exec -i` 会把容器的 stdin 接到脚本自己的 stdin。当整份命令经
+#   heredoc / `bash -s` / 管道喂入时，-i 会吞掉脚本尚未读取的正文——
+#   表现为第一条探针就永久挂起，且没有任何报错。只有 (0b) 那种「用 tar/cat
+#   通过 stdin 传数据」的步骤才需要 -i；执行命令一律不带 -i 且 </dev/null。
+#
 # ⚠ 退出码必须短路（a04 实测纠正）：上一版只有 `echo "PREFLIGHT_EXIT=$?"`，
 #   注释写着「退出码 0 才继续」但没有实现——预检失败后仍进入装载段，
 #   且脚本自身恒以 0 结束，把失败伪装成成功。
@@ -85,16 +91,16 @@ export PAYLOAD=/data/var/b-batch/payload.bin
 #
 # 工作目录由 docker exec -w 在容器内设定；下方输入改用相对 $WORK 的路径，
 # 这样"进程的实际 cwd"与"路径的解析基准"是同一件事，不再靠字面绝对路径掩盖。
-docker exec -i -w "$WORK" -e PYTHONPATH="$CODE_ROOT/datamgmt/src" xiangrugu-dev \
+docker exec -w "$WORK" -e PYTHONPATH="$CODE_ROOT/datamgmt/src" xiangrugu-dev \
   python3 -c "import xiangrugu_datamgmt as m;print(m.__file__)" \
-  > /tmp/xrg-runtime-probe.out
+  </dev/null > /tmp/xrg-runtime-probe.out
 RC=$?
 if [ "$RC" -ne 0 ] || ! grep -q "^$CODE_ROOT/datamgmt/src/" /tmp/xrg-runtime-probe.out; then
   echo "RUNTIME_NOT_FROM_EXPORT_TREE rc=$RC observed=$(cat /tmp/xrg-runtime-probe.out)"
   exit 1
 fi
 
-docker exec -i -w "$WORK" -e PYTHONPATH="$CODE_ROOT/datamgmt/src" xiangrugu-dev \
+docker exec -w "$WORK" -e PYTHONPATH="$CODE_ROOT/datamgmt/src" xiangrugu-dev \
   python3 .b-batch-real-runner-binding-20261127/preflight.py \
   --phase phase2-production \
   --scope       ".b-batch-real-runner-binding-20261127/formal-scope.json" \
@@ -104,7 +110,7 @@ docker exec -i -w "$WORK" -e PYTHONPATH="$CODE_ROOT/datamgmt/src" xiangrugu-dev 
   --payload     "$PAYLOAD" \
   --code-root   "$CODE_ROOT" \
   --code-commit "$PIN" \
-  --evidence-out /data/var/b-batch/preflight-formal.json
+  --evidence-out /data/var/b-batch/preflight-formal.json </dev/null
 RC=$?
 echo "PREFLIGHT_EXIT=$RC"
 # 短路：非 0 立即以同一退出码结束，禁止进入装载段。2 = 检查失败 / 4 = 输入缺失。
@@ -115,7 +121,7 @@ echo "PREFLIGHT_EXIT=$RC"
 # XNG_LOAD_PASSWORD 由宿主机读取 secret 后经 -e 传入容器环境，
 # 不出现在命令行上（避免进入 ps / shell 历史）。
 export XNG_LOAD_PASSWORD="$(cat /run/secrets/xrg_loader_password)"
-docker exec -i -w "$WORK" \
+docker exec -w "$WORK" \
   -e PYTHONPATH="$CODE_ROOT/datamgmt/src" \
   -e XNG_LOAD_PASSWORD xiangrugu-dev \
   python3 -m xiangrugu_datamgmt.cbdb_social_addr_runner \
@@ -130,7 +136,7 @@ docker exec -i -w "$WORK" \
   --expected    ".b-batch-real-runner-binding-20261127/formal-expected.json" \
   --payload     "$PAYLOAD" \
   --scratch     /data/var/b-batch \
-  --evidence-out /data/var/b-batch/evidence-formal.json
+  --evidence-out /data/var/b-batch/evidence-formal.json </dev/null
 RC=$?
 echo "LOAD_EXIT=$RC"
 # runner 的退出码原样传给调用者：不再用 `echo` 收尾把脚本自身拉回 0。

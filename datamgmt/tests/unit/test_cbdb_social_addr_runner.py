@@ -35,18 +35,24 @@ def _sha(path):
 
 @pytest.fixture()
 def pinned_export(tmp_path):
-    """A minimal export-shaped code root with a PIN_COMMIT and module manifests."""
+    """An export-shaped code root carrying the REAL package.
+
+    Stub modules ("# entry\n") were enough while the runner stopped at the pin
+    check, but the runner now imports the entry module during preflight (for
+    LOAD_ROLE / _PRODUCTION_CONTAINER_ID) and computes the import closure over the
+    tree. A stub export cannot satisfy either, so copy the actual sources.
+    """
+    src_pkg = Path(R.__file__).resolve().parent
     root = tmp_path / "code"
     pkg = root / "datamgmt" / "src" / "xiangrugu_datamgmt"
     pkg.mkdir(parents=True)
-    (pkg / "cbdb_social_addr_entry.py").write_text("# entry\n", encoding="utf-8")
-    (pkg / "cbdb_social_addr_loader.py").write_text("# loader\n", encoding="utf-8")
+    import shutil as _shutil
+    for py in sorted(src_pkg.glob("*.py")):
+        _shutil.copy(py, pkg / py.name)
     commit = "a" * 40
     (root / "PIN_COMMIT").write_text(commit + "\n", encoding="utf-8")
-    (root / "PIN_MODULES.json").write_text(json.dumps({
-        "cbdb_social_addr_entry.py": _sha(pkg / "cbdb_social_addr_entry.py"),
-        "cbdb_social_addr_loader.py": _sha(pkg / "cbdb_social_addr_loader.py"),
-    }), encoding="utf-8")
+    (root / "PIN_MODULES.json").write_text(json.dumps(
+        {name: _sha(pkg / name) for name in R.PINNED_MODULES}), encoding="utf-8")
     return root, commit, pkg
 
 

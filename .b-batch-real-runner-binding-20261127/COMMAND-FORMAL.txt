@@ -47,34 +47,67 @@ docker exec -e PYTHONPATH=/data/var/b-batch/code/xrg-batch/datamgmt/src \
   | grep -q "^/data/var/b-batch/code/xrg-batch/datamgmt/src/" \
   || { echo "RUNTIME_NOT_FROM_EXPORT_TREE"; exit 1; }
 
-# ── 步骤 1：只读预检（不连数据库）──
+# ─────────────────────────────────────────────────────────────────────
+# 执行位置总则
+#   位置 A = 交付方 clone（有该提交的 git 仓库）
+#   位置 B = 主机 32（docker 与卷所在；预检/装载在 xiangrugu-dev 容器内跑）
+#   固定 Gitea 工件（清单、命令、scope/expected、授权文本、合同）由交付方 clone
+#   经 `docker cp` 或 tar-over-ssh 送入容器内的 /data/var/b-batch/work/，
+#   步骤 1/2 一律在该工作目录下用相对路径引用。
+# ─────────────────────────────────────────────────────────────────────
+export PIN=a5d12b13ad87b74fea5e8e7b2fb8a2c901bbad9e
+export CODE_ROOT=/data/var/b-batch/code/xrg-batch
+export WORK=/data/var/b-batch/work
+export PAYLOAD=/data/var/b-batch/payload.bin
+
+# ═══════════════════════ 位置 B：步骤 1 只读预检 ═══════════════════════
+# 工作目录固定为 $WORK —— 下方 scope/expected/授权文本/合同均为相对此目录的路径。
+cd "$WORK" || exit 9
+
+# 无连接探针：先确认 runner 模块解析到固定导出树，而非 site-packages。
+docker exec -e PYTHONPATH="$CODE_ROOT/datamgmt/src" xiangrugu-dev \
+  python3 -c "import xiangrugu_datamgmt as m;print(m.__file__)" \
+  | grep -q "^$CODE_ROOT/datamgmt/src/" \
+  || { echo "RUNTIME_NOT_FROM_EXPORT_TREE"; exit 1; }
+
 python3 .b-batch-real-runner-binding-20261127/preflight.py \
   --phase phase2-production \
-  --scope       .b-batch-real-runner-binding-20261127/formal-scope.json \
-  --expected    .b-batch-real-runner-binding-20261127/formal-expected.json \
-  --approval-text    .b-batch-real-load-20261127/approval-text-verbatim.txt \
-  --approval-table   datamgmt/contracts/releases/2026-10-06-bootstrap/b-approval-table-v2.json \
-  --payload     /data/var/b-batch/payload.bin \
-  --code-root   /data/var/b-batch/code/xrg-batch \
-  --code-commit a5d12b13ad87b74fea5e8e7b2fb8a2c901bbad9e \
+  --scope       "$WORK/.b-batch-real-runner-binding-20261127/formal-scope.json" \
+  --expected    "$WORK/.b-batch-real-runner-binding-20261127/formal-expected.json" \
+  --approval-text    "$WORK/.b-batch-real-load-20261127/approval-text-verbatim.txt" \
+  --approval-table   "$WORK/datamgmt/contracts/releases/2026-10-06-bootstrap/b-approval-table-v2.json" \
+  --payload     "$PAYLOAD" \
+  --code-root   "$CODE_ROOT" \
+  --code-commit "$PIN" \
   --evidence-out /data/var/b-batch/preflight-formal.json
+echo "PREFLIGHT_EXIT=$?"
 # 退出码 0 才继续；2 = 预检失败；4 = 输入缺失
 
-# ── 步骤 2：正式装载（单事务，恰一张表）──
+# ═══════════════════════ 位置 B：步骤 2 正式装载 ═══════════════════════
+# 工作目录同样固定为 $WORK；PYTHONPATH 显式指向固定导出树，
+# 保证 -m 启动的 runner 来自该导出树而不是已安装的 site-packages 版本。
+cd "$WORK" || exit 9
+export PYTHONPATH="$CODE_ROOT/datamgmt/src"
+docker exec -e PYTHONPATH="$PYTHONPATH" xiangrugu-dev \
+  python3 -c "import xiangrugu_datamgmt as m;print(m.__file__)" \
+  | grep -q "^$CODE_ROOT/datamgmt/src/" \
+  || { echo "RUNTIME_NOT_FROM_EXPORT_TREE"; exit 1; }
+
 export XNG_LOAD_PASSWORD="$(cat /run/secrets/xrg_loader_password)"
 python3 -m xiangrugu_datamgmt.cbdb_social_addr_runner \
   --phase phase2-production \
-  --code-root /data/var/b-batch/code/xrg-batch \
-  --code-commit a5d12b13ad87b74fea5e8e7b2fb8a2c901bbad9e \
-  --contract  datamgmt/contracts/releases/2026-10-06-bootstrap/b-single-table-frozen-candidate.json \
-  --approval-table datamgmt/contracts/releases/2026-10-06-bootstrap/b-approval-table-v2.json \
-  --approval-text  .b-batch-real-load-20261127/approval-text-verbatim.txt \
+  --code-root   "$CODE_ROOT" \
+  --code-commit "$PIN" \
+  --contract    "$WORK/datamgmt/contracts/releases/2026-10-06-bootstrap/b-single-table-frozen-candidate.json" \
+  --approval-table "$WORK/datamgmt/contracts/releases/2026-10-06-bootstrap/b-approval-table-v2.json" \
+  --approval-text  "$WORK/.b-batch-real-load-20261127/approval-text-verbatim.txt" \
   --approval-text-sha256 4d250c8e08ea8136e29e35aa436812f11b5eec59a100847f130c11f39b7e2946 \
-  --scope      .b-batch-real-runner-binding-20261127/formal-scope.json \
-  --expected   .b-batch-real-runner-binding-20261127/formal-expected.json \
-  --payload    /data/var/b-batch/payload.bin \
-  --scratch    /data/var/b-batch \
+  --scope       "$WORK/.b-batch-real-runner-binding-20261127/formal-scope.json" \
+  --expected    "$WORK/.b-batch-real-runner-binding-20261127/formal-expected.json" \
+  --payload     "$PAYLOAD" \
+  --scratch     /data/var/b-batch \
   --evidence-out /data/var/b-batch/evidence-formal.json
+echo "LOAD_EXIT=$?"
 
 # ⚠ phase2-production 拒绝 --connect-host / --connect-port / --load-role：
 #   端点固定取 formal-scope.json 的已批准三元组 pg32b:5433/xiangrugu，

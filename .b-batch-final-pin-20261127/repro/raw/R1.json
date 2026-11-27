@@ -1,0 +1,60 @@
+{
+ "checks": [
+  {
+   "check": "phase_scope_agree",
+   "ok": true
+  },
+  {
+   "check": "formal_endpoint_is_approved_triple",
+   "ok": true
+  },
+  {
+   "check": "authorization_text_digest",
+   "ok": true
+  },
+  {
+   "check": "authorization_text_length",
+   "ok": true
+  },
+  {
+   "check": "approval_table_bound",
+   "ok": true
+  },
+  {
+   "check": "approval_table_is_reviewed_table",
+   "ok": true
+  },
+  {
+   "check": "approval_table_digest",
+   "ok": true
+  },
+  {
+   "check": "pin_commit_present",
+   "ok": true
+  },
+  {
+   "check": "pin_commit_matches_command",
+   "ok": true
+  },
+  {
+   "check": "manifest_readable",
+   "detail": "unreadable: [Errno 2] No such file or directory: '/data/var/b-batch/code2/xrg-batch/PIN_MODULES.json'",
+   "ok": false
+  },
+  {
+   "check": "payload_readable",
+   "ok": true
+  },
+  {
+   "check": "payload_bytes",
+   "detail": "417981",
+   "ok": true
+  }
+ ],
+ "connects_to_database": false,
+ "failure": "unreadable: [Errno 2] No such file or directory: '/data/var/b-batch/code2/xrg-batch/PIN_MODULES.json'",
+ "format": "xiangrugu.b-batch.preflight.v1",
+ "outcome": "FAILED",
+ "phase": "phase2-production",
+ "read_only": true
+}

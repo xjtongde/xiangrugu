@@ -1,0 +1,50 @@
+{
+ "format": "xiangrugu.b-batch.repro-record.v1",
+ "gitea_baseline": "188db0bc10e14afaba3eb72a4204f6640a3f674a",
+ "fixed_runtime_commit": "a5d12b13ad87b74fea5e8e7b2fb8a2c901bbad9e",
+ "command_fixes": {
+   "locations": "位置 A = 交付方 clone（git archive/rev-parse）；位置 B = 32 主机，预检在 xiangrugu-dev 容器内执行；固定 Gitea 工件经 docker cp / tar-over-ssh 送入容器 /data/var/b-batch/work",
+   "work_dir": "步骤 1、2 均显式 `cd $WORK`，此后所有输入改用 $WORK 绝对路径",
+   "step1_paths": ["--scope","--expected","--approval-text","--approval-table","--payload","--code-root","--code-commit","--evidence-out 全部显式"],
+   "step2_pythonpath": "export PYTHONPATH=$CODE_ROOT/datamgmt/src，并以 -e PYTHONPATH 传入容器，保证 -m 启动的 runner 来自固定导出树",
+   "runtime_probe": "无连接探针 import xiangrugu_datamgmt 并 grep ^$CODE_ROOT/datamgmt/src/，不符即 RUNTIME_NOT_FROM_EXPORT_TREE exit 1（步骤 1、2 各一次）"
+ },
+ "fresh_clean_dir": {
+   "code_root": "/data/var/b-batch/code2/xrg-batch（本盒全新解包，非上盒目录）",
+   "work_dir": "/data/var/b-batch/work2",
+   "manifest_installed_as_regular_file": true,
+   "manifest_entries": 16,
+   "pin_commit_in_tree": "a5d12b13ad87b74fea5e8e7b2fb8a2c901bbad9e",
+   "pin_matches_code_commit": true
+ },
+ "payload": {"bytes": 417981, "lines": 3859,
+   "sha256": "5ca84bdc9bb4d28f4be0922e86d6f60d9ad5e3f487b7fc63c117bc2de1f968ff",
+   "matches_acceptance": true},
+ "runtime_probe_result": "/data/var/b-batch/code2/xrg-batch/datamgmt/src/xiangrugu_datamgmt/__init__.py",
+ "module_digests": {"manifest_entries": 16, "mismatches": 0,
+   "method": "容器内 sha256sum 导出树 *.py（49 个文件）与清单逐件比对"},
+ "cases": [
+   {"id": "R0", "case": "全新干净目录 + 实际载荷", "process_exit": 0, "outcome": "PASSED", "checks": 16},
+   {"id": "R1", "case": "缺 PIN_MODULES.json", "process_exit": 2, "outcome": "FAILED", "checks": 12,
+    "failure": "unreadable: [Errno 2] No such file or directory: '.../code2/xrg-batch/PIN_MODULES.json'"},
+   {"id": "R2", "case": "PIN_COMMIT 改成 424ab209", "process_exit": 2, "outcome": "FAILED", "checks": 16,
+    "failure": "PIN_COMMIT=424ab2097891834642993049897008514db8018c != --code-commit=a5d12b13ad87b74fea5e8e7b2fb8a2c901bbad9e"},
+   {"id": "R3", "case": "还原后复验", "process_exit": 0, "outcome": "PASSED", "checks": 16}
+ ],
+ "exit_code_note": "process_exit 取自原始输出中的 PREFLIGHT_EXIT= 行；wrapper 本身恒为 0，不构成被测结论——管道取退出码会把 tail 的状态当结论，本盒未使用管道读数",
+ "no_database_connection": "preflight.py 无任何数据库连接代码；其证据连 connects_to_database=false 一并记录",
+ "reused_evidence": "16 模块摘要与固定运行时一致，沿用 99 项单测与 P1/N7/P3 隔离实证，未重跑",
+ "step2_not_executed": true,
+ "reviewer": {
+   "planned": "a03", "attempts": 2, "status": "两次启动均失败，未产出任何结论",
+   "substitute": "lead（本盒实现方），故其核对属自测，不构成独立复核",
+   "a02": "本盒实现人，其自测单列",
+   "disclosure": "独立复核缺口未闭合。本轮 R0-R3 与全部摘要核对均由实现方执行；未经任何独立方复算。"
+ },
+ "not_done": {"step2_executed": false, "production_connected": false, "database_written": false,
+   "production_schema_created": false, "production_role_created": false,
+   "deploy_updated": false, "go_fifo_restored": false},
+ "verdict": "PARTIAL",
+ "first_gap": "独立复核缺失：a03 两次启动失败，替代者为实现方自身，不构成独立复核",
+ "second_gap": "phase2-production 无端到端实测；须待 Codex 明确放行并由茶香转发后再执行步骤 2"
+}

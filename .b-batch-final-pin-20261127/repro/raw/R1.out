@@ -1,0 +1,5 @@
+code_root=/data/var/b-batch/code2/xrg-batch
+work=/data/var/b-batch/work2
+payload_bytes=417981
+{"outcome": "FAILED", "failure": "unreadable: [Errno 2] No such file or directory: '/data/var/b-batch/code2/xrg-batch/PIN_MODULES.json'", "checks": 12}
+PREFLIGHT_EXIT=2

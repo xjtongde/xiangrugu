@@ -1,0 +1,77 @@
+{
+ "checks": [
+  {
+   "check": "phase_scope_agree",
+   "ok": true
+  },
+  {
+   "check": "formal_endpoint_is_approved_triple",
+   "ok": true
+  },
+  {
+   "check": "authorization_text_digest",
+   "ok": true
+  },
+  {
+   "check": "authorization_text_length",
+   "ok": true
+  },
+  {
+   "check": "approval_table_bound",
+   "ok": true
+  },
+  {
+   "check": "approval_table_is_reviewed_table",
+   "ok": true
+  },
+  {
+   "check": "approval_table_digest",
+   "ok": true
+  },
+  {
+   "check": "pin_commit_present",
+   "ok": true
+  },
+  {
+   "check": "pin_commit_matches_command",
+   "detail": "PIN_COMMIT=424ab2097891834642993049897008514db8018c != --code-commit=a5d12b13ad87b74fea5e8e7b2fb8a2c901bbad9e",
+   "ok": false
+  },
+  {
+   "check": "manifest_covers_runner",
+   "ok": true
+  },
+  {
+   "check": "manifest_covers_all_pinned",
+   "ok": true
+  },
+  {
+   "check": "manifest_covers_import_closure",
+   "ok": true
+  },
+  {
+   "check": "import_closure_size",
+   "detail": "16",
+   "ok": true
+  },
+  {
+   "check": "pinned_module_digests",
+   "ok": true
+  },
+  {
+   "check": "payload_readable",
+   "ok": true
+  },
+  {
+   "check": "payload_bytes",
+   "detail": "417981",
+   "ok": true
+  }
+ ],
+ "connects_to_database": false,
+ "failure": "PIN_COMMIT=424ab2097891834642993049897008514db8018c != --code-commit=a5d12b13ad87b74fea5e8e7b2fb8a2c901bbad9e",
+ "format": "xiangrugu.b-batch.preflight.v1",
+ "outcome": "FAILED",
+ "phase": "phase2-production",
+ "read_only": true
+}

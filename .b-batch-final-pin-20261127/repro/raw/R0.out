@@ -1,0 +1,5 @@
+code_root=/data/var/b-batch/code2/xrg-batch
+work=/data/var/b-batch/work2
+payload_bytes=417981
+{"outcome": "PASSED", "failure": null, "checks": 16}
+PREFLIGHT_EXIT=0

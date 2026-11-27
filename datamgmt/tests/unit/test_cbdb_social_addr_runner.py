@@ -107,8 +107,8 @@ def test_git_absence_is_reported_not_raised(tmp_path, monkeypatch):
 def test_preflight_verifies_the_approval_table_it_was_given(tmp_path, pinned_export):
     """--approval-table must be CHECKED, not merely accepted as an argument."""
     root, commit, _pkg = pinned_export
-    # The approval TABLE is anchored unconditionally, so it must be the reviewed file;
-    # a stand-in table is refused before the endpoint gates these tests target.
+    # Supply the REVIEWED table so the anchor passes; this case is about the
+    # expected-file comparison that runs after it.
     table = tmp_path / "approval-table.json"
     table.write_bytes(_REPO_FILE(
         "datamgmt/contracts/releases/2026-10-06-bootstrap/b-approval-table-v2.json"))
@@ -130,18 +130,18 @@ def test_preflight_verifies_the_approval_table_it_was_given(tmp_path, pinned_exp
 
     code, evidence = R.run(args)
     assert code == R.EXIT_PREFLIGHT
-    # The reviewed-table anchor is checked BEFORE the expected-file comparison, so a
-    # table that is not the reviewed one is reported as such even though the expected
-    # file also disagrees. Anchoring first is deliberate: comparing only against
-    # `declared` would let a forged table be legitimised by editing `expected`.
-    assert evidence["refusal"]["error_code"] == "approval_table_is_not_the_reviewed_table"
+    # This case supplies the REVIEWED table but an expected file that declares a
+    # different digest, so the reviewed-table anchor passes and the expected-file
+    # comparison is what fires. (The complementary case -- an unreviewed table with a
+    # matching expected file -- is R10_runner, evidenced in the b-batch directory.)
+    assert evidence["refusal"]["error_code"] == "approval_table_digest_mismatch"
 
 
 def test_preflight_rejects_a_relabelled_authorization_text(tmp_path, pinned_export):
     """A caller-supplied digest that does not match the bytes is refused."""
     root, commit, _pkg = pinned_export
-    # The approval TABLE is anchored unconditionally, so it must be the reviewed file;
-    # a stand-in table is refused before the endpoint gates these tests target.
+    # Supply the REVIEWED table so the anchor passes; this case is about the
+    # expected-file comparison that runs after it.
     table = tmp_path / "approval-table.json"
     table.write_bytes(_REPO_FILE(
         "datamgmt/contracts/releases/2026-10-06-bootstrap/b-approval-table-v2.json"))
@@ -170,8 +170,8 @@ def test_exit_code_constants_match_the_documented_contract():
 def test_expected_must_bind_the_approval_table(tmp_path, pinned_export):
     """Omitting the key must refuse, not silently skip the approval-table check."""
     root, commit, _pkg = pinned_export
-    # The approval TABLE is anchored unconditionally, so it must be the reviewed file;
-    # a stand-in table is refused before the endpoint gates these tests target.
+    # Supply the REVIEWED table so the anchor passes; this case is about the
+    # expected-file comparison that runs after it.
     table = tmp_path / "approval-table.json"
     table.write_bytes(_REPO_FILE(
         "datamgmt/contracts/releases/2026-10-06-bootstrap/b-approval-table-v2.json"))
@@ -239,8 +239,8 @@ def test_probe_failure_is_visible_not_silent():
 # ---------------------------------------------------------------------------
 def _formal_args(tmp_path, pinned_export, **over):
     root, commit, _pkg = pinned_export
-    # The approval TABLE is anchored unconditionally, so it must be the reviewed file;
-    # a stand-in table is refused before the endpoint gates these tests target.
+    # Supply the REVIEWED table so the anchor passes; this case is about the
+    # expected-file comparison that runs after it.
     table = tmp_path / "approval-table.json"
     table.write_bytes(_REPO_FILE(
         "datamgmt/contracts/releases/2026-10-06-bootstrap/b-approval-table-v2.json"))
@@ -253,6 +253,7 @@ def _formal_args(tmp_path, pinned_export, **over):
     contract.write_text("{}", encoding="utf-8")
     expected = tmp_path / "expected.json"
     expected.write_text(json.dumps({"approval_table_sha256": _sha(table)}), encoding="utf-8")
+    (tmp_path / "p.bin").write_bytes(b"payload\n")
     scope = tmp_path / "scope.json"
     scope.write_text(json.dumps({
         "mode": "production-write",

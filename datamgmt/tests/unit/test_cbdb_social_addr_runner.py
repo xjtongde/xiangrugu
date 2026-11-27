@@ -121,7 +121,11 @@ def test_preflight_verifies_the_approval_table_it_was_given(tmp_path, pinned_exp
 
     code, evidence = R.run(args)
     assert code == R.EXIT_PREFLIGHT
-    assert evidence["refusal"]["error_code"] == "approval_table_digest_mismatch"
+    # The reviewed-table anchor is checked BEFORE the expected-file comparison, so a
+    # table that is not the reviewed one is reported as such even though the expected
+    # file also disagrees. Anchoring first is deliberate: comparing only against
+    # `declared` would let a forged table be legitimised by editing `expected`.
+    assert evidence["refusal"]["error_code"] == "approval_table_is_not_the_reviewed_table"
 
 
 def test_preflight_rejects_a_relabelled_authorization_text(tmp_path, pinned_export):
@@ -156,8 +160,11 @@ def test_expected_must_bind_the_approval_table(tmp_path, pinned_export):
     root, commit, _pkg = pinned_export
     table = tmp_path / "approval-table.json"
     table.write_text('{"tables": []}\n', encoding="utf-8")
+    # A formal run anchors the authorization TEXT too, so this fixture must supply the
+    # reviewed bytes verbatim; anything else is refused before the endpoint checks that
+    # these tests are about.
     text = tmp_path / "approval.txt"
-    text.write_bytes(b"body\n")
+    text.write_bytes(APPROVED_AUTH_BODY())
     expected = tmp_path / "expected.json"
     expected.write_text(json.dumps({}), encoding="utf-8")  # no approval_table_sha256
     contract = tmp_path / "contract.json"
@@ -219,8 +226,11 @@ def _formal_args(tmp_path, pinned_export, **over):
     root, commit, _pkg = pinned_export
     table = tmp_path / "approval-table.json"
     table.write_text('{"tables": []}\n', encoding="utf-8")
+    # A formal run anchors the authorization TEXT too, so this fixture must supply the
+    # reviewed bytes verbatim; anything else is refused before the endpoint checks that
+    # these tests are about.
     text = tmp_path / "approval.txt"
-    text.write_bytes(b"body\n")
+    text.write_bytes(APPROVED_AUTH_BODY())
     contract = tmp_path / "contract.json"
     contract.write_text("{}", encoding="utf-8")
     expected = tmp_path / "expected.json"
@@ -234,7 +244,7 @@ def _formal_args(tmp_path, pinned_export, **over):
     }), encoding="utf-8")
     ns = dict(phase="phase2-production", code_root=str(root), code_commit=commit,
               contract=str(contract), approval_table=str(table), approval_text=str(text),
-              approval_text_sha256=_sha(text), scope=str(scope), expected=str(expected),
+              approval_text_sha256=R.APPROVED_AUTH_SHA256, scope=str(scope), expected=str(expected),
               payload=str(tmp_path / "p.bin"), scratch=str(tmp_path),
               connect_host=None, connect_port=None, load_role=None,
               evidence_out=str(tmp_path / "ev.json"))
@@ -286,6 +296,26 @@ def test_isolated_mode_never_targets_the_production_instance(tmp_path, pinned_ex
 def test_runner_pins_itself():
     """A manifest that omits the enforcer can be satisfied while the enforcer is swapped."""
     assert "cbdb_social_addr_runner.py" in R.PINNED_MODULES
+
+
+def APPROVED_AUTH_BODY():
+    """The reviewed authorization bytes.
+
+    A formal run refuses any other text, so tests that exercise the ENDPOINT gates
+    must carry the reviewed text; otherwise they would stop at the text anchor and
+    never reach the code under test.
+    """
+    return _REPO_FILE(".b-batch-real-load-20261127/approval-text-verbatim.txt")
+
+
+def _REPO_FILE(rel):
+    p = Path(R.__file__).resolve()
+    while p.parent != p:
+        cand = p / rel
+        if cand.exists():
+            return cand.read_bytes()
+        p = p.parent
+    raise AssertionError(f"cannot locate {rel} above {R.__file__}")
 
 
 def R_PROD_ID():

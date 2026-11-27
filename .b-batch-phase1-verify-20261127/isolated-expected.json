@@ -2,7 +2,7 @@
  "approval_table_sha256": "a718b0c297501642dd105eb3797f96dc1de2edf8eb521bed6609ff78de1fb4a0",
  "approval_text_sha256": "ec0fa5cf029c37e1bdbb94102553d145bd4d901d74489ac7b98ecdb3d42d4f12",
  "candidate_sha256": "56b0076d2e877be9fb34796e01b8ee2b37d5a817c8e80203fa21c95e4f3f8237",
- "container_id": "06a42d86e2114b902c90ce4d87b7ae0c0e45dc5ab94ca638c0c31aca924eafa4",
+ "container_id": "ad4b373cd21d7ba97763d1d6d38e68b7d18f7e8533a2b16bed1721dd2e21ccb6",
  "contract_review_ref": "chaxiang-approval-social-institution-addr-bstep2-correction-20261126",
  "contract_sha256": "56b0076d2e877be9fb34796e01b8ee2b37d5a817c8e80203fa21c95e4f3f8237",
  "expected_source_member_sha256": "bde1bb8eece3820d9e236c1d6b0f07d847d339669d4a85d79cd7252d58d83400",
@@ -14,9 +14,9 @@
   "xiangrugu"
  ],
  "image_id": "sha256:d562e43664f996da0e4208b375c00c111a543d996475188d852e9189b2a8cd05",
- "instance_fingerprint": "06a42d86e2114b902c90ce4d87b7ae0c0e45dc5ab94ca638c0c31aca924eafa4",
+ "instance_fingerprint": "ad4b373cd21d7ba97763d1d6d38e68b7d18f7e8533a2b16bed1721dd2e21ccb6",
  "instance_identity": {
-  "container_id": "06a42d86e2114b902c90ce4d87b7ae0c0e45dc5ab94ca638c0c31aca924eafa4",
+  "container_id": "ad4b373cd21d7ba97763d1d6d38e68b7d18f7e8533a2b16bed1721dd2e21ccb6",
   "databases": "postgres,template0,template1,xiangrugu_iso",
   "image_id": "sha256:d562e43664f996da0e4208b375c00c111a543d996475188d852e9189b2a8cd05",
   "inet_server_addr": "127.0.0.1/32",

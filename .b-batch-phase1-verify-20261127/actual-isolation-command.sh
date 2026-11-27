@@ -2,7 +2,7 @@ export PYTHONPATH=/tmp/xrg-deps:/opt/code/xrg/datamgmt/src
 export XNG_LOAD_PASSWORD=loaderonly
 run() {
   python3 -m xiangrugu_datamgmt.cbdb_social_addr_runner --phase phase1-isolated \
-    --code-root /opt/code/xrg --code-commit 869ad03be197499eb99d5084832db075941cb311 \
+    --code-root /opt/code/xrg --code-commit a5d12b13ad87b74fea5e8e7b2fb8a2c901bbad9e \
     --contract /data/var/in/frozen-contract.json --approval-table /data/var/in/approval-table.json \
     --approval-text /data/var/in/approval-text-verbatim.txt \
     --approval-text-sha256 4d250c8e08ea8136e29e35aa436812f11b5eec59a100847f130c11f39b7e2946 \
@@ -20,32 +20,3 @@ run N7_rollback isolated-expected-rollback.json
 echo -n 'to_regclass='; q "select coalesce(to_regclass('cbdb.cbdb__social_u5f_institution_u5f_addr')::text,'TABLE_ABSENT')"
 echo '=== P3 ==='; run P3_final isolated-expected.json
 echo -n 'rows='; q "select count(*) from cbdb.cbdb__social_u5f_institution_u5f_addr"
-echo '=== N1 lookalike 实测 ==='
-for h in xrg-pg32b xrg-prod-proxy my-trial-pg standin.example.com; do
-  python3 -m xiangrugu_datamgmt.cbdb_social_addr_runner --phase phase1-isolated \
-    --code-root /opt/code/xrg --code-commit 869ad03be197499eb99d5084832db075941cb311 \
-    --contract /data/var/in/frozen-contract.json --approval-table /data/var/in/approval-table.json \
-    --approval-text /data/var/in/approval-text-verbatim.txt \
-    --approval-text-sha256 4d250c8e08ea8136e29e35aa436812f11b5eec59a100847f130c11f39b7e2946 \
-    --scope /data/var/in/isolated-scope.json --expected /data/var/in/isolated-expected.json \
-    --payload /data/var/work/payload.bin --scratch /data/var/scratch \
-    --connect-host $h --connect-port 5432 --load-role xrg_loader \
-    --evidence-out /tmp/n.json >/dev/null 2>&1
-  echo -n "$h -> exit=$? "
-  python3 -c "import json;d=json.load(open('/tmp/n.json'));print(d.get('refusal',{}).get('error_code'),'| session=',('session' in d))"
-done
-echo '=== 生产方向实测 ==='
-for c in "pg32b 5432" "pg32b 5433"; do
-  set -- $c
-  python3 -m xiangrugu_datamgmt.cbdb_social_addr_runner --phase phase1-isolated \
-    --code-root /opt/code/xrg --code-commit 869ad03be197499eb99d5084832db075941cb311 \
-    --contract /data/var/in/frozen-contract.json --approval-table /data/var/in/approval-table.json \
-    --approval-text /data/var/in/approval-text-verbatim.txt \
-    --approval-text-sha256 4d250c8e08ea8136e29e35aa436812f11b5eec59a100847f130c11f39b7e2946 \
-    --scope /data/var/in/isolated-scope.json --expected /data/var/in/isolated-expected.json \
-    --payload /data/var/work/payload.bin --scratch /data/var/scratch \
-    --connect-host $1 --connect-port $2 --load-role xrg_loader \
-    --evidence-out /tmp/n.json >/dev/null 2>&1
-  echo -n "$1:$2 -> exit=$? "
-  python3 -c "import json;d=json.load(open('/tmp/n.json'));print(d.get('refusal',{}).get('error_code'),'| session=',('session' in d))"
-done

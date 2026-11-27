@@ -1,0 +1,30 @@
+{
+ "format": "xiangrugu.b-batch.phase1-verify.pinned-rerun.v1",
+ "reason": "a02 第 15 轮指出：端到端证据钉 869ad03，而白名单在 a5d12b1 才引入；report 又写 e882f59，三者互不一致",
+ "commit": "a5d12b13ad87b74fea5e8e7b2fb8a2c901bbad9e",
+ "standin": {"name": "xrg-v-iso4", "network": "none", "published_ports": 0,
+             "source_mount": "ro", "dbname": "xiangrugu_iso",
+             "container_id": "ad4b373cd21d7ba97763d1d6d38e68b7d18f7e8533a2b16bed1721dd2e21ccb6"},
+ "code_pin_in_evidence": "a5d12b13ad87b74fea5e8e7b2fb8a2c901bbad9e",
+ "payload": {"rows": 3859, "bytes": 417981,
+             "sha256": "5ca84bdc9bb4d28f4be0922e86d6f60d9ad5e3f487b7fc63c117bc2de1f968ff"},
+ "cases": {
+   "P1": {"outcome": "COMMITTED", "exit": 0, "rows": 3859},
+   "N7": {"outcome": "REFUSED", "exit": 2, "to_regclass": "TABLE_ABSENT"},
+   "P3": {"outcome": "COMMITTED", "exit": 0, "rows": 3859}
+ },
+ "value_comparison": "comparison_equal",
+ "value_sha256": "2cb8c354b0e75e6ae230e3b00540146e823eaa8de8def2abce89ad6179a07579",
+ "unit_tests": "99 passed / 0 failed / exit 0",
+ "consistency": {
+   "evidence_code_pin": "a5d12b1",
+   "report_verify_commit": "a5d12b1",
+   "git_head_at_run": "a5d12b1",
+   "all_three_equal": true
+ },
+ "n1_whitelist_end_to_end_verified": true,
+ "boundary_after": {"pg32b": "3d93fc77…", "cbdb_schema": 0, "target": null,
+                    "xrg_loader_role": 0, "residual_containers": 0},
+ "verdict": "PARTIAL",
+ "first_gap": "phase2-production 无端到端实测；前置依赖（xrg_loader 角色、cbdb schema）生产尚不存在"
+}

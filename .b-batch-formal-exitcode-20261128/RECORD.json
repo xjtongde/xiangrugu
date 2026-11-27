@@ -1,0 +1,148 @@
+{
+ "format": "xiangrugu.b-batch.formal-exitcode-record.v1",
+ "box": "内容盒｜正式命令执行边界 + 退出码短路",
+ "baseline_commit": "dcd8b26a9ab188e28bd83c1f9efb6ab7ae3a6722",
+ "delivery_commits": {
+  "6bf26e5": "缺陷1+2：容器内显式 docker exec（-w/-e 给被测进程）+ RC 捕获与短路 + exit \"$RC\"",
+  "c291fce": "本盒实测新发现：命令调用去掉 docker exec -i 并显式 </dev/null"
+ },
+ "command_formal_sha256_at_c291fce": "0ba1c4e675952336710e84ee854e7197f8117eddb841eda01be1550e9ce95eee",
+ "defects_from_a04": [
+  {
+   "id": 1,
+   "defect": "步骤1/2 是裸 python3，在宿主机执行；但 WORK=/data/var、/run/secrets 均为容器内路径",
+   "status": "fixed_in_6bf26e5",
+   "host_evidence": {
+    "python3_import": "ModuleNotFoundError: No module named 'xiangrugu_datamgmt'",
+    "/data/var/b-batch": "不存在",
+    "/run/secrets": "不存在"
+   }
+  },
+  {
+   "id": 2,
+   "defect": "echo \"PREFLIGHT_EXIT=$?\" 只回显不短路；脚本以 echo 收尾恒 0",
+   "status": "fixed_in_6bf26e5",
+   "old_form_measured": {
+    "script_rc": 0,
+    "preflight_exit": 2,
+    "load_entry_called": "YES",
+    "load_exit": 77
+   },
+   "new_form_measured": {
+    "script_rc": 2,
+    "preflight_exit": 2,
+    "load_entry_called": "NO",
+    "aborted_with": "ABORT_BEFORE_LOAD: preflight rc=2"
+   }
+  },
+  {
+   "id": 3,
+   "defect": "容器内 COMMAND-FORMAL.txt(fd106f48) != 交付件(916e7c07)，历史 R0-R3 跑的不是交付的那份",
+   "status": "resynced_and_proved",
+   "before": {
+    "workspace": "916e7c0703a214cd6c69d03e6f71883f37f8689232f1887073986a71ecd200c0",
+    "container_work": "fd106f48956381eb608d934c4fe085ec0dca4fcf17625145474427de05bca2de"
+   },
+   "after": {
+    "both": "0ba1c4e675952336710e84ee854e7197f8117eddb841eda01be1550e9ce95eee"
+   }
+  }
+ ],
+ "new_defect_found_by_this_box": {
+  "id": 4,
+  "severity": "blocking-by-itself",
+  "symptom": "按 6bf26e5 原文实跑，第一条探针永久挂起且无任何报错",
+  "root_cause": "docker exec -i 把容器 stdin 接到脚本自身 stdin；整份命令经 heredoc/bash -s 喂入时，-i 吞掉脚本尚未读取的正文",
+  "reproduced": {
+   "with_i_and_heredoc": "hang (no output after the docker exec trace line)",
+   "without_i": "runs, rc=0",
+   "with_i_but_</dev/null": "runs, rc=0"
+  },
+  "lesson": "-i 只对 (0b) 那种用 tar/cat 经 stdin 传数据的步骤是必需的；执行命令一律不带 -i 且 </dev/null。上一盒未暴露此点，因为其步骤1/2 走的是宿主机裸 python3（缺陷1），从未真正执行过带 -i 的容器调用。"
+ },
+ "clean_dir_run": {
+  "code_root": "/data/var/b-batch/code3/xrg-batch（全新解包）",
+  "work": "/data/var/b-batch/work3（全新）",
+  "pin_commit_in_tree": "a5d12b13ad87b74fea5e8e7b2fb8a2c901bbad9e",
+  "manifest_installed_as_regular_file": true,
+  "manifest_sha256": "e6a1ac6ceb9a3996ada4fade4282a424e49ff2f204b6bc52d490d64bf002e7fc",
+  "runtime_probe_module": "/data/var/b-batch/code3/xrg-batch/datamgmt/src/xiangrugu_datamgmt/__init__.py",
+  "container_process_cwd_verified": "docker exec -w /data/var/b-batch/work3 ... pwd -> /data/var/b-batch/work3"
+ },
+ "payload": {
+  "bytes": 417981,
+  "lines": 3859,
+  "sha256": "5ca84bdc9bb4d28f4be0922e86d6f60d9ad5e3f487b7fc63c117bc2de1f968ff",
+  "matches_acceptance": true
+ },
+ "step1_real_payload": {
+  "outcome": "PASSED",
+  "checks": 16,
+  "import_closure_size": "16",
+  "connects_to_database": false,
+  "process_exit": 0
+ },
+ "module_digests": {
+  "manifest_entries": 16,
+  "mismatches": 0
+ },
+ "standin_test": {
+  "purpose": "证明预检失败时装载入口未被调用（无副作用替身，不连库不写数据）",
+  "script_sha256": "b40d170ffbf7ab6f062b09b0677e31598fd6217f2e0263b82dc17a4bd444adad",
+  "observable_marker": "/data/var/b-batch/standin/LOAD_ENTRY_CALLED",
+  "sentinel_exit": 77,
+  "positive_control": {
+   "pin": "a5d12b13 correct",
+   "preflight_exit": 0,
+   "load_entry_called": "YES",
+   "load_exit": 77,
+   "script_rc": 77
+  },
+  "negative_control": {
+   "pin": "424ab209 wrong",
+   "preflight_exit": 2,
+   "aborted_with": "ABORT_BEFORE_LOAD: preflight rc=2",
+   "load_entry_called": "NO",
+   "script_rc": 2
+  },
+  "conclusion": "非零退出码被保留并原样传出；装载入口未被调用"
+ },
+ "a04_historical_claims_reviewed": [
+  {
+   "claim": "preflight.py 在 manifest 读取失败时不写 evidence-out（早退 return EXIT_INPUT）",
+   "verdict": "不成立（对 manifest 而言）",
+   "code_facts": {
+    "manifest_read": "L245，位于 L229-270 的 try 内",
+    "except": "L270-271 record(\"manifest_readable\") 后继续向下",
+    "early_return": "仅 L187，属 scope/expected 读取（L182-187）",
+    "evidence_write": "L286"
+   },
+   "empirical": "现场复跑 R1 等价场景：exit=2、checks=12、evidence json 已写出且内含 12 条 checks —— 与 REPRO-RECORD 记录一致，无需更正",
+   "nuance": "真正会跳过 evidence-out 的是 scope/expected 缺失这条早退路；现场实测该情形 exit=4 且 EVIDENCE_WRITTEN=NO。这是 preflight 的一个真实小缺口（输入错误时不留机器可读证据），但不影响 R1 记录的准确性。"
+  },
+  {
+   "claim": "rejections/R1-manifest-missing.out 只有 JSON 行、没有 PREFLIGHT_EXIT 行",
+   "verdict": "成立",
+   "measured": {
+    "rejections/R1-manifest-missing.out PREFLIGHT_EXIT count": 0,
+    "repro/raw/R1.out PREFLIGHT_EXIT count": 1
+   },
+   "additional_observation": "两份件的 code_root 也不同：rejections 记 /data/var/b-batch/code/...，raw 记 code2/...。即 rejections/ 下的 .out 不是本轮真跑的原始输出，而是更早一轮（或改写过的）快照；REPRO-RECORD 描述的是 raw/ 那一份。",
+   "correction_needed": "应在记录中如实标注：rejections/*.out 为旧快照、不含退出码行，退出码证据以 repro/raw/*.out 为准；不得让读者以为两者同源。"
+  }
+ ],
+ "boundary_after": {
+  "pg32b": "3d93fc7741f6…unchanged",
+  "pg32": "98418cb6f08a…unchanged",
+  "dev": "29795c60ae15…unchanged",
+  "production_connected": false,
+  "production_written": false,
+  "schema_or_role_created": false,
+  "deploy_updated": false,
+  "formal_load_executed": false,
+  "standin_marker_removed": true,
+  "residual": 0
+ },
+ "verdict": "PARTIAL",
+ "first_gap": "正式装载段（步骤 2）本身仍未端到端实测：本盒验证的是退出码传递与短路语义（用无副作用替身），真实 runner 的 phase2-production 一次都没跑过——前置依赖 xrg_loader 角色与 cbdb schema 在生产尚不存在，授权创建属茶香决定。"
+}

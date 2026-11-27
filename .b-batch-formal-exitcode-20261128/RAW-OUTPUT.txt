@@ -1,0 +1,95 @@
+════════════════════ 缺陷 1 的现场证据（宿主机按原文执行）════════════════════
+$ ssh 32 'python3 -c "import xiangrugu_datamgmt"'
+ModuleNotFoundError: No module named 'xiangrugu_datamgmt'
+$ ssh 32 'ls /data/var/b-batch'
+ls: 无法访问 '/data/var/b-batch': 没有那个文件或目录
+$ ssh 32 'ls /run/secrets/'
+ls: 无法访问 '/run/secrets/': 没有那个文件或目录
+
+════════════════════ 本盒新发现（缺陷 4）：docker exec -i 吞掉脚本正文 ════════
+$ ssh 32 'bash -s' <<EOF ... docker exec -i ... python3 -c "print(1)" > /tmp/p.out ... EOF
++ docker exec -i xiangrugu-dev python3 -c 'print(1)'
+（此后永久挂起，无任何输出；超时被杀）
+
+同一命令体去掉 -i：
++ docker exec xiangrugu-dev python3 -c 'print(1)'
++ RC=0
++ echo 'RC=0 out=1'
+RC=0 out=1
+
+带 -i 但显式 </dev/null：
+RC=0 out=1
+
+════════════════════ 步骤 0：干净目录 code3/work3 ═════════════════════
+$ docker exec xiangrugu-dev cat /data/var/b-batch/code3/xrg-batch/PIN_COMMIT
+a5d12b13ad87b74fea5e8e7b2fb8a2c901bbad9e
+$ docker exec xiangrugu-dev sh -c "test -f $CODE_ROOT/PIN_MODULES.json && ! test -L ... && echo REGULAR_FILE_OK"
+REGULAR_FILE_OK
+manifest sha256 (container) = e6a1ac6ceb9a3996ada4fade4282a424e49ff2f204b6bc52d490d64bf002e7fc
+manifest sha256 (delivery)  = e6a1ac6ceb9a3996ada4fade4282a424e49ff2f204b6bc52d490d64bf002e7fc   ← 一致
+entries = 16
+
+════════════════════ 载荷三项 ═════════════════════
+-rw-r--r-- 1 xiangrugu xiangrugu 417981 /data/var/b-batch/payload.bin
+5ca84bdc9bb4d28f4be0922e86d6f60d9ad5e3f487b7fc63c117bc2de1f968ff  /data/var/b-batch/payload.bin
+bytes = 417981
+lines (grep -c "") = 3859
+
+════════════════════ 容器内进程工作目录实证 ═════════════════════
+$ docker exec -w /data/var/b-batch/work3 xiangrugu-dev sh -c pwd
+/data/var/b-batch/work3
+
+════════════════════ 步骤 1：实际载荷预检（真实退出码，非管道取）════════════════════
+PROBE_RC=0 module=/data/var/b-batch/code3/xrg-batch/datamgmt/src/xiangrugu_datamgmt/__init__.py
+{"outcome": "PASSED", "failure": null, "checks": 16}
+PREFLIGHT_EXIT=0
+STEP1_OK_CONTINUED
+evidence: outcome=PASSED checks=16 connects_to_database=False import_closure_size=16
+
+════════════════════ 16 模块摘要比对（导出树 vs 清单）════════════════════
+manifest_entries 16
+mismatches 0 []
+
+════════════════════ 替身实测：正对照（PIN 正确）════════════════════
+########## POSITIVE CONTROL: correct PIN (pin=a5d12b13ad87b74fea5e8e7b2fb8a2c901bbad9e) ##########
+{"outcome": "PASSED", "failure": null, "checks": 16}
+PREFLIGHT_EXIT=0
+STANDIN_LOAD_ENTRY_INVOKED
+LOAD_EXIT=77
+LOAD_ENTRY_CALLED=YES
+SCRIPT_RC=77
+
+════════════════════ 替身实测：负对照（PIN 错误 → 必须短路）════════════════════
+########## NEGATIVE: wrong PIN 424ab209 ##########
+{"outcome": "FAILED", "failure": "PIN_COMMIT=a5d12b13ad87b74fea5e8e7b2fb8a2c901bbad9e != --code-commit=424ab2097891834642993049897008514db8018c", "checks": 16}
+PREFLIGHT_EXIT=2
+ABORT_BEFORE_LOAD: preflight rc=2
+LOAD_ENTRY_CALLED=NO
+SCRIPT_RC=2
+
+════════════════════ 旧形态对照（证明缺陷 2 真实存在）════════════════════
+OLD_FORM_SCRIPT_RC=0            ← 失败被伪装成成功
+PREFLIGHT_EXIT=2
+LOAD_EXIT=77
+LOAD_ENTRY_CALLED=YES           ← 装载入口仍被调用
+
+NEW_FORM_SCRIPT_RC=2            ← 退出码原样传出
+PREFLIGHT_EXIT=2
+ABORT_BEFORE_LOAD: preflight rc=2
+LOAD_ENTRY_CALLED=NO
+
+════════════════════ a04 两条历史疑点的现场复验 ═════════════════════
+[R1 等价场景：移走 PIN_MODULES.json]
+{"outcome": "FAILED", "failure": "unreadable: [Errno 2] No such file or directory: '/data/var/b-batch/code3/xrg-batch/PIN_MODULES.json'", "checks": 12}
+PREFLIGHT_EXIT=2
+checks_in_evidence 12          ← evidence json **确实写出**且含 12 条
+MANIFEST_RESTORED
+
+[真正会跳过 evidence-out 的是 scope/expected 早退路]
+{"outcome": "INPUT_ERROR", "detail": "[Errno 2] No such file or directory: '/nonexistent/scope.json'"}
+PREFLIGHT_EXIT=4
+EVIDENCE_WRITTEN=NO
+
+[两份历史 .out 的 PREFLIGHT_EXIT 行数]
+rejections/R1-manifest-missing.out = 0
+repro/raw/R1.out                   = 1

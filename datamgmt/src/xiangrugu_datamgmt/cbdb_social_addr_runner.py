@@ -49,6 +49,16 @@ import subprocess
 import sys
 from pathlib import Path
 
+# --- External anchors for the formal run -------------------------------------
+# These are the REVIEWED values. They are fixed in the executing program, not read
+# from a scope or expected file, because a binding that comes from the same
+# documents it is meant to police is self-certification: swap the artifact, update
+# the declaration, and every check still passes. Measured counterexample: an
+# approval table swapped together with expected.approval_table_sha256 satisfied all
+# self-referential checks.
+APPROVED_AUTH_SHA256 = "4d250c8e08ea8136e29e35aa436812f11b5eec59a100847f130c11f39b7e2946"
+APPROVED_TABLE_SHA256 = "a718b0c297501642dd105eb3797f96dc1de2edf8eb521bed6609ff78de1fb4a0"
+
 EXIT_COMMITTED = 0
 EXIT_REFUSED = 2
 EXIT_ERROR = 3
@@ -59,10 +69,64 @@ EXIT_PREFLIGHT = 4
 # Every module that can change what a formal load does. This MUST include the runner
 # itself: a manifest that pins everything except the program enforcing the manifest
 # would let the enforcement layer be swapped without detection.
+# This is the transitive CLOSURE of what a formal load actually imports, not a
+# hand-picked list. Pinning only the obvious modules leaves reachable code
+# unverified: `first_batch_loader`, for instance, defines LoaderGateError (the type
+# of every gate refusal) and the CSV parser used for the instance marker and the
+# database list, so editing it would silently redefine the identity check while
+# every pinned digest stayed green. `code_pin_closure_gaps` enforces this property
+# so a new import cannot quietly fall outside the manifest.
 PINNED_MODULES = ("cbdb_social_addr_runner.py",
                   "cbdb_social_addr_entry.py", "cbdb_social_addr_loader.py",
                   "contracts.py", "unordered_validate.py", "unordered_values.py",
-                  "sqlite_values.py", "value_sort.py")
+                  "sqlite_values.py", "value_sort.py",
+                  # --- transitive dependencies reachable from the above ---
+                  "canonical.py", "config.py", "first_batch_loader.py",
+                  "identity.py", "model.py", "naming.py",
+                  "read_cache.py", "sqlite_diagnostic.py")
+
+
+def _module_import_closure(root):
+    """Local modules transitively imported by the pinned set, resolved on disk.
+
+    Uses ``ast`` so the check does not need to import anything (importing would
+    execute the very code we are trying to verify, and would also require the
+    third-party dependencies to be installed).
+    """
+    import ast
+    pkg = Path(root) / "datamgmt" / "src" / "xiangrugu_datamgmt"
+    def local(modname):
+        path = pkg / modname
+        if not path.exists():
+            return set()
+        tree = ast.parse(path.read_text(encoding="utf-8"))
+        found = set()
+        for node in ast.walk(tree):
+            if isinstance(node, ast.ImportFrom):
+                if node.level:
+                    if node.module:
+                        found.add(node.module.split(".")[0] + ".py")
+                    for alias in node.names:
+                        found.add(alias.name + ".py")
+                elif node.module and node.module.startswith("xiangrugu_datamgmt"):
+                    parts = node.module.split(".")
+                    if len(parts) > 1:
+                        found.add(parts[1] + ".py")
+            elif isinstance(node, ast.Import):
+                for alias in node.names:
+                    if alias.name.startswith("xiangrugu_datamgmt."):
+                        parts = alias.name.split(".")
+                        if len(parts) > 1:
+                            found.add(parts[1] + ".py")
+        return {f for f in found if (pkg / f).exists()}
+
+    seen, stack = set(PINNED_MODULES), list(PINNED_MODULES)
+    while stack:
+        for dep in local(stack.pop()):
+            if dep not in seen:
+                seen.add(dep)
+                stack.append(dep)
+    return sorted(seen)
 
 
 class PreflightError(Exception):
@@ -204,6 +268,14 @@ def run(args):
     # ---- Preflight: everything here happens before a session exists ----------
     try:
         evidence["code_pin"] = verify_code_pin(Path(args.code_root), args.code_commit)
+        # A manifest is only as good as its coverage: make the "every reachable
+        # module is pinned" property machine-checked instead of relying on whoever
+        # edits the list next.
+        closure = _module_import_closure(args.code_root)
+        gaps = [m for m in closure if m not in PINNED_MODULES]
+        evidence["code_pin"]["closure_size"] = len(closure)
+        if gaps:
+            raise PreflightError("code_pin_closure_gaps", ",".join(gaps))
 
         if not Path(args.scratch).is_dir() or os.path.islink(args.scratch):
             raise PreflightError("scratch_not_a_real_directory", args.scratch)
@@ -211,6 +283,12 @@ def run(args):
         approval_text_sha256 = _sha_file(args.approval_text)
         if approval_text_sha256 != args.approval_text_sha256:
             raise PreflightError("approval_text_digest_mismatch", approval_text_sha256)
+        # Same reasoning as the approval table: the reviewed text is anchored in the
+        # program, so re-hashing a DIFFERENT text and passing its hash as the expected
+        # value cannot succeed.
+        if args.phase == "phase2-production" and approval_text_sha256 != APPROVED_AUTH_SHA256:
+            raise PreflightError("authorization_text_is_not_the_reviewed_text",
+                                 approval_text_sha256)
         evidence["approval_text"] = {"path": args.approval_text,
                                      "sha256": approval_text_sha256,
                                      "bytes": Path(args.approval_text).stat().st_size}
@@ -226,6 +304,12 @@ def run(args):
             # An expected file that does not bind the approval table would silently
             # disable this check, so absence is itself a refusal.
             raise PreflightError("approval_table_binding_missing")
+        # Anchor FIRST. Comparing only against `declared` would let a caller swap the
+        # table and edit the expected file in the same breath -- the check would then
+        # confirm that the forgery matches the forgery.
+        if approval_table_sha256 != APPROVED_TABLE_SHA256:
+            raise PreflightError("approval_table_is_not_the_reviewed_table",
+                                 approval_table_sha256)
         if approval_table_sha256 != declared_approval_table:
             raise PreflightError("approval_table_digest_mismatch", approval_table_sha256)
         evidence["approval_table"] = {"path": args.approval_table,

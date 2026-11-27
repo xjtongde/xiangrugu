@@ -46,10 +46,15 @@ PRODUCTION_ID = "3d93fc7741f66f1f01aa250b25c4959addfe4c84df22ecbd0d0f82c13920c1f
 PRODUCTION_TRIPLE = {"host": "pg32b", "port": 5433, "dbname": "xiangrugu"}
 IN_SESSION_PORT = 5432
 LOAD_ROLE = "xrg_loader"
+# The transitive closure a formal load actually imports. Kept identical to the
+# runner's PINNED_MODULES by test, not by hope: if the two drift, this tool would be
+# validating a set the runner does not enforce (a shared blind spot).
 REQUIRED_PINNED = [
     "cbdb_social_addr_runner.py", "cbdb_social_addr_entry.py",
     "cbdb_social_addr_loader.py", "contracts.py", "unordered_validate.py",
-    "unordered_values.py", "sqlite_values.py", "value_sort.py"]
+    "unordered_values.py", "sqlite_values.py", "value_sort.py",
+    "canonical.py", "config.py", "first_batch_loader.py", "identity.py",
+    "model.py", "naming.py", "read_cache.py", "sqlite_diagnostic.py"]
 
 
 def sha256_file(path):
@@ -58,6 +63,45 @@ def sha256_file(path):
         for chunk in iter(lambda: fh.read(1 << 20), b""):
             h.update(chunk)
     return h.hexdigest()
+
+
+def _import_closure(root):
+    """Local modules transitively imported by the pinned set (ast, no execution)."""
+    import ast
+    pkg = Path(root) / "datamgmt" / "src" / "xiangrugu_datamgmt"
+
+    def local(modname):
+        path = pkg / modname
+        if not path.exists():
+            return set()
+        tree = ast.parse(path.read_text(encoding="utf-8"))
+        found = set()
+        for node in ast.walk(tree):
+            if isinstance(node, ast.ImportFrom):
+                if node.level:
+                    if node.module:
+                        found.add(node.module.split(".")[0] + ".py")
+                    for alias in node.names:
+                        found.add(alias.name + ".py")
+                elif node.module and node.module.startswith("xiangrugu_datamgmt"):
+                    parts = node.module.split(".")
+                    if len(parts) > 1:
+                        found.add(parts[1] + ".py")
+            elif isinstance(node, ast.Import):
+                for alias in node.names:
+                    if alias.name.startswith("xiangrugu_datamgmt."):
+                        parts = alias.name.split(".")
+                        if len(parts) > 1:
+                            found.add(parts[1] + ".py")
+        return {f for f in found if (pkg / f).exists()}
+
+    seen, stack = set(REQUIRED_PINNED), list(REQUIRED_PINNED)
+    while stack:
+        for dep in local(stack.pop()):
+            if dep not in seen:
+                seen.add(dep)
+                stack.append(dep)
+    return sorted(seen)
 
 
 def check_phase_scope(phase, scope):
@@ -182,6 +226,14 @@ def main(argv=None):
         missing = [n for n in REQUIRED_PINNED if n not in manifest]
         record("manifest_covers_all_pinned",
                None if not missing else f"missing={missing}")
+        # Coverage is computed, not asserted: resolve the real import closure of the
+        # staged tree and require that the manifest covers every reachable module.
+        closure = _import_closure(root)
+        uncovered = [m for m in closure if m not in manifest]
+        record("manifest_covers_import_closure",
+               None if not uncovered else f"unpinned={uncovered}")
+        checks.append({"check": "import_closure_size", "ok": True,
+                       "detail": str(len(closure))})
         pkg = root / "datamgmt" / "src" / "xiangrugu_datamgmt"
         bad = []
         for name in REQUIRED_PINNED:

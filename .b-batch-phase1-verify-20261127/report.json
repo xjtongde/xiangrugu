@@ -39,6 +39,7 @@
   "scope_missing_bindings": "模板只复制了 approval_class 等少数字段，缺 bound_object_rule_ids、target 等必需绑定，被 write_approval_not_bound_to_single_target 拒。已从原 scope 补全。",
   "scope_mode_wrong": "补正盒引入的正式/隔离 scope 把 mode 写成 production-write / isolated-test，但 entry Gate A 硬性要求 mode='execution-candidate'——分离后的 scope 根本无法被 entry 接受。已改回 execution-candidate，改用 scope_class 区分。"
  },
+ "n1_n2": "n1-n2-resolution.json",
  "next": "Codex 放行后：用正式命令做端到端（需预建 xrg_loader 与 cbdb schema）",
  "not_done": {
   "deploy_updated": false,
@@ -50,7 +51,7 @@
  "rerun_after_hardening": ".b-batch-phase1-verify-20261127/rerun-after-hardening.json",
  "subtasks": {
   "1_unit_tests": {
-   "breakdown": "entry 43 + loader 21 + runner 30（含本轮新增 7 条隔离端点反例）",
+   "breakdown": "entry 43 + loader 21 + runner 35",
    "discrepancy_note": "任务书称『既有 77 项 + 新增 23 项』= 100 项，但 23 项是 runner 测试的完整数量（7af6208 引入），已包含并替代原先的 13 项，故实际总数是 87 而非 100。runner 测试演进：13(58e93e3) → 19(91746fe) → 23(7af6208)。",
    "environment": "xiangrugu-dev / pytest 9.1.1 / pydantic 2.13.5 / PG 18.6",
    "found_and_fixed": [
@@ -72,7 +73,7 @@
    ],
    "log": ".b-batch-phase1-verify-20261127/pytest-full.log",
    "not_100_because": "23 项是替代而非追加；entry 43 与 loader 21 未变",
-   "result": "94 passed, 0 failed, exit 0",
+   "result": "99 passed, 0 failed, exit 0",
    "status": "PASS"
   },
   "2_production_readonly_check": {

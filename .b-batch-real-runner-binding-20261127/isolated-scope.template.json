@@ -52,6 +52,10 @@
   "host": "pg32b",
   "in_session_port": 5432,
   "port": 5433,
+  "standin_hosts": [
+   "127.0.0.1",
+   "localhost"
+  ],
   "test_only": true
  },
  "version": 1,

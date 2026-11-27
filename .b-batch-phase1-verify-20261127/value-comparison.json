@@ -28,7 +28,7 @@
  "partial": false,
  "residual_directory": null,
  "resource_stats": {
-  "elapsed_seconds": 26.887489210000012,
+  "elapsed_seconds": 28.242048444000147,
   "peak_chunk_bytes": 45896,
   "peak_chunk_rows": 279,
   "peak_temp_bytes": 1890276,

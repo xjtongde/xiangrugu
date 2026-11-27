@@ -11,11 +11,11 @@
 > `.b-batch-phase1-verify-20261127/report.json`。
 
 **(a) 单测：已执行 —— 解除。**
-32 恢复后真跑，**94 passed / 0 failed / exit 0**
-（entry 43 + loader 21 + runner 30）。日志：`.b-batch-phase1-verify-20261127/pytest-full.log`。
+32 恢复后真跑，**99 passed / 0 failed / exit 0**
+（entry 43 + loader 21 + runner 35）。日志：`.b-batch-phase1-verify-20261127/pytest-full.log`。
 ⚠️ 数字更正：此前"既有 77 + 新增 23 = 100"的说法不成立。23 项是 runner 测试的**完整数**
 （`7af6208` 引入）且**替代**了原 13 项，不是追加；故本轮之前实际总数是 87 而非 100。
-演进链：13(`58e93e3`) → 19(`91746fe`) → 23(`7af6208`) → 30(本轮加 7 条隔离端点反例)。
+演进链：13(`58e93e3`) → 19(`91746fe`) → 23(`7af6208`) → 30(本轮加 7 条隔离端点反例) → 35(再加 5 条替身 host 反例)。
 首次真跑还暴露 4 处**测试自身**缺陷（产品代码正确），已分别修复于
 `97c583b` / `9aaa6a9` / `de3517f`。
 
@@ -75,6 +75,10 @@
    （回环地址或显式替身名）③ 生产主机名一律拒绝，与端口无关。
    新增 7 条反例覆盖 `{pg32b:5433, pg32b:5432, pg32b:5434, pg32:5432}`、非替身 host、
    缺省端口；并做变异测试确认：把加固退回旧逻辑后 `pg32b:5432` 用例立即失败。
+   **替身 host 已由命名启发式改为白名单**（N1）：原 `startswith("xrg-")` / 含
+   `standin`/`trial` 的规则会放过 `xrg-pg32b` 这类指向生产的别名。现只接受回环地址，
+   或 scope 自身 `standin_hosts` 中声明的名字。新增 5 条 lookalike 反例，变异测试确认
+   退回启发式后 4 条全部失败。
 4. **模板缺必需绑定**（`bound_object_rule_ids`、`target` 等）→ `write_approval_not_bound_to_single_target`。
 5. **隔离库名**用 `xiangrugu` 被 `production_database_visible` 拒。这是**正确的安全行为**，
    不是绕过对象：改名为 `xiangrugu_iso`。

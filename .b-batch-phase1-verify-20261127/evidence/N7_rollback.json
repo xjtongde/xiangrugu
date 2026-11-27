@@ -10,12 +10,12 @@
  },
  "code_pin": {
   "closure_size": 16,
-  "commit": "e882f59ba3a0564c2815f87b14058d893e0a3580",
+  "commit": "869ad03be197499eb99d5084832db075941cb311",
   "modules": {
    "canonical.py": "5ec2dd81e7b89a9c061a8ca02c9f45b2fd21ed324ad35af72893c836d0fbbaa4",
    "cbdb_social_addr_entry.py": "dcbfa6add94fbf1550a3705806ab285ef981da26391c5c3fadce8fc82c535a15",
    "cbdb_social_addr_loader.py": "8969a7e69c13159a2e89cf680a80d955cccb7283fecc747841aada995c802420",
-   "cbdb_social_addr_runner.py": "a2e84ee037fcdbce550f4eade2d53965346ca8fa5297e948366b2e513678dda8",
+   "cbdb_social_addr_runner.py": "cce65f695a67027562575b6121515bbd451478bcb9a77952c90bd928478856e8",
    "config.py": "3f9c60e748278a8e79d7860b14fe33322f957dcbf705fe59c45a3ba38053ef2a",
    "contracts.py": "e6145ba70fbff4fe72e7fbda6d3a64396ac1551fb9f3c771531e4f4ebe8ce7a7",
    "first_batch_loader.py": "40750cf191462b22d6b214da2997c1db1e9cf3bcbe23faf3b08980aa3f0918fc",
@@ -37,7 +37,7 @@
   "--code-root",
   "/opt/code/xrg",
   "--code-commit",
-  "e882f59ba3a0564c2815f87b14058d893e0a3580",
+  "869ad03be197499eb99d5084832db075941cb311",
   "--contract",
   "/data/var/in/frozen-contract.json",
   "--approval-table",

@@ -1,0 +1,39 @@
+{
+ "format": "xiangrugu.b-batch.phase1-verify.n1n2.v1",
+ "review": "a02 第十四轮，两项记录级 N1/N2",
+ "n1_standin_host_heuristic": {
+   "issue": "_is_standin_host 用命名启发式（startswith xrg- / 含 standin / 含 trial），xrg-pg32b 这类指向生产的别名会通过",
+   "fix": "改为白名单：仅回环地址，或 scope 自身 standin_hosts 中显式声明的名字",
+   "new_counterexamples": 5,
+   "mutation_test": "退回启发式后 4 条 lookalike 全部失败；还原后 6 passed",
+   "live_replay": [
+     {"host": "xrg-pg32b", "exit": 4, "error_code": "isolated_mode_host_not_a_standin", "session_created": false},
+     {"host": "xrg-prod-proxy", "exit": 4, "error_code": "isolated_mode_host_not_a_standin", "session_created": false},
+     {"host": "my-trial-pg", "exit": 4, "error_code": "isolated_mode_host_not_a_standin", "session_created": false},
+     {"host": "standin.example.com", "exit": 4, "error_code": "isolated_mode_host_not_a_standin", "session_created": false}
+   ]
+ },
+ "n2_stale_pytest_log": {
+   "issue": "pytest-full.log 仍是 87 passed，而交付说明 (a) 以它支撑 94",
+   "fix": "32 可达，重跑后覆盖该 log",
+   "log_now": "99 passed in 3.15s",
+   "consistent": true
+ },
+ "final_rerun": {
+   "standin_container_id": "06a42d86e2114b902c90ce4d87b7ae0c0e45dc5ab94ca638c0c31aca924eafa4",
+   "unit_tests": "99 passed / 0 failed / exit 0",
+   "payload": {"rows": 3859, "bytes": 417981, "sha256_reproduced": true},
+   "P1": {"outcome": "COMMITTED", "exit": 0, "rows": 3859},
+   "N7": {"outcome": "REFUSED", "exit": 2, "to_regclass": "TABLE_ABSENT"},
+   "P3": {"outcome": "COMMITTED", "exit": 0, "rows": 3859},
+   "value_comparison": "comparison_equal",
+   "production_direction_live": [
+     {"connect": "pg32b:5432", "exit": 4, "error_code": "isolated_mode_targets_production_endpoint", "session_created": false},
+     {"connect": "pg32b:5433", "exit": 4, "error_code": "isolated_mode_targets_production_endpoint", "session_created": false}
+   ]
+ },
+ "boundary_after": {"pg32b": "3d93fc77…", "cbdb_schema": 0, "target": null,
+                    "xrg_loader_role": 0, "residual_containers": 0},
+ "verdict": "PARTIAL",
+ "first_gap": "phase2-production 无端到端实测；前置依赖（xrg_loader 角色、cbdb schema）经只读核实生产尚不存在"
+}

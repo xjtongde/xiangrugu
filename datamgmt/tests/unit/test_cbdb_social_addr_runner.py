@@ -342,6 +342,38 @@ def test_isolated_mode_allows_a_proper_standin(tmp_path, pinned_export):
         "isolated_mode_requires_explicit_connect_port")
 
 
+@pytest.mark.parametrize("host", [
+    "xrg-pg32b",          # naming-convention alias that a heuristic would wave through
+    "xrg-prod-proxy",
+    "my-trial-pg",
+    "standin.example.com",
+])
+def test_isolated_mode_refuses_a_standin_lookalike_host(tmp_path, pinned_export, host):
+    """The stand-in host is an ALLOWLIST, not a naming heuristic.
+
+    An alias such as ``xrg-pg32b`` pointing at production would clear a
+    ``startswith("xrg-")`` rule; only loopback or a host the scope itself declares
+    may be connected to.
+    """
+    _code, evidence = R.run(
+        _isolated_args(tmp_path, pinned_export, connect_host=host,
+                       connect_port="5432"))
+    assert evidence["refusal"]["error_code"] == "isolated_mode_host_not_a_standin"
+    assert evidence["refusal"]["detail"] == host
+
+
+def test_isolated_mode_allows_a_host_declared_by_the_scope(tmp_path, pinned_export):
+    """A non-loopback stand-in is reachable only if the scope names it."""
+    args = _isolated_args(tmp_path, pinned_export,
+                          connect_host="standin.internal", connect_port="5432")
+    scope = json.loads(Path(args.scope).read_text(encoding="utf-8"))
+    scope["target_endpoint"]["standin_hosts"] = ["standin.internal"]
+    Path(args.scope).write_text(json.dumps(scope), encoding="utf-8")
+    _code, evidence = R.run(args)
+    assert (evidence.get("refusal") or {}).get("error_code") != (
+        "isolated_mode_host_not_a_standin")
+
+
 @pytest.mark.parametrize("host,port", [
     ("pg32b", "5433"),   # the declared production pair
     ("pg32b", "5432"),   # production's IN-container listener -- the old hole

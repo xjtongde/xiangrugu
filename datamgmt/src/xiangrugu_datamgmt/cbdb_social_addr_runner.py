@@ -86,11 +86,22 @@ PINNED_MODULES = ("cbdb_social_addr_runner.py",
                   "read_cache.py", "sqlite_diagnostic.py")
 
 
-def _is_standin_host(host):
-    """True when ``host`` provably names an isolated stand-in, not a real instance."""
-    if host in ("localhost", "127.0.0.1", "::1"):
+LOOPBACK_HOSTS = ("localhost", "127.0.0.1", "::1")
+
+
+def _is_standin_host(host, declared):
+    """True when ``host`` is a loopback address or explicitly declared by the scope.
+
+    This is an allowlist, NOT a naming heuristic. An earlier version accepted any
+    host starting with ``xrg-`` or containing ``standin``/``trial``, which would also
+    have accepted an alias such as ``xrg-pg32b`` pointing at production. Naming
+    conventions are not a binding; the scope must name the stand-in itself via
+    ``standin_hosts``. (Defence in depth only: Gate B still binds the container
+    through the instance marker, so a wrong instance is caught there as well.)
+    """
+    if host in LOOPBACK_HOSTS:
         return True
-    return host.startswith("xrg-") or "standin" in host or "trial" in host
+    return host in tuple(declared or ())
 
 
 def _module_import_closure(root):
@@ -481,7 +492,8 @@ def run(args):
             evidence["refusal"] = {"error_code": "isolated_mode_targets_production_endpoint",
                                    "detail": f"{connect_host}:{connect_port}"}
             return EXIT_PREFLIGHT, evidence
-        if not _is_standin_host(connect_host):
+        declared_standins = ep.get("standin_hosts") or ()
+        if not _is_standin_host(connect_host, declared_standins):
             evidence["outcome"] = "PREFLIGHT_FAILED"
             evidence["refusal"] = {"error_code": "isolated_mode_host_not_a_standin",
                                    "detail": connect_host}

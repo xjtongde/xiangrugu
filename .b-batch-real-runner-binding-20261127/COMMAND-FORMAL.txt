@@ -98,6 +98,14 @@ echo "STEP0_PROBE_EXIT=$RC module=$(cat /tmp/xrg-step0-probe.out)"
 export PIN=a5d12b13ad87b74fea5e8e7b2fb8a2c901bbad9e
 # CODE_ROOT / WORK / PAYLOAD 已在文件顶部定义，此处不再重复（避免两处不一致）。
 
+# ⚠ 预检脚本只认 $WORK 那份，**不是 $CODE_ROOT 里的同名文件**。
+#   原因：git archive a5d12b1 会连带导出 .b-batch-* 三个交付目录，其中
+#   .b-batch-real-runner-binding-20261127/preflight.py 是**历史版本**
+#   （63f2738a…，不含 APPROVED_PAYLOAD 载荷断言），与交付件 8be2202b… 不同。
+#   步骤 1 用 `-w $WORK` + 相对路径引用，读的必然是 $WORK 那份；但任何人若
+#   去 $CODE_ROOT 下找同名文件并引用它，拿到的会是旧版且不会报错。
+#   此坑在第 3 轮曾导致一次误判（"导出树里出现非交付文件"），勿再踩。
+#
 # ═══════════════════════ 位置 B：步骤 1 只读预检 ═══════════════════════
 # ⚠ 执行边界（a04 实测纠正，本盒修复）：
 #   `$WORK`=/data/var/...、`/run/secrets/...` 全是**容器内**路径；主机 32 上

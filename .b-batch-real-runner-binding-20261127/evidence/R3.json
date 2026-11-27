@@ -1,0 +1,64 @@
+{
+ "checks": [
+  {
+   "check": "phase_scope_agree",
+   "ok": true
+  },
+  {
+   "check": "isolated_endpoint_is_not_production",
+   "detail": "isolated_scope_names_production_instance",
+   "ok": false
+  },
+  {
+   "check": "authorization_text_digest",
+   "ok": true
+  },
+  {
+   "check": "authorization_text_length",
+   "ok": true
+  },
+  {
+   "check": "approval_table_bound",
+   "ok": true
+  },
+  {
+   "check": "approval_table_is_reviewed_table",
+   "ok": true
+  },
+  {
+   "check": "approval_table_digest",
+   "ok": true
+  },
+  {
+   "check": "pin_commit_present",
+   "ok": true
+  },
+  {
+   "check": "manifest_covers_runner",
+   "ok": true
+  },
+  {
+   "check": "manifest_covers_all_pinned",
+   "ok": true
+  },
+  {
+   "check": "pinned_module_digests",
+   "ok": true
+  },
+  {
+   "check": "payload_readable",
+   "ok": true
+  },
+  {
+   "check": "payload_bytes",
+   "detail": "12",
+   "ok": true
+  }
+ ],
+ "connects_to_database": false,
+ "failure": "isolated_scope_names_production_instance",
+ "format": "xiangrugu.b-batch.preflight.v1",
+ "outcome": "FAILED",
+ "phase": "phase1-isolated",
+ "read_only": true
+}

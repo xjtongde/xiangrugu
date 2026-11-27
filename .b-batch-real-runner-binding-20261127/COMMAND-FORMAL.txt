@@ -1,0 +1,43 @@
+# ═══════════════════════════════════════════════════════════════════════
+# B 批单表正式装载 —— 正式命令（无占位符，可直接执行）
+# 固定提交见 PIN-COMMIT.txt
+# ═══════════════════════════════════════════════════════════════════════
+
+# ── 步骤 0：从 Gitea 固定提交导出代码并核准文件清单（含 runner 本身）──
+git archive --format=tar --prefix=xrg-batch/ __FILLED_AT_COMMIT__ | tar xf - -C /opt/xrg-batch
+git rev-parse __FILLED_AT_COMMIT__ > /opt/xrg-batch/xrg-batch/PIN_COMMIT
+# PIN_MODULES.json 必须覆盖全部 8 个模块（含 cbdb_social_addr_runner.py），
+# 由仓库内 scripts/make-pin-modules.py 生成，逐模块 sha256。
+
+# ── 步骤 1：只读预检（不连数据库）──
+python3 .b-batch-real-runner-binding-20261127/preflight.py \
+  --phase phase2-production \
+  --scope       .b-batch-real-runner-binding-20261127/formal-scope.json \
+  --expected    .b-batch-real-runner-binding-20261127/formal-expected.json \
+  --approval-text    .b-batch-real-load-20261127/approval-text-verbatim.txt \
+  --approval-table   datamgmt/contracts/releases/2026-10-06-bootstrap/b-approval-table-v2.json \
+  --payload     /data/var/b-batch/payload.bin \
+  --code-root   /opt/xrg-batch/xrg-batch \
+  --evidence-out /opt/xrg-batch/preflight-formal.json
+# 退出码 0 才继续；2 = 预检失败；4 = 输入缺失
+
+# ── 步骤 2：正式装载（单事务，恰一张表）──
+export XNG_LOAD_PASSWORD='$(cat /run/secrets/xrg_loader_password)'
+python3 -m xiangrugu_datamgmt.cbdb_social_addr_runner \
+  --phase phase2-production \
+  --code-root /opt/xrg-batch/xrg-batch \
+  --code-commit __FILLED_AT_COMMIT__ \
+  --contract  datamgmt/contracts/releases/2026-10-06-bootstrap/b-single-table-frozen-candidate.json \
+  --approval-table datamgmt/contracts/releases/2026-10-06-bootstrap/b-approval-table-v2.json \
+  --approval-text  .b-batch-real-load-20261127/approval-text-verbatim.txt \
+  --approval-text-sha256 4d250c8e08ea8136e29e35aa436812f11b5eec59a100847f130c11f39b7e2946 \
+  --scope      .b-batch-real-runner-binding-20261127/formal-scope.json \
+  --expected   .b-batch-real-runner-binding-20261127/formal-expected.json \
+  --payload    /data/var/b-batch/payload.bin \
+  --scratch    /data/var/b-batch \
+  --evidence-out /opt/xrg-batch/evidence-formal.json
+
+# ⚠ phase2-production 拒绝 --connect-host / --connect-port / --load-role：
+#   端点固定取 formal-scope.json 的已批准三元组 pg32b:5433/xiangrugu，
+#   会话内核对 5432 与实例标记 3d93fc7741f6…、装载角色 xrg_loader。
+# ⚠ 退出码：0 已提交 / 2 门控拒绝（未写）/ 3 异常回滚 / 4 预检失败

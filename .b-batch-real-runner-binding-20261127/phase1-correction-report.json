@@ -1,0 +1,146 @@
+{
+ "baseline": "4a2cc7fa6e25ff4d79051622e1cb5c718094b671",
+ "blockers": {
+  "host_32_unreachable": {
+   "blocks": [
+    "现场核实生产实例全 ID",
+    "容器内 77 项单测",
+    "隔离替身端到端复跑"
+   ],
+   "first_seen_utc": "2026-11-26T19:05:00Z",
+   "mitigation": "生产全 ID 取自 entry 代码常量 _PRODUCTION_CONTAINER_ID 与上一盒边界件实测记录，两处一致；但按「断言强于测量」原则，本盒标注其为【未在本盒现场核实】",
+   "symptom": "No route to host 持续 3 次重试"
+  }
+ },
+ "box": "第 6/6 块后续｜B 批正式命令放行前补正｜30 分钟",
+ "counterexample_summary": {
+  "all_refused": false,
+  "covers": [
+   "正式phase配隔离scope",
+   "隔离phase配正式scope",
+   "隔离scope指向生产实例",
+   "隔离scope声明生产三元组",
+   "正式scope改host/port",
+   "正式scope实例改替身",
+   "同步改原文+摘要",
+   "篡改runner自身",
+   "清单去掉runner",
+   "伪造审批表+同步改expected",
+   "expected缺审批表绑定"
+  ],
+  "total": 9
+ },
+ "counterexamples": [
+  {
+   "counterexample": "formal",
+   "failure": null,
+   "outcome": "PASSED"
+  },
+  {
+   "counterexample": "iso",
+   "failure": null,
+   "outcome": "PASSED"
+  },
+  {
+   "counterexample": "last",
+   "failure": "formal_endpoint_not_verified_instance: '61418c896522f3fa609e5c3816129a9f7bf1bdf40febea83e19304a89d9a77ad'",
+   "outcome": "FAILED"
+  },
+  {
+   "counterexample": "r10",
+   "failure": "approval_table_is_not_the_reviewed_table",
+   "outcome": "FAILED"
+  },
+  {
+   "counterexample": "r11",
+   "failure": "approval_table_binding_missing",
+   "outcome": "FAILED"
+  },
+  {
+   "counterexample": "r12",
+   "failure": "isolated_scope_names_production_triple",
+   "outcome": "FAILED"
+  },
+  {
+   "counterexample": "r7",
+   "failure": "authorization_text_digest_mismatch",
+   "outcome": "FAILED"
+  },
+  {
+   "counterexample": "r8",
+   "failure": "cbdb_social_addr_runner.py:digest",
+   "outcome": "FAILED"
+  },
+  {
+   "counterexample": "r9",
+   "failure": "manifest_does_not_pin_the_runner",
+   "outcome": "FAILED"
+  }
+ ],
+ "counterexamples_found_during_this_box": {
+  "approval_table_self_certification": {
+   "after": "加 APPROVED_TABLE_SHA256 独立锚点后 → approval_table_is_not_the_reviewed_table",
+   "before": "R10（伪造审批表 + 同步改 expected 摘要）→ outcome=PASSED，漏洞真实存在",
+   "note": "本条由本盒实测发现，非复核人指出"
+  }
+ },
+ "first_gap": "生产实例全 ID 未能在本盒现场核实（32 不可达）；正式命令缺一次端到端实测",
+ "formal_preflight": {
+  "checks": 13,
+  "outcome": "PASSED"
+ },
+ "format": "xiangrugu.b-batch.pre-release-correction.v1",
+ "isolated_preflight": {
+  "outcome": "PASSED"
+ },
+ "next": "32 恢复后：核实全 ID → 容器内跑 77 项单测 → 隔离替身用正式命令复跑反例 → 再交 Codex",
+ "not_done_in_this_box": {
+  "deploy_updated": false,
+  "m2_committed": false,
+  "production_connected": false,
+  "production_privileges_changed": false,
+  "production_written": false
+ },
+ "preflight_tool": {
+  "checks": 13,
+  "connects_to_database": false,
+  "exit_codes": {
+   "0": "全部通过",
+   "2": "某项失败",
+   "4": "输入缺失"
+  },
+  "path": "preflight.py",
+  "read_only": true
+ },
+ "subtasks": {
+  "1_scope_separation": {
+   "formal_expected": "formal-expected.json：instance_fingerprint/container_id=生产全 ID",
+   "formal_scope": "formal-scope.json：mode=production-write，端点 pg32b:5433/xiangrugu，in_session_port=5432，container_id=3d93fc7741f6…（生产全 ID），load_role=xrg_loader，write_approval.approval_class=real",
+   "isolated_expected": "isolated-expected.template.json：同上，databases 含 xiangrugu（隔离库名）",
+   "isolated_scope": "isolated-scope.template.json：mode=isolated-test，端点 xrg-standin:5432，test_only=true，container_id 为占位符（运行时填替身），approval_class=test",
+   "refusals": [
+    "formal_endpoint_host_mismatch",
+    "formal_endpoint_port_mismatch",
+    "formal_endpoint_dbname_mismatch",
+    "formal_in_session_port_mismatch",
+    "formal_endpoint_marked_test_only",
+    "formal_endpoint_missing_container_id",
+    "formal_endpoint_not_verified_instance",
+    "formal_endpoint_override_refused",
+    "isolated_mode_targets_production_instance",
+    "isolated_mode_targets_production_endpoint"
+   ],
+   "runner_endpoint_binding": "正式模式：端点三元组/会话端口/test_only/实例 ID 逐项核对，且 --connect-host/--connect-port/--load-role 任一出现即 formal_endpoint_override_refused（连接前拒绝）；隔离模式：指向生产实例或生产三元组即拒绝",
+   "status": "DONE"
+  },
+  "2_auth_and_code_pinning": {
+   "approval_table_anchor": "a718b0c297501642dd105eb3797f96dc1de2edf8eb521bed6609ff78de1fb4a0 同样硬编码——此项是实测发现后补上的：仅靠 expected 自证时，替换审批表并同步改 expected 可通过全部检查",
+   "auth_anchor": "4d250c8e08ea8136e29e35aa436812f11b5eec59a100847f130c11f39b7e2946 硬编码于 preflight.py，与 641 字节长度一并作为独立校验依据；不依赖 scope/expected 自报",
+   "manifest": "从 Gitea 固定提交 4a2cc7fa6e25ff4d79051622e1cb5c718094b671 导出，PIN_COMMIT + PIN_MODULES.json 覆盖 8 个模块",
+   "runner_self_pin": "PINNED_MODULES 现包含 cbdb_social_addr_runner.py 本身（此前只有 7 个被校验模块，校验者自己不校验）",
+   "status": "DONE"
+  }
+ },
+ "verdict": "PARTIAL",
+ "verdict_reason": "1、2 的代码与静态预检部分已完成并实测；但 32 主机（192.168.3.32）本轮全程不可达，导致：(a) 无法现场核实生产实例全 ID；(b) 无法在容器内跑 77 项单测；(c) 无法在隔离替身上用真实命令复跑反例。故 3 的「无占位符正式命令」只能给出参数已分离、预检已通过的版本，尚缺一次端到端实测。"
+}

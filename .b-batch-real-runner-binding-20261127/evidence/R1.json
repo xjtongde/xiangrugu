@@ -1,0 +1,65 @@
+{
+ "checks": [
+  {
+   "check": "phase_scope_agree",
+   "detail": "phase_scope_disagree: phase=phase2-production mode=execution-candidate (expected production-write)",
+   "ok": false
+  },
+  {
+   "check": "formal_endpoint_is_approved_triple",
+   "detail": "formal_endpoint_not_verified_instance: '61418c896522f3fa609e5c3816129a9f7bf1bdf40febea83e19304a89d9a77ad'",
+   "ok": false
+  },
+  {
+   "check": "authorization_text_digest",
+   "ok": true
+  },
+  {
+   "check": "authorization_text_length",
+   "ok": true
+  },
+  {
+   "check": "approval_table_bound",
+   "ok": true
+  },
+  {
+   "check": "approval_table_is_reviewed_table",
+   "ok": true
+  },
+  {
+   "check": "approval_table_digest",
+   "ok": true
+  },
+  {
+   "check": "pin_commit_present",
+   "ok": true
+  },
+  {
+   "check": "manifest_covers_runner",
+   "ok": true
+  },
+  {
+   "check": "manifest_covers_all_pinned",
+   "ok": true
+  },
+  {
+   "check": "pinned_module_digests",
+   "ok": true
+  },
+  {
+   "check": "payload_readable",
+   "ok": true
+  },
+  {
+   "check": "payload_bytes",
+   "detail": "12",
+   "ok": true
+  }
+ ],
+ "connects_to_database": false,
+ "failure": "phase_scope_disagree: phase=phase2-production mode=execution-candidate (expected production-write)",
+ "format": "xiangrugu.b-batch.preflight.v1",
+ "outcome": "FAILED",
+ "phase": "phase2-production",
+ "read_only": true
+}

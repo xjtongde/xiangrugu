@@ -1,0 +1,64 @@
+{
+ "approval_table_sha256": "a718b0c297501642dd105eb3797f96dc1de2edf8eb521bed6609ff78de1fb4a0",
+ "approval_text_sha256": "ec0fa5cf029c37e1bdbb94102553d145bd4d901d74489ac7b98ecdb3d42d4f12",
+ "contract_review_ref": "chaxiang-approval-social-institution-addr-bstep2-correction-20261126",
+ "contract_sha256": "56b0076d2e877be9fb34796e01b8ee2b37d5a817c8e80203fa21c95e4f3f8237",
+ "endpoint_mapping_verified": true,
+ "expected_image_id": "sha256:d562e43664f996da0e4208b375c00c111a543d996475188d852e9189b2a8cd05",
+ "expected_source_member_sha256": "bde1bb8eece3820d9e236c1d6b0f07d847d339669d4a85d79cd7252d58d83400",
+ "expected_source_sha256": "2cb8c354b0e75e6ae230e3b00540146e823eaa8de8def2abce89ad6179a07579",
+ "forbidden": [
+  "pg32b",
+  "cbdb",
+  "cbdb_reh",
+  "xiangrugu"
+ ],
+ "full_ready_for_import": false,
+ "instance_fingerprint": "__STANDIN_CONTAINER_ID__",
+ "inventory_sha256": "fb5e6b334b898d62dc0e5c77094fdb50e0946300e6e3009f447b2ecd1bc216db",
+ "load_role": "xrg_loader",
+ "mode": "isolated-test",
+ "real_authority_ref": "chaxiang-approval-b-batch-single-table-real-load-20261127",
+ "real_write_authorization": {
+  "approval_class": "real",
+  "approval_ref": "chaxiang-approval-b-batch-single-table-real-load-20261127",
+  "authorized_rule_ids": [
+   "m007906"
+  ],
+  "authorized_tables": [
+   {
+    "schema_name": "cbdb",
+    "table": "cbdb__social_u5f_institution_u5f_addr"
+   }
+  ]
+ },
+ "review_traceability": {
+  "approval_record_event": "chaxiang-approval-social-institution-addr-bstep2-correction-20261126",
+  "approval_table_sha256": "a718b0c297501642dd105eb3797f96dc1de2edf8eb521bed6609ff78de1fb4a0",
+  "approval_text_bytes": 1799,
+  "approval_text_sha256": "ec0fa5cf029c37e1bdbb94102553d145bd4d901d74489ac7b98ecdb3d42d4f12",
+  "contract_review_ref": "chaxiang-approval-social-institution-addr-bstep2-correction-20261126",
+  "status": "COMPLETE"
+ },
+ "scope_purpose": "isolated（隔离）——仅用于 phase1-isolated，禁止指向生产实例",
+ "target": {
+  "schema_name": "cbdb",
+  "table": "cbdb__social_u5f_institution_u5f_addr"
+ },
+ "target_endpoint": {
+  "container_id": "__STANDIN_CONTAINER_ID__",
+  "dbname": "xiangrugu",
+  "host": "xrg-standin",
+  "in_session_port": 5432,
+  "port": 5432,
+  "test_only": true
+ },
+ "version": 1,
+ "write_approval": {
+  "approval_class": "test",
+  "approval_ref": "isolated-rehearsal-only",
+  "approval_text_sha256": "4d250c8e08ea8136e29e35aa436812f11b5eec59a100847f130c11f39b7e2946",
+  "approved_at": "2026-11-26T00:00:00Z",
+  "approved_by": "DSH"
+ }
+}

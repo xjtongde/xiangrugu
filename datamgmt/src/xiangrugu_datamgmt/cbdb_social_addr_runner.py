@@ -56,7 +56,11 @@ EXIT_PREFLIGHT = 4
 
 # Files whose content decides the behaviour of a formal load. A local edit to any
 # of them means we are no longer running the reviewed version.
-PINNED_MODULES = ("cbdb_social_addr_entry.py", "cbdb_social_addr_loader.py",
+# Every module that can change what a formal load does. This MUST include the runner
+# itself: a manifest that pins everything except the program enforcing the manifest
+# would let the enforcement layer be swapped without detection.
+PINNED_MODULES = ("cbdb_social_addr_runner.py",
+                  "cbdb_social_addr_entry.py", "cbdb_social_addr_loader.py",
                   "contracts.py", "unordered_validate.py", "unordered_values.py",
                   "sqlite_values.py", "value_sort.py")
 
@@ -285,13 +289,81 @@ def run(args):
     evidence["payload"] = {"path": args.payload, "bytes": len(payload_bytes),
                            "sha256": hashlib.sha256(payload_bytes).hexdigest()}
 
-    # The CONNECT endpoint is derived from the approved endpoint, never taken from
-    # an environment default: the outer port is what an operator reaches, and the
-    # in-session port is checked separately by the entry gates.
+    # --- Endpoint binding, decided BEFORE a connection exists ------------------
+    # The formal run must reach exactly the approved triple. An operator-supplied
+    # host/port/role that differs from what the scope declares would mean we are
+    # about to write somewhere the authorization never named, so it is refused here
+    # rather than discovered after connecting.
     ep = scope["target_endpoint"]
-    load_role = args.load_role or E.LOAD_ROLE
-    connect_host = args.connect_host or ep["host"]
-    connect_port = int(args.connect_port or ep["port"])
+    formal = args.phase == "phase2-production"
+
+    if formal:
+        if ep.get("host") != E.PRODUCTION_TARGET["host"]:
+            evidence["outcome"] = "PREFLIGHT_FAILED"
+            evidence["refusal"] = {"error_code": "formal_endpoint_host_mismatch",
+                                   "detail": str(ep.get("host"))}
+            return EXIT_PREFLIGHT, evidence
+        if ep.get("port") != E.PRODUCTION_TARGET["port"]:
+            evidence["outcome"] = "PREFLIGHT_FAILED"
+            evidence["refusal"] = {"error_code": "formal_endpoint_port_mismatch",
+                                   "detail": str(ep.get("port"))}
+            return EXIT_PREFLIGHT, evidence
+        if ep.get("dbname") != E.PRODUCTION_TARGET["dbname"]:
+            evidence["outcome"] = "PREFLIGHT_FAILED"
+            evidence["refusal"] = {"error_code": "formal_endpoint_dbname_mismatch",
+                                   "detail": str(ep.get("dbname"))}
+            return EXIT_PREFLIGHT, evidence
+        if ep.get("in_session_port") != E.IN_SESSION_PORT:
+            evidence["outcome"] = "PREFLIGHT_FAILED"
+            evidence["refusal"] = {"error_code": "formal_in_session_port_mismatch",
+                                   "detail": str(ep.get("in_session_port"))}
+            return EXIT_PREFLIGHT, evidence
+        if ep.get("test_only") is not False:
+            evidence["outcome"] = "PREFLIGHT_FAILED"
+            evidence["refusal"] = {"error_code": "formal_endpoint_marked_test_only"}
+            return EXIT_PREFLIGHT, evidence
+        marker = (ep.get("container_id") or "")
+        if not marker:
+            evidence["outcome"] = "PREFLIGHT_FAILED"
+            evidence["refusal"] = {"error_code": "formal_endpoint_missing_container_id"}
+            return EXIT_PREFLIGHT, evidence
+        if marker == E._PRODUCTION_CONTAINER_ID:
+            pass  # the verified production instance: expected for a formal run
+        else:
+            evidence["outcome"] = "PREFLIGHT_FAILED"
+            evidence["refusal"] = {"error_code": "formal_endpoint_not_verified_instance",
+                                   "detail": marker}
+            return EXIT_PREFLIGHT, evidence
+
+        # Overrides are REFUSED, not merely ignored: silently substituting an
+        # endpoint would make the evidence describe a target the caller never
+        # approved, which is exactly the failure this whole runner exists to stop.
+        if args.connect_host or args.connect_port or args.load_role:
+            evidence["outcome"] = "PREFLIGHT_FAILED"
+            evidence["refusal"] = {
+                "error_code": "formal_endpoint_override_refused",
+                "detail": "phase2-production connects to the approved endpoint only; "
+                          "--connect-host/--connect-port/--load-role are not accepted"}
+            return EXIT_PREFLIGHT, evidence
+        connect_host, connect_port = ep["host"], int(ep["port"])
+        load_role = E.LOAD_ROLE
+    else:
+        # Isolated mode: never the production instance, never the production triple.
+        marker = (ep.get("container_id") or "")
+        if marker == E._PRODUCTION_CONTAINER_ID:
+            evidence["outcome"] = "PREFLIGHT_FAILED"
+            evidence["refusal"] = {"error_code": "isolated_mode_targets_production_instance"}
+            return EXIT_PREFLIGHT, evidence
+        if (ep.get("host") == E.PRODUCTION_TARGET["host"]
+                and ep.get("port") == E.PRODUCTION_TARGET["port"]
+                and ep.get("dbname") == E.PRODUCTION_TARGET["dbname"]):
+            evidence["outcome"] = "PREFLIGHT_FAILED"
+            evidence["refusal"] = {"error_code": "isolated_mode_targets_production_endpoint"}
+            return EXIT_PREFLIGHT, evidence
+        load_role = args.load_role or E.LOAD_ROLE
+        connect_host = args.connect_host or ep["host"]
+        connect_port = int(args.connect_port or ep["port"])
+
     password = os.environ.get("XNG_LOAD_PASSWORD")
     if not password:
         evidence["outcome"] = "PREFLIGHT_FAILED"
@@ -313,6 +385,8 @@ def run(args):
                            "declared_in_session_port": E.IN_SESSION_PORT,
                            "dbname": ep["dbname"],
                            "load_role": load_role,
+                           "formal": formal,
+                           "override_refused": formal,
                            "no_db_switch": True, "no_reconnect": True}
     try:
         ev = E.run_execution_candidate(session, scope, expected, artifacts, parse,

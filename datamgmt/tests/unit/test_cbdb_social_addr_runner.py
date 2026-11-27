@@ -209,3 +209,87 @@ def test_probe_failure_is_visible_not_silent():
     probe = R._probe_target(Boom())
     assert probe["measured"] is False
     assert "connection gone" in probe["probe_error"]
+
+
+# ---------------------------------------------------------------------------
+# Endpoint binding: the formal run must reach exactly the approved triple, and
+# must refuse overrides BEFORE a connection exists.
+# ---------------------------------------------------------------------------
+def _formal_args(tmp_path, pinned_export, **over):
+    root, commit, _pkg = pinned_export
+    table = tmp_path / "approval-table.json"
+    table.write_text('{"tables": []}\n', encoding="utf-8")
+    text = tmp_path / "approval.txt"
+    text.write_bytes(b"body\n")
+    contract = tmp_path / "contract.json"
+    contract.write_text("{}", encoding="utf-8")
+    expected = tmp_path / "expected.json"
+    expected.write_text(json.dumps({"approval_table_sha256": _sha(table)}), encoding="utf-8")
+    scope = tmp_path / "scope.json"
+    scope.write_text(json.dumps({
+        "mode": "production-write",
+        "target_endpoint": {"host": "pg32b", "port": 5433, "dbname": "xiangrugu",
+                            "in_session_port": 5432, "test_only": False,
+                            "container_id": "3" * 64},
+    }), encoding="utf-8")
+    ns = dict(phase="phase2-production", code_root=str(root), code_commit=commit,
+              contract=str(contract), approval_table=str(table), approval_text=str(text),
+              approval_text_sha256=_sha(text), scope=str(scope), expected=str(expected),
+              payload=str(tmp_path / "p.bin"), scratch=str(tmp_path),
+              connect_host=None, connect_port=None, load_role=None,
+              evidence_out=str(tmp_path / "ev.json"))
+    ns.update(over)
+    return R.argparse.Namespace(**ns)
+
+
+def test_formal_mode_refuses_a_connect_host_override(tmp_path, pinned_export):
+    """An override would write somewhere the authorization never named: refuse."""
+    code, evidence = R.run(_formal_args(tmp_path, pinned_export, connect_host="127.0.0.1"))
+    assert code == R.EXIT_PREFLIGHT
+    assert evidence["refusal"]["error_code"] == "formal_endpoint_override_refused"
+
+
+def test_formal_mode_refuses_a_connect_port_override(tmp_path, pinned_export):
+    code, evidence = R.run(_formal_args(tmp_path, pinned_export, connect_port="5432"))
+    assert code == R.EXIT_PREFLIGHT
+    assert evidence["refusal"]["error_code"] == "formal_endpoint_override_refused"
+
+
+def test_formal_mode_refuses_a_load_role_override(tmp_path, pinned_export):
+    code, evidence = R.run(_formal_args(tmp_path, pinned_export, load_role="postgres"))
+    assert code == R.EXIT_PREFLIGHT
+    assert evidence["refusal"]["error_code"] == "formal_endpoint_override_refused"
+
+
+def test_formal_mode_refuses_a_non_production_instance(tmp_path, pinned_export):
+    args = _formal_args(tmp_path, pinned_export)
+    scope = json.loads(Path(args.scope).read_text(encoding="utf-8"))
+    scope["target_endpoint"]["container_id"] = "a" * 64
+    Path(args.scope).write_text(json.dumps(scope), encoding="utf-8")
+    code, evidence = R.run(args)
+    assert code == R.EXIT_PREFLIGHT
+    assert evidence["refusal"]["error_code"] == "formal_endpoint_not_verified_instance"
+
+
+def test_isolated_mode_never_targets_the_production_instance(tmp_path, pinned_export):
+    args = _formal_args(tmp_path, pinned_export, phase="phase1-isolated")
+    scope = json.loads(Path(args.scope).read_text(encoding="utf-8"))
+    scope["mode"] = "isolated-test"
+    scope["target_endpoint"]["test_only"] = True
+    scope["target_endpoint"]["container_id"] = R_PROD_ID()
+    Path(args.scope).write_text(json.dumps(scope), encoding="utf-8")
+    code, evidence = R.run(args)
+    assert code == R.EXIT_PREFLIGHT
+    assert evidence["refusal"]["error_code"] == "isolated_mode_targets_production_instance"
+
+
+def test_runner_pins_itself():
+    """A manifest that omits the enforcer can be satisfied while the enforcer is swapped."""
+    assert "cbdb_social_addr_runner.py" in R.PINNED_MODULES
+
+
+def R_PROD_ID():
+    src = Path(R.__file__).read_text(encoding="utf-8")
+    marker = '_PRODUCTION_CONTAINER_ID = "'
+    start = src.index(marker) + len(marker)
+    return src[start:src.index('"', start)]

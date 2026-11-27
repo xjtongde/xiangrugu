@@ -89,8 +89,10 @@
    "note": "本条由本盒实测发现，非复核人指出"
   }
  },
+ "delivery_head": "f4f26e011e50054ac7dc52964877641716fa02b8",
  "first_gap": "生产实例全 ID 未能在本盒现场核实（32 不可达）；正式命令缺一次端到端实测",
  "fixed_commit": "91746fe232f128cf66319d5f7b13c222ebd167b1",
+ "fixed_commit_note": "此提交是【代码提交】——runner 端点绑定、PINNED_MODULES 含自身、5 项新单测、preflight.py、分离的 scope/expected 全部在此。其后的文档提交只改 COMMAND-FORMAL.txt 与报告本身，未触代码，故命令钉代码提交而非自身。可核验：git diff --name-only 91746fe <later> -- datamgmt/ 为空。",
  "formal_preflight": {
   "checks": 13,
   "outcome": "PASSED"

@@ -14,6 +14,25 @@
  "first_gap": "正式命令（phase2-production）仍未端到端实测；本轮只做了正式端点只读预检。此外本轮在交付工件事中发现 4 处缺陷（scope mode、隔离门禁对象、scope 缺绑定、隔离库名），均已修复，但说明补正盒的正式/隔离分离改动未经真跑验证——本轮是首次真跑。",
  "fixed_code": "424ab2097891834642993049897008514db8018c",
  "format": "xiangrugu.b-batch.phase1-verify.v1",
+ "isolation_hardening": {
+  "confirmed_by": "只读实测 show port=5432、容器 IP 172.29.0.2",
+  "coverage": [
+   "pg32b:5433",
+   "pg32b:5432",
+   "pg32b:5434",
+   "pg32:5432",
+   "非替身 host",
+   "缺省端口"
+  ],
+  "fix": [
+   "必须显式 --connect-port，禁止回落声明端口",
+   "host 须在替身白名单（回环或显式替身名）",
+   "生产主机名一律拒绝，与端口无关"
+  ],
+  "issue": "a02 第 13 轮指出：改查实际连接目标后仍只比 (pg32b,5433) 一对，而生产实例容器内也监听 5432，故 pg32b:5432 漏过",
+  "live_replay": "四种生产方向组合全部 exit=4 且 session_created=false",
+  "mutation_test": "退回旧逻辑后 pg32b:5432 用例失败（3 passed/1 failed），还原 8 passed"
+ },
  "issues_found_in_delivery_artifacts": {
   "isolated_db_name": "隔离库原用 xiangrugu，被 production_database_visible 拒——这是正确的：隔离实例不得看到生产库名。改为 xiangrugu_iso。",
   "isolated_gate_wrong_target": "我新加的隔离门禁检查的是 scope 声明端点，而 entry 要求声明端点恒为 pg32b:5433、隔离靠 --connect-host/--connect-port 改道。按声明检查会同时『禁止 entry 要求的形态』和『放过实际拨号到生产的运行』两错并发。已改为检查实际连接目标。",
@@ -28,9 +47,10 @@
   "production_privileges_changed": false,
   "production_written": false
  },
+ "rerun_after_hardening": ".b-batch-phase1-verify-20261127/rerun-after-hardening.json",
  "subtasks": {
   "1_unit_tests": {
-   "breakdown": "entry 43 + loader 21 + runner 23 = 87",
+   "breakdown": "entry 43 + loader 21 + runner 30（含本轮新增 7 条隔离端点反例）",
    "discrepancy_note": "任务书称『既有 77 项 + 新增 23 项』= 100 项，但 23 项是 runner 测试的完整数量（7af6208 引入），已包含并替代原先的 13 项，故实际总数是 87 而非 100。runner 测试演进：13(58e93e3) → 19(91746fe) → 23(7af6208)。",
    "environment": "xiangrugu-dev / pytest 9.1.1 / pydantic 2.13.5 / PG 18.6",
    "found_and_fixed": [
@@ -52,7 +72,7 @@
    ],
    "log": ".b-batch-phase1-verify-20261127/pytest-full.log",
    "not_100_because": "23 项是替代而非追加；entry 43 与 loader 21 未变",
-   "result": "87 passed, 0 failed, exit 0",
+   "result": "94 passed, 0 failed, exit 0",
    "status": "PASS"
   },
   "2_production_readonly_check": {
@@ -100,6 +120,7 @@
     "sha256": "5ca84bdc9bb4d28f4be0922e86d6f60d9ad5e3f487b7fc63c117bc2de1f968ff"
    },
    "standin": "xrg-v-iso，--network none，无端口发布，源只读挂载，库名 xiangrugu_iso",
+   "standin_container_id": "fe1b6aedf123018c5af78498db7a81536f60c2828f16ed3c1bb95b2b30505cdb",
    "status": "PASS",
    "value_comparison": {
     "cleanup_complete": true,
@@ -184,5 +205,5 @@
  },
  "timer_started_utc": "2026-11-27T14:34:57Z",
  "verdict": "PARTIAL",
- "verify_commit": "de3517f2a0d575a4b0d1c30be138a25961b9ae4b"
+ "verify_commit": "e882f59ba3a0564c2815f87b14058d893e0a3580"
 }

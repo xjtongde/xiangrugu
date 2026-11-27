@@ -1,0 +1,31 @@
+{
+ "format": "xiangrugu.b-batch.phase1-verify.rerun.v1",
+ "reason": "隔离端点门禁加固后重跑，确认正常路径未被误伤",
+ "commit": "e882f59ba3a0564c2815f87b14058d893e0a3580",
+ "unit_tests": "94 passed / 0 failed / exit 0 (entry 43 + loader 21 + runner 30)",
+ "standin": {"name": "xrg-v-iso2", "network": "none", "published_ports": 0,
+             "source_mount": "ro", "dbname": "xiangrugu_iso",
+             "container_id": "fe1b6aedf123018c5af78498db7a81536f60c2828f16ed3c1bb95b2b30505cdb"},
+ "payload": {"rows": 3859, "bytes": 417981,
+             "sha256": "5ca84bdc9bb4d28f4be0922e86d6f60d9ad5e3f487b7fc63c117bc2de1f968ff",
+             "reproduced_identically": true},
+ "cases": {
+   "P1": {"outcome": "COMMITTED", "exit": 0, "rows": 3859},
+   "N7": {"outcome": "REFUSED", "exit": 2, "to_regclass": "TABLE_ABSENT"},
+   "P3": {"outcome": "COMMITTED", "exit": 0, "rows": 3859}
+ },
+ "value_comparison": "comparison_equal",
+ "negative_runs_live": [
+   {"connect": "pg32b:5432", "exit": 4, "error_code": "isolated_mode_targets_production_endpoint", "session_created": false},
+   {"connect": "pg32b:5433", "exit": 4, "error_code": "isolated_mode_targets_production_endpoint", "session_created": false},
+   {"connect": "pg32:5432",  "exit": 4, "error_code": "isolated_mode_targets_production_endpoint", "session_created": false},
+   {"connect": "10.1.2.3:5432","exit": 4, "error_code": "isolated_mode_host_not_a_standin", "session_created": false}
+ ],
+ "mutation_test": {"revert_to_pair_check": "pg32b:5432 用例失败 (3 passed / 1 failed)",
+                   "restore": "8 passed", "conclusion": "反例有效，非空壳"},
+ "boundary_after": {"pg32b": "3d93fc77…", "pg32": "98418cb6…", "dev": "29795c60…",
+                    "cbdb_schema": 0, "target": null, "marker": "unchanged",
+                    "xrg_loader_role": 0, "residual_containers": 0},
+ "verdict": "PARTIAL",
+ "first_gap": "phase2-production 仍无端到端实测（本轮只做正式端点只读预检）"
+}

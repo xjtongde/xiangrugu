@@ -1,10 +1,9 @@
 #!/bin/sh
-# 实际执行的隔离装载命令（无占位符）
-# 代码提交 de3517f2a0d575a4b0d1c30be138a25961b9ae4b
+# 实际执行的隔离装载命令（无占位符）｜代码提交 e882f59ba3a0564c2815f87b14058d893e0a3580
 export PYTHONPATH=/tmp/xrg-deps:/opt/code/xrg/datamgmt/src
 export XNG_LOAD_PASSWORD=loaderonly
 python3 -m xiangrugu_datamgmt.cbdb_social_addr_runner --phase phase1-isolated \
-  --code-root /opt/code/xrg --code-commit de3517f2a0d575a4b0d1c30be138a25961b9ae4b \
+  --code-root /opt/code/xrg --code-commit e882f59ba3a0564c2815f87b14058d893e0a3580 \
   --contract /data/var/in/frozen-contract.json \
   --approval-table /data/var/in/approval-table.json \
   --approval-text /data/var/in/approval-text-verbatim.txt \

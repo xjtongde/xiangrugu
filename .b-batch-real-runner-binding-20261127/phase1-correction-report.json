@@ -13,8 +13,9 @@
   }
  },
  "box": "第 6/6 块后续｜B 批正式命令放行前补正｜30 分钟",
+ "command_file": "COMMAND-FORMAL.txt（无占位符）",
  "counterexample_summary": {
-  "all_refused": false,
+  "all_refused": true,
   "covers": [
    "正式phase配隔离scope",
    "隔离phase配正式scope",
@@ -28,6 +29,10 @@
    "伪造审批表+同步改expected",
    "expected缺审批表绑定"
   ],
+  "positive_cases": {
+   "P0_formal": "PASSED 13/13",
+   "P0_isolated": "PASSED"
+  },
   "total": 9
  },
  "counterexamples": [
@@ -80,11 +85,12 @@
  "counterexamples_found_during_this_box": {
   "approval_table_self_certification": {
    "after": "加 APPROVED_TABLE_SHA256 独立锚点后 → approval_table_is_not_the_reviewed_table",
-   "before": "R10（伪造审批表 + 同步改 expected 摘要）→ outcome=PASSED，漏洞真实存在",
+   "before": "R10（伪造审批表 + 同步改 expected 摘要）→ outcome=PASSED，漏洞真实存在（exit=0）",
    "note": "本条由本盒实测发现，非复核人指出"
   }
  },
  "first_gap": "生产实例全 ID 未能在本盒现场核实（32 不可达）；正式命令缺一次端到端实测",
+ "fixed_commit": "91746fe232f128cf66319d5f7b13c222ebd167b1",
  "formal_preflight": {
   "checks": 13,
   "outcome": "PASSED"
@@ -101,6 +107,7 @@
   "production_privileges_changed": false,
   "production_written": false
  },
+ "parameter_matrix": "PARAMETER-MATRIX.md",
  "preflight_tool": {
   "checks": 13,
   "connects_to_database": false,

@@ -165,6 +165,8 @@ def main(argv=None):
     ap.add_argument("--approval-table", required=True)
     ap.add_argument("--payload", required=True)
     ap.add_argument("--code-root", required=True)
+    # The commit this run is staged for; PIN_COMMIT inside the tree must equal it.
+    ap.add_argument("--code-commit", default=None)
     ap.add_argument("--evidence-out", default=None)
     a = ap.parse_args(argv)
 
@@ -227,6 +229,19 @@ def main(argv=None):
     try:
         record("pin_commit_present",
                None if pin_commit.exists() else "PIN_COMMIT missing")
+        # Presence is not enough. A stale PIN_COMMIT would let the staged tree claim a
+        # commit it was not exported from, and every downstream digest would then be
+        # anchored to the wrong version -- which is exactly what this box corrected.
+        # The expected commit is the one the caller stages for, passed explicitly.
+        if pin_commit.exists():
+            got = pin_commit.read_text(encoding="utf-8").strip()
+            want = a.code_commit
+            if want:
+                record("pin_commit_matches_command",
+                       None if got == want else f"PIN_COMMIT={got} != --code-commit={want}")
+            else:
+                record("pin_commit_matches_command",
+                       "no --code-commit supplied; cannot compare PIN_COMMIT")
         manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
         record("manifest_covers_runner",
                None if "cbdb_social_addr_runner.py" in manifest

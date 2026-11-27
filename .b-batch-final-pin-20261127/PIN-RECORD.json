@@ -1,0 +1,41 @@
+{
+ "format": "xiangrugu.b-batch.final-pin.v1",
+ "baseline_commit": "68927d7307f2cda5eb0714fd756cb99afc4e708f",
+ "pinned_commit": "a5d12b13ad87b74fea5e8e7b2fb8a2c901bbad9e",
+ "why_this_commit": "该提交已有隔离端到端实证（P1 COMMITTED 3859 行 / N7 回滚后表不存在 / P3 COMMITTED），且含 §4-2 隔离端点门禁与 N1 替身白名单两处加固",
+ "unified_artifacts": {
+   "COMMAND-FORMAL.txt": "3 处钉扎（git archive / git rev-parse > PIN_COMMIT / --code-commit）全部由 424ab209 改为 a5d12b1，旧值残留 0",
+   "PIN_COMMIT": "从 a5d12b1 导出后写为 a5d12b13ad87b74fea5e8e7b2fb8a2c901bbad9e",
+   "PIN_MODULES.json": "16 项，逐件 sha256 由导出树计算，并与 git cat-file <a5d12b1>:<path> 的 blob 摘要逐件比对，16/16 一致"
+ },
+ "end_to_end_evidence_pin": "a5d12b13ad87b74fea5e8e7b2fb8a2c901bbad9e（P1/N7/P3 三份 evidence 的 code_pin）",
+ "unit_tests": "99 passed / 0 failed / exit 0（运行时模块自 a5d12b1 起未变，沿用已有证据）",
+ "formal_preflight": {
+   "run_dir": ".b-batch-final-pin-20261127/xrg-batch（从 a5d12b1 全新导出）",
+   "checks": 16,
+   "outcome": "PASSED",
+   "exit": 0,
+   "connects_database": false,
+   "evidence": "preflight-formal-a5d12b1.json"
+ },
+ "new_check_added": {
+   "id": "pin_commit_matches_command",
+   "why": "变异测试发现：把 PIN_COMMIT 改回旧提交 424ab209，预检仍 PASSED——原 pin_commit_present 只验文件存在，不验内容。一条钉错提交的导出树可通过全部下游摘要校验，正是本盒要消除的形态。",
+   "impl": "新增 preflight 参数 --code-commit；PIN_COMMIT 内容必须与之相等，否则 FAILED exit 2"
+ },
+ "mutation_tests": [
+   {"case": "基线", "exit": 0, "outcome": "PASSED", "checks": 16},
+   {"case": "PIN_COMMIT 改成旧提交 424ab209", "exit": 2, "outcome": "FAILED",
+    "failure": "PIN_COMMIT=424ab209… != --code-commit=a5d12b1…"},
+   {"case": "PIN_MODULES 少一项 canonical.py", "exit": 2, "outcome": "FAILED",
+    "failure": "missing=['canonical.py']"},
+   {"case": "还原", "exit": 0, "outcome": "PASSED"}
+ ],
+ "not_done": {"production_schema_created": false, "production_role_created": false,
+              "deploy_updated": false, "database_written": false, "production_connected": false},
+ "boundary": {"pg32b": "3d93fc7741f66f1f01aa250b25c4959addfe4c84df22ecbd0d0f82c13920c1fc",
+              "cbdb_schema_count": 0, "xrg_loader_role": 0, "target_table": null},
+ "verdict": "PARTIAL",
+ "first_gap": "phase2-production 无端到端实测；前置依赖（xrg_loader 角色、cbdb schema）生产尚不存在，授权创建属茶香决定",
+ "phase2_state": "仍等 Codex 明确放行"
+}

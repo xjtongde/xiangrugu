@@ -15,8 +15,8 @@
  "field_semantics": {
   "_note": "两个 commit 字段语义不同，勿误读为互相矛盾",
   "delivery_anchor": "7a054a3a78883532759e04230b369357c3ea03bf —— 本盒开始时的交付锚点",
-  "fixed_code": "424ab2097891834642993049897008514db8018c —— 任务书钉定的『固定提交』，供放行后的正式命令模板使用；本轮复验未改它",
-  "relation": "verify_commit 是 fixed_code 的后代，含 N1/§4-2 两处加固；正式命令模板仍钉 fixed_code 或等价后代需在放行时确认",
+  "fixed_code": "424ab209… 为任务书原钉定值；已于 20261127 收口轮统一替换为 a5d12b13ad87b74fea5e8e7b2fb8a2c901bbad9e（正式命令、PIN_COMMIT、模块清单三件同步）",
+  "relation": "现三件与端到端 evidence 同为 a5d12b1，已无待决点",
   "verify_commit": "a5d12b13ad87b74fea5e8e7b2fb8a2c901bbad9e —— 本轮复验实际运行、且三份端到端 evidence 的 code_pin 所钉的提交"
  },
  "first_gap": "正式命令（phase2-production）仍未端到端实测；本轮只做了正式端点只读预检。此外本轮在交付工件事中发现 4 处缺陷（scope mode、隔离门禁对象、scope 缺绑定、隔离库名），均已修复，但说明补正盒的正式/隔离分离改动未经真跑验证——本轮是首次真跑。",

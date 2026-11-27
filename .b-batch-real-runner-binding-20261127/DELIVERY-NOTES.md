@@ -37,6 +37,13 @@
 该四元组应作为 phase2 交付件的**对照基准**保留：此后若任一值变化即可报警。
 "为让 phase2 通过而改动该常量"的风险因此有了基线锚点。**改动仍需新的授权引用。**
 
+✅ **已统一（`20261127` 收口）**：正式命令、`PIN_COMMIT`、`PIN_MODULES.json` 三件现统一钉
+**`a5d12b13ad87b74fea5e8e7b2fb8a2c901bbad9e`** —— 即已有隔离端到端实证（P1 COMMITTED
+3859 行 / N7 回滚后表不存在 / P3 COMMITTED）且含 §4-2 与 N1 两处加固的那个提交。
+清单 16 项逐件与 `git cat-file a5d12b1:<path>` 的 blob 摘要比对，16/16 一致；
+新导出目录的无连接预检 **16 项 PASSED / exit 0**。记录见
+`.b-batch-final-pin-20261127/PIN-RECORD.json`。
+
 ⚠️ 字段语义：`report.json` 里有两个 commit 字段，**不是矛盾**——
 `fixed_code = 424ab209…` 是任务书钉定的固定提交（供放行后的正式命令模板用，本轮未改）；
 `verify_commit = a5d12b1…` 是本轮复验实际运行、且三份 evidence 所钉的提交（是前者后代，

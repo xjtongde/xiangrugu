@@ -1,0 +1,85 @@
+# 一次性装载候选镜像：构建与实测证据
+
+基线 `f36f07d`｜固定运行时 `a5d12b13ad87b74fea5e8e7b2fb8a2c901bbad9e`
+镜像 `xrg-load-candidate:20261128`（a02 交付 Dockerfile，lead 于 32 实测构建）
+
+## 一、镜像摘要
+```
+RepoDigests/ID:  xrg-load-candidate:20261128
+manifest list:   sha256:2af4d79666d168c2526fed2427dc7e5751872693a43a66272496264f989c8c58
+config:          sha256:f9a65aad601c869492532ebd75a9fc1ab1a480ccaf083418d76046721d7818a0
+base:            python:3.11.16-slim-bookworm@sha256:4b4c524dc3dce996864e030c7bd9c6b0e517597189fee48f48e05b499442444b
+```
+基础镜像按**项目 Dockerfile 同一 PIN**（内容寻址）取，非可变 tag。
+
+## 二、构建上下文来源（关键）
+上下文**不是** `/workspace`（deploy 树），而是 `git archive a5d12b1`：
+```
+git archive a5d12b1 datamgmt/{requirements.lock,pyproject.toml,config/contract.schema.json,src}
+```
+理由（实测）：`xiangrugu-dev:/workspace/datamgmt/src/xiangrugu_datamgmt` 有 46 个 .py，
+**缺 B 批三件** `cbdb_social_addr_{entry,loader,runner}.py`，且 `contracts.py` 摘要不同。
+用 `/workspace` 构建会得到一个"缺装载器"的镜像。
+`a5d12b1` 导出树有 49 个 .py，含 B 批三件。
+
+## 三、四项实测（原始输出）
+```
+1) psql 可执行
+   $ docker run --rm xrg-load-candidate:20261128 psql --version
+   psql (PostgreSQL) 18.7 (Debian 18.7-1.pgdg12+5)
+
+2) 项目包可导入
+   $ docker run --rm xrg-load-candidate:20261128 python3 -c "import xiangrugu_datamgmt; ..."
+   /usr/local/lib/python3.11/site-packages/xiangrugu_datamgmt/__init__.py
+   runner_ok
+
+3) 固定 runner 摘要一致
+   镜像内 49 模块 vs a5d12b1 导出树：差异 0（49/49 全等）
+   16 模块清单 PIN_MODULES.json 逐项：16 MATCH / 0 mismatch
+
+4) 批准端点可达（TCP + 真实 SQL 全链路）
+   $ docker run --rm --network host --add-host pg32b:127.0.0.1 ... python3 -c "socket.create_connection(('pg32b',5433))"
+   TCP_5433_OPEN ('127.0.0.1', 5433)
+
+   $ docker run --rm --network host --add-host pg32b:127.0.0.1 -e PGPASSWORD=... \
+       xrg-load-candidate:20261128 psql -h pg32b -p 5433 -U postgres -d xiangrugu -tAc \
+       "select current_setting('port')||'|'||instance_id from public.xrg_instance_marker"
+   5432|3d93fc7741f66f1f01aa250b25c4959addfe4c84df22ecbd0d0f82c13920c1fc
+```
+
+## 四、网络构造必须是 `--network host --add-host pg32b:127.0.0.1`
+三种构造实测（a04 发现，lead 独立复现）：
+```
+(a) --network pg32b_pg32b_default          5432 OPEN / 5433 ConnectionRefused
+(b) --network host                         pg32b 名字解析失败 (gaierror) / 127.0.0.1:5433 OPEN
+(c) --network host --add-host pg32b:127.0.0.1   pg32b->127.0.0.1 / pg32b:5433 OPEN  ← 采用
+```
+`5433` 只在宿主命名空间成立（`docker port pg32b` = `5432/tcp -> 0.0.0.0:5433`）。
+
+### `--add-host` 为什么不构成对 Gate A 的规避
+`cbdb_social_addr_entry.py` L157-180 的三项校验读的都是**服务端事实**，
+不是客户端 DNS 解析结果：
+```python
+port = session.query_csv("SHOW port")        # 服务端自报 -> 实测 5432
+if port != str(IN_SESSION_PORT): refuse      # IN_SESSION_PORT=5432  通过
+if ep["port"] == IN_SESSION_PORT: refuse     # 声明 5433 != 5432      通过
+marker = ...instance_id...                   # 3d93fc77...c1fc
+if marker != scope["instance_fingerprint"]: refuse   通过
+```
+上面实测第 4 项已同时验证：会话自报 **port=5432**、marker = **容器完整 ID**。
+即 add-host 只改名字解析，**批准三元组的约束力完整保留**，装不进错误实例。
+
+### 认证行为
+`pg_hba`：`127.0.0.1` trust，其余 `scram-sha-256`。经 docker-proxy 转发后源地址
+被改写为 bridge 网段，故**匹配 scram 分支、必须带密码**——这与生产装载必须带
+secret 的设计一致，不是缺陷。无密码时停在 `fe_sendauth: no password supplied`，
+说明服务端应答正常（不是连不上）。
+
+## 五、本盒未做的（第二阶段、需 Codex 放行）
+- 隔离替身上的装载 / 回读 / 回滚实跑（时间盒内未完成）
+- 生产角色 `xrg_loader`（当前 0 行）、`cbdb` schema（当前 0）、secret（两侧 `/run/secrets` 均不存在）
+- deploy 接收、正式单表装载
+
+## 六、边界
+未创建生产角色/schema/secret、未更新 deploy、未写生产库、未连 `pg32`、
+未改动现役容器/镜像/服务。探针容器全部 `--rm`。

@@ -85,3 +85,17 @@ docker run --rm --name xrg-load \
 | `pg32b` 容器 | ✅ `psql (PostgreSQL) 18.6 (Debian 18.6-1.pgdg12+2)` | ❌ 无项目包/无导出树 |
 | 宿主 32 | ❌ not found | ❌ 无 pydantic |
 **结论：当前没有任何现成上下文能同时满足 psql + a5d12b1 固定运行时 + 已批准端点。**
+
+## 与 PHASE2-BLOCKERS.md（`937f641`）的关系：互补，且修正其一处表述
+复核人的表把「任一容器网络内」的固定运行时一栏记为 **是**，理由写
+`xiangrugu-dev` 有 python + 导出树挂载能力；P2 行又注明"需装 psql（`xiangrugu:dev` 镜像无）"。
+两处合起来读容易得出"dev 容器已具备运行时、只缺网络和 psql 之外的东西"。
+
+实测更准确的表述：**`xiangrugu-dev` 运行容器内 `command -v psql` → not found，
+镜像层 `/usr/bin/psql`、`/usr/local/bin/psql` 均不存在**。所以 dev 容器不是"仅缺网络"，
+而是**同时缺 psql**——B1 与 B2 是两个独立缺口，补网络不能替代补 psql。
+这不影响复核人结论方向（P2 确实需要装 psql），但把 P2 的成本从"接个网络"抬到了
+"构建一个同时含 postgres 客户端与项目 Python 运行时的新镜像"。
+
+现成镜像无一同时具备：`sha256:89f1a09…`（dev）有 python 3.11.16 + pydantic 2.13.5 无 psql；
+`pg32b` 有 psql 18.6 无项目包；宿主两者皆无。**这是 C1 的真实前置成本，应计入放行决策。**

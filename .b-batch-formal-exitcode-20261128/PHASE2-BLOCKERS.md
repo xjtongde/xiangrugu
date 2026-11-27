@@ -4,8 +4,44 @@
 本盒只做只读核验，**未创建任何生产对象、未改任何容器/网络、未写库**。
 
 ## 结论
-**BLOCKED**。不是"证据不足"，是两处物理/事实层面不通，且**都需要茶香裁决**，
-执行方无法靠换写法绕过。
+**BLOCKED**。不是"证据不足"，是三处物理/事实层面不通（BLOCKED-0 最根本，
+是它让 1 与 2 变成死结），且**都需要茶香裁决**，执行方无法靠换写法绕过。
+
+---
+
+## 阻塞 0（最根本）：`xiangrugu-dev` 内没有 psql
+
+### 实测
+```
+docker exec xiangrugu-dev command -v psql     -> NOT_FOUND
+docker exec xiangrugu-dev command -v pg_dump  -> NOT_FOUND
+docker exec xiangrugu-dev ls /usr/lib/.../libpq*  -> 无
+pg32b 内 psql                                 -> /usr/bin/psql (18.6)
+```
+而 `cbdb_social_addr_runner.py` L511 是**硬依赖**：
+```python
+session = L.PsqlSession(["psql", "-X", "-q", "-tA", "--csv",
+                         "-v", "ON_ERROR_STOP=1", "-h", connect_host, ...])
+```
+全仓无 psycopg/sqlalchemy 等纯 Python 驱动备选，**没有 psql 就连不上任何端点，与网络无关**。
+
+### 为什么此前的多轮核验没发现
+**预检不需要 psql**。步骤 0/1 全绿（17 项 PASSED）掩盖了写路径的工具依赖——
+只验只读路径会漏掉写路径依赖。这是本项目反复出现的形态：**已验证的那部分
+不覆盖尚未验证的那部分，而"全绿"会让人以为覆盖了。**
+
+### 后果
+它使「补网络」不能单独解决问题：
+| 上下文 | psql | 固定运行时 | 已批准端点 |
+|---|---|---|---|
+| `xiangrugu-dev` | ❌ | ✅ | ❌（network=none） |
+| `xiangrugu:dev` 镜像新容器 | ❌ | ✅ | 仅 5432 可达 |
+| `pg32b` 容器内 | ✅ | ❌ | ✅ |
+| 宿主 32 | ❌ | ❌ | ✅ |
+
+**没有任何现成上下文同时满足三项。** 因此最小成本的可行路径是
+**构建一个同时含 PostgreSQL 客户端与项目 Python 运行时的镜像**——这已从
+"接个网络"抬升为"新建镜像"，成本应计入放行决策。
 
 ---
 
@@ -23,7 +59,11 @@ docker port pg32b            -> 5432/tcp -> 0.0.0.0:5433     ← 宿主侧发布
 | 执行位置 | `pg32b:5433` 可达 | 具备固定运行时 |
 |---|---|---|
 | 宿主 32 | 是 | **否**（无 psql、无 `xiangrugu_datamgmt`、无 a5d12b1 导出树） |
-| 任一容器网络内 | **否**（只有 5432） | 是（`xiangrugu-dev` 有 python + 导出树挂载能力） |
+| 任一容器网络内 | **否**（只有 5432） | **部分**：有 python + 导出树，但**无 psql**（见阻塞 0） |
+
+⚠ **本表易误读**：不能据此认为"dev 只缺网络"。**阻塞 0 与阻塞 1 相互独立，
+补网络不能替代补 psql**——`xiangrugu-dev` 既无网络也无 psql，两者都要解决。
+详见阻塞 0 的成本说明。
 
 而 `xiangrugu-dev` 当前 `networks=none`，容器内实测：
 - `pg32b` → DNS 失败 `[Errno -3]`

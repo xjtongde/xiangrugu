@@ -1,0 +1,188 @@
+{
+ "boundary_after": {
+  "cbdb_schema_count": 0,
+  "dev": "29795c60…",
+  "isolation_destroyed": true,
+  "marker": "未变",
+  "pg32": "98418cb6…",
+  "pg32b": "3d93fc77…（未变）",
+  "residue_containers": 0,
+  "target_to_regclass": null
+ },
+ "box": "第 6/6 块后续｜B 批第一阶段复验",
+ "delivery_anchor": "7a054a3a78883532759e04230b369357c3ea03bf",
+ "first_gap": "正式命令（phase2-production）仍未端到端实测；本轮只做了正式端点只读预检。此外本轮在交付工件事中发现 4 处缺陷（scope mode、隔离门禁对象、scope 缺绑定、隔离库名），均已修复，但说明补正盒的正式/隔离分离改动未经真跑验证——本轮是首次真跑。",
+ "fixed_code": "424ab2097891834642993049897008514db8018c",
+ "format": "xiangrugu.b-batch.phase1-verify.v1",
+ "issues_found_in_delivery_artifacts": {
+  "isolated_db_name": "隔离库原用 xiangrugu，被 production_database_visible 拒——这是正确的：隔离实例不得看到生产库名。改为 xiangrugu_iso。",
+  "isolated_gate_wrong_target": "我新加的隔离门禁检查的是 scope 声明端点，而 entry 要求声明端点恒为 pg32b:5433、隔离靠 --connect-host/--connect-port 改道。按声明检查会同时『禁止 entry 要求的形态』和『放过实际拨号到生产的运行』两错并发。已改为检查实际连接目标。",
+  "scope_missing_bindings": "模板只复制了 approval_class 等少数字段，缺 bound_object_rule_ids、target 等必需绑定，被 write_approval_not_bound_to_single_target 拒。已从原 scope 补全。",
+  "scope_mode_wrong": "补正盒引入的正式/隔离 scope 把 mode 写成 production-write / isolated-test，但 entry Gate A 硬性要求 mode='execution-candidate'——分离后的 scope 根本无法被 entry 接受。已改回 execution-candidate，改用 scope_class 区分。"
+ },
+ "next": "Codex 放行后：用正式命令做端到端（需预建 xrg_loader 与 cbdb schema）",
+ "not_done": {
+  "deploy_updated": false,
+  "m2_committed": false,
+  "production_connected": false,
+  "production_privileges_changed": false,
+  "production_written": false
+ },
+ "subtasks": {
+  "1_unit_tests": {
+   "breakdown": "entry 43 + loader 21 + runner 23 = 87",
+   "discrepancy_note": "任务书称『既有 77 项 + 新增 23 项』= 100 项，但 23 项是 runner 测试的完整数量（7af6208 引入），已包含并替代原先的 13 项，故实际总数是 87 而非 100。runner 测试演进：13(58e93e3) → 19(91746fe) → 23(7af6208)。",
+   "environment": "xiangrugu-dev / pytest 9.1.1 / pydantic 2.13.5 / PG 18.6",
+   "found_and_fixed": [
+    {
+     "commit": "97c583b",
+     "effect": "6 项用例 setup 阶段 ValueError",
+     "issue": "R_PROD_ID() 在 runner 中搜索 _PRODUCTION_CONTAINER_ID 定义，但该常量在 entry.py"
+    },
+    {
+     "commit": "9aaa6a9",
+     "effect": "6 项 ModuleNotFoundError",
+     "issue": "pinned_export fixture 用桩模块 '# entry\\n'，新 runner 会 import entry 并算闭包"
+    },
+    {
+     "commit": "de3517f",
+     "effect": "FileNotFoundError / 断言失败",
+     "issue": "5 项 formal 端点用例缺 payload 文件；审批表用例断言方向写反"
+    }
+   ],
+   "log": ".b-batch-phase1-verify-20261127/pytest-full.log",
+   "not_100_because": "23 项是替代而非追加；entry 43 与 loader 21 未变",
+   "result": "87 passed, 0 failed, exit 0",
+   "status": "PASS"
+  },
+  "2_production_readonly_check": {
+   "all_match": "三项全部与固定值一致，未触发停报",
+   "in_session_port": 5432,
+   "marker_matches_container": true,
+   "marker_value": "3d93fc7741f66f1f01aa250b25c4959addfe4c84df22ecbd0d0f82c13920c1fc",
+   "matches_fixed": true,
+   "note": "只读查询；未改常量或标记",
+   "pg32b_full_id": "3d93fc7741f66f1f01aa250b25c4959addfe4c84df22ecbd0d0f82c13920c1fc",
+   "port_mapping": "5432/tcp -> 0.0.0.0:5433",
+   "status": "PASS"
+  },
+  "3_isolation_end_to_end": {
+   "case_N7": {
+    "error": "row_count_mismatch",
+    "exit_code": 2,
+    "independent_check": "to_regclass = TABLE_ABSENT",
+    "outcome": "REFUSED",
+    "probe": {
+     "residue_rows": 0,
+     "target_table_present": false
+    }
+   },
+   "case_P1": {
+    "exit_code": 0,
+    "outcome": "COMMITTED",
+    "row_count": 3859
+   },
+   "case_P3": {
+    "exit_code": 0,
+    "outcome": "COMMITTED",
+    "row_count": 3859
+   },
+   "command": ".b-batch-phase1-verify-20261127/actual-isolation-command.sh",
+   "formal_preflight": {
+    "checks": 15,
+    "exit_code": 0,
+    "note": "正式端点仅做只读预检，未连接",
+    "outcome": "PASSED"
+   },
+   "payload": {
+    "bytes": 417981,
+    "rows": 3859,
+    "sha256": "5ca84bdc9bb4d28f4be0922e86d6f60d9ad5e3f487b7fc63c117bc2de1f968ff"
+   },
+   "standin": "xrg-v-iso，--network none，无端口发布，源只读挂载，库名 xiangrugu_iso",
+   "status": "PASS",
+   "value_comparison": {
+    "cleanup_complete": true,
+    "column_key": null,
+    "details_truncated": false,
+    "difference_patterns": 0,
+    "differences": [],
+    "error_code": null,
+    "error_side": null,
+    "excess_rows": 0,
+    "format_version": "sqlite-unordered-values-v1",
+    "limits": {
+     "chunk_bytes": 33554432,
+     "chunk_rows": 4096,
+     "max_columns": 512,
+     "max_differences": 100,
+     "max_field_bytes": 1048576,
+     "max_row_bytes": 8388608,
+     "max_rows": 100000,
+     "max_seconds": 120,
+     "max_stream_bytes": 268435456,
+     "max_temp_bytes": 2147483648,
+     "max_temp_files": 1024,
+     "merge_fan_in": 16,
+     "workers": 1
+    },
+    "method": "source sqlite /mnt/wd61workmetadata/usedata/harvard/cbdb/cbdb_20260919.sqlite3 SOCIAL_INSTITUTION_ADDR vs target PostgreSQL xiangrugu_iso.cbdb.cbdb__social_u5f_institution_u5f_addr read back via independent psql COPY",
+    "missing_rows": 0,
+    "partial": false,
+    "residual_directory": null,
+    "resource_stats": {
+     "elapsed_seconds": 26.964196732999994,
+     "peak_chunk_bytes": 45896,
+     "peak_chunk_rows": 279,
+     "peak_temp_bytes": 1890276,
+     "peak_temp_files": 18
+    },
+    "result": "comparison_equal",
+    "scan_index": null,
+    "schema_hash": "1f88cd8039ae3dbdc411864c52d5bbb1aa5dc20c59ff61dabf8b709f7382d1f9",
+    "source_count": 3859,
+    "source_evidence": {
+     "kind": "source",
+     "reference": "3cf1a3286982ab392f3f0bed1a0dcc723f3a04205be610a6ec992ae66047c6cf",
+     "sha256": "2cb8c354b0e75e6ae230e3b00540146e823eaa8de8def2abce89ad6179a07579"
+    },
+    "source_fields": 42449,
+    "source_object_id": "3cf1a3286982ab392f3f0bed1a0dcc723f3a04205be610a6ec992ae66047c6cf",
+    "source_progress": {
+     "accepted_rows": 3859,
+     "comparison_complete": true,
+     "field_count": 42449,
+     "frame_bytes": 630092,
+     "input_complete": true,
+     "sort_complete": true
+    },
+    "source_sha256": "2cb8c354b0e75e6ae230e3b00540146e823eaa8de8def2abce89ad6179a07579",
+    "source_stream_bytes": 630173,
+    "target_count": 3859,
+    "target_evidence": {
+     "kind": "target",
+     "reference": "cbdb.cbdb__social_u5f_institution_u5f_addr",
+     "sha256": "2cb8c354b0e75e6ae230e3b00540146e823eaa8de8def2abce89ad6179a07579"
+    },
+    "target_fields": 42449,
+    "target_progress": {
+     "accepted_rows": 3859,
+     "comparison_complete": true,
+     "field_count": 42449,
+     "frame_bytes": 630092,
+     "input_complete": true,
+     "sort_complete": true
+    },
+    "target_read": {
+     "used_copy_payload": false,
+     "via": "psql COPY ... TO STDOUT (independent session)"
+    },
+    "target_sha256": "2cb8c354b0e75e6ae230e3b00540146e823eaa8de8def2abce89ad6179a07579",
+    "target_stream_bytes": 630173
+   }
+  }
+ },
+ "timer_started_utc": "2026-11-27T14:34:57Z",
+ "verdict": "PARTIAL",
+ "verify_commit": "de3517f2a0d575a4b0d1c30be138a25961b9ae4b"
+}

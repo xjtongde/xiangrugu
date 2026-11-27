@@ -17,7 +17,7 @@
  "instance_fingerprint": "3d93fc7741f66f1f01aa250b25c4959addfe4c84df22ecbd0d0f82c13920c1fc",
  "inventory_sha256": "fb5e6b334b898d62dc0e5c77094fdb50e0946300e6e3009f447b2ecd1bc216db",
  "load_role": "xrg_loader",
- "mode": "production-write",
+ "mode": "execution-candidate",
  "real_authority_ref": "chaxiang-approval-b-batch-single-table-real-load-20261127",
  "real_write_authorization": {
   "approval_class": "real",
@@ -40,7 +40,8 @@
   "contract_review_ref": "chaxiang-approval-social-institution-addr-bstep2-correction-20261126",
   "status": "COMPLETE"
  },
- "scope_purpose": "formal（正式）——仅用于 phase2-production，端点固定生产三元组",
+ "scope_class": "formal",
+ "scope_purpose": "formal（正式）——仅用于 phase2-production，端点固定生产三元组 ｜scope_class=formal",
  "target": {
   "schema_name": "cbdb",
   "table": "cbdb__social_u5f_institution_u5f_addr"

@@ -5,9 +5,10 @@ consistent before anyone is allowed near production. Every check here is arithme
 hashing; nothing connects, nothing writes.
 
 Checks
-  1. phase and scope agree: phase2-production <-> mode="production-write",
-     phase1-isolated <-> mode="isolated-test". A formal phase carrying an isolated
-     scope (or the reverse) is refused.
+  1. phase and scope agree: phase2-production <-> scope_class="formal",
+     phase1-isolated <-> scope_class="isolated". A formal phase carrying an isolated
+     scope (or the reverse) is refused. ``mode`` stays "execution-candidate" for both,
+     because the entry gates require it; the class is what separates the two.
   2. the formal endpoint is exactly the approved triple, with the in-session port
      and the verified production instance id.
   3. the isolated scope never names the production instance or the production triple.
@@ -109,10 +110,13 @@ def _import_closure(root):
 
 
 def check_phase_scope(phase, scope):
-    want = "production-write" if phase == "phase2-production" else "isolated-test"
-    got = scope.get("mode")
+    want = "formal" if phase == "phase2-production" else "isolated"
+    if scope.get("mode") != "execution-candidate":
+        return (f"scope_mode_not_execution_candidate: {scope.get('mode')!r} "
+                "(the entry gates require execution-candidate)")
+    got = scope.get("scope_class")
     if got != want:
-        return f"phase_scope_disagree: phase={phase} mode={got} (expected {want})"
+        return f"phase_scope_disagree: phase={phase} scope_class={got} (expected {want})"
     return None
 
 

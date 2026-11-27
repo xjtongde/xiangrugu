@@ -437,21 +437,28 @@ def run(args):
         connect_host, connect_port = ep["host"], int(ep["port"])
         load_role = E.LOAD_ROLE
     else:
-        # Isolated mode: never the production instance, never the production triple.
+        # Isolated mode must never reach the production instance.
+        #
+        # The DECLARED endpoint stays pg32b:5433 because the entry gates require
+        # exactly that (Gate A); an isolated run is redirected by --connect-host /
+        # --connect-port to the stand-in. So the thing to police is the endpoint we
+        # are about to CONNECT to, not the one the scope declares -- checking the
+        # declaration would either forbid the isolation the entry demands or pass a
+        # run that actually dials production.
         marker = (ep.get("container_id") or "")
         if marker == E._PRODUCTION_CONTAINER_ID:
             evidence["outcome"] = "PREFLIGHT_FAILED"
             evidence["refusal"] = {"error_code": "isolated_mode_targets_production_instance"}
             return EXIT_PREFLIGHT, evidence
-        if (ep.get("host") == E.PRODUCTION_TARGET["host"]
-                and ep.get("port") == E.PRODUCTION_TARGET["port"]
-                and ep.get("dbname") == E.PRODUCTION_TARGET["dbname"]):
-            evidence["outcome"] = "PREFLIGHT_FAILED"
-            evidence["refusal"] = {"error_code": "isolated_mode_targets_production_endpoint"}
-            return EXIT_PREFLIGHT, evidence
         load_role = args.load_role or E.LOAD_ROLE
         connect_host = args.connect_host or ep["host"]
         connect_port = int(args.connect_port or ep["port"])
+        if (connect_host == E.PRODUCTION_TARGET["host"]
+                and connect_port == E.PRODUCTION_TARGET["port"]):
+            evidence["outcome"] = "PREFLIGHT_FAILED"
+            evidence["refusal"] = {"error_code": "isolated_mode_targets_production_endpoint",
+                                   "detail": f"{connect_host}:{connect_port}"}
+            return EXIT_PREFLIGHT, evidence
 
     password = os.environ.get("XNG_LOAD_PASSWORD")
     if not password:

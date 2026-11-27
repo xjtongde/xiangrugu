@@ -1,0 +1,79 @@
+{
+ "cleanup_complete": true,
+ "column_key": null,
+ "details_truncated": false,
+ "difference_patterns": 0,
+ "differences": [],
+ "error_code": null,
+ "error_side": null,
+ "excess_rows": 0,
+ "format_version": "sqlite-unordered-values-v1",
+ "limits": {
+  "chunk_bytes": 33554432,
+  "chunk_rows": 4096,
+  "max_columns": 512,
+  "max_differences": 100,
+  "max_field_bytes": 1048576,
+  "max_row_bytes": 8388608,
+  "max_rows": 100000,
+  "max_seconds": 120,
+  "max_stream_bytes": 268435456,
+  "max_temp_bytes": 2147483648,
+  "max_temp_files": 1024,
+  "merge_fan_in": 16,
+  "workers": 1
+ },
+ "method": "source sqlite /mnt/wd61workmetadata/usedata/harvard/cbdb/cbdb_20260919.sqlite3 SOCIAL_INSTITUTION_ADDR vs target PostgreSQL xiangrugu_iso.cbdb.cbdb__social_u5f_institution_u5f_addr read back via independent psql COPY",
+ "missing_rows": 0,
+ "partial": false,
+ "residual_directory": null,
+ "resource_stats": {
+  "elapsed_seconds": 26.964196732999994,
+  "peak_chunk_bytes": 45896,
+  "peak_chunk_rows": 279,
+  "peak_temp_bytes": 1890276,
+  "peak_temp_files": 18
+ },
+ "result": "comparison_equal",
+ "scan_index": null,
+ "schema_hash": "1f88cd8039ae3dbdc411864c52d5bbb1aa5dc20c59ff61dabf8b709f7382d1f9",
+ "source_count": 3859,
+ "source_evidence": {
+  "kind": "source",
+  "reference": "3cf1a3286982ab392f3f0bed1a0dcc723f3a04205be610a6ec992ae66047c6cf",
+  "sha256": "2cb8c354b0e75e6ae230e3b00540146e823eaa8de8def2abce89ad6179a07579"
+ },
+ "source_fields": 42449,
+ "source_object_id": "3cf1a3286982ab392f3f0bed1a0dcc723f3a04205be610a6ec992ae66047c6cf",
+ "source_progress": {
+  "accepted_rows": 3859,
+  "comparison_complete": true,
+  "field_count": 42449,
+  "frame_bytes": 630092,
+  "input_complete": true,
+  "sort_complete": true
+ },
+ "source_sha256": "2cb8c354b0e75e6ae230e3b00540146e823eaa8de8def2abce89ad6179a07579",
+ "source_stream_bytes": 630173,
+ "target_count": 3859,
+ "target_evidence": {
+  "kind": "target",
+  "reference": "cbdb.cbdb__social_u5f_institution_u5f_addr",
+  "sha256": "2cb8c354b0e75e6ae230e3b00540146e823eaa8de8def2abce89ad6179a07579"
+ },
+ "target_fields": 42449,
+ "target_progress": {
+  "accepted_rows": 3859,
+  "comparison_complete": true,
+  "field_count": 42449,
+  "frame_bytes": 630092,
+  "input_complete": true,
+  "sort_complete": true
+ },
+ "target_read": {
+  "used_copy_payload": false,
+  "via": "psql COPY ... TO STDOUT (independent session)"
+ },
+ "target_sha256": "2cb8c354b0e75e6ae230e3b00540146e823eaa8de8def2abce89ad6179a07579",
+ "target_stream_bytes": 630173
+}

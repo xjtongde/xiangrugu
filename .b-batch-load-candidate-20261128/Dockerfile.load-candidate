@@ -1,8 +1,9 @@
 # syntax=docker/dockerfile:1.7
 # 一次性 b 批装载候选镜像。
 # 基础镜像按项目 Dockerfile 的同一 PIN（内容寻址，不用可变 tag）：
-#   上一盒实测 `python:3.11.16-slim-bookworm` 这个 tag 解析到 a36c24f9…，
-#   而项目 PIN 的是 4b4c524d…；两者不同。必须按 digest 取，否则"固定运行时"是假的。
+#   项目 PIN 的是 4b4c524d…。按 digest 取，不依赖可变 tag，否则"固定运行时"是假的。
+#   （注：早先"裸 tag 会解析到 a36c24f9…"的说法已不成立——a04 实测本机该 tag
+#     现指向 4b4c524d… = PIN。该论据不可复现，故删除，保留按 digest 的做法本身。）
 ARG PYTHON_BASE=python:3.11.16-slim-bookworm@sha256:4b4c524dc3dce996864e030c7bd9c6b0e517597189fee48f48e05b499442444b
 FROM ${PYTHON_BASE}
 
@@ -13,7 +14,7 @@ RUN groupadd --gid 10001 xiangrugu \
       --home-dir /home/xiangrugu --shell /usr/sbin/nologin xiangrugu
 
 # psql 客户端。目标实例是 PGDG 18.6，故用 PGDG 源的 client-18，
-# 而非 bookworm 自带的 postgresql-client 15——降版本客户端与 --csv/-tA 组合
+# 而非 bookworm 自带的 postgresql-client 15（差 3 个 major：15/16/17/18）——降版本客户端与 --csv/-tA 组合
 # 在 18 服务端上的行为差异不该由一次装载来承担。
 RUN apt-get update -qq \
  && apt-get install -y -qq --no-install-recommends ca-certificates curl gnupg \

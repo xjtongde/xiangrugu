@@ -8,9 +8,20 @@
 RepoDigests/ID:  xrg-load-candidate:20261128
 manifest list:   sha256:2af4d79666d168c2526fed2427dc7e5751872693a43a66272496264f989c8c58
 config:          sha256:f9a65aad601c869492532ebd75a9fc1ab1a480ccaf083418d76046721d7818a0
+                 （构建日志记录，仅供对照；docker inspect 无 ConfigDigest 字段，不可独立复算）
+                 可独立复算的是镜像内 49 模块逐一摘要（见 §三.3）
 base:            python:3.11.16-slim-bookworm@sha256:4b4c524dc3dce996864e030c7bd9c6b0e517597189fee48f48e05b499442444b
 ```
 基础镜像按**项目 Dockerfile 同一 PIN**（内容寻址）取，非可变 tag。
+
+## 一之一、仓库内有两个候选镜像（关系说明）
+```
+xrg-load-candidate:20261128        2af4d796…  01:16  (lead 构建，本文件主体)
+xiangrugu:load-cand-a02-20261128   02bad6dc…  01:13  (a02 中断前已构建成功，此前未声明)
+```
+实测两者**模块摘要相同**（`31fd2cad…`）、psql 版本相同（18.7），即内容等价。
+a02 的镜像在其会话中断前已构建完成，只是记录里未写明；本文件以 lead 构建的
+`2af4d796…` 为交付对象，两者可互证。
 
 ## 二、构建上下文来源（关键）
 上下文**不是** `/workspace`（deploy 树），而是 `git archive a5d12b1`：
@@ -37,7 +48,7 @@ git archive a5d12b1 datamgmt/{requirements.lock,pyproject.toml,config/contract.s
    镜像内 49 模块 vs a5d12b1 导出树：差异 0（49/49 全等）
    16 模块清单 PIN_MODULES.json 逐项：16 MATCH / 0 mismatch
 
-4) 批准端点可达（TCP + 真实 SQL 全链路）
+4) 批准端点可达（TCP + 一次只读 SQL）
    $ docker run --rm --network host --add-host pg32b:127.0.0.1 ... python3 -c "socket.create_connection(('pg32b',5433))"
    TCP_5433_OPEN ('127.0.0.1', 5433)
 
@@ -68,6 +79,26 @@ if marker != scope["instance_fingerprint"]: refuse   通过
 ```
 上面实测第 4 项已同时验证：会话自报 **port=5432**、marker = **容器完整 ID**。
 即 add-host 只改名字解析，**批准三元组的约束力完整保留**，装不进错误实例。
+
+**a04 反向实验佐证**：把 `--add-host pg32b:` 指向 pg32 容器 IP `172.18.0.2` 再连 `:5433`
+→ `ConnectionRefusedError`。说明 5433 在宿主上唯一属于 pg32b，名字改指向也换不了端点。
+
+### 该结论的前提须作为放行前必检项（a04 建议，采纳）
+本构造成立的前提是「宿主 5433 上只有 pg32b」。放行前必须实测这两条：
+```sh
+ss -ltnp | grep ':5433'   # 只允许一条，且指向 pg32b 的 docker-proxy
+docker port pg32b         # 必须 5432/tcp -> 0.0.0.0:5433
+```
+
+### ⚠ 证据边界：这一项证明的是"网络与协议通"，不是"最小权限角色能跑"
+本次 SQL 用的凭据是**生产超级用户** `-e PGPASSWORD=<pg32b 容器 env 中的 POSTGRES_PASSWORD>`。
+它只覆盖"容器能到达端点并建连"。
+**未覆盖**验收条件要的那条链路：`xrg_loader` 最小权限 + 隔离实例 + 装载/回读/回滚。
+（`xrg_loader` 当前 0 行、`cbdb` schema 0，该链路当前不可能被验证。）
+
+**方法上的自我限定**：`COMMAND-FORMAL.txt` L172-175 明写口令不出现在命令行上。
+本次是只读核验、口令本就存在于容器 env，不构成新泄漏；但**不得作为可复用模板**，
+正式装载必须走 secret 文件 + 环境变量，不得 `-e PGPASSWORD=...` 直传。
 
 ### 认证行为
 `pg_hba`：`127.0.0.1` trust，其余 `scram-sha-256`。经 docker-proxy 转发后源地址

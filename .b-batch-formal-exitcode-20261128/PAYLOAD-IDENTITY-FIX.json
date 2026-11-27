@@ -3,13 +3,26 @@
  "blocking_defect": "载荷断言从来就不存在：preflight.py 原 L273-279 只做 stat().st_size，checks.append({\"check\":\"payload_bytes\",\"ok\":True,...}) 的 ok 写死 True；注释声称 presence and digest，digest 根本没实现。",
  "reproduced_before_fix": {
   "note": "同一份交付 preflight、同一 code-root/commit，只换 --payload",
-  "real_417981": {"outcome": "PASSED", "exit": 0},
-  "truncated_417980": {"outcome": "PASSED", "exit": 0},
-  "one_byte": {"outcome": "PASSED", "exit": 0}
+  "real_417981": {
+   "outcome": "PASSED",
+   "exit": 0
+  },
+  "truncated_417980": {
+   "outcome": "PASSED",
+   "exit": 0
+  },
+  "one_byte": {
+   "outcome": "PASSED",
+   "exit": 0
+  }
  },
  "fix": {
   "anchor": "APPROVED_PAYLOAD = {bytes: 417981, lines: 3859, sha256: 5ca84bdc…}（比照 APPROVED_AUTH_SHA256 范式，硬编码在执行体内）",
-  "assertions": ["bytes", "lines", "sha256"],
+  "assertions": [
+   "bytes",
+   "lines",
+   "sha256"
+  ],
   "comparison_basis": "与 APPROVED_PAYLOAD 常量比，不与调用方传入值比（避免自证）",
   "new_check_name": "payload_identity",
   "failure_code": "payload_mismatch 语义由 record(...) 汇入 failure -> outcome FAILED -> exit 2"
@@ -21,9 +34,21 @@
   "empty_file": "计 0 行"
  },
  "verification_after_fix": {
-  "real_417981": {"outcome": "PASSED", "checks": 17, "exit": 0},
-  "truncated_417980": {"outcome": "FAILED", "exit": 2, "detail": "bytes=417980 want 417981;sha256=43406773… want 5ca84bdc…"},
-  "one_byte": {"outcome": "FAILED", "exit": 2, "detail": "bytes=1 want 417981;lines=1 want 3859;sha256=2d711642… want 5ca84bdc…"}
+  "real_417981": {
+   "outcome": "PASSED",
+   "checks": 17,
+   "exit": 0
+  },
+  "truncated_417980": {
+   "outcome": "FAILED",
+   "exit": 2,
+   "detail": "bytes=417980 want 417981;sha256=43406773… want 5ca84bdc…"
+  },
+  "one_byte": {
+   "outcome": "FAILED",
+   "exit": 2,
+   "detail": "bytes=1 want 417981;lines=1 want 3859;sha256=2d711642… want 5ca84bdc…"
+  }
  },
  "mutation_test": {
   "single_disable_bytes": "截断件仍 FAILED（sha256 兜住）→ 说明 bytes 单独不是唯一防线",
@@ -31,8 +56,18 @@
   "conclusion": "反例非空壳"
  },
  "controls_still_runnable": {
-  "positive_correct_pin": {"preflight_exit": 0, "load_entry_called": "YES", "load_exit": 77, "script_rc": 77},
-  "negative_wrong_pin": {"preflight_exit": 2, "aborted_with": "ABORT_BEFORE_LOAD", "load_entry_called": "NO", "script_rc": 2},
+  "positive_correct_pin": {
+   "preflight_exit": 0,
+   "load_entry_called": "YES",
+   "load_exit": 77,
+   "script_rc": 77
+  },
+  "negative_wrong_pin": {
+   "preflight_exit": 2,
+   "aborted_with": "ABORT_BEFORE_LOAD",
+   "load_entry_called": "NO",
+   "script_rc": 2
+  },
   "marker_read_location": "容器内 docker exec test -f；宿主机同一路径实测 HOST_SEES=NO（正对照场景下也是 NO），若在宿主判读则负对照永远正确=假阴性"
  },
  "payload_destruction_and_recovery": {
@@ -41,7 +76,37 @@
   "recovery": "按 trial_driver.build_copy_payload() 的同一算法从权威源只读重生成：源 sqlite 绝对路径/无符号链接组件/常规文件/无 -wal|-shm|-journal/size=586485760/sha256=bde1bb8e… 六项前置校验，读前后身份比对，输出 rows=3859 bytes=417981 sha256=5ca84bdc9bb4… 与原批准摘要逐字节一致",
   "why_no_pydantic_import": "宿主 32 无 pydantic，故未 import xiangrugu_datamgmt，而是就地复刻其 _checked_stat 安全规则；这使重生成的校验强度低于包内路径，已在方法上注明",
   "source_untouched": "以 mode=ro URI 打开源库，读后再次核对 size/inode/mtime 与 sha256 均未变；未写源件",
-  "lesson": "构造反例必须用**新文件名**，绝不对被审对象做 `>` 重定向。这条应写进复核纪律。"
+  "lesson": "构造反例必须用**新文件名**，绝不对被审对象做 `>` 重定向。这条应写进复核纪律。",
+  "why_no_pydantic_import_CORRECTED": "原陈述不成立，见 PAYLOAD-REGEN-CORRECTION.md。容器内 pydantic 2.13.5 存在且包可导入；包内路径已实际执行并在两条代码树上各跑一次，输出同为 rows=3859 bytes=417981 sha256=5ca84bdc…。首次失败的真正原因是我脚本里SNAP 指向一个我凭空假设、容器内并不存在的路径，被 _checked_stat 的 except OSError -> unsafe_path 合并成了一个看似安全策略的错误码；另有 summary 缩进 bug。",
+  "in_package_regen_verified": {
+   "dev_container_deploy_tree": {
+    "package": "/workspace/datamgmt/src/xiangrugu_datamgmt/__init__.py",
+    "rows": 3859,
+    "bytes": 417981,
+    "sha256": "5ca84bdc9bb4d28f4be0922e86d6f60d9ad5e3f487b7fc63c117bc2de1f968ff"
+   },
+   "dev_container_export_tree_a5d12b1": {
+    "package": "/data/var/b-batch/code3/xrg-batch/datamgmt/src/xiangrugu_datamgmt/__init__.py",
+    "rows": 3859,
+    "bytes": 417981,
+    "sha256": "5ca84bdc9bb4d28f4be0922e86d6f60d9ad5e3f487b7fc63c117bc2de1f968ff"
+   },
+   "source_exposure": "硬链接引导清单副本至 /data/var/b-batch-src/（inode 1337005 相同，未复制数据）",
+   "all_three_artifacts_identical_via_cmp": true,
+   "preflight_on_in_package_payload": {
+    "outcome": "PASSED",
+    "checks": 17,
+    "exit": 0
+   }
+  },
+  "source_identity_recomputable": {
+   "path": "/mnt/wd61workmetadata/usedata/harvard/cbdb/cbdb_20260919.sqlite3",
+   "size": 586485760,
+   "mtime": 1790061161,
+   "inode": 78251187,
+   "sha256": "bde1bb8eece3820d9e236c1d6b0f07d847d339669d4a85d79cd7252d58d83400",
+   "how_to_recompute": "32 上 stat -c 'size=%s mtime=%Y inode=%i' <path>; sha256sum <path>"
+  }
  },
  "nonblocking_items_fixed": [
   "步骤 0 三条 docker exec 补齐 </dev/null 与 -w，并改用 cat 单独取值比对、清单额外验 ! -L 常规文件",

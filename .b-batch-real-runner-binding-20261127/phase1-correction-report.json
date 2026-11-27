@@ -1,7 +1,7 @@
 {
  "auth_anchor_phase_scope": {
-  "documented": true,
-  "note": "授权原文锚点仅在 phase2-production 生效，审批表锚点无条件生效。这是有意为之：隔离演练需用替身文本，而隔离永不指向生产三元组（R3/R12 已封）。"
+  "documented_in_code": true,
+  "note": "授权原文锚点仅 phase2-production 生效、审批表锚点无条件生效，二者差异有意为之，已在 runner 源码注释写明：隔离演练使用替身文本且不可能到达生产（端点门禁已拒指向生产实例/三元组）；审批表描述可写范围，永不可替换，故无条件。"
  },
  "baseline": "4a2cc7fa6e25ff4d79051622e1cb5c718094b671",
  "blockers": {
@@ -17,6 +17,23 @@
   }
  },
  "box": "第 6/6 块后续｜B 批正式命令放行前补正｜30 分钟",
+ "closure_whitebox_verification": {
+  "method": "复制包内全部模块到临时树，新增 brand_new_dep.py，在 contracts.py 尾部注入 `from . import brand_new_dep`，执行真实的 _module_import_closure()",
+  "note": "证明门禁在新增依赖时会报警，而非仅在当前快照上恰好为零",
+  "result": {
+   "after_injection": 17,
+   "baseline_closure": 16,
+   "gaps_detected": [
+    "brand_new_dep.py"
+   ],
+   "gate_fires": true
+  },
+  "status": "已由两边独立注入式验证（非黑盒快照）",
+  "verified_by": [
+   "a02（主机 38，stdlib 复现，非容器内 pytest）",
+   "DSH 本地独立复现，结果一致"
+  ]
+ },
  "command_file": "COMMAND-FORMAL.txt（无占位符）",
  "counterexample_summary": {
   "all_refused": true,
@@ -267,6 +284,19 @@
   },
   "path": "preflight.py",
   "read_only": true
+ },
+ "reviewer_concurrence": {
+  "on_1B_and_2_and_M1": "不再有保留意见",
+  "remaining": "32 恢复后跑 pytest，之后转 PASS",
+  "reviewer": "a02",
+  "reviewer_verification": [
+   "R10_runner 排他性证明：文件哈希==声明哈希 ⇒ 自证陷阱不可能触发，唯一能产生该错误码的是锚点分支",
+   "R_auth_runner 更深：命令行声明、scope 绑定值、文件本身三层一致地谎报，仍被拒",
+   "session 键缺失作为代理指标成立（evidence[session] 在端点绑定后写，缺键等价于从未构造 PsqlSession）",
+   "M1 两条等式逐元素核对为 True（含顺序）",
+   "注入式验证闭包门禁 16→17 检出 brand_new_dep.py"
+  ],
+  "rounds": 12
  },
  "subtasks": {
   "1_scope_separation": {

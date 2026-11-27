@@ -286,6 +286,11 @@ def run(args):
         # Same reasoning as the approval table: the reviewed text is anchored in the
         # program, so re-hashing a DIFFERENT text and passing its hash as the expected
         # value cannot succeed.
+        # Deliberately limited to the formal phase: an isolated rehearsal uses stand-in
+        # text, and it cannot reach production anyway -- the endpoint gates refuse a
+        # stand-in that names the production instance or the production triple. The
+        # approval TABLE anchor below is unconditional, because the table describes
+        # what may be written and must never be substitutable.
         if args.phase == "phase2-production" and approval_text_sha256 != APPROVED_AUTH_SHA256:
             raise PreflightError("authorization_text_is_not_the_reviewed_text",
                                  approval_text_sha256)

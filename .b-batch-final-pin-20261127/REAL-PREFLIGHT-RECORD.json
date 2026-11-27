@@ -1,0 +1,44 @@
+{
+ "format": "xiangrugu.b-batch.real-preflight.v1",
+ "gitea_baseline": "69778c3c6066200c646702ec76593914cfa60a9f",
+ "fixed_runtime_commit": "a5d12b13ad87b74fea5e8e7b2fb8a2c901bbad9e",
+ "gap_1_manifest_install": {
+   "before": "COMMAND-FORMAL.txt 仅在注释中提及 PIN_MODULES.json，无安装步骤",
+   "after": "步骤 0 写明：从固定提交导出到干净目录 → 生成 PIN_COMMIT → 安装 .b-batch-final-pin-20261127/manifest/PIN_MODULES.json 到 --code-root → 三项核对 → PYTHONPATH 指向导出树并以 -m 启动 runner",
+   "execution_locations": "git archive 在交付方 clone（32 与容器内均无可用仓库）；解包与预检在 xiangrugu-dev 容器；目标目录须为可写挂载 /data/var"
+ },
+ "gap_2_real_payload": {
+   "before": "上一盒预检使用 2 字节 probe.bin",
+   "after": {"bytes": 417981, "lines": 3859,
+             "sha256": "5ca84bdc9bb4d28f4be0922e86d6f60d9ad5e3f487b7fc63c117bc2de1f968ff",
+             "matches_acceptance": true,
+             "generated_from": "固定运行时提交 a5d12b1 导出树的 mkpayload，源件只读挂载"},
+   "evidence": "preflight-formal-real.json 的 payload_bytes 检查 detail = 417981"
+ },
+ "preflight": {
+   "executed_on": "32 / xiangrugu-dev",
+   "code_root": "/data/var/b-batch/code/xrg-batch（从 a5d12b1 全新导出）",
+   "outcome": "PASSED", "checks": 16, "exit": 0,
+   "connects_to_database": false,
+   "raw_output": "rejections/R0-accepted.out",
+   "evidence": "preflight-formal-real.json"
+ },
+ "rejection_evidence": [
+   {"case": "R1 清单缺失", "exit": 2, "outcome": "FAILED",
+    "failure": "unreadable: [Errno 2] No such file or directory: '.../PIN_MODULES.json'", "checks": 12},
+   {"case": "R2 PIN_COMMIT 改错（写 424ab209）", "exit": 2, "outcome": "FAILED",
+    "failure": "PIN_COMMIT=424ab209… != --code-commit=a5d12b1…", "checks": 16},
+   {"case": "R3 还原后复验", "exit": 0, "outcome": "PASSED", "checks": 16}
+ ],
+ "runtime_unchanged": "datamgmt/ 自 a5d12b1 起未变；沿用 99 项单测与 P1/N7/P3 隔离实证，未重跑",
+ "reviewer": {"planned": "a03", "status": "启动失败（未产出任何结论）",
+              "substitute": "a02（本盒实现人，故其复核为自测，单列披露）",
+              "disclosure": "a03 未能提供独立复核；本记录中的实现与自测均由 a02 完成，独立复核缺口未补"},
+ "not_done": {"production_schema_created": false, "production_role_created": false,
+              "deploy_updated": false, "database_written": false,
+              "production_connected": false, "go_fifo_restored": false},
+ "verdict": "PARTIAL",
+ "first_gap": "独立复核缺失：a03 启动失败，替代者 a02 为本盒实现人，其结论属自测不构成独立复核",
+ "second_gap": "phase2-production 仍无端到端实测；正式接收须等 Codex 放行后由茶香转发",
+ "phase2_state": "仍等 Codex 明确放行"
+}

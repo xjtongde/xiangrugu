@@ -5,14 +5,47 @@
 # 已有隔离端到端实证：P1 COMMITTED 3859 行 / N7 回滚后表不存在 / P3 COMMITTED
 # ═══════════════════════════════════════════════════════════════════════
 
-# ── 步骤 0：从 Gitea 固定提交导出代码并核准文件清单（含 runner 本身）──
-git archive --format=tar --prefix=xrg-batch/ a5d12b13ad87b74fea5e8e7b2fb8a2c901bbad9e | tar xf - -C /opt/xrg-batch
-git rev-parse a5d12b13ad87b74fea5e8e7b2fb8a2c901bbad9e > /opt/xrg-batch/xrg-batch/PIN_COMMIT
-# PIN_MODULES.json 必须覆盖全部 16 个模块——这是从钉扎集出发静态解析的传递 import
-# 闭包（含 runner 自身与 first_batch_loader 等行为相关依赖），逐模块 sha256。
-# 由 preflight.py 的 manifest_covers_runner / manifest_covers_all_pinned /
-# manifest_covers_import_closure 三项校验；runner 亦在运行时自行计算闭包，
-# 出现未钉扎模块即拒绝 code_pin_closure_gaps。
+# ── 步骤 0：从固定运行时提交导出到干净目录、生成 PIN_COMMIT、安装模块清单 ──
+# ⚠ 运行位置（重要）：
+#   * git archive / rev-parse 需在**有该提交的 git clone** 上执行——主机 32 与
+#     xiangrugu-dev 容器内均无可用仓库（容器内无 git，32 上 deploy 非 git 仓库）。
+#     因此步骤 0 的前段在交付方的 clone 上执行，产出 tar 包。
+#   * 解包与后续步骤在 xiangrugu-dev 容器内执行；目标目录必须位于容器可写挂载点
+#     /data/var（容器根文件系统只读，/workspace 只读）。
+#   * 清单 .b-batch-final-pin-20261127/manifest/PIN_MODULES.json 随交付件一同送入。
+PIN=a5d12b13ad87b74fea5e8e7b2fb8a2c901bbad9e
+
+# (0a) 在交付方 clone 上：从固定提交导出为 tar 包
+git archive --format=tar --prefix=xrg-batch/ "$PIN" | gzip > /tmp/xrg-batch-$PIN.tgz
+git rev-parse "$PIN" > /tmp/xrg-batch-PIN.txt
+
+# (0b) 送入容器并解包到干净目录
+docker exec -i xiangrugu-dev sh -c \
+  "rm -rf /data/var/b-batch/code && mkdir -p /data/var/b-batch/code \
+   && tar xzf - -C /data/var/b-batch/code" < /tmp/xrg-batch-$PIN.tgz
+docker exec -i xiangrugu-dev sh -c \
+  "cat > /data/var/b-batch/code/xrg-batch/PIN_COMMIT" < /tmp/xrg-batch-PIN.txt
+
+# 安装模块清单到 --code-root。清单不入 git 树，是独立交付件；
+# 必须装上，否则 runner 的 code_pin 校验与预检的 manifest_covers_* 失败。
+docker cp .b-batch-final-pin-20261127/manifest/PIN_MODULES.json \
+  xiangrugu-dev:/data/var/b-batch/code/xrg-batch/PIN_MODULES.json
+
+# 核对安装结果（三项都必须成立）
+docker exec xiangrugu-dev sh -c \
+  'test "$(cat /data/var/b-batch/code/xrg-batch/PIN_COMMIT)" = \
+       "a5d12b13ad87b74fea5e8e7b2fb8a2c901bbad9e"'
+docker exec xiangrugu-dev sh -c 'test -f /data/var/b-batch/code/xrg-batch/PIN_MODULES.json'
+docker exec xiangrugu-dev python3 -c \
+  "import json;m=json.load(open('/data/var/b-batch/code/xrg-batch/PIN_MODULES.json'));\
+   assert len(m)==16,len(m);print('PIN_MODULES entries =',len(m))"
+
+# 从固定导出树启动 runner：-m 用的 xiangrugu_datamgmt 必须解析到该导出树，
+# 不能落到已安装的 site-packages 版本。
+docker exec -e PYTHONPATH=/data/var/b-batch/code/xrg-batch/datamgmt/src \
+  xiangrugu-dev python3 -c "import xiangrugu_datamgmt as m;print(m.__file__)" \
+  | grep -q "^/data/var/b-batch/code/xrg-batch/datamgmt/src/" \
+  || { echo "RUNTIME_NOT_FROM_EXPORT_TREE"; exit 1; }
 
 # ── 步骤 1：只读预检（不连数据库）──
 python3 .b-batch-real-runner-binding-20261127/preflight.py \
@@ -22,16 +55,16 @@ python3 .b-batch-real-runner-binding-20261127/preflight.py \
   --approval-text    .b-batch-real-load-20261127/approval-text-verbatim.txt \
   --approval-table   datamgmt/contracts/releases/2026-10-06-bootstrap/b-approval-table-v2.json \
   --payload     /data/var/b-batch/payload.bin \
-  --code-root   /opt/xrg-batch/xrg-batch \
+  --code-root   /data/var/b-batch/code/xrg-batch \
   --code-commit a5d12b13ad87b74fea5e8e7b2fb8a2c901bbad9e \
-  --evidence-out /opt/xrg-batch/preflight-formal.json
+  --evidence-out /data/var/b-batch/preflight-formal.json
 # 退出码 0 才继续；2 = 预检失败；4 = 输入缺失
 
 # ── 步骤 2：正式装载（单事务，恰一张表）──
 export XNG_LOAD_PASSWORD="$(cat /run/secrets/xrg_loader_password)"
 python3 -m xiangrugu_datamgmt.cbdb_social_addr_runner \
   --phase phase2-production \
-  --code-root /opt/xrg-batch/xrg-batch \
+  --code-root /data/var/b-batch/code/xrg-batch \
   --code-commit a5d12b13ad87b74fea5e8e7b2fb8a2c901bbad9e \
   --contract  datamgmt/contracts/releases/2026-10-06-bootstrap/b-single-table-frozen-candidate.json \
   --approval-table datamgmt/contracts/releases/2026-10-06-bootstrap/b-approval-table-v2.json \
@@ -41,7 +74,7 @@ python3 -m xiangrugu_datamgmt.cbdb_social_addr_runner \
   --expected   .b-batch-real-runner-binding-20261127/formal-expected.json \
   --payload    /data/var/b-batch/payload.bin \
   --scratch    /data/var/b-batch \
-  --evidence-out /opt/xrg-batch/evidence-formal.json
+  --evidence-out /data/var/b-batch/evidence-formal.json
 
 # ⚠ phase2-production 拒绝 --connect-host / --connect-port / --load-role：
 #   端点固定取 formal-scope.json 的已批准三元组 pg32b:5433/xiangrugu，

@@ -1,0 +1,81 @@
+{
+ "checks": [
+  {
+   "check": "phase_scope_agree",
+   "ok": true
+  },
+  {
+   "check": "formal_endpoint_is_approved_triple",
+   "ok": true
+  },
+  {
+   "check": "authorization_text_digest",
+   "ok": true
+  },
+  {
+   "check": "authorization_text_length",
+   "ok": true
+  },
+  {
+   "check": "approval_table_bound",
+   "ok": true
+  },
+  {
+   "check": "approval_table_is_reviewed_table",
+   "ok": true
+  },
+  {
+   "check": "approval_table_digest",
+   "ok": true
+  },
+  {
+   "check": "pin_commit_present",
+   "ok": true
+  },
+  {
+   "check": "pin_commit_matches_command",
+   "ok": true
+  },
+  {
+   "check": "manifest_covers_runner",
+   "ok": true
+  },
+  {
+   "check": "manifest_covers_all_pinned",
+   "ok": true
+  },
+  {
+   "check": "manifest_covers_import_closure",
+   "ok": true
+  },
+  {
+   "check": "import_closure_size",
+   "detail": "16",
+   "ok": true
+  },
+  {
+   "check": "pinned_module_digests",
+   "ok": true
+  },
+  {
+   "check": "payload_readable",
+   "ok": true
+  },
+  {
+   "check": "payload_identity",
+   "detail": "bytes=1 want 417981;lines=1 want 3859;sha256=2d711642b726b04401627ca9fbac32f5c8530fb1903cc4db02258717921a4881 want 5ca84bdc9bb4d28f4be0922e86d6f60d9ad5e3f487b7fc63c117bc2de1f968ff",
+   "ok": false
+  },
+  {
+   "check": "payload_bytes",
+   "detail": "1 lines=1",
+   "ok": false
+  }
+ ],
+ "connects_to_database": false,
+ "failure": "bytes=1 want 417981;lines=1 want 3859;sha256=2d711642b726b04401627ca9fbac32f5c8530fb1903cc4db02258717921a4881 want 5ca84bdc9bb4d28f4be0922e86d6f60d9ad5e3f487b7fc63c117bc2de1f968ff",
+ "format": "xiangrugu.b-batch.preflight.v1",
+ "outcome": "FAILED",
+ "phase": "phase2-production",
+ "read_only": true
+}

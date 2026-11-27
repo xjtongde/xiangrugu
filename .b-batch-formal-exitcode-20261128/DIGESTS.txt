@@ -1,0 +1,31 @@
+### RUNTIME TREE (a5d12b1) — 16 modules vs manifest
+MATCH  canonical.py 5ec2dd81e7b89a9c061a8ca02c9f45b2fd21ed324ad35af72893c836d0fbbaa4
+MATCH  cbdb_social_addr_entry.py dcbfa6add94fbf1550a3705806ab285ef981da26391c5c3fadce8fc82c535a15
+MATCH  cbdb_social_addr_loader.py 8969a7e69c13159a2e89cf680a80d955cccb7283fecc747841aada995c802420
+MATCH  cbdb_social_addr_runner.py cce65f695a67027562575b6121515bbd451478bcb9a77952c90bd928478856e8
+MATCH  config.py 3f9c60e748278a8e79d7860b14fe33322f957dcbf705fe59c45a3ba38053ef2a
+MATCH  contracts.py e6145ba70fbff4fe72e7fbda6d3a64396ac1551fb9f3c771531e4f4ebe8ce7a7
+MATCH  first_batch_loader.py 40750cf191462b22d6b214da2997c1db1e9cf3bcbe23faf3b08980aa3f0918fc
+MATCH  identity.py 33a3a18d90e0f103bb5c39bd66ddb566d795e6e8b9b380f9afd3bef7036e7202
+MATCH  model.py fa948f56a7b38984c25b5a31c41353c77dbd0a719b6964ed70aeebfa65b5799a
+MATCH  naming.py 13c0b9101516889d089a9ef435705584a7b08d9e80daeb02fdc672690e99cb6c
+MATCH  read_cache.py a548018d702b502038bacbec6ed45c80609473f3d5a2322355cbd766b328e5de
+MATCH  sqlite_diagnostic.py 51237fde7ef01b1d3664976072da33ba1a3880eb56913ea4be2918bfe726c3e8
+MATCH  sqlite_values.py 23fe4e891f1bce55e504462c6dc73e27bcbf8961b6d72a4a8dca0b5ae1305993
+MATCH  unordered_validate.py 615b75708df4564b34cdae7df03858a961899756e3d9421e13a506bc4e3241a9
+MATCH  unordered_values.py 25c7f7339b5d901460f0e0389b78fa1357778001a10574265fd72c2eba3f3ddd
+MATCH  value_sort.py 23d464c4d816084f21cde72f21e6e557ee8d1ff52e54b04770e0a8aa14bcb24a
+entries 16 mismatch 0
+### DELIVERY-SIDE ARTIFACTS (e792f1e)
+d6d93b602fb9487d9e1c74f2299e54d83e702b9c35ae61647e87a4e8ec8d355f  /data/var/b-batch/work5/.b-batch-real-runner-binding-20261127/COMMAND-FORMAL.txt
+8be2202bab84c2253b4f2c30082ef85e3cf495d4ec390a61b02d6f4856fe2fbd  /data/var/b-batch/work5/.b-batch-real-runner-binding-20261127/preflight.py
+655bd3382c3de13ab2b43337ccbd19572609efcac5b92f13761db0fca9b91d6b  /data/var/b-batch/work5/.b-batch-real-runner-binding-20261127/formal-scope.json
+43f7705fd0bff6e7c2d605dbab664d104500d94d67ced1c2cc4bc42ed6afa2b8  /data/var/b-batch/work5/.b-batch-real-runner-binding-20261127/formal-expected.json
+4d250c8e08ea8136e29e35aa436812f11b5eec59a100847f130c11f39b7e2946  /data/var/b-batch/work5/.b-batch-real-load-20261127/approval-text-verbatim.txt
+a718b0c297501642dd105eb3797f96dc1de2edf8eb521bed6609ff78de1fb4a0  /data/var/b-batch/work5/datamgmt/contracts/releases/2026-10-06-bootstrap/b-approval-table-v2.json
+5281cfcedfe1473c54ab102d7d5fe993ca8b1b2e1865efaff5f24fa5d507c904  /data/var/b-batch/work5/datamgmt/contracts/releases/2026-10-06-bootstrap/b-single-table-frozen-candidate.json
+e6a1ac6ceb9a3996ada4fade4282a424e49ff2f204b6bc52d490d64bf002e7fc  /data/var/b-batch/work5/PIN_MODULES.json
+### PAYLOAD + counterexample file
+417981
+5ca84bdc9bb4d28f4be0922e86d6f60d9ad5e3f487b7fc63c117bc2de1f968ff  /data/var/b-batch/payload.bin
+2d711642b726b04401627ca9fbac32f5c8530fb1903cc4db02258717921a4881  /data/var/b-batch/payload-box5-1byte.bin

@@ -29,6 +29,10 @@ TARGET_TABLE = "cbdb__social_u5f_institution_u5f_addr"
 EXPECTED_ROWS = 3859
 EXPECTED_SOURCE_SHA = "2cb8c354b0e75e6ae230e3b00540146e823eaa8de8def2abce89ad6179a07579"
 EXPECTED_CANDIDATE_SHA = "56b0076d2e877be9fb34796e01b8ee2b37d5a817c8e80203fa21c95e4f3f8237"
+# Same constant as production_entry.py (R52): the real pg32b legitimately hosts these
+# as *databases*. They are a schema name here, not a contamination signal.
+LEGACY_DATABASES = ("cbdb", "cbdb_reh")
+TARGET_DATABASE = "xiangrugu"
 
 
 class LoaderGateError(Exception):
@@ -143,27 +147,51 @@ def check_instance_identity(observed, expected, *, branch=None):
         branch = expected.get("execution_branch")
     dbs = str(observed.get("databases", ""))
     names = {n.strip() for n in dbs.split(",") if n.strip()}
-    # An ISOLATED instance must not even see a production database name. On the FORMAL
-    # branch the target database IS ``xiangrugu`` by definition, so that name is the
-    # destination rather than a contamination signal -- but the production INSTANCE
-    # names remain forbidden either way, and the marker still binds the container.
-    forbidden = ("pg32b", "cbdb", "cbdb_reh")
-    if not (branch == "real"):
-        forbidden = forbidden + ("xiangrugu",)
+    if branch == "real":
+        # FORMAL branch follows the first batch's R52 rule (production_entry.py L8):
+        # the real ``pg32b`` hosts legacy databases named ``cbdb``/``cbdb_reh``
+        # (AGENTS.md: retained for observation only), while this batch's target is a
+        # *schema* of the same name inside ``xiangrugu``. Treating legacy *database*
+        # names as contamination therefore refuses a legitimate formal run on a name
+        # collision -- it could never pass on the approved instance.
+        #
+        # Identity is established POSITIVELY instead of by shrinking a blacklist:
+        # current database + in-session port + independently verified instance marker,
+        # each pinned by the approved snapshot below. The legacy names are recorded
+        # for audit and never used as a pass/fail signal.
+        legacy_visible = tuple(d for d in LEGACY_DATABASES if d in names)
+        if observed.get("instance_marker_verified") != expected.get("instance_marker_verified"):
+            raise LoaderGateError("instance_marker_mismatch",
+                                  str(observed.get("instance_marker_verified")))
+        if observed.get("in_session_port") != expected.get("in_session_port"):
+            raise LoaderGateError("in_session_port_mismatch",
+                                  str(observed.get("in_session_port")))
+        if observed.get("dbname") != expected.get("dbname"):
+            raise LoaderGateError("target_database_mismatch", str(observed.get("dbname")))
+        if str(expected.get("dbname")) != TARGET_DATABASE:
+            raise LoaderGateError("target_database_mismatch", str(expected.get("dbname")))
+        # The instance itself must still be the approved one: the target database is
+        # this branch's destination, so the set is compared without it, but every
+        # remaining name -- including any unapproved extra database -- must match.
+        keys = ("container_id", "image_id", "server_version", "inet_server_addr", "databases")
+        for key in keys:
+            got, want = observed.get(key), expected.get(key)
+            if key == "databases":
+                got, want = _without_target_db(got), _without_target_db(want)
+            if got != want:
+                raise LoaderGateError("instance_identity_mismatch", key)
+        return legacy_visible
+    # ISOLATED branch: a stand-in must not even see a production database name.
+    forbidden = ("pg32b",) + tuple(LEGACY_DATABASES) + (TARGET_DATABASE,)
     for f in forbidden:
         if f in names:
             raise LoaderGateError("production_database_visible", f)
-    # The exact database SET is only fixed for an isolated run (a fixed stand-in
-    # snapshot). A formal write adds its target database, so for that branch the set
-    # is compared after removing the target name -- the forbidden-name check above
-    # already guarantees nothing production-like else is visible.
     keys = ("container_id", "image_id", "server_version", "inet_server_addr", "databases")
     for key in keys:
         got, want = observed.get(key), expected.get(key)
-        if key == "databases" and branch == "real":
-            got, want = _without_target_db(got), _without_target_db(want)
         if got != want:
             raise LoaderGateError("instance_identity_mismatch", key)
+    return ()
 
 
 def check_target_absent(session):

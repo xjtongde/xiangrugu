@@ -157,7 +157,7 @@ echo "PREFLIGHT_EXIT=$RC"
 # ⚠ 放行前必须显式确认该 secret 在**宿主机 32** 上存在且可读（本盒按边界要求未 cat、
 #   未验证其存在性；a04 同样未验证——所以这一条现在是"待确认"而非"已成立"）。
 #   取码不用管道：先单独取值再比，避免 test "$X" = $PIN 嵌套引号失效。
-docker exec xiangrugu-dev true   # 容器可用性前置检查
+docker exec xiangrugu-dev true </dev/null   # 容器可用性前置检查（同 D4 规则：不带 -i、显式 </dev/null）
 test -r /run/secrets/xrg_loader_password \
   || { echo "SECRET_NOT_PRESENT_ON_HOST_32: /run/secrets/xrg_loader_password"; exit 1; }
 export XNG_LOAD_PASSWORD="$(cat /run/secrets/xrg_loader_password)"

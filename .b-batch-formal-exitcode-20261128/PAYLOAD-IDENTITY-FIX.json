@@ -74,7 +74,6 @@
   "what_happened": "本盒建 1 字节反例时误用 `printf x > /data/var/b-batch/payload.bin`（应为新建 payload-1byte.bin），把容器内那份唯一载荷覆盖成 0 字节。该文件不在 git 树内，无版本可回退。",
   "impact_measured": "覆盖后预检对该路径报 bytes=0 —— 即当时任何后续实跑都会拿到错误输入",
   "recovery": "按 trial_driver.build_copy_payload() 的同一算法从权威源只读重生成：源 sqlite 绝对路径/无符号链接组件/常规文件/无 -wal|-shm|-journal/size=586485760/sha256=bde1bb8e… 六项前置校验，读前后身份比对，输出 rows=3859 bytes=417981 sha256=5ca84bdc9bb4… 与原批准摘要逐字节一致",
-  "why_no_pydantic_import": "宿主 32 无 pydantic，故未 import xiangrugu_datamgmt，而是就地复刻其 _checked_stat 安全规则；这使重生成的校验强度低于包内路径，已在方法上注明",
   "source_untouched": "以 mode=ro URI 打开源库，读后再次核对 size/inode/mtime 与 sha256 均未变；未写源件",
   "lesson": "构造反例必须用**新文件名**，绝不对被审对象做 `>` 重定向。这条应写进复核纪律。",
   "why_no_pydantic_import_CORRECTED": "原陈述不成立，见 PAYLOAD-REGEN-CORRECTION.md。容器内 pydantic 2.13.5 存在且包可导入；包内路径已实际执行并在两条代码树上各跑一次，输出同为 rows=3859 bytes=417981 sha256=5ca84bdc…。首次失败的真正原因是我脚本里SNAP 指向一个我凭空假设、容器内并不存在的路径，被 _checked_stat 的 except OSError -> unsafe_path 合并成了一个看似安全策略的错误码；另有 summary 缩进 bug。",
@@ -106,6 +105,18 @@
    "inode": 78251187,
    "sha256": "bde1bb8eece3820d9e236c1d6b0f07d847d339669d4a85d79cd7252d58d83400",
    "how_to_recompute": "32 上 stat -c 'size=%s mtime=%Y inode=%i' <path>; sha256sum <path>"
+  },
+  "why_the_package_path_was_not_used_initially": "我最初未走包内路径，是因为我第一次在容器内跑包内路径时脚本报 SQLiteValueReadError: unsafe_path，我把这条错误读成「包内路径不可用」，于是退回宿主机自造校验。实测证明这个判断错了：包内路径在 xiangrugu-dev 内完全可用。真实原因是我自己脚本里的两处 bug ——(a) SNAP 指向一个我凭空假设、容器内并不存在的路径 /data/imports/2026-10-07-bootstrap/...（exists=False），而 sqlite_diagnostic._checked_stat 的 except OSError -> unsafe_path 把「文件不存在」与「路径不安全」合并成同一错误码；(b) stream.summary 在 with 块外访问（缩进错一级）。隔离实验：同一调用换正确路径 rows=3859，保留错误路径则 RAISED unsafe_path。两处都与容器能力无关。",
+  "retracted_false_claim": {
+   "text": "宿主 32 无 pydantic，故未 import xiangrugu_datamgmt，而是就地复刻其 _checked_stat 安全规则；这使重生成的校验强度低于包内路径，已在方法上注明",
+   "status": "RETRACTED — 不成立，保留原文仅为可追溯",
+   "refuted_by": "复核人第三轮实测 + 本人复验",
+   "evidence": {
+    "container_pydantic": "2.13.5",
+    "container_import": "python3 -c 'import xiangrugu_datamgmt' -> /workspace/datamgmt/src/xiangrugu_datamgmt/__init__.py",
+    "host_32_pydantic": "ModuleNotFoundError（仅此半句成立）"
+   },
+   "why_it_matters": "错误理由会误导下一个审计者以为包内路径不可用，从而重复选择降级路径"
   }
  },
  "nonblocking_items_fixed": [
@@ -116,5 +127,9 @@
   "XNG_LOAD_PASSWORD 前加显式存在性检查 SECRET_NOT_PRESENT_ON_HOST_32（本盒未 cat、未验证其存在性，状态为待确认而非已成立）"
  ],
  "verdict": "PARTIAL",
- "first_gap": "正式装载段（步骤 2）仍未端到端实测；真实 runner 的 phase2-production 一次都没跑过"
+ "first_gap": "正式装载段（步骤 2）仍未端到端实测；真实 runner 的 phase2-production 一次都没跑过",
+ "correction_round3": {
+  "what_changed_in_this_record": "原先只在旁边追加 why_no_pydantic_import_CORRECTED 字段，却把被推翻的原句继续留在记录里当事实陈述——这等于让读者自己判断哪句为真。现已把原句从正文字段移除，只保留在 retracted_false_claim 下并标注 RETRACTED。",
+  "self_assessment": "第一轮更正（15b3bc3）不完整：我改了叙述，没改结论字段本身。复核人指出的是字段内容仍断言「故未 import 包」，这是事实性错误而非措辞问题。"
+ }
 }

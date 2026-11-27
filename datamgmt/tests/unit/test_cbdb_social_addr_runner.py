@@ -101,8 +101,11 @@ def test_git_absence_is_reported_not_raised(tmp_path, monkeypatch):
 def test_preflight_verifies_the_approval_table_it_was_given(tmp_path, pinned_export):
     """--approval-table must be CHECKED, not merely accepted as an argument."""
     root, commit, _pkg = pinned_export
+    # The approval TABLE is anchored unconditionally, so it must be the reviewed file;
+    # a stand-in table is refused before the endpoint gates these tests target.
     table = tmp_path / "approval-table.json"
-    table.write_text('{"tables": []}\n', encoding="utf-8")
+    table.write_bytes(_REPO_FILE(
+        "datamgmt/contracts/releases/2026-10-06-bootstrap/b-approval-table-v2.json"))
     text = tmp_path / "approval.txt"
     text.write_bytes(b"approval body\n")
     expected = tmp_path / "expected.json"
@@ -131,8 +134,11 @@ def test_preflight_verifies_the_approval_table_it_was_given(tmp_path, pinned_exp
 def test_preflight_rejects_a_relabelled_authorization_text(tmp_path, pinned_export):
     """A caller-supplied digest that does not match the bytes is refused."""
     root, commit, _pkg = pinned_export
+    # The approval TABLE is anchored unconditionally, so it must be the reviewed file;
+    # a stand-in table is refused before the endpoint gates these tests target.
     table = tmp_path / "approval-table.json"
-    table.write_text('{"tables": []}\n', encoding="utf-8")
+    table.write_bytes(_REPO_FILE(
+        "datamgmt/contracts/releases/2026-10-06-bootstrap/b-approval-table-v2.json"))
     text = tmp_path / "approval.txt"
     text.write_bytes(b"real body\n")
     expected = tmp_path / "expected.json"
@@ -158,8 +164,11 @@ def test_exit_code_constants_match_the_documented_contract():
 def test_expected_must_bind_the_approval_table(tmp_path, pinned_export):
     """Omitting the key must refuse, not silently skip the approval-table check."""
     root, commit, _pkg = pinned_export
+    # The approval TABLE is anchored unconditionally, so it must be the reviewed file;
+    # a stand-in table is refused before the endpoint gates these tests target.
     table = tmp_path / "approval-table.json"
-    table.write_text('{"tables": []}\n', encoding="utf-8")
+    table.write_bytes(_REPO_FILE(
+        "datamgmt/contracts/releases/2026-10-06-bootstrap/b-approval-table-v2.json"))
     # A formal run anchors the authorization TEXT too, so this fixture must supply the
     # reviewed bytes verbatim; anything else is refused before the endpoint checks that
     # these tests are about.
@@ -224,8 +233,11 @@ def test_probe_failure_is_visible_not_silent():
 # ---------------------------------------------------------------------------
 def _formal_args(tmp_path, pinned_export, **over):
     root, commit, _pkg = pinned_export
+    # The approval TABLE is anchored unconditionally, so it must be the reviewed file;
+    # a stand-in table is refused before the endpoint gates these tests target.
     table = tmp_path / "approval-table.json"
-    table.write_text('{"tables": []}\n', encoding="utf-8")
+    table.write_bytes(_REPO_FILE(
+        "datamgmt/contracts/releases/2026-10-06-bootstrap/b-approval-table-v2.json"))
     # A formal run anchors the authorization TEXT too, so this fixture must supply the
     # reviewed bytes verbatim; anything else is refused before the endpoint checks that
     # these tests are about.
@@ -240,7 +252,7 @@ def _formal_args(tmp_path, pinned_export, **over):
         "mode": "production-write",
         "target_endpoint": {"host": "pg32b", "port": 5433, "dbname": "xiangrugu",
                             "in_session_port": 5432, "test_only": False,
-                            "container_id": "3" * 64},
+                            "container_id": R_PROD_ID()},
     }), encoding="utf-8")
     ns = dict(phase="phase2-production", code_root=str(root), code_commit=commit,
               contract=str(contract), approval_table=str(table), approval_text=str(text),
@@ -286,6 +298,10 @@ def test_isolated_mode_never_targets_the_production_instance(tmp_path, pinned_ex
     scope = json.loads(Path(args.scope).read_text(encoding="utf-8"))
     scope["mode"] = "isolated-test"
     scope["target_endpoint"]["test_only"] = True
+    # Use a NON-production triple so this case isolates the container-id gate; the
+    # production-triple gate has its own case (R12 in the preflight evidence).
+    scope["target_endpoint"]["host"] = "xrg-standin"
+    scope["target_endpoint"]["port"] = 5432
     scope["target_endpoint"]["container_id"] = R_PROD_ID()
     Path(args.scope).write_text(json.dumps(scope), encoding="utf-8")
     code, evidence = R.run(args)

@@ -42,10 +42,16 @@ docker exec xiangrugu-dev python3 -c \
 
 # 从固定导出树启动 runner：-m 用的 xiangrugu_datamgmt 必须解析到该导出树，
 # 不能落到已安装的 site-packages 版本。
-docker exec -e PYTHONPATH=/data/var/b-batch/code/xrg-batch/datamgmt/src \
+# 同样不用管道取退出码：先落盘再判，避免把 grep/tail 的状态当成被测结论。
+docker exec -i -e PYTHONPATH=/data/var/b-batch/code/xrg-batch/datamgmt/src \
   xiangrugu-dev python3 -c "import xiangrugu_datamgmt as m;print(m.__file__)" \
-  | grep -q "^/data/var/b-batch/code/xrg-batch/datamgmt/src/" \
-  || { echo "RUNTIME_NOT_FROM_EXPORT_TREE"; exit 1; }
+  > /tmp/xrg-step0-probe.out
+RC=$?
+if [ "$RC" -ne 0 ] || ! grep -q "^/data/var/b-batch/code/xrg-batch/datamgmt/src/" /tmp/xrg-step0-probe.out; then
+  echo "RUNTIME_NOT_FROM_EXPORT_TREE rc=$RC observed=$(cat /tmp/xrg-step0-probe.out)"
+  exit 1
+fi
+echo "STEP0_PROBE_EXIT=$RC module=$(cat /tmp/xrg-step0-probe.out)"
 
 # ─────────────────────────────────────────────────────────────────────
 # 执行位置总则
@@ -61,53 +67,74 @@ export WORK=/data/var/b-batch/work
 export PAYLOAD=/data/var/b-batch/payload.bin
 
 # ═══════════════════════ 位置 B：步骤 1 只读预检 ═══════════════════════
-# 工作目录固定为 $WORK —— 下方 scope/expected/授权文本/合同均为相对此目录的路径。
-cd "$WORK" || exit 9
-
-# 无连接探针：先确认 runner 模块解析到固定导出树，而非 site-packages。
-docker exec -e PYTHONPATH="$CODE_ROOT/datamgmt/src" xiangrugu-dev \
+# ⚠ 执行边界（a04 实测纠正，本盒修复）：
+#   `$WORK`=/data/var/...、`/run/secrets/...` 全是**容器内**路径；主机 32 上
+#   既无 /data/var/b-batch 也无 /run/secrets，且宿主机 python3 无法
+#   import xiangrugu_datamgmt（ModuleNotFoundError）。上一版第 73/97 行是裸
+#   `python3`，在宿主机执行，按原文根本跑不起来。
+#   现在被测进程一律由**显式 docker exec** 在容器内启动：
+#     -w "$WORK"                      给实际运行进程设定工作目录
+#     -e PYTHONPATH="$CODE_ROOT/..."  给实际运行进程（不只是给探针）
+#   上一版只把 PYTHONPATH 给了探针，被测进程没拿到。
+#
+# ⚠ 退出码必须短路（a04 实测纠正）：上一版只有 `echo "PREFLIGHT_EXIT=$?"`，
+#   注释写着「退出码 0 才继续」但没有实现——预检失败后仍进入装载段，
+#   且脚本自身恒以 0 结束，把失败伪装成成功。
+#   注意取退出码的方式：RC=$? 紧跟被测命令之后，**不用管道**
+#   （`cmd | tail` 会把 tail 的状态当结论）。
+#
+# 工作目录由 docker exec -w 在容器内设定；下方输入改用相对 $WORK 的路径，
+# 这样"进程的实际 cwd"与"路径的解析基准"是同一件事，不再靠字面绝对路径掩盖。
+docker exec -i -w "$WORK" -e PYTHONPATH="$CODE_ROOT/datamgmt/src" xiangrugu-dev \
   python3 -c "import xiangrugu_datamgmt as m;print(m.__file__)" \
-  | grep -q "^$CODE_ROOT/datamgmt/src/" \
-  || { echo "RUNTIME_NOT_FROM_EXPORT_TREE"; exit 1; }
+  > /tmp/xrg-runtime-probe.out
+RC=$?
+if [ "$RC" -ne 0 ] || ! grep -q "^$CODE_ROOT/datamgmt/src/" /tmp/xrg-runtime-probe.out; then
+  echo "RUNTIME_NOT_FROM_EXPORT_TREE rc=$RC observed=$(cat /tmp/xrg-runtime-probe.out)"
+  exit 1
+fi
 
-python3 .b-batch-real-runner-binding-20261127/preflight.py \
+docker exec -i -w "$WORK" -e PYTHONPATH="$CODE_ROOT/datamgmt/src" xiangrugu-dev \
+  python3 .b-batch-real-runner-binding-20261127/preflight.py \
   --phase phase2-production \
-  --scope       "$WORK/.b-batch-real-runner-binding-20261127/formal-scope.json" \
-  --expected    "$WORK/.b-batch-real-runner-binding-20261127/formal-expected.json" \
-  --approval-text    "$WORK/.b-batch-real-load-20261127/approval-text-verbatim.txt" \
-  --approval-table   "$WORK/datamgmt/contracts/releases/2026-10-06-bootstrap/b-approval-table-v2.json" \
+  --scope       ".b-batch-real-runner-binding-20261127/formal-scope.json" \
+  --expected    ".b-batch-real-runner-binding-20261127/formal-expected.json" \
+  --approval-text    ".b-batch-real-load-20261127/approval-text-verbatim.txt" \
+  --approval-table   "datamgmt/contracts/releases/2026-10-06-bootstrap/b-approval-table-v2.json" \
   --payload     "$PAYLOAD" \
   --code-root   "$CODE_ROOT" \
   --code-commit "$PIN" \
   --evidence-out /data/var/b-batch/preflight-formal.json
-echo "PREFLIGHT_EXIT=$?"
-# 退出码 0 才继续；2 = 预检失败；4 = 输入缺失
+RC=$?
+echo "PREFLIGHT_EXIT=$RC"
+# 短路：非 0 立即以同一退出码结束，禁止进入装载段。2 = 检查失败 / 4 = 输入缺失。
+[ "$RC" -eq 0 ] || { echo "ABORT_BEFORE_LOAD: preflight rc=$RC"; exit "$RC"; }
 
 # ═══════════════════════ 位置 B：步骤 2 正式装载 ═══════════════════════
-# 工作目录同样固定为 $WORK；PYTHONPATH 显式指向固定导出树，
-# 保证 -m 启动的 runner 来自该导出树而不是已安装的 site-packages 版本。
-cd "$WORK" || exit 9
-export PYTHONPATH="$CODE_ROOT/datamgmt/src"
-docker exec -e PYTHONPATH="$PYTHONPATH" xiangrugu-dev \
-  python3 -c "import xiangrugu_datamgmt as m;print(m.__file__)" \
-  | grep -q "^$CODE_ROOT/datamgmt/src/" \
-  || { echo "RUNTIME_NOT_FROM_EXPORT_TREE"; exit 1; }
-
+# 同上：runner 也必须在容器内执行，PYTHONPATH 与 -w 给**实际运行进程**。
+# XNG_LOAD_PASSWORD 由宿主机读取 secret 后经 -e 传入容器环境，
+# 不出现在命令行上（避免进入 ps / shell 历史）。
 export XNG_LOAD_PASSWORD="$(cat /run/secrets/xrg_loader_password)"
-python3 -m xiangrugu_datamgmt.cbdb_social_addr_runner \
+docker exec -i -w "$WORK" \
+  -e PYTHONPATH="$CODE_ROOT/datamgmt/src" \
+  -e XNG_LOAD_PASSWORD xiangrugu-dev \
+  python3 -m xiangrugu_datamgmt.cbdb_social_addr_runner \
   --phase phase2-production \
   --code-root   "$CODE_ROOT" \
   --code-commit "$PIN" \
-  --contract    "$WORK/datamgmt/contracts/releases/2026-10-06-bootstrap/b-single-table-frozen-candidate.json" \
-  --approval-table "$WORK/datamgmt/contracts/releases/2026-10-06-bootstrap/b-approval-table-v2.json" \
-  --approval-text  "$WORK/.b-batch-real-load-20261127/approval-text-verbatim.txt" \
+  --contract    "datamgmt/contracts/releases/2026-10-06-bootstrap/b-single-table-frozen-candidate.json" \
+  --approval-table "datamgmt/contracts/releases/2026-10-06-bootstrap/b-approval-table-v2.json" \
+  --approval-text  ".b-batch-real-load-20261127/approval-text-verbatim.txt" \
   --approval-text-sha256 4d250c8e08ea8136e29e35aa436812f11b5eec59a100847f130c11f39b7e2946 \
-  --scope       "$WORK/.b-batch-real-runner-binding-20261127/formal-scope.json" \
-  --expected    "$WORK/.b-batch-real-runner-binding-20261127/formal-expected.json" \
+  --scope       ".b-batch-real-runner-binding-20261127/formal-scope.json" \
+  --expected    ".b-batch-real-runner-binding-20261127/formal-expected.json" \
   --payload     "$PAYLOAD" \
   --scratch     /data/var/b-batch \
   --evidence-out /data/var/b-batch/evidence-formal.json
-echo "LOAD_EXIT=$?"
+RC=$?
+echo "LOAD_EXIT=$RC"
+# runner 的退出码原样传给调用者：不再用 `echo` 收尾把脚本自身拉回 0。
+exit "$RC"
 
 # ⚠ phase2-production 拒绝 --connect-host / --connect-port / --load-role：
 #   端点固定取 formal-scope.json 的已批准三元组 pg32b:5433/xiangrugu，

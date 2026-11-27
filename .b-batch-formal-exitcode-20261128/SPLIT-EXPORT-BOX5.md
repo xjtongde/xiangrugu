@@ -79,7 +79,7 @@ NEGATIVE B 坏载荷身份         : FAILED rc=2 → ABORT_BEFORE_LOAD   LOAD_EN
 COMMAND-FORMAL.txt              d6d93b602fb9  = e792f1e blob ✅
 preflight.py                    8be2202bab84  = e792f1e blob ✅
 formal-scope.json               655bd3382c3d
-formal-expected.json            43f7705fd0bf
+formal-expected.json            3c31ad20e6da  ← R52 门禁修正后更新(原 43f7705f…，仅 4 字段语义变化)
 approval-text-verbatim.txt      4d250c8e08ea  = 批准授权文本 ✅
 b-approval-table-v2.json        a718b0c29750  = 批准表 ✅
 b-single-table-frozen-candidate 5281cfcedfe1  = 冻结候选 canonical 文件 ✅

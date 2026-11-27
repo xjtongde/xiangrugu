@@ -13,7 +13,14 @@
 #   * 解包与后续步骤在 xiangrugu-dev 容器内执行；目标目录必须位于容器可写挂载点
 #     /data/var（容器根文件系统只读，/workspace 只读）。
 #   * 清单 .b-batch-final-pin-20261127/manifest/PIN_MODULES.json 随交付件一同送入。
+# ── 变量必须先于任何使用定义（本盒修正）──
+# 原先步骤 0 有 8 处硬编码 /data/var/b-batch/code，而 $CODE_ROOT 到下面才 export，
+# 导致换目录必须逐处手工替换、且漏改一处不会报错只会跑在旧目录。现在全部走变量。
 PIN=a5d12b13ad87b74fea5e8e7b2fb8a2c901bbad9e
+export CODE_ROOT=/data/var/b-batch/code/xrg-batch
+export WORK=/data/var/b-batch/work
+export PAYLOAD=/data/var/b-batch/payload.bin
+BOX=/data/var/b-batch
 
 # (0a) 在交付方 clone 上：从固定提交导出为 tar 包
 git archive --format=tar --prefix=xrg-batch/ "$PIN" | gzip > /tmp/xrg-batch-$PIN.tgz
@@ -21,33 +28,53 @@ git rev-parse "$PIN" > /tmp/xrg-batch-PIN.txt
 
 # (0b) 送入容器并解包到干净目录
 docker exec -i xiangrugu-dev sh -c \
-  "rm -rf /data/var/b-batch/code && mkdir -p /data/var/b-batch/code \
-   && tar xzf - -C /data/var/b-batch/code" < /tmp/xrg-batch-$PIN.tgz
+  "rm -rf \"$BOX/code\" && mkdir -p \"$BOX/code\" \
+   && tar xzf - -C \"$BOX/code\"" < /tmp/xrg-batch-$PIN.tgz
 docker exec -i xiangrugu-dev sh -c \
-  "cat > /data/var/b-batch/code/xrg-batch/PIN_COMMIT" < /tmp/xrg-batch-PIN.txt
+  "cat > \"$CODE_ROOT/PIN_COMMIT\"" < /tmp/xrg-batch-PIN.txt
 
 # 安装模块清单到 --code-root。清单不入 git 树，是独立交付件；
 # 必须装上，否则 runner 的 code_pin 校验与预检的 manifest_covers_* 失败。
 docker cp .b-batch-final-pin-20261127/manifest/PIN_MODULES.json \
-  xiangrugu-dev:/data/var/b-batch/code/xrg-batch/PIN_MODULES.json
+  xiangrugu-dev:"$CODE_ROOT/PIN_MODULES.json"
 
-# 核对安装结果（三项都必须成立）
-docker exec xiangrugu-dev sh -c \
-  'test "$(cat /data/var/b-batch/code/xrg-batch/PIN_COMMIT)" = \
-       "a5d12b13ad87b74fea5e8e7b2fb8a2c901bbad9e"'
-docker exec xiangrugu-dev sh -c 'test -f /data/var/b-batch/code/xrg-batch/PIN_MODULES.json'
-docker exec xiangrugu-dev python3 -c \
-  "import json;m=json.load(open('/data/var/b-batch/code/xrg-batch/PIN_MODULES.json'));\
-   assert len(m)==16,len(m);print('PIN_MODULES entries =',len(m))"
+# 核对安装结果（四项都必须成立）。
+# ⚠ 三条约定（本盒按 a04 复核意见补齐）：
+#   1. 执行命令的 docker exec **不带 -i 且显式 </dev/null**——与下方步骤 1/2 同规则；
+#      -i 只在 (0b) 用 tar/cat 经 stdin 传数据时才必需。
+#   2. PIN_COMMIT 比对用 cat 单独取值再比，不用 test "$X" = $PIN 嵌套引号。
+#   3. 清单必须是**常规文件**：docker cp /dev/stdin 会写出指向 /proc/self/fd/0 的
+#      坏符号链接且返回 0，所以除 -f 还要验 ! -L。
+echo "--- 0c-1 PIN_COMMIT ---"
+docker exec -w "$BOX" xiangrugu-dev sh -c \
+  'cat "$1/PIN_COMMIT"' sh "$CODE_ROOT" </dev/null > /tmp/xrg-pin-readback.out
+RC=$?
+PIN_READBACK=$(cat /tmp/xrg-pin-readback.out)
+if [ "$RC" -ne 0 ] || [ "$PIN_READBACK" != "$PIN" ]; then
+  echo "PIN_COMMIT_MISMATCH rc=$RC readback=$PIN_READBACK want=$PIN"; exit 1
+fi
+echo "PIN_COMMIT_OK=$PIN_READBACK"
+
+echo "--- 0c-2/3 manifest regular file + 16 entries ---"
+docker exec -w "$BOX" xiangrugu-dev sh -c \
+  'test -f "$1/PIN_MODULES.json" && ! test -L "$1/PIN_MODULES.json" && echo REGULAR_FILE_OK' \
+  sh "$CODE_ROOT" </dev/null
+RC=$?
+[ "$RC" -eq 0 ] || { echo "MANIFEST_NOT_REGULAR_FILE rc=$RC"; exit 1; }
+docker exec -w "$BOX" -e PYTHONPATH="$CODE_ROOT/datamgmt/src" xiangrugu-dev python3 -c \
+  "import json,os;m=json.load(open(os.environ['CODE_ROOT']+'/PIN_MODULES.json'));\
+   assert len(m)==16,len(m);print('PIN_MODULES entries =',len(m))" </dev/null
+RC=$?
+[ "$RC" -eq 0 ] || { echo "MANIFEST_NOT_16_ENTRIES rc=$RC"; exit 1; }
 
 # 从固定导出树启动 runner：-m 用的 xiangrugu_datamgmt 必须解析到该导出树，
 # 不能落到已安装的 site-packages 版本。
 # 同样不用管道取退出码：先落盘再判，避免把 grep/tail 的状态当成被测结论。
-docker exec -w "$PWD" -e PYTHONPATH=/data/var/b-batch/code/xrg-batch/datamgmt/src \
+docker exec -w "$BOX" -e PYTHONPATH="$CODE_ROOT/datamgmt/src" \
   xiangrugu-dev python3 -c "import xiangrugu_datamgmt as m;print(m.__file__)" \
   </dev/null > /tmp/xrg-step0-probe.out
 RC=$?
-if [ "$RC" -ne 0 ] || ! grep -q "^/data/var/b-batch/code/xrg-batch/datamgmt/src/" /tmp/xrg-step0-probe.out; then
+if [ "$RC" -ne 0 ] || ! grep -q "^$CODE_ROOT/datamgmt/src/" /tmp/xrg-step0-probe.out; then
   echo "RUNTIME_NOT_FROM_EXPORT_TREE rc=$RC observed=$(cat /tmp/xrg-step0-probe.out)"
   exit 1
 fi
@@ -62,9 +89,7 @@ echo "STEP0_PROBE_EXIT=$RC module=$(cat /tmp/xrg-step0-probe.out)"
 #   步骤 1/2 一律在该工作目录下用相对路径引用。
 # ─────────────────────────────────────────────────────────────────────
 export PIN=a5d12b13ad87b74fea5e8e7b2fb8a2c901bbad9e
-export CODE_ROOT=/data/var/b-batch/code/xrg-batch
-export WORK=/data/var/b-batch/work
-export PAYLOAD=/data/var/b-batch/payload.bin
+# CODE_ROOT / WORK / PAYLOAD 已在文件顶部定义，此处不再重复（避免两处不一致）。
 
 # ═══════════════════════ 位置 B：步骤 1 只读预检 ═══════════════════════
 # ⚠ 执行边界（a04 实测纠正，本盒修复）：
@@ -116,10 +141,25 @@ echo "PREFLIGHT_EXIT=$RC"
 # 短路：非 0 立即以同一退出码结束，禁止进入装载段。2 = 检查失败 / 4 = 输入缺失。
 [ "$RC" -eq 0 ] || { echo "ABORT_BEFORE_LOAD: preflight rc=$RC"; exit "$RC"; }
 
+# ─────────────────────────────────────────────────────────────────────
+# ⚠ 替身标记（LOAD_ENTRY_CALLED）**必须在容器内判读**，不得在宿主机 test -f。
+#   a04 实测：HOST_SEES_MARKER=NO / CONTAINER_SEES_MARKER=YES ——
+#   宿主机看不到容器内的文件。若在宿主侧判读，"标记不存在"永远是真，
+#   负对照会退化成**假阴性**（无论装载入口有没有被调用都报通过）。
+#   正确形态：
+#     docker exec xiangrugu-dev sh -c 'test -f "$MARK" && echo YES || echo NO'
+# ─────────────────────────────────────────────────────────────────────
+
 # ═══════════════════════ 位置 B：步骤 2 正式装载 ═══════════════════════
 # 同上：runner 也必须在容器内执行，PYTHONPATH 与 -w 给**实际运行进程**。
 # XNG_LOAD_PASSWORD 由宿主机读取 secret 后经 -e 传入容器环境，
 # 不出现在命令行上（避免进入 ps / shell 历史）。
+# ⚠ 放行前必须显式确认该 secret 在**宿主机 32** 上存在且可读（本盒按边界要求未 cat、
+#   未验证其存在性；a04 同样未验证——所以这一条现在是"待确认"而非"已成立"）。
+#   取码不用管道：先单独取值再比，避免 test "$X" = $PIN 嵌套引号失效。
+docker exec xiangrugu-dev true   # 容器可用性前置检查
+test -r /run/secrets/xrg_loader_password \
+  || { echo "SECRET_NOT_PRESENT_ON_HOST_32: /run/secrets/xrg_loader_password"; exit 1; }
 export XNG_LOAD_PASSWORD="$(cat /run/secrets/xrg_loader_password)"
 docker exec -w "$WORK" \
   -e PYTHONPATH="$CODE_ROOT/datamgmt/src" \

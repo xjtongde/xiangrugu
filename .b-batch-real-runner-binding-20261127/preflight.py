@@ -43,6 +43,22 @@ APPROVED_AUTH_BYTES = 641
 # and updating expected in the same breath would satisfy every check (measured --
 # that exact counterexample passed before this constant was added).
 APPROVED_TABLE_SHA256 = "a718b0c297501642dd105eb3797f96dc1de2edf8eb521bed6609ff78de1fb4a0"
+# The payload is the bytes about to be COPYed into the target table, so its identity
+# must be anchored HERE and asserted in full. An earlier revision recorded only the
+# size with a hardcoded ok=True -- measured proof: a 417981-byte payload, a truncated
+# 417980-byte copy and a ONE-BYTE file all returned PASSED / exit 0 through that code.
+# All three properties are checked now: bytes, lines, sha256.
+#
+# Line-count convention: LF-only, every record terminated (the generator emits
+# "\n".join(rows) + "\n"), so byte count == sum(len(line)+1). That makes `wc -l` and
+# `grep -c ""` agree at 3859 for the approved payload; we count with the same rule the
+# generator used rather than shelling out, so the check does not depend on busybox vs
+# GNU coreutils behaviour.
+APPROVED_PAYLOAD = {
+    "bytes": 417981,
+    "lines": 3859,
+    "sha256": "5ca84bdc9bb4d28f4be0922e86d6f60d9ad5e3f487b7fc63c117bc2de1f968ff",
+}
 PRODUCTION_ID = "3d93fc7741f66f1f01aa250b25c4959addfe4c84df22ecbd0d0f82c13920c1fc"
 PRODUCTION_TRIPLE = {"host": "pg32b", "port": 5433, "dbname": "xiangrugu"}
 IN_SESSION_PORT = 5432
@@ -270,11 +286,23 @@ def main(argv=None):
     except (OSError, ValueError) as exc:
         record("manifest_readable", f"unreadable: {exc}")
 
-    # Payload presence and digest (the bytes about to be COPYed).
+    # Payload identity: size, line count AND digest, compared against the constant
+    # above -- never against a value the caller also supplies.
     try:
-        n = Path(a.payload).stat().st_size
+        pb = Path(a.payload).read_bytes()
         record("payload_readable", None)
-        checks.append({"check": "payload_bytes", "ok": True, "detail": str(n)})
+        n_lines = pb.count(b"\n") + (1 if pb and not pb.endswith(b"\n") else 0)
+        bad_payload = []
+        if len(pb) != APPROVED_PAYLOAD["bytes"]:
+            bad_payload.append(f"bytes={len(pb)} want {APPROVED_PAYLOAD['bytes']}")
+        if n_lines != APPROVED_PAYLOAD["lines"]:
+            bad_payload.append(f"lines={n_lines} want {APPROVED_PAYLOAD['lines']}")
+        got_sha = hashlib.sha256(pb).hexdigest()
+        if got_sha != APPROVED_PAYLOAD["sha256"]:
+            bad_payload.append(f"sha256={got_sha} want {APPROVED_PAYLOAD['sha256']}")
+        record("payload_identity", None if not bad_payload else ";".join(bad_payload))
+        checks.append({"check": "payload_bytes", "ok": not bad_payload,
+                       "detail": f"{len(pb)} lines={n_lines}"})
     except OSError as exc:
         record("payload_readable", f"unreadable: {exc}")
 

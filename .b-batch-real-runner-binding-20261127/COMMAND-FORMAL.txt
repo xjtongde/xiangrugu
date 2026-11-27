@@ -61,9 +61,16 @@ docker exec -w "$BOX" xiangrugu-dev sh -c \
   sh "$CODE_ROOT" </dev/null
 RC=$?
 [ "$RC" -eq 0 ] || { echo "MANIFEST_NOT_REGULAR_FILE rc=$RC"; exit 1; }
+# 清单条目数检查：路径以**位置参数**传入，不用 os.environ。
+# 选择理由（本盒修正）：上一版写 os.environ['CODE_ROOT'] 但那条 docker exec 并未传
+# -e CODE_ROOT，容器内必然 KeyError -> 按交付命令原样执行步骤 0 直接失败（实测 exit 1）。
+# 两条修法都能修，这里选参数传递，因为它与本块上方 0c-1/0c-2 的 `sh -c '…' sh "$X"`
+# 形态一致：被测值显式出现在命令行上，读命令即可知道它用了什么值，不依赖调用环境里
+# 恰好存在同名变量（那种依赖正是本缺陷的来源）。
 docker exec -w "$BOX" -e PYTHONPATH="$CODE_ROOT/datamgmt/src" xiangrugu-dev python3 -c \
-  "import json,os;m=json.load(open(os.environ['CODE_ROOT']+'/PIN_MODULES.json'));\
-   assert len(m)==16,len(m);print('PIN_MODULES entries =',len(m))" </dev/null
+  'import json,sys;m=json.load(open(sys.argv[1]+"/PIN_MODULES.json"));\
+   assert len(m)==16,len(m);print("PIN_MODULES entries =",len(m))' \
+  "$CODE_ROOT" </dev/null
 RC=$?
 [ "$RC" -eq 0 ] || { echo "MANIFEST_NOT_16_ENTRIES rc=$RC"; exit 1; }
 

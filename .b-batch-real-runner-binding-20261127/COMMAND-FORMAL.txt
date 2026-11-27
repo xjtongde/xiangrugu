@@ -4,11 +4,13 @@
 # ═══════════════════════════════════════════════════════════════════════
 
 # ── 步骤 0：从 Gitea 固定提交导出代码并核准文件清单（含 runner 本身）──
-git archive --format=tar --prefix=xrg-batch/ 91746fe232f128cf66319d5f7b13c222ebd167b1 | tar xf - -C /opt/xrg-batch
-git rev-parse 91746fe232f128cf66319d5f7b13c222ebd167b1 > /opt/xrg-batch/xrg-batch/PIN_COMMIT
-# PIN_MODULES.json 必须覆盖全部 8 个模块（含 cbdb_social_addr_runner.py），
-# 逐模块 sha256；由 preflight.py 的 manifest_covers_runner /
-# pinned_module_digests 两项校验，缺失或摘要不符即 exit=2。
+git archive --format=tar --prefix=xrg-batch/ 424ab2097891834642993049897008514db8018c | tar xf - -C /opt/xrg-batch
+git rev-parse 424ab2097891834642993049897008514db8018c > /opt/xrg-batch/xrg-batch/PIN_COMMIT
+# PIN_MODULES.json 必须覆盖全部 16 个模块——这是从钉扎集出发静态解析的传递 import
+# 闭包（含 runner 自身与 first_batch_loader 等行为相关依赖），逐模块 sha256。
+# 由 preflight.py 的 manifest_covers_runner / manifest_covers_all_pinned /
+# manifest_covers_import_closure 三项校验；runner 亦在运行时自行计算闭包，
+# 出现未钉扎模块即拒绝 code_pin_closure_gaps。
 
 # ── 步骤 1：只读预检（不连数据库）──
 python3 .b-batch-real-runner-binding-20261127/preflight.py \
@@ -27,7 +29,7 @@ export XNG_LOAD_PASSWORD="$(cat /run/secrets/xrg_loader_password)"
 python3 -m xiangrugu_datamgmt.cbdb_social_addr_runner \
   --phase phase2-production \
   --code-root /opt/xrg-batch/xrg-batch \
-  --code-commit 91746fe232f128cf66319d5f7b13c222ebd167b1 \
+  --code-commit 424ab2097891834642993049897008514db8018c \
   --contract  datamgmt/contracts/releases/2026-10-06-bootstrap/b-single-table-frozen-candidate.json \
   --approval-table datamgmt/contracts/releases/2026-10-06-bootstrap/b-approval-table-v2.json \
   --approval-text  .b-batch-real-load-20261127/approval-text-verbatim.txt \

@@ -41,6 +41,15 @@
    "ok": true
   },
   {
+   "check": "manifest_covers_import_closure",
+   "ok": true
+  },
+  {
+   "check": "import_closure_size",
+   "detail": "16",
+   "ok": true
+  },
+  {
    "check": "pinned_module_digests",
    "ok": true
   },
@@ -50,7 +59,7 @@
   },
   {
    "check": "payload_bytes",
-   "detail": "12",
+   "detail": "2",
    "ok": true
   }
  ],

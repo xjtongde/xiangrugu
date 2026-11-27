@@ -43,6 +43,16 @@
    "ok": false
   },
   {
+   "check": "manifest_covers_import_closure",
+   "detail": "unpinned=['cbdb_social_addr_runner.py']",
+   "ok": false
+  },
+  {
+   "check": "import_closure_size",
+   "detail": "16",
+   "ok": true
+  },
+  {
    "check": "pinned_module_digests",
    "detail": "cbdb_social_addr_runner.py:digest",
    "ok": false
@@ -53,7 +63,7 @@
   },
   {
    "check": "payload_bytes",
-   "detail": "12",
+   "detail": "2",
    "ok": true
   }
  ],

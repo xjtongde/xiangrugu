@@ -16,68 +16,160 @@
  "command_file": "COMMAND-FORMAL.txt（无占位符）",
  "counterexample_summary": {
   "all_refused": true,
-  "covers": [
-   "正式phase配隔离scope",
-   "隔离phase配正式scope",
-   "隔离scope指向生产实例",
-   "隔离scope声明生产三元组",
-   "正式scope改host/port",
-   "正式scope实例改替身",
-   "同步改原文+摘要",
-   "篡改runner自身",
-   "清单去掉runner",
-   "伪造审批表+同步改expected",
-   "expected缺审批表绑定"
-  ],
-  "positive_cases": {
-   "P0_formal": "PASSED 13/13",
+  "distinct_checkpoints": 14,
+  "positive": {
+   "P0_formal": "PASSED 15/15",
    "P0_isolated": "PASSED"
   },
-  "total": 9
+  "total": 14
  },
  "counterexamples": [
   {
-   "counterexample": "formal",
+   "case": "P0_formal",
+   "checks_total": 15,
+   "failed_checks": [],
    "failure": null,
    "outcome": "PASSED"
   },
   {
-   "counterexample": "iso",
+   "case": "P0_isolated",
+   "checks_total": 15,
+   "failed_checks": [],
    "failure": null,
    "outcome": "PASSED"
   },
   {
-   "counterexample": "last",
-   "failure": "formal_endpoint_not_verified_instance: '61418c896522f3fa609e5c3816129a9f7bf1bdf40febea83e19304a89d9a77ad'",
+   "case": "R1",
+   "checks_total": 15,
+   "failed_checks": [
+    "phase_scope_agree",
+    "formal_endpoint_is_approved_triple"
+   ],
+   "failure": "phase_scope_disagree: phase=phase2-production mode=execution-candidate (expected production-write)",
    "outcome": "FAILED"
   },
   {
-   "counterexample": "r10",
+   "case": "R10",
+   "checks_total": 15,
+   "failed_checks": [
+    "approval_table_is_reviewed_table"
+   ],
    "failure": "approval_table_is_not_the_reviewed_table",
    "outcome": "FAILED"
   },
   {
-   "counterexample": "r11",
+   "case": "R11",
+   "checks_total": 15,
+   "failed_checks": [
+    "approval_table_bound",
+    "approval_table_digest"
+   ],
    "failure": "approval_table_binding_missing",
    "outcome": "FAILED"
   },
   {
-   "counterexample": "r12",
+   "case": "R12",
+   "checks_total": 15,
+   "failed_checks": [
+    "isolated_endpoint_is_not_production"
+   ],
    "failure": "isolated_scope_names_production_triple",
    "outcome": "FAILED"
   },
   {
-   "counterexample": "r7",
+   "case": "R13",
+   "checks_total": 15,
+   "failed_checks": [
+    "pinned_module_digests"
+   ],
+   "failure": "first_batch_loader.py:digest",
+   "outcome": "FAILED"
+  },
+  {
+   "case": "R14",
+   "checks_total": 15,
+   "failed_checks": [
+    "manifest_covers_all_pinned",
+    "manifest_covers_import_closure",
+    "pinned_module_digests"
+   ],
+   "failure": "missing=['config.py']",
+   "outcome": "FAILED"
+  },
+  {
+   "case": "R2",
+   "checks_total": 15,
+   "failed_checks": [
+    "phase_scope_agree",
+    "isolated_endpoint_is_not_production"
+   ],
+   "failure": "phase_scope_disagree: phase=phase1-isolated mode=production-write (expected isolated-test)",
+   "outcome": "FAILED"
+  },
+  {
+   "case": "R3",
+   "checks_total": 15,
+   "failed_checks": [
+    "isolated_endpoint_is_not_production"
+   ],
+   "failure": "isolated_scope_names_production_instance",
+   "outcome": "FAILED"
+  },
+  {
+   "case": "R4",
+   "checks_total": 15,
+   "failed_checks": [
+    "formal_endpoint_is_approved_triple"
+   ],
+   "failure": "formal_endpoint_host_mismatch: 'pg32' != 'pg32b'",
+   "outcome": "FAILED"
+  },
+  {
+   "case": "R5",
+   "checks_total": 15,
+   "failed_checks": [
+    "formal_endpoint_is_approved_triple"
+   ],
+   "failure": "formal_endpoint_port_mismatch: 5432 != 5433",
+   "outcome": "FAILED"
+  },
+  {
+   "case": "R6",
+   "checks_total": 15,
+   "failed_checks": [
+    "formal_endpoint_is_approved_triple"
+   ],
+   "failure": "formal_endpoint_not_verified_instance: '61418c896522f3fa609e5c3816129a9f7bf1bdf40febea83e19304a89d9a77ad'",
+   "outcome": "FAILED"
+  },
+  {
+   "case": "R7",
+   "checks_total": 15,
+   "failed_checks": [
+    "authorization_text_digest",
+    "authorization_text_length"
+   ],
    "failure": "authorization_text_digest_mismatch",
    "outcome": "FAILED"
   },
   {
-   "counterexample": "r8",
+   "case": "R8",
+   "checks_total": 15,
+   "failed_checks": [
+    "pinned_module_digests"
+   ],
    "failure": "cbdb_social_addr_runner.py:digest",
    "outcome": "FAILED"
   },
   {
-   "counterexample": "r9",
+   "case": "R9",
+   "checks_total": 15,
+   "failed_checks": [
+    "manifest_covers_runner",
+    "manifest_covers_all_pinned",
+    "manifest_covers_import_closure",
+    "pinned_module_digests"
+   ],
    "failure": "manifest_does_not_pin_the_runner",
    "outcome": "FAILED"
   }
@@ -90,8 +182,8 @@
   }
  },
  "delivery_head": "f4f26e011e50054ac7dc52964877641716fa02b8",
- "first_gap": "生产实例全 ID 未能在本盒现场核实（32 不可达）；正式命令缺一次端到端实测",
- "fixed_commit": "91746fe232f128cf66319d5f7b13c222ebd167b1",
+ "first_gap": "生产实例全 ID 未在本盒现场核实（32 不可达）。次缺口：(a) 77 项既有单测与 6 项新单测均未执行；(b) 正式命令缺端到端实测。",
+ "fixed_commit": "424ab2097891834642993049897008514db8018c",
  "fixed_commit_note": "此提交是【代码提交】——runner 端点绑定、PINNED_MODULES 含自身、5 项新单测、preflight.py、分离的 scope/expected 全部在此。其后的文档提交只改 COMMAND-FORMAL.txt 与报告本身，未触代码，故命令钉代码提交而非自身。可核验：git diff --name-only 91746fe <later> -- datamgmt/ 为空。",
  "formal_preflight": {
   "checks": 13,
@@ -109,9 +201,13 @@
   "production_privileges_changed": false,
   "production_written": false
  },
+ "open_items": {
+  "convention_risk": "formal 分支依赖 _PRODUCTION_CONTAINER_ID，其正确性取决于本盒未观测的常量。错则误拒（安全侧），但若有人为让 phase2 通过而改该常量，最关键的实例绑定就退化为自证。建议把该常量的现场核实列为 Codex 放行前置，并规定改动需新的授权引用。",
+  "unit_tests_not_run": "本盒改动 PINNED_MODULES/闭包门禁/端点逻辑/锚点，全部未执行单测。test_runner_pins_itself 与新加反例是验证这些改动的唯一自动化手段，32 恢复后须最先跑。"
+ },
  "parameter_matrix": "PARAMETER-MATRIX.md",
  "preflight_tool": {
-  "checks": 13,
+  "checks": 15,
   "connects_to_database": false,
   "exit_codes": {
    "0": "全部通过",
@@ -139,12 +235,26 @@
     "isolated_mode_targets_production_instance",
     "isolated_mode_targets_production_endpoint"
    ],
-   "runner_endpoint_binding": "正式模式：端点三元组/会话端口/test_only/实例 ID 逐项核对，且 --connect-host/--connect-port/--load-role 任一出现即 formal_endpoint_override_refused（连接前拒绝）；隔离模式：指向生产实例或生产三元组即拒绝",
+   "runner_endpoint_binding": "正式模式：端点三元组/会话端口/test_only/实例 ID 逐项核对，且 --connect-host/--connect-port/--load-role 任一出现即 formal_endpoint_override_refused（return 在 L.PsqlSession 构造之前，故从未建立连接）；隔离模式：指向生产实例或生产三元组即拒绝",
    "status": "DONE"
   },
   "2_auth_and_code_pinning": {
+   "anchors_in_executor": {
+    "order": "锚点比对在前、expected 声明一致性在后，避免拿伪造比对伪造",
+    "runner_constants": [
+     "APPROVED_AUTH_SHA256 = 4d250c8e…2946 → authorization_text_is_not_the_reviewed_text",
+     "APPROVED_TABLE_SHA256 = a718b0c2…4a0 → approval_table_is_not_the_reviewed_table"
+    ],
+    "why_this_matters": "锚点若只在 preflight.py（COMMAND 的步骤 1，建议性前置），漏跑一次防线即失效；保护必须写在执行体里。a02 第十轮以此为 first_gap，成立。"
+   },
    "approval_table_anchor": "a718b0c297501642dd105eb3797f96dc1de2edf8eb521bed6609ff78de1fb4a0 同样硬编码——此项是实测发现后补上的：仅靠 expected 自证时，替换审批表并同步改 expected 可通过全部检查",
    "auth_anchor": "4d250c8e08ea8136e29e35aa436812f11b5eec59a100847f130c11f39b7e2946 硬编码于 preflight.py，与 641 字节长度一并作为独立校验依据；不依赖 scope/expected 自报",
+   "closure": {
+    "evidence": "R13 篡改 first_batch_loader → first_batch_loader.py:digest；R14 清单删除 config.py → missing=['config.py']",
+    "now": "PINNED_MODULES 补至 16；新增 _module_import_closure() 与 code_pin_closure_gaps 门禁，每次运行计算真实闭包并与清单比对；preflight 的 REQUIRED_PINNED 同步补至 16 并新增 manifest_covers_import_closure / import_closure_size，消除两道检查印证同一盲区",
+    "risk": "first_batch_loader 定义 LoaderGateError（门控拒绝的类型）并提供 _rows_csv（实例标记与库列表解析器），改它可重定义身份核验而钉扎摘要全绿",
+    "was": "16 个可达模块只钉 8 个；未钉 canonical/config/first_batch_loader/identity/model/naming/read_cache/sqlite_diagnostic"
+   },
    "manifest": "从 Gitea 固定提交 4a2cc7fa6e25ff4d79051622e1cb5c718094b671 导出，PIN_COMMIT + PIN_MODULES.json 覆盖 8 个模块",
    "runner_self_pin": "PINNED_MODULES 现包含 cbdb_social_addr_runner.py 本身（此前只有 7 个被校验模块，校验者自己不校验）",
    "status": "DONE"

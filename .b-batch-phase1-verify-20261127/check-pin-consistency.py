@@ -14,9 +14,24 @@ V = pathlib.Path(__file__).resolve().parent
 REPO = V.parent
 
 
+# Resolve the repository ONCE from this file's location, and refuse to run if that
+# does not land in a git work tree. Without this guard the assertions below would be
+# evaluated against empty strings and silently pass -- the "looks verified" failure
+# this script exists to prevent. (Found by a02: a copy of this file run from a
+# detached worktree resolved REPO to a non-repo and skipped the load-bearing check.)
+GIT_DIR = subprocess.run(["git", "-C", str(REPO), "rev-parse", "--git-dir"],
+                         capture_output=True, text=True)
+if GIT_DIR.returncode != 0:
+    print(json.dumps({"ok": False,
+                      "problems": [f"not a git work tree: {REPO}"],
+                      "detail": GIT_DIR.stderr.strip()[:200]}, ensure_ascii=False))
+    raise SystemExit(1)
+
+
 def git(*args):
-    return subprocess.run(["git", "-C", str(REPO), *args],
-                          capture_output=True, text=True).stdout.strip()
+    proc = subprocess.run(["git", "-C", str(REPO), *args],
+                          capture_output=True, text=True)
+    return proc.stdout.strip()
 
 
 def main():
@@ -44,7 +59,14 @@ def main():
                  "datamgmt/src/xiangrugu_datamgmt/cbdb_social_addr_entry.py"):
         last = git("log", "-1", "--format=%H", claim, "--", path)
         head = git("log", "-1", "--format=%H", "HEAD", "--", path)
-        if last and head and last != head:
+        # Fail CLOSED. An empty result means the commit or the path could not be
+        # resolved (shallow clone, bad pin, wrong tree). Treating that as "no
+        # problem" is exactly the silent-pass this check is meant to rule out.
+        if not last or not head:
+            problems.append(
+                f"{path}: cannot resolve last-change commits "
+                f"(pinned={bool(last)}, head={bool(head)}) — refusing to pass")
+        elif last != head:
             problems.append(
                 f"{path}: last change in pinned tree {last[:12]} != last change at HEAD "
                 f"{head[:12]} — evidence may predate a later fix")

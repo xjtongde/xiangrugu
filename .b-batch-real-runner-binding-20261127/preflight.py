@@ -46,9 +46,13 @@ PRODUCTION_ID = "3d93fc7741f66f1f01aa250b25c4959addfe4c84df22ecbd0d0f82c13920c1f
 PRODUCTION_TRIPLE = {"host": "pg32b", "port": 5433, "dbname": "xiangrugu"}
 IN_SESSION_PORT = 5432
 LOAD_ROLE = "xrg_loader"
-# The transitive closure a formal load actually imports. Kept identical to the
-# runner's PINNED_MODULES by test, not by hope: if the two drift, this tool would be
-# validating a set the runner does not enforce (a shared blind spot).
+# The transitive closure a formal load actually imports. This must equal the
+# runner's PINNED_MODULES: if the two drift, this tool would be validating a set the
+# runner does not enforce (a shared blind spot). Equality is asserted by
+# test_preflight_and_runner_agree_on_the_pinned_set in
+# datamgmt/tests/unit/test_cbdb_social_addr_runner.py -- NOT yet executed, because
+# the test host is unreachable; the assertion was checked by hand and reported as
+# hand-checked.
 REQUIRED_PINNED = [
     "cbdb_social_addr_runner.py", "cbdb_social_addr_entry.py",
     "cbdb_social_addr_loader.py", "contracts.py", "unordered_validate.py",

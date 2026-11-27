@@ -293,3 +293,45 @@ def R_PROD_ID():
     marker = '_PRODUCTION_CONTAINER_ID = "'
     start = src.index(marker) + len(marker)
     return src[start:src.index('"', start)]
+
+
+# ---------------------------------------------------------------------------
+# Pinning closure and anchor coverage. These lock the properties that keep the
+# manifest honest; without them the lists drift silently.
+# ---------------------------------------------------------------------------
+def test_pinned_closure_has_no_reachable_gaps():
+    """Every module reachable from the pinned set must itself be pinned."""
+    closure = R._module_import_closure(REPO_ROOT())
+    gaps = [m for m in closure if m not in R.PINNED_MODULES]
+    assert gaps == [], f"reachable but unpinned: {gaps}"
+
+
+def test_pinned_closure_covers_behaviour_dependencies():
+    """first_batch_loader defines LoaderGateError and parses the instance marker."""
+    assert "first_batch_loader.py" in R.PINNED_MODULES
+
+
+def test_preflight_and_runner_agree_on_the_pinned_set():
+    """preflight.py validates a set; if it differs from the runner's, the two
+    checks would be confirming the same blind spot. Compare them for real."""
+    import importlib.util
+    spec = importlib.util.spec_from_file_location(
+        "xrg_preflight", REPO_ROOT() / ".b-batch-real-runner-binding-20261127"
+        / "preflight.py")
+    mod = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(mod)
+    assert tuple(mod.REQUIRED_PINNED) == tuple(R.PINNED_MODULES)
+
+
+def test_runner_anchors_are_the_reviewed_values():
+    assert R.APPROVED_AUTH_SHA256.startswith("4d250c8e")
+    assert R.APPROVED_TABLE_SHA256.startswith("a718b0c2")
+
+
+def REPO_ROOT():
+    p = Path(R.__file__).resolve()
+    while p.name != "xiangrugu" and p.parent != p:
+        p = p.parent
+        if (p / ".b-batch-real-runner-binding-20261127").is_dir():
+            return p
+    return p

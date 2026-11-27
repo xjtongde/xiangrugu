@@ -1,4 +1,8 @@
 {
+ "auth_anchor_phase_scope": {
+  "documented": true,
+  "note": "授权原文锚点仅在 phase2-production 生效，审批表锚点无条件生效。这是有意为之：隔离演练需用替身文本，而隔离永不指向生产三元组（R3/R12 已封）。"
+ },
  "baseline": "4a2cc7fa6e25ff4d79051622e1cb5c718094b671",
  "blockers": {
   "host_32_unreachable": {
@@ -182,7 +186,49 @@
   }
  },
  "delivery_head": "f4f26e011e50054ac7dc52964877641716fa02b8",
- "first_gap": "生产实例全 ID 未在本盒现场核实（32 不可达）。次缺口：(a) 77 项既有单测与 6 项新单测均未执行；(b) 正式命令缺端到端实测。",
+ "evidence_layers": {
+  "executor_layer": {
+   "both_show": [
+    "format 为执行体层格式",
+    "code_pin.shape=git、commit 已核对、closure_size=16",
+    "evidence 中无 session 键 → 从未建立连接"
+   ],
+   "cases": [
+    {
+     "case": "R10_runner",
+     "decisive": "文件摘要与 expected 声明完全相同，故自证检查本应全部通过；实际被独立锚点拦下，证明拦截来自 APPROVED_TABLE_SHA256 而非声明一致性",
+     "declared_digest": "674ae660431e27b8…",
+     "error_code": "approval_table_is_not_the_reviewed_table",
+     "exit_code": 4,
+     "forged_digest": "674ae660431e27b8…",
+     "forgery": "伪造审批表，且 expected.approval_table_sha256 同步改为伪造值",
+     "outcome": "PREFLIGHT_FAILED",
+     "session_established": false
+    },
+    {
+     "case": "R_auth_runner",
+     "decisive": "同上：传入摘要与文件一致，仍被锚点拒绝",
+     "declared_digest": "805b5742f89dc3e3…",
+     "error_code": "authorization_text_is_not_the_reviewed_text",
+     "exit_code": 4,
+     "forged_digest": "805b5742f89dc3e3…",
+     "forgery": "替换授权原文，并把 --approval-text-sha256 同步改为伪造摘要",
+     "outcome": "PREFLIGHT_FAILED",
+     "session_established": false
+    }
+   ],
+   "count": 2,
+   "format": "xiangrugu.b-batch.single-table-load-evidence.v1"
+  },
+  "note": "两份执行体层证据在 32 不可达的情况下取得：锚点在 PsqlSession 构造前返回，无需活库。",
+  "preflight_layer": {
+   "count": 16,
+   "covers": "预检工具层的 14 条反例 + 2 条正向",
+   "format": "xiangrugu.b-batch.preflight.v1"
+  },
+  "why": "a02 第十一轮指出：锚点代码已移入 runner，但 16 份证据全为 preflight.v1，没有任何工件证明 runner 进程自己会拒绝。同属'看起来验证了其实没验证'。"
+ },
+ "first_gap": "生产实例全 ID 未在本盒现场核实（32 不可达）；次缺口：单测均未执行（含本轮新增 5 项断言，仅手工核对）。",
  "fixed_commit": "424ab2097891834642993049897008514db8018c",
  "fixed_commit_note": "此提交是【代码提交】——runner 端点绑定、PINNED_MODULES 含自身、5 项新单测、preflight.py、分离的 scope/expected 全部在此。其后的文档提交只改 COMMAND-FORMAL.txt 与报告本身，未触代码，故命令钉代码提交而非自身。可核验：git diff --name-only 91746fe <later> -- datamgmt/ 为空。",
  "formal_preflight": {
@@ -192,6 +238,10 @@
  "format": "xiangrugu.b-batch.pre-release-correction.v1",
  "isolated_preflight": {
   "outcome": "PASSED"
+ },
+ "m1_comment_fix": {
+  "now": "已补 test_preflight_and_runner_agree_on_the_pinned_set 并把注释改为如实说明该测试尚未执行",
+  "was": "preflight.py 注释声称两份清单'by test, not by hope'同步，实际无任何测试做此比较"
  },
  "next": "32 恢复后：核实全 ID → 容器内跑 77 项单测 → 隔离替身用正式命令复跑反例 → 再交 Codex",
  "not_done_in_this_box": {
@@ -203,7 +253,8 @@
  },
  "open_items": {
   "convention_risk": "formal 分支依赖 _PRODUCTION_CONTAINER_ID，其正确性取决于本盒未观测的常量。错则误拒（安全侧），但若有人为让 phase2 通过而改该常量，最关键的实例绑定就退化为自证。建议把该常量的现场核实列为 Codex 放行前置，并规定改动需新的授权引用。",
-  "unit_tests_not_run": "本盒改动 PINNED_MODULES/闭包门禁/端点逻辑/锚点，全部未执行单测。test_runner_pins_itself 与新加反例是验证这些改动的唯一自动化手段，32 恢复后须最先跑。"
+  "runner_layer_evidence": "已闭合：R10_runner / R_auth_runner 两份执行体层证据",
+  "unit_tests_not_run": "仍为事实：32 不可达，pytest 未执行，本轮新增 5 项断言（closure_no_gaps、fbl_pinned、preflight==runner、两个锚点常量）全部未通过 pytest 运行。已在当前环境用纯 stdlib 逐条手工核对，5 项全部成立——但这是手工核对，不是测试通过，报告不据此声称 passed。preflight.py 中'by test'的注释已改为如实说明。"
  },
  "parameter_matrix": "PARAMETER-MATRIX.md",
  "preflight_tool": {

@@ -86,6 +86,13 @@ PINNED_MODULES = ("cbdb_social_addr_runner.py",
                   "read_cache.py", "sqlite_diagnostic.py")
 
 
+def _is_standin_host(host):
+    """True when ``host`` provably names an isolated stand-in, not a real instance."""
+    if host in ("localhost", "127.0.0.1", "::1"):
+        return True
+    return host.startswith("xrg-") or "standin" in host or "trial" in host
+
+
 def _module_import_closure(root):
     """Local modules transitively imported by the pinned set, resolved on disk.
 
@@ -451,13 +458,33 @@ def run(args):
             evidence["refusal"] = {"error_code": "isolated_mode_targets_production_instance"}
             return EXIT_PREFLIGHT, evidence
         load_role = args.load_role or E.LOAD_ROLE
+
+        # An isolated run must PROVE it reaches a stand-in. Denying a fixed pair of
+        # (host, port) values is not enough: the production instance also listens on
+        # its IN-container port 5432, so ``--connect-host pg32b --connect-port 5432``
+        # slipped through a pair-based check while still opening a session against
+        # production. Instead require BOTH
+        #   (a) an explicit --connect-port, so nothing silently falls back to the
+        #       declared (production) port, and
+        #   (b) a connect host drawn from the stand-in allowlist, i.e. a loopback
+        #       address or a name that is explicitly a stand-in.
+        # A host equal to the production name is refused regardless of port.
+        if args.connect_port is None:
+            evidence["outcome"] = "PREFLIGHT_FAILED"
+            evidence["refusal"] = {"error_code": "isolated_mode_requires_explicit_connect_port",
+                                   "detail": "the declared port is the production port"}
+            return EXIT_PREFLIGHT, evidence
         connect_host = args.connect_host or ep["host"]
-        connect_port = int(args.connect_port or ep["port"])
-        if (connect_host == E.PRODUCTION_TARGET["host"]
-                and connect_port == E.PRODUCTION_TARGET["port"]):
+        connect_port = int(args.connect_port)
+        if connect_host == E.PRODUCTION_TARGET["host"] or connect_host == "pg32":
             evidence["outcome"] = "PREFLIGHT_FAILED"
             evidence["refusal"] = {"error_code": "isolated_mode_targets_production_endpoint",
                                    "detail": f"{connect_host}:{connect_port}"}
+            return EXIT_PREFLIGHT, evidence
+        if not _is_standin_host(connect_host):
+            evidence["outcome"] = "PREFLIGHT_FAILED"
+            evidence["refusal"] = {"error_code": "isolated_mode_host_not_a_standin",
+                                   "detail": connect_host}
             return EXIT_PREFLIGHT, evidence
 
     password = os.environ.get("XNG_LOAD_PASSWORD")

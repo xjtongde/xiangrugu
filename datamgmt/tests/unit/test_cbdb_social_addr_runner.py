@@ -316,6 +316,63 @@ def test_isolated_mode_never_targets_the_production_instance(tmp_path, pinned_ex
     assert evidence["refusal"]["error_code"] == "isolated_mode_targets_production_instance"
 
 
+def _isolated_args(tmp_path, pinned_export, **over):
+    """Isolated-mode args whose scope DECLARES the production triple, as entry requires."""
+    args = _formal_args(tmp_path, pinned_export, phase="phase1-isolated", **over)
+    scope = json.loads(Path(args.scope).read_text(encoding="utf-8"))
+    scope["mode"] = "execution-candidate"
+    scope["scope_class"] = "isolated"
+    scope.setdefault("write_approval", {})["approval_class"] = "test"
+    scope["target_endpoint"]["test_only"] = True
+    scope["target_endpoint"]["container_id"] = "b" * 64
+    Path(args.scope).write_text(json.dumps(scope), encoding="utf-8")
+    return args
+
+
+def test_isolated_mode_allows_a_proper_standin(tmp_path, pinned_export):
+    """The allowlisted loopback target with an explicit port is accepted."""
+    args = _isolated_args(tmp_path, pinned_export,
+                          connect_host="127.0.0.1", connect_port="5432")
+    _code, evidence = R.run(args)
+    # It gets past the endpoint gates (it may still fail later for other reasons,
+    # but not with an isolated-endpoint refusal).
+    assert (evidence.get("refusal") or {}).get("error_code") not in (
+        "isolated_mode_targets_production_endpoint",
+        "isolated_mode_host_not_a_standin",
+        "isolated_mode_requires_explicit_connect_port")
+
+
+@pytest.mark.parametrize("host,port", [
+    ("pg32b", "5433"),   # the declared production pair
+    ("pg32b", "5432"),   # production's IN-container listener -- the old hole
+    ("pg32b", "5434"),   # any port on the production host
+    ("pg32", "5432"),    # the other production instance
+])
+def test_isolated_mode_refuses_any_port_on_a_production_host(tmp_path, pinned_export,
+                                                             host, port):
+    """Denying one (host, port) pair was not enough: production also listens on 5432."""
+    _code, evidence = R.run(
+        _isolated_args(tmp_path, pinned_export, connect_host=host, connect_port=port))
+    assert evidence["refusal"]["error_code"] == "isolated_mode_targets_production_endpoint"
+    assert evidence["refusal"]["detail"] == f"{host}:{port}"
+
+
+def test_isolated_mode_refuses_a_non_standin_host(tmp_path, pinned_export):
+    _code, evidence = R.run(
+        _isolated_args(tmp_path, pinned_export, connect_host="10.1.2.3",
+                         connect_port="5432"))
+    assert evidence["refusal"]["error_code"] == "isolated_mode_host_not_a_standin"
+
+
+def test_isolated_mode_requires_an_explicit_connect_port(tmp_path, pinned_export):
+    """Without --connect-port the port would fall back to the DECLARED production one."""
+    _code, evidence = R.run(
+        _isolated_args(tmp_path, pinned_export, connect_host="127.0.0.1",
+                         connect_port=None))
+    assert evidence["refusal"]["error_code"] == (
+        "isolated_mode_requires_explicit_connect_port")
+
+
 def test_runner_pins_itself():
     """A manifest that omits the enforcer can be satisfied while the enforcer is swapped."""
     assert "cbdb_social_addr_runner.py" in R.PINNED_MODULES

@@ -123,3 +123,42 @@ def test_target_absent_gate_unchanged():
     with pytest.raises(L.LoaderGateError) as e:
         L.check_target_absent(S())
     assert e.value.code == "target_already_exists"
+
+
+# ------------------------------------------- the real approval artifact, not a copy
+def _repo_file(rel):
+    """Locate a repository file above this package, same rule the runner tests use."""
+    import pathlib
+    p = pathlib.Path(L.__file__).resolve()
+    while p.parent != p:
+        cand = p / rel
+        if cand.exists():
+            return cand
+        p = p.parent
+    raise AssertionError("cannot locate %s above %s" % (rel, L.__file__))
+
+
+def test_real_formal_expected_artifact_passes_the_formal_gate():
+    """The previous fix shipped a green suite and still refused production.
+
+    The unit cases above build ``expected`` by copying ``observed``, so they carry
+    every key the gate reads and cannot notice a stale approval *file*. This case
+    parses the artefact that the formal run actually passes as ``--expected``.
+    """
+    import json
+    path = _repo_file(".b-batch-real-runner-binding-20261127/formal-expected.json")
+    exp = json.loads(path.read_text(encoding="utf-8"))["instance_identity"]
+    for key in ("dbname", "in_session_port", "instance_marker_verified", "databases"):
+        assert key in exp, "formal-expected.json lacks %r required by the formal gate" % key
+    assert exp["dbname"] == L.TARGET_DATABASE
+    assert exp["in_session_port"] == "5432"
+    assert exp["instance_marker_verified"] == exp["container_id"]
+    legacy = [d for d in L.LEGACY_DATABASES if d in exp["databases"].split(",")]
+    assert tuple(legacy) == tuple(L.LEGACY_DATABASES), (
+        "approved databases must list the legacy names production actually hosts")
+    # The real artefact must clear the gate on the formal branch.
+    assert L.check_instance_identity(dict(exp), exp, branch="real") == tuple(L.LEGACY_DATABASES)
+    # ...and must still be refused as an isolated stand-in.
+    with pytest.raises(L.LoaderGateError) as e:
+        L.check_instance_identity(dict(exp), exp, branch="test")
+    assert e.value.code == "production_database_visible"

@@ -247,8 +247,9 @@ def run_single_table(session, scope, contract, target, data, instance_observed, 
     validate_scope(scope, presented)
     # Carry the branch marker alongside the identity so the "production database
     # visible" check can tell a formal write's own target from leakage into a trial.
-    check_instance_identity(instance_observed, expected["instance_identity"],
-                            branch=expected.get("execution_branch"))
+    legacy_visible = check_instance_identity(
+        instance_observed, expected["instance_identity"],
+        branch=expected.get("execution_branch"))
     # A formal write may only touch its one table. The prerequisite schema must already
     # exist; the load must never create it, or the declared least-privilege surface
     # (no CREATE on the database) would be a fiction.
@@ -259,8 +260,12 @@ def run_single_table(session, scope, contract, target, data, instance_observed, 
         if not (rows and rows[0] and rows[0][0] == "t"):
             raise LoaderGateError("prerequisite_schema_missing", TARGET_SCHEMA)
     check_target_absent(session)
-    return _load_and_verify(session, contract, target, data, expected, corrupt=corrupt,
-                            create_schema=not is_formal, mode=scope["mode"])
+    evidence = _load_and_verify(session, contract, target, data, expected, corrupt=corrupt,
+                                create_schema=not is_formal, mode=scope["mode"])
+    # Legacy databases are allowed to be visible on the formal branch (R52); record them
+    # so the artifact proves the allowance was observed rather than silently ignored.
+    evidence["legacy_databases_visible"] = list(legacy_visible or ())
+    return evidence
 
 
 def _load_and_verify(session, contract, target, data, expected, corrupt=None,

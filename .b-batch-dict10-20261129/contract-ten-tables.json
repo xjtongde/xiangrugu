@@ -1,0 +1,583 @@
+{
+ "version": 1,
+ "release_id": "2026-11-29-dict10",
+ "source_member": {
+  "rule_id": "m007906",
+  "relative_path": "harvard/cbdb/cbdb_20260919.sqlite3",
+  "sha256": "bde1bb8eece3820d9e236c1d6b0f07d847d339669d4a85d79cd7252d58d83400"
+ },
+ "mapping_contract_sha256": "297b7c766baa40cc660f262e1ac433973d5d8bdde8c28eb2aca90733bfaec7d9",
+ "digest_method": "sorted(encoded row frames); header_bytes + frames + trailer_bytes(count)",
+ "tables": {
+  "ALTNAME_CODES": {
+   "source_table": "ALTNAME_CODES",
+   "source_object_id": "6797d3dc10f3a23e8419426848bfd1a38e7925020b3b74c08e60b8e64b54ab01",
+   "target_schema": "cbdb",
+   "target_table": "cbdb__altname_u5f_codes",
+   "columns": [
+    {
+     "ordinal": 0,
+     "source_column": "c_name_type_code",
+     "target_column": "c_u5f_name_u5f_type_u5f_code",
+     "pg_type": "bigint",
+     "nullable": false,
+     "column_identity": "2100e509dff47540961f166ef1ca5ca6b393fd15dcac00642915d4ed24965b28"
+    },
+    {
+     "ordinal": 1,
+     "source_column": "c_name_type_desc",
+     "target_column": "c_u5f_name_u5f_type_u5f_desc",
+     "pg_type": "text",
+     "nullable": true,
+     "column_identity": "c57f85ef1319ff96d49f83b6a680e76e23f50ca446d39c4326eb690e97e8ba1f"
+    },
+    {
+     "ordinal": 2,
+     "source_column": "c_name_type_desc_chn",
+     "target_column": "c_u5f_name_u5f_type_u5f_desc_u5f_chn",
+     "pg_type": "text",
+     "nullable": true,
+     "column_identity": "b0ebdba3eee164608274b5637b0bce87ef96bd3c4d7b7cbdd299a44acc7c99f1"
+    }
+   ],
+   "primary_key": {
+    "columns_in_order": [
+     "c_u5f_name_u5f_type_u5f_code"
+    ]
+   },
+   "row_count": 21,
+   "null_counts": {
+    "c_u5f_name_u5f_type_u5f_code": 0,
+    "c_u5f_name_u5f_type_u5f_desc": 0,
+    "c_u5f_name_u5f_type_u5f_desc_u5f_chn": 0
+   },
+   "source_canonical_sha256": "110d8776517a70391c75f03e278d790d2f8fb5b0a7e0780531b8772dda8f4a59",
+   "payload_file": "/mnt10/ALTNAME_CODES.payload.tsv",
+   "payload_sha256": "5ea49bac41cd0370f4927a43610bae0923183a7389cdbea69e0bc1e32d229b7f",
+   "payload_bytes": 621,
+   "payload_lines": 21
+  },
+  "APPOINTMENT_TYPES": {
+   "source_table": "APPOINTMENT_TYPES",
+   "source_object_id": "8b4ef3b89fd49b53ca165285817016bb0a6be3bda180ce2257e4647dd3c005c8",
+   "target_schema": "cbdb",
+   "target_table": "cbdb__appointment_u5f_types",
+   "columns": [
+    {
+     "ordinal": 0,
+     "source_column": "c_appt_type_code",
+     "target_column": "c_u5f_appt_u5f_type_u5f_code",
+     "pg_type": "text",
+     "nullable": false,
+     "column_identity": "10384e778f1a7d7e54467e2ca2dac04c8343fe01ca22a1730c37c6cdd46d4332"
+    },
+    {
+     "ordinal": 1,
+     "source_column": "c_appt_type_desc",
+     "target_column": "c_u5f_appt_u5f_type_u5f_desc",
+     "pg_type": "text",
+     "nullable": true,
+     "column_identity": "c4093915b75ba637e6ce23c3c942ef0ec61d9fcd0c9f22c53ad40e02322f7ddb"
+    },
+    {
+     "ordinal": 2,
+     "source_column": "c_appt_type_desc_chn",
+     "target_column": "c_u5f_appt_u5f_type_u5f_desc_u5f_chn",
+     "pg_type": "text",
+     "nullable": true,
+     "column_identity": "64a22792122a50ff43779aa6e5d33fafae735f895beb9683be35a47e8beb3153"
+    }
+   ],
+   "primary_key": {
+    "columns_in_order": [
+     "c_u5f_appt_u5f_type_u5f_code"
+    ]
+   },
+   "row_count": 13,
+   "null_counts": {
+    "c_u5f_appt_u5f_type_u5f_code": 0,
+    "c_u5f_appt_u5f_type_u5f_desc": 0,
+    "c_u5f_appt_u5f_type_u5f_desc_u5f_chn": 0
+   },
+   "source_canonical_sha256": "0ab780b444137883895f05217cb4efe6d146e8335e3b89be3c2aa4feaa1c0d33",
+   "payload_file": "/mnt10/APPOINTMENT_TYPES.payload.tsv",
+   "payload_sha256": "f8e09cd4d6c64804401a40c2b5ce9775eaae1f71d953386b9c936e67fa360e9d",
+   "payload_bytes": 430,
+   "payload_lines": 13
+  },
+  "BIOG_ADDR_CODES": {
+   "source_table": "BIOG_ADDR_CODES",
+   "source_object_id": "890c54ae6d73a428f41fd4aa4ae45e245d8f8a28057ddb02a40d78074f197732",
+   "target_schema": "cbdb",
+   "target_table": "cbdb__biog_u5f_addr_u5f_codes",
+   "columns": [
+    {
+     "ordinal": 0,
+     "source_column": "c_addr_type",
+     "target_column": "c_u5f_addr_u5f_type",
+     "pg_type": "bigint",
+     "nullable": false,
+     "column_identity": "d2aac1e90e61a0836c330d80a936e13586b3f4884ec44bdc7a18ac830aede4f7"
+    },
+    {
+     "ordinal": 1,
+     "source_column": "c_addr_desc",
+     "target_column": "c_u5f_addr_u5f_desc",
+     "pg_type": "text",
+     "nullable": true,
+     "column_identity": "f7437f32a7682af35d8378baad9f1c44835a010624cd3074b999e55d80f44ec2"
+    },
+    {
+     "ordinal": 2,
+     "source_column": "c_addr_desc_chn",
+     "target_column": "c_u5f_addr_u5f_desc_u5f_chn",
+     "pg_type": "text",
+     "nullable": true,
+     "column_identity": "fd38756cfb2cbfd6ed7121875a71b88d2cb3839f3d6f5134c39b88f5566b7451"
+    },
+    {
+     "ordinal": 3,
+     "source_column": "c_addr_note",
+     "target_column": "c_u5f_addr_u5f_note",
+     "pg_type": "text",
+     "nullable": true,
+     "column_identity": "d68cbdd233fe6d3b8e8c722822246f093ad97a29c3ff165441cb67a2878c68c4"
+    },
+    {
+     "ordinal": 4,
+     "source_column": "c_index_addr_rank",
+     "target_column": "c_u5f_index_u5f_addr_u5f_rank",
+     "pg_type": "bigint",
+     "nullable": true,
+     "column_identity": "165abb996e426b30f58578bcdac08a3f97194eff2f6c71e58771f20c46aa4b6d"
+    },
+    {
+     "ordinal": 5,
+     "source_column": "c_index_addr_default_rank",
+     "target_column": "c_u5f_index_u5f_addr_u5f_default_u5f_rank",
+     "pg_type": "bigint",
+     "nullable": true,
+     "column_identity": "312612bbf55a02e58c4b1ddfe8d70666e14aa295c902330de1354bc71507f588"
+    }
+   ],
+   "primary_key": {
+    "columns_in_order": [
+     "c_u5f_addr_u5f_type"
+    ]
+   },
+   "row_count": 22,
+   "null_counts": {
+    "c_u5f_addr_u5f_type": 0,
+    "c_u5f_addr_u5f_desc": 0,
+    "c_u5f_addr_u5f_desc_u5f_chn": 0,
+    "c_u5f_addr_u5f_note": 9,
+    "c_u5f_index_u5f_addr_u5f_rank": 0,
+    "c_u5f_index_u5f_addr_u5f_default_u5f_rank": 0
+   },
+   "source_canonical_sha256": "e3316df00ad67591dda48bfc9efa56442efb9cf4be21dfc49f88c28264e738ac",
+   "payload_file": "/mnt10/BIOG_ADDR_CODES.payload.tsv",
+   "payload_sha256": "17e904046c9236722ee8da2e67216d5e712f17aa050a4c114bbe6a6a2e654bdc",
+   "payload_bytes": 1771,
+   "payload_lines": 22
+  },
+  "BIOG_INST_CODES": {
+   "source_table": "BIOG_INST_CODES",
+   "source_object_id": "b5368f0e5560a00c5546ca285e9d92daf40b16ba35774f7c1ed2c9afee63fcaa",
+   "target_schema": "cbdb",
+   "target_table": "cbdb__biog_u5f_inst_u5f_codes",
+   "columns": [
+    {
+     "ordinal": 0,
+     "source_column": "c_bi_role_code",
+     "target_column": "c_u5f_bi_u5f_role_u5f_code",
+     "pg_type": "bigint",
+     "nullable": false,
+     "column_identity": "f6215446cb94d07b3528bbb89719ab9b165bc3f6e81bf232dafb54f3d2f196f6"
+    },
+    {
+     "ordinal": 1,
+     "source_column": "c_bi_role_desc",
+     "target_column": "c_u5f_bi_u5f_role_u5f_desc",
+     "pg_type": "text",
+     "nullable": true,
+     "column_identity": "d9651f441fd0e23e7e76608a97eb6474b40e388f0cc08d99af15c83741d88de9"
+    },
+    {
+     "ordinal": 2,
+     "source_column": "c_bi_role_chn",
+     "target_column": "c_u5f_bi_u5f_role_u5f_chn",
+     "pg_type": "text",
+     "nullable": true,
+     "column_identity": "e9ed7509d07d3b396339432af1d1552084e90179163ceee5e9c0647deb55458c"
+    },
+    {
+     "ordinal": 3,
+     "source_column": "c_notes",
+     "target_column": "c_u5f_notes",
+     "pg_type": "text",
+     "nullable": true,
+     "column_identity": "c3bf341d62215019b0706f2da3038610cd6d0eabcd648ed11b3ce74ae62e349a"
+    }
+   ],
+   "primary_key": {
+    "columns_in_order": [
+     "c_u5f_bi_u5f_role_u5f_code"
+    ]
+   },
+   "row_count": 26,
+   "null_counts": {
+    "c_u5f_bi_u5f_role_u5f_code": 0,
+    "c_u5f_bi_u5f_role_u5f_desc": 0,
+    "c_u5f_bi_u5f_role_u5f_chn": 0,
+    "c_u5f_notes": 24
+   },
+   "source_canonical_sha256": "dc254a78011157a7aae093c8061bb162460e247ba209371c4511734584d8bd88",
+   "payload_file": "/mnt10/BIOG_INST_CODES.payload.tsv",
+   "payload_sha256": "7b22f4c7d48428141b3b437b0fa320c2eab698cc34d26c423d2f83be5c1422e4",
+   "payload_bytes": 1097,
+   "payload_lines": 26
+  },
+  "COUNTRY_CODES": {
+   "source_table": "COUNTRY_CODES",
+   "source_object_id": "d185909a9eededdd7da52ea072fa58022a67f9a25c30e26ffb65531c4df1e64a",
+   "target_schema": "cbdb",
+   "target_table": "cbdb__country_u5f_codes",
+   "columns": [
+    {
+     "ordinal": 0,
+     "source_column": "c_country_code",
+     "target_column": "c_u5f_country_u5f_code",
+     "pg_type": "bigint",
+     "nullable": false,
+     "column_identity": "088723322d3f5ea2b81b72b0b56d8ce7722672c1aff917432cca39cef374f209"
+    },
+    {
+     "ordinal": 1,
+     "source_column": "c_country_desc",
+     "target_column": "c_u5f_country_u5f_desc",
+     "pg_type": "text",
+     "nullable": true,
+     "column_identity": "d477abeac9f7c7ec5ce4a3f176089636ddc9a07a144b672a026af749a4e1b58d"
+    },
+    {
+     "ordinal": 2,
+     "source_column": "c_country_desc_chn",
+     "target_column": "c_u5f_country_u5f_desc_u5f_chn",
+     "pg_type": "text",
+     "nullable": true,
+     "column_identity": "a5265d70cbc96b21d1fde28c7af57a619cf1d10a05db37163ae625b27072c249"
+    }
+   ],
+   "primary_key": {
+    "columns_in_order": [
+     "c_u5f_country_u5f_code"
+    ]
+   },
+   "row_count": 11,
+   "null_counts": {
+    "c_u5f_country_u5f_code": 0,
+    "c_u5f_country_u5f_desc": 0,
+    "c_u5f_country_u5f_desc_u5f_chn": 3
+   },
+   "source_canonical_sha256": "1e23b088ded253b5b4b41247a92a33490e5332891433dc0db2d84d557bce90e4",
+   "payload_file": "/mnt10/COUNTRY_CODES.payload.tsv",
+   "payload_sha256": "da3580791a8fbfcd8143bbffe279facea4b7e514f3208e7bfc0d9f1e782d6c97",
+   "payload_bytes": 183,
+   "payload_lines": 11
+  },
+  "ENTRY_TYPES": {
+   "source_table": "ENTRY_TYPES",
+   "source_object_id": "d0b882218e2d6d0d0a1b3edc92eca15dc24a25a41435bbb2c12a4f733af19ac2",
+   "target_schema": "cbdb",
+   "target_table": "cbdb__entry_u5f_types",
+   "columns": [
+    {
+     "ordinal": 0,
+     "source_column": "c_entry_type",
+     "target_column": "c_u5f_entry_u5f_type",
+     "pg_type": "text",
+     "nullable": false,
+     "column_identity": "6f4657cd9924d5fb5d5e5f36775902c7d3a0147c878bf1183b117dd6e5e3dec0"
+    },
+    {
+     "ordinal": 1,
+     "source_column": "c_entry_type_desc",
+     "target_column": "c_u5f_entry_u5f_type_u5f_desc",
+     "pg_type": "text",
+     "nullable": false,
+     "column_identity": "1ae074698d94f0c184653491efd25f3886042bbdab90ea6abcdd9bc0d0251b41"
+    },
+    {
+     "ordinal": 2,
+     "source_column": "c_entry_type_desc_chn",
+     "target_column": "c_u5f_entry_u5f_type_u5f_desc_u5f_chn",
+     "pg_type": "text",
+     "nullable": false,
+     "column_identity": "625d83d57fabcabbc4980cec90dc0f1fcbc0dd100eb87a7add28993e75f48bc8"
+    },
+    {
+     "ordinal": 3,
+     "source_column": "c_entry_type_parent_id",
+     "target_column": "c_u5f_entry_u5f_type_u5f_parent_u5f_id",
+     "pg_type": "text",
+     "nullable": true,
+     "column_identity": "b1eff9ce999d79abf808fbf879e656e2d8888e29709b6d3e5b2d9b31a8a38230"
+    },
+    {
+     "ordinal": 4,
+     "source_column": "c_entry_type_level",
+     "target_column": "c_u5f_entry_u5f_type_u5f_level",
+     "pg_type": "bigint",
+     "nullable": true,
+     "column_identity": "97fe5842e2e4c77772b502098c3b13b3c154667766ffcb051e083c81d07e4779"
+    },
+    {
+     "ordinal": 5,
+     "source_column": "c_entry_type_sortorder",
+     "target_column": "c_u5f_entry_u5f_type_u5f_sortorder",
+     "pg_type": "bigint",
+     "nullable": true,
+     "column_identity": "11b1089a1fe635d170687a50df680010779b3fe99260f27e46bd4a742608e0cb"
+    }
+   ],
+   "primary_key": {
+    "columns_in_order": [
+     "c_u5f_entry_u5f_type"
+    ]
+   },
+   "row_count": 29,
+   "null_counts": {
+    "c_u5f_entry_u5f_type": 0,
+    "c_u5f_entry_u5f_type_u5f_desc": 0,
+    "c_u5f_entry_u5f_type_u5f_desc_u5f_chn": 0,
+    "c_u5f_entry_u5f_type_u5f_parent_u5f_id": 0,
+    "c_u5f_entry_u5f_type_u5f_level": 1,
+    "c_u5f_entry_u5f_type_u5f_sortorder": 3
+   },
+   "source_canonical_sha256": "5f73008b57b6900ffaf31a52b75fc69b259acc399c1b0faccd82d3346febd884",
+   "payload_file": "/mnt10/ENTRY_TYPES.payload.tsv",
+   "payload_sha256": "d926b90aed137220fffc83ae4e750ee66816a278977cde93cdb82ff41a6ef01e",
+   "payload_bytes": 1104,
+   "payload_lines": 29
+  },
+  "INDEXYEAR_TYPE_CODES": {
+   "source_table": "INDEXYEAR_TYPE_CODES",
+   "source_object_id": "6dd1f9500359bd800bb64ff159be5d2d6574b2afc48fbcb3898d308ec7d4efe5",
+   "target_schema": "cbdb",
+   "target_table": "cbdb__indexyear_u5f_type_u5f_codes",
+   "columns": [
+    {
+     "ordinal": 0,
+     "source_column": "c_index_year_type_code",
+     "target_column": "c_u5f_index_u5f_year_u5f_type_u5f_code",
+     "pg_type": "text",
+     "nullable": false,
+     "column_identity": "0059bf54609ceec5e0b89a883341ec7deb4b0d7a6875307f370cb85242abb70b"
+    },
+    {
+     "ordinal": 1,
+     "source_column": "c_index_year_type_desc",
+     "target_column": "c_u5f_index_u5f_year_u5f_type_u5f_desc",
+     "pg_type": "text",
+     "nullable": false,
+     "column_identity": "b63cde17592893a82c1f8275d37d8989abfcb09e091ba41bebee6b875aedfc43"
+    },
+    {
+     "ordinal": 2,
+     "source_column": "c_index_year_type_hz",
+     "target_column": "c_u5f_index_u5f_year_u5f_type_u5f_hz",
+     "pg_type": "text",
+     "nullable": false,
+     "column_identity": "5f0cd12da002c3c724350cf385f03019bcf2a4ec53d41e83090c305db1a0ef3c"
+    },
+    {
+     "ordinal": 3,
+     "source_column": "c_notes",
+     "target_column": "c_u5f_notes",
+     "pg_type": "text",
+     "nullable": true,
+     "column_identity": "b1b63f244aed695893e68f6c5b35d1c62c1ac3e7e423b2cc40a48957ffd06896"
+    }
+   ],
+   "primary_key": {
+    "columns_in_order": [
+     "c_u5f_index_u5f_year_u5f_type_u5f_code"
+    ]
+   },
+   "row_count": 31,
+   "null_counts": {
+    "c_u5f_index_u5f_year_u5f_type_u5f_code": 0,
+    "c_u5f_index_u5f_year_u5f_type_u5f_desc": 0,
+    "c_u5f_index_u5f_year_u5f_type_u5f_hz": 0,
+    "c_u5f_notes": 2
+   },
+   "source_canonical_sha256": "4d16efe79d58c7c0f18717debf6ab61c73e9c6168c91dbef673a753bb8503932",
+   "payload_file": "/mnt10/INDEXYEAR_TYPE_CODES.payload.tsv",
+   "payload_sha256": "3aded33a388fb94d0a4903efdd19357e155ac3f4c8da5344ebdbea683d0a8bdc",
+   "payload_bytes": 3240,
+   "payload_lines": 31
+  },
+  "LITERARYGENRE_CODES": {
+   "source_table": "LITERARYGENRE_CODES",
+   "source_object_id": "ec4b13bec95588941bf655bd939790aca5076a7f80f8cb3fcf9d2a78b3dc1944",
+   "target_schema": "cbdb",
+   "target_table": "cbdb__literarygenre_u5f_codes",
+   "columns": [
+    {
+     "ordinal": 0,
+     "source_column": "c_lit_genre_code",
+     "target_column": "c_u5f_lit_u5f_genre_u5f_code",
+     "pg_type": "bigint",
+     "nullable": false,
+     "column_identity": "88c7656b3e29f19583cda0d40115f05199312c7c47b68d1eb4226f347723313e"
+    },
+    {
+     "ordinal": 1,
+     "source_column": "c_lit_genre_desc",
+     "target_column": "c_u5f_lit_u5f_genre_u5f_desc",
+     "pg_type": "text",
+     "nullable": false,
+     "column_identity": "db5bff2aca7226058371adc6c5ea682f566950489a7ca9763588d003e22b44aa"
+    },
+    {
+     "ordinal": 2,
+     "source_column": "c_lit_genre_desc_chn",
+     "target_column": "c_u5f_lit_u5f_genre_u5f_desc_u5f_chn",
+     "pg_type": "text",
+     "nullable": false,
+     "column_identity": "69e1f44649c7c9db5ea0c4da82c55cc8dbb30c4f22e3fcc911c49c98ef38f3ec"
+    },
+    {
+     "ordinal": 3,
+     "source_column": "c_sortorder",
+     "target_column": "c_u5f_sortorder",
+     "pg_type": "bigint",
+     "nullable": true,
+     "column_identity": "be4d2f3345c95268327a93a3478658da8c04283ba7b10654a000a3b88b3ab467"
+    }
+   ],
+   "primary_key": {
+    "columns_in_order": [
+     "c_u5f_lit_u5f_genre_u5f_code"
+    ]
+   },
+   "row_count": 12,
+   "null_counts": {
+    "c_u5f_lit_u5f_genre_u5f_code": 0,
+    "c_u5f_lit_u5f_genre_u5f_desc": 0,
+    "c_u5f_lit_u5f_genre_u5f_desc_u5f_chn": 0,
+    "c_u5f_sortorder": 0
+   },
+   "source_canonical_sha256": "0e8f45e94354f108ef185916ed41fd9c96c2e09d7d619200cc47ddec38baf869",
+   "payload_file": "/mnt10/LITERARYGENRE_CODES.payload.tsv",
+   "payload_sha256": "632ff3628007001c5076cf43ab88893f5da1e20b3129370a0ae2fe1f7a1886fa",
+   "payload_bytes": 295,
+   "payload_lines": 12
+  },
+  "STATUS_TYPES": {
+   "source_table": "STATUS_TYPES",
+   "source_object_id": "ee4f0144b3f7693974abb614e93ca3aca6027c2ee1e1999b1e30fc3b2ad1d54c",
+   "target_schema": "cbdb",
+   "target_table": "cbdb__status_u5f_types",
+   "columns": [
+    {
+     "ordinal": 0,
+     "source_column": "c_status_type_code",
+     "target_column": "c_u5f_status_u5f_type_u5f_code",
+     "pg_type": "text",
+     "nullable": false,
+     "column_identity": "f73e24899ebb05f5d6e756682bead8e10a829b82dd9831fe702f7c237f3dd85f"
+    },
+    {
+     "ordinal": 1,
+     "source_column": "c_status_type_desc",
+     "target_column": "c_u5f_status_u5f_type_u5f_desc",
+     "pg_type": "text",
+     "nullable": true,
+     "column_identity": "236b9c7588f013f005202341ceab9222c82ff07b3cd04ec476a8941f735c0cce"
+    },
+    {
+     "ordinal": 2,
+     "source_column": "c_status_type_chn",
+     "target_column": "c_u5f_status_u5f_type_u5f_chn",
+     "pg_type": "text",
+     "nullable": true,
+     "column_identity": "bab7329691a2dd35cad96855a570a0c64a6658b97eb41d2a23cb9d1a29c93916"
+    },
+    {
+     "ordinal": 3,
+     "source_column": "c_status_type_parent_code",
+     "target_column": "c_u5f_status_u5f_type_u5f_parent_u5f_code",
+     "pg_type": "text",
+     "nullable": true,
+     "column_identity": "6189cc33091568d9864dc78ffe1504b495ff18d86655de9667305108334921f5"
+    }
+   ],
+   "primary_key": {
+    "columns_in_order": [
+     "c_u5f_status_u5f_type_u5f_code"
+    ]
+   },
+   "row_count": 14,
+   "null_counts": {
+    "c_u5f_status_u5f_type_u5f_code": 0,
+    "c_u5f_status_u5f_type_u5f_desc": 0,
+    "c_u5f_status_u5f_type_u5f_chn": 0,
+    "c_u5f_status_u5f_type_u5f_parent_u5f_code": 13
+   },
+   "source_canonical_sha256": "22f21f37567d90aad7afebe58ab17e896eda1667321e29bbb5201e1b9937f1ce",
+   "payload_file": "/mnt10/STATUS_TYPES.payload.tsv",
+   "payload_sha256": "5ae698ac436032b02d4bd81a5fb6ff9066ba7ab9df3f28d47f938c7b77d77eaa",
+   "payload_bytes": 386,
+   "payload_lines": 14
+  },
+  "TEXT_ROLE_CODES": {
+   "source_table": "TEXT_ROLE_CODES",
+   "source_object_id": "81842a8665c4f159a950a1d784739bab96d64e8421c4f46657990ad436f60711",
+   "target_schema": "cbdb",
+   "target_table": "cbdb__text_u5f_role_u5f_codes",
+   "columns": [
+    {
+     "ordinal": 0,
+     "source_column": "c_role_id",
+     "target_column": "c_u5f_role_u5f_id",
+     "pg_type": "bigint",
+     "nullable": false,
+     "column_identity": "49b7478ec7f6b5a66c46d095fede2ebbd1caa58297b6b2ec16279fecc72f9da9"
+    },
+    {
+     "ordinal": 1,
+     "source_column": "c_role_desc",
+     "target_column": "c_u5f_role_u5f_desc",
+     "pg_type": "text",
+     "nullable": true,
+     "column_identity": "3c413e8012484f8b609a88b5fe87dc3b2a143d471bc085cc1f7835229e54b190"
+    },
+    {
+     "ordinal": 2,
+     "source_column": "c_role_desc_chn",
+     "target_column": "c_u5f_role_u5f_desc_u5f_chn",
+     "pg_type": "text",
+     "nullable": true,
+     "column_identity": "077ae9060aea7abe44e91aaea2bb9a7ce77cb049e3726523d921df06606d50c2"
+    }
+   ],
+   "primary_key": {
+    "columns_in_order": [
+     "c_u5f_role_u5f_id"
+    ]
+   },
+   "row_count": 12,
+   "null_counts": {
+    "c_u5f_role_u5f_id": 0,
+    "c_u5f_role_u5f_desc": 0,
+    "c_u5f_role_u5f_desc_u5f_chn": 0
+   },
+   "source_canonical_sha256": "62f423e1d6899ebd8283c2948f44f28b9b6c43d99c39ac2ff64cb7a27840317e",
+   "payload_file": "/mnt10/TEXT_ROLE_CODES.payload.tsv",
+   "payload_sha256": "4ad3bacb4214f9014572293c8d063769f21416e0c48811de0cf5823f90501685",
+   "payload_bytes": 291,
+   "payload_lines": 12
+  }
+ }
+}

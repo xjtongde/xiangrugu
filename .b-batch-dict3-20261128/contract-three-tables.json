@@ -1,0 +1,157 @@
+{
+ "version": 1,
+ "release_id": "2026-11-28-dict3",
+ "source_member": {
+  "rule_id": "m007906",
+  "relative_path": "harvard/cbdb/cbdb_20260919.sqlite3",
+  "sha256": "bde1bb8eece3820d9e236c1d6b0f07d847d339669d4a85d79cd7252d58d83400"
+ },
+ "mapping_contract_sha256": "297b7c766baa40cc660f262e1ac433973d5d8bdde8c28eb2aca90733bfaec7d9",
+ "digest_method": "sorted(encoded row frames); header_bytes + frames + trailer_bytes(count)",
+ "tables": {
+  "ASSUME_OFFICE_CODES": {
+   "source_table": "ASSUME_OFFICE_CODES",
+   "source_object_id": "da75a8365c766c7e80d99b6e868e5ba2ebef9dec112857ceb9d6fe89f01446a0",
+   "target_schema": "cbdb",
+   "target_table": "cbdb__assume_u5f_office_u5f_codes",
+   "columns": [
+    {
+     "ordinal": 0,
+     "source_column": "c_assume_office_code",
+     "target_column": "c_u5f_assume_u5f_office_u5f_code",
+     "pg_type": "bigint",
+     "nullable": false,
+     "column_identity": "af03799bde854464587ab11f42dc0e589add3c7a70be47365dd3ecb3f2220aaf"
+    },
+    {
+     "ordinal": 1,
+     "source_column": "c_assume_office_desc_chn",
+     "target_column": "c_u5f_assume_u5f_office_u5f_desc_u5f_chn",
+     "pg_type": "text",
+     "nullable": true,
+     "column_identity": "15dc79416b4757e3edc5e0ef8ed26b862a8057c445af5399751e050c470cc943"
+    },
+    {
+     "ordinal": 2,
+     "source_column": "c_assume_office_desc",
+     "target_column": "c_u5f_assume_u5f_office_u5f_desc",
+     "pg_type": "text",
+     "nullable": true,
+     "column_identity": "25ffc57ebd9152d37b8056be185955df94bf376984ef7fd8d99a69cb47c07ce7"
+    }
+   ],
+   "primary_key": {
+    "columns_in_order": [
+     "c_u5f_assume_u5f_office_u5f_code"
+    ]
+   },
+   "row_count": 6,
+   "null_counts": {
+    "c_u5f_assume_u5f_office_u5f_code": 0,
+    "c_u5f_assume_u5f_office_u5f_desc_u5f_chn": 0,
+    "c_u5f_assume_u5f_office_u5f_desc": 0
+   },
+   "source_canonical_sha256": "08d7e819d52a34082505cbac6ee98a0bdaf7e8fefed7a3d7fa76a1f874b23f95",
+   "payload_file": "/data-var-bb/dict3/ASSUME_OFFICE_CODES.payload.tsv",
+   "payload_sha256": "b9e490d409fcac80273e42ece76052b9cdf48638d88cd046f8bafedde167f84f",
+   "payload_bytes": 233,
+   "payload_lines": 6
+  },
+  "EXTANT_CODES": {
+   "source_table": "EXTANT_CODES",
+   "source_object_id": "ebce79fe8145e934d20293c6630b28fd70a80309e3ced5c6ffd27a272f82a2a8",
+   "target_schema": "cbdb",
+   "target_table": "cbdb__extant_u5f_codes",
+   "columns": [
+    {
+     "ordinal": 0,
+     "source_column": "c_extant_code",
+     "target_column": "c_u5f_extant_u5f_code",
+     "pg_type": "bigint",
+     "nullable": false,
+     "column_identity": "f566bec9bf38429108141ba661ad167d9de262c3854cfed476552dc409ba044e"
+    },
+    {
+     "ordinal": 1,
+     "source_column": "c_extant_desc",
+     "target_column": "c_u5f_extant_u5f_desc",
+     "pg_type": "text",
+     "nullable": true,
+     "column_identity": "d5285294c4340fee1658988f3bcfd49a311a00af4fa6a49a6b5a881be04c208f"
+    },
+    {
+     "ordinal": 2,
+     "source_column": "c_extant_desc_chn",
+     "target_column": "c_u5f_extant_u5f_desc_u5f_chn",
+     "pg_type": "text",
+     "nullable": true,
+     "column_identity": "8af4607b6ae89c439a249e2567930cbb6bb589547a0b10baf9ba1ba3d63ef148"
+    }
+   ],
+   "primary_key": {
+    "columns_in_order": [
+     "c_u5f_extant_u5f_code"
+    ]
+   },
+   "row_count": 4,
+   "null_counts": {
+    "c_u5f_extant_u5f_code": 0,
+    "c_u5f_extant_u5f_desc": 0,
+    "c_u5f_extant_u5f_desc_u5f_chn": 0
+   },
+   "source_canonical_sha256": "2e6c0057fde56ea147f05365c47157eb37d41869f375a19b75d06b3dc3c990c2",
+   "payload_file": "/data-var-bb/dict3/EXTANT_CODES.payload.tsv",
+   "payload_sha256": "132686c3cf0a67c5c80e776034fc73315bff991d3b5fcf49d3bba3059ef86b8e",
+   "payload_bytes": 89,
+   "payload_lines": 4
+  },
+  "POSSESSION_ACT_CODES": {
+   "source_table": "POSSESSION_ACT_CODES",
+   "source_object_id": "1f42c468762af250033a2abfe8fee9c76f7bfa0885d442e91bc0a52a3f4e46cb",
+   "target_schema": "cbdb",
+   "target_table": "cbdb__possession_u5f_act_u5f_codes",
+   "columns": [
+    {
+     "ordinal": 0,
+     "source_column": "c_possession_act_code",
+     "target_column": "c_u5f_possession_u5f_act_u5f_code",
+     "pg_type": "bigint",
+     "nullable": false,
+     "column_identity": "cb64cefd4b1dfb509f13594d95c0dbd4e0ac4f6d4a0721999039686a11c24027"
+    },
+    {
+     "ordinal": 1,
+     "source_column": "c_possession_act_desc",
+     "target_column": "c_u5f_possession_u5f_act_u5f_desc",
+     "pg_type": "text",
+     "nullable": true,
+     "column_identity": "f146ee041637fe3584b482b4843a9b0c2b18bd5a494cdf4fe423534a6e6ec287"
+    },
+    {
+     "ordinal": 2,
+     "source_column": "c_possession_act_desc_chn",
+     "target_column": "c_u5f_possession_u5f_act_u5f_desc_u5f_chn",
+     "pg_type": "text",
+     "nullable": true,
+     "column_identity": "321358f91a6472b3d2d1fb5609951e6b837d0c23d204698605bfc03fdb8938c6"
+    }
+   ],
+   "primary_key": {
+    "columns_in_order": [
+     "c_u5f_possession_u5f_act_u5f_code"
+    ]
+   },
+   "row_count": 4,
+   "null_counts": {
+    "c_u5f_possession_u5f_act_u5f_code": 0,
+    "c_u5f_possession_u5f_act_u5f_desc": 0,
+    "c_u5f_possession_u5f_act_u5f_desc_u5f_chn": 0
+   },
+   "source_canonical_sha256": "95df512964fa910a1ade063b966c64ad586c4778b6f410ad70358849040318d8",
+   "payload_file": "/data-var-bb/dict3/POSSESSION_ACT_CODES.payload.tsv",
+   "payload_sha256": "52d9b446a42042e805bca18685488bbf8072a19a288e29c05e27bf8abd480dd1",
+   "payload_bytes": 72,
+   "payload_lines": 4
+  }
+ }
+}

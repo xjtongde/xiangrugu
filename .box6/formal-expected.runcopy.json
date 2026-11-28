@@ -1,0 +1,50 @@
+{
+ "approval_table_sha256": "a718b0c297501642dd105eb3797f96dc1de2edf8eb521bed6609ff78de1fb4a0",
+ "approval_text_sha256": "ec0fa5cf029c37e1bdbb94102553d145bd4d901d74489ac7b98ecdb3d42d4f12",
+ "candidate_sha256": "56b0076d2e877be9fb34796e01b8ee2b37d5a817c8e80203fa21c95e4f3f8237",
+ "container_id": "3d93fc7741f66f1f01aa250b25c4959addfe4c84df22ecbd0d0f82c13920c1fc",
+ "contract_review_ref": "chaxiang-approval-social-institution-addr-bstep2-correction-20261126",
+ "contract_sha256": "56b0076d2e877be9fb34796e01b8ee2b37d5a817c8e80203fa21c95e4f3f8237",
+ "expected_source_member_sha256": "bde1bb8eece3820d9e236c1d6b0f07d847d339669d4a85d79cd7252d58d83400",
+ "expected_source_sha256": "2cb8c354b0e75e6ae230e3b00540146e823eaa8de8def2abce89ad6179a07579",
+ "forbidden": [
+  "pg32b",
+  "cbdb",
+  "cbdb_reh",
+  "xiangrugu"
+ ],
+ "image_id": "sha256:d562e43664f996da0e4208b375c00c111a543d996475188d852e9189b2a8cd05",
+ "instance_fingerprint": "3d93fc7741f66f1f01aa250b25c4959addfe4c84df22ecbd0d0f82c13920c1fc",
+ "instance_identity": {
+  "container_id": "3d93fc7741f66f1f01aa250b25c4959addfe4c84df22ecbd0d0f82c13920c1fc",
+  "databases": "postgres,template0,template1",
+  "image_id": "sha256:d562e43664f996da0e4208b375c00c111a543d996475188d852e9189b2a8cd05",
+  "inet_server_addr": "172.29.0.2/32",
+  "server_version": "18.6 (Debian 18.6-1.pgdg12+2)"
+ },
+ "inventory_sha256": "fb5e6b334b898d62dc0e5c77094fdb50e0946300e6e3009f447b2ecd1bc216db",
+ "null_counts": {
+  "c_u5f_inst_u5f_addr_u5f_begin_u5f_year": 3005,
+  "c_u5f_inst_u5f_addr_u5f_end_u5f_year": 3857,
+  "c_u5f_inst_u5f_addr_u5f_id": 0,
+  "c_u5f_inst_u5f_addr_u5f_type_u5f_code": 0,
+  "c_u5f_inst_u5f_code": 0,
+  "c_u5f_inst_u5f_name_u5f_code": 0,
+  "c_u5f_notes": 752,
+  "c_u5f_pages": 334,
+  "c_u5f_source": 219,
+  "inst_u5f_xcoord": 0,
+  "inst_u5f_ycoord": 0
+ },
+ "pk_columns": [
+  "c_u5f_inst_u5f_addr_u5f_id",
+  "c_u5f_inst_u5f_addr_u5f_type_u5f_code",
+  "c_u5f_inst_u5f_code",
+  "c_u5f_inst_u5f_name_u5f_code",
+  "inst_u5f_xcoord",
+  "inst_u5f_ycoord"
+ ],
+ "row_count": 3859,
+ "source_member_sha256": "bde1bb8eece3820d9e236c1d6b0f07d847d339669d4a85d79cd7252d58d83400",
+ "source_sha256": "2cb8c354b0e75e6ae230e3b00540146e823eaa8de8def2abce89ad6179a07579"
+}

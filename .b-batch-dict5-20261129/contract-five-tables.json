@@ -1,0 +1,280 @@
+{
+ "version": 1,
+ "release_id": "2026-11-29-dict5",
+ "source_member": {
+  "rule_id": "m007906",
+  "relative_path": "harvard/cbdb/cbdb_20260919.sqlite3",
+  "sha256": "bde1bb8eece3820d9e236c1d6b0f07d847d339669d4a85d79cd7252d58d83400"
+ },
+ "mapping_contract_sha256": "297b7c766baa40cc660f262e1ac433973d5d8bdde8c28eb2aca90733bfaec7d9",
+ "digest_method": "sorted(encoded row frames); header_bytes + frames + trailer_bytes(count)",
+ "tables": {
+  "MEASURE_CODES": {
+   "source_table": "MEASURE_CODES",
+   "source_object_id": "5e75780c8b40bc4e4d97335d98b4a1a30b8894ae0997a811153f7371f2341f6d",
+   "target_schema": "cbdb",
+   "target_table": "cbdb__measure_u5f_codes",
+   "columns": [
+    {
+     "ordinal": 0,
+     "source_column": "c_measure_code",
+     "target_column": "c_u5f_measure_u5f_code",
+     "pg_type": "bigint",
+     "nullable": false,
+     "column_identity": "1e2987720520a879276fd02215fb69bc8e15ffc081fef973a8ca1b7ca80916aa"
+    },
+    {
+     "ordinal": 1,
+     "source_column": "c_measure_desc",
+     "target_column": "c_u5f_measure_u5f_desc",
+     "pg_type": "text",
+     "nullable": true,
+     "column_identity": "148e3f355bd63205276aad8751873c5ec7348dae8233b8e8c9bd27230888a9ac"
+    },
+    {
+     "ordinal": 2,
+     "source_column": "c_measure_desc_chn",
+     "target_column": "c_u5f_measure_u5f_desc_u5f_chn",
+     "pg_type": "text",
+     "nullable": true,
+     "column_identity": "7a007874268c7f5e18a0d2d75ebbade790a1bd23fd48e26cd818a6203a9b4159"
+    }
+   ],
+   "primary_key": {
+    "columns_in_order": [
+     "c_u5f_measure_u5f_code"
+    ]
+   },
+   "row_count": 7,
+   "null_counts": {
+    "c_u5f_measure_u5f_code": 0,
+    "c_u5f_measure_u5f_desc": 0,
+    "c_u5f_measure_u5f_desc_u5f_chn": 0
+   },
+   "source_canonical_sha256": "a668a5276115b3004264142b9feea37968e698fdd8c90e101b7d40353a18a465",
+   "payload_file": "/data/var/b-batch/dict3/MEASURE_CODES.payload.tsv",
+   "payload_sha256": "adaa9778ee7935bee2b6cf38314edf58fe7d899f90df6a16ca08344f91abdeb8",
+   "payload_bytes": 161,
+   "payload_lines": 7
+  },
+  "OCCASION_CODES": {
+   "source_table": "OCCASION_CODES",
+   "source_object_id": "5116056028433dab739df26d91d1f327c2186409fb3f418ae5f32e0cbd4a6095",
+   "target_schema": "cbdb",
+   "target_table": "cbdb__occasion_u5f_codes",
+   "columns": [
+    {
+     "ordinal": 0,
+     "source_column": "c_occasion_code",
+     "target_column": "c_u5f_occasion_u5f_code",
+     "pg_type": "bigint",
+     "nullable": false,
+     "column_identity": "0ce81176cf03a315255cb6952b55bfd7950ab3023c860f56d4244144bfb98b88"
+    },
+    {
+     "ordinal": 1,
+     "source_column": "c_occasion_desc",
+     "target_column": "c_u5f_occasion_u5f_desc",
+     "pg_type": "text",
+     "nullable": true,
+     "column_identity": "8f4a8fb53e5ab54591559c8c858761aaa43cfffdc7042f4b009556bd85c7ca61"
+    },
+    {
+     "ordinal": 2,
+     "source_column": "c_occasion_desc_chn",
+     "target_column": "c_u5f_occasion_u5f_desc_u5f_chn",
+     "pg_type": "text",
+     "nullable": true,
+     "column_identity": "77b9a1ce76f0db6c6b10e31c1535ff6e98dbaad3073b167643218994f936e99b"
+    },
+    {
+     "ordinal": 3,
+     "source_column": "c_sortorder",
+     "target_column": "c_u5f_sortorder",
+     "pg_type": "bigint",
+     "nullable": true,
+     "column_identity": "1ca8c048937317f532bc99bd8e3d08aa0ab8e00a052d427ecbc25e8e0deea8ef"
+    }
+   ],
+   "primary_key": {
+    "columns_in_order": [
+     "c_u5f_occasion_u5f_code"
+    ]
+   },
+   "row_count": 10,
+   "null_counts": {
+    "c_u5f_occasion_u5f_code": 0,
+    "c_u5f_occasion_u5f_desc": 0,
+    "c_u5f_occasion_u5f_desc_u5f_chn": 0,
+    "c_u5f_sortorder": 0
+   },
+   "source_canonical_sha256": "b462003398227df634ffd7830458db499d7cd7aa9f7cc717d4789e309418b061",
+   "payload_file": "/data/var/b-batch/dict3/OCCASION_CODES.payload.tsv",
+   "payload_sha256": "842ad181fe94484ea8ff81bd128d28f9850d349c2e9e1298ce4a158b945620f9",
+   "payload_bytes": 270,
+   "payload_lines": 10
+  },
+  "PARENTAL_STATUS_CODES": {
+   "source_table": "PARENTAL_STATUS_CODES",
+   "source_object_id": "1793896ce9b84d74e986856108e04ca0afb0c185b310638972a864cbb3100a65",
+   "target_schema": "cbdb",
+   "target_table": "cbdb__parental_u5f_status_u5f_codes",
+   "columns": [
+    {
+     "ordinal": 0,
+     "source_column": "c_parental_status_code",
+     "target_column": "c_u5f_parental_u5f_status_u5f_code",
+     "pg_type": "bigint",
+     "nullable": false,
+     "column_identity": "bc04a946521f002feb4b12421334d57001544fcbf9251e49b4c1c627167230e3"
+    },
+    {
+     "ordinal": 1,
+     "source_column": "c_parental_status_desc",
+     "target_column": "c_u5f_parental_u5f_status_u5f_desc",
+     "pg_type": "text",
+     "nullable": true,
+     "column_identity": "86b87a6f91f173dfb52208cc28b904722c8b0fc22d979935c06b9e29fe1452fb"
+    },
+    {
+     "ordinal": 2,
+     "source_column": "c_parental_status_desc_chn",
+     "target_column": "c_u5f_parental_u5f_status_u5f_desc_u5f_chn",
+     "pg_type": "text",
+     "nullable": true,
+     "column_identity": "2d62fdfc4934dc3e6d636854722af3598b3ef2c0d47046db4d8011d190af4cb6"
+    }
+   ],
+   "primary_key": {
+    "columns_in_order": [
+     "c_u5f_parental_u5f_status_u5f_code"
+    ]
+   },
+   "row_count": 7,
+   "null_counts": {
+    "c_u5f_parental_u5f_status_u5f_code": 0,
+    "c_u5f_parental_u5f_status_u5f_desc": 0,
+    "c_u5f_parental_u5f_status_u5f_desc_u5f_chn": 0
+   },
+   "source_canonical_sha256": "f52bc9732df6f2565aea50dea4d64ee07ba3751a7be035736aaed292975a3220",
+   "payload_file": "/data/var/b-batch/dict3/PARENTAL_STATUS_CODES.payload.tsv",
+   "payload_sha256": "a1ef21b3b5dc401b6feab9b7e284ac3f85b300c8fca25b91fea483d4be7deff8",
+   "payload_bytes": 224,
+   "payload_lines": 7
+  },
+  "SOCIAL_INSTITUTION_TYPES": {
+   "source_table": "SOCIAL_INSTITUTION_TYPES",
+   "source_object_id": "838cf3c56fca22fea680630937ada8a2f6b797a446f479cc9ae8949ee2e3016d",
+   "target_schema": "cbdb",
+   "target_table": "cbdb__social_u5f_institution_u5f_types",
+   "columns": [
+    {
+     "ordinal": 0,
+     "source_column": "c_inst_type_code",
+     "target_column": "c_u5f_inst_u5f_type_u5f_code",
+     "pg_type": "bigint",
+     "nullable": false,
+     "column_identity": "bff096eb80bc28ce52906b98e1fa5af799c5ae123c85490d948093ff06d4f29b"
+    },
+    {
+     "ordinal": 1,
+     "source_column": "c_inst_type_py",
+     "target_column": "c_u5f_inst_u5f_type_u5f_py",
+     "pg_type": "text",
+     "nullable": true,
+     "column_identity": "0f6a2e13eaab919e81c8abd93f1ec8894d4a0a9c0771f4f09b7e55d15e4b3547"
+    },
+    {
+     "ordinal": 2,
+     "source_column": "c_inst_type_hz",
+     "target_column": "c_u5f_inst_u5f_type_u5f_hz",
+     "pg_type": "text",
+     "nullable": true,
+     "column_identity": "d6df31991b000940d7552a7efd2f2b25d2b6a755f414e2bab5c4ad342284b508"
+    }
+   ],
+   "primary_key": {
+    "columns_in_order": [
+     "c_u5f_inst_u5f_type_u5f_code"
+    ]
+   },
+   "row_count": 7,
+   "null_counts": {
+    "c_u5f_inst_u5f_type_u5f_code": 0,
+    "c_u5f_inst_u5f_type_u5f_py": 0,
+    "c_u5f_inst_u5f_type_u5f_hz": 0
+   },
+   "source_canonical_sha256": "0231c049c73e07be57b0084758b759b8b1637ccf3dfc8755865c6f13cfe9fdbc",
+   "payload_file": "/data/var/b-batch/dict3/SOCIAL_INSTITUTION_TYPES.payload.tsv",
+   "payload_sha256": "8806bce6f043ca96fe6e0d6eb187cf8933467a3a77e2deb72a3f31ad05df8982",
+   "payload_bytes": 238,
+   "payload_lines": 7
+  },
+  "YEAR_RANGE_CODES": {
+   "source_table": "YEAR_RANGE_CODES",
+   "source_object_id": "645c4df5a7e49279fb44102e66db29ddc8bff26df235c27cb3a023838508f2e5",
+   "target_schema": "cbdb",
+   "target_table": "cbdb__year_u5f_range_u5f_codes",
+   "columns": [
+    {
+     "ordinal": 0,
+     "source_column": "c_range_code",
+     "target_column": "c_u5f_range_u5f_code",
+     "pg_type": "bigint",
+     "nullable": false,
+     "column_identity": "7ccd4aa6b94adda8db11964eb919c7b3f2e0f61984c4f0009bf16d484c66f2e7"
+    },
+    {
+     "ordinal": 1,
+     "source_column": "c_range",
+     "target_column": "c_u5f_range",
+     "pg_type": "text",
+     "nullable": true,
+     "column_identity": "a35bd233529101509a6eb0630e601330f784078427a51564eb1fb5a99e606026"
+    },
+    {
+     "ordinal": 2,
+     "source_column": "c_range_chn",
+     "target_column": "c_u5f_range_u5f_chn",
+     "pg_type": "text",
+     "nullable": true,
+     "column_identity": "36abf267fd93599bc995ea2b0a552cc1fe6ac84a3c6d1ae77a4f86e6837d87ba"
+    },
+    {
+     "ordinal": 3,
+     "source_column": "c_approx",
+     "target_column": "c_u5f_approx",
+     "pg_type": "text",
+     "nullable": true,
+     "column_identity": "896d6ced0993b2179132b3d68de5e5d7195ddc0e2bf05cedd6f38d3c94f0b317"
+    },
+    {
+     "ordinal": 4,
+     "source_column": "c_approx_chn",
+     "target_column": "c_u5f_approx_u5f_chn",
+     "pg_type": "text",
+     "nullable": true,
+     "column_identity": "60b7439c451a78bd950b0d9f82e283316494ffce9a951fde4354f2bcbbe77eac"
+    }
+   ],
+   "primary_key": {
+    "columns_in_order": [
+     "c_u5f_range_u5f_code"
+    ]
+   },
+   "row_count": 6,
+   "null_counts": {
+    "c_u5f_range_u5f_code": 0,
+    "c_u5f_range": 0,
+    "c_u5f_range_u5f_chn": 0,
+    "c_u5f_approx": 2,
+    "c_u5f_approx_u5f_chn": 2
+   },
+   "source_canonical_sha256": "50e611e9fac0fa4ac915c10e45c45cbcd0b62d7953ee6dd05035121640fc160f",
+   "payload_file": "/data/var/b-batch/dict3/YEAR_RANGE_CODES.payload.tsv",
+   "payload_sha256": "883ca705825514b202627d5360a9f7bc35776a26c7774f085f8d6b08a663bb82",
+   "payload_bytes": 170,
+   "payload_lines": 6
+  }
+ }
+}

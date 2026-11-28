@@ -271,6 +271,15 @@ def run_single_table(session, scope, contract, target, data, instance_observed, 
 def _load_and_verify(session, contract, target, data, expected, corrupt=None,
                      *, create_schema=True, mode=None):
     cols = target_column_names(target)
+    # D3 fix: build the DDL ONCE and let the evidence field and the executed statement share
+    # that same value. Previously ``evidence["ddl"]`` honoured ``create_schema`` while
+    # ``session.execute(ddl_for(target))`` re-derived it with the default
+    # ``create_schema=True``, so a formal run actually SENT
+    # `CREATE SCHEMA IF NOT EXISTS cbdb; ...` even though its own evidence claimed otherwise --
+    # and on production (xrg_loader has no database-level CREATE) that aborted the session
+    # under ON_ERROR_STOP=1, surfacing only as `session_eof`. One shared variable removes the
+    # possibility of the two ever disagreeing again.
+    ddl = ddl_for(target, create_schema=create_schema)
     evidence = {
         "gates": ["scope_approval", "digest_bindings", "review_traceability",
                   "instance_identity", "target_absent"],
@@ -279,14 +288,14 @@ def _load_and_verify(session, contract, target, data, expected, corrupt=None,
         "mode": mode,
         "execution_branch": "real" if mode == "production-write" else "test",
         "transaction": "single",
-        "ddl": ddl_for(target, create_schema=create_schema),
+        "ddl": ddl,
         "columns": cols,
         "constraints_created": ["primary_key", "not_null"],
         "constraints_not_created": ["unique", "index", "foreign_key", "default"],
     }
     session.begin()
     try:
-        session.execute(ddl_for(target))
+        session.execute(ddl)
         session.copy_from(qtable(), data)
         rows = session.query_rows(
             "SELECT " + ", ".join(f'"{c}"' for c in cols) + f" FROM {qtable()}")
